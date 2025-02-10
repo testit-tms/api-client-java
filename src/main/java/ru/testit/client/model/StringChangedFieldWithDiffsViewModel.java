@@ -49,27 +49,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * StringChangedFieldWithDiffsViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StringChangedFieldWithDiffsViewModel {
   public static final String SERIALIZED_NAME_DIFF_VALUE = "diffValue";
   @SerializedName(SERIALIZED_NAME_DIFF_VALUE)
-  @javax.annotation.Nullable
   private String diffValue;
 
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private String oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private String newValue;
 
   public StringChangedFieldWithDiffsViewModel() {
   }
 
-  public StringChangedFieldWithDiffsViewModel diffValue(@javax.annotation.Nullable String diffValue) {
+  public StringChangedFieldWithDiffsViewModel diffValue(String diffValue) {
     this.diffValue = diffValue;
     return this;
   }
@@ -83,12 +80,12 @@ public class StringChangedFieldWithDiffsViewModel {
     return diffValue;
   }
 
-  public void setDiffValue(@javax.annotation.Nullable String diffValue) {
+  public void setDiffValue(String diffValue) {
     this.diffValue = diffValue;
   }
 
 
-  public StringChangedFieldWithDiffsViewModel oldValue(@javax.annotation.Nullable String oldValue) {
+  public StringChangedFieldWithDiffsViewModel oldValue(String oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -102,12 +99,12 @@ public class StringChangedFieldWithDiffsViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable String oldValue) {
+  public void setOldValue(String oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public StringChangedFieldWithDiffsViewModel newValue(@javax.annotation.Nullable String newValue) {
+  public StringChangedFieldWithDiffsViewModel newValue(String newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -121,7 +118,7 @@ public class StringChangedFieldWithDiffsViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable String newValue) {
+  public void setNewValue(String newValue) {
     this.newValue = newValue;
   }
 

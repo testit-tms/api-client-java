@@ -52,27 +52,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestNamespaceCountApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestNamespaceCountApiModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
-  @javax.annotation.Nonnull
   private Long count;
 
   public static final String SERIALIZED_NAME_CLASSES = "classes";
   @SerializedName(SERIALIZED_NAME_CLASSES)
-  @javax.annotation.Nonnull
   private List<AutoTestClassCountApiModel> classes = new ArrayList<>();
 
   public AutoTestNamespaceCountApiModel() {
   }
 
-  public AutoTestNamespaceCountApiModel name(@javax.annotation.Nullable String name) {
+  public AutoTestNamespaceCountApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -86,12 +83,12 @@ public class AutoTestNamespaceCountApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AutoTestNamespaceCountApiModel count(@javax.annotation.Nonnull Long count) {
+  public AutoTestNamespaceCountApiModel count(Long count) {
     this.count = count;
     return this;
   }
@@ -105,12 +102,12 @@ public class AutoTestNamespaceCountApiModel {
     return count;
   }
 
-  public void setCount(@javax.annotation.Nonnull Long count) {
+  public void setCount(Long count) {
     this.count = count;
   }
 
 
-  public AutoTestNamespaceCountApiModel classes(@javax.annotation.Nonnull List<AutoTestClassCountApiModel> classes) {
+  public AutoTestNamespaceCountApiModel classes(List<AutoTestClassCountApiModel> classes) {
     this.classes = classes;
     return this;
   }
@@ -132,7 +129,7 @@ public class AutoTestNamespaceCountApiModel {
     return classes;
   }
 
-  public void setClasses(@javax.annotation.Nonnull List<AutoTestClassCountApiModel> classes) {
+  public void setClasses(List<AutoTestClassCountApiModel> classes) {
     this.classes = classes;
   }
 

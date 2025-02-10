@@ -52,37 +52,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectAttributesFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectAttributesFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  @javax.annotation.Nullable
   private Boolean isRequired;
 
   public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
   @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
-  @javax.annotation.Nullable
   private Boolean isGlobal;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  @javax.annotation.Nonnull
   private Set<CustomAttributeTypesEnum> types = new LinkedHashSet<>();
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nullable
   private Boolean isEnabled;
 
   public ProjectAttributesFilterModel() {
   }
 
-  public ProjectAttributesFilterModel name(@javax.annotation.Nonnull String name) {
+  public ProjectAttributesFilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -96,12 +91,12 @@ public class ProjectAttributesFilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectAttributesFilterModel isRequired(@javax.annotation.Nullable Boolean isRequired) {
+  public ProjectAttributesFilterModel isRequired(Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -115,12 +110,12 @@ public class ProjectAttributesFilterModel {
     return isRequired;
   }
 
-  public void setIsRequired(@javax.annotation.Nullable Boolean isRequired) {
+  public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public ProjectAttributesFilterModel isGlobal(@javax.annotation.Nullable Boolean isGlobal) {
+  public ProjectAttributesFilterModel isGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
     return this;
   }
@@ -134,12 +129,12 @@ public class ProjectAttributesFilterModel {
     return isGlobal;
   }
 
-  public void setIsGlobal(@javax.annotation.Nullable Boolean isGlobal) {
+  public void setIsGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 
 
-  public ProjectAttributesFilterModel types(@javax.annotation.Nonnull Set<CustomAttributeTypesEnum> types) {
+  public ProjectAttributesFilterModel types(Set<CustomAttributeTypesEnum> types) {
     this.types = types;
     return this;
   }
@@ -161,12 +156,12 @@ public class ProjectAttributesFilterModel {
     return types;
   }
 
-  public void setTypes(@javax.annotation.Nonnull Set<CustomAttributeTypesEnum> types) {
+  public void setTypes(Set<CustomAttributeTypesEnum> types) {
     this.types = types;
   }
 
 
-  public ProjectAttributesFilterModel isEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public ProjectAttributesFilterModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -180,7 +175,7 @@ public class ProjectAttributesFilterModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 

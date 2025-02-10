@@ -48,17 +48,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemIdModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemIdModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private String id;
 
   public WorkItemIdModel() {
   }
 
-  public WorkItemIdModel id(@javax.annotation.Nonnull String id) {
+  public WorkItemIdModel id(String id) {
     this.id = id;
     return this;
   }
@@ -72,7 +71,7 @@ public class WorkItemIdModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull String id) {
+  public void setId(String id) {
     this.id = id;
   }
 

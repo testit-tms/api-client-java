@@ -49,37 +49,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProblemDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProblemDetails {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
   private String type;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private Integer status;
 
   public static final String SERIALIZED_NAME_DETAIL = "detail";
   @SerializedName(SERIALIZED_NAME_DETAIL)
-  @javax.annotation.Nullable
   private String detail;
 
   public static final String SERIALIZED_NAME_INSTANCE = "instance";
   @SerializedName(SERIALIZED_NAME_INSTANCE)
-  @javax.annotation.Nullable
   private String instance;
 
   public ProblemDetails() {
   }
 
-  public ProblemDetails type(@javax.annotation.Nullable String type) {
+  public ProblemDetails type(String type) {
     this.type = type;
     return this;
   }
@@ -93,12 +88,12 @@ public class ProblemDetails {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable String type) {
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public ProblemDetails title(@javax.annotation.Nullable String title) {
+  public ProblemDetails title(String title) {
     this.title = title;
     return this;
   }
@@ -112,12 +107,12 @@ public class ProblemDetails {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public ProblemDetails status(@javax.annotation.Nullable Integer status) {
+  public ProblemDetails status(Integer status) {
     this.status = status;
     return this;
   }
@@ -131,12 +126,12 @@ public class ProblemDetails {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nullable Integer status) {
+  public void setStatus(Integer status) {
     this.status = status;
   }
 
 
-  public ProblemDetails detail(@javax.annotation.Nullable String detail) {
+  public ProblemDetails detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -150,12 +145,12 @@ public class ProblemDetails {
     return detail;
   }
 
-  public void setDetail(@javax.annotation.Nullable String detail) {
+  public void setDetail(String detail) {
     this.detail = detail;
   }
 
 
-  public ProblemDetails instance(@javax.annotation.Nullable String instance) {
+  public ProblemDetails instance(String instance) {
     this.instance = instance;
     return this;
   }
@@ -169,7 +164,7 @@ public class ProblemDetails {
     return instance;
   }
 
-  public void setInstance(@javax.annotation.Nullable String instance) {
+  public void setInstance(String instance) {
     this.instance = instance;
   }
 

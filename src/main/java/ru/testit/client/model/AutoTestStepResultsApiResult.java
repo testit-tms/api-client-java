@@ -56,62 +56,52 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestStepResultsApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestStepResultsApiResult {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_INFO = "info";
   @SerializedName(SERIALIZED_NAME_INFO)
-  @javax.annotation.Nullable
   private String info;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nullable
   private AutoTestOutcome outcome;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  @javax.annotation.Nullable
   private List<AutoTestStepResultsApiResult> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentApiResult> attachments;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nullable
   private Map<String, String> parameters;
 
   public AutoTestStepResultsApiResult() {
   }
 
-  public AutoTestStepResultsApiResult title(@javax.annotation.Nullable String title) {
+  public AutoTestStepResultsApiResult title(String title) {
     this.title = title;
     return this;
   }
@@ -125,12 +115,12 @@ public class AutoTestStepResultsApiResult {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public AutoTestStepResultsApiResult description(@javax.annotation.Nullable String description) {
+  public AutoTestStepResultsApiResult description(String description) {
     this.description = description;
     return this;
   }
@@ -144,12 +134,12 @@ public class AutoTestStepResultsApiResult {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public AutoTestStepResultsApiResult info(@javax.annotation.Nullable String info) {
+  public AutoTestStepResultsApiResult info(String info) {
     this.info = info;
     return this;
   }
@@ -163,12 +153,12 @@ public class AutoTestStepResultsApiResult {
     return info;
   }
 
-  public void setInfo(@javax.annotation.Nullable String info) {
+  public void setInfo(String info) {
     this.info = info;
   }
 
 
-  public AutoTestStepResultsApiResult startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public AutoTestStepResultsApiResult startedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
@@ -182,12 +172,12 @@ public class AutoTestStepResultsApiResult {
     return startedOn;
   }
 
-  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public AutoTestStepResultsApiResult completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public AutoTestStepResultsApiResult completedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
@@ -201,12 +191,12 @@ public class AutoTestStepResultsApiResult {
     return completedOn;
   }
 
-  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public AutoTestStepResultsApiResult duration(@javax.annotation.Nullable Long duration) {
+  public AutoTestStepResultsApiResult duration(Long duration) {
     this.duration = duration;
     return this;
   }
@@ -220,12 +210,12 @@ public class AutoTestStepResultsApiResult {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nullable Long duration) {
+  public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
-  public AutoTestStepResultsApiResult outcome(@javax.annotation.Nullable AutoTestOutcome outcome) {
+  public AutoTestStepResultsApiResult outcome(AutoTestOutcome outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -239,12 +229,12 @@ public class AutoTestStepResultsApiResult {
     return outcome;
   }
 
-  public void setOutcome(@javax.annotation.Nullable AutoTestOutcome outcome) {
+  public void setOutcome(AutoTestOutcome outcome) {
     this.outcome = outcome;
   }
 
 
-  public AutoTestStepResultsApiResult stepResults(@javax.annotation.Nullable List<AutoTestStepResultsApiResult> stepResults) {
+  public AutoTestStepResultsApiResult stepResults(List<AutoTestStepResultsApiResult> stepResults) {
     this.stepResults = stepResults;
     return this;
   }
@@ -266,12 +256,12 @@ public class AutoTestStepResultsApiResult {
     return stepResults;
   }
 
-  public void setStepResults(@javax.annotation.Nullable List<AutoTestStepResultsApiResult> stepResults) {
+  public void setStepResults(List<AutoTestStepResultsApiResult> stepResults) {
     this.stepResults = stepResults;
   }
 
 
-  public AutoTestStepResultsApiResult attachments(@javax.annotation.Nullable List<AttachmentApiResult> attachments) {
+  public AutoTestStepResultsApiResult attachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -293,12 +283,12 @@ public class AutoTestStepResultsApiResult {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentApiResult> attachments) {
+  public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
 
-  public AutoTestStepResultsApiResult parameters(@javax.annotation.Nullable Map<String, String> parameters) {
+  public AutoTestStepResultsApiResult parameters(Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -320,7 +310,7 @@ public class AutoTestStepResultsApiResult {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nullable Map<String, String> parameters) {
+  public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 

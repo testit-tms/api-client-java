@@ -53,22 +53,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * UpdateMultipleLinksApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateMultipleLinksApiModel {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  @javax.annotation.Nonnull
   private ActionUpdate action;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<CreateLinkApiModel> links;
 
   public UpdateMultipleLinksApiModel() {
   }
 
-  public UpdateMultipleLinksApiModel action(@javax.annotation.Nonnull ActionUpdate action) {
+  public UpdateMultipleLinksApiModel action(ActionUpdate action) {
     this.action = action;
     return this;
   }
@@ -82,12 +80,12 @@ public class UpdateMultipleLinksApiModel {
     return action;
   }
 
-  public void setAction(@javax.annotation.Nonnull ActionUpdate action) {
+  public void setAction(ActionUpdate action) {
     this.action = action;
   }
 
 
-  public UpdateMultipleLinksApiModel links(@javax.annotation.Nullable List<CreateLinkApiModel> links) {
+  public UpdateMultipleLinksApiModel links(List<CreateLinkApiModel> links) {
     this.links = links;
     return this;
   }
@@ -109,7 +107,7 @@ public class UpdateMultipleLinksApiModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<CreateLinkApiModel> links) {
+  public void setLinks(List<CreateLinkApiModel> links) {
     this.links = links;
   }
 

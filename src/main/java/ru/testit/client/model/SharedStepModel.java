@@ -52,38 +52,33 @@ import ru.testit.client.invoker.JSON;
 /**
  * SharedStepModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SharedStepModel {
   public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
   @SerializedName(SERIALIZED_NAME_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID versionId;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nonnull
   private List<StepModel> steps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public SharedStepModel() {
   }
 
-  public SharedStepModel versionId(@javax.annotation.Nonnull UUID versionId) {
+  public SharedStepModel versionId(UUID versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -97,12 +92,12 @@ public class SharedStepModel {
     return versionId;
   }
 
-  public void setVersionId(@javax.annotation.Nonnull UUID versionId) {
+  public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public SharedStepModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public SharedStepModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -116,12 +111,12 @@ public class SharedStepModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public SharedStepModel name(@javax.annotation.Nonnull String name) {
+  public SharedStepModel name(String name) {
     this.name = name;
     return this;
   }
@@ -135,13 +130,13 @@ public class SharedStepModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
   @Deprecated
-  public SharedStepModel steps(@javax.annotation.Nonnull List<StepModel> steps) {
+  public SharedStepModel steps(List<StepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -166,12 +161,12 @@ public class SharedStepModel {
   }
 
   @Deprecated
-  public void setSteps(@javax.annotation.Nonnull List<StepModel> steps) {
+  public void setSteps(List<StepModel> steps) {
     this.steps = steps;
   }
 
 
-  public SharedStepModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public SharedStepModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -185,7 +180,7 @@ public class SharedStepModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

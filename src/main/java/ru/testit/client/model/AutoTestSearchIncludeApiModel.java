@@ -49,27 +49,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestSearchIncludeApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestSearchIncludeApiModel {
   public static final String SERIALIZED_NAME_INCLUDE_STEPS = "includeSteps";
   @SerializedName(SERIALIZED_NAME_INCLUDE_STEPS)
-  @javax.annotation.Nullable
   private Boolean includeSteps;
 
   public static final String SERIALIZED_NAME_INCLUDE_LINKS = "includeLinks";
   @SerializedName(SERIALIZED_NAME_INCLUDE_LINKS)
-  @javax.annotation.Nullable
   private Boolean includeLinks;
 
   public static final String SERIALIZED_NAME_INCLUDE_LABELS = "includeLabels";
   @SerializedName(SERIALIZED_NAME_INCLUDE_LABELS)
-  @javax.annotation.Nullable
   private Boolean includeLabels;
 
   public AutoTestSearchIncludeApiModel() {
   }
 
-  public AutoTestSearchIncludeApiModel includeSteps(@javax.annotation.Nullable Boolean includeSteps) {
+  public AutoTestSearchIncludeApiModel includeSteps(Boolean includeSteps) {
     this.includeSteps = includeSteps;
     return this;
   }
@@ -83,12 +80,12 @@ public class AutoTestSearchIncludeApiModel {
     return includeSteps;
   }
 
-  public void setIncludeSteps(@javax.annotation.Nullable Boolean includeSteps) {
+  public void setIncludeSteps(Boolean includeSteps) {
     this.includeSteps = includeSteps;
   }
 
 
-  public AutoTestSearchIncludeApiModel includeLinks(@javax.annotation.Nullable Boolean includeLinks) {
+  public AutoTestSearchIncludeApiModel includeLinks(Boolean includeLinks) {
     this.includeLinks = includeLinks;
     return this;
   }
@@ -102,12 +99,12 @@ public class AutoTestSearchIncludeApiModel {
     return includeLinks;
   }
 
-  public void setIncludeLinks(@javax.annotation.Nullable Boolean includeLinks) {
+  public void setIncludeLinks(Boolean includeLinks) {
     this.includeLinks = includeLinks;
   }
 
 
-  public AutoTestSearchIncludeApiModel includeLabels(@javax.annotation.Nullable Boolean includeLabels) {
+  public AutoTestSearchIncludeApiModel includeLabels(Boolean includeLabels) {
     this.includeLabels = includeLabels;
     return this;
   }
@@ -121,7 +118,7 @@ public class AutoTestSearchIncludeApiModel {
     return includeLabels;
   }
 
-  public void setIncludeLabels(@javax.annotation.Nullable Boolean includeLabels) {
+  public void setIncludeLabels(Boolean includeLabels) {
     this.includeLabels = includeLabels;
   }
 

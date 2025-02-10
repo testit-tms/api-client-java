@@ -54,47 +54,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * SectionPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SectionPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nullable
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  @javax.annotation.Nullable
   private List<StepPutModel> preconditionSteps;
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  @javax.annotation.Nullable
   private List<StepPutModel> postconditionSteps;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nonnull
   private List<AttachmentPutModel> attachments = new ArrayList<>();
 
   public SectionPutModel() {
   }
 
-  public SectionPutModel id(@javax.annotation.Nonnull UUID id) {
+  public SectionPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -108,12 +101,12 @@ public class SectionPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SectionPutModel name(@javax.annotation.Nonnull String name) {
+  public SectionPutModel name(String name) {
     this.name = name;
     return this;
   }
@@ -127,12 +120,12 @@ public class SectionPutModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public SectionPutModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public SectionPutModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -146,12 +139,12 @@ public class SectionPutModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public SectionPutModel parentId(@javax.annotation.Nullable UUID parentId) {
+  public SectionPutModel parentId(UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -165,12 +158,12 @@ public class SectionPutModel {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nullable UUID parentId) {
+  public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public SectionPutModel preconditionSteps(@javax.annotation.Nullable List<StepPutModel> preconditionSteps) {
+  public SectionPutModel preconditionSteps(List<StepPutModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -192,12 +185,12 @@ public class SectionPutModel {
     return preconditionSteps;
   }
 
-  public void setPreconditionSteps(@javax.annotation.Nullable List<StepPutModel> preconditionSteps) {
+  public void setPreconditionSteps(List<StepPutModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public SectionPutModel postconditionSteps(@javax.annotation.Nullable List<StepPutModel> postconditionSteps) {
+  public SectionPutModel postconditionSteps(List<StepPutModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -219,12 +212,12 @@ public class SectionPutModel {
     return postconditionSteps;
   }
 
-  public void setPostconditionSteps(@javax.annotation.Nullable List<StepPutModel> postconditionSteps) {
+  public void setPostconditionSteps(List<StepPutModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public SectionPutModel attachments(@javax.annotation.Nonnull List<AttachmentPutModel> attachments) {
+  public SectionPutModel attachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -246,7 +239,7 @@ public class SectionPutModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nonnull List<AttachmentPutModel> attachments) {
+  public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 

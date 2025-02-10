@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * BooleanChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BooleanChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nonnull
   private Boolean oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nonnull
   private Boolean newValue;
 
   public BooleanChangedFieldViewModel() {
   }
 
-  public BooleanChangedFieldViewModel oldValue(@javax.annotation.Nonnull Boolean oldValue) {
+  public BooleanChangedFieldViewModel oldValue(Boolean oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -77,12 +75,12 @@ public class BooleanChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nonnull Boolean oldValue) {
+  public void setOldValue(Boolean oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public BooleanChangedFieldViewModel newValue(@javax.annotation.Nonnull Boolean newValue) {
+  public BooleanChangedFieldViewModel newValue(Boolean newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -96,7 +94,7 @@ public class BooleanChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nonnull Boolean newValue) {
+  public void setNewValue(Boolean newValue) {
     this.newValue = newValue;
   }
 

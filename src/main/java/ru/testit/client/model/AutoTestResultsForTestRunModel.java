@@ -60,92 +60,76 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestResultsForTestRunModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestResultsForTestRunModel {
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<LinkPostModel> links;
 
   public static final String SERIALIZED_NAME_FAILURE_REASON_NAMES = "failureReasonNames";
   @SerializedName(SERIALIZED_NAME_FAILURE_REASON_NAMES)
-  @javax.annotation.Nullable
   private List<FailureCategoryModel> failureReasonNames;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_EXTERNAL_ID = "autoTestExternalId";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_EXTERNAL_ID)
-  @javax.annotation.Nonnull
   private String autoTestExternalId;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nonnull
   private AvailableTestResultOutcome outcome;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_TRACES = "traces";
   @SerializedName(SERIALIZED_NAME_TRACES)
-  @javax.annotation.Nullable
   private String traces;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentPutModel> attachments;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nullable
   private Map<String, String> parameters;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  @javax.annotation.Nullable
   private Map<String, String> properties;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  @javax.annotation.Nullable
   private List<AttachmentPutModelAutoTestStepResultsModel> stepResults;
 
   public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
   @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
-  @javax.annotation.Nullable
   private List<AttachmentPutModelAutoTestStepResultsModel> setupResults;
 
   public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
   @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
-  @javax.annotation.Nullable
   private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults;
 
   public AutoTestResultsForTestRunModel() {
   }
 
-  public AutoTestResultsForTestRunModel configurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public AutoTestResultsForTestRunModel configurationId(UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -159,12 +143,12 @@ public class AutoTestResultsForTestRunModel {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public AutoTestResultsForTestRunModel links(@javax.annotation.Nullable List<LinkPostModel> links) {
+  public AutoTestResultsForTestRunModel links(List<LinkPostModel> links) {
     this.links = links;
     return this;
   }
@@ -186,12 +170,12 @@ public class AutoTestResultsForTestRunModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<LinkPostModel> links) {
+  public void setLinks(List<LinkPostModel> links) {
     this.links = links;
   }
 
 
-  public AutoTestResultsForTestRunModel failureReasonNames(@javax.annotation.Nullable List<FailureCategoryModel> failureReasonNames) {
+  public AutoTestResultsForTestRunModel failureReasonNames(List<FailureCategoryModel> failureReasonNames) {
     this.failureReasonNames = failureReasonNames;
     return this;
   }
@@ -213,12 +197,12 @@ public class AutoTestResultsForTestRunModel {
     return failureReasonNames;
   }
 
-  public void setFailureReasonNames(@javax.annotation.Nullable List<FailureCategoryModel> failureReasonNames) {
+  public void setFailureReasonNames(List<FailureCategoryModel> failureReasonNames) {
     this.failureReasonNames = failureReasonNames;
   }
 
 
-  public AutoTestResultsForTestRunModel autoTestExternalId(@javax.annotation.Nonnull String autoTestExternalId) {
+  public AutoTestResultsForTestRunModel autoTestExternalId(String autoTestExternalId) {
     this.autoTestExternalId = autoTestExternalId;
     return this;
   }
@@ -232,12 +216,12 @@ public class AutoTestResultsForTestRunModel {
     return autoTestExternalId;
   }
 
-  public void setAutoTestExternalId(@javax.annotation.Nonnull String autoTestExternalId) {
+  public void setAutoTestExternalId(String autoTestExternalId) {
     this.autoTestExternalId = autoTestExternalId;
   }
 
 
-  public AutoTestResultsForTestRunModel outcome(@javax.annotation.Nonnull AvailableTestResultOutcome outcome) {
+  public AutoTestResultsForTestRunModel outcome(AvailableTestResultOutcome outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -251,12 +235,12 @@ public class AutoTestResultsForTestRunModel {
     return outcome;
   }
 
-  public void setOutcome(@javax.annotation.Nonnull AvailableTestResultOutcome outcome) {
+  public void setOutcome(AvailableTestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
-  public AutoTestResultsForTestRunModel message(@javax.annotation.Nullable String message) {
+  public AutoTestResultsForTestRunModel message(String message) {
     this.message = message;
     return this;
   }
@@ -270,12 +254,12 @@ public class AutoTestResultsForTestRunModel {
     return message;
   }
 
-  public void setMessage(@javax.annotation.Nullable String message) {
+  public void setMessage(String message) {
     this.message = message;
   }
 
 
-  public AutoTestResultsForTestRunModel traces(@javax.annotation.Nullable String traces) {
+  public AutoTestResultsForTestRunModel traces(String traces) {
     this.traces = traces;
     return this;
   }
@@ -289,12 +273,12 @@ public class AutoTestResultsForTestRunModel {
     return traces;
   }
 
-  public void setTraces(@javax.annotation.Nullable String traces) {
+  public void setTraces(String traces) {
     this.traces = traces;
   }
 
 
-  public AutoTestResultsForTestRunModel startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public AutoTestResultsForTestRunModel startedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
@@ -308,12 +292,12 @@ public class AutoTestResultsForTestRunModel {
     return startedOn;
   }
 
-  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public AutoTestResultsForTestRunModel completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public AutoTestResultsForTestRunModel completedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
@@ -327,12 +311,12 @@ public class AutoTestResultsForTestRunModel {
     return completedOn;
   }
 
-  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public AutoTestResultsForTestRunModel duration(@javax.annotation.Nullable Long duration) {
+  public AutoTestResultsForTestRunModel duration(Long duration) {
     this.duration = duration;
     return this;
   }
@@ -348,12 +332,12 @@ public class AutoTestResultsForTestRunModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nullable Long duration) {
+  public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
-  public AutoTestResultsForTestRunModel attachments(@javax.annotation.Nullable List<AttachmentPutModel> attachments) {
+  public AutoTestResultsForTestRunModel attachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -375,12 +359,12 @@ public class AutoTestResultsForTestRunModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentPutModel> attachments) {
+  public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public AutoTestResultsForTestRunModel parameters(@javax.annotation.Nullable Map<String, String> parameters) {
+  public AutoTestResultsForTestRunModel parameters(Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -402,12 +386,12 @@ public class AutoTestResultsForTestRunModel {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nullable Map<String, String> parameters) {
+  public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public AutoTestResultsForTestRunModel properties(@javax.annotation.Nullable Map<String, String> properties) {
+  public AutoTestResultsForTestRunModel properties(Map<String, String> properties) {
     this.properties = properties;
     return this;
   }
@@ -429,12 +413,12 @@ public class AutoTestResultsForTestRunModel {
     return properties;
   }
 
-  public void setProperties(@javax.annotation.Nullable Map<String, String> properties) {
+  public void setProperties(Map<String, String> properties) {
     this.properties = properties;
   }
 
 
-  public AutoTestResultsForTestRunModel stepResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+  public AutoTestResultsForTestRunModel stepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
     this.stepResults = stepResults;
     return this;
   }
@@ -456,12 +440,12 @@ public class AutoTestResultsForTestRunModel {
     return stepResults;
   }
 
-  public void setStepResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+  public void setStepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
     this.stepResults = stepResults;
   }
 
 
-  public AutoTestResultsForTestRunModel setupResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public AutoTestResultsForTestRunModel setupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = setupResults;
     return this;
   }
@@ -483,12 +467,12 @@ public class AutoTestResultsForTestRunModel {
     return setupResults;
   }
 
-  public void setSetupResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public void setSetupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = setupResults;
   }
 
 
-  public AutoTestResultsForTestRunModel teardownResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public AutoTestResultsForTestRunModel teardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = teardownResults;
     return this;
   }
@@ -510,7 +494,7 @@ public class AutoTestResultsForTestRunModel {
     return teardownResults;
   }
 
-  public void setTeardownResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public void setTeardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = teardownResults;
   }
 

@@ -62,112 +62,92 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemSearchQueryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemSearchQueryModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> ids;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
   private Map<String, Set<String>> attributes;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  @javax.annotation.Nullable
   private Set<WorkItemStates> states;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  @javax.annotation.Nullable
   private Set<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  @javax.annotation.Nullable
   private Set<WorkItemEntityTypes> types;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel modifiedDate;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nullable
   private Int32RangeSelectorModel duration;
 
   public static final String SERIALIZED_NAME_MEDIAN_DURATION = "medianDuration";
   @SerializedName(SERIALIZED_NAME_MEDIAN_DURATION)
-  @javax.annotation.Nullable
   private Int64RangeSelectorModel medianDuration;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  @javax.annotation.Nullable
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private Set<String> tags;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_IDS = "autoTestIds";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> autoTestIds;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_IDS = "workItemVersionIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> workItemVersionIds;
 
   public WorkItemSearchQueryModel() {
   }
 
-  public WorkItemSearchQueryModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public WorkItemSearchQueryModel projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -189,12 +169,12 @@ public class WorkItemSearchQueryModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public WorkItemSearchQueryModel name(@javax.annotation.Nullable String name) {
+  public WorkItemSearchQueryModel name(String name) {
     this.name = name;
     return this;
   }
@@ -208,12 +188,12 @@ public class WorkItemSearchQueryModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public WorkItemSearchQueryModel ids(@javax.annotation.Nullable Set<UUID> ids) {
+  public WorkItemSearchQueryModel ids(Set<UUID> ids) {
     this.ids = ids;
     return this;
   }
@@ -235,12 +215,12 @@ public class WorkItemSearchQueryModel {
     return ids;
   }
 
-  public void setIds(@javax.annotation.Nullable Set<UUID> ids) {
+  public void setIds(Set<UUID> ids) {
     this.ids = ids;
   }
 
 
-  public WorkItemSearchQueryModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public WorkItemSearchQueryModel globalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -262,12 +242,12 @@ public class WorkItemSearchQueryModel {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public WorkItemSearchQueryModel attributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
+  public WorkItemSearchQueryModel attributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -289,12 +269,12 @@ public class WorkItemSearchQueryModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
+  public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
 
-  public WorkItemSearchQueryModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public WorkItemSearchQueryModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -308,12 +288,12 @@ public class WorkItemSearchQueryModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public WorkItemSearchQueryModel sectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
+  public WorkItemSearchQueryModel sectionIds(Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
     return this;
   }
@@ -335,12 +315,12 @@ public class WorkItemSearchQueryModel {
     return sectionIds;
   }
 
-  public void setSectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
+  public void setSectionIds(Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
-  public WorkItemSearchQueryModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public WorkItemSearchQueryModel createdByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -362,12 +342,12 @@ public class WorkItemSearchQueryModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public WorkItemSearchQueryModel modifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public WorkItemSearchQueryModel modifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -389,12 +369,12 @@ public class WorkItemSearchQueryModel {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public WorkItemSearchQueryModel states(@javax.annotation.Nullable Set<WorkItemStates> states) {
+  public WorkItemSearchQueryModel states(Set<WorkItemStates> states) {
     this.states = states;
     return this;
   }
@@ -416,12 +396,12 @@ public class WorkItemSearchQueryModel {
     return states;
   }
 
-  public void setStates(@javax.annotation.Nullable Set<WorkItemStates> states) {
+  public void setStates(Set<WorkItemStates> states) {
     this.states = states;
   }
 
 
-  public WorkItemSearchQueryModel priorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
+  public WorkItemSearchQueryModel priorities(Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
     return this;
   }
@@ -443,12 +423,12 @@ public class WorkItemSearchQueryModel {
     return priorities;
   }
 
-  public void setPriorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
+  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
   }
 
 
-  public WorkItemSearchQueryModel types(@javax.annotation.Nullable Set<WorkItemEntityTypes> types) {
+  public WorkItemSearchQueryModel types(Set<WorkItemEntityTypes> types) {
     this.types = types;
     return this;
   }
@@ -470,12 +450,12 @@ public class WorkItemSearchQueryModel {
     return types;
   }
 
-  public void setTypes(@javax.annotation.Nullable Set<WorkItemEntityTypes> types) {
+  public void setTypes(Set<WorkItemEntityTypes> types) {
     this.types = types;
   }
 
 
-  public WorkItemSearchQueryModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public WorkItemSearchQueryModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -489,12 +469,12 @@ public class WorkItemSearchQueryModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WorkItemSearchQueryModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public WorkItemSearchQueryModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -508,12 +488,12 @@ public class WorkItemSearchQueryModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public WorkItemSearchQueryModel duration(@javax.annotation.Nullable Int32RangeSelectorModel duration) {
+  public WorkItemSearchQueryModel duration(Int32RangeSelectorModel duration) {
     this.duration = duration;
     return this;
   }
@@ -527,12 +507,12 @@ public class WorkItemSearchQueryModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nullable Int32RangeSelectorModel duration) {
+  public void setDuration(Int32RangeSelectorModel duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemSearchQueryModel medianDuration(@javax.annotation.Nullable Int64RangeSelectorModel medianDuration) {
+  public WorkItemSearchQueryModel medianDuration(Int64RangeSelectorModel medianDuration) {
     this.medianDuration = medianDuration;
     return this;
   }
@@ -546,12 +526,12 @@ public class WorkItemSearchQueryModel {
     return medianDuration;
   }
 
-  public void setMedianDuration(@javax.annotation.Nullable Int64RangeSelectorModel medianDuration) {
+  public void setMedianDuration(Int64RangeSelectorModel medianDuration) {
     this.medianDuration = medianDuration;
   }
 
 
-  public WorkItemSearchQueryModel isAutomated(@javax.annotation.Nullable Boolean isAutomated) {
+  public WorkItemSearchQueryModel isAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -565,12 +545,12 @@ public class WorkItemSearchQueryModel {
     return isAutomated;
   }
 
-  public void setIsAutomated(@javax.annotation.Nullable Boolean isAutomated) {
+  public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public WorkItemSearchQueryModel tags(@javax.annotation.Nullable Set<String> tags) {
+  public WorkItemSearchQueryModel tags(Set<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -592,12 +572,12 @@ public class WorkItemSearchQueryModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable Set<String> tags) {
+  public void setTags(Set<String> tags) {
     this.tags = tags;
   }
 
 
-  public WorkItemSearchQueryModel autoTestIds(@javax.annotation.Nullable Set<UUID> autoTestIds) {
+  public WorkItemSearchQueryModel autoTestIds(Set<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
     return this;
   }
@@ -619,12 +599,12 @@ public class WorkItemSearchQueryModel {
     return autoTestIds;
   }
 
-  public void setAutoTestIds(@javax.annotation.Nullable Set<UUID> autoTestIds) {
+  public void setAutoTestIds(Set<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
   }
 
 
-  public WorkItemSearchQueryModel workItemVersionIds(@javax.annotation.Nullable List<UUID> workItemVersionIds) {
+  public WorkItemSearchQueryModel workItemVersionIds(List<UUID> workItemVersionIds) {
     this.workItemVersionIds = workItemVersionIds;
     return this;
   }
@@ -646,7 +626,7 @@ public class WorkItemSearchQueryModel {
     return workItemVersionIds;
   }
 
-  public void setWorkItemVersionIds(@javax.annotation.Nullable List<UUID> workItemVersionIds) {
+  public void setWorkItemVersionIds(List<UUID> workItemVersionIds) {
     this.workItemVersionIds = workItemVersionIds;
   }
 

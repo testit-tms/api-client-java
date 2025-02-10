@@ -56,92 +56,76 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectTestPlansFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectTestPlansFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  @javax.annotation.Nullable
   private String build;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  @javax.annotation.Nullable
   private String productName;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private Set<TestPlanStatusModel> status;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_IS_LOCKED = "isLocked";
   @SerializedName(SERIALIZED_NAME_IS_LOCKED)
-  @javax.annotation.Nullable
   private Boolean isLocked;
 
   public static final String SERIALIZED_NAME_LOCKED_DATE = "lockedDate";
   @SerializedName(SERIALIZED_NAME_LOCKED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel lockedDate;
 
   public static final String SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER = "automaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER)
-  @javax.annotation.Nullable
   private Set<Boolean> automaticDurationTimer;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel endDate;
 
   public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
   @SerializedName(SERIALIZED_NAME_TAG_NAMES)
-  @javax.annotation.Nullable
   private Set<String> tagNames;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
   private Map<String, Set<String>> attributes;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public ProjectTestPlansFilterModel() {
   }
 
-  public ProjectTestPlansFilterModel name(@javax.annotation.Nullable String name) {
+  public ProjectTestPlansFilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -155,12 +139,12 @@ public class ProjectTestPlansFilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectTestPlansFilterModel description(@javax.annotation.Nullable String description) {
+  public ProjectTestPlansFilterModel description(String description) {
     this.description = description;
     return this;
   }
@@ -174,12 +158,12 @@ public class ProjectTestPlansFilterModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public ProjectTestPlansFilterModel build(@javax.annotation.Nullable String build) {
+  public ProjectTestPlansFilterModel build(String build) {
     this.build = build;
     return this;
   }
@@ -193,12 +177,12 @@ public class ProjectTestPlansFilterModel {
     return build;
   }
 
-  public void setBuild(@javax.annotation.Nullable String build) {
+  public void setBuild(String build) {
     this.build = build;
   }
 
 
-  public ProjectTestPlansFilterModel productName(@javax.annotation.Nullable String productName) {
+  public ProjectTestPlansFilterModel productName(String productName) {
     this.productName = productName;
     return this;
   }
@@ -212,12 +196,12 @@ public class ProjectTestPlansFilterModel {
     return productName;
   }
 
-  public void setProductName(@javax.annotation.Nullable String productName) {
+  public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
-  public ProjectTestPlansFilterModel status(@javax.annotation.Nullable Set<TestPlanStatusModel> status) {
+  public ProjectTestPlansFilterModel status(Set<TestPlanStatusModel> status) {
     this.status = status;
     return this;
   }
@@ -239,12 +223,12 @@ public class ProjectTestPlansFilterModel {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nullable Set<TestPlanStatusModel> status) {
+  public void setStatus(Set<TestPlanStatusModel> status) {
     this.status = status;
   }
 
 
-  public ProjectTestPlansFilterModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public ProjectTestPlansFilterModel globalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -266,12 +250,12 @@ public class ProjectTestPlansFilterModel {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public ProjectTestPlansFilterModel isLocked(@javax.annotation.Nullable Boolean isLocked) {
+  public ProjectTestPlansFilterModel isLocked(Boolean isLocked) {
     this.isLocked = isLocked;
     return this;
   }
@@ -285,12 +269,12 @@ public class ProjectTestPlansFilterModel {
     return isLocked;
   }
 
-  public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
+  public void setIsLocked(Boolean isLocked) {
     this.isLocked = isLocked;
   }
 
 
-  public ProjectTestPlansFilterModel lockedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel lockedDate) {
+  public ProjectTestPlansFilterModel lockedDate(DateTimeRangeSelectorModel lockedDate) {
     this.lockedDate = lockedDate;
     return this;
   }
@@ -304,12 +288,12 @@ public class ProjectTestPlansFilterModel {
     return lockedDate;
   }
 
-  public void setLockedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel lockedDate) {
+  public void setLockedDate(DateTimeRangeSelectorModel lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
-  public ProjectTestPlansFilterModel automaticDurationTimer(@javax.annotation.Nullable Set<Boolean> automaticDurationTimer) {
+  public ProjectTestPlansFilterModel automaticDurationTimer(Set<Boolean> automaticDurationTimer) {
     this.automaticDurationTimer = automaticDurationTimer;
     return this;
   }
@@ -331,12 +315,12 @@ public class ProjectTestPlansFilterModel {
     return automaticDurationTimer;
   }
 
-  public void setAutomaticDurationTimer(@javax.annotation.Nullable Set<Boolean> automaticDurationTimer) {
+  public void setAutomaticDurationTimer(Set<Boolean> automaticDurationTimer) {
     this.automaticDurationTimer = automaticDurationTimer;
   }
 
 
-  public ProjectTestPlansFilterModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public ProjectTestPlansFilterModel createdByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -358,12 +342,12 @@ public class ProjectTestPlansFilterModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public ProjectTestPlansFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public ProjectTestPlansFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -377,12 +361,12 @@ public class ProjectTestPlansFilterModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public ProjectTestPlansFilterModel startDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startDate) {
+  public ProjectTestPlansFilterModel startDate(DateTimeRangeSelectorModel startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -396,12 +380,12 @@ public class ProjectTestPlansFilterModel {
     return startDate;
   }
 
-  public void setStartDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startDate) {
+  public void setStartDate(DateTimeRangeSelectorModel startDate) {
     this.startDate = startDate;
   }
 
 
-  public ProjectTestPlansFilterModel endDate(@javax.annotation.Nullable DateTimeRangeSelectorModel endDate) {
+  public ProjectTestPlansFilterModel endDate(DateTimeRangeSelectorModel endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -415,12 +399,12 @@ public class ProjectTestPlansFilterModel {
     return endDate;
   }
 
-  public void setEndDate(@javax.annotation.Nullable DateTimeRangeSelectorModel endDate) {
+  public void setEndDate(DateTimeRangeSelectorModel endDate) {
     this.endDate = endDate;
   }
 
 
-  public ProjectTestPlansFilterModel tagNames(@javax.annotation.Nullable Set<String> tagNames) {
+  public ProjectTestPlansFilterModel tagNames(Set<String> tagNames) {
     this.tagNames = tagNames;
     return this;
   }
@@ -442,12 +426,12 @@ public class ProjectTestPlansFilterModel {
     return tagNames;
   }
 
-  public void setTagNames(@javax.annotation.Nullable Set<String> tagNames) {
+  public void setTagNames(Set<String> tagNames) {
     this.tagNames = tagNames;
   }
 
 
-  public ProjectTestPlansFilterModel attributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
+  public ProjectTestPlansFilterModel attributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -469,12 +453,12 @@ public class ProjectTestPlansFilterModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
+  public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
 
-  public ProjectTestPlansFilterModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public ProjectTestPlansFilterModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -488,7 +472,7 @@ public class ProjectTestPlansFilterModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

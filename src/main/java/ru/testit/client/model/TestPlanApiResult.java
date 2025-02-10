@@ -57,122 +57,100 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanApiResult {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  @javax.annotation.Nullable
   private String build;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nullable
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  @javax.annotation.Nullable
   private String productName;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private TestPlanStatus status;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nonnull
   private List<TestPlanTagApiResult> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
-  @javax.annotation.Nullable
   private Boolean hasAutomaticDurationTimer;
 
   public static final String SERIALIZED_NAME_LOCKED_BY_ID = "lockedById";
   @SerializedName(SERIALIZED_NAME_LOCKED_BY_ID)
-  @javax.annotation.Nullable
   private UUID lockedById;
 
   public static final String SERIALIZED_NAME_LOCKED_DATE = "lockedDate";
   @SerializedName(SERIALIZED_NAME_LOCKED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime lockedDate;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public TestPlanApiResult() {
   }
 
-  public TestPlanApiResult id(@javax.annotation.Nonnull UUID id) {
+  public TestPlanApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -186,12 +164,12 @@ public class TestPlanApiResult {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanApiResult name(@javax.annotation.Nonnull String name) {
+  public TestPlanApiResult name(String name) {
     this.name = name;
     return this;
   }
@@ -205,12 +183,12 @@ public class TestPlanApiResult {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestPlanApiResult startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public TestPlanApiResult startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -224,12 +202,12 @@ public class TestPlanApiResult {
     return startDate;
   }
 
-  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public TestPlanApiResult endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public TestPlanApiResult endDate(OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -243,12 +221,12 @@ public class TestPlanApiResult {
     return endDate;
   }
 
-  public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
-  public TestPlanApiResult startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public TestPlanApiResult startedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
@@ -262,12 +240,12 @@ public class TestPlanApiResult {
     return startedOn;
   }
 
-  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestPlanApiResult completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public TestPlanApiResult completedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
@@ -281,12 +259,12 @@ public class TestPlanApiResult {
     return completedOn;
   }
 
-  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestPlanApiResult description(@javax.annotation.Nullable String description) {
+  public TestPlanApiResult description(String description) {
     this.description = description;
     return this;
   }
@@ -300,12 +278,12 @@ public class TestPlanApiResult {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public TestPlanApiResult build(@javax.annotation.Nullable String build) {
+  public TestPlanApiResult build(String build) {
     this.build = build;
     return this;
   }
@@ -319,12 +297,12 @@ public class TestPlanApiResult {
     return build;
   }
 
-  public void setBuild(@javax.annotation.Nullable String build) {
+  public void setBuild(String build) {
     this.build = build;
   }
 
 
-  public TestPlanApiResult projectId(@javax.annotation.Nullable UUID projectId) {
+  public TestPlanApiResult projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -338,12 +316,12 @@ public class TestPlanApiResult {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nullable UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPlanApiResult productName(@javax.annotation.Nullable String productName) {
+  public TestPlanApiResult productName(String productName) {
     this.productName = productName;
     return this;
   }
@@ -357,12 +335,12 @@ public class TestPlanApiResult {
     return productName;
   }
 
-  public void setProductName(@javax.annotation.Nullable String productName) {
+  public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
-  public TestPlanApiResult status(@javax.annotation.Nonnull TestPlanStatus status) {
+  public TestPlanApiResult status(TestPlanStatus status) {
     this.status = status;
     return this;
   }
@@ -376,12 +354,12 @@ public class TestPlanApiResult {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull TestPlanStatus status) {
+  public void setStatus(TestPlanStatus status) {
     this.status = status;
   }
 
 
-  public TestPlanApiResult tags(@javax.annotation.Nonnull List<TestPlanTagApiResult> tags) {
+  public TestPlanApiResult tags(List<TestPlanTagApiResult> tags) {
     this.tags = tags;
     return this;
   }
@@ -403,12 +381,12 @@ public class TestPlanApiResult {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nonnull List<TestPlanTagApiResult> tags) {
+  public void setTags(List<TestPlanTagApiResult> tags) {
     this.tags = tags;
   }
 
 
-  public TestPlanApiResult globalId(@javax.annotation.Nonnull Long globalId) {
+  public TestPlanApiResult globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -422,12 +400,12 @@ public class TestPlanApiResult {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public TestPlanApiResult hasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
+  public TestPlanApiResult hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -441,12 +419,12 @@ public class TestPlanApiResult {
     return hasAutomaticDurationTimer;
   }
 
-  public void setHasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
-  public TestPlanApiResult lockedById(@javax.annotation.Nullable UUID lockedById) {
+  public TestPlanApiResult lockedById(UUID lockedById) {
     this.lockedById = lockedById;
     return this;
   }
@@ -460,12 +438,12 @@ public class TestPlanApiResult {
     return lockedById;
   }
 
-  public void setLockedById(@javax.annotation.Nullable UUID lockedById) {
+  public void setLockedById(UUID lockedById) {
     this.lockedById = lockedById;
   }
 
 
-  public TestPlanApiResult lockedDate(@javax.annotation.Nullable OffsetDateTime lockedDate) {
+  public TestPlanApiResult lockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
     return this;
   }
@@ -479,12 +457,12 @@ public class TestPlanApiResult {
     return lockedDate;
   }
 
-  public void setLockedDate(@javax.annotation.Nullable OffsetDateTime lockedDate) {
+  public void setLockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
-  public TestPlanApiResult attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public TestPlanApiResult attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -506,12 +484,12 @@ public class TestPlanApiResult {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public TestPlanApiResult createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public TestPlanApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -525,12 +503,12 @@ public class TestPlanApiResult {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestPlanApiResult modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public TestPlanApiResult modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -544,12 +522,12 @@ public class TestPlanApiResult {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestPlanApiResult createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestPlanApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -563,12 +541,12 @@ public class TestPlanApiResult {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanApiResult modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public TestPlanApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -582,12 +560,12 @@ public class TestPlanApiResult {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestPlanApiResult isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestPlanApiResult isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -601,7 +579,7 @@ public class TestPlanApiResult {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

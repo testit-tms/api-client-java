@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * LabelShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LabelShortModel {
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public LabelShortModel() {
   }
 
-  public LabelShortModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public LabelShortModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -77,12 +75,12 @@ public class LabelShortModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public LabelShortModel name(@javax.annotation.Nonnull String name) {
+  public LabelShortModel name(String name) {
     this.name = name;
     return this;
   }
@@ -96,7 +94,7 @@ public class LabelShortModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

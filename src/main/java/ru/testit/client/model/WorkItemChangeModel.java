@@ -52,47 +52,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemChangeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemChangeModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nonnull
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_OLD_VERSION_ID = "oldVersionId";
   @SerializedName(SERIALIZED_NAME_OLD_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID oldVersionId;
 
   public static final String SERIALIZED_NAME_NEW_VERSION_ID = "newVersionId";
   @SerializedName(SERIALIZED_NAME_NEW_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID newVersionId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_CHANGED_FIELDS = "workItemChangedFields";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_CHANGED_FIELDS)
-  @javax.annotation.Nonnull
   private WorkItemChangedFieldsViewModel workItemChangedFields;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public WorkItemChangeModel() {
   }
 
-  public WorkItemChangeModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemChangeModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -106,12 +99,12 @@ public class WorkItemChangeModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemChangeModel workItemId(@javax.annotation.Nonnull UUID workItemId) {
+  public WorkItemChangeModel workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -125,12 +118,12 @@ public class WorkItemChangeModel {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nonnull UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public WorkItemChangeModel oldVersionId(@javax.annotation.Nonnull UUID oldVersionId) {
+  public WorkItemChangeModel oldVersionId(UUID oldVersionId) {
     this.oldVersionId = oldVersionId;
     return this;
   }
@@ -144,12 +137,12 @@ public class WorkItemChangeModel {
     return oldVersionId;
   }
 
-  public void setOldVersionId(@javax.annotation.Nonnull UUID oldVersionId) {
+  public void setOldVersionId(UUID oldVersionId) {
     this.oldVersionId = oldVersionId;
   }
 
 
-  public WorkItemChangeModel newVersionId(@javax.annotation.Nonnull UUID newVersionId) {
+  public WorkItemChangeModel newVersionId(UUID newVersionId) {
     this.newVersionId = newVersionId;
     return this;
   }
@@ -163,12 +156,12 @@ public class WorkItemChangeModel {
     return newVersionId;
   }
 
-  public void setNewVersionId(@javax.annotation.Nonnull UUID newVersionId) {
+  public void setNewVersionId(UUID newVersionId) {
     this.newVersionId = newVersionId;
   }
 
 
-  public WorkItemChangeModel workItemChangedFields(@javax.annotation.Nonnull WorkItemChangedFieldsViewModel workItemChangedFields) {
+  public WorkItemChangeModel workItemChangedFields(WorkItemChangedFieldsViewModel workItemChangedFields) {
     this.workItemChangedFields = workItemChangedFields;
     return this;
   }
@@ -182,12 +175,12 @@ public class WorkItemChangeModel {
     return workItemChangedFields;
   }
 
-  public void setWorkItemChangedFields(@javax.annotation.Nonnull WorkItemChangedFieldsViewModel workItemChangedFields) {
+  public void setWorkItemChangedFields(WorkItemChangedFieldsViewModel workItemChangedFields) {
     this.workItemChangedFields = workItemChangedFields;
   }
 
 
-  public WorkItemChangeModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public WorkItemChangeModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -201,12 +194,12 @@ public class WorkItemChangeModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkItemChangeModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public WorkItemChangeModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -220,7 +213,7 @@ public class WorkItemChangeModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 

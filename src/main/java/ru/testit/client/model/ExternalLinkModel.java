@@ -49,52 +49,44 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalLinkModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalLinkModel {
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nullable
   private String url;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_ISSUE_TYPE_NAME = "issueTypeName";
   @SerializedName(SERIALIZED_NAME_ISSUE_TYPE_NAME)
-  @javax.annotation.Nullable
   private String issueTypeName;
 
   public static final String SERIALIZED_NAME_ISSUE_TYPE_ICON_URL = "issueTypeIconUrl";
   @SerializedName(SERIALIZED_NAME_ISSUE_TYPE_ICON_URL)
-  @javax.annotation.Nullable
   private String issueTypeIconUrl;
 
   public static final String SERIALIZED_NAME_PRIORITY_NAME = "priorityName";
   @SerializedName(SERIALIZED_NAME_PRIORITY_NAME)
-  @javax.annotation.Nullable
   private String priorityName;
 
   public static final String SERIALIZED_NAME_PRIORITY_ICON_URL = "priorityIconUrl";
   @SerializedName(SERIALIZED_NAME_PRIORITY_ICON_URL)
-  @javax.annotation.Nullable
   private String priorityIconUrl;
 
   public static final String SERIALIZED_NAME_STATUS_NAME = "statusName";
   @SerializedName(SERIALIZED_NAME_STATUS_NAME)
-  @javax.annotation.Nullable
   private String statusName;
 
   public static final String SERIALIZED_NAME_ASSIGNEE_DISPLAY_NAME = "assigneeDisplayName";
   @SerializedName(SERIALIZED_NAME_ASSIGNEE_DISPLAY_NAME)
-  @javax.annotation.Nullable
   private String assigneeDisplayName;
 
   public ExternalLinkModel() {
   }
 
-  public ExternalLinkModel url(@javax.annotation.Nullable String url) {
+  public ExternalLinkModel url(String url) {
     this.url = url;
     return this;
   }
@@ -108,12 +100,12 @@ public class ExternalLinkModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nullable String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 
 
-  public ExternalLinkModel title(@javax.annotation.Nullable String title) {
+  public ExternalLinkModel title(String title) {
     this.title = title;
     return this;
   }
@@ -127,12 +119,12 @@ public class ExternalLinkModel {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public ExternalLinkModel issueTypeName(@javax.annotation.Nullable String issueTypeName) {
+  public ExternalLinkModel issueTypeName(String issueTypeName) {
     this.issueTypeName = issueTypeName;
     return this;
   }
@@ -146,12 +138,12 @@ public class ExternalLinkModel {
     return issueTypeName;
   }
 
-  public void setIssueTypeName(@javax.annotation.Nullable String issueTypeName) {
+  public void setIssueTypeName(String issueTypeName) {
     this.issueTypeName = issueTypeName;
   }
 
 
-  public ExternalLinkModel issueTypeIconUrl(@javax.annotation.Nullable String issueTypeIconUrl) {
+  public ExternalLinkModel issueTypeIconUrl(String issueTypeIconUrl) {
     this.issueTypeIconUrl = issueTypeIconUrl;
     return this;
   }
@@ -165,12 +157,12 @@ public class ExternalLinkModel {
     return issueTypeIconUrl;
   }
 
-  public void setIssueTypeIconUrl(@javax.annotation.Nullable String issueTypeIconUrl) {
+  public void setIssueTypeIconUrl(String issueTypeIconUrl) {
     this.issueTypeIconUrl = issueTypeIconUrl;
   }
 
 
-  public ExternalLinkModel priorityName(@javax.annotation.Nullable String priorityName) {
+  public ExternalLinkModel priorityName(String priorityName) {
     this.priorityName = priorityName;
     return this;
   }
@@ -184,12 +176,12 @@ public class ExternalLinkModel {
     return priorityName;
   }
 
-  public void setPriorityName(@javax.annotation.Nullable String priorityName) {
+  public void setPriorityName(String priorityName) {
     this.priorityName = priorityName;
   }
 
 
-  public ExternalLinkModel priorityIconUrl(@javax.annotation.Nullable String priorityIconUrl) {
+  public ExternalLinkModel priorityIconUrl(String priorityIconUrl) {
     this.priorityIconUrl = priorityIconUrl;
     return this;
   }
@@ -203,12 +195,12 @@ public class ExternalLinkModel {
     return priorityIconUrl;
   }
 
-  public void setPriorityIconUrl(@javax.annotation.Nullable String priorityIconUrl) {
+  public void setPriorityIconUrl(String priorityIconUrl) {
     this.priorityIconUrl = priorityIconUrl;
   }
 
 
-  public ExternalLinkModel statusName(@javax.annotation.Nullable String statusName) {
+  public ExternalLinkModel statusName(String statusName) {
     this.statusName = statusName;
     return this;
   }
@@ -222,12 +214,12 @@ public class ExternalLinkModel {
     return statusName;
   }
 
-  public void setStatusName(@javax.annotation.Nullable String statusName) {
+  public void setStatusName(String statusName) {
     this.statusName = statusName;
   }
 
 
-  public ExternalLinkModel assigneeDisplayName(@javax.annotation.Nullable String assigneeDisplayName) {
+  public ExternalLinkModel assigneeDisplayName(String assigneeDisplayName) {
     this.assigneeDisplayName = assigneeDisplayName;
     return this;
   }
@@ -241,7 +233,7 @@ public class ExternalLinkModel {
     return assigneeDisplayName;
   }
 
-  public void setAssigneeDisplayName(@javax.annotation.Nullable String assigneeDisplayName) {
+  public void setAssigneeDisplayName(String assigneeDisplayName) {
     this.assigneeDisplayName = assigneeDisplayName;
   }
 

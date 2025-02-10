@@ -52,22 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestChangeViewModelArrayChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestChangeViewModelArrayChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private List<AutoTestChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private List<AutoTestChangeViewModel> newValue;
 
   public AutoTestChangeViewModelArrayChangedFieldViewModel() {
   }
 
-  public AutoTestChangeViewModelArrayChangedFieldViewModel oldValue(@javax.annotation.Nullable List<AutoTestChangeViewModel> oldValue) {
+  public AutoTestChangeViewModelArrayChangedFieldViewModel oldValue(List<AutoTestChangeViewModel> oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -89,12 +87,12 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable List<AutoTestChangeViewModel> oldValue) {
+  public void setOldValue(List<AutoTestChangeViewModel> oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public AutoTestChangeViewModelArrayChangedFieldViewModel newValue(@javax.annotation.Nullable List<AutoTestChangeViewModel> newValue) {
+  public AutoTestChangeViewModelArrayChangedFieldViewModel newValue(List<AutoTestChangeViewModel> newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -116,7 +114,7 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable List<AutoTestChangeViewModel> newValue) {
+  public void setNewValue(List<AutoTestChangeViewModel> newValue) {
     this.newValue = newValue;
   }
 

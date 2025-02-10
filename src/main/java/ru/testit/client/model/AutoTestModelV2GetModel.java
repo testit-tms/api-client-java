@@ -56,102 +56,84 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestModelV2GetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestModelV2GetModel {
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
-  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_CLASSNAME = "classname";
   @SerializedName(SERIALIZED_NAME_CLASSNAME)
-  @javax.annotation.Nullable
   private String classname;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  @javax.annotation.Nullable
   private List<LabelShortModel> labels;
 
   public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
-  @javax.annotation.Nullable
   private String externalKey;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public AutoTestModelV2GetModel() {
   }
 
-  public AutoTestModelV2GetModel externalId(@javax.annotation.Nonnull String externalId) {
+  public AutoTestModelV2GetModel externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -165,12 +147,12 @@ public class AutoTestModelV2GetModel {
     return externalId;
   }
 
-  public void setExternalId(@javax.annotation.Nonnull String externalId) {
+  public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestModelV2GetModel links(@javax.annotation.Nullable List<LinkModel> links) {
+  public AutoTestModelV2GetModel links(List<LinkModel> links) {
     this.links = links;
     return this;
   }
@@ -192,12 +174,12 @@ public class AutoTestModelV2GetModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<LinkModel> links) {
+  public void setLinks(List<LinkModel> links) {
     this.links = links;
   }
 
 
-  public AutoTestModelV2GetModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public AutoTestModelV2GetModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -211,12 +193,12 @@ public class AutoTestModelV2GetModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestModelV2GetModel name(@javax.annotation.Nonnull String name) {
+  public AutoTestModelV2GetModel name(String name) {
     this.name = name;
     return this;
   }
@@ -230,12 +212,12 @@ public class AutoTestModelV2GetModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AutoTestModelV2GetModel namespace(@javax.annotation.Nullable String namespace) {
+  public AutoTestModelV2GetModel namespace(String namespace) {
     this.namespace = namespace;
     return this;
   }
@@ -249,12 +231,12 @@ public class AutoTestModelV2GetModel {
     return namespace;
   }
 
-  public void setNamespace(@javax.annotation.Nullable String namespace) {
+  public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
-  public AutoTestModelV2GetModel classname(@javax.annotation.Nullable String classname) {
+  public AutoTestModelV2GetModel classname(String classname) {
     this.classname = classname;
     return this;
   }
@@ -268,12 +250,12 @@ public class AutoTestModelV2GetModel {
     return classname;
   }
 
-  public void setClassname(@javax.annotation.Nullable String classname) {
+  public void setClassname(String classname) {
     this.classname = classname;
   }
 
 
-  public AutoTestModelV2GetModel steps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
+  public AutoTestModelV2GetModel steps(List<AutoTestStepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -295,12 +277,12 @@ public class AutoTestModelV2GetModel {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
+  public void setSteps(List<AutoTestStepModel> steps) {
     this.steps = steps;
   }
 
 
-  public AutoTestModelV2GetModel setup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
+  public AutoTestModelV2GetModel setup(List<AutoTestStepModel> setup) {
     this.setup = setup;
     return this;
   }
@@ -322,12 +304,12 @@ public class AutoTestModelV2GetModel {
     return setup;
   }
 
-  public void setSetup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
+  public void setSetup(List<AutoTestStepModel> setup) {
     this.setup = setup;
   }
 
 
-  public AutoTestModelV2GetModel teardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
+  public AutoTestModelV2GetModel teardown(List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
     return this;
   }
@@ -349,12 +331,12 @@ public class AutoTestModelV2GetModel {
     return teardown;
   }
 
-  public void setTeardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
+  public void setTeardown(List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
   }
 
 
-  public AutoTestModelV2GetModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public AutoTestModelV2GetModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -368,12 +350,12 @@ public class AutoTestModelV2GetModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public AutoTestModelV2GetModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public AutoTestModelV2GetModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -387,12 +369,12 @@ public class AutoTestModelV2GetModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutoTestModelV2GetModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public AutoTestModelV2GetModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -406,12 +388,12 @@ public class AutoTestModelV2GetModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public AutoTestModelV2GetModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public AutoTestModelV2GetModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -425,12 +407,12 @@ public class AutoTestModelV2GetModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AutoTestModelV2GetModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public AutoTestModelV2GetModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -444,12 +426,12 @@ public class AutoTestModelV2GetModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public AutoTestModelV2GetModel labels(@javax.annotation.Nullable List<LabelShortModel> labels) {
+  public AutoTestModelV2GetModel labels(List<LabelShortModel> labels) {
     this.labels = labels;
     return this;
   }
@@ -471,12 +453,12 @@ public class AutoTestModelV2GetModel {
     return labels;
   }
 
-  public void setLabels(@javax.annotation.Nullable List<LabelShortModel> labels) {
+  public void setLabels(List<LabelShortModel> labels) {
     this.labels = labels;
   }
 
 
-  public AutoTestModelV2GetModel externalKey(@javax.annotation.Nullable String externalKey) {
+  public AutoTestModelV2GetModel externalKey(String externalKey) {
     this.externalKey = externalKey;
     return this;
   }
@@ -490,12 +472,12 @@ public class AutoTestModelV2GetModel {
     return externalKey;
   }
 
-  public void setExternalKey(@javax.annotation.Nullable String externalKey) {
+  public void setExternalKey(String externalKey) {
     this.externalKey = externalKey;
   }
 
 
-  public AutoTestModelV2GetModel id(@javax.annotation.Nonnull UUID id) {
+  public AutoTestModelV2GetModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -509,12 +491,12 @@ public class AutoTestModelV2GetModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestModelV2GetModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public AutoTestModelV2GetModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -528,7 +510,7 @@ public class AutoTestModelV2GetModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

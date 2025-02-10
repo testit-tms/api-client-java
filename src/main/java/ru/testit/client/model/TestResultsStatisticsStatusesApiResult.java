@@ -48,44 +48,38 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultsStatisticsStatusesApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultsStatisticsStatusesApiResult {
   public static final String SERIALIZED_NAME_IN_PROGRESS = "inProgress";
   @SerializedName(SERIALIZED_NAME_IN_PROGRESS)
-  @javax.annotation.Nonnull
   private Integer inProgress;
 
   public static final String SERIALIZED_NAME_PASSED = "passed";
   @SerializedName(SERIALIZED_NAME_PASSED)
-  @javax.annotation.Nonnull
   private Integer passed;
 
   public static final String SERIALIZED_NAME_FAILED = "failed";
   @SerializedName(SERIALIZED_NAME_FAILED)
-  @javax.annotation.Nonnull
   private Integer failed;
 
   public static final String SERIALIZED_NAME_SKIPPED = "skipped";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_SKIPPED)
-  @javax.annotation.Nonnull
   private Integer skipped;
 
   public static final String SERIALIZED_NAME_BLOCKED = "blocked";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_BLOCKED)
-  @javax.annotation.Nonnull
   private Integer blocked;
 
   public static final String SERIALIZED_NAME_INCOMPLETE = "incomplete";
   @SerializedName(SERIALIZED_NAME_INCOMPLETE)
-  @javax.annotation.Nonnull
   private Integer incomplete;
 
   public TestResultsStatisticsStatusesApiResult() {
   }
 
-  public TestResultsStatisticsStatusesApiResult inProgress(@javax.annotation.Nonnull Integer inProgress) {
+  public TestResultsStatisticsStatusesApiResult inProgress(Integer inProgress) {
     this.inProgress = inProgress;
     return this;
   }
@@ -99,12 +93,12 @@ public class TestResultsStatisticsStatusesApiResult {
     return inProgress;
   }
 
-  public void setInProgress(@javax.annotation.Nonnull Integer inProgress) {
+  public void setInProgress(Integer inProgress) {
     this.inProgress = inProgress;
   }
 
 
-  public TestResultsStatisticsStatusesApiResult passed(@javax.annotation.Nonnull Integer passed) {
+  public TestResultsStatisticsStatusesApiResult passed(Integer passed) {
     this.passed = passed;
     return this;
   }
@@ -118,12 +112,12 @@ public class TestResultsStatisticsStatusesApiResult {
     return passed;
   }
 
-  public void setPassed(@javax.annotation.Nonnull Integer passed) {
+  public void setPassed(Integer passed) {
     this.passed = passed;
   }
 
 
-  public TestResultsStatisticsStatusesApiResult failed(@javax.annotation.Nonnull Integer failed) {
+  public TestResultsStatisticsStatusesApiResult failed(Integer failed) {
     this.failed = failed;
     return this;
   }
@@ -137,13 +131,13 @@ public class TestResultsStatisticsStatusesApiResult {
     return failed;
   }
 
-  public void setFailed(@javax.annotation.Nonnull Integer failed) {
+  public void setFailed(Integer failed) {
     this.failed = failed;
   }
 
 
   @Deprecated
-  public TestResultsStatisticsStatusesApiResult skipped(@javax.annotation.Nonnull Integer skipped) {
+  public TestResultsStatisticsStatusesApiResult skipped(Integer skipped) {
     this.skipped = skipped;
     return this;
   }
@@ -160,13 +154,13 @@ public class TestResultsStatisticsStatusesApiResult {
   }
 
   @Deprecated
-  public void setSkipped(@javax.annotation.Nonnull Integer skipped) {
+  public void setSkipped(Integer skipped) {
     this.skipped = skipped;
   }
 
 
   @Deprecated
-  public TestResultsStatisticsStatusesApiResult blocked(@javax.annotation.Nonnull Integer blocked) {
+  public TestResultsStatisticsStatusesApiResult blocked(Integer blocked) {
     this.blocked = blocked;
     return this;
   }
@@ -183,12 +177,12 @@ public class TestResultsStatisticsStatusesApiResult {
   }
 
   @Deprecated
-  public void setBlocked(@javax.annotation.Nonnull Integer blocked) {
+  public void setBlocked(Integer blocked) {
     this.blocked = blocked;
   }
 
 
-  public TestResultsStatisticsStatusesApiResult incomplete(@javax.annotation.Nonnull Integer incomplete) {
+  public TestResultsStatisticsStatusesApiResult incomplete(Integer incomplete) {
     this.incomplete = incomplete;
     return this;
   }
@@ -202,7 +196,7 @@ public class TestResultsStatisticsStatusesApiResult {
     return incomplete;
   }
 
-  public void setIncomplete(@javax.annotation.Nonnull Integer incomplete) {
+  public void setIncomplete(Integer incomplete) {
     this.incomplete = incomplete;
   }
 

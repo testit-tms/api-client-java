@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * GuidChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GuidChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nonnull
   private UUID oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nonnull
   private UUID newValue;
 
   public GuidChangedFieldViewModel() {
   }
 
-  public GuidChangedFieldViewModel oldValue(@javax.annotation.Nonnull UUID oldValue) {
+  public GuidChangedFieldViewModel oldValue(UUID oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -78,12 +76,12 @@ public class GuidChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nonnull UUID oldValue) {
+  public void setOldValue(UUID oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public GuidChangedFieldViewModel newValue(@javax.annotation.Nonnull UUID newValue) {
+  public GuidChangedFieldViewModel newValue(UUID newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -97,7 +95,7 @@ public class GuidChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nonnull UUID newValue) {
+  public void setNewValue(UUID newValue) {
     this.newValue = newValue;
   }
 

@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestAverageDurationModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestAverageDurationModel {
   public static final String SERIALIZED_NAME_PASSED_AVERAGE_DURATION = "passedAverageDuration";
   @SerializedName(SERIALIZED_NAME_PASSED_AVERAGE_DURATION)
-  @javax.annotation.Nonnull
   private Double passedAverageDuration;
 
   public static final String SERIALIZED_NAME_FAILED_AVERAGE_DURATION = "failedAverageDuration";
   @SerializedName(SERIALIZED_NAME_FAILED_AVERAGE_DURATION)
-  @javax.annotation.Nonnull
   private Double failedAverageDuration;
 
   public AutoTestAverageDurationModel() {
   }
 
-  public AutoTestAverageDurationModel passedAverageDuration(@javax.annotation.Nonnull Double passedAverageDuration) {
+  public AutoTestAverageDurationModel passedAverageDuration(Double passedAverageDuration) {
     this.passedAverageDuration = passedAverageDuration;
     return this;
   }
@@ -77,12 +75,12 @@ public class AutoTestAverageDurationModel {
     return passedAverageDuration;
   }
 
-  public void setPassedAverageDuration(@javax.annotation.Nonnull Double passedAverageDuration) {
+  public void setPassedAverageDuration(Double passedAverageDuration) {
     this.passedAverageDuration = passedAverageDuration;
   }
 
 
-  public AutoTestAverageDurationModel failedAverageDuration(@javax.annotation.Nonnull Double failedAverageDuration) {
+  public AutoTestAverageDurationModel failedAverageDuration(Double failedAverageDuration) {
     this.failedAverageDuration = failedAverageDuration;
     return this;
   }
@@ -96,7 +94,7 @@ public class AutoTestAverageDurationModel {
     return failedAverageDuration;
   }
 
-  public void setFailedAverageDuration(@javax.annotation.Nonnull Double failedAverageDuration) {
+  public void setFailedAverageDuration(Double failedAverageDuration) {
     this.failedAverageDuration = failedAverageDuration;
   }
 

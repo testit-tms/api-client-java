@@ -49,32 +49,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * BackgroundJobAttachmentModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BackgroundJobAttachmentModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private String type;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
-  @javax.annotation.Nonnull
   private Float size;
 
   public BackgroundJobAttachmentModel() {
   }
 
-  public BackgroundJobAttachmentModel id(@javax.annotation.Nonnull UUID id) {
+  public BackgroundJobAttachmentModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -88,12 +84,12 @@ public class BackgroundJobAttachmentModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public BackgroundJobAttachmentModel name(@javax.annotation.Nonnull String name) {
+  public BackgroundJobAttachmentModel name(String name) {
     this.name = name;
     return this;
   }
@@ -107,12 +103,12 @@ public class BackgroundJobAttachmentModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public BackgroundJobAttachmentModel type(@javax.annotation.Nonnull String type) {
+  public BackgroundJobAttachmentModel type(String type) {
     this.type = type;
     return this;
   }
@@ -126,12 +122,12 @@ public class BackgroundJobAttachmentModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public BackgroundJobAttachmentModel size(@javax.annotation.Nonnull Float size) {
+  public BackgroundJobAttachmentModel size(Float size) {
     this.size = size;
     return this;
   }
@@ -145,7 +141,7 @@ public class BackgroundJobAttachmentModel {
     return size;
   }
 
-  public void setSize(@javax.annotation.Nonnull Float size) {
+  public void setSize(Float size) {
     this.size = size;
   }
 

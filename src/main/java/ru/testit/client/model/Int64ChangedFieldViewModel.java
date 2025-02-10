@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * Int64ChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Int64ChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nonnull
   private Long oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nonnull
   private Long newValue;
 
   public Int64ChangedFieldViewModel() {
   }
 
-  public Int64ChangedFieldViewModel oldValue(@javax.annotation.Nonnull Long oldValue) {
+  public Int64ChangedFieldViewModel oldValue(Long oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -77,12 +75,12 @@ public class Int64ChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nonnull Long oldValue) {
+  public void setOldValue(Long oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public Int64ChangedFieldViewModel newValue(@javax.annotation.Nonnull Long newValue) {
+  public Int64ChangedFieldViewModel newValue(Long newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -96,7 +94,7 @@ public class Int64ChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nonnull Long newValue) {
+  public void setNewValue(Long newValue) {
     this.newValue = newValue;
   }
 

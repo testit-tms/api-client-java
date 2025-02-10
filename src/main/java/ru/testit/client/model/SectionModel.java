@@ -51,57 +51,48 @@ import ru.testit.client.invoker.JSON;
 /**
  * SectionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SectionModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nullable
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nullable
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public SectionModel() {
   }
 
-  public SectionModel projectId(@javax.annotation.Nullable UUID projectId) {
+  public SectionModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -115,12 +106,12 @@ public class SectionModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nullable UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public SectionModel parentId(@javax.annotation.Nullable UUID parentId) {
+  public SectionModel parentId(UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -134,12 +125,12 @@ public class SectionModel {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nullable UUID parentId) {
+  public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public SectionModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public SectionModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -153,12 +144,12 @@ public class SectionModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public SectionModel id(@javax.annotation.Nonnull UUID id) {
+  public SectionModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -172,12 +163,12 @@ public class SectionModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SectionModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public SectionModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -191,12 +182,12 @@ public class SectionModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public SectionModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public SectionModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -210,12 +201,12 @@ public class SectionModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public SectionModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public SectionModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -229,12 +220,12 @@ public class SectionModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public SectionModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public SectionModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -248,12 +239,12 @@ public class SectionModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public SectionModel name(@javax.annotation.Nonnull String name) {
+  public SectionModel name(String name) {
     this.name = name;
     return this;
   }
@@ -267,7 +258,7 @@ public class SectionModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

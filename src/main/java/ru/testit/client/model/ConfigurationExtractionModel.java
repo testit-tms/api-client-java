@@ -50,22 +50,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationExtractionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ConfigurationExtractionModel {
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  @javax.annotation.Nullable
   private GuidExtractionModel ids;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private GuidExtractionModel projectIds;
 
   public ConfigurationExtractionModel() {
   }
 
-  public ConfigurationExtractionModel ids(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public ConfigurationExtractionModel ids(GuidExtractionModel ids) {
     this.ids = ids;
     return this;
   }
@@ -79,12 +77,12 @@ public class ConfigurationExtractionModel {
     return ids;
   }
 
-  public void setIds(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public void setIds(GuidExtractionModel ids) {
     this.ids = ids;
   }
 
 
-  public ConfigurationExtractionModel projectIds(@javax.annotation.Nullable GuidExtractionModel projectIds) {
+  public ConfigurationExtractionModel projectIds(GuidExtractionModel projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -98,7 +96,7 @@ public class ConfigurationExtractionModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable GuidExtractionModel projectIds) {
+  public void setProjectIds(GuidExtractionModel projectIds) {
     this.projectIds = projectIds;
   }
 

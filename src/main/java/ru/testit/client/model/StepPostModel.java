@@ -50,37 +50,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * StepPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StepPostModel {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  @javax.annotation.Nullable
   private String action;
 
   public static final String SERIALIZED_NAME_EXPECTED = "expected";
   @SerializedName(SERIALIZED_NAME_EXPECTED)
-  @javax.annotation.Nullable
   private String expected;
 
   public static final String SERIALIZED_NAME_TEST_DATA = "testData";
   @SerializedName(SERIALIZED_NAME_TEST_DATA)
-  @javax.annotation.Nullable
   private String testData;
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
-  @javax.annotation.Nullable
   private String comments;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID workItemId;
 
   public StepPostModel() {
   }
 
-  public StepPostModel action(@javax.annotation.Nullable String action) {
+  public StepPostModel action(String action) {
     this.action = action;
     return this;
   }
@@ -94,12 +89,12 @@ public class StepPostModel {
     return action;
   }
 
-  public void setAction(@javax.annotation.Nullable String action) {
+  public void setAction(String action) {
     this.action = action;
   }
 
 
-  public StepPostModel expected(@javax.annotation.Nullable String expected) {
+  public StepPostModel expected(String expected) {
     this.expected = expected;
     return this;
   }
@@ -113,12 +108,12 @@ public class StepPostModel {
     return expected;
   }
 
-  public void setExpected(@javax.annotation.Nullable String expected) {
+  public void setExpected(String expected) {
     this.expected = expected;
   }
 
 
-  public StepPostModel testData(@javax.annotation.Nullable String testData) {
+  public StepPostModel testData(String testData) {
     this.testData = testData;
     return this;
   }
@@ -132,12 +127,12 @@ public class StepPostModel {
     return testData;
   }
 
-  public void setTestData(@javax.annotation.Nullable String testData) {
+  public void setTestData(String testData) {
     this.testData = testData;
   }
 
 
-  public StepPostModel comments(@javax.annotation.Nullable String comments) {
+  public StepPostModel comments(String comments) {
     this.comments = comments;
     return this;
   }
@@ -151,12 +146,12 @@ public class StepPostModel {
     return comments;
   }
 
-  public void setComments(@javax.annotation.Nullable String comments) {
+  public void setComments(String comments) {
     this.comments = comments;
   }
 
 
-  public StepPostModel workItemId(@javax.annotation.Nullable UUID workItemId) {
+  public StepPostModel workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -170,7 +165,7 @@ public class StepPostModel {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 

@@ -50,32 +50,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeOptionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeOptionModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nullable
   private String value;
 
   public static final String SERIALIZED_NAME_IS_DEFAULT = "isDefault";
   @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
-  @javax.annotation.Nonnull
   private Boolean isDefault;
 
   public CustomAttributeOptionModel() {
   }
 
-  public CustomAttributeOptionModel id(@javax.annotation.Nonnull UUID id) {
+  public CustomAttributeOptionModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -89,12 +85,12 @@ public class CustomAttributeOptionModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributeOptionModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public CustomAttributeOptionModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -108,12 +104,12 @@ public class CustomAttributeOptionModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public CustomAttributeOptionModel value(@javax.annotation.Nullable String value) {
+  public CustomAttributeOptionModel value(String value) {
     this.value = value;
     return this;
   }
@@ -127,12 +123,12 @@ public class CustomAttributeOptionModel {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nullable String value) {
+  public void setValue(String value) {
     this.value = value;
   }
 
 
-  public CustomAttributeOptionModel isDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public CustomAttributeOptionModel isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -146,7 +142,7 @@ public class CustomAttributeOptionModel {
     return isDefault;
   }
 
-  public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
 

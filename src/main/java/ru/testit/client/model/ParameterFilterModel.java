@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ParameterFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ParameterFilterModel {
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public ParameterFilterModel() {
   }
 
-  public ParameterFilterModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public ParameterFilterModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -78,12 +76,12 @@ public class ParameterFilterModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ParameterFilterModel name(@javax.annotation.Nullable String name) {
+  public ParameterFilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -97,7 +95,7 @@ public class ParameterFilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

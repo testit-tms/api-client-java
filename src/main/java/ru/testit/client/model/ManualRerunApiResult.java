@@ -48,17 +48,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * ManualRerunApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ManualRerunApiResult {
   public static final String SERIALIZED_NAME_TEST_RESULTS_COUNT = "testResultsCount";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer testResultsCount;
 
   public ManualRerunApiResult() {
   }
 
-  public ManualRerunApiResult testResultsCount(@javax.annotation.Nonnull Integer testResultsCount) {
+  public ManualRerunApiResult testResultsCount(Integer testResultsCount) {
     this.testResultsCount = testResultsCount;
     return this;
   }
@@ -72,7 +71,7 @@ public class ManualRerunApiResult {
     return testResultsCount;
   }
 
-  public void setTestResultsCount(@javax.annotation.Nonnull Integer testResultsCount) {
+  public void setTestResultsCount(Integer testResultsCount) {
     this.testResultsCount = testResultsCount;
   }
 

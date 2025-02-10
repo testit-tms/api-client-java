@@ -54,82 +54,68 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebHookPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebHookPostModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_EVENT_TYPE = "eventType";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
-  @javax.annotation.Nonnull
   private WebHookEventTypeModel eventType;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
   @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
-  @javax.annotation.Nonnull
   private RequestTypeModel requestType;
 
   public static final String SERIALIZED_NAME_SHOULD_SEND_BODY = "shouldSendBody";
   @SerializedName(SERIALIZED_NAME_SHOULD_SEND_BODY)
-  @javax.annotation.Nonnull
   private Boolean shouldSendBody;
 
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)
-  @javax.annotation.Nonnull
   private Map<String, String> headers = new HashMap<>();
 
   public static final String SERIALIZED_NAME_QUERY_PARAMETERS = "queryParameters";
   @SerializedName(SERIALIZED_NAME_QUERY_PARAMETERS)
-  @javax.annotation.Nonnull
   private Map<String, String> queryParameters = new HashMap<>();
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String SERIALIZED_NAME_SHOULD_SEND_CUSTOM_BODY = "shouldSendCustomBody";
   @SerializedName(SERIALIZED_NAME_SHOULD_SEND_CUSTOM_BODY)
-  @javax.annotation.Nonnull
   private Boolean shouldSendCustomBody;
 
   public static final String SERIALIZED_NAME_CUSTOM_BODY = "customBody";
   @SerializedName(SERIALIZED_NAME_CUSTOM_BODY)
-  @javax.annotation.Nullable
   private String customBody;
 
   public static final String SERIALIZED_NAME_SHOULD_REPLACE_PARAMETERS = "shouldReplaceParameters";
   @SerializedName(SERIALIZED_NAME_SHOULD_REPLACE_PARAMETERS)
-  @javax.annotation.Nonnull
   private Boolean shouldReplaceParameters;
 
   public static final String SERIALIZED_NAME_SHOULD_ESCAPE_PARAMETERS = "shouldEscapeParameters";
   @SerializedName(SERIALIZED_NAME_SHOULD_ESCAPE_PARAMETERS)
-  @javax.annotation.Nonnull
   private Boolean shouldEscapeParameters;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public WebHookPostModel() {
   }
 
-  public WebHookPostModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public WebHookPostModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -143,12 +129,12 @@ public class WebHookPostModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WebHookPostModel eventType(@javax.annotation.Nonnull WebHookEventTypeModel eventType) {
+  public WebHookPostModel eventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -162,12 +148,12 @@ public class WebHookPostModel {
     return eventType;
   }
 
-  public void setEventType(@javax.annotation.Nonnull WebHookEventTypeModel eventType) {
+  public void setEventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
   }
 
 
-  public WebHookPostModel description(@javax.annotation.Nullable String description) {
+  public WebHookPostModel description(String description) {
     this.description = description;
     return this;
   }
@@ -181,12 +167,12 @@ public class WebHookPostModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public WebHookPostModel url(@javax.annotation.Nonnull String url) {
+  public WebHookPostModel url(String url) {
     this.url = url;
     return this;
   }
@@ -200,12 +186,12 @@ public class WebHookPostModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 
 
-  public WebHookPostModel requestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
+  public WebHookPostModel requestType(RequestTypeModel requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -219,12 +205,12 @@ public class WebHookPostModel {
     return requestType;
   }
 
-  public void setRequestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
+  public void setRequestType(RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookPostModel shouldSendBody(@javax.annotation.Nonnull Boolean shouldSendBody) {
+  public WebHookPostModel shouldSendBody(Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
     return this;
   }
@@ -238,12 +224,12 @@ public class WebHookPostModel {
     return shouldSendBody;
   }
 
-  public void setShouldSendBody(@javax.annotation.Nonnull Boolean shouldSendBody) {
+  public void setShouldSendBody(Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
   }
 
 
-  public WebHookPostModel headers(@javax.annotation.Nonnull Map<String, String> headers) {
+  public WebHookPostModel headers(Map<String, String> headers) {
     this.headers = headers;
     return this;
   }
@@ -265,12 +251,12 @@ public class WebHookPostModel {
     return headers;
   }
 
-  public void setHeaders(@javax.annotation.Nonnull Map<String, String> headers) {
+  public void setHeaders(Map<String, String> headers) {
     this.headers = headers;
   }
 
 
-  public WebHookPostModel queryParameters(@javax.annotation.Nonnull Map<String, String> queryParameters) {
+  public WebHookPostModel queryParameters(Map<String, String> queryParameters) {
     this.queryParameters = queryParameters;
     return this;
   }
@@ -292,12 +278,12 @@ public class WebHookPostModel {
     return queryParameters;
   }
 
-  public void setQueryParameters(@javax.annotation.Nonnull Map<String, String> queryParameters) {
+  public void setQueryParameters(Map<String, String> queryParameters) {
     this.queryParameters = queryParameters;
   }
 
 
-  public WebHookPostModel isEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public WebHookPostModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -311,12 +297,12 @@ public class WebHookPostModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public WebHookPostModel shouldSendCustomBody(@javax.annotation.Nonnull Boolean shouldSendCustomBody) {
+  public WebHookPostModel shouldSendCustomBody(Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
     return this;
   }
@@ -330,12 +316,12 @@ public class WebHookPostModel {
     return shouldSendCustomBody;
   }
 
-  public void setShouldSendCustomBody(@javax.annotation.Nonnull Boolean shouldSendCustomBody) {
+  public void setShouldSendCustomBody(Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
   }
 
 
-  public WebHookPostModel customBody(@javax.annotation.Nullable String customBody) {
+  public WebHookPostModel customBody(String customBody) {
     this.customBody = customBody;
     return this;
   }
@@ -349,12 +335,12 @@ public class WebHookPostModel {
     return customBody;
   }
 
-  public void setCustomBody(@javax.annotation.Nullable String customBody) {
+  public void setCustomBody(String customBody) {
     this.customBody = customBody;
   }
 
 
-  public WebHookPostModel shouldReplaceParameters(@javax.annotation.Nonnull Boolean shouldReplaceParameters) {
+  public WebHookPostModel shouldReplaceParameters(Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
     return this;
   }
@@ -368,12 +354,12 @@ public class WebHookPostModel {
     return shouldReplaceParameters;
   }
 
-  public void setShouldReplaceParameters(@javax.annotation.Nonnull Boolean shouldReplaceParameters) {
+  public void setShouldReplaceParameters(Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
   }
 
 
-  public WebHookPostModel shouldEscapeParameters(@javax.annotation.Nonnull Boolean shouldEscapeParameters) {
+  public WebHookPostModel shouldEscapeParameters(Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
     return this;
   }
@@ -387,12 +373,12 @@ public class WebHookPostModel {
     return shouldEscapeParameters;
   }
 
-  public void setShouldEscapeParameters(@javax.annotation.Nonnull Boolean shouldEscapeParameters) {
+  public void setShouldEscapeParameters(Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
   }
 
 
-  public WebHookPostModel name(@javax.annotation.Nonnull String name) {
+  public WebHookPostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -406,7 +392,7 @@ public class WebHookPostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

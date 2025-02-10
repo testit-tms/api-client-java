@@ -55,32 +55,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalFormCreateModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalFormCreateModel {
   public static final String SERIALIZED_NAME_POSSIBLE_VALUES = "possibleValues";
   @SerializedName(SERIALIZED_NAME_POSSIBLE_VALUES)
-  @javax.annotation.Nonnull
   private Map<String, List<ExternalFormAllowedValueModel>> possibleValues = new HashMap<>();
 
   public static final String SERIALIZED_NAME_FIELDS = "fields";
   @SerializedName(SERIALIZED_NAME_FIELDS)
-  @javax.annotation.Nonnull
   private List<ExternalFormFieldModel> fields = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nonnull
   private List<ExternalFormLinkModel> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
-  @javax.annotation.Nonnull
   private Map<String, Object> values = new HashMap<>();
 
   public ExternalFormCreateModel() {
   }
 
-  public ExternalFormCreateModel possibleValues(@javax.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public ExternalFormCreateModel possibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
     return this;
   }
@@ -102,12 +98,12 @@ public class ExternalFormCreateModel {
     return possibleValues;
   }
 
-  public void setPossibleValues(@javax.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public void setPossibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
   }
 
 
-  public ExternalFormCreateModel fields(@javax.annotation.Nonnull List<ExternalFormFieldModel> fields) {
+  public ExternalFormCreateModel fields(List<ExternalFormFieldModel> fields) {
     this.fields = fields;
     return this;
   }
@@ -129,12 +125,12 @@ public class ExternalFormCreateModel {
     return fields;
   }
 
-  public void setFields(@javax.annotation.Nonnull List<ExternalFormFieldModel> fields) {
+  public void setFields(List<ExternalFormFieldModel> fields) {
     this.fields = fields;
   }
 
 
-  public ExternalFormCreateModel links(@javax.annotation.Nonnull List<ExternalFormLinkModel> links) {
+  public ExternalFormCreateModel links(List<ExternalFormLinkModel> links) {
     this.links = links;
     return this;
   }
@@ -156,12 +152,12 @@ public class ExternalFormCreateModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nonnull List<ExternalFormLinkModel> links) {
+  public void setLinks(List<ExternalFormLinkModel> links) {
     this.links = links;
   }
 
 
-  public ExternalFormCreateModel values(@javax.annotation.Nonnull Map<String, Object> values) {
+  public ExternalFormCreateModel values(Map<String, Object> values) {
     this.values = values;
     return this;
   }
@@ -183,7 +179,7 @@ public class ExternalFormCreateModel {
     return values;
   }
 
-  public void setValues(@javax.annotation.Nonnull Map<String, Object> values) {
+  public void setValues(Map<String, Object> values) {
     this.values = values;
   }
 

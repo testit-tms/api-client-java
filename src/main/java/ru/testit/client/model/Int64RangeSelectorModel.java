@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * Int64RangeSelectorModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Int64RangeSelectorModel {
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
-  @javax.annotation.Nullable
   private Long from;
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
-  @javax.annotation.Nullable
   private Long to;
 
   public Int64RangeSelectorModel() {
   }
 
-  public Int64RangeSelectorModel from(@javax.annotation.Nullable Long from) {
+  public Int64RangeSelectorModel from(Long from) {
     this.from = from;
     return this;
   }
@@ -78,12 +76,12 @@ public class Int64RangeSelectorModel {
     return from;
   }
 
-  public void setFrom(@javax.annotation.Nullable Long from) {
+  public void setFrom(Long from) {
     this.from = from;
   }
 
 
-  public Int64RangeSelectorModel to(@javax.annotation.Nullable Long to) {
+  public Int64RangeSelectorModel to(Long to) {
     this.to = to;
     return this;
   }
@@ -97,7 +95,7 @@ public class Int64RangeSelectorModel {
     return to;
   }
 
-  public void setTo(@javax.annotation.Nullable Long to) {
+  public void setTo(Long to) {
     this.to = to;
   }
 

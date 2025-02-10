@@ -58,127 +58,104 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanWithAnalyticModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanWithAnalyticModel {
   public static final String SERIALIZED_NAME_ANALYTIC = "analytic";
   @SerializedName(SERIALIZED_NAME_ANALYTIC)
-  @javax.annotation.Nonnull
   private TestPointAnalyticResult analytic;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private TestPlanStatusModel status;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_LOCKED_DATE = "lockedDate";
   @SerializedName(SERIALIZED_NAME_LOCKED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime lockedDate;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_LOCKED_BY_ID = "lockedById";
   @SerializedName(SERIALIZED_NAME_LOCKED_BY_ID)
-  @javax.annotation.Nullable
   private UUID lockedById;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private List<TagPostModel> tags;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  @javax.annotation.Nullable
   private String build;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  @javax.annotation.Nullable
   private String productName;
 
   public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
-  @javax.annotation.Nullable
   private Boolean hasAutomaticDurationTimer;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public TestPlanWithAnalyticModel() {
   }
 
-  public TestPlanWithAnalyticModel analytic(@javax.annotation.Nonnull TestPointAnalyticResult analytic) {
+  public TestPlanWithAnalyticModel analytic(TestPointAnalyticResult analytic) {
     this.analytic = analytic;
     return this;
   }
@@ -192,12 +169,12 @@ public class TestPlanWithAnalyticModel {
     return analytic;
   }
 
-  public void setAnalytic(@javax.annotation.Nonnull TestPointAnalyticResult analytic) {
+  public void setAnalytic(TestPointAnalyticResult analytic) {
     this.analytic = analytic;
   }
 
 
-  public TestPlanWithAnalyticModel status(@javax.annotation.Nonnull TestPlanStatusModel status) {
+  public TestPlanWithAnalyticModel status(TestPlanStatusModel status) {
     this.status = status;
     return this;
   }
@@ -211,12 +188,12 @@ public class TestPlanWithAnalyticModel {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull TestPlanStatusModel status) {
+  public void setStatus(TestPlanStatusModel status) {
     this.status = status;
   }
 
 
-  public TestPlanWithAnalyticModel startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public TestPlanWithAnalyticModel startedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
@@ -230,12 +207,12 @@ public class TestPlanWithAnalyticModel {
     return startedOn;
   }
 
-  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestPlanWithAnalyticModel completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public TestPlanWithAnalyticModel completedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
@@ -249,12 +226,12 @@ public class TestPlanWithAnalyticModel {
     return completedOn;
   }
 
-  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestPlanWithAnalyticModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public TestPlanWithAnalyticModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -268,12 +245,12 @@ public class TestPlanWithAnalyticModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestPlanWithAnalyticModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public TestPlanWithAnalyticModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -287,12 +264,12 @@ public class TestPlanWithAnalyticModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestPlanWithAnalyticModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestPlanWithAnalyticModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -306,12 +283,12 @@ public class TestPlanWithAnalyticModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanWithAnalyticModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public TestPlanWithAnalyticModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -325,12 +302,12 @@ public class TestPlanWithAnalyticModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestPlanWithAnalyticModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public TestPlanWithAnalyticModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -344,12 +321,12 @@ public class TestPlanWithAnalyticModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public TestPlanWithAnalyticModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestPlanWithAnalyticModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -363,12 +340,12 @@ public class TestPlanWithAnalyticModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestPlanWithAnalyticModel lockedDate(@javax.annotation.Nullable OffsetDateTime lockedDate) {
+  public TestPlanWithAnalyticModel lockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
     return this;
   }
@@ -382,12 +359,12 @@ public class TestPlanWithAnalyticModel {
     return lockedDate;
   }
 
-  public void setLockedDate(@javax.annotation.Nullable OffsetDateTime lockedDate) {
+  public void setLockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
-  public TestPlanWithAnalyticModel id(@javax.annotation.Nonnull UUID id) {
+  public TestPlanWithAnalyticModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -401,12 +378,12 @@ public class TestPlanWithAnalyticModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanWithAnalyticModel lockedById(@javax.annotation.Nullable UUID lockedById) {
+  public TestPlanWithAnalyticModel lockedById(UUID lockedById) {
     this.lockedById = lockedById;
     return this;
   }
@@ -420,12 +397,12 @@ public class TestPlanWithAnalyticModel {
     return lockedById;
   }
 
-  public void setLockedById(@javax.annotation.Nullable UUID lockedById) {
+  public void setLockedById(UUID lockedById) {
     this.lockedById = lockedById;
   }
 
 
-  public TestPlanWithAnalyticModel tags(@javax.annotation.Nullable List<TagPostModel> tags) {
+  public TestPlanWithAnalyticModel tags(List<TagPostModel> tags) {
     this.tags = tags;
     return this;
   }
@@ -447,12 +424,12 @@ public class TestPlanWithAnalyticModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<TagPostModel> tags) {
+  public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
-  public TestPlanWithAnalyticModel name(@javax.annotation.Nonnull String name) {
+  public TestPlanWithAnalyticModel name(String name) {
     this.name = name;
     return this;
   }
@@ -466,12 +443,12 @@ public class TestPlanWithAnalyticModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestPlanWithAnalyticModel startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public TestPlanWithAnalyticModel startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -485,12 +462,12 @@ public class TestPlanWithAnalyticModel {
     return startDate;
   }
 
-  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public TestPlanWithAnalyticModel endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public TestPlanWithAnalyticModel endDate(OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -504,12 +481,12 @@ public class TestPlanWithAnalyticModel {
     return endDate;
   }
 
-  public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
-  public TestPlanWithAnalyticModel description(@javax.annotation.Nullable String description) {
+  public TestPlanWithAnalyticModel description(String description) {
     this.description = description;
     return this;
   }
@@ -523,12 +500,12 @@ public class TestPlanWithAnalyticModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public TestPlanWithAnalyticModel build(@javax.annotation.Nullable String build) {
+  public TestPlanWithAnalyticModel build(String build) {
     this.build = build;
     return this;
   }
@@ -542,12 +519,12 @@ public class TestPlanWithAnalyticModel {
     return build;
   }
 
-  public void setBuild(@javax.annotation.Nullable String build) {
+  public void setBuild(String build) {
     this.build = build;
   }
 
 
-  public TestPlanWithAnalyticModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public TestPlanWithAnalyticModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -561,12 +538,12 @@ public class TestPlanWithAnalyticModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPlanWithAnalyticModel productName(@javax.annotation.Nullable String productName) {
+  public TestPlanWithAnalyticModel productName(String productName) {
     this.productName = productName;
     return this;
   }
@@ -580,12 +557,12 @@ public class TestPlanWithAnalyticModel {
     return productName;
   }
 
-  public void setProductName(@javax.annotation.Nullable String productName) {
+  public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
-  public TestPlanWithAnalyticModel hasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
+  public TestPlanWithAnalyticModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -599,12 +576,12 @@ public class TestPlanWithAnalyticModel {
     return hasAutomaticDurationTimer;
   }
 
-  public void setHasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
-  public TestPlanWithAnalyticModel attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public TestPlanWithAnalyticModel attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -626,7 +603,7 @@ public class TestPlanWithAnalyticModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 

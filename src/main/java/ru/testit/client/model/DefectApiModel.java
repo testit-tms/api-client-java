@@ -48,17 +48,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * DefectApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class DefectApiModel {
   public static final String SERIALIZED_NAME_EXTERNAL_URL = "externalUrl";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_URL)
-  @javax.annotation.Nonnull
   private String externalUrl;
 
   public DefectApiModel() {
   }
 
-  public DefectApiModel externalUrl(@javax.annotation.Nonnull String externalUrl) {
+  public DefectApiModel externalUrl(String externalUrl) {
     this.externalUrl = externalUrl;
     return this;
   }
@@ -72,7 +71,7 @@ public class DefectApiModel {
     return externalUrl;
   }
 
-  public void setExternalUrl(@javax.annotation.Nonnull String externalUrl) {
+  public void setExternalUrl(String externalUrl) {
     this.externalUrl = externalUrl;
   }
 

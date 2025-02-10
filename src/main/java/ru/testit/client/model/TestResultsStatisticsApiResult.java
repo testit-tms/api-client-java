@@ -50,16 +50,14 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultsStatisticsApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultsStatisticsApiResult {
   public static final String SERIALIZED_NAME_STATUSES = "statuses";
   @SerializedName(SERIALIZED_NAME_STATUSES)
-  @javax.annotation.Nonnull
   private TestResultsStatisticsStatusesApiResult statuses;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
-  @javax.annotation.Nonnull
   private TestResultsStatisticsFailureCategoriesApiResult failureCategories;
 
   public TestResultsStatisticsApiResult() {

@@ -54,43 +54,37 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultsLocalFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultsLocalFilterModel {
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  @javax.annotation.Nullable
   private List<TestResultOutcome> outcomes;
 
   public static final String SERIALIZED_NAME_STATUS_CODES = "statusCodes";
   @SerializedName(SERIALIZED_NAME_STATUS_CODES)
-  @javax.annotation.Nullable
   private List<String> statusCodes;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORIES = "failureCategories";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORIES)
-  @javax.annotation.Nullable
   private List<FailureCategoryModel> failureCategories;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
-  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "className";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
-  @javax.annotation.Nullable
   private String className;
 
   public TestResultsLocalFilterModel() {
   }
 
-  public TestResultsLocalFilterModel configurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public TestResultsLocalFilterModel configurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -112,13 +106,13 @@ public class TestResultsLocalFilterModel {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
   @Deprecated
-  public TestResultsLocalFilterModel outcomes(@javax.annotation.Nullable List<TestResultOutcome> outcomes) {
+  public TestResultsLocalFilterModel outcomes(List<TestResultOutcome> outcomes) {
     this.outcomes = outcomes;
     return this;
   }
@@ -143,12 +137,12 @@ public class TestResultsLocalFilterModel {
   }
 
   @Deprecated
-  public void setOutcomes(@javax.annotation.Nullable List<TestResultOutcome> outcomes) {
+  public void setOutcomes(List<TestResultOutcome> outcomes) {
     this.outcomes = outcomes;
   }
 
 
-  public TestResultsLocalFilterModel statusCodes(@javax.annotation.Nullable List<String> statusCodes) {
+  public TestResultsLocalFilterModel statusCodes(List<String> statusCodes) {
     this.statusCodes = statusCodes;
     return this;
   }
@@ -170,12 +164,12 @@ public class TestResultsLocalFilterModel {
     return statusCodes;
   }
 
-  public void setStatusCodes(@javax.annotation.Nullable List<String> statusCodes) {
+  public void setStatusCodes(List<String> statusCodes) {
     this.statusCodes = statusCodes;
   }
 
 
-  public TestResultsLocalFilterModel failureCategories(@javax.annotation.Nullable List<FailureCategoryModel> failureCategories) {
+  public TestResultsLocalFilterModel failureCategories(List<FailureCategoryModel> failureCategories) {
     this.failureCategories = failureCategories;
     return this;
   }
@@ -197,12 +191,12 @@ public class TestResultsLocalFilterModel {
     return failureCategories;
   }
 
-  public void setFailureCategories(@javax.annotation.Nullable List<FailureCategoryModel> failureCategories) {
+  public void setFailureCategories(List<FailureCategoryModel> failureCategories) {
     this.failureCategories = failureCategories;
   }
 
 
-  public TestResultsLocalFilterModel namespace(@javax.annotation.Nullable String namespace) {
+  public TestResultsLocalFilterModel namespace(String namespace) {
     this.namespace = namespace;
     return this;
   }
@@ -216,12 +210,12 @@ public class TestResultsLocalFilterModel {
     return namespace;
   }
 
-  public void setNamespace(@javax.annotation.Nullable String namespace) {
+  public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
-  public TestResultsLocalFilterModel className(@javax.annotation.Nullable String className) {
+  public TestResultsLocalFilterModel className(String className) {
     this.className = className;
     return this;
   }
@@ -235,7 +229,7 @@ public class TestResultsLocalFilterModel {
     return className;
   }
 
-  public void setClassName(@javax.annotation.Nullable String className) {
+  public void setClassName(String className) {
     this.className = className;
   }
 

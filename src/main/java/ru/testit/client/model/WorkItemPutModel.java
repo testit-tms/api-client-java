@@ -62,92 +62,76 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemPutModel {
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nonnull
   private List<AttachmentPutModel> attachments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  @javax.annotation.Nullable
   private List<IterationPutModel> iterations;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  @javax.annotation.Nullable
   private List<AutoTestIdModel> autoTests;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
   @SerializedName(SERIALIZED_NAME_SECTION_ID)
-  @javax.annotation.Nonnull
   private UUID sectionId;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nonnull
   private WorkItemStates state;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  @javax.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPutModel> steps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPutModel> preconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPutModel> postconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nonnull
   private Integer duration;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nonnull
   private List<TagPutModel> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nonnull
   private List<LinkPutModel> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public WorkItemPutModel() {
   }
 
-  public WorkItemPutModel attachments(@javax.annotation.Nonnull List<AttachmentPutModel> attachments) {
+  public WorkItemPutModel attachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -169,12 +153,12 @@ public class WorkItemPutModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nonnull List<AttachmentPutModel> attachments) {
+  public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public WorkItemPutModel iterations(@javax.annotation.Nullable List<IterationPutModel> iterations) {
+  public WorkItemPutModel iterations(List<IterationPutModel> iterations) {
     this.iterations = iterations;
     return this;
   }
@@ -196,12 +180,12 @@ public class WorkItemPutModel {
     return iterations;
   }
 
-  public void setIterations(@javax.annotation.Nullable List<IterationPutModel> iterations) {
+  public void setIterations(List<IterationPutModel> iterations) {
     this.iterations = iterations;
   }
 
 
-  public WorkItemPutModel autoTests(@javax.annotation.Nullable List<AutoTestIdModel> autoTests) {
+  public WorkItemPutModel autoTests(List<AutoTestIdModel> autoTests) {
     this.autoTests = autoTests;
     return this;
   }
@@ -223,12 +207,12 @@ public class WorkItemPutModel {
     return autoTests;
   }
 
-  public void setAutoTests(@javax.annotation.Nullable List<AutoTestIdModel> autoTests) {
+  public void setAutoTests(List<AutoTestIdModel> autoTests) {
     this.autoTests = autoTests;
   }
 
 
-  public WorkItemPutModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -242,12 +226,12 @@ public class WorkItemPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemPutModel sectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public WorkItemPutModel sectionId(UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -261,12 +245,12 @@ public class WorkItemPutModel {
     return sectionId;
   }
 
-  public void setSectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public WorkItemPutModel description(@javax.annotation.Nullable String description) {
+  public WorkItemPutModel description(String description) {
     this.description = description;
     return this;
   }
@@ -280,12 +264,12 @@ public class WorkItemPutModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public WorkItemPutModel state(@javax.annotation.Nonnull WorkItemStates state) {
+  public WorkItemPutModel state(WorkItemStates state) {
     this.state = state;
     return this;
   }
@@ -299,12 +283,12 @@ public class WorkItemPutModel {
     return state;
   }
 
-  public void setState(@javax.annotation.Nonnull WorkItemStates state) {
+  public void setState(WorkItemStates state) {
     this.state = state;
   }
 
 
-  public WorkItemPutModel priority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public WorkItemPutModel priority(WorkItemPriorityModel priority) {
     this.priority = priority;
     return this;
   }
@@ -318,12 +302,12 @@ public class WorkItemPutModel {
     return priority;
   }
 
-  public void setPriority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public WorkItemPutModel steps(@javax.annotation.Nonnull List<StepPutModel> steps) {
+  public WorkItemPutModel steps(List<StepPutModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -345,12 +329,12 @@ public class WorkItemPutModel {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nonnull List<StepPutModel> steps) {
+  public void setSteps(List<StepPutModel> steps) {
     this.steps = steps;
   }
 
 
-  public WorkItemPutModel preconditionSteps(@javax.annotation.Nonnull List<StepPutModel> preconditionSteps) {
+  public WorkItemPutModel preconditionSteps(List<StepPutModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -372,12 +356,12 @@ public class WorkItemPutModel {
     return preconditionSteps;
   }
 
-  public void setPreconditionSteps(@javax.annotation.Nonnull List<StepPutModel> preconditionSteps) {
+  public void setPreconditionSteps(List<StepPutModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public WorkItemPutModel postconditionSteps(@javax.annotation.Nonnull List<StepPutModel> postconditionSteps) {
+  public WorkItemPutModel postconditionSteps(List<StepPutModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -399,12 +383,12 @@ public class WorkItemPutModel {
     return postconditionSteps;
   }
 
-  public void setPostconditionSteps(@javax.annotation.Nonnull List<StepPutModel> postconditionSteps) {
+  public void setPostconditionSteps(List<StepPutModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public WorkItemPutModel duration(@javax.annotation.Nonnull Integer duration) {
+  public WorkItemPutModel duration(Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -420,12 +404,12 @@ public class WorkItemPutModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nonnull Integer duration) {
+  public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemPutModel attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public WorkItemPutModel attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -447,12 +431,12 @@ public class WorkItemPutModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public WorkItemPutModel tags(@javax.annotation.Nonnull List<TagPutModel> tags) {
+  public WorkItemPutModel tags(List<TagPutModel> tags) {
     this.tags = tags;
     return this;
   }
@@ -474,12 +458,12 @@ public class WorkItemPutModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nonnull List<TagPutModel> tags) {
+  public void setTags(List<TagPutModel> tags) {
     this.tags = tags;
   }
 
 
-  public WorkItemPutModel links(@javax.annotation.Nonnull List<LinkPutModel> links) {
+  public WorkItemPutModel links(List<LinkPutModel> links) {
     this.links = links;
     return this;
   }
@@ -501,12 +485,12 @@ public class WorkItemPutModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nonnull List<LinkPutModel> links) {
+  public void setLinks(List<LinkPutModel> links) {
     this.links = links;
   }
 
 
-  public WorkItemPutModel name(@javax.annotation.Nonnull String name) {
+  public WorkItemPutModel name(String name) {
     this.name = name;
     return this;
   }
@@ -520,7 +504,7 @@ public class WorkItemPutModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

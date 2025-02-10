@@ -57,152 +57,124 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestModel {
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_MUST_BE_APPROVED = "mustBeApproved";
   @SerializedName(SERIALIZED_NAME_MUST_BE_APPROVED)
-  @javax.annotation.Nonnull
   private Boolean mustBeApproved;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RUN_ID = "lastTestRunId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RUN_ID)
-  @javax.annotation.Nullable
   private UUID lastTestRunId;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RUN_NAME = "lastTestRunName";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RUN_NAME)
-  @javax.annotation.Nullable
   private String lastTestRunName;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
-  @javax.annotation.Nullable
   private UUID lastTestResultId;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION = "lastTestResultConfiguration";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION)
-  @javax.annotation.Nullable
   private ConfigurationShortModel lastTestResultConfiguration;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME = "lastTestResultOutcome";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME)
-  @javax.annotation.Nullable
   private String lastTestResultOutcome;
 
   public static final String SERIALIZED_NAME_STABILITY_PERCENTAGE = "stabilityPercentage";
   @SerializedName(SERIALIZED_NAME_STABILITY_PERCENTAGE)
-  @javax.annotation.Nullable
   private Integer stabilityPercentage;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<LinkPutModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
-  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_CLASSNAME = "classname";
   @SerializedName(SERIALIZED_NAME_CLASSNAME)
-  @javax.annotation.Nullable
   private String classname;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  @javax.annotation.Nullable
   private List<LabelShortModel> labels;
 
   public static final String SERIALIZED_NAME_IS_FLAKY = "isFlaky";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY)
-  @javax.annotation.Nullable
   private Boolean isFlaky;
 
   public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
-  @javax.annotation.Nullable
   private String externalKey;
 
   public AutoTestModel() {
   }
 
-  public AutoTestModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public AutoTestModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -216,12 +188,12 @@ public class AutoTestModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public AutoTestModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public AutoTestModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -235,12 +207,12 @@ public class AutoTestModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public AutoTestModel mustBeApproved(@javax.annotation.Nonnull Boolean mustBeApproved) {
+  public AutoTestModel mustBeApproved(Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
     return this;
   }
@@ -254,12 +226,12 @@ public class AutoTestModel {
     return mustBeApproved;
   }
 
-  public void setMustBeApproved(@javax.annotation.Nonnull Boolean mustBeApproved) {
+  public void setMustBeApproved(Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
   }
 
 
-  public AutoTestModel id(@javax.annotation.Nonnull UUID id) {
+  public AutoTestModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -273,12 +245,12 @@ public class AutoTestModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public AutoTestModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -292,12 +264,12 @@ public class AutoTestModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutoTestModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public AutoTestModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -311,12 +283,12 @@ public class AutoTestModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public AutoTestModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public AutoTestModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -330,12 +302,12 @@ public class AutoTestModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AutoTestModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public AutoTestModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -349,12 +321,12 @@ public class AutoTestModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public AutoTestModel lastTestRunId(@javax.annotation.Nullable UUID lastTestRunId) {
+  public AutoTestModel lastTestRunId(UUID lastTestRunId) {
     this.lastTestRunId = lastTestRunId;
     return this;
   }
@@ -368,12 +340,12 @@ public class AutoTestModel {
     return lastTestRunId;
   }
 
-  public void setLastTestRunId(@javax.annotation.Nullable UUID lastTestRunId) {
+  public void setLastTestRunId(UUID lastTestRunId) {
     this.lastTestRunId = lastTestRunId;
   }
 
 
-  public AutoTestModel lastTestRunName(@javax.annotation.Nullable String lastTestRunName) {
+  public AutoTestModel lastTestRunName(String lastTestRunName) {
     this.lastTestRunName = lastTestRunName;
     return this;
   }
@@ -387,12 +359,12 @@ public class AutoTestModel {
     return lastTestRunName;
   }
 
-  public void setLastTestRunName(@javax.annotation.Nullable String lastTestRunName) {
+  public void setLastTestRunName(String lastTestRunName) {
     this.lastTestRunName = lastTestRunName;
   }
 
 
-  public AutoTestModel lastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+  public AutoTestModel lastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
     return this;
   }
@@ -406,12 +378,12 @@ public class AutoTestModel {
     return lastTestResultId;
   }
 
-  public void setLastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+  public void setLastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
   }
 
 
-  public AutoTestModel lastTestResultConfiguration(@javax.annotation.Nullable ConfigurationShortModel lastTestResultConfiguration) {
+  public AutoTestModel lastTestResultConfiguration(ConfigurationShortModel lastTestResultConfiguration) {
     this.lastTestResultConfiguration = lastTestResultConfiguration;
     return this;
   }
@@ -425,12 +397,12 @@ public class AutoTestModel {
     return lastTestResultConfiguration;
   }
 
-  public void setLastTestResultConfiguration(@javax.annotation.Nullable ConfigurationShortModel lastTestResultConfiguration) {
+  public void setLastTestResultConfiguration(ConfigurationShortModel lastTestResultConfiguration) {
     this.lastTestResultConfiguration = lastTestResultConfiguration;
   }
 
 
-  public AutoTestModel lastTestResultOutcome(@javax.annotation.Nullable String lastTestResultOutcome) {
+  public AutoTestModel lastTestResultOutcome(String lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
     return this;
   }
@@ -444,12 +416,12 @@ public class AutoTestModel {
     return lastTestResultOutcome;
   }
 
-  public void setLastTestResultOutcome(@javax.annotation.Nullable String lastTestResultOutcome) {
+  public void setLastTestResultOutcome(String lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
   }
 
 
-  public AutoTestModel stabilityPercentage(@javax.annotation.Nullable Integer stabilityPercentage) {
+  public AutoTestModel stabilityPercentage(Integer stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
     return this;
   }
@@ -463,12 +435,12 @@ public class AutoTestModel {
     return stabilityPercentage;
   }
 
-  public void setStabilityPercentage(@javax.annotation.Nullable Integer stabilityPercentage) {
+  public void setStabilityPercentage(Integer stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
   }
 
 
-  public AutoTestModel externalId(@javax.annotation.Nonnull String externalId) {
+  public AutoTestModel externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -482,12 +454,12 @@ public class AutoTestModel {
     return externalId;
   }
 
-  public void setExternalId(@javax.annotation.Nonnull String externalId) {
+  public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestModel links(@javax.annotation.Nullable List<LinkPutModel> links) {
+  public AutoTestModel links(List<LinkPutModel> links) {
     this.links = links;
     return this;
   }
@@ -509,12 +481,12 @@ public class AutoTestModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<LinkPutModel> links) {
+  public void setLinks(List<LinkPutModel> links) {
     this.links = links;
   }
 
 
-  public AutoTestModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public AutoTestModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -528,12 +500,12 @@ public class AutoTestModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestModel name(@javax.annotation.Nonnull String name) {
+  public AutoTestModel name(String name) {
     this.name = name;
     return this;
   }
@@ -547,12 +519,12 @@ public class AutoTestModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AutoTestModel namespace(@javax.annotation.Nullable String namespace) {
+  public AutoTestModel namespace(String namespace) {
     this.namespace = namespace;
     return this;
   }
@@ -566,12 +538,12 @@ public class AutoTestModel {
     return namespace;
   }
 
-  public void setNamespace(@javax.annotation.Nullable String namespace) {
+  public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
-  public AutoTestModel classname(@javax.annotation.Nullable String classname) {
+  public AutoTestModel classname(String classname) {
     this.classname = classname;
     return this;
   }
@@ -585,12 +557,12 @@ public class AutoTestModel {
     return classname;
   }
 
-  public void setClassname(@javax.annotation.Nullable String classname) {
+  public void setClassname(String classname) {
     this.classname = classname;
   }
 
 
-  public AutoTestModel steps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
+  public AutoTestModel steps(List<AutoTestStepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -612,12 +584,12 @@ public class AutoTestModel {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
+  public void setSteps(List<AutoTestStepModel> steps) {
     this.steps = steps;
   }
 
 
-  public AutoTestModel setup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
+  public AutoTestModel setup(List<AutoTestStepModel> setup) {
     this.setup = setup;
     return this;
   }
@@ -639,12 +611,12 @@ public class AutoTestModel {
     return setup;
   }
 
-  public void setSetup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
+  public void setSetup(List<AutoTestStepModel> setup) {
     this.setup = setup;
   }
 
 
-  public AutoTestModel teardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
+  public AutoTestModel teardown(List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
     return this;
   }
@@ -666,12 +638,12 @@ public class AutoTestModel {
     return teardown;
   }
 
-  public void setTeardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
+  public void setTeardown(List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
   }
 
 
-  public AutoTestModel title(@javax.annotation.Nullable String title) {
+  public AutoTestModel title(String title) {
     this.title = title;
     return this;
   }
@@ -685,12 +657,12 @@ public class AutoTestModel {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public AutoTestModel description(@javax.annotation.Nullable String description) {
+  public AutoTestModel description(String description) {
     this.description = description;
     return this;
   }
@@ -704,12 +676,12 @@ public class AutoTestModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public AutoTestModel labels(@javax.annotation.Nullable List<LabelShortModel> labels) {
+  public AutoTestModel labels(List<LabelShortModel> labels) {
     this.labels = labels;
     return this;
   }
@@ -731,12 +703,12 @@ public class AutoTestModel {
     return labels;
   }
 
-  public void setLabels(@javax.annotation.Nullable List<LabelShortModel> labels) {
+  public void setLabels(List<LabelShortModel> labels) {
     this.labels = labels;
   }
 
 
-  public AutoTestModel isFlaky(@javax.annotation.Nullable Boolean isFlaky) {
+  public AutoTestModel isFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
     return this;
   }
@@ -750,12 +722,12 @@ public class AutoTestModel {
     return isFlaky;
   }
 
-  public void setIsFlaky(@javax.annotation.Nullable Boolean isFlaky) {
+  public void setIsFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
-  public AutoTestModel externalKey(@javax.annotation.Nullable String externalKey) {
+  public AutoTestModel externalKey(String externalKey) {
     this.externalKey = externalKey;
     return this;
   }
@@ -769,7 +741,7 @@ public class AutoTestModel {
     return externalKey;
   }
 
-  public void setExternalKey(@javax.annotation.Nullable String externalKey) {
+  public void setExternalKey(String externalKey) {
     this.externalKey = externalKey;
   }
 

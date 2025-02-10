@@ -50,37 +50,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectShortestModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectShortestModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private ProjectTypeModel type;
 
   public ProjectShortestModel() {
   }
 
-  public ProjectShortestModel id(@javax.annotation.Nonnull UUID id) {
+  public ProjectShortestModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -94,12 +89,12 @@ public class ProjectShortestModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public ProjectShortestModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public ProjectShortestModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -113,12 +108,12 @@ public class ProjectShortestModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectShortestModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public ProjectShortestModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -132,12 +127,12 @@ public class ProjectShortestModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public ProjectShortestModel name(@javax.annotation.Nonnull String name) {
+  public ProjectShortestModel name(String name) {
     this.name = name;
     return this;
   }
@@ -151,12 +146,12 @@ public class ProjectShortestModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectShortestModel type(@javax.annotation.Nonnull ProjectTypeModel type) {
+  public ProjectShortestModel type(ProjectTypeModel type) {
     this.type = type;
     return this;
   }
@@ -170,7 +165,7 @@ public class ProjectShortestModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull ProjectTypeModel type) {
+  public void setType(ProjectTypeModel type) {
     this.type = type;
   }
 

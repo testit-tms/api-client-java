@@ -52,22 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * IterationPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class IterationPutModel {
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nonnull
   private List<ParameterIterationModel> parameters = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public IterationPutModel() {
   }
 
-  public IterationPutModel parameters(@javax.annotation.Nonnull List<ParameterIterationModel> parameters) {
+  public IterationPutModel parameters(List<ParameterIterationModel> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -89,12 +87,12 @@ public class IterationPutModel {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nonnull List<ParameterIterationModel> parameters) {
+  public void setParameters(List<ParameterIterationModel> parameters) {
     this.parameters = parameters;
   }
 
 
-  public IterationPutModel id(@javax.annotation.Nonnull UUID id) {
+  public IterationPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -108,7 +106,7 @@ public class IterationPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

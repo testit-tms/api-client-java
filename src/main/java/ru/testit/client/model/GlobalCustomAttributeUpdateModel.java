@@ -52,32 +52,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * GlobalCustomAttributeUpdateModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GlobalCustomAttributeUpdateModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  @javax.annotation.Nullable
   private List<CustomAttributeOptionModel> options;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nullable
   private Boolean isEnabled;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  @javax.annotation.Nullable
   private Boolean isRequired;
 
   public GlobalCustomAttributeUpdateModel() {
   }
 
-  public GlobalCustomAttributeUpdateModel name(@javax.annotation.Nonnull String name) {
+  public GlobalCustomAttributeUpdateModel name(String name) {
     this.name = name;
     return this;
   }
@@ -91,12 +87,12 @@ public class GlobalCustomAttributeUpdateModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public GlobalCustomAttributeUpdateModel options(@javax.annotation.Nullable List<CustomAttributeOptionModel> options) {
+  public GlobalCustomAttributeUpdateModel options(List<CustomAttributeOptionModel> options) {
     this.options = options;
     return this;
   }
@@ -118,12 +114,12 @@ public class GlobalCustomAttributeUpdateModel {
     return options;
   }
 
-  public void setOptions(@javax.annotation.Nullable List<CustomAttributeOptionModel> options) {
+  public void setOptions(List<CustomAttributeOptionModel> options) {
     this.options = options;
   }
 
 
-  public GlobalCustomAttributeUpdateModel isEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public GlobalCustomAttributeUpdateModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -137,12 +133,12 @@ public class GlobalCustomAttributeUpdateModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public GlobalCustomAttributeUpdateModel isRequired(@javax.annotation.Nullable Boolean isRequired) {
+  public GlobalCustomAttributeUpdateModel isRequired(Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -156,7 +152,7 @@ public class GlobalCustomAttributeUpdateModel {
     return isRequired;
   }
 
-  public void setIsRequired(@javax.annotation.Nullable Boolean isRequired) {
+  public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
 

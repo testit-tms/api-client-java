@@ -51,42 +51,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * UpdateLinkApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateLinkApiModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nullable
   private UUID id;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
   private LinkType type;
 
   public static final String SERIALIZED_NAME_HAS_INFO = "hasInfo";
   @SerializedName(SERIALIZED_NAME_HAS_INFO)
-  @javax.annotation.Nonnull
   private Boolean hasInfo;
 
   public UpdateLinkApiModel() {
   }
 
-  public UpdateLinkApiModel id(@javax.annotation.Nullable UUID id) {
+  public UpdateLinkApiModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -100,12 +94,12 @@ public class UpdateLinkApiModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nullable UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public UpdateLinkApiModel title(@javax.annotation.Nullable String title) {
+  public UpdateLinkApiModel title(String title) {
     this.title = title;
     return this;
   }
@@ -119,12 +113,12 @@ public class UpdateLinkApiModel {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public UpdateLinkApiModel url(@javax.annotation.Nonnull String url) {
+  public UpdateLinkApiModel url(String url) {
     this.url = url;
     return this;
   }
@@ -138,12 +132,12 @@ public class UpdateLinkApiModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 
 
-  public UpdateLinkApiModel description(@javax.annotation.Nullable String description) {
+  public UpdateLinkApiModel description(String description) {
     this.description = description;
     return this;
   }
@@ -157,12 +151,12 @@ public class UpdateLinkApiModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public UpdateLinkApiModel type(@javax.annotation.Nullable LinkType type) {
+  public UpdateLinkApiModel type(LinkType type) {
     this.type = type;
     return this;
   }
@@ -176,12 +170,12 @@ public class UpdateLinkApiModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable LinkType type) {
+  public void setType(LinkType type) {
     this.type = type;
   }
 
 
-  public UpdateLinkApiModel hasInfo(@javax.annotation.Nonnull Boolean hasInfo) {
+  public UpdateLinkApiModel hasInfo(Boolean hasInfo) {
     this.hasInfo = hasInfo;
     return this;
   }
@@ -195,7 +189,7 @@ public class UpdateLinkApiModel {
     return hasInfo;
   }
 
-  public void setHasInfo(@javax.annotation.Nonnull Boolean hasInfo) {
+  public void setHasInfo(Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 

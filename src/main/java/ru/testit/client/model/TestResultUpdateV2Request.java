@@ -58,84 +58,70 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultUpdateV2Request
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultUpdateV2Request {
   public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
-  @javax.annotation.Nullable
   private List<UUID> failureClassIds;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nullable
   private TestResultOutcome outcome;
 
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
-  @javax.annotation.Nullable
   private String statusCode;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<Link> links;
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  @javax.annotation.Nullable
   private List<StepResult> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentUpdateRequest> attachments;
 
   public static final String SERIALIZED_NAME_DURATION_IN_MS = "durationInMs";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_DURATION_IN_MS)
-  @javax.annotation.Nullable
   private Long durationInMs;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_STEP_COMMENTS = "stepComments";
   @SerializedName(SERIALIZED_NAME_STEP_COMMENTS)
-  @javax.annotation.Nullable
   private List<TestResultStepCommentUpdateRequest> stepComments;
 
   public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
   @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
-  @javax.annotation.Nullable
   private List<AttachmentPutModelAutoTestStepResultsModel> setupResults;
 
   public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
   @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
-  @javax.annotation.Nullable
   private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_TRACE = "trace";
   @SerializedName(SERIALIZED_NAME_TRACE)
-  @javax.annotation.Nullable
   private String trace;
 
   public TestResultUpdateV2Request() {
   }
 
-  public TestResultUpdateV2Request failureClassIds(@javax.annotation.Nullable List<UUID> failureClassIds) {
+  public TestResultUpdateV2Request failureClassIds(List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
     return this;
   }
@@ -157,13 +143,13 @@ public class TestResultUpdateV2Request {
     return failureClassIds;
   }
 
-  public void setFailureClassIds(@javax.annotation.Nullable List<UUID> failureClassIds) {
+  public void setFailureClassIds(List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
   }
 
 
   @Deprecated
-  public TestResultUpdateV2Request outcome(@javax.annotation.Nullable TestResultOutcome outcome) {
+  public TestResultUpdateV2Request outcome(TestResultOutcome outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -180,12 +166,12 @@ public class TestResultUpdateV2Request {
   }
 
   @Deprecated
-  public void setOutcome(@javax.annotation.Nullable TestResultOutcome outcome) {
+  public void setOutcome(TestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultUpdateV2Request statusCode(@javax.annotation.Nullable String statusCode) {
+  public TestResultUpdateV2Request statusCode(String statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -199,12 +185,12 @@ public class TestResultUpdateV2Request {
     return statusCode;
   }
 
-  public void setStatusCode(@javax.annotation.Nullable String statusCode) {
+  public void setStatusCode(String statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public TestResultUpdateV2Request comment(@javax.annotation.Nullable String comment) {
+  public TestResultUpdateV2Request comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -218,12 +204,12 @@ public class TestResultUpdateV2Request {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nullable String comment) {
+  public void setComment(String comment) {
     this.comment = comment;
   }
 
 
-  public TestResultUpdateV2Request links(@javax.annotation.Nullable List<Link> links) {
+  public TestResultUpdateV2Request links(List<Link> links) {
     this.links = links;
     return this;
   }
@@ -245,12 +231,12 @@ public class TestResultUpdateV2Request {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<Link> links) {
+  public void setLinks(List<Link> links) {
     this.links = links;
   }
 
 
-  public TestResultUpdateV2Request stepResults(@javax.annotation.Nullable List<StepResult> stepResults) {
+  public TestResultUpdateV2Request stepResults(List<StepResult> stepResults) {
     this.stepResults = stepResults;
     return this;
   }
@@ -272,12 +258,12 @@ public class TestResultUpdateV2Request {
     return stepResults;
   }
 
-  public void setStepResults(@javax.annotation.Nullable List<StepResult> stepResults) {
+  public void setStepResults(List<StepResult> stepResults) {
     this.stepResults = stepResults;
   }
 
 
-  public TestResultUpdateV2Request attachments(@javax.annotation.Nullable List<AttachmentUpdateRequest> attachments) {
+  public TestResultUpdateV2Request attachments(List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -299,13 +285,13 @@ public class TestResultUpdateV2Request {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentUpdateRequest> attachments) {
+  public void setAttachments(List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
   }
 
 
   @Deprecated
-  public TestResultUpdateV2Request durationInMs(@javax.annotation.Nullable Long durationInMs) {
+  public TestResultUpdateV2Request durationInMs(Long durationInMs) {
     this.durationInMs = durationInMs;
     return this;
   }
@@ -323,12 +309,12 @@ public class TestResultUpdateV2Request {
   }
 
   @Deprecated
-  public void setDurationInMs(@javax.annotation.Nullable Long durationInMs) {
+  public void setDurationInMs(Long durationInMs) {
     this.durationInMs = durationInMs;
   }
 
 
-  public TestResultUpdateV2Request duration(@javax.annotation.Nullable Long duration) {
+  public TestResultUpdateV2Request duration(Long duration) {
     this.duration = duration;
     return this;
   }
@@ -343,12 +329,12 @@ public class TestResultUpdateV2Request {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nullable Long duration) {
+  public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
-  public TestResultUpdateV2Request stepComments(@javax.annotation.Nullable List<TestResultStepCommentUpdateRequest> stepComments) {
+  public TestResultUpdateV2Request stepComments(List<TestResultStepCommentUpdateRequest> stepComments) {
     this.stepComments = stepComments;
     return this;
   }
@@ -370,12 +356,12 @@ public class TestResultUpdateV2Request {
     return stepComments;
   }
 
-  public void setStepComments(@javax.annotation.Nullable List<TestResultStepCommentUpdateRequest> stepComments) {
+  public void setStepComments(List<TestResultStepCommentUpdateRequest> stepComments) {
     this.stepComments = stepComments;
   }
 
 
-  public TestResultUpdateV2Request setupResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public TestResultUpdateV2Request setupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = setupResults;
     return this;
   }
@@ -397,12 +383,12 @@ public class TestResultUpdateV2Request {
     return setupResults;
   }
 
-  public void setSetupResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public void setSetupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = setupResults;
   }
 
 
-  public TestResultUpdateV2Request teardownResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public TestResultUpdateV2Request teardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = teardownResults;
     return this;
   }
@@ -424,12 +410,12 @@ public class TestResultUpdateV2Request {
     return teardownResults;
   }
 
-  public void setTeardownResults(@javax.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public void setTeardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = teardownResults;
   }
 
 
-  public TestResultUpdateV2Request message(@javax.annotation.Nullable String message) {
+  public TestResultUpdateV2Request message(String message) {
     this.message = message;
     return this;
   }
@@ -443,12 +429,12 @@ public class TestResultUpdateV2Request {
     return message;
   }
 
-  public void setMessage(@javax.annotation.Nullable String message) {
+  public void setMessage(String message) {
     this.message = message;
   }
 
 
-  public TestResultUpdateV2Request trace(@javax.annotation.Nullable String trace) {
+  public TestResultUpdateV2Request trace(String trace) {
     this.trace = trace;
     return this;
   }
@@ -462,7 +448,7 @@ public class TestResultUpdateV2Request {
     return trace;
   }
 
-  public void setTrace(@javax.annotation.Nullable String trace) {
+  public void setTrace(String trace) {
     this.trace = trace;
   }
 

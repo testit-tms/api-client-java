@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemCommentPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemCommentPostModel {
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
-  @javax.annotation.Nonnull
   private String text;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nonnull
   private UUID workItemId;
 
   public WorkItemCommentPostModel() {
   }
 
-  public WorkItemCommentPostModel text(@javax.annotation.Nonnull String text) {
+  public WorkItemCommentPostModel text(String text) {
     this.text = text;
     return this;
   }
@@ -78,12 +76,12 @@ public class WorkItemCommentPostModel {
     return text;
   }
 
-  public void setText(@javax.annotation.Nonnull String text) {
+  public void setText(String text) {
     this.text = text;
   }
 
 
-  public WorkItemCommentPostModel workItemId(@javax.annotation.Nonnull UUID workItemId) {
+  public WorkItemCommentPostModel workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -97,7 +95,7 @@ public class WorkItemCommentPostModel {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nonnull UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 

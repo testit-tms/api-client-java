@@ -49,32 +49,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * GlobalSearchRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GlobalSearchRequest {
   public static final String SERIALIZED_NAME_QUERY = "query";
   @SerializedName(SERIALIZED_NAME_QUERY)
-  @javax.annotation.Nonnull
   private String query;
 
   public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resourceType";
   @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
-  @javax.annotation.Nullable
   private String resourceType;
 
   public static final String SERIALIZED_NAME_TAKE = "take";
   @SerializedName(SERIALIZED_NAME_TAKE)
-  @javax.annotation.Nonnull
   private Integer take;
 
   public static final String SERIALIZED_NAME_SKIP = "skip";
   @SerializedName(SERIALIZED_NAME_SKIP)
-  @javax.annotation.Nonnull
   private Integer skip;
 
   public GlobalSearchRequest() {
   }
 
-  public GlobalSearchRequest query(@javax.annotation.Nonnull String query) {
+  public GlobalSearchRequest query(String query) {
     this.query = query;
     return this;
   }
@@ -88,12 +84,12 @@ public class GlobalSearchRequest {
     return query;
   }
 
-  public void setQuery(@javax.annotation.Nonnull String query) {
+  public void setQuery(String query) {
     this.query = query;
   }
 
 
-  public GlobalSearchRequest resourceType(@javax.annotation.Nullable String resourceType) {
+  public GlobalSearchRequest resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -107,12 +103,12 @@ public class GlobalSearchRequest {
     return resourceType;
   }
 
-  public void setResourceType(@javax.annotation.Nullable String resourceType) {
+  public void setResourceType(String resourceType) {
     this.resourceType = resourceType;
   }
 
 
-  public GlobalSearchRequest take(@javax.annotation.Nonnull Integer take) {
+  public GlobalSearchRequest take(Integer take) {
     this.take = take;
     return this;
   }
@@ -126,12 +122,12 @@ public class GlobalSearchRequest {
     return take;
   }
 
-  public void setTake(@javax.annotation.Nonnull Integer take) {
+  public void setTake(Integer take) {
     this.take = take;
   }
 
 
-  public GlobalSearchRequest skip(@javax.annotation.Nonnull Integer skip) {
+  public GlobalSearchRequest skip(Integer skip) {
     this.skip = skip;
     return this;
   }
@@ -145,7 +141,7 @@ public class GlobalSearchRequest {
     return skip;
   }
 
-  public void setSkip(@javax.annotation.Nonnull Integer skip) {
+  public void setSkip(Integer skip) {
     this.skip = skip;
   }
 

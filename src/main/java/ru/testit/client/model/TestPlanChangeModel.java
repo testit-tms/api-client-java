@@ -52,37 +52,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanChangeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanChangeModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_CHANGED_FIELDS = "testPlanChangedFields";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_CHANGED_FIELDS)
-  @javax.annotation.Nonnull
   private TestPlanChangedFieldsViewModel testPlanChangedFields;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public TestPlanChangeModel() {
   }
 
-  public TestPlanChangeModel id(@javax.annotation.Nonnull UUID id) {
+  public TestPlanChangeModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -96,12 +91,12 @@ public class TestPlanChangeModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanChangeModel testPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public TestPlanChangeModel testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -115,12 +110,12 @@ public class TestPlanChangeModel {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestPlanChangeModel testPlanChangedFields(@javax.annotation.Nonnull TestPlanChangedFieldsViewModel testPlanChangedFields) {
+  public TestPlanChangeModel testPlanChangedFields(TestPlanChangedFieldsViewModel testPlanChangedFields) {
     this.testPlanChangedFields = testPlanChangedFields;
     return this;
   }
@@ -134,12 +129,12 @@ public class TestPlanChangeModel {
     return testPlanChangedFields;
   }
 
-  public void setTestPlanChangedFields(@javax.annotation.Nonnull TestPlanChangedFieldsViewModel testPlanChangedFields) {
+  public void setTestPlanChangedFields(TestPlanChangedFieldsViewModel testPlanChangedFields) {
     this.testPlanChangedFields = testPlanChangedFields;
   }
 
 
-  public TestPlanChangeModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestPlanChangeModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -153,12 +148,12 @@ public class TestPlanChangeModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanChangeModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public TestPlanChangeModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -172,7 +167,7 @@ public class TestPlanChangeModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 

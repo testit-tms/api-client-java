@@ -52,32 +52,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ConfigurationFilterModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public ConfigurationFilterModel() {
   }
 
-  public ConfigurationFilterModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public ConfigurationFilterModel projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -99,12 +95,12 @@ public class ConfigurationFilterModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public ConfigurationFilterModel name(@javax.annotation.Nullable String name) {
+  public ConfigurationFilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -118,12 +114,12 @@ public class ConfigurationFilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ConfigurationFilterModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public ConfigurationFilterModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -137,12 +133,12 @@ public class ConfigurationFilterModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ConfigurationFilterModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public ConfigurationFilterModel globalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -164,7 +160,7 @@ public class ConfigurationFilterModel {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 

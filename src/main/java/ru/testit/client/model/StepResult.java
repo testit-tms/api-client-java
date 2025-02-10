@@ -54,37 +54,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * StepResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StepResult {
   public static final String SERIALIZED_NAME_STEP_ID = "stepId";
   @SerializedName(SERIALIZED_NAME_STEP_ID)
-  @javax.annotation.Nonnull
   private UUID stepId;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nonnull
   private String outcome;
 
   public static final String SERIALIZED_NAME_SHARED_STEP_VERSION_ID = "sharedStepVersionId";
   @SerializedName(SERIALIZED_NAME_SHARED_STEP_VERSION_ID)
-  @javax.annotation.Nullable
   private UUID sharedStepVersionId;
 
   public static final String SERIALIZED_NAME_SHARED_STEP_RESULTS = "sharedStepResults";
   @SerializedName(SERIALIZED_NAME_SHARED_STEP_RESULTS)
-  @javax.annotation.Nullable
   private List<SharedStepResult> sharedStepResults;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nullable
   private StepComment comment;
 
   public StepResult() {
   }
 
-  public StepResult stepId(@javax.annotation.Nonnull UUID stepId) {
+  public StepResult stepId(UUID stepId) {
     this.stepId = stepId;
     return this;
   }
@@ -98,12 +93,12 @@ public class StepResult {
     return stepId;
   }
 
-  public void setStepId(@javax.annotation.Nonnull UUID stepId) {
+  public void setStepId(UUID stepId) {
     this.stepId = stepId;
   }
 
 
-  public StepResult outcome(@javax.annotation.Nonnull String outcome) {
+  public StepResult outcome(String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -117,12 +112,12 @@ public class StepResult {
     return outcome;
   }
 
-  public void setOutcome(@javax.annotation.Nonnull String outcome) {
+  public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
-  public StepResult sharedStepVersionId(@javax.annotation.Nullable UUID sharedStepVersionId) {
+  public StepResult sharedStepVersionId(UUID sharedStepVersionId) {
     this.sharedStepVersionId = sharedStepVersionId;
     return this;
   }
@@ -136,12 +131,12 @@ public class StepResult {
     return sharedStepVersionId;
   }
 
-  public void setSharedStepVersionId(@javax.annotation.Nullable UUID sharedStepVersionId) {
+  public void setSharedStepVersionId(UUID sharedStepVersionId) {
     this.sharedStepVersionId = sharedStepVersionId;
   }
 
 
-  public StepResult sharedStepResults(@javax.annotation.Nullable List<SharedStepResult> sharedStepResults) {
+  public StepResult sharedStepResults(List<SharedStepResult> sharedStepResults) {
     this.sharedStepResults = sharedStepResults;
     return this;
   }
@@ -163,12 +158,12 @@ public class StepResult {
     return sharedStepResults;
   }
 
-  public void setSharedStepResults(@javax.annotation.Nullable List<SharedStepResult> sharedStepResults) {
+  public void setSharedStepResults(List<SharedStepResult> sharedStepResults) {
     this.sharedStepResults = sharedStepResults;
   }
 
 
-  public StepResult comment(@javax.annotation.Nullable StepComment comment) {
+  public StepResult comment(StepComment comment) {
     this.comment = comment;
     return this;
   }
@@ -182,7 +177,7 @@ public class StepResult {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nullable StepComment comment) {
+  public void setComment(StepComment comment) {
     this.comment = comment;
   }
 

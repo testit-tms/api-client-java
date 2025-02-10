@@ -50,17 +50,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultsExtractionApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultsExtractionApiModel {
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  @javax.annotation.Nullable
   private GuidExtractionModel ids;
 
   public TestResultsExtractionApiModel() {
   }
 
-  public TestResultsExtractionApiModel ids(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public TestResultsExtractionApiModel ids(GuidExtractionModel ids) {
     this.ids = ids;
     return this;
   }
@@ -74,7 +73,7 @@ public class TestResultsExtractionApiModel {
     return ids;
   }
 
-  public void setIds(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public void setIds(GuidExtractionModel ids) {
     this.ids = ids;
   }
 

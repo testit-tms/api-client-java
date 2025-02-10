@@ -55,117 +55,96 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebHookModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebHookModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_EVENT_TYPE = "eventType";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
-  @javax.annotation.Nonnull
   private WebHookEventTypeModel eventType;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
   @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
-  @javax.annotation.Nonnull
   private RequestTypeModel requestType;
 
   public static final String SERIALIZED_NAME_SHOULD_SEND_BODY = "shouldSendBody";
   @SerializedName(SERIALIZED_NAME_SHOULD_SEND_BODY)
-  @javax.annotation.Nonnull
   private Boolean shouldSendBody;
 
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)
-  @javax.annotation.Nullable
   private Map<String, String> headers;
 
   public static final String SERIALIZED_NAME_QUERY_PARAMETERS = "queryParameters";
   @SerializedName(SERIALIZED_NAME_QUERY_PARAMETERS)
-  @javax.annotation.Nullable
   private Map<String, String> queryParameters;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String SERIALIZED_NAME_SHOULD_SEND_CUSTOM_BODY = "shouldSendCustomBody";
   @SerializedName(SERIALIZED_NAME_SHOULD_SEND_CUSTOM_BODY)
-  @javax.annotation.Nonnull
   private Boolean shouldSendCustomBody;
 
   public static final String SERIALIZED_NAME_CUSTOM_BODY = "customBody";
   @SerializedName(SERIALIZED_NAME_CUSTOM_BODY)
-  @javax.annotation.Nullable
   private String customBody;
 
   public static final String SERIALIZED_NAME_CUSTOM_BODY_MEDIA_TYPE = "customBodyMediaType";
   @SerializedName(SERIALIZED_NAME_CUSTOM_BODY_MEDIA_TYPE)
-  @javax.annotation.Nullable
   private String customBodyMediaType;
 
   public static final String SERIALIZED_NAME_SHOULD_REPLACE_PARAMETERS = "shouldReplaceParameters";
   @SerializedName(SERIALIZED_NAME_SHOULD_REPLACE_PARAMETERS)
-  @javax.annotation.Nonnull
   private Boolean shouldReplaceParameters;
 
   public static final String SERIALIZED_NAME_SHOULD_ESCAPE_PARAMETERS = "shouldEscapeParameters";
   @SerializedName(SERIALIZED_NAME_SHOULD_ESCAPE_PARAMETERS)
-  @javax.annotation.Nonnull
   private Boolean shouldEscapeParameters;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public WebHookModel() {
   }
 
-  public WebHookModel name(@javax.annotation.Nonnull String name) {
+  public WebHookModel name(String name) {
     this.name = name;
     return this;
   }
@@ -179,12 +158,12 @@ public class WebHookModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public WebHookModel eventType(@javax.annotation.Nonnull WebHookEventTypeModel eventType) {
+  public WebHookModel eventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -198,12 +177,12 @@ public class WebHookModel {
     return eventType;
   }
 
-  public void setEventType(@javax.annotation.Nonnull WebHookEventTypeModel eventType) {
+  public void setEventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
   }
 
 
-  public WebHookModel description(@javax.annotation.Nullable String description) {
+  public WebHookModel description(String description) {
     this.description = description;
     return this;
   }
@@ -217,12 +196,12 @@ public class WebHookModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public WebHookModel url(@javax.annotation.Nonnull String url) {
+  public WebHookModel url(String url) {
     this.url = url;
     return this;
   }
@@ -236,12 +215,12 @@ public class WebHookModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 
 
-  public WebHookModel requestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
+  public WebHookModel requestType(RequestTypeModel requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -255,12 +234,12 @@ public class WebHookModel {
     return requestType;
   }
 
-  public void setRequestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
+  public void setRequestType(RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookModel shouldSendBody(@javax.annotation.Nonnull Boolean shouldSendBody) {
+  public WebHookModel shouldSendBody(Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
     return this;
   }
@@ -274,12 +253,12 @@ public class WebHookModel {
     return shouldSendBody;
   }
 
-  public void setShouldSendBody(@javax.annotation.Nonnull Boolean shouldSendBody) {
+  public void setShouldSendBody(Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
   }
 
 
-  public WebHookModel headers(@javax.annotation.Nullable Map<String, String> headers) {
+  public WebHookModel headers(Map<String, String> headers) {
     this.headers = headers;
     return this;
   }
@@ -301,12 +280,12 @@ public class WebHookModel {
     return headers;
   }
 
-  public void setHeaders(@javax.annotation.Nullable Map<String, String> headers) {
+  public void setHeaders(Map<String, String> headers) {
     this.headers = headers;
   }
 
 
-  public WebHookModel queryParameters(@javax.annotation.Nullable Map<String, String> queryParameters) {
+  public WebHookModel queryParameters(Map<String, String> queryParameters) {
     this.queryParameters = queryParameters;
     return this;
   }
@@ -328,12 +307,12 @@ public class WebHookModel {
     return queryParameters;
   }
 
-  public void setQueryParameters(@javax.annotation.Nullable Map<String, String> queryParameters) {
+  public void setQueryParameters(Map<String, String> queryParameters) {
     this.queryParameters = queryParameters;
   }
 
 
-  public WebHookModel isEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public WebHookModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -347,12 +326,12 @@ public class WebHookModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public WebHookModel shouldSendCustomBody(@javax.annotation.Nonnull Boolean shouldSendCustomBody) {
+  public WebHookModel shouldSendCustomBody(Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
     return this;
   }
@@ -366,12 +345,12 @@ public class WebHookModel {
     return shouldSendCustomBody;
   }
 
-  public void setShouldSendCustomBody(@javax.annotation.Nonnull Boolean shouldSendCustomBody) {
+  public void setShouldSendCustomBody(Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
   }
 
 
-  public WebHookModel customBody(@javax.annotation.Nullable String customBody) {
+  public WebHookModel customBody(String customBody) {
     this.customBody = customBody;
     return this;
   }
@@ -385,12 +364,12 @@ public class WebHookModel {
     return customBody;
   }
 
-  public void setCustomBody(@javax.annotation.Nullable String customBody) {
+  public void setCustomBody(String customBody) {
     this.customBody = customBody;
   }
 
 
-  public WebHookModel customBodyMediaType(@javax.annotation.Nullable String customBodyMediaType) {
+  public WebHookModel customBodyMediaType(String customBodyMediaType) {
     this.customBodyMediaType = customBodyMediaType;
     return this;
   }
@@ -404,12 +383,12 @@ public class WebHookModel {
     return customBodyMediaType;
   }
 
-  public void setCustomBodyMediaType(@javax.annotation.Nullable String customBodyMediaType) {
+  public void setCustomBodyMediaType(String customBodyMediaType) {
     this.customBodyMediaType = customBodyMediaType;
   }
 
 
-  public WebHookModel shouldReplaceParameters(@javax.annotation.Nonnull Boolean shouldReplaceParameters) {
+  public WebHookModel shouldReplaceParameters(Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
     return this;
   }
@@ -423,12 +402,12 @@ public class WebHookModel {
     return shouldReplaceParameters;
   }
 
-  public void setShouldReplaceParameters(@javax.annotation.Nonnull Boolean shouldReplaceParameters) {
+  public void setShouldReplaceParameters(Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
   }
 
 
-  public WebHookModel shouldEscapeParameters(@javax.annotation.Nonnull Boolean shouldEscapeParameters) {
+  public WebHookModel shouldEscapeParameters(Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
     return this;
   }
@@ -442,12 +421,12 @@ public class WebHookModel {
     return shouldEscapeParameters;
   }
 
-  public void setShouldEscapeParameters(@javax.annotation.Nonnull Boolean shouldEscapeParameters) {
+  public void setShouldEscapeParameters(Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
   }
 
 
-  public WebHookModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public WebHookModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -461,12 +440,12 @@ public class WebHookModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WebHookModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public WebHookModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -480,12 +459,12 @@ public class WebHookModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WebHookModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public WebHookModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -499,12 +478,12 @@ public class WebHookModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public WebHookModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public WebHookModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -518,12 +497,12 @@ public class WebHookModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public WebHookModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public WebHookModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -537,12 +516,12 @@ public class WebHookModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WebHookModel id(@javax.annotation.Nonnull UUID id) {
+  public WebHookModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -556,12 +535,12 @@ public class WebHookModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WebHookModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public WebHookModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -575,7 +554,7 @@ public class WebHookModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

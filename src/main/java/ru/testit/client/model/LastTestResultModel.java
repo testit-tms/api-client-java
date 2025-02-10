@@ -54,47 +54,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * LastTestResultModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LastTestResultModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
-  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_ID = "autoTestId";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_ID)
-  @javax.annotation.Nullable
   private UUID autoTestId;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<LinkModel> links;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID workItemVersionId;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public LastTestResultModel() {
   }
 
-  public LastTestResultModel id(@javax.annotation.Nonnull UUID id) {
+  public LastTestResultModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -108,12 +101,12 @@ public class LastTestResultModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public LastTestResultModel testRunId(@javax.annotation.Nonnull UUID testRunId) {
+  public LastTestResultModel testRunId(UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -127,12 +120,12 @@ public class LastTestResultModel {
     return testRunId;
   }
 
-  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
+  public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public LastTestResultModel autoTestId(@javax.annotation.Nullable UUID autoTestId) {
+  public LastTestResultModel autoTestId(UUID autoTestId) {
     this.autoTestId = autoTestId;
     return this;
   }
@@ -146,12 +139,12 @@ public class LastTestResultModel {
     return autoTestId;
   }
 
-  public void setAutoTestId(@javax.annotation.Nullable UUID autoTestId) {
+  public void setAutoTestId(UUID autoTestId) {
     this.autoTestId = autoTestId;
   }
 
 
-  public LastTestResultModel comment(@javax.annotation.Nullable String comment) {
+  public LastTestResultModel comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -165,12 +158,12 @@ public class LastTestResultModel {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nullable String comment) {
+  public void setComment(String comment) {
     this.comment = comment;
   }
 
 
-  public LastTestResultModel links(@javax.annotation.Nullable List<LinkModel> links) {
+  public LastTestResultModel links(List<LinkModel> links) {
     this.links = links;
     return this;
   }
@@ -192,12 +185,12 @@ public class LastTestResultModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<LinkModel> links) {
+  public void setLinks(List<LinkModel> links) {
     this.links = links;
   }
 
 
-  public LastTestResultModel workItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
+  public LastTestResultModel workItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -211,12 +204,12 @@ public class LastTestResultModel {
     return workItemVersionId;
   }
 
-  public void setWorkItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
+  public void setWorkItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public LastTestResultModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public LastTestResultModel attachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -238,7 +231,7 @@ public class LastTestResultModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 

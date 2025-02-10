@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ConfigurationSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private ConfigurationFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private ConfigurationExtractionModel extractionModel;
 
   public ConfigurationSelectModel() {
   }
 
-  public ConfigurationSelectModel filter(@javax.annotation.Nullable ConfigurationFilterModel filter) {
+  public ConfigurationSelectModel filter(ConfigurationFilterModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class ConfigurationSelectModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable ConfigurationFilterModel filter) {
+  public void setFilter(ConfigurationFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public ConfigurationSelectModel extractionModel(@javax.annotation.Nullable ConfigurationExtractionModel extractionModel) {
+  public ConfigurationSelectModel extractionModel(ConfigurationExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -99,7 +97,7 @@ public class ConfigurationSelectModel {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable ConfigurationExtractionModel extractionModel) {
+  public void setExtractionModel(ConfigurationExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

@@ -50,37 +50,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteV2PutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteV2PutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nullable
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_AUTO_REFRESH = "autoRefresh";
   @SerializedName(SERIALIZED_NAME_AUTO_REFRESH)
-  @javax.annotation.Nullable
   private Boolean autoRefresh;
 
   public TestSuiteV2PutModel() {
   }
 
-  public TestSuiteV2PutModel id(@javax.annotation.Nonnull UUID id) {
+  public TestSuiteV2PutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -94,12 +89,12 @@ public class TestSuiteV2PutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteV2PutModel parentId(@javax.annotation.Nullable UUID parentId) {
+  public TestSuiteV2PutModel parentId(UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -113,12 +108,12 @@ public class TestSuiteV2PutModel {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nullable UUID parentId) {
+  public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public TestSuiteV2PutModel name(@javax.annotation.Nonnull String name) {
+  public TestSuiteV2PutModel name(String name) {
     this.name = name;
     return this;
   }
@@ -132,12 +127,12 @@ public class TestSuiteV2PutModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestSuiteV2PutModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestSuiteV2PutModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -151,12 +146,12 @@ public class TestSuiteV2PutModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestSuiteV2PutModel autoRefresh(@javax.annotation.Nullable Boolean autoRefresh) {
+  public TestSuiteV2PutModel autoRefresh(Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
     return this;
   }
@@ -170,7 +165,7 @@ public class TestSuiteV2PutModel {
     return autoRefresh;
   }
 
-  public void setAutoRefresh(@javax.annotation.Nullable Boolean autoRefresh) {
+  public void setAutoRefresh(Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
   }
 

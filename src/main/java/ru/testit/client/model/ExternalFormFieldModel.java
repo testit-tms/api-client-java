@@ -49,82 +49,68 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalFormFieldModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalFormFieldModel {
   public static final String SERIALIZED_NAME_FIELD_ID = "fieldId";
   @SerializedName(SERIALIZED_NAME_FIELD_ID)
-  @javax.annotation.Nullable
   private String fieldId;
 
   public static final String SERIALIZED_NAME_FIELD_NAME = "fieldName";
   @SerializedName(SERIALIZED_NAME_FIELD_NAME)
-  @javax.annotation.Nullable
   private String fieldName;
 
   public static final String SERIALIZED_NAME_HELP_TEXT = "helpText";
   @SerializedName(SERIALIZED_NAME_HELP_TEXT)
-  @javax.annotation.Nullable
   private String helpText;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
   private String type;
 
   public static final String SERIALIZED_NAME_ARRAY_VALUES_TYPE = "arrayValuesType";
   @SerializedName(SERIALIZED_NAME_ARRAY_VALUES_TYPE)
-  @javax.annotation.Nullable
   private String arrayValuesType;
 
   public static final String SERIALIZED_NAME_DEFAULT_VALUE = "defaultValue";
   @SerializedName(SERIALIZED_NAME_DEFAULT_VALUE)
-  @javax.annotation.Nullable
   private Object defaultValue = null;
 
   public static final String SERIALIZED_NAME_IS_CUSTOM_VALUE_ALLOWED = "isCustomValueAllowed";
   @SerializedName(SERIALIZED_NAME_IS_CUSTOM_VALUE_ALLOWED)
-  @javax.annotation.Nonnull
   private Boolean isCustomValueAllowed;
 
   public static final String SERIALIZED_NAME_AUTO_COMPLETE_URL = "autoCompleteUrl";
   @SerializedName(SERIALIZED_NAME_AUTO_COMPLETE_URL)
-  @javax.annotation.Nullable
   private String autoCompleteUrl;
 
   public static final String SERIALIZED_NAME_CONTROL_TYPE = "controlType";
   @SerializedName(SERIALIZED_NAME_CONTROL_TYPE)
-  @javax.annotation.Nullable
   private String controlType;
 
   public static final String SERIALIZED_NAME_MIN_LENGTH = "minLength";
   @SerializedName(SERIALIZED_NAME_MIN_LENGTH)
-  @javax.annotation.Nullable
   private Integer minLength;
 
   public static final String SERIALIZED_NAME_MAX_LENGTH = "maxLength";
   @SerializedName(SERIALIZED_NAME_MAX_LENGTH)
-  @javax.annotation.Nullable
   private Integer maxLength;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  @javax.annotation.Nullable
   private Boolean isRequired;
 
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
-  @javax.annotation.Nullable
   private Object min = null;
 
   public static final String SERIALIZED_NAME_MAX = "max";
   @SerializedName(SERIALIZED_NAME_MAX)
-  @javax.annotation.Nullable
   private Object max = null;
 
   public ExternalFormFieldModel() {
   }
 
-  public ExternalFormFieldModel fieldId(@javax.annotation.Nullable String fieldId) {
+  public ExternalFormFieldModel fieldId(String fieldId) {
     this.fieldId = fieldId;
     return this;
   }
@@ -138,12 +124,12 @@ public class ExternalFormFieldModel {
     return fieldId;
   }
 
-  public void setFieldId(@javax.annotation.Nullable String fieldId) {
+  public void setFieldId(String fieldId) {
     this.fieldId = fieldId;
   }
 
 
-  public ExternalFormFieldModel fieldName(@javax.annotation.Nullable String fieldName) {
+  public ExternalFormFieldModel fieldName(String fieldName) {
     this.fieldName = fieldName;
     return this;
   }
@@ -157,12 +143,12 @@ public class ExternalFormFieldModel {
     return fieldName;
   }
 
-  public void setFieldName(@javax.annotation.Nullable String fieldName) {
+  public void setFieldName(String fieldName) {
     this.fieldName = fieldName;
   }
 
 
-  public ExternalFormFieldModel helpText(@javax.annotation.Nullable String helpText) {
+  public ExternalFormFieldModel helpText(String helpText) {
     this.helpText = helpText;
     return this;
   }
@@ -176,12 +162,12 @@ public class ExternalFormFieldModel {
     return helpText;
   }
 
-  public void setHelpText(@javax.annotation.Nullable String helpText) {
+  public void setHelpText(String helpText) {
     this.helpText = helpText;
   }
 
 
-  public ExternalFormFieldModel type(@javax.annotation.Nullable String type) {
+  public ExternalFormFieldModel type(String type) {
     this.type = type;
     return this;
   }
@@ -195,12 +181,12 @@ public class ExternalFormFieldModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable String type) {
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public ExternalFormFieldModel arrayValuesType(@javax.annotation.Nullable String arrayValuesType) {
+  public ExternalFormFieldModel arrayValuesType(String arrayValuesType) {
     this.arrayValuesType = arrayValuesType;
     return this;
   }
@@ -214,12 +200,12 @@ public class ExternalFormFieldModel {
     return arrayValuesType;
   }
 
-  public void setArrayValuesType(@javax.annotation.Nullable String arrayValuesType) {
+  public void setArrayValuesType(String arrayValuesType) {
     this.arrayValuesType = arrayValuesType;
   }
 
 
-  public ExternalFormFieldModel defaultValue(@javax.annotation.Nullable Object defaultValue) {
+  public ExternalFormFieldModel defaultValue(Object defaultValue) {
     this.defaultValue = defaultValue;
     return this;
   }
@@ -233,12 +219,12 @@ public class ExternalFormFieldModel {
     return defaultValue;
   }
 
-  public void setDefaultValue(@javax.annotation.Nullable Object defaultValue) {
+  public void setDefaultValue(Object defaultValue) {
     this.defaultValue = defaultValue;
   }
 
 
-  public ExternalFormFieldModel isCustomValueAllowed(@javax.annotation.Nonnull Boolean isCustomValueAllowed) {
+  public ExternalFormFieldModel isCustomValueAllowed(Boolean isCustomValueAllowed) {
     this.isCustomValueAllowed = isCustomValueAllowed;
     return this;
   }
@@ -252,12 +238,12 @@ public class ExternalFormFieldModel {
     return isCustomValueAllowed;
   }
 
-  public void setIsCustomValueAllowed(@javax.annotation.Nonnull Boolean isCustomValueAllowed) {
+  public void setIsCustomValueAllowed(Boolean isCustomValueAllowed) {
     this.isCustomValueAllowed = isCustomValueAllowed;
   }
 
 
-  public ExternalFormFieldModel autoCompleteUrl(@javax.annotation.Nullable String autoCompleteUrl) {
+  public ExternalFormFieldModel autoCompleteUrl(String autoCompleteUrl) {
     this.autoCompleteUrl = autoCompleteUrl;
     return this;
   }
@@ -271,12 +257,12 @@ public class ExternalFormFieldModel {
     return autoCompleteUrl;
   }
 
-  public void setAutoCompleteUrl(@javax.annotation.Nullable String autoCompleteUrl) {
+  public void setAutoCompleteUrl(String autoCompleteUrl) {
     this.autoCompleteUrl = autoCompleteUrl;
   }
 
 
-  public ExternalFormFieldModel controlType(@javax.annotation.Nullable String controlType) {
+  public ExternalFormFieldModel controlType(String controlType) {
     this.controlType = controlType;
     return this;
   }
@@ -290,12 +276,12 @@ public class ExternalFormFieldModel {
     return controlType;
   }
 
-  public void setControlType(@javax.annotation.Nullable String controlType) {
+  public void setControlType(String controlType) {
     this.controlType = controlType;
   }
 
 
-  public ExternalFormFieldModel minLength(@javax.annotation.Nullable Integer minLength) {
+  public ExternalFormFieldModel minLength(Integer minLength) {
     this.minLength = minLength;
     return this;
   }
@@ -309,12 +295,12 @@ public class ExternalFormFieldModel {
     return minLength;
   }
 
-  public void setMinLength(@javax.annotation.Nullable Integer minLength) {
+  public void setMinLength(Integer minLength) {
     this.minLength = minLength;
   }
 
 
-  public ExternalFormFieldModel maxLength(@javax.annotation.Nullable Integer maxLength) {
+  public ExternalFormFieldModel maxLength(Integer maxLength) {
     this.maxLength = maxLength;
     return this;
   }
@@ -328,12 +314,12 @@ public class ExternalFormFieldModel {
     return maxLength;
   }
 
-  public void setMaxLength(@javax.annotation.Nullable Integer maxLength) {
+  public void setMaxLength(Integer maxLength) {
     this.maxLength = maxLength;
   }
 
 
-  public ExternalFormFieldModel isRequired(@javax.annotation.Nullable Boolean isRequired) {
+  public ExternalFormFieldModel isRequired(Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -347,12 +333,12 @@ public class ExternalFormFieldModel {
     return isRequired;
   }
 
-  public void setIsRequired(@javax.annotation.Nullable Boolean isRequired) {
+  public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public ExternalFormFieldModel min(@javax.annotation.Nullable Object min) {
+  public ExternalFormFieldModel min(Object min) {
     this.min = min;
     return this;
   }
@@ -366,12 +352,12 @@ public class ExternalFormFieldModel {
     return min;
   }
 
-  public void setMin(@javax.annotation.Nullable Object min) {
+  public void setMin(Object min) {
     this.min = min;
   }
 
 
-  public ExternalFormFieldModel max(@javax.annotation.Nullable Object max) {
+  public ExternalFormFieldModel max(Object max) {
     this.max = max;
     return this;
   }
@@ -385,7 +371,7 @@ public class ExternalFormFieldModel {
     return max;
   }
 
-  public void setMax(@javax.annotation.Nullable Object max) {
+  public void setMax(Object max) {
     this.max = max;
   }
 

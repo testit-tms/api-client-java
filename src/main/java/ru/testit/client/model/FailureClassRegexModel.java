@@ -50,32 +50,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * FailureClassRegexModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class FailureClassRegexModel {
   public static final String SERIALIZED_NAME_REGEX_TEXT = "regexText";
   @SerializedName(SERIALIZED_NAME_REGEX_TEXT)
-  @javax.annotation.Nonnull
   private String regexText;
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_ID = "failureClassId";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_ID)
-  @javax.annotation.Nullable
   private UUID failureClassId;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public FailureClassRegexModel() {
   }
 
-  public FailureClassRegexModel regexText(@javax.annotation.Nonnull String regexText) {
+  public FailureClassRegexModel regexText(String regexText) {
     this.regexText = regexText;
     return this;
   }
@@ -89,12 +85,12 @@ public class FailureClassRegexModel {
     return regexText;
   }
 
-  public void setRegexText(@javax.annotation.Nonnull String regexText) {
+  public void setRegexText(String regexText) {
     this.regexText = regexText;
   }
 
 
-  public FailureClassRegexModel failureClassId(@javax.annotation.Nullable UUID failureClassId) {
+  public FailureClassRegexModel failureClassId(UUID failureClassId) {
     this.failureClassId = failureClassId;
     return this;
   }
@@ -108,12 +104,12 @@ public class FailureClassRegexModel {
     return failureClassId;
   }
 
-  public void setFailureClassId(@javax.annotation.Nullable UUID failureClassId) {
+  public void setFailureClassId(UUID failureClassId) {
     this.failureClassId = failureClassId;
   }
 
 
-  public FailureClassRegexModel id(@javax.annotation.Nonnull UUID id) {
+  public FailureClassRegexModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -127,12 +123,12 @@ public class FailureClassRegexModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public FailureClassRegexModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public FailureClassRegexModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -146,7 +142,7 @@ public class FailureClassRegexModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

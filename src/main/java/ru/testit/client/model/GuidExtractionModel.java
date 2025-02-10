@@ -52,22 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * GuidExtractionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GuidExtractionModel {
   public static final String SERIALIZED_NAME_INCLUDE = "include";
   @SerializedName(SERIALIZED_NAME_INCLUDE)
-  @javax.annotation.Nullable
   private List<UUID> include;
 
   public static final String SERIALIZED_NAME_EXCLUDE = "exclude";
   @SerializedName(SERIALIZED_NAME_EXCLUDE)
-  @javax.annotation.Nullable
   private List<UUID> exclude;
 
   public GuidExtractionModel() {
   }
 
-  public GuidExtractionModel include(@javax.annotation.Nullable List<UUID> include) {
+  public GuidExtractionModel include(List<UUID> include) {
     this.include = include;
     return this;
   }
@@ -89,12 +87,12 @@ public class GuidExtractionModel {
     return include;
   }
 
-  public void setInclude(@javax.annotation.Nullable List<UUID> include) {
+  public void setInclude(List<UUID> include) {
     this.include = include;
   }
 
 
-  public GuidExtractionModel exclude(@javax.annotation.Nullable List<UUID> exclude) {
+  public GuidExtractionModel exclude(List<UUID> exclude) {
     this.exclude = exclude;
     return this;
   }
@@ -116,7 +114,7 @@ public class GuidExtractionModel {
     return exclude;
   }
 
-  public void setExclude(@javax.annotation.Nullable List<UUID> exclude) {
+  public void setExclude(List<UUID> exclude) {
     this.exclude = exclude;
   }
 

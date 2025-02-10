@@ -62,140 +62,115 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteWorkItemsSearchModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteWorkItemsSearchModel {
   public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_TAG_NAMES)
-  @javax.annotation.Nullable
   private Set<String> tagNames;
 
   public static final String SERIALIZED_NAME_ENTITY_TYPES = "entityTypes";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPES)
-  @javax.annotation.Nullable
   private Set<WorkItemEntityTypes> entityTypes;
 
   public static final String SERIALIZED_NAME_NAME_OR_ID = "nameOrId";
   @SerializedName(SERIALIZED_NAME_NAME_OR_ID)
-  @javax.annotation.Nullable
   private String nameOrId;
 
   public static final String SERIALIZED_NAME_INCLUDE_IDS = "includeIds";
   @SerializedName(SERIALIZED_NAME_INCLUDE_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> includeIds;
 
   public static final String SERIALIZED_NAME_EXCLUDE_IDS = "excludeIds";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> excludeIds;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> ids;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
   private Map<String, Set<String>> attributes;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  @javax.annotation.Nullable
   private Set<WorkItemStates> states;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  @javax.annotation.Nullable
   private Set<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  @javax.annotation.Nullable
   private Set<WorkItemEntityTypes> types;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel modifiedDate;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nullable
   private Int32RangeSelectorModel duration;
 
   public static final String SERIALIZED_NAME_MEDIAN_DURATION = "medianDuration";
   @SerializedName(SERIALIZED_NAME_MEDIAN_DURATION)
-  @javax.annotation.Nullable
   private Int64RangeSelectorModel medianDuration;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  @javax.annotation.Nullable
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private Set<String> tags;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_IDS = "autoTestIds";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> autoTestIds;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_IDS = "workItemVersionIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> workItemVersionIds;
 
   public TestSuiteWorkItemsSearchModel() {
   }
 
   @Deprecated
-  public TestSuiteWorkItemsSearchModel tagNames(@javax.annotation.Nullable Set<String> tagNames) {
+  public TestSuiteWorkItemsSearchModel tagNames(Set<String> tagNames) {
     this.tagNames = tagNames;
     return this;
   }
@@ -220,13 +195,13 @@ public class TestSuiteWorkItemsSearchModel {
   }
 
   @Deprecated
-  public void setTagNames(@javax.annotation.Nullable Set<String> tagNames) {
+  public void setTagNames(Set<String> tagNames) {
     this.tagNames = tagNames;
   }
 
 
   @Deprecated
-  public TestSuiteWorkItemsSearchModel entityTypes(@javax.annotation.Nullable Set<WorkItemEntityTypes> entityTypes) {
+  public TestSuiteWorkItemsSearchModel entityTypes(Set<WorkItemEntityTypes> entityTypes) {
     this.entityTypes = entityTypes;
     return this;
   }
@@ -251,12 +226,12 @@ public class TestSuiteWorkItemsSearchModel {
   }
 
   @Deprecated
-  public void setEntityTypes(@javax.annotation.Nullable Set<WorkItemEntityTypes> entityTypes) {
+  public void setEntityTypes(Set<WorkItemEntityTypes> entityTypes) {
     this.entityTypes = entityTypes;
   }
 
 
-  public TestSuiteWorkItemsSearchModel nameOrId(@javax.annotation.Nullable String nameOrId) {
+  public TestSuiteWorkItemsSearchModel nameOrId(String nameOrId) {
     this.nameOrId = nameOrId;
     return this;
   }
@@ -270,12 +245,12 @@ public class TestSuiteWorkItemsSearchModel {
     return nameOrId;
   }
 
-  public void setNameOrId(@javax.annotation.Nullable String nameOrId) {
+  public void setNameOrId(String nameOrId) {
     this.nameOrId = nameOrId;
   }
 
 
-  public TestSuiteWorkItemsSearchModel includeIds(@javax.annotation.Nullable Set<UUID> includeIds) {
+  public TestSuiteWorkItemsSearchModel includeIds(Set<UUID> includeIds) {
     this.includeIds = includeIds;
     return this;
   }
@@ -297,12 +272,12 @@ public class TestSuiteWorkItemsSearchModel {
     return includeIds;
   }
 
-  public void setIncludeIds(@javax.annotation.Nullable Set<UUID> includeIds) {
+  public void setIncludeIds(Set<UUID> includeIds) {
     this.includeIds = includeIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel excludeIds(@javax.annotation.Nullable Set<UUID> excludeIds) {
+  public TestSuiteWorkItemsSearchModel excludeIds(Set<UUID> excludeIds) {
     this.excludeIds = excludeIds;
     return this;
   }
@@ -324,12 +299,12 @@ public class TestSuiteWorkItemsSearchModel {
     return excludeIds;
   }
 
-  public void setExcludeIds(@javax.annotation.Nullable Set<UUID> excludeIds) {
+  public void setExcludeIds(Set<UUID> excludeIds) {
     this.excludeIds = excludeIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public TestSuiteWorkItemsSearchModel projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -351,12 +326,12 @@ public class TestSuiteWorkItemsSearchModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel name(@javax.annotation.Nullable String name) {
+  public TestSuiteWorkItemsSearchModel name(String name) {
     this.name = name;
     return this;
   }
@@ -370,12 +345,12 @@ public class TestSuiteWorkItemsSearchModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestSuiteWorkItemsSearchModel ids(@javax.annotation.Nullable Set<UUID> ids) {
+  public TestSuiteWorkItemsSearchModel ids(Set<UUID> ids) {
     this.ids = ids;
     return this;
   }
@@ -397,12 +372,12 @@ public class TestSuiteWorkItemsSearchModel {
     return ids;
   }
 
-  public void setIds(@javax.annotation.Nullable Set<UUID> ids) {
+  public void setIds(Set<UUID> ids) {
     this.ids = ids;
   }
 
 
-  public TestSuiteWorkItemsSearchModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public TestSuiteWorkItemsSearchModel globalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -424,12 +399,12 @@ public class TestSuiteWorkItemsSearchModel {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel attributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
+  public TestSuiteWorkItemsSearchModel attributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -451,12 +426,12 @@ public class TestSuiteWorkItemsSearchModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
+  public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
 
-  public TestSuiteWorkItemsSearchModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public TestSuiteWorkItemsSearchModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -470,12 +445,12 @@ public class TestSuiteWorkItemsSearchModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestSuiteWorkItemsSearchModel sectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
+  public TestSuiteWorkItemsSearchModel sectionIds(Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
     return this;
   }
@@ -497,12 +472,12 @@ public class TestSuiteWorkItemsSearchModel {
     return sectionIds;
   }
 
-  public void setSectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
+  public void setSectionIds(Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public TestSuiteWorkItemsSearchModel createdByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -524,12 +499,12 @@ public class TestSuiteWorkItemsSearchModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel modifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public TestSuiteWorkItemsSearchModel modifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -551,12 +526,12 @@ public class TestSuiteWorkItemsSearchModel {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel states(@javax.annotation.Nullable Set<WorkItemStates> states) {
+  public TestSuiteWorkItemsSearchModel states(Set<WorkItemStates> states) {
     this.states = states;
     return this;
   }
@@ -578,12 +553,12 @@ public class TestSuiteWorkItemsSearchModel {
     return states;
   }
 
-  public void setStates(@javax.annotation.Nullable Set<WorkItemStates> states) {
+  public void setStates(Set<WorkItemStates> states) {
     this.states = states;
   }
 
 
-  public TestSuiteWorkItemsSearchModel priorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
+  public TestSuiteWorkItemsSearchModel priorities(Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
     return this;
   }
@@ -605,12 +580,12 @@ public class TestSuiteWorkItemsSearchModel {
     return priorities;
   }
 
-  public void setPriorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
+  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
   }
 
 
-  public TestSuiteWorkItemsSearchModel types(@javax.annotation.Nullable Set<WorkItemEntityTypes> types) {
+  public TestSuiteWorkItemsSearchModel types(Set<WorkItemEntityTypes> types) {
     this.types = types;
     return this;
   }
@@ -632,12 +607,12 @@ public class TestSuiteWorkItemsSearchModel {
     return types;
   }
 
-  public void setTypes(@javax.annotation.Nullable Set<WorkItemEntityTypes> types) {
+  public void setTypes(Set<WorkItemEntityTypes> types) {
     this.types = types;
   }
 
 
-  public TestSuiteWorkItemsSearchModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public TestSuiteWorkItemsSearchModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -651,12 +626,12 @@ public class TestSuiteWorkItemsSearchModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestSuiteWorkItemsSearchModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public TestSuiteWorkItemsSearchModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -670,12 +645,12 @@ public class TestSuiteWorkItemsSearchModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestSuiteWorkItemsSearchModel duration(@javax.annotation.Nullable Int32RangeSelectorModel duration) {
+  public TestSuiteWorkItemsSearchModel duration(Int32RangeSelectorModel duration) {
     this.duration = duration;
     return this;
   }
@@ -689,12 +664,12 @@ public class TestSuiteWorkItemsSearchModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nullable Int32RangeSelectorModel duration) {
+  public void setDuration(Int32RangeSelectorModel duration) {
     this.duration = duration;
   }
 
 
-  public TestSuiteWorkItemsSearchModel medianDuration(@javax.annotation.Nullable Int64RangeSelectorModel medianDuration) {
+  public TestSuiteWorkItemsSearchModel medianDuration(Int64RangeSelectorModel medianDuration) {
     this.medianDuration = medianDuration;
     return this;
   }
@@ -708,12 +683,12 @@ public class TestSuiteWorkItemsSearchModel {
     return medianDuration;
   }
 
-  public void setMedianDuration(@javax.annotation.Nullable Int64RangeSelectorModel medianDuration) {
+  public void setMedianDuration(Int64RangeSelectorModel medianDuration) {
     this.medianDuration = medianDuration;
   }
 
 
-  public TestSuiteWorkItemsSearchModel isAutomated(@javax.annotation.Nullable Boolean isAutomated) {
+  public TestSuiteWorkItemsSearchModel isAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -727,12 +702,12 @@ public class TestSuiteWorkItemsSearchModel {
     return isAutomated;
   }
 
-  public void setIsAutomated(@javax.annotation.Nullable Boolean isAutomated) {
+  public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestSuiteWorkItemsSearchModel tags(@javax.annotation.Nullable Set<String> tags) {
+  public TestSuiteWorkItemsSearchModel tags(Set<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -754,12 +729,12 @@ public class TestSuiteWorkItemsSearchModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable Set<String> tags) {
+  public void setTags(Set<String> tags) {
     this.tags = tags;
   }
 
 
-  public TestSuiteWorkItemsSearchModel autoTestIds(@javax.annotation.Nullable Set<UUID> autoTestIds) {
+  public TestSuiteWorkItemsSearchModel autoTestIds(Set<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
     return this;
   }
@@ -781,12 +756,12 @@ public class TestSuiteWorkItemsSearchModel {
     return autoTestIds;
   }
 
-  public void setAutoTestIds(@javax.annotation.Nullable Set<UUID> autoTestIds) {
+  public void setAutoTestIds(Set<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
   }
 
 
-  public TestSuiteWorkItemsSearchModel workItemVersionIds(@javax.annotation.Nullable List<UUID> workItemVersionIds) {
+  public TestSuiteWorkItemsSearchModel workItemVersionIds(List<UUID> workItemVersionIds) {
     this.workItemVersionIds = workItemVersionIds;
     return this;
   }
@@ -808,7 +783,7 @@ public class TestSuiteWorkItemsSearchModel {
     return workItemVersionIds;
   }
 
-  public void setWorkItemVersionIds(@javax.annotation.Nullable List<UUID> workItemVersionIds) {
+  public void setWorkItemVersionIds(List<UUID> workItemVersionIds) {
     this.workItemVersionIds = workItemVersionIds;
   }
 

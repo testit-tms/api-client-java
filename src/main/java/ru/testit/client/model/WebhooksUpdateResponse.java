@@ -48,17 +48,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebhooksUpdateResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhooksUpdateResponse {
   public static final String SERIALIZED_NAME_UPDATED_COUNT = "updatedCount";
   @SerializedName(SERIALIZED_NAME_UPDATED_COUNT)
-  @javax.annotation.Nonnull
   private Integer updatedCount;
 
   public WebhooksUpdateResponse() {
   }
 
-  public WebhooksUpdateResponse updatedCount(@javax.annotation.Nonnull Integer updatedCount) {
+  public WebhooksUpdateResponse updatedCount(Integer updatedCount) {
     this.updatedCount = updatedCount;
     return this;
   }
@@ -72,7 +71,7 @@ public class WebhooksUpdateResponse {
     return updatedCount;
   }
 
-  public void setUpdatedCount(@javax.annotation.Nonnull Integer updatedCount) {
+  public void setUpdatedCount(Integer updatedCount) {
     this.updatedCount = updatedCount;
   }
 

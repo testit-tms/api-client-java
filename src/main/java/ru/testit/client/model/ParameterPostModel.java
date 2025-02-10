@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ParameterPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ParameterPostModel {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private String value;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public ParameterPostModel() {
   }
 
-  public ParameterPostModel value(@javax.annotation.Nonnull String value) {
+  public ParameterPostModel value(String value) {
     this.value = value;
     return this;
   }
@@ -77,12 +75,12 @@ public class ParameterPostModel {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
+  public void setValue(String value) {
     this.value = value;
   }
 
 
-  public ParameterPostModel name(@javax.annotation.Nonnull String name) {
+  public ParameterPostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -96,7 +94,7 @@ public class ParameterPostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

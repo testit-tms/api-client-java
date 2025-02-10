@@ -61,118 +61,97 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunV2ApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunV2ApiResult {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_STATE_NAME = "stateName";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATE_NAME)
-  @javax.annotation.Nonnull
   private TestRunState stateName;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private TestStatusApiResult status;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nullable
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  @javax.annotation.Nullable
   private List<TestResultV2GetModel> testResults;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_CREATED_BY_USER_NAME = "createdByUserName";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_USER_NAME)
-  @javax.annotation.Nullable
   private String createdByUserName;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nonnull
   private List<AttachmentApiResult> attachments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nonnull
   private List<LinkApiResult> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CUSTOM_PARAMETERS = "customParameters";
   @SerializedName(SERIALIZED_NAME_CUSTOM_PARAMETERS)
-  @javax.annotation.Nullable
   private Map<String, String> customParameters;
 
   public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
   @SerializedName(SERIALIZED_NAME_WEBHOOKS)
-  @javax.annotation.Nonnull
   private List<NamedEntityApiModel> webhooks = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RUN_COUNT = "runCount";
   @SerializedName(SERIALIZED_NAME_RUN_COUNT)
-  @javax.annotation.Nonnull
   private Integer runCount;
 
   public TestRunV2ApiResult() {
   }
 
-  public TestRunV2ApiResult id(@javax.annotation.Nonnull UUID id) {
+  public TestRunV2ApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -186,12 +165,12 @@ public class TestRunV2ApiResult {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestRunV2ApiResult name(@javax.annotation.Nonnull String name) {
+  public TestRunV2ApiResult name(String name) {
     this.name = name;
     return this;
   }
@@ -205,12 +184,12 @@ public class TestRunV2ApiResult {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestRunV2ApiResult description(@javax.annotation.Nullable String description) {
+  public TestRunV2ApiResult description(String description) {
     this.description = description;
     return this;
   }
@@ -224,12 +203,12 @@ public class TestRunV2ApiResult {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public TestRunV2ApiResult launchSource(@javax.annotation.Nullable String launchSource) {
+  public TestRunV2ApiResult launchSource(String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
@@ -243,12 +222,12 @@ public class TestRunV2ApiResult {
     return launchSource;
   }
 
-  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
+  public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public TestRunV2ApiResult startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public TestRunV2ApiResult startedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
@@ -262,12 +241,12 @@ public class TestRunV2ApiResult {
     return startedOn;
   }
 
-  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestRunV2ApiResult completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public TestRunV2ApiResult completedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
@@ -281,13 +260,13 @@ public class TestRunV2ApiResult {
     return completedOn;
   }
 
-  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
   @Deprecated
-  public TestRunV2ApiResult stateName(@javax.annotation.Nonnull TestRunState stateName) {
+  public TestRunV2ApiResult stateName(TestRunState stateName) {
     this.stateName = stateName;
     return this;
   }
@@ -304,12 +283,12 @@ public class TestRunV2ApiResult {
   }
 
   @Deprecated
-  public void setStateName(@javax.annotation.Nonnull TestRunState stateName) {
+  public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
 
 
-  public TestRunV2ApiResult status(@javax.annotation.Nonnull TestStatusApiResult status) {
+  public TestRunV2ApiResult status(TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -323,12 +302,12 @@ public class TestRunV2ApiResult {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull TestStatusApiResult status) {
+  public void setStatus(TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public TestRunV2ApiResult projectId(@javax.annotation.Nonnull UUID projectId) {
+  public TestRunV2ApiResult projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -342,12 +321,12 @@ public class TestRunV2ApiResult {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestRunV2ApiResult testPlanId(@javax.annotation.Nullable UUID testPlanId) {
+  public TestRunV2ApiResult testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -361,12 +340,12 @@ public class TestRunV2ApiResult {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nullable UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestRunV2ApiResult testResults(@javax.annotation.Nullable List<TestResultV2GetModel> testResults) {
+  public TestRunV2ApiResult testResults(List<TestResultV2GetModel> testResults) {
     this.testResults = testResults;
     return this;
   }
@@ -388,12 +367,12 @@ public class TestRunV2ApiResult {
     return testResults;
   }
 
-  public void setTestResults(@javax.annotation.Nullable List<TestResultV2GetModel> testResults) {
+  public void setTestResults(List<TestResultV2GetModel> testResults) {
     this.testResults = testResults;
   }
 
 
-  public TestRunV2ApiResult createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public TestRunV2ApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -407,12 +386,12 @@ public class TestRunV2ApiResult {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestRunV2ApiResult modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public TestRunV2ApiResult modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -426,12 +405,12 @@ public class TestRunV2ApiResult {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestRunV2ApiResult createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestRunV2ApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -445,12 +424,12 @@ public class TestRunV2ApiResult {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestRunV2ApiResult modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public TestRunV2ApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -464,12 +443,12 @@ public class TestRunV2ApiResult {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestRunV2ApiResult createdByUserName(@javax.annotation.Nullable String createdByUserName) {
+  public TestRunV2ApiResult createdByUserName(String createdByUserName) {
     this.createdByUserName = createdByUserName;
     return this;
   }
@@ -483,12 +462,12 @@ public class TestRunV2ApiResult {
     return createdByUserName;
   }
 
-  public void setCreatedByUserName(@javax.annotation.Nullable String createdByUserName) {
+  public void setCreatedByUserName(String createdByUserName) {
     this.createdByUserName = createdByUserName;
   }
 
 
-  public TestRunV2ApiResult attachments(@javax.annotation.Nonnull List<AttachmentApiResult> attachments) {
+  public TestRunV2ApiResult attachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -510,12 +489,12 @@ public class TestRunV2ApiResult {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nonnull List<AttachmentApiResult> attachments) {
+  public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestRunV2ApiResult links(@javax.annotation.Nonnull List<LinkApiResult> links) {
+  public TestRunV2ApiResult links(List<LinkApiResult> links) {
     this.links = links;
     return this;
   }
@@ -537,12 +516,12 @@ public class TestRunV2ApiResult {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nonnull List<LinkApiResult> links) {
+  public void setLinks(List<LinkApiResult> links) {
     this.links = links;
   }
 
 
-  public TestRunV2ApiResult customParameters(@javax.annotation.Nullable Map<String, String> customParameters) {
+  public TestRunV2ApiResult customParameters(Map<String, String> customParameters) {
     this.customParameters = customParameters;
     return this;
   }
@@ -564,12 +543,12 @@ public class TestRunV2ApiResult {
     return customParameters;
   }
 
-  public void setCustomParameters(@javax.annotation.Nullable Map<String, String> customParameters) {
+  public void setCustomParameters(Map<String, String> customParameters) {
     this.customParameters = customParameters;
   }
 
 
-  public TestRunV2ApiResult webhooks(@javax.annotation.Nonnull List<NamedEntityApiModel> webhooks) {
+  public TestRunV2ApiResult webhooks(List<NamedEntityApiModel> webhooks) {
     this.webhooks = webhooks;
     return this;
   }
@@ -591,12 +570,12 @@ public class TestRunV2ApiResult {
     return webhooks;
   }
 
-  public void setWebhooks(@javax.annotation.Nonnull List<NamedEntityApiModel> webhooks) {
+  public void setWebhooks(List<NamedEntityApiModel> webhooks) {
     this.webhooks = webhooks;
   }
 
 
-  public TestRunV2ApiResult runCount(@javax.annotation.Nonnull Integer runCount) {
+  public TestRunV2ApiResult runCount(Integer runCount) {
     this.runCount = runCount;
     return this;
   }
@@ -610,7 +589,7 @@ public class TestRunV2ApiResult {
     return runCount;
   }
 
-  public void setRunCount(@javax.annotation.Nonnull Integer runCount) {
+  public void setRunCount(Integer runCount) {
     this.runCount = runCount;
   }
 

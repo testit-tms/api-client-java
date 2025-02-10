@@ -50,22 +50,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteChangeViewModelChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteChangeViewModelChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private TestSuiteChangeViewModel oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private TestSuiteChangeViewModel newValue;
 
   public TestSuiteChangeViewModelChangedFieldViewModel() {
   }
 
-  public TestSuiteChangeViewModelChangedFieldViewModel oldValue(@javax.annotation.Nullable TestSuiteChangeViewModel oldValue) {
+  public TestSuiteChangeViewModelChangedFieldViewModel oldValue(TestSuiteChangeViewModel oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -79,12 +77,12 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable TestSuiteChangeViewModel oldValue) {
+  public void setOldValue(TestSuiteChangeViewModel oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public TestSuiteChangeViewModelChangedFieldViewModel newValue(@javax.annotation.Nullable TestSuiteChangeViewModel newValue) {
+  public TestSuiteChangeViewModelChangedFieldViewModel newValue(TestSuiteChangeViewModel newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -98,7 +96,7 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable TestSuiteChangeViewModel newValue) {
+  public void setNewValue(TestSuiteChangeViewModel newValue) {
     this.newValue = newValue;
   }
 

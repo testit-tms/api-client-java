@@ -56,57 +56,48 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultShortModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nonnull
   private String outcome;
 
   public static final String SERIALIZED_NAME_TRACES = "traces";
   @SerializedName(SERIALIZED_NAME_TRACES)
-  @javax.annotation.Nullable
   private String traces;
 
   public static final String SERIALIZED_NAME_FAILURE_TYPE = "failureType";
   @SerializedName(SERIALIZED_NAME_FAILURE_TYPE)
-  @javax.annotation.Nonnull
   private String failureType;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
   private String message;
 
   public static final String SERIALIZED_NAME_TEST_POINT = "testPoint";
   @SerializedName(SERIALIZED_NAME_TEST_POINT)
-  @javax.annotation.Nullable
   private TestPointPutModel testPoint;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_AUTO_TEST = "autoTest";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST)
-  @javax.annotation.Nullable
   private AutoTestShortModel autoTest;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public TestResultShortModel() {
   }
 
-  public TestResultShortModel id(@javax.annotation.Nonnull UUID id) {
+  public TestResultShortModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -120,12 +111,12 @@ public class TestResultShortModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestResultShortModel outcome(@javax.annotation.Nonnull String outcome) {
+  public TestResultShortModel outcome(String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -139,12 +130,12 @@ public class TestResultShortModel {
     return outcome;
   }
 
-  public void setOutcome(@javax.annotation.Nonnull String outcome) {
+  public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultShortModel traces(@javax.annotation.Nullable String traces) {
+  public TestResultShortModel traces(String traces) {
     this.traces = traces;
     return this;
   }
@@ -158,12 +149,12 @@ public class TestResultShortModel {
     return traces;
   }
 
-  public void setTraces(@javax.annotation.Nullable String traces) {
+  public void setTraces(String traces) {
     this.traces = traces;
   }
 
 
-  public TestResultShortModel failureType(@javax.annotation.Nonnull String failureType) {
+  public TestResultShortModel failureType(String failureType) {
     this.failureType = failureType;
     return this;
   }
@@ -177,12 +168,12 @@ public class TestResultShortModel {
     return failureType;
   }
 
-  public void setFailureType(@javax.annotation.Nonnull String failureType) {
+  public void setFailureType(String failureType) {
     this.failureType = failureType;
   }
 
 
-  public TestResultShortModel message(@javax.annotation.Nullable String message) {
+  public TestResultShortModel message(String message) {
     this.message = message;
     return this;
   }
@@ -196,12 +187,12 @@ public class TestResultShortModel {
     return message;
   }
 
-  public void setMessage(@javax.annotation.Nullable String message) {
+  public void setMessage(String message) {
     this.message = message;
   }
 
 
-  public TestResultShortModel testPoint(@javax.annotation.Nullable TestPointPutModel testPoint) {
+  public TestResultShortModel testPoint(TestPointPutModel testPoint) {
     this.testPoint = testPoint;
     return this;
   }
@@ -215,12 +206,12 @@ public class TestResultShortModel {
     return testPoint;
   }
 
-  public void setTestPoint(@javax.annotation.Nullable TestPointPutModel testPoint) {
+  public void setTestPoint(TestPointPutModel testPoint) {
     this.testPoint = testPoint;
   }
 
 
-  public TestResultShortModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public TestResultShortModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -234,12 +225,12 @@ public class TestResultShortModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestResultShortModel autoTest(@javax.annotation.Nullable AutoTestShortModel autoTest) {
+  public TestResultShortModel autoTest(AutoTestShortModel autoTest) {
     this.autoTest = autoTest;
     return this;
   }
@@ -253,12 +244,12 @@ public class TestResultShortModel {
     return autoTest;
   }
 
-  public void setAutoTest(@javax.annotation.Nullable AutoTestShortModel autoTest) {
+  public void setAutoTest(AutoTestShortModel autoTest) {
     this.autoTest = autoTest;
   }
 
 
-  public TestResultShortModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public TestResultShortModel attachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -280,7 +271,7 @@ public class TestResultShortModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 

@@ -48,37 +48,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemChangedAttributeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemChangedAttributeViewModel {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private String type;
 
   public static final String SERIALIZED_NAME_OLD_ATTRIBUTE_NAME = "oldAttributeName";
   @SerializedName(SERIALIZED_NAME_OLD_ATTRIBUTE_NAME)
-  @javax.annotation.Nonnull
   private String oldAttributeName;
 
   public static final String SERIALIZED_NAME_NEW_ATTRIBUTE_NAME = "newAttributeName";
   @SerializedName(SERIALIZED_NAME_NEW_ATTRIBUTE_NAME)
-  @javax.annotation.Nonnull
   private String newAttributeName;
 
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private Object oldValue = null;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private Object newValue = null;
 
   public WorkItemChangedAttributeViewModel() {
   }
 
-  public WorkItemChangedAttributeViewModel type(@javax.annotation.Nonnull String type) {
+  public WorkItemChangedAttributeViewModel type(String type) {
     this.type = type;
     return this;
   }
@@ -92,12 +87,12 @@ public class WorkItemChangedAttributeViewModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public WorkItemChangedAttributeViewModel oldAttributeName(@javax.annotation.Nonnull String oldAttributeName) {
+  public WorkItemChangedAttributeViewModel oldAttributeName(String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
     return this;
   }
@@ -111,12 +106,12 @@ public class WorkItemChangedAttributeViewModel {
     return oldAttributeName;
   }
 
-  public void setOldAttributeName(@javax.annotation.Nonnull String oldAttributeName) {
+  public void setOldAttributeName(String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
   }
 
 
-  public WorkItemChangedAttributeViewModel newAttributeName(@javax.annotation.Nonnull String newAttributeName) {
+  public WorkItemChangedAttributeViewModel newAttributeName(String newAttributeName) {
     this.newAttributeName = newAttributeName;
     return this;
   }
@@ -130,12 +125,12 @@ public class WorkItemChangedAttributeViewModel {
     return newAttributeName;
   }
 
-  public void setNewAttributeName(@javax.annotation.Nonnull String newAttributeName) {
+  public void setNewAttributeName(String newAttributeName) {
     this.newAttributeName = newAttributeName;
   }
 
 
-  public WorkItemChangedAttributeViewModel oldValue(@javax.annotation.Nullable Object oldValue) {
+  public WorkItemChangedAttributeViewModel oldValue(Object oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -149,12 +144,12 @@ public class WorkItemChangedAttributeViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable Object oldValue) {
+  public void setOldValue(Object oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public WorkItemChangedAttributeViewModel newValue(@javax.annotation.Nullable Object newValue) {
+  public WorkItemChangedAttributeViewModel newValue(Object newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -168,7 +163,7 @@ public class WorkItemChangedAttributeViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable Object newValue) {
+  public void setNewValue(Object newValue) {
     this.newValue = newValue;
   }
 

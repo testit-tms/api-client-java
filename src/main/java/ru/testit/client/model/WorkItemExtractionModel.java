@@ -50,27 +50,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * Rules for different level entities inclusion/exclusion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemExtractionModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private GuidExtractionModel projectIds;
 
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  @javax.annotation.Nullable
   private GuidExtractionModel ids;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  @javax.annotation.Nullable
   private GuidExtractionModel sectionIds;
 
   public WorkItemExtractionModel() {
   }
 
-  public WorkItemExtractionModel projectIds(@javax.annotation.Nullable GuidExtractionModel projectIds) {
+  public WorkItemExtractionModel projectIds(GuidExtractionModel projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -84,12 +81,12 @@ public class WorkItemExtractionModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable GuidExtractionModel projectIds) {
+  public void setProjectIds(GuidExtractionModel projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public WorkItemExtractionModel ids(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public WorkItemExtractionModel ids(GuidExtractionModel ids) {
     this.ids = ids;
     return this;
   }
@@ -103,12 +100,12 @@ public class WorkItemExtractionModel {
     return ids;
   }
 
-  public void setIds(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public void setIds(GuidExtractionModel ids) {
     this.ids = ids;
   }
 
 
-  public WorkItemExtractionModel sectionIds(@javax.annotation.Nullable GuidExtractionModel sectionIds) {
+  public WorkItemExtractionModel sectionIds(GuidExtractionModel sectionIds) {
     this.sectionIds = sectionIds;
     return this;
   }
@@ -122,7 +119,7 @@ public class WorkItemExtractionModel {
     return sectionIds;
   }
 
-  public void setSectionIds(@javax.annotation.Nullable GuidExtractionModel sectionIds) {
+  public void setSectionIds(GuidExtractionModel sectionIds) {
     this.sectionIds = sectionIds;
   }
 

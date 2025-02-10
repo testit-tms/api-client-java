@@ -52,47 +52,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemCommentModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemCommentModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
-  @javax.annotation.Nonnull
   private String text;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
-  @javax.annotation.Nonnull
   private UserWithRankModel user;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public WorkItemCommentModel() {
   }
 
-  public WorkItemCommentModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemCommentModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -106,12 +99,12 @@ public class WorkItemCommentModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemCommentModel text(@javax.annotation.Nonnull String text) {
+  public WorkItemCommentModel text(String text) {
     this.text = text;
     return this;
   }
@@ -125,12 +118,12 @@ public class WorkItemCommentModel {
     return text;
   }
 
-  public void setText(@javax.annotation.Nonnull String text) {
+  public void setText(String text) {
     this.text = text;
   }
 
 
-  public WorkItemCommentModel user(@javax.annotation.Nonnull UserWithRankModel user) {
+  public WorkItemCommentModel user(UserWithRankModel user) {
     this.user = user;
     return this;
   }
@@ -144,12 +137,12 @@ public class WorkItemCommentModel {
     return user;
   }
 
-  public void setUser(@javax.annotation.Nonnull UserWithRankModel user) {
+  public void setUser(UserWithRankModel user) {
     this.user = user;
   }
 
 
-  public WorkItemCommentModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public WorkItemCommentModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -163,12 +156,12 @@ public class WorkItemCommentModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkItemCommentModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public WorkItemCommentModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -182,12 +175,12 @@ public class WorkItemCommentModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public WorkItemCommentModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public WorkItemCommentModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -201,12 +194,12 @@ public class WorkItemCommentModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WorkItemCommentModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public WorkItemCommentModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -220,7 +213,7 @@ public class WorkItemCommentModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 

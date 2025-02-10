@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunTestResultsSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunTestResultsSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private TestResultsLocalFilterModel filter;
 
   public static final String SERIALIZED_NAME_TEST_RESULT_IDS_EXTRACTION_MODEL = "testResultIdsExtractionModel";
   @SerializedName(SERIALIZED_NAME_TEST_RESULT_IDS_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private GuidExtractionModel testResultIdsExtractionModel;
 
   public TestRunTestResultsSelectModel() {
   }
 
-  public TestRunTestResultsSelectModel filter(@javax.annotation.Nullable TestResultsLocalFilterModel filter) {
+  public TestRunTestResultsSelectModel filter(TestResultsLocalFilterModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class TestRunTestResultsSelectModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable TestResultsLocalFilterModel filter) {
+  public void setFilter(TestResultsLocalFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public TestRunTestResultsSelectModel testResultIdsExtractionModel(@javax.annotation.Nullable GuidExtractionModel testResultIdsExtractionModel) {
+  public TestRunTestResultsSelectModel testResultIdsExtractionModel(GuidExtractionModel testResultIdsExtractionModel) {
     this.testResultIdsExtractionModel = testResultIdsExtractionModel;
     return this;
   }
@@ -99,7 +97,7 @@ public class TestRunTestResultsSelectModel {
     return testResultIdsExtractionModel;
   }
 
-  public void setTestResultIdsExtractionModel(@javax.annotation.Nullable GuidExtractionModel testResultIdsExtractionModel) {
+  public void setTestResultIdsExtractionModel(GuidExtractionModel testResultIdsExtractionModel) {
     this.testResultIdsExtractionModel = testResultIdsExtractionModel;
   }
 

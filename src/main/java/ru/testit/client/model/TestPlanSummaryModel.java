@@ -49,47 +49,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanSummaryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanSummaryModel {
   public static final String SERIALIZED_NAME_TOTAL_TEST_POINTS_COUNT = "totalTestPointsCount";
   @SerializedName(SERIALIZED_NAME_TOTAL_TEST_POINTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer totalTestPointsCount;
 
   public static final String SERIALIZED_NAME_MANUAL_TEST_POINTS_COUNT = "manualTestPointsCount";
   @SerializedName(SERIALIZED_NAME_MANUAL_TEST_POINTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer manualTestPointsCount;
 
   public static final String SERIALIZED_NAME_AUTOMATED_TEST_POINTS_COUNT = "automatedTestPointsCount";
   @SerializedName(SERIALIZED_NAME_AUTOMATED_TEST_POINTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer automatedTestPointsCount;
 
   public static final String SERIALIZED_NAME_COMPLETED_TEST_POINTS_COUNT = "completedTestPointsCount";
   @SerializedName(SERIALIZED_NAME_COMPLETED_TEST_POINTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer completedTestPointsCount;
 
   public static final String SERIALIZED_NAME_DEFECTS_COUNT = "defectsCount";
   @SerializedName(SERIALIZED_NAME_DEFECTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer defectsCount;
 
   public static final String SERIALIZED_NAME_PLANNED_TEST_POINTS_DURATION = "plannedTestPointsDuration";
   @SerializedName(SERIALIZED_NAME_PLANNED_TEST_POINTS_DURATION)
-  @javax.annotation.Nonnull
   private Long plannedTestPointsDuration;
 
   public static final String SERIALIZED_NAME_SPENT_TEST_POINTS_DURATION = "spentTestPointsDuration";
   @SerializedName(SERIALIZED_NAME_SPENT_TEST_POINTS_DURATION)
-  @javax.annotation.Nullable
   private Long spentTestPointsDuration;
 
   public TestPlanSummaryModel() {
   }
 
-  public TestPlanSummaryModel totalTestPointsCount(@javax.annotation.Nonnull Integer totalTestPointsCount) {
+  public TestPlanSummaryModel totalTestPointsCount(Integer totalTestPointsCount) {
     this.totalTestPointsCount = totalTestPointsCount;
     return this;
   }
@@ -103,12 +96,12 @@ public class TestPlanSummaryModel {
     return totalTestPointsCount;
   }
 
-  public void setTotalTestPointsCount(@javax.annotation.Nonnull Integer totalTestPointsCount) {
+  public void setTotalTestPointsCount(Integer totalTestPointsCount) {
     this.totalTestPointsCount = totalTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel manualTestPointsCount(@javax.annotation.Nonnull Integer manualTestPointsCount) {
+  public TestPlanSummaryModel manualTestPointsCount(Integer manualTestPointsCount) {
     this.manualTestPointsCount = manualTestPointsCount;
     return this;
   }
@@ -122,12 +115,12 @@ public class TestPlanSummaryModel {
     return manualTestPointsCount;
   }
 
-  public void setManualTestPointsCount(@javax.annotation.Nonnull Integer manualTestPointsCount) {
+  public void setManualTestPointsCount(Integer manualTestPointsCount) {
     this.manualTestPointsCount = manualTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel automatedTestPointsCount(@javax.annotation.Nonnull Integer automatedTestPointsCount) {
+  public TestPlanSummaryModel automatedTestPointsCount(Integer automatedTestPointsCount) {
     this.automatedTestPointsCount = automatedTestPointsCount;
     return this;
   }
@@ -141,12 +134,12 @@ public class TestPlanSummaryModel {
     return automatedTestPointsCount;
   }
 
-  public void setAutomatedTestPointsCount(@javax.annotation.Nonnull Integer automatedTestPointsCount) {
+  public void setAutomatedTestPointsCount(Integer automatedTestPointsCount) {
     this.automatedTestPointsCount = automatedTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel completedTestPointsCount(@javax.annotation.Nonnull Integer completedTestPointsCount) {
+  public TestPlanSummaryModel completedTestPointsCount(Integer completedTestPointsCount) {
     this.completedTestPointsCount = completedTestPointsCount;
     return this;
   }
@@ -160,12 +153,12 @@ public class TestPlanSummaryModel {
     return completedTestPointsCount;
   }
 
-  public void setCompletedTestPointsCount(@javax.annotation.Nonnull Integer completedTestPointsCount) {
+  public void setCompletedTestPointsCount(Integer completedTestPointsCount) {
     this.completedTestPointsCount = completedTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel defectsCount(@javax.annotation.Nonnull Integer defectsCount) {
+  public TestPlanSummaryModel defectsCount(Integer defectsCount) {
     this.defectsCount = defectsCount;
     return this;
   }
@@ -179,12 +172,12 @@ public class TestPlanSummaryModel {
     return defectsCount;
   }
 
-  public void setDefectsCount(@javax.annotation.Nonnull Integer defectsCount) {
+  public void setDefectsCount(Integer defectsCount) {
     this.defectsCount = defectsCount;
   }
 
 
-  public TestPlanSummaryModel plannedTestPointsDuration(@javax.annotation.Nonnull Long plannedTestPointsDuration) {
+  public TestPlanSummaryModel plannedTestPointsDuration(Long plannedTestPointsDuration) {
     this.plannedTestPointsDuration = plannedTestPointsDuration;
     return this;
   }
@@ -198,12 +191,12 @@ public class TestPlanSummaryModel {
     return plannedTestPointsDuration;
   }
 
-  public void setPlannedTestPointsDuration(@javax.annotation.Nonnull Long plannedTestPointsDuration) {
+  public void setPlannedTestPointsDuration(Long plannedTestPointsDuration) {
     this.plannedTestPointsDuration = plannedTestPointsDuration;
   }
 
 
-  public TestPlanSummaryModel spentTestPointsDuration(@javax.annotation.Nullable Long spentTestPointsDuration) {
+  public TestPlanSummaryModel spentTestPointsDuration(Long spentTestPointsDuration) {
     this.spentTestPointsDuration = spentTestPointsDuration;
     return this;
   }
@@ -217,7 +210,7 @@ public class TestPlanSummaryModel {
     return spentTestPointsDuration;
   }
 
-  public void setSpentTestPointsDuration(@javax.annotation.Nullable Long spentTestPointsDuration) {
+  public void setSpentTestPointsDuration(Long spentTestPointsDuration) {
     this.spentTestPointsDuration = spentTestPointsDuration;
   }
 

@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemCommentPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemCommentPutModel {
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
-  @javax.annotation.Nonnull
   private String text;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public WorkItemCommentPutModel() {
   }
 
-  public WorkItemCommentPutModel text(@javax.annotation.Nonnull String text) {
+  public WorkItemCommentPutModel text(String text) {
     this.text = text;
     return this;
   }
@@ -78,12 +76,12 @@ public class WorkItemCommentPutModel {
     return text;
   }
 
-  public void setText(@javax.annotation.Nonnull String text) {
+  public void setText(String text) {
     this.text = text;
   }
 
 
-  public WorkItemCommentPutModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemCommentPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -97,7 +95,7 @@ public class WorkItemCommentPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

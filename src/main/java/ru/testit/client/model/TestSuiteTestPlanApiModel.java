@@ -54,37 +54,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteTestPlanApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteTestPlanApiModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
   private TestSuiteType type;
 
   public static final String SERIALIZED_NAME_SAVE_STRUCTURE = "saveStructure";
   @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
-  @javax.annotation.Nullable
   private Boolean saveStructure;
 
   public static final String SERIALIZED_NAME_WORK_ITEMS_SELECTOR = "workItemsSelector";
   @SerializedName(SERIALIZED_NAME_WORK_ITEMS_SELECTOR)
-  @javax.annotation.Nonnull
   private WorkItemSelectModel workItemsSelector;
 
   public TestSuiteTestPlanApiModel() {
   }
 
-  public TestSuiteTestPlanApiModel name(@javax.annotation.Nonnull String name) {
+  public TestSuiteTestPlanApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -98,12 +93,12 @@ public class TestSuiteTestPlanApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestSuiteTestPlanApiModel configurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public TestSuiteTestPlanApiModel configurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -125,12 +120,12 @@ public class TestSuiteTestPlanApiModel {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
-  public TestSuiteTestPlanApiModel type(@javax.annotation.Nullable TestSuiteType type) {
+  public TestSuiteTestPlanApiModel type(TestSuiteType type) {
     this.type = type;
     return this;
   }
@@ -144,12 +139,12 @@ public class TestSuiteTestPlanApiModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable TestSuiteType type) {
+  public void setType(TestSuiteType type) {
     this.type = type;
   }
 
 
-  public TestSuiteTestPlanApiModel saveStructure(@javax.annotation.Nullable Boolean saveStructure) {
+  public TestSuiteTestPlanApiModel saveStructure(Boolean saveStructure) {
     this.saveStructure = saveStructure;
     return this;
   }
@@ -163,12 +158,12 @@ public class TestSuiteTestPlanApiModel {
     return saveStructure;
   }
 
-  public void setSaveStructure(@javax.annotation.Nullable Boolean saveStructure) {
+  public void setSaveStructure(Boolean saveStructure) {
     this.saveStructure = saveStructure;
   }
 
 
-  public TestSuiteTestPlanApiModel workItemsSelector(@javax.annotation.Nonnull WorkItemSelectModel workItemsSelector) {
+  public TestSuiteTestPlanApiModel workItemsSelector(WorkItemSelectModel workItemsSelector) {
     this.workItemsSelector = workItemsSelector;
     return this;
   }
@@ -182,7 +177,7 @@ public class TestSuiteTestPlanApiModel {
     return workItemsSelector;
   }
 
-  public void setWorkItemsSelector(@javax.annotation.Nonnull WorkItemSelectModel workItemsSelector) {
+  public void setWorkItemsSelector(WorkItemSelectModel workItemsSelector) {
     this.workItemsSelector = workItemsSelector;
   }
 

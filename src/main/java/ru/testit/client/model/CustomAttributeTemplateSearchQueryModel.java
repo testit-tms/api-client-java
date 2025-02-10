@@ -53,32 +53,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeTemplateSearchQueryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeTemplateSearchQueryModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
-  @javax.annotation.Nullable
   private Set<CustomAttributeTypesEnum> customAttributeTypes;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public CustomAttributeTemplateSearchQueryModel() {
   }
 
-  public CustomAttributeTemplateSearchQueryModel name(@javax.annotation.Nullable String name) {
+  public CustomAttributeTemplateSearchQueryModel name(String name) {
     this.name = name;
     return this;
   }
@@ -92,12 +88,12 @@ public class CustomAttributeTemplateSearchQueryModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public CustomAttributeTemplateSearchQueryModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public CustomAttributeTemplateSearchQueryModel projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -119,12 +115,12 @@ public class CustomAttributeTemplateSearchQueryModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public CustomAttributeTemplateSearchQueryModel customAttributeTypes(@javax.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public CustomAttributeTemplateSearchQueryModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
     return this;
   }
@@ -146,12 +142,12 @@ public class CustomAttributeTemplateSearchQueryModel {
     return customAttributeTypes;
   }
 
-  public void setCustomAttributeTypes(@javax.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
   }
 
 
-  public CustomAttributeTemplateSearchQueryModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public CustomAttributeTemplateSearchQueryModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -165,7 +161,7 @@ public class CustomAttributeTemplateSearchQueryModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

@@ -51,57 +51,48 @@ import ru.testit.client.invoker.JSON;
 /**
  * AttachmentApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AttachmentApiResult {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_FILE_ID = "fileId";
   @SerializedName(SERIALIZED_NAME_FILE_ID)
-  @javax.annotation.Nonnull
   private String fileId;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private String type;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
-  @javax.annotation.Nonnull
   private Float size;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public AttachmentApiResult() {
   }
 
-  public AttachmentApiResult id(@javax.annotation.Nonnull UUID id) {
+  public AttachmentApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -115,12 +106,12 @@ public class AttachmentApiResult {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public AttachmentApiResult fileId(@javax.annotation.Nonnull String fileId) {
+  public AttachmentApiResult fileId(String fileId) {
     this.fileId = fileId;
     return this;
   }
@@ -134,12 +125,12 @@ public class AttachmentApiResult {
     return fileId;
   }
 
-  public void setFileId(@javax.annotation.Nonnull String fileId) {
+  public void setFileId(String fileId) {
     this.fileId = fileId;
   }
 
 
-  public AttachmentApiResult type(@javax.annotation.Nonnull String type) {
+  public AttachmentApiResult type(String type) {
     this.type = type;
     return this;
   }
@@ -153,12 +144,12 @@ public class AttachmentApiResult {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public AttachmentApiResult size(@javax.annotation.Nonnull Float size) {
+  public AttachmentApiResult size(Float size) {
     this.size = size;
     return this;
   }
@@ -172,12 +163,12 @@ public class AttachmentApiResult {
     return size;
   }
 
-  public void setSize(@javax.annotation.Nonnull Float size) {
+  public void setSize(Float size) {
     this.size = size;
   }
 
 
-  public AttachmentApiResult createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public AttachmentApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -191,12 +182,12 @@ public class AttachmentApiResult {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AttachmentApiResult modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public AttachmentApiResult modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -210,12 +201,12 @@ public class AttachmentApiResult {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public AttachmentApiResult createdById(@javax.annotation.Nonnull UUID createdById) {
+  public AttachmentApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -229,12 +220,12 @@ public class AttachmentApiResult {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AttachmentApiResult modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public AttachmentApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -248,12 +239,12 @@ public class AttachmentApiResult {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public AttachmentApiResult name(@javax.annotation.Nonnull String name) {
+  public AttachmentApiResult name(String name) {
     this.name = name;
     return this;
   }
@@ -267,7 +258,7 @@ public class AttachmentApiResult {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

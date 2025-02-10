@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultChronologyModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultChronologyModel {
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nullable
   private String outcome;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
-  @javax.annotation.Nonnull
   private Integer count;
 
   public TestResultChronologyModel() {
   }
 
-  public TestResultChronologyModel outcome(@javax.annotation.Nullable String outcome) {
+  public TestResultChronologyModel outcome(String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -78,12 +76,12 @@ public class TestResultChronologyModel {
     return outcome;
   }
 
-  public void setOutcome(@javax.annotation.Nullable String outcome) {
+  public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultChronologyModel count(@javax.annotation.Nonnull Integer count) {
+  public TestResultChronologyModel count(Integer count) {
     this.count = count;
     return this;
   }
@@ -97,7 +95,7 @@ public class TestResultChronologyModel {
     return count;
   }
 
-  public void setCount(@javax.annotation.Nonnull Integer count) {
+  public void setCount(Integer count) {
     this.count = count;
   }
 

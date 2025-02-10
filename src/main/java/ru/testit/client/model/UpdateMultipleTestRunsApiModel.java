@@ -52,32 +52,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * UpdateMultipleTestRunsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateMultipleTestRunsApiModel {
   public static final String SERIALIZED_NAME_SELECT_MODEL = "selectModel";
   @SerializedName(SERIALIZED_NAME_SELECT_MODEL)
-  @javax.annotation.Nonnull
   private TestRunSelectApiModel selectModel;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_ATTACHMENT_UPDATE_SCHEME = "attachmentUpdateScheme";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_UPDATE_SCHEME)
-  @javax.annotation.Nullable
   private UpdateMultipleAttachmentsApiModel attachmentUpdateScheme;
 
   public static final String SERIALIZED_NAME_LINK_UPDATE_SCHEME = "linkUpdateScheme";
   @SerializedName(SERIALIZED_NAME_LINK_UPDATE_SCHEME)
-  @javax.annotation.Nullable
   private UpdateMultipleLinksApiModel linkUpdateScheme;
 
   public UpdateMultipleTestRunsApiModel() {
   }
 
-  public UpdateMultipleTestRunsApiModel selectModel(@javax.annotation.Nonnull TestRunSelectApiModel selectModel) {
+  public UpdateMultipleTestRunsApiModel selectModel(TestRunSelectApiModel selectModel) {
     this.selectModel = selectModel;
     return this;
   }
@@ -91,12 +87,12 @@ public class UpdateMultipleTestRunsApiModel {
     return selectModel;
   }
 
-  public void setSelectModel(@javax.annotation.Nonnull TestRunSelectApiModel selectModel) {
+  public void setSelectModel(TestRunSelectApiModel selectModel) {
     this.selectModel = selectModel;
   }
 
 
-  public UpdateMultipleTestRunsApiModel description(@javax.annotation.Nullable String description) {
+  public UpdateMultipleTestRunsApiModel description(String description) {
     this.description = description;
     return this;
   }
@@ -110,12 +106,12 @@ public class UpdateMultipleTestRunsApiModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public UpdateMultipleTestRunsApiModel attachmentUpdateScheme(@javax.annotation.Nullable UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
+  public UpdateMultipleTestRunsApiModel attachmentUpdateScheme(UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
     this.attachmentUpdateScheme = attachmentUpdateScheme;
     return this;
   }
@@ -129,12 +125,12 @@ public class UpdateMultipleTestRunsApiModel {
     return attachmentUpdateScheme;
   }
 
-  public void setAttachmentUpdateScheme(@javax.annotation.Nullable UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
+  public void setAttachmentUpdateScheme(UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
     this.attachmentUpdateScheme = attachmentUpdateScheme;
   }
 
 
-  public UpdateMultipleTestRunsApiModel linkUpdateScheme(@javax.annotation.Nullable UpdateMultipleLinksApiModel linkUpdateScheme) {
+  public UpdateMultipleTestRunsApiModel linkUpdateScheme(UpdateMultipleLinksApiModel linkUpdateScheme) {
     this.linkUpdateScheme = linkUpdateScheme;
     return this;
   }
@@ -148,7 +144,7 @@ public class UpdateMultipleTestRunsApiModel {
     return linkUpdateScheme;
   }
 
-  public void setLinkUpdateScheme(@javax.annotation.Nullable UpdateMultipleLinksApiModel linkUpdateScheme) {
+  public void setLinkUpdateScheme(UpdateMultipleLinksApiModel linkUpdateScheme) {
     this.linkUpdateScheme = linkUpdateScheme;
   }
 

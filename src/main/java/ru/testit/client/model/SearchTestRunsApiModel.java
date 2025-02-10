@@ -54,48 +54,41 @@ import ru.testit.client.invoker.JSON;
 /**
  * SearchTestRunsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SearchTestRunsApiModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATES)
-  @javax.annotation.Nullable
   private Set<TestRunState> states;
 
   public static final String SERIALIZED_NAME_STATUS_CODES = "statusCodes";
   @SerializedName(SERIALIZED_NAME_STATUS_CODES)
-  @javax.annotation.Nullable
   private Set<String> statusCodes;
 
   public static final String SERIALIZED_NAME_STARTED_DATE = "startedDate";
   @SerializedName(SERIALIZED_NAME_STARTED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel startedDate;
 
   public static final String SERIALIZED_NAME_COMPLETED_DATE = "completedDate";
   @SerializedName(SERIALIZED_NAME_COMPLETED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel completedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> modifiedByIds;
 
   public SearchTestRunsApiModel() {
   }
 
-  public SearchTestRunsApiModel name(@javax.annotation.Nullable String name) {
+  public SearchTestRunsApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -109,13 +102,13 @@ public class SearchTestRunsApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
   @Deprecated
-  public SearchTestRunsApiModel states(@javax.annotation.Nullable Set<TestRunState> states) {
+  public SearchTestRunsApiModel states(Set<TestRunState> states) {
     this.states = states;
     return this;
   }
@@ -140,12 +133,12 @@ public class SearchTestRunsApiModel {
   }
 
   @Deprecated
-  public void setStates(@javax.annotation.Nullable Set<TestRunState> states) {
+  public void setStates(Set<TestRunState> states) {
     this.states = states;
   }
 
 
-  public SearchTestRunsApiModel statusCodes(@javax.annotation.Nullable Set<String> statusCodes) {
+  public SearchTestRunsApiModel statusCodes(Set<String> statusCodes) {
     this.statusCodes = statusCodes;
     return this;
   }
@@ -167,12 +160,12 @@ public class SearchTestRunsApiModel {
     return statusCodes;
   }
 
-  public void setStatusCodes(@javax.annotation.Nullable Set<String> statusCodes) {
+  public void setStatusCodes(Set<String> statusCodes) {
     this.statusCodes = statusCodes;
   }
 
 
-  public SearchTestRunsApiModel startedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startedDate) {
+  public SearchTestRunsApiModel startedDate(DateTimeRangeSelectorModel startedDate) {
     this.startedDate = startedDate;
     return this;
   }
@@ -186,12 +179,12 @@ public class SearchTestRunsApiModel {
     return startedDate;
   }
 
-  public void setStartedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startedDate) {
+  public void setStartedDate(DateTimeRangeSelectorModel startedDate) {
     this.startedDate = startedDate;
   }
 
 
-  public SearchTestRunsApiModel completedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel completedDate) {
+  public SearchTestRunsApiModel completedDate(DateTimeRangeSelectorModel completedDate) {
     this.completedDate = completedDate;
     return this;
   }
@@ -205,12 +198,12 @@ public class SearchTestRunsApiModel {
     return completedDate;
   }
 
-  public void setCompletedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel completedDate) {
+  public void setCompletedDate(DateTimeRangeSelectorModel completedDate) {
     this.completedDate = completedDate;
   }
 
 
-  public SearchTestRunsApiModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public SearchTestRunsApiModel createdByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -232,12 +225,12 @@ public class SearchTestRunsApiModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public SearchTestRunsApiModel modifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public SearchTestRunsApiModel modifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -259,7 +252,7 @@ public class SearchTestRunsApiModel {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 

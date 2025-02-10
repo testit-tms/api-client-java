@@ -51,27 +51,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * ParameterGroupModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ParameterGroupModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
-  @javax.annotation.Nonnull
   private Map<String, String> values = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PARAMETER_KEY_ID = "parameterKeyId";
   @SerializedName(SERIALIZED_NAME_PARAMETER_KEY_ID)
-  @javax.annotation.Nonnull
   private UUID parameterKeyId;
 
   public ParameterGroupModel() {
   }
 
-  public ParameterGroupModel name(@javax.annotation.Nonnull String name) {
+  public ParameterGroupModel name(String name) {
     this.name = name;
     return this;
   }
@@ -85,12 +82,12 @@ public class ParameterGroupModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ParameterGroupModel values(@javax.annotation.Nonnull Map<String, String> values) {
+  public ParameterGroupModel values(Map<String, String> values) {
     this.values = values;
     return this;
   }
@@ -112,12 +109,12 @@ public class ParameterGroupModel {
     return values;
   }
 
-  public void setValues(@javax.annotation.Nonnull Map<String, String> values) {
+  public void setValues(Map<String, String> values) {
     this.values = values;
   }
 
 
-  public ParameterGroupModel parameterKeyId(@javax.annotation.Nonnull UUID parameterKeyId) {
+  public ParameterGroupModel parameterKeyId(UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
     return this;
   }
@@ -131,7 +128,7 @@ public class ParameterGroupModel {
     return parameterKeyId;
   }
 
-  public void setParameterKeyId(@javax.annotation.Nonnull UUID parameterKeyId) {
+  public void setParameterKeyId(UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
   }
 

@@ -54,37 +54,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * BackgroundJobFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BackgroundJobFilterModel {
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  @javax.annotation.Nullable
   private List<BackgroundJobType> types;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  @javax.annotation.Nullable
   private List<BackgroundJobState> states;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel endDate;
 
   public BackgroundJobFilterModel() {
   }
 
-  public BackgroundJobFilterModel types(@javax.annotation.Nullable List<BackgroundJobType> types) {
+  public BackgroundJobFilterModel types(List<BackgroundJobType> types) {
     this.types = types;
     return this;
   }
@@ -106,12 +101,12 @@ public class BackgroundJobFilterModel {
     return types;
   }
 
-  public void setTypes(@javax.annotation.Nullable List<BackgroundJobType> types) {
+  public void setTypes(List<BackgroundJobType> types) {
     this.types = types;
   }
 
 
-  public BackgroundJobFilterModel states(@javax.annotation.Nullable List<BackgroundJobState> states) {
+  public BackgroundJobFilterModel states(List<BackgroundJobState> states) {
     this.states = states;
     return this;
   }
@@ -133,12 +128,12 @@ public class BackgroundJobFilterModel {
     return states;
   }
 
-  public void setStates(@javax.annotation.Nullable List<BackgroundJobState> states) {
+  public void setStates(List<BackgroundJobState> states) {
     this.states = states;
   }
 
 
-  public BackgroundJobFilterModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public BackgroundJobFilterModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -152,12 +147,12 @@ public class BackgroundJobFilterModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public BackgroundJobFilterModel startDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startDate) {
+  public BackgroundJobFilterModel startDate(DateTimeRangeSelectorModel startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -171,12 +166,12 @@ public class BackgroundJobFilterModel {
     return startDate;
   }
 
-  public void setStartDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startDate) {
+  public void setStartDate(DateTimeRangeSelectorModel startDate) {
     this.startDate = startDate;
   }
 
 
-  public BackgroundJobFilterModel endDate(@javax.annotation.Nullable DateTimeRangeSelectorModel endDate) {
+  public BackgroundJobFilterModel endDate(DateTimeRangeSelectorModel endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -190,7 +185,7 @@ public class BackgroundJobFilterModel {
     return endDate;
   }
 
-  public void setEndDate(@javax.annotation.Nullable DateTimeRangeSelectorModel endDate) {
+  public void setEndDate(DateTimeRangeSelectorModel endDate) {
     this.endDate = endDate;
   }
 

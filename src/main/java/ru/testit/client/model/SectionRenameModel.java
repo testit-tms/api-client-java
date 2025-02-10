@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * SectionRenameModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SectionRenameModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public SectionRenameModel() {
   }
 
-  public SectionRenameModel id(@javax.annotation.Nonnull UUID id) {
+  public SectionRenameModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -78,12 +76,12 @@ public class SectionRenameModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SectionRenameModel name(@javax.annotation.Nonnull String name) {
+  public SectionRenameModel name(String name) {
     this.name = name;
     return this;
   }
@@ -97,7 +95,7 @@ public class SectionRenameModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

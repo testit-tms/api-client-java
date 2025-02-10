@@ -57,78 +57,65 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunShortApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunShortApiResult {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nonnull
   private TestRunState state;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private TestStatusApiResult status;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_STARTED_DATE = "startedDate";
   @SerializedName(SERIALIZED_NAME_STARTED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime startedDate;
 
   public static final String SERIALIZED_NAME_COMPLETED_DATE = "completedDate";
   @SerializedName(SERIALIZED_NAME_COMPLETED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime completedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS_COUNT = "autoTestsCount";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer autoTestsCount;
 
   public static final String SERIALIZED_NAME_STATISTICS = "statistics";
   @SerializedName(SERIALIZED_NAME_STATISTICS)
-  @javax.annotation.Nonnull
   private TestResultsStatisticsApiResult statistics;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS_CONFIGURATIONS = "testResultsConfigurations";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS_CONFIGURATIONS)
-  @javax.annotation.Nonnull
   private List<ConfigurationShortApiResult> testResultsConfigurations = new ArrayList<>();
 
   public TestRunShortApiResult() {
   }
 
-  public TestRunShortApiResult id(@javax.annotation.Nonnull UUID id) {
+  public TestRunShortApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -142,12 +129,12 @@ public class TestRunShortApiResult {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestRunShortApiResult name(@javax.annotation.Nonnull String name) {
+  public TestRunShortApiResult name(String name) {
     this.name = name;
     return this;
   }
@@ -161,13 +148,13 @@ public class TestRunShortApiResult {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
   @Deprecated
-  public TestRunShortApiResult state(@javax.annotation.Nonnull TestRunState state) {
+  public TestRunShortApiResult state(TestRunState state) {
     this.state = state;
     return this;
   }
@@ -184,12 +171,12 @@ public class TestRunShortApiResult {
   }
 
   @Deprecated
-  public void setState(@javax.annotation.Nonnull TestRunState state) {
+  public void setState(TestRunState state) {
     this.state = state;
   }
 
 
-  public TestRunShortApiResult status(@javax.annotation.Nonnull TestStatusApiResult status) {
+  public TestRunShortApiResult status(TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -203,12 +190,12 @@ public class TestRunShortApiResult {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull TestStatusApiResult status) {
+  public void setStatus(TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public TestRunShortApiResult createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public TestRunShortApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -222,12 +209,12 @@ public class TestRunShortApiResult {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestRunShortApiResult startedDate(@javax.annotation.Nullable OffsetDateTime startedDate) {
+  public TestRunShortApiResult startedDate(OffsetDateTime startedDate) {
     this.startedDate = startedDate;
     return this;
   }
@@ -241,12 +228,12 @@ public class TestRunShortApiResult {
     return startedDate;
   }
 
-  public void setStartedDate(@javax.annotation.Nullable OffsetDateTime startedDate) {
+  public void setStartedDate(OffsetDateTime startedDate) {
     this.startedDate = startedDate;
   }
 
 
-  public TestRunShortApiResult completedDate(@javax.annotation.Nullable OffsetDateTime completedDate) {
+  public TestRunShortApiResult completedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
     return this;
   }
@@ -260,12 +247,12 @@ public class TestRunShortApiResult {
     return completedDate;
   }
 
-  public void setCompletedDate(@javax.annotation.Nullable OffsetDateTime completedDate) {
+  public void setCompletedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
   }
 
 
-  public TestRunShortApiResult createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestRunShortApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -279,12 +266,12 @@ public class TestRunShortApiResult {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestRunShortApiResult modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public TestRunShortApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -298,12 +285,12 @@ public class TestRunShortApiResult {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestRunShortApiResult isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestRunShortApiResult isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -317,12 +304,12 @@ public class TestRunShortApiResult {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestRunShortApiResult autoTestsCount(@javax.annotation.Nonnull Integer autoTestsCount) {
+  public TestRunShortApiResult autoTestsCount(Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -336,12 +323,12 @@ public class TestRunShortApiResult {
     return autoTestsCount;
   }
 
-  public void setAutoTestsCount(@javax.annotation.Nonnull Integer autoTestsCount) {
+  public void setAutoTestsCount(Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
-  public TestRunShortApiResult statistics(@javax.annotation.Nonnull TestResultsStatisticsApiResult statistics) {
+  public TestRunShortApiResult statistics(TestResultsStatisticsApiResult statistics) {
     this.statistics = statistics;
     return this;
   }
@@ -355,12 +342,12 @@ public class TestRunShortApiResult {
     return statistics;
   }
 
-  public void setStatistics(@javax.annotation.Nonnull TestResultsStatisticsApiResult statistics) {
+  public void setStatistics(TestResultsStatisticsApiResult statistics) {
     this.statistics = statistics;
   }
 
 
-  public TestRunShortApiResult testResultsConfigurations(@javax.annotation.Nonnull List<ConfigurationShortApiResult> testResultsConfigurations) {
+  public TestRunShortApiResult testResultsConfigurations(List<ConfigurationShortApiResult> testResultsConfigurations) {
     this.testResultsConfigurations = testResultsConfigurations;
     return this;
   }
@@ -382,7 +369,7 @@ public class TestRunShortApiResult {
     return testResultsConfigurations;
   }
 
-  public void setTestResultsConfigurations(@javax.annotation.Nonnull List<ConfigurationShortApiResult> testResultsConfigurations) {
+  public void setTestResultsConfigurations(List<ConfigurationShortApiResult> testResultsConfigurations) {
     this.testResultsConfigurations = testResultsConfigurations;
   }
 

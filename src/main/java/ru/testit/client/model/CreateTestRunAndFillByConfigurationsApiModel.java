@@ -55,52 +55,44 @@ import ru.testit.client.invoker.JSON;
 /**
  * CreateTestRunAndFillByConfigurationsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateTestRunAndFillByConfigurationsApiModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AssignAttachmentApiModel> attachments;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<CreateLinkApiModel> links;
 
   public static final String SERIALIZED_NAME_TEST_POINT_SELECTORS = "testPointSelectors";
   @SerializedName(SERIALIZED_NAME_TEST_POINT_SELECTORS)
-  @javax.annotation.Nonnull
   private List<TestPointSelector> testPointSelectors = new ArrayList<>();
 
   public CreateTestRunAndFillByConfigurationsApiModel() {
   }
 
-  public CreateTestRunAndFillByConfigurationsApiModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public CreateTestRunAndFillByConfigurationsApiModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -114,12 +106,12 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public CreateTestRunAndFillByConfigurationsApiModel testPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public CreateTestRunAndFillByConfigurationsApiModel testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -133,12 +125,12 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public CreateTestRunAndFillByConfigurationsApiModel name(@javax.annotation.Nullable String name) {
+  public CreateTestRunAndFillByConfigurationsApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -152,12 +144,12 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public CreateTestRunAndFillByConfigurationsApiModel description(@javax.annotation.Nullable String description) {
+  public CreateTestRunAndFillByConfigurationsApiModel description(String description) {
     this.description = description;
     return this;
   }
@@ -171,12 +163,12 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public CreateTestRunAndFillByConfigurationsApiModel launchSource(@javax.annotation.Nullable String launchSource) {
+  public CreateTestRunAndFillByConfigurationsApiModel launchSource(String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
@@ -190,12 +182,12 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     return launchSource;
   }
 
-  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
+  public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public CreateTestRunAndFillByConfigurationsApiModel attachments(@javax.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
+  public CreateTestRunAndFillByConfigurationsApiModel attachments(List<AssignAttachmentApiModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -217,12 +209,12 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
+  public void setAttachments(List<AssignAttachmentApiModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public CreateTestRunAndFillByConfigurationsApiModel links(@javax.annotation.Nullable List<CreateLinkApiModel> links) {
+  public CreateTestRunAndFillByConfigurationsApiModel links(List<CreateLinkApiModel> links) {
     this.links = links;
     return this;
   }
@@ -244,12 +236,12 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<CreateLinkApiModel> links) {
+  public void setLinks(List<CreateLinkApiModel> links) {
     this.links = links;
   }
 
 
-  public CreateTestRunAndFillByConfigurationsApiModel testPointSelectors(@javax.annotation.Nonnull List<TestPointSelector> testPointSelectors) {
+  public CreateTestRunAndFillByConfigurationsApiModel testPointSelectors(List<TestPointSelector> testPointSelectors) {
     this.testPointSelectors = testPointSelectors;
     return this;
   }
@@ -271,7 +263,7 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     return testPointSelectors;
   }
 
-  public void setTestPointSelectors(@javax.annotation.Nonnull List<TestPointSelector> testPointSelectors) {
+  public void setTestPointSelectors(List<TestPointSelector> testPointSelectors) {
     this.testPointSelectors = testPointSelectors;
   }
 

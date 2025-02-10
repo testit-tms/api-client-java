@@ -49,27 +49,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanGroupByTestSuite
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanGroupByTestSuite {
   public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
-  @javax.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_NAME = "testSuiteName";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_NAME)
-  @javax.annotation.Nonnull
   private String testSuiteName;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private Long value;
 
   public TestPlanGroupByTestSuite() {
   }
 
-  public TestPlanGroupByTestSuite testSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public TestPlanGroupByTestSuite testSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -83,12 +80,12 @@ public class TestPlanGroupByTestSuite {
     return testSuiteId;
   }
 
-  public void setTestSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
-  public TestPlanGroupByTestSuite testSuiteName(@javax.annotation.Nonnull String testSuiteName) {
+  public TestPlanGroupByTestSuite testSuiteName(String testSuiteName) {
     this.testSuiteName = testSuiteName;
     return this;
   }
@@ -102,12 +99,12 @@ public class TestPlanGroupByTestSuite {
     return testSuiteName;
   }
 
-  public void setTestSuiteName(@javax.annotation.Nonnull String testSuiteName) {
+  public void setTestSuiteName(String testSuiteName) {
     this.testSuiteName = testSuiteName;
   }
 
 
-  public TestPlanGroupByTestSuite value(@javax.annotation.Nonnull Long value) {
+  public TestPlanGroupByTestSuite value(Long value) {
     this.value = value;
     return this;
   }
@@ -121,7 +118,7 @@ public class TestPlanGroupByTestSuite {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Long value) {
+  public void setValue(Long value) {
     this.value = value;
   }
 

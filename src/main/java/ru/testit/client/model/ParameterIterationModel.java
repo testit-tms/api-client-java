@@ -49,17 +49,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * ParameterIterationModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ParameterIterationModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public ParameterIterationModel() {
   }
 
-  public ParameterIterationModel id(@javax.annotation.Nonnull UUID id) {
+  public ParameterIterationModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -73,7 +72,7 @@ public class ParameterIterationModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

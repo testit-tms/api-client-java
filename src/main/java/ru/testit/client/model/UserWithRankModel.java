@@ -51,82 +51,68 @@ import ru.testit.client.invoker.JSON;
 /**
  * UserWithRankModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UserWithRankModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-  @javax.annotation.Nonnull
   private String firstName;
 
   public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
-  @javax.annotation.Nonnull
   private String lastName;
 
   public static final String SERIALIZED_NAME_MIDDLE_NAME = "middleName";
   @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
-  @javax.annotation.Nonnull
   private String middleName;
 
   public static final String SERIALIZED_NAME_USER_NAME = "userName";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
-  @javax.annotation.Nonnull
   private String userName;
 
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-  @javax.annotation.Nonnull
   private String displayName;
 
   public static final String SERIALIZED_NAME_USER_TYPE = "userType";
   @SerializedName(SERIALIZED_NAME_USER_TYPE)
-  @javax.annotation.Nonnull
   private String userType;
 
   public static final String SERIALIZED_NAME_AVATAR_URL = "avatarUrl";
   @SerializedName(SERIALIZED_NAME_AVATAR_URL)
-  @javax.annotation.Nonnull
   private String avatarUrl;
 
   public static final String SERIALIZED_NAME_AVATAR_METADATA = "avatarMetadata";
   @SerializedName(SERIALIZED_NAME_AVATAR_METADATA)
-  @javax.annotation.Nonnull
   private String avatarMetadata;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_IS_DISABLED = "isDisabled";
   @SerializedName(SERIALIZED_NAME_IS_DISABLED)
-  @javax.annotation.Nonnull
   private Boolean isDisabled;
 
   public static final String SERIALIZED_NAME_PROVIDER_ID = "providerId";
   @SerializedName(SERIALIZED_NAME_PROVIDER_ID)
-  @javax.annotation.Nullable
   private UUID providerId;
 
   public static final String SERIALIZED_NAME_IS_ACTIVE_STATUS_BY_ENTITY = "isActiveStatusByEntity";
   @SerializedName(SERIALIZED_NAME_IS_ACTIVE_STATUS_BY_ENTITY)
-  @javax.annotation.Nonnull
   private Boolean isActiveStatusByEntity;
 
   public static final String SERIALIZED_NAME_USER_RANK = "userRank";
   @SerializedName(SERIALIZED_NAME_USER_RANK)
-  @javax.annotation.Nonnull
   private UserRankModel userRank;
 
   public UserWithRankModel() {
   }
 
-  public UserWithRankModel id(@javax.annotation.Nonnull UUID id) {
+  public UserWithRankModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -140,12 +126,12 @@ public class UserWithRankModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public UserWithRankModel firstName(@javax.annotation.Nonnull String firstName) {
+  public UserWithRankModel firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -159,12 +145,12 @@ public class UserWithRankModel {
     return firstName;
   }
 
-  public void setFirstName(@javax.annotation.Nonnull String firstName) {
+  public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
 
-  public UserWithRankModel lastName(@javax.annotation.Nonnull String lastName) {
+  public UserWithRankModel lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -178,12 +164,12 @@ public class UserWithRankModel {
     return lastName;
   }
 
-  public void setLastName(@javax.annotation.Nonnull String lastName) {
+  public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
 
-  public UserWithRankModel middleName(@javax.annotation.Nonnull String middleName) {
+  public UserWithRankModel middleName(String middleName) {
     this.middleName = middleName;
     return this;
   }
@@ -197,12 +183,12 @@ public class UserWithRankModel {
     return middleName;
   }
 
-  public void setMiddleName(@javax.annotation.Nonnull String middleName) {
+  public void setMiddleName(String middleName) {
     this.middleName = middleName;
   }
 
 
-  public UserWithRankModel userName(@javax.annotation.Nonnull String userName) {
+  public UserWithRankModel userName(String userName) {
     this.userName = userName;
     return this;
   }
@@ -216,12 +202,12 @@ public class UserWithRankModel {
     return userName;
   }
 
-  public void setUserName(@javax.annotation.Nonnull String userName) {
+  public void setUserName(String userName) {
     this.userName = userName;
   }
 
 
-  public UserWithRankModel displayName(@javax.annotation.Nonnull String displayName) {
+  public UserWithRankModel displayName(String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -235,12 +221,12 @@ public class UserWithRankModel {
     return displayName;
   }
 
-  public void setDisplayName(@javax.annotation.Nonnull String displayName) {
+  public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
-  public UserWithRankModel userType(@javax.annotation.Nonnull String userType) {
+  public UserWithRankModel userType(String userType) {
     this.userType = userType;
     return this;
   }
@@ -254,12 +240,12 @@ public class UserWithRankModel {
     return userType;
   }
 
-  public void setUserType(@javax.annotation.Nonnull String userType) {
+  public void setUserType(String userType) {
     this.userType = userType;
   }
 
 
-  public UserWithRankModel avatarUrl(@javax.annotation.Nonnull String avatarUrl) {
+  public UserWithRankModel avatarUrl(String avatarUrl) {
     this.avatarUrl = avatarUrl;
     return this;
   }
@@ -273,12 +259,12 @@ public class UserWithRankModel {
     return avatarUrl;
   }
 
-  public void setAvatarUrl(@javax.annotation.Nonnull String avatarUrl) {
+  public void setAvatarUrl(String avatarUrl) {
     this.avatarUrl = avatarUrl;
   }
 
 
-  public UserWithRankModel avatarMetadata(@javax.annotation.Nonnull String avatarMetadata) {
+  public UserWithRankModel avatarMetadata(String avatarMetadata) {
     this.avatarMetadata = avatarMetadata;
     return this;
   }
@@ -292,12 +278,12 @@ public class UserWithRankModel {
     return avatarMetadata;
   }
 
-  public void setAvatarMetadata(@javax.annotation.Nonnull String avatarMetadata) {
+  public void setAvatarMetadata(String avatarMetadata) {
     this.avatarMetadata = avatarMetadata;
   }
 
 
-  public UserWithRankModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public UserWithRankModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -311,12 +297,12 @@ public class UserWithRankModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public UserWithRankModel isDisabled(@javax.annotation.Nonnull Boolean isDisabled) {
+  public UserWithRankModel isDisabled(Boolean isDisabled) {
     this.isDisabled = isDisabled;
     return this;
   }
@@ -330,12 +316,12 @@ public class UserWithRankModel {
     return isDisabled;
   }
 
-  public void setIsDisabled(@javax.annotation.Nonnull Boolean isDisabled) {
+  public void setIsDisabled(Boolean isDisabled) {
     this.isDisabled = isDisabled;
   }
 
 
-  public UserWithRankModel providerId(@javax.annotation.Nullable UUID providerId) {
+  public UserWithRankModel providerId(UUID providerId) {
     this.providerId = providerId;
     return this;
   }
@@ -349,12 +335,12 @@ public class UserWithRankModel {
     return providerId;
   }
 
-  public void setProviderId(@javax.annotation.Nullable UUID providerId) {
+  public void setProviderId(UUID providerId) {
     this.providerId = providerId;
   }
 
 
-  public UserWithRankModel isActiveStatusByEntity(@javax.annotation.Nonnull Boolean isActiveStatusByEntity) {
+  public UserWithRankModel isActiveStatusByEntity(Boolean isActiveStatusByEntity) {
     this.isActiveStatusByEntity = isActiveStatusByEntity;
     return this;
   }
@@ -368,12 +354,12 @@ public class UserWithRankModel {
     return isActiveStatusByEntity;
   }
 
-  public void setIsActiveStatusByEntity(@javax.annotation.Nonnull Boolean isActiveStatusByEntity) {
+  public void setIsActiveStatusByEntity(Boolean isActiveStatusByEntity) {
     this.isActiveStatusByEntity = isActiveStatusByEntity;
   }
 
 
-  public UserWithRankModel userRank(@javax.annotation.Nonnull UserRankModel userRank) {
+  public UserWithRankModel userRank(UserRankModel userRank) {
     this.userRank = userRank;
     return this;
   }
@@ -387,7 +373,7 @@ public class UserWithRankModel {
     return userRank;
   }
 
-  public void setUserRank(@javax.annotation.Nonnull UserRankModel userRank) {
+  public void setUserRank(UserRankModel userRank) {
     this.userRank = userRank;
   }
 

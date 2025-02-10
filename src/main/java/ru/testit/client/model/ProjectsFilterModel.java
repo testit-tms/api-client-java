@@ -55,67 +55,56 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectsFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectsFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
   @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
-  @javax.annotation.Nullable
   private Boolean isFavorite;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_TEST_CASES_COUNT = "testCasesCount";
   @SerializedName(SERIALIZED_NAME_TEST_CASES_COUNT)
-  @javax.annotation.Nullable
   private Int32RangeSelectorModel testCasesCount;
 
   public static final String SERIALIZED_NAME_CHECKLISTS_COUNT = "checklistsCount";
   @SerializedName(SERIALIZED_NAME_CHECKLISTS_COUNT)
-  @javax.annotation.Nullable
   private Int32RangeSelectorModel checklistsCount;
 
   public static final String SERIALIZED_NAME_SHARED_STEPS_COUNT = "sharedStepsCount";
   @SerializedName(SERIALIZED_NAME_SHARED_STEPS_COUNT)
-  @javax.annotation.Nullable
   private Int32RangeSelectorModel sharedStepsCount;
 
   public static final String SERIALIZED_NAME_AUTOTESTS_COUNT = "autotestsCount";
   @SerializedName(SERIALIZED_NAME_AUTOTESTS_COUNT)
-  @javax.annotation.Nullable
   private Int32RangeSelectorModel autotestsCount;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  @javax.annotation.Nullable
   private Set<ProjectTypeModel> types;
 
   public ProjectsFilterModel() {
   }
 
-  public ProjectsFilterModel name(@javax.annotation.Nullable String name) {
+  public ProjectsFilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -129,12 +118,12 @@ public class ProjectsFilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectsFilterModel isFavorite(@javax.annotation.Nullable Boolean isFavorite) {
+  public ProjectsFilterModel isFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
@@ -148,12 +137,12 @@ public class ProjectsFilterModel {
     return isFavorite;
   }
 
-  public void setIsFavorite(@javax.annotation.Nullable Boolean isFavorite) {
+  public void setIsFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 
 
-  public ProjectsFilterModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public ProjectsFilterModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -167,12 +156,12 @@ public class ProjectsFilterModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectsFilterModel testCasesCount(@javax.annotation.Nullable Int32RangeSelectorModel testCasesCount) {
+  public ProjectsFilterModel testCasesCount(Int32RangeSelectorModel testCasesCount) {
     this.testCasesCount = testCasesCount;
     return this;
   }
@@ -186,12 +175,12 @@ public class ProjectsFilterModel {
     return testCasesCount;
   }
 
-  public void setTestCasesCount(@javax.annotation.Nullable Int32RangeSelectorModel testCasesCount) {
+  public void setTestCasesCount(Int32RangeSelectorModel testCasesCount) {
     this.testCasesCount = testCasesCount;
   }
 
 
-  public ProjectsFilterModel checklistsCount(@javax.annotation.Nullable Int32RangeSelectorModel checklistsCount) {
+  public ProjectsFilterModel checklistsCount(Int32RangeSelectorModel checklistsCount) {
     this.checklistsCount = checklistsCount;
     return this;
   }
@@ -205,12 +194,12 @@ public class ProjectsFilterModel {
     return checklistsCount;
   }
 
-  public void setChecklistsCount(@javax.annotation.Nullable Int32RangeSelectorModel checklistsCount) {
+  public void setChecklistsCount(Int32RangeSelectorModel checklistsCount) {
     this.checklistsCount = checklistsCount;
   }
 
 
-  public ProjectsFilterModel sharedStepsCount(@javax.annotation.Nullable Int32RangeSelectorModel sharedStepsCount) {
+  public ProjectsFilterModel sharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
     return this;
   }
@@ -224,12 +213,12 @@ public class ProjectsFilterModel {
     return sharedStepsCount;
   }
 
-  public void setSharedStepsCount(@javax.annotation.Nullable Int32RangeSelectorModel sharedStepsCount) {
+  public void setSharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
   }
 
 
-  public ProjectsFilterModel autotestsCount(@javax.annotation.Nullable Int32RangeSelectorModel autotestsCount) {
+  public ProjectsFilterModel autotestsCount(Int32RangeSelectorModel autotestsCount) {
     this.autotestsCount = autotestsCount;
     return this;
   }
@@ -243,12 +232,12 @@ public class ProjectsFilterModel {
     return autotestsCount;
   }
 
-  public void setAutotestsCount(@javax.annotation.Nullable Int32RangeSelectorModel autotestsCount) {
+  public void setAutotestsCount(Int32RangeSelectorModel autotestsCount) {
     this.autotestsCount = autotestsCount;
   }
 
 
-  public ProjectsFilterModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public ProjectsFilterModel globalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -270,12 +259,12 @@ public class ProjectsFilterModel {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public ProjectsFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public ProjectsFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -289,12 +278,12 @@ public class ProjectsFilterModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public ProjectsFilterModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public ProjectsFilterModel createdByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -316,12 +305,12 @@ public class ProjectsFilterModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public ProjectsFilterModel types(@javax.annotation.Nullable Set<ProjectTypeModel> types) {
+  public ProjectsFilterModel types(Set<ProjectTypeModel> types) {
     this.types = types;
     return this;
   }
@@ -343,7 +332,7 @@ public class ProjectsFilterModel {
     return types;
   }
 
-  public void setTypes(@javax.annotation.Nullable Set<ProjectTypeModel> types) {
+  public void setTypes(Set<ProjectTypeModel> types) {
     this.types = types;
   }
 

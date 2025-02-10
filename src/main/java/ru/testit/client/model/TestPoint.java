@@ -51,63 +51,53 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPoint {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
-  @javax.annotation.Nullable
   private UUID testerId;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
-  @javax.annotation.Nonnull
   private UUID iterationId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nullable
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
-  @javax.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private String status;
 
   public static final String SERIALIZED_NAME_STATUS_MODEL = "statusModel";
   @SerializedName(SERIALIZED_NAME_STATUS_MODEL)
-  @javax.annotation.Nullable
   private TestStatusApiResult statusModel;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
-  @javax.annotation.Nullable
   private UUID lastTestResultId;
 
   public TestPoint() {
   }
 
-  public TestPoint id(@javax.annotation.Nonnull UUID id) {
+  public TestPoint id(UUID id) {
     this.id = id;
     return this;
   }
@@ -121,12 +111,12 @@ public class TestPoint {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPoint isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestPoint isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -140,12 +130,12 @@ public class TestPoint {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestPoint testerId(@javax.annotation.Nullable UUID testerId) {
+  public TestPoint testerId(UUID testerId) {
     this.testerId = testerId;
     return this;
   }
@@ -159,12 +149,12 @@ public class TestPoint {
     return testerId;
   }
 
-  public void setTesterId(@javax.annotation.Nullable UUID testerId) {
+  public void setTesterId(UUID testerId) {
     this.testerId = testerId;
   }
 
 
-  public TestPoint iterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public TestPoint iterationId(UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -178,12 +168,12 @@ public class TestPoint {
     return iterationId;
   }
 
-  public void setIterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPoint workItemId(@javax.annotation.Nullable UUID workItemId) {
+  public TestPoint workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -197,12 +187,12 @@ public class TestPoint {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public TestPoint configurationId(@javax.annotation.Nullable UUID configurationId) {
+  public TestPoint configurationId(UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -216,12 +206,12 @@ public class TestPoint {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nullable UUID configurationId) {
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestPoint testSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public TestPoint testSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -235,13 +225,13 @@ public class TestPoint {
     return testSuiteId;
   }
 
-  public void setTestSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
   @Deprecated
-  public TestPoint status(@javax.annotation.Nullable String status) {
+  public TestPoint status(String status) {
     this.status = status;
     return this;
   }
@@ -258,12 +248,12 @@ public class TestPoint {
   }
 
   @Deprecated
-  public void setStatus(@javax.annotation.Nullable String status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
 
-  public TestPoint statusModel(@javax.annotation.Nullable TestStatusApiResult statusModel) {
+  public TestPoint statusModel(TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
     return this;
   }
@@ -277,12 +267,12 @@ public class TestPoint {
     return statusModel;
   }
 
-  public void setStatusModel(@javax.annotation.Nullable TestStatusApiResult statusModel) {
+  public void setStatusModel(TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
   }
 
 
-  public TestPoint lastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+  public TestPoint lastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
     return this;
   }
@@ -296,7 +286,7 @@ public class TestPoint {
     return lastTestResultId;
   }
 
-  public void setLastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+  public void setLastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
   }
 

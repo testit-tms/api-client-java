@@ -54,37 +54,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebhooksDeleteFilterRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhooksDeleteFilterRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_EVENT_TYPES = "eventTypes";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPES)
-  @javax.annotation.Nullable
   private Set<WebHookEventTypeRequest> eventTypes;
 
   public static final String SERIALIZED_NAME_METHODS = "methods";
   @SerializedName(SERIALIZED_NAME_METHODS)
-  @javax.annotation.Nullable
   private Set<RequestTypeRequest> methods;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nullable
   private Boolean isEnabled;
 
   public WebhooksDeleteFilterRequest() {
   }
 
-  public WebhooksDeleteFilterRequest name(@javax.annotation.Nullable String name) {
+  public WebhooksDeleteFilterRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -98,12 +93,12 @@ public class WebhooksDeleteFilterRequest {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public WebhooksDeleteFilterRequest eventTypes(@javax.annotation.Nullable Set<WebHookEventTypeRequest> eventTypes) {
+  public WebhooksDeleteFilterRequest eventTypes(Set<WebHookEventTypeRequest> eventTypes) {
     this.eventTypes = eventTypes;
     return this;
   }
@@ -125,12 +120,12 @@ public class WebhooksDeleteFilterRequest {
     return eventTypes;
   }
 
-  public void setEventTypes(@javax.annotation.Nullable Set<WebHookEventTypeRequest> eventTypes) {
+  public void setEventTypes(Set<WebHookEventTypeRequest> eventTypes) {
     this.eventTypes = eventTypes;
   }
 
 
-  public WebhooksDeleteFilterRequest methods(@javax.annotation.Nullable Set<RequestTypeRequest> methods) {
+  public WebhooksDeleteFilterRequest methods(Set<RequestTypeRequest> methods) {
     this.methods = methods;
     return this;
   }
@@ -152,12 +147,12 @@ public class WebhooksDeleteFilterRequest {
     return methods;
   }
 
-  public void setMethods(@javax.annotation.Nullable Set<RequestTypeRequest> methods) {
+  public void setMethods(Set<RequestTypeRequest> methods) {
     this.methods = methods;
   }
 
 
-  public WebhooksDeleteFilterRequest projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public WebhooksDeleteFilterRequest projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -179,12 +174,12 @@ public class WebhooksDeleteFilterRequest {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public WebhooksDeleteFilterRequest isEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public WebhooksDeleteFilterRequest isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -198,7 +193,7 @@ public class WebhooksDeleteFilterRequest {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 

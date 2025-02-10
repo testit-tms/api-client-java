@@ -23,7 +23,7 @@
 |**configurationId** | **UUID** |  |  |
 |**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  |  |
 |**testPoint** | [**TestPointShortApiResult**](TestPointShortApiResult.md) |  |  [optional] |
-|**autoTest** | [**AutoTestModel**](AutoTestModel.md) |  |  [optional] |
+|**autoTest** | [**AutoTestApiResult**](AutoTestApiResult.md) |  |  [optional] |
 |**autoTestStepResults** | [**List&lt;AutoTestStepResultsApiResult&gt;**](AutoTestStepResultsApiResult.md) |  |  [optional] |
 |**setupResults** | [**List&lt;AutoTestStepResultsApiResult&gt;**](AutoTestStepResultsApiResult.md) |  |  [optional] |
 |**teardownResults** | [**List&lt;AutoTestStepResultsApiResult&gt;**](AutoTestStepResultsApiResult.md) |  |  [optional] |

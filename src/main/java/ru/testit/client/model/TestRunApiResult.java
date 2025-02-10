@@ -59,143 +59,117 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunApiResult {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_STARTED_DATE = "startedDate";
   @SerializedName(SERIALIZED_NAME_STARTED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime startedDate;
 
   public static final String SERIALIZED_NAME_COMPLETED_DATE = "completedDate";
   @SerializedName(SERIALIZED_NAME_COMPLETED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime completedDate;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  @javax.annotation.Nonnull
   private String build;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_STATE_NAME = "stateName";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATE_NAME)
-  @javax.annotation.Nonnull
   private TestRunState stateName;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private TestStatusApiResult status;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nullable
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_RUN_BY_USER_ID = "runByUserId";
   @SerializedName(SERIALIZED_NAME_RUN_BY_USER_ID)
-  @javax.annotation.Nullable
   private UUID runByUserId;
 
   public static final String SERIALIZED_NAME_STOPPED_BY_USER_ID = "stoppedByUserId";
   @SerializedName(SERIALIZED_NAME_STOPPED_BY_USER_ID)
-  @javax.annotation.Nullable
   private UUID stoppedByUserId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  @javax.annotation.Nonnull
   private List<AutoTestApiResult> autoTests = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_AUTO_TESTS_COUNT = "autoTestsCount";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer autoTestsCount;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_IDS = "testSuiteIds";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_IDS)
-  @javax.annotation.Nonnull
   private List<UUID> testSuiteIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  @javax.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_ANALYTIC = "analytic";
   @SerializedName(SERIALIZED_NAME_ANALYTIC)
-  @javax.annotation.Nonnull
   private TestRunAnalyticApiResult analytic;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  @javax.annotation.Nonnull
   private List<TestResultApiResult> testResults = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TEST_PLAN = "testPlan";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN)
-  @javax.annotation.Nullable
   private TestPlanApiResult testPlan;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_CREATED_BY_USER_NAME = "createdByUserName";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_USER_NAME)
-  @javax.annotation.Nullable
   private String createdByUserName;
 
   public TestRunApiResult() {
   }
 
-  public TestRunApiResult id(@javax.annotation.Nonnull UUID id) {
+  public TestRunApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -209,12 +183,12 @@ public class TestRunApiResult {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestRunApiResult isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestRunApiResult isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -228,12 +202,12 @@ public class TestRunApiResult {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestRunApiResult startedDate(@javax.annotation.Nullable OffsetDateTime startedDate) {
+  public TestRunApiResult startedDate(OffsetDateTime startedDate) {
     this.startedDate = startedDate;
     return this;
   }
@@ -247,12 +221,12 @@ public class TestRunApiResult {
     return startedDate;
   }
 
-  public void setStartedDate(@javax.annotation.Nullable OffsetDateTime startedDate) {
+  public void setStartedDate(OffsetDateTime startedDate) {
     this.startedDate = startedDate;
   }
 
 
-  public TestRunApiResult completedDate(@javax.annotation.Nullable OffsetDateTime completedDate) {
+  public TestRunApiResult completedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
     return this;
   }
@@ -266,12 +240,12 @@ public class TestRunApiResult {
     return completedDate;
   }
 
-  public void setCompletedDate(@javax.annotation.Nullable OffsetDateTime completedDate) {
+  public void setCompletedDate(OffsetDateTime completedDate) {
     this.completedDate = completedDate;
   }
 
 
-  public TestRunApiResult build(@javax.annotation.Nonnull String build) {
+  public TestRunApiResult build(String build) {
     this.build = build;
     return this;
   }
@@ -285,12 +259,12 @@ public class TestRunApiResult {
     return build;
   }
 
-  public void setBuild(@javax.annotation.Nonnull String build) {
+  public void setBuild(String build) {
     this.build = build;
   }
 
 
-  public TestRunApiResult description(@javax.annotation.Nullable String description) {
+  public TestRunApiResult description(String description) {
     this.description = description;
     return this;
   }
@@ -304,13 +278,13 @@ public class TestRunApiResult {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
   @Deprecated
-  public TestRunApiResult stateName(@javax.annotation.Nonnull TestRunState stateName) {
+  public TestRunApiResult stateName(TestRunState stateName) {
     this.stateName = stateName;
     return this;
   }
@@ -327,12 +301,12 @@ public class TestRunApiResult {
   }
 
   @Deprecated
-  public void setStateName(@javax.annotation.Nonnull TestRunState stateName) {
+  public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
 
 
-  public TestRunApiResult status(@javax.annotation.Nonnull TestStatusApiResult status) {
+  public TestRunApiResult status(TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -346,12 +320,12 @@ public class TestRunApiResult {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull TestStatusApiResult status) {
+  public void setStatus(TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public TestRunApiResult projectId(@javax.annotation.Nonnull UUID projectId) {
+  public TestRunApiResult projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -365,12 +339,12 @@ public class TestRunApiResult {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestRunApiResult testPlanId(@javax.annotation.Nullable UUID testPlanId) {
+  public TestRunApiResult testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -384,12 +358,12 @@ public class TestRunApiResult {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nullable UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestRunApiResult runByUserId(@javax.annotation.Nullable UUID runByUserId) {
+  public TestRunApiResult runByUserId(UUID runByUserId) {
     this.runByUserId = runByUserId;
     return this;
   }
@@ -403,12 +377,12 @@ public class TestRunApiResult {
     return runByUserId;
   }
 
-  public void setRunByUserId(@javax.annotation.Nullable UUID runByUserId) {
+  public void setRunByUserId(UUID runByUserId) {
     this.runByUserId = runByUserId;
   }
 
 
-  public TestRunApiResult stoppedByUserId(@javax.annotation.Nullable UUID stoppedByUserId) {
+  public TestRunApiResult stoppedByUserId(UUID stoppedByUserId) {
     this.stoppedByUserId = stoppedByUserId;
     return this;
   }
@@ -422,12 +396,12 @@ public class TestRunApiResult {
     return stoppedByUserId;
   }
 
-  public void setStoppedByUserId(@javax.annotation.Nullable UUID stoppedByUserId) {
+  public void setStoppedByUserId(UUID stoppedByUserId) {
     this.stoppedByUserId = stoppedByUserId;
   }
 
 
-  public TestRunApiResult name(@javax.annotation.Nullable String name) {
+  public TestRunApiResult name(String name) {
     this.name = name;
     return this;
   }
@@ -441,12 +415,12 @@ public class TestRunApiResult {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestRunApiResult launchSource(@javax.annotation.Nullable String launchSource) {
+  public TestRunApiResult launchSource(String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
@@ -460,12 +434,12 @@ public class TestRunApiResult {
     return launchSource;
   }
 
-  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
+  public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public TestRunApiResult autoTests(@javax.annotation.Nonnull List<AutoTestApiResult> autoTests) {
+  public TestRunApiResult autoTests(List<AutoTestApiResult> autoTests) {
     this.autoTests = autoTests;
     return this;
   }
@@ -487,12 +461,12 @@ public class TestRunApiResult {
     return autoTests;
   }
 
-  public void setAutoTests(@javax.annotation.Nonnull List<AutoTestApiResult> autoTests) {
+  public void setAutoTests(List<AutoTestApiResult> autoTests) {
     this.autoTests = autoTests;
   }
 
 
-  public TestRunApiResult autoTestsCount(@javax.annotation.Nonnull Integer autoTestsCount) {
+  public TestRunApiResult autoTestsCount(Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -506,12 +480,12 @@ public class TestRunApiResult {
     return autoTestsCount;
   }
 
-  public void setAutoTestsCount(@javax.annotation.Nonnull Integer autoTestsCount) {
+  public void setAutoTestsCount(Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
-  public TestRunApiResult testSuiteIds(@javax.annotation.Nonnull List<UUID> testSuiteIds) {
+  public TestRunApiResult testSuiteIds(List<UUID> testSuiteIds) {
     this.testSuiteIds = testSuiteIds;
     return this;
   }
@@ -533,12 +507,12 @@ public class TestRunApiResult {
     return testSuiteIds;
   }
 
-  public void setTestSuiteIds(@javax.annotation.Nonnull List<UUID> testSuiteIds) {
+  public void setTestSuiteIds(List<UUID> testSuiteIds) {
     this.testSuiteIds = testSuiteIds;
   }
 
 
-  public TestRunApiResult isAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
+  public TestRunApiResult isAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -552,12 +526,12 @@ public class TestRunApiResult {
     return isAutomated;
   }
 
-  public void setIsAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
+  public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestRunApiResult analytic(@javax.annotation.Nonnull TestRunAnalyticApiResult analytic) {
+  public TestRunApiResult analytic(TestRunAnalyticApiResult analytic) {
     this.analytic = analytic;
     return this;
   }
@@ -571,12 +545,12 @@ public class TestRunApiResult {
     return analytic;
   }
 
-  public void setAnalytic(@javax.annotation.Nonnull TestRunAnalyticApiResult analytic) {
+  public void setAnalytic(TestRunAnalyticApiResult analytic) {
     this.analytic = analytic;
   }
 
 
-  public TestRunApiResult testResults(@javax.annotation.Nonnull List<TestResultApiResult> testResults) {
+  public TestRunApiResult testResults(List<TestResultApiResult> testResults) {
     this.testResults = testResults;
     return this;
   }
@@ -598,12 +572,12 @@ public class TestRunApiResult {
     return testResults;
   }
 
-  public void setTestResults(@javax.annotation.Nonnull List<TestResultApiResult> testResults) {
+  public void setTestResults(List<TestResultApiResult> testResults) {
     this.testResults = testResults;
   }
 
 
-  public TestRunApiResult testPlan(@javax.annotation.Nullable TestPlanApiResult testPlan) {
+  public TestRunApiResult testPlan(TestPlanApiResult testPlan) {
     this.testPlan = testPlan;
     return this;
   }
@@ -617,12 +591,12 @@ public class TestRunApiResult {
     return testPlan;
   }
 
-  public void setTestPlan(@javax.annotation.Nullable TestPlanApiResult testPlan) {
+  public void setTestPlan(TestPlanApiResult testPlan) {
     this.testPlan = testPlan;
   }
 
 
-  public TestRunApiResult createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public TestRunApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -636,12 +610,12 @@ public class TestRunApiResult {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestRunApiResult modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public TestRunApiResult modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -655,12 +629,12 @@ public class TestRunApiResult {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestRunApiResult createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestRunApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -674,12 +648,12 @@ public class TestRunApiResult {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestRunApiResult modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public TestRunApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -693,12 +667,12 @@ public class TestRunApiResult {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestRunApiResult createdByUserName(@javax.annotation.Nullable String createdByUserName) {
+  public TestRunApiResult createdByUserName(String createdByUserName) {
     this.createdByUserName = createdByUserName;
     return this;
   }
@@ -712,7 +686,7 @@ public class TestRunApiResult {
     return createdByUserName;
   }
 
-  public void setCreatedByUserName(@javax.annotation.Nullable String createdByUserName) {
+  public void setCreatedByUserName(String createdByUserName) {
     this.createdByUserName = createdByUserName;
   }
 

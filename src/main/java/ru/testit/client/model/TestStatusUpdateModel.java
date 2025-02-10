@@ -50,27 +50,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestStatusUpdateModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestStatusUpdateModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public TestStatusUpdateModel() {
   }
 
-  public TestStatusUpdateModel id(@javax.annotation.Nonnull UUID id) {
+  public TestStatusUpdateModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -84,12 +81,12 @@ public class TestStatusUpdateModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestStatusUpdateModel name(@javax.annotation.Nonnull String name) {
+  public TestStatusUpdateModel name(String name) {
     this.name = name;
     return this;
   }
@@ -103,12 +100,12 @@ public class TestStatusUpdateModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestStatusUpdateModel description(@javax.annotation.Nullable String description) {
+  public TestStatusUpdateModel description(String description) {
     this.description = description;
     return this;
   }
@@ -122,7 +119,7 @@ public class TestStatusUpdateModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 

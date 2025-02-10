@@ -51,47 +51,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunShortModel {
   public static final String SERIALIZED_NAME_STATE_NAME = "stateName";
   @SerializedName(SERIALIZED_NAME_STATE_NAME)
-  @javax.annotation.Nonnull
   private TestRunState stateName;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nullable
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public TestRunShortModel() {
   }
 
-  public TestRunShortModel stateName(@javax.annotation.Nonnull TestRunState stateName) {
+  public TestRunShortModel stateName(TestRunState stateName) {
     this.stateName = stateName;
     return this;
   }
@@ -105,12 +98,12 @@ public class TestRunShortModel {
     return stateName;
   }
 
-  public void setStateName(@javax.annotation.Nonnull TestRunState stateName) {
+  public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
 
 
-  public TestRunShortModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public TestRunShortModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -124,12 +117,12 @@ public class TestRunShortModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestRunShortModel testPlanId(@javax.annotation.Nullable UUID testPlanId) {
+  public TestRunShortModel testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -143,12 +136,12 @@ public class TestRunShortModel {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nullable UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestRunShortModel name(@javax.annotation.Nullable String name) {
+  public TestRunShortModel name(String name) {
     this.name = name;
     return this;
   }
@@ -162,12 +155,12 @@ public class TestRunShortModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestRunShortModel description(@javax.annotation.Nullable String description) {
+  public TestRunShortModel description(String description) {
     this.description = description;
     return this;
   }
@@ -181,12 +174,12 @@ public class TestRunShortModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public TestRunShortModel id(@javax.annotation.Nonnull UUID id) {
+  public TestRunShortModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -200,12 +193,12 @@ public class TestRunShortModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestRunShortModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestRunShortModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -219,7 +212,7 @@ public class TestRunShortModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

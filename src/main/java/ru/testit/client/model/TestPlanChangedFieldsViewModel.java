@@ -60,77 +60,64 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanChangedFieldsViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanChangedFieldsViewModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel description;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel productName;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel build;
 
   public static final String SERIALIZED_NAME_PERIOD = "period";
   @SerializedName(SERIALIZED_NAME_PERIOD)
-  @javax.annotation.Nullable
   private PeriodViewModelChangedFieldViewModel period;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private StringChangedFieldWithDiffsViewModel status;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private StringArrayChangedFieldViewModel tags;
 
   public static final String SERIALIZED_NAME_TEST_SUITE = "testSuite";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE)
-  @javax.annotation.Nullable
   private TestSuiteChangeViewModelChangedFieldViewModel testSuite;
 
   public static final String SERIALIZED_NAME_TEST_POINTS = "testPoints";
   @SerializedName(SERIALIZED_NAME_TEST_POINTS)
-  @javax.annotation.Nullable
   private TestPointChangeViewModelChangedFieldViewModel testPoints;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  @javax.annotation.Nullable
   private TestResultChangeViewModelChangedFieldViewModel testResults;
 
   public static final String SERIALIZED_NAME_LOCKING = "locking";
   @SerializedName(SERIALIZED_NAME_LOCKING)
-  @javax.annotation.Nullable
   private BooleanChangedFieldViewModel locking;
 
   public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
-  @javax.annotation.Nullable
   private BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
   private Map<String, CustomAttributeChangeModel> attributes;
 
   public TestPlanChangedFieldsViewModel() {
   }
 
-  public TestPlanChangedFieldsViewModel name(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
+  public TestPlanChangedFieldsViewModel name(StringChangedFieldWithDiffsViewModel name) {
     this.name = name;
     return this;
   }
@@ -144,12 +131,12 @@ public class TestPlanChangedFieldsViewModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
+  public void setName(StringChangedFieldWithDiffsViewModel name) {
     this.name = name;
   }
 
 
-  public TestPlanChangedFieldsViewModel description(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
+  public TestPlanChangedFieldsViewModel description(StringChangedFieldWithDiffsViewModel description) {
     this.description = description;
     return this;
   }
@@ -163,12 +150,12 @@ public class TestPlanChangedFieldsViewModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
+  public void setDescription(StringChangedFieldWithDiffsViewModel description) {
     this.description = description;
   }
 
 
-  public TestPlanChangedFieldsViewModel productName(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel productName) {
+  public TestPlanChangedFieldsViewModel productName(StringChangedFieldWithDiffsViewModel productName) {
     this.productName = productName;
     return this;
   }
@@ -182,12 +169,12 @@ public class TestPlanChangedFieldsViewModel {
     return productName;
   }
 
-  public void setProductName(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel productName) {
+  public void setProductName(StringChangedFieldWithDiffsViewModel productName) {
     this.productName = productName;
   }
 
 
-  public TestPlanChangedFieldsViewModel build(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel build) {
+  public TestPlanChangedFieldsViewModel build(StringChangedFieldWithDiffsViewModel build) {
     this.build = build;
     return this;
   }
@@ -201,12 +188,12 @@ public class TestPlanChangedFieldsViewModel {
     return build;
   }
 
-  public void setBuild(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel build) {
+  public void setBuild(StringChangedFieldWithDiffsViewModel build) {
     this.build = build;
   }
 
 
-  public TestPlanChangedFieldsViewModel period(@javax.annotation.Nullable PeriodViewModelChangedFieldViewModel period) {
+  public TestPlanChangedFieldsViewModel period(PeriodViewModelChangedFieldViewModel period) {
     this.period = period;
     return this;
   }
@@ -220,12 +207,12 @@ public class TestPlanChangedFieldsViewModel {
     return period;
   }
 
-  public void setPeriod(@javax.annotation.Nullable PeriodViewModelChangedFieldViewModel period) {
+  public void setPeriod(PeriodViewModelChangedFieldViewModel period) {
     this.period = period;
   }
 
 
-  public TestPlanChangedFieldsViewModel status(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel status) {
+  public TestPlanChangedFieldsViewModel status(StringChangedFieldWithDiffsViewModel status) {
     this.status = status;
     return this;
   }
@@ -239,12 +226,12 @@ public class TestPlanChangedFieldsViewModel {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nullable StringChangedFieldWithDiffsViewModel status) {
+  public void setStatus(StringChangedFieldWithDiffsViewModel status) {
     this.status = status;
   }
 
 
-  public TestPlanChangedFieldsViewModel tags(@javax.annotation.Nullable StringArrayChangedFieldViewModel tags) {
+  public TestPlanChangedFieldsViewModel tags(StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
     return this;
   }
@@ -258,12 +245,12 @@ public class TestPlanChangedFieldsViewModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable StringArrayChangedFieldViewModel tags) {
+  public void setTags(StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
   }
 
 
-  public TestPlanChangedFieldsViewModel testSuite(@javax.annotation.Nullable TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
+  public TestPlanChangedFieldsViewModel testSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
     this.testSuite = testSuite;
     return this;
   }
@@ -277,12 +264,12 @@ public class TestPlanChangedFieldsViewModel {
     return testSuite;
   }
 
-  public void setTestSuite(@javax.annotation.Nullable TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
+  public void setTestSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
     this.testSuite = testSuite;
   }
 
 
-  public TestPlanChangedFieldsViewModel testPoints(@javax.annotation.Nullable TestPointChangeViewModelChangedFieldViewModel testPoints) {
+  public TestPlanChangedFieldsViewModel testPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
     this.testPoints = testPoints;
     return this;
   }
@@ -296,12 +283,12 @@ public class TestPlanChangedFieldsViewModel {
     return testPoints;
   }
 
-  public void setTestPoints(@javax.annotation.Nullable TestPointChangeViewModelChangedFieldViewModel testPoints) {
+  public void setTestPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
     this.testPoints = testPoints;
   }
 
 
-  public TestPlanChangedFieldsViewModel testResults(@javax.annotation.Nullable TestResultChangeViewModelChangedFieldViewModel testResults) {
+  public TestPlanChangedFieldsViewModel testResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
     this.testResults = testResults;
     return this;
   }
@@ -315,12 +302,12 @@ public class TestPlanChangedFieldsViewModel {
     return testResults;
   }
 
-  public void setTestResults(@javax.annotation.Nullable TestResultChangeViewModelChangedFieldViewModel testResults) {
+  public void setTestResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
     this.testResults = testResults;
   }
 
 
-  public TestPlanChangedFieldsViewModel locking(@javax.annotation.Nullable BooleanChangedFieldViewModel locking) {
+  public TestPlanChangedFieldsViewModel locking(BooleanChangedFieldViewModel locking) {
     this.locking = locking;
     return this;
   }
@@ -334,12 +321,12 @@ public class TestPlanChangedFieldsViewModel {
     return locking;
   }
 
-  public void setLocking(@javax.annotation.Nullable BooleanChangedFieldViewModel locking) {
+  public void setLocking(BooleanChangedFieldViewModel locking) {
     this.locking = locking;
   }
 
 
-  public TestPlanChangedFieldsViewModel hasAutomaticDurationTimer(@javax.annotation.Nullable BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
+  public TestPlanChangedFieldsViewModel hasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -353,12 +340,12 @@ public class TestPlanChangedFieldsViewModel {
     return hasAutomaticDurationTimer;
   }
 
-  public void setHasAutomaticDurationTimer(@javax.annotation.Nullable BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
-  public TestPlanChangedFieldsViewModel attributes(@javax.annotation.Nullable Map<String, CustomAttributeChangeModel> attributes) {
+  public TestPlanChangedFieldsViewModel attributes(Map<String, CustomAttributeChangeModel> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -380,7 +367,7 @@ public class TestPlanChangedFieldsViewModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Map<String, CustomAttributeChangeModel> attributes) {
+  public void setAttributes(Map<String, CustomAttributeChangeModel> attributes) {
     this.attributes = attributes;
   }
 

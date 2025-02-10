@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunGroupByFailureClassApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunGroupByFailureClassApiResult {
   public static final String SERIALIZED_NAME_FAILURE_CATEGORY = "failureCategory";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORY)
-  @javax.annotation.Nonnull
   private String failureCategory;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private Integer value;
 
   public TestRunGroupByFailureClassApiResult() {
   }
 
-  public TestRunGroupByFailureClassApiResult failureCategory(@javax.annotation.Nonnull String failureCategory) {
+  public TestRunGroupByFailureClassApiResult failureCategory(String failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -77,12 +75,12 @@ public class TestRunGroupByFailureClassApiResult {
     return failureCategory;
   }
 
-  public void setFailureCategory(@javax.annotation.Nonnull String failureCategory) {
+  public void setFailureCategory(String failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public TestRunGroupByFailureClassApiResult value(@javax.annotation.Nonnull Integer value) {
+  public TestRunGroupByFailureClassApiResult value(Integer value) {
     this.value = value;
     return this;
   }
@@ -96,7 +94,7 @@ public class TestRunGroupByFailureClassApiResult {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Integer value) {
+  public void setValue(Integer value) {
     this.value = value;
   }
 

@@ -50,27 +50,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointChangeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointChangeViewModel {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  @javax.annotation.Nonnull
   private UUID userId;
 
   public static final String SERIALIZED_NAME_USER_NAME = "userName";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
-  @javax.annotation.Nullable
   private String userName;
 
   public static final String SERIALIZED_NAME_TEST_POINT_COUNT = "testPointCount";
   @SerializedName(SERIALIZED_NAME_TEST_POINT_COUNT)
-  @javax.annotation.Nonnull
   private Long testPointCount;
 
   public TestPointChangeViewModel() {
   }
 
-  public TestPointChangeViewModel userId(@javax.annotation.Nonnull UUID userId) {
+  public TestPointChangeViewModel userId(UUID userId) {
     this.userId = userId;
     return this;
   }
@@ -84,12 +81,12 @@ public class TestPointChangeViewModel {
     return userId;
   }
 
-  public void setUserId(@javax.annotation.Nonnull UUID userId) {
+  public void setUserId(UUID userId) {
     this.userId = userId;
   }
 
 
-  public TestPointChangeViewModel userName(@javax.annotation.Nullable String userName) {
+  public TestPointChangeViewModel userName(String userName) {
     this.userName = userName;
     return this;
   }
@@ -103,12 +100,12 @@ public class TestPointChangeViewModel {
     return userName;
   }
 
-  public void setUserName(@javax.annotation.Nullable String userName) {
+  public void setUserName(String userName) {
     this.userName = userName;
   }
 
 
-  public TestPointChangeViewModel testPointCount(@javax.annotation.Nonnull Long testPointCount) {
+  public TestPointChangeViewModel testPointCount(Long testPointCount) {
     this.testPointCount = testPointCount;
     return this;
   }
@@ -122,7 +119,7 @@ public class TestPointChangeViewModel {
     return testPointCount;
   }
 
-  public void setTestPointCount(@javax.annotation.Nonnull Long testPointCount) {
+  public void setTestPointCount(Long testPointCount) {
     this.testPointCount = testPointCount;
   }
 

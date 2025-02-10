@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestClassCountApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestClassCountApiModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
-  @javax.annotation.Nonnull
   private Long count;
 
   public AutoTestClassCountApiModel() {
   }
 
-  public AutoTestClassCountApiModel name(@javax.annotation.Nullable String name) {
+  public AutoTestClassCountApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -78,12 +76,12 @@ public class AutoTestClassCountApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AutoTestClassCountApiModel count(@javax.annotation.Nonnull Long count) {
+  public AutoTestClassCountApiModel count(Long count) {
     this.count = count;
     return this;
   }
@@ -97,7 +95,7 @@ public class AutoTestClassCountApiModel {
     return count;
   }
 
-  public void setCount(@javax.annotation.Nonnull Long count) {
+  public void setCount(Long count) {
     this.count = count;
   }
 

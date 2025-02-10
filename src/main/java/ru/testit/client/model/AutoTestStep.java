@@ -51,27 +51,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestStep
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestStep {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nullable
   private List<AutoTestStep> steps;
 
   public AutoTestStep() {
   }
 
-  public AutoTestStep title(@javax.annotation.Nonnull String title) {
+  public AutoTestStep title(String title) {
     this.title = title;
     return this;
   }
@@ -85,12 +82,12 @@ public class AutoTestStep {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nonnull String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public AutoTestStep description(@javax.annotation.Nullable String description) {
+  public AutoTestStep description(String description) {
     this.description = description;
     return this;
   }
@@ -104,12 +101,12 @@ public class AutoTestStep {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public AutoTestStep steps(@javax.annotation.Nullable List<AutoTestStep> steps) {
+  public AutoTestStep steps(List<AutoTestStep> steps) {
     this.steps = steps;
     return this;
   }
@@ -131,7 +128,7 @@ public class AutoTestStep {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nullable List<AutoTestStep> steps) {
+  public void setSteps(List<AutoTestStep> steps) {
     this.steps = steps;
   }
 

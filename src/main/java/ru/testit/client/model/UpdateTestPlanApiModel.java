@@ -56,72 +56,60 @@ import ru.testit.client.invoker.JSON;
 /**
  * UpdateTestPlanApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateTestPlanApiModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_LOCKED_BY_ID = "lockedById";
   @SerializedName(SERIALIZED_NAME_LOCKED_BY_ID)
-  @javax.annotation.Nullable
   private UUID lockedById;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  @javax.annotation.Nullable
   private String build;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  @javax.annotation.Nullable
   private String productName;
 
   public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
-  @javax.annotation.Nullable
   private Boolean hasAutomaticDurationTimer;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
   private Map<String, Object> attributes;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private List<TagApiModel> tags;
 
   public UpdateTestPlanApiModel() {
   }
 
-  public UpdateTestPlanApiModel id(@javax.annotation.Nonnull UUID id) {
+  public UpdateTestPlanApiModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -135,12 +123,12 @@ public class UpdateTestPlanApiModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public UpdateTestPlanApiModel lockedById(@javax.annotation.Nullable UUID lockedById) {
+  public UpdateTestPlanApiModel lockedById(UUID lockedById) {
     this.lockedById = lockedById;
     return this;
   }
@@ -154,12 +142,12 @@ public class UpdateTestPlanApiModel {
     return lockedById;
   }
 
-  public void setLockedById(@javax.annotation.Nullable UUID lockedById) {
+  public void setLockedById(UUID lockedById) {
     this.lockedById = lockedById;
   }
 
 
-  public UpdateTestPlanApiModel name(@javax.annotation.Nonnull String name) {
+  public UpdateTestPlanApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -173,12 +161,12 @@ public class UpdateTestPlanApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public UpdateTestPlanApiModel startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public UpdateTestPlanApiModel startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -192,12 +180,12 @@ public class UpdateTestPlanApiModel {
     return startDate;
   }
 
-  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public UpdateTestPlanApiModel endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public UpdateTestPlanApiModel endDate(OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -211,12 +199,12 @@ public class UpdateTestPlanApiModel {
     return endDate;
   }
 
-  public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
-  public UpdateTestPlanApiModel description(@javax.annotation.Nullable String description) {
+  public UpdateTestPlanApiModel description(String description) {
     this.description = description;
     return this;
   }
@@ -230,12 +218,12 @@ public class UpdateTestPlanApiModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public UpdateTestPlanApiModel build(@javax.annotation.Nullable String build) {
+  public UpdateTestPlanApiModel build(String build) {
     this.build = build;
     return this;
   }
@@ -249,12 +237,12 @@ public class UpdateTestPlanApiModel {
     return build;
   }
 
-  public void setBuild(@javax.annotation.Nullable String build) {
+  public void setBuild(String build) {
     this.build = build;
   }
 
 
-  public UpdateTestPlanApiModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public UpdateTestPlanApiModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -268,12 +256,12 @@ public class UpdateTestPlanApiModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public UpdateTestPlanApiModel productName(@javax.annotation.Nullable String productName) {
+  public UpdateTestPlanApiModel productName(String productName) {
     this.productName = productName;
     return this;
   }
@@ -287,12 +275,12 @@ public class UpdateTestPlanApiModel {
     return productName;
   }
 
-  public void setProductName(@javax.annotation.Nullable String productName) {
+  public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
-  public UpdateTestPlanApiModel hasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
+  public UpdateTestPlanApiModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -306,12 +294,12 @@ public class UpdateTestPlanApiModel {
     return hasAutomaticDurationTimer;
   }
 
-  public void setHasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
-  public UpdateTestPlanApiModel attributes(@javax.annotation.Nullable Map<String, Object> attributes) {
+  public UpdateTestPlanApiModel attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -333,12 +321,12 @@ public class UpdateTestPlanApiModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Map<String, Object> attributes) {
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public UpdateTestPlanApiModel tags(@javax.annotation.Nullable List<TagApiModel> tags) {
+  public UpdateTestPlanApiModel tags(List<TagApiModel> tags) {
     this.tags = tags;
     return this;
   }
@@ -360,7 +348,7 @@ public class UpdateTestPlanApiModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<TagApiModel> tags) {
+  public void setTags(List<TagApiModel> tags) {
     this.tags = tags;
   }
 

@@ -54,47 +54,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointResultModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointResultModel {
   public static final String SERIALIZED_NAME_TEST_POINT_ID = "testPointId";
   @SerializedName(SERIALIZED_NAME_TEST_POINT_ID)
-  @javax.annotation.Nullable
   private UUID testPointId;
 
   public static final String SERIALIZED_NAME_AGGREGATED_OUTCOME = "aggregatedOutcome";
   @SerializedName(SERIALIZED_NAME_AGGREGATED_OUTCOME)
-  @javax.annotation.Nullable
   private String aggregatedOutcome;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID)
-  @javax.annotation.Nullable
   private Long workItemGlobalId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
-  @javax.annotation.Nullable
   private String workItemName;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
-  @javax.annotation.Nullable
   private String configurationName;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  @javax.annotation.Nullable
   private List<TestResultShortModel> testResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public TestPointResultModel() {
   }
 
-  public TestPointResultModel testPointId(@javax.annotation.Nullable UUID testPointId) {
+  public TestPointResultModel testPointId(UUID testPointId) {
     this.testPointId = testPointId;
     return this;
   }
@@ -108,12 +101,12 @@ public class TestPointResultModel {
     return testPointId;
   }
 
-  public void setTestPointId(@javax.annotation.Nullable UUID testPointId) {
+  public void setTestPointId(UUID testPointId) {
     this.testPointId = testPointId;
   }
 
 
-  public TestPointResultModel aggregatedOutcome(@javax.annotation.Nullable String aggregatedOutcome) {
+  public TestPointResultModel aggregatedOutcome(String aggregatedOutcome) {
     this.aggregatedOutcome = aggregatedOutcome;
     return this;
   }
@@ -127,12 +120,12 @@ public class TestPointResultModel {
     return aggregatedOutcome;
   }
 
-  public void setAggregatedOutcome(@javax.annotation.Nullable String aggregatedOutcome) {
+  public void setAggregatedOutcome(String aggregatedOutcome) {
     this.aggregatedOutcome = aggregatedOutcome;
   }
 
 
-  public TestPointResultModel workItemGlobalId(@javax.annotation.Nullable Long workItemGlobalId) {
+  public TestPointResultModel workItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
@@ -146,12 +139,12 @@ public class TestPointResultModel {
     return workItemGlobalId;
   }
 
-  public void setWorkItemGlobalId(@javax.annotation.Nullable Long workItemGlobalId) {
+  public void setWorkItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
-  public TestPointResultModel workItemName(@javax.annotation.Nullable String workItemName) {
+  public TestPointResultModel workItemName(String workItemName) {
     this.workItemName = workItemName;
     return this;
   }
@@ -165,12 +158,12 @@ public class TestPointResultModel {
     return workItemName;
   }
 
-  public void setWorkItemName(@javax.annotation.Nullable String workItemName) {
+  public void setWorkItemName(String workItemName) {
     this.workItemName = workItemName;
   }
 
 
-  public TestPointResultModel configurationName(@javax.annotation.Nullable String configurationName) {
+  public TestPointResultModel configurationName(String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
@@ -184,12 +177,12 @@ public class TestPointResultModel {
     return configurationName;
   }
 
-  public void setConfigurationName(@javax.annotation.Nullable String configurationName) {
+  public void setConfigurationName(String configurationName) {
     this.configurationName = configurationName;
   }
 
 
-  public TestPointResultModel testResults(@javax.annotation.Nullable List<TestResultShortModel> testResults) {
+  public TestPointResultModel testResults(List<TestResultShortModel> testResults) {
     this.testResults = testResults;
     return this;
   }
@@ -211,12 +204,12 @@ public class TestPointResultModel {
     return testResults;
   }
 
-  public void setTestResults(@javax.annotation.Nullable List<TestResultShortModel> testResults) {
+  public void setTestResults(List<TestResultShortModel> testResults) {
     this.testResults = testResults;
   }
 
 
-  public TestPointResultModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public TestPointResultModel attachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -238,7 +231,7 @@ public class TestPointResultModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 

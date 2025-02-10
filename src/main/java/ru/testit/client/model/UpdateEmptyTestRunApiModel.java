@@ -54,42 +54,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * UpdateEmptyTestRunApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateEmptyTestRunApiModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AssignAttachmentApiModel> attachments;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<UpdateLinkApiModel> links;
 
   public UpdateEmptyTestRunApiModel() {
   }
 
-  public UpdateEmptyTestRunApiModel id(@javax.annotation.Nonnull UUID id) {
+  public UpdateEmptyTestRunApiModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -103,12 +97,12 @@ public class UpdateEmptyTestRunApiModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public UpdateEmptyTestRunApiModel name(@javax.annotation.Nonnull String name) {
+  public UpdateEmptyTestRunApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -122,12 +116,12 @@ public class UpdateEmptyTestRunApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public UpdateEmptyTestRunApiModel description(@javax.annotation.Nullable String description) {
+  public UpdateEmptyTestRunApiModel description(String description) {
     this.description = description;
     return this;
   }
@@ -141,12 +135,12 @@ public class UpdateEmptyTestRunApiModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public UpdateEmptyTestRunApiModel launchSource(@javax.annotation.Nullable String launchSource) {
+  public UpdateEmptyTestRunApiModel launchSource(String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
@@ -160,12 +154,12 @@ public class UpdateEmptyTestRunApiModel {
     return launchSource;
   }
 
-  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
+  public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public UpdateEmptyTestRunApiModel attachments(@javax.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
+  public UpdateEmptyTestRunApiModel attachments(List<AssignAttachmentApiModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -187,12 +181,12 @@ public class UpdateEmptyTestRunApiModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
+  public void setAttachments(List<AssignAttachmentApiModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public UpdateEmptyTestRunApiModel links(@javax.annotation.Nullable List<UpdateLinkApiModel> links) {
+  public UpdateEmptyTestRunApiModel links(List<UpdateLinkApiModel> links) {
     this.links = links;
     return this;
   }
@@ -214,7 +208,7 @@ public class UpdateEmptyTestRunApiModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<UpdateLinkApiModel> links) {
+  public void setLinks(List<UpdateLinkApiModel> links) {
     this.links = links;
   }
 

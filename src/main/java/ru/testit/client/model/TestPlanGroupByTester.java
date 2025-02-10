@@ -50,22 +50,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanGroupByTester
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanGroupByTester {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  @javax.annotation.Nullable
   private UUID userId;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private Long value;
 
   public TestPlanGroupByTester() {
   }
 
-  public TestPlanGroupByTester userId(@javax.annotation.Nullable UUID userId) {
+  public TestPlanGroupByTester userId(UUID userId) {
     this.userId = userId;
     return this;
   }
@@ -79,12 +77,12 @@ public class TestPlanGroupByTester {
     return userId;
   }
 
-  public void setUserId(@javax.annotation.Nullable UUID userId) {
+  public void setUserId(UUID userId) {
     this.userId = userId;
   }
 
 
-  public TestPlanGroupByTester value(@javax.annotation.Nonnull Long value) {
+  public TestPlanGroupByTester value(Long value) {
     this.value = value;
     return this;
   }
@@ -98,7 +96,7 @@ public class TestPlanGroupByTester {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Long value) {
+  public void setValue(Long value) {
     this.value = value;
   }
 

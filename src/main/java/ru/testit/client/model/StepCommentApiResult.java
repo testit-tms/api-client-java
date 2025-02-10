@@ -54,62 +54,52 @@ import ru.testit.client.invoker.JSON;
 /**
  * StepCommentApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StepCommentApiResult {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
-  @javax.annotation.Nullable
   private String text;
 
   public static final String SERIALIZED_NAME_STEP_ID = "stepId";
   @SerializedName(SERIALIZED_NAME_STEP_ID)
-  @javax.annotation.Nonnull
   private UUID stepId;
 
   public static final String SERIALIZED_NAME_PARENT_STEP_ID = "parentStepId";
   @SerializedName(SERIALIZED_NAME_PARENT_STEP_ID)
-  @javax.annotation.Nullable
   private UUID parentStepId;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nonnull
   private List<AttachmentApiResult> attachments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TEST_RESULT_ID = "testResultId";
   @SerializedName(SERIALIZED_NAME_TEST_RESULT_ID)
-  @javax.annotation.Nonnull
   private UUID testResultId;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public StepCommentApiResult() {
   }
 
-  public StepCommentApiResult id(@javax.annotation.Nonnull UUID id) {
+  public StepCommentApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -123,12 +113,12 @@ public class StepCommentApiResult {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public StepCommentApiResult text(@javax.annotation.Nullable String text) {
+  public StepCommentApiResult text(String text) {
     this.text = text;
     return this;
   }
@@ -142,12 +132,12 @@ public class StepCommentApiResult {
     return text;
   }
 
-  public void setText(@javax.annotation.Nullable String text) {
+  public void setText(String text) {
     this.text = text;
   }
 
 
-  public StepCommentApiResult stepId(@javax.annotation.Nonnull UUID stepId) {
+  public StepCommentApiResult stepId(UUID stepId) {
     this.stepId = stepId;
     return this;
   }
@@ -161,12 +151,12 @@ public class StepCommentApiResult {
     return stepId;
   }
 
-  public void setStepId(@javax.annotation.Nonnull UUID stepId) {
+  public void setStepId(UUID stepId) {
     this.stepId = stepId;
   }
 
 
-  public StepCommentApiResult parentStepId(@javax.annotation.Nullable UUID parentStepId) {
+  public StepCommentApiResult parentStepId(UUID parentStepId) {
     this.parentStepId = parentStepId;
     return this;
   }
@@ -180,12 +170,12 @@ public class StepCommentApiResult {
     return parentStepId;
   }
 
-  public void setParentStepId(@javax.annotation.Nullable UUID parentStepId) {
+  public void setParentStepId(UUID parentStepId) {
     this.parentStepId = parentStepId;
   }
 
 
-  public StepCommentApiResult attachments(@javax.annotation.Nonnull List<AttachmentApiResult> attachments) {
+  public StepCommentApiResult attachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -207,12 +197,12 @@ public class StepCommentApiResult {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nonnull List<AttachmentApiResult> attachments) {
+  public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
 
-  public StepCommentApiResult testResultId(@javax.annotation.Nonnull UUID testResultId) {
+  public StepCommentApiResult testResultId(UUID testResultId) {
     this.testResultId = testResultId;
     return this;
   }
@@ -226,12 +216,12 @@ public class StepCommentApiResult {
     return testResultId;
   }
 
-  public void setTestResultId(@javax.annotation.Nonnull UUID testResultId) {
+  public void setTestResultId(UUID testResultId) {
     this.testResultId = testResultId;
   }
 
 
-  public StepCommentApiResult createdById(@javax.annotation.Nonnull UUID createdById) {
+  public StepCommentApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -245,12 +235,12 @@ public class StepCommentApiResult {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public StepCommentApiResult modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public StepCommentApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -264,12 +254,12 @@ public class StepCommentApiResult {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public StepCommentApiResult createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public StepCommentApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -283,12 +273,12 @@ public class StepCommentApiResult {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public StepCommentApiResult modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public StepCommentApiResult modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -302,7 +292,7 @@ public class StepCommentApiResult {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 

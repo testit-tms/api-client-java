@@ -56,67 +56,56 @@ import ru.testit.client.invoker.JSON;
 /**
  * BackgroundJobGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BackgroundJobGetModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_JOB_ID = "jobId";
   @SerializedName(SERIALIZED_NAME_JOB_ID)
-  @javax.annotation.Nonnull
   private String jobId;
 
   public static final String SERIALIZED_NAME_JOB_TYPE = "jobType";
   @SerializedName(SERIALIZED_NAME_JOB_TYPE)
-  @javax.annotation.Nonnull
   private BackgroundJobType jobType;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nonnull
   private BackgroundJobState state;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_PROGRESS = "progress";
   @SerializedName(SERIALIZED_NAME_PROGRESS)
-  @javax.annotation.Nonnull
   private Long progress;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
-  @javax.annotation.Nullable
   private String error;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nonnull
   private List<BackgroundJobAttachmentModel> attachments = new ArrayList<>();
 
   public BackgroundJobGetModel() {
   }
 
-  public BackgroundJobGetModel id(@javax.annotation.Nonnull UUID id) {
+  public BackgroundJobGetModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -130,12 +119,12 @@ public class BackgroundJobGetModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public BackgroundJobGetModel jobId(@javax.annotation.Nonnull String jobId) {
+  public BackgroundJobGetModel jobId(String jobId) {
     this.jobId = jobId;
     return this;
   }
@@ -149,12 +138,12 @@ public class BackgroundJobGetModel {
     return jobId;
   }
 
-  public void setJobId(@javax.annotation.Nonnull String jobId) {
+  public void setJobId(String jobId) {
     this.jobId = jobId;
   }
 
 
-  public BackgroundJobGetModel jobType(@javax.annotation.Nonnull BackgroundJobType jobType) {
+  public BackgroundJobGetModel jobType(BackgroundJobType jobType) {
     this.jobType = jobType;
     return this;
   }
@@ -168,12 +157,12 @@ public class BackgroundJobGetModel {
     return jobType;
   }
 
-  public void setJobType(@javax.annotation.Nonnull BackgroundJobType jobType) {
+  public void setJobType(BackgroundJobType jobType) {
     this.jobType = jobType;
   }
 
 
-  public BackgroundJobGetModel state(@javax.annotation.Nonnull BackgroundJobState state) {
+  public BackgroundJobGetModel state(BackgroundJobState state) {
     this.state = state;
     return this;
   }
@@ -187,12 +176,12 @@ public class BackgroundJobGetModel {
     return state;
   }
 
-  public void setState(@javax.annotation.Nonnull BackgroundJobState state) {
+  public void setState(BackgroundJobState state) {
     this.state = state;
   }
 
 
-  public BackgroundJobGetModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public BackgroundJobGetModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -206,12 +195,12 @@ public class BackgroundJobGetModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public BackgroundJobGetModel progress(@javax.annotation.Nonnull Long progress) {
+  public BackgroundJobGetModel progress(Long progress) {
     this.progress = progress;
     return this;
   }
@@ -225,12 +214,12 @@ public class BackgroundJobGetModel {
     return progress;
   }
 
-  public void setProgress(@javax.annotation.Nonnull Long progress) {
+  public void setProgress(Long progress) {
     this.progress = progress;
   }
 
 
-  public BackgroundJobGetModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public BackgroundJobGetModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -244,12 +233,12 @@ public class BackgroundJobGetModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public BackgroundJobGetModel startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public BackgroundJobGetModel startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -263,12 +252,12 @@ public class BackgroundJobGetModel {
     return startDate;
   }
 
-  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public BackgroundJobGetModel endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public BackgroundJobGetModel endDate(OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -282,12 +271,12 @@ public class BackgroundJobGetModel {
     return endDate;
   }
 
-  public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
-  public BackgroundJobGetModel error(@javax.annotation.Nullable String error) {
+  public BackgroundJobGetModel error(String error) {
     this.error = error;
     return this;
   }
@@ -301,12 +290,12 @@ public class BackgroundJobGetModel {
     return error;
   }
 
-  public void setError(@javax.annotation.Nullable String error) {
+  public void setError(String error) {
     this.error = error;
   }
 
 
-  public BackgroundJobGetModel attachments(@javax.annotation.Nonnull List<BackgroundJobAttachmentModel> attachments) {
+  public BackgroundJobGetModel attachments(List<BackgroundJobAttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -328,7 +317,7 @@ public class BackgroundJobGetModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nonnull List<BackgroundJobAttachmentModel> attachments) {
+  public void setAttachments(List<BackgroundJobAttachmentModel> attachments) {
     this.attachments = attachments;
   }
 

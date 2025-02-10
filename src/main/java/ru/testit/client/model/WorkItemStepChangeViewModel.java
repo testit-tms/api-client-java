@@ -51,47 +51,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemStepChangeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemStepChangeViewModel {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  @javax.annotation.Nonnull
   private String action;
 
   public static final String SERIALIZED_NAME_EXPECTED = "expected";
   @SerializedName(SERIALIZED_NAME_EXPECTED)
-  @javax.annotation.Nonnull
   private String expected;
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
-  @javax.annotation.Nonnull
   private String comments;
 
   public static final String SERIALIZED_NAME_TEST_DATA = "testData";
   @SerializedName(SERIALIZED_NAME_TEST_DATA)
-  @javax.annotation.Nonnull
   private String testData;
 
   public static final String SERIALIZED_NAME_INDEX = "index";
   @SerializedName(SERIALIZED_NAME_INDEX)
-  @javax.annotation.Nonnull
   private Integer index;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM = "workItem";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM)
-  @javax.annotation.Nonnull
   private SharedStepChangeViewModel workItem;
 
   public WorkItemStepChangeViewModel() {
   }
 
-  public WorkItemStepChangeViewModel action(@javax.annotation.Nonnull String action) {
+  public WorkItemStepChangeViewModel action(String action) {
     this.action = action;
     return this;
   }
@@ -105,12 +98,12 @@ public class WorkItemStepChangeViewModel {
     return action;
   }
 
-  public void setAction(@javax.annotation.Nonnull String action) {
+  public void setAction(String action) {
     this.action = action;
   }
 
 
-  public WorkItemStepChangeViewModel expected(@javax.annotation.Nonnull String expected) {
+  public WorkItemStepChangeViewModel expected(String expected) {
     this.expected = expected;
     return this;
   }
@@ -124,12 +117,12 @@ public class WorkItemStepChangeViewModel {
     return expected;
   }
 
-  public void setExpected(@javax.annotation.Nonnull String expected) {
+  public void setExpected(String expected) {
     this.expected = expected;
   }
 
 
-  public WorkItemStepChangeViewModel comments(@javax.annotation.Nonnull String comments) {
+  public WorkItemStepChangeViewModel comments(String comments) {
     this.comments = comments;
     return this;
   }
@@ -143,12 +136,12 @@ public class WorkItemStepChangeViewModel {
     return comments;
   }
 
-  public void setComments(@javax.annotation.Nonnull String comments) {
+  public void setComments(String comments) {
     this.comments = comments;
   }
 
 
-  public WorkItemStepChangeViewModel testData(@javax.annotation.Nonnull String testData) {
+  public WorkItemStepChangeViewModel testData(String testData) {
     this.testData = testData;
     return this;
   }
@@ -162,12 +155,12 @@ public class WorkItemStepChangeViewModel {
     return testData;
   }
 
-  public void setTestData(@javax.annotation.Nonnull String testData) {
+  public void setTestData(String testData) {
     this.testData = testData;
   }
 
 
-  public WorkItemStepChangeViewModel index(@javax.annotation.Nonnull Integer index) {
+  public WorkItemStepChangeViewModel index(Integer index) {
     this.index = index;
     return this;
   }
@@ -181,12 +174,12 @@ public class WorkItemStepChangeViewModel {
     return index;
   }
 
-  public void setIndex(@javax.annotation.Nonnull Integer index) {
+  public void setIndex(Integer index) {
     this.index = index;
   }
 
 
-  public WorkItemStepChangeViewModel workItemId(@javax.annotation.Nullable UUID workItemId) {
+  public WorkItemStepChangeViewModel workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -200,12 +193,12 @@ public class WorkItemStepChangeViewModel {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public WorkItemStepChangeViewModel workItem(@javax.annotation.Nonnull SharedStepChangeViewModel workItem) {
+  public WorkItemStepChangeViewModel workItem(SharedStepChangeViewModel workItem) {
     this.workItem = workItem;
     return this;
   }
@@ -219,7 +212,7 @@ public class WorkItemStepChangeViewModel {
     return workItem;
   }
 
-  public void setWorkItem(@javax.annotation.Nonnull SharedStepChangeViewModel workItem) {
+  public void setWorkItem(SharedStepChangeViewModel workItem) {
     this.workItem = workItem;
   }
 

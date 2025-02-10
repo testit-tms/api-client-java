@@ -50,32 +50,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * SectionMoveModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SectionMoveModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_OLD_PARENT_ID = "oldParentId";
   @SerializedName(SERIALIZED_NAME_OLD_PARENT_ID)
-  @javax.annotation.Nonnull
   private UUID oldParentId;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nonnull
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_NEXT_SECTION_ID = "nextSectionId";
   @SerializedName(SERIALIZED_NAME_NEXT_SECTION_ID)
-  @javax.annotation.Nullable
   private UUID nextSectionId;
 
   public SectionMoveModel() {
   }
 
-  public SectionMoveModel id(@javax.annotation.Nonnull UUID id) {
+  public SectionMoveModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -89,12 +85,12 @@ public class SectionMoveModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SectionMoveModel oldParentId(@javax.annotation.Nonnull UUID oldParentId) {
+  public SectionMoveModel oldParentId(UUID oldParentId) {
     this.oldParentId = oldParentId;
     return this;
   }
@@ -108,12 +104,12 @@ public class SectionMoveModel {
     return oldParentId;
   }
 
-  public void setOldParentId(@javax.annotation.Nonnull UUID oldParentId) {
+  public void setOldParentId(UUID oldParentId) {
     this.oldParentId = oldParentId;
   }
 
 
-  public SectionMoveModel parentId(@javax.annotation.Nonnull UUID parentId) {
+  public SectionMoveModel parentId(UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -127,12 +123,12 @@ public class SectionMoveModel {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nonnull UUID parentId) {
+  public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public SectionMoveModel nextSectionId(@javax.annotation.Nullable UUID nextSectionId) {
+  public SectionMoveModel nextSectionId(UUID nextSectionId) {
     this.nextSectionId = nextSectionId;
     return this;
   }
@@ -146,7 +142,7 @@ public class SectionMoveModel {
     return nextSectionId;
   }
 
-  public void setNextSectionId(@javax.annotation.Nullable UUID nextSectionId) {
+  public void setNextSectionId(UUID nextSectionId) {
     this.nextSectionId = nextSectionId;
   }
 

@@ -53,37 +53,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * SearchCustomAttributeTemplateGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SearchCustomAttributeTemplateGetModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_SHORTEST_MODELS = "projectShortestModels";
   @SerializedName(SERIALIZED_NAME_PROJECT_SHORTEST_MODELS)
-  @javax.annotation.Nonnull
   private List<ProjectShortestModel> projectShortestModels = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS = "customAttributeModels";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS)
-  @javax.annotation.Nonnull
   private List<CustomAttributeModel> customAttributeModels = new ArrayList<>();
 
   public SearchCustomAttributeTemplateGetModel() {
   }
 
-  public SearchCustomAttributeTemplateGetModel id(@javax.annotation.Nonnull UUID id) {
+  public SearchCustomAttributeTemplateGetModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -97,12 +92,12 @@ public class SearchCustomAttributeTemplateGetModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SearchCustomAttributeTemplateGetModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public SearchCustomAttributeTemplateGetModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -116,12 +111,12 @@ public class SearchCustomAttributeTemplateGetModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public SearchCustomAttributeTemplateGetModel name(@javax.annotation.Nonnull String name) {
+  public SearchCustomAttributeTemplateGetModel name(String name) {
     this.name = name;
     return this;
   }
@@ -135,12 +130,12 @@ public class SearchCustomAttributeTemplateGetModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public SearchCustomAttributeTemplateGetModel projectShortestModels(@javax.annotation.Nonnull List<ProjectShortestModel> projectShortestModels) {
+  public SearchCustomAttributeTemplateGetModel projectShortestModels(List<ProjectShortestModel> projectShortestModels) {
     this.projectShortestModels = projectShortestModels;
     return this;
   }
@@ -162,12 +157,12 @@ public class SearchCustomAttributeTemplateGetModel {
     return projectShortestModels;
   }
 
-  public void setProjectShortestModels(@javax.annotation.Nonnull List<ProjectShortestModel> projectShortestModels) {
+  public void setProjectShortestModels(List<ProjectShortestModel> projectShortestModels) {
     this.projectShortestModels = projectShortestModels;
   }
 
 
-  public SearchCustomAttributeTemplateGetModel customAttributeModels(@javax.annotation.Nonnull List<CustomAttributeModel> customAttributeModels) {
+  public SearchCustomAttributeTemplateGetModel customAttributeModels(List<CustomAttributeModel> customAttributeModels) {
     this.customAttributeModels = customAttributeModels;
     return this;
   }
@@ -189,7 +184,7 @@ public class SearchCustomAttributeTemplateGetModel {
     return customAttributeModels;
   }
 
-  public void setCustomAttributeModels(@javax.annotation.Nonnull List<CustomAttributeModel> customAttributeModels) {
+  public void setCustomAttributeModels(List<CustomAttributeModel> customAttributeModels) {
     this.customAttributeModels = customAttributeModels;
   }
 

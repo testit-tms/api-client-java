@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * StringChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StringChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private String oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private String newValue;
 
   public StringChangedFieldViewModel() {
   }
 
-  public StringChangedFieldViewModel oldValue(@javax.annotation.Nullable String oldValue) {
+  public StringChangedFieldViewModel oldValue(String oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -78,12 +76,12 @@ public class StringChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable String oldValue) {
+  public void setOldValue(String oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public StringChangedFieldViewModel newValue(@javax.annotation.Nullable String newValue) {
+  public StringChangedFieldViewModel newValue(String newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -97,7 +95,7 @@ public class StringChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable String newValue) {
+  public void setNewValue(String newValue) {
     this.newValue = newValue;
   }
 

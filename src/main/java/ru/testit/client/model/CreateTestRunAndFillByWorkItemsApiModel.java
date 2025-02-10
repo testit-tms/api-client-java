@@ -54,57 +54,48 @@ import ru.testit.client.invoker.JSON;
 /**
  * CreateTestRunAndFillByWorkItemsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateTestRunAndFillByWorkItemsApiModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AssignAttachmentApiModel> attachments;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<CreateLinkApiModel> links;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nonnull
   private List<UUID> configurationIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WORK_ITEM_IDS = "workItemIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS)
-  @javax.annotation.Nonnull
   private List<UUID> workItemIds = new ArrayList<>();
 
   public CreateTestRunAndFillByWorkItemsApiModel() {
   }
 
-  public CreateTestRunAndFillByWorkItemsApiModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public CreateTestRunAndFillByWorkItemsApiModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -118,12 +109,12 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public CreateTestRunAndFillByWorkItemsApiModel testPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public CreateTestRunAndFillByWorkItemsApiModel testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -137,12 +128,12 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public CreateTestRunAndFillByWorkItemsApiModel name(@javax.annotation.Nullable String name) {
+  public CreateTestRunAndFillByWorkItemsApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -156,12 +147,12 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public CreateTestRunAndFillByWorkItemsApiModel description(@javax.annotation.Nullable String description) {
+  public CreateTestRunAndFillByWorkItemsApiModel description(String description) {
     this.description = description;
     return this;
   }
@@ -175,12 +166,12 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public CreateTestRunAndFillByWorkItemsApiModel launchSource(@javax.annotation.Nullable String launchSource) {
+  public CreateTestRunAndFillByWorkItemsApiModel launchSource(String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
@@ -194,12 +185,12 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return launchSource;
   }
 
-  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
+  public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public CreateTestRunAndFillByWorkItemsApiModel attachments(@javax.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
+  public CreateTestRunAndFillByWorkItemsApiModel attachments(List<AssignAttachmentApiModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -221,12 +212,12 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
+  public void setAttachments(List<AssignAttachmentApiModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public CreateTestRunAndFillByWorkItemsApiModel links(@javax.annotation.Nullable List<CreateLinkApiModel> links) {
+  public CreateTestRunAndFillByWorkItemsApiModel links(List<CreateLinkApiModel> links) {
     this.links = links;
     return this;
   }
@@ -248,12 +239,12 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<CreateLinkApiModel> links) {
+  public void setLinks(List<CreateLinkApiModel> links) {
     this.links = links;
   }
 
 
-  public CreateTestRunAndFillByWorkItemsApiModel configurationIds(@javax.annotation.Nonnull List<UUID> configurationIds) {
+  public CreateTestRunAndFillByWorkItemsApiModel configurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -275,12 +266,12 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nonnull List<UUID> configurationIds) {
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
-  public CreateTestRunAndFillByWorkItemsApiModel workItemIds(@javax.annotation.Nonnull List<UUID> workItemIds) {
+  public CreateTestRunAndFillByWorkItemsApiModel workItemIds(List<UUID> workItemIds) {
     this.workItemIds = workItemIds;
     return this;
   }
@@ -302,7 +293,7 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return workItemIds;
   }
 
-  public void setWorkItemIds(@javax.annotation.Nonnull List<UUID> workItemIds) {
+  public void setWorkItemIds(List<UUID> workItemIds) {
     this.workItemIds = workItemIds;
   }
 

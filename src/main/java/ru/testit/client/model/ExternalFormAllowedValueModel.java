@@ -49,32 +49,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalFormAllowedValueModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalFormAllowedValueModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nullable
   private String id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nullable
   private String parentId;
 
   public static final String SERIALIZED_NAME_HAS_CHILDREN = "hasChildren";
   @SerializedName(SERIALIZED_NAME_HAS_CHILDREN)
-  @javax.annotation.Nonnull
   private Boolean hasChildren;
 
   public ExternalFormAllowedValueModel() {
   }
 
-  public ExternalFormAllowedValueModel id(@javax.annotation.Nullable String id) {
+  public ExternalFormAllowedValueModel id(String id) {
     this.id = id;
     return this;
   }
@@ -88,12 +84,12 @@ public class ExternalFormAllowedValueModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nullable String id) {
+  public void setId(String id) {
     this.id = id;
   }
 
 
-  public ExternalFormAllowedValueModel name(@javax.annotation.Nullable String name) {
+  public ExternalFormAllowedValueModel name(String name) {
     this.name = name;
     return this;
   }
@@ -107,12 +103,12 @@ public class ExternalFormAllowedValueModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ExternalFormAllowedValueModel parentId(@javax.annotation.Nullable String parentId) {
+  public ExternalFormAllowedValueModel parentId(String parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -126,12 +122,12 @@ public class ExternalFormAllowedValueModel {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nullable String parentId) {
+  public void setParentId(String parentId) {
     this.parentId = parentId;
   }
 
 
-  public ExternalFormAllowedValueModel hasChildren(@javax.annotation.Nonnull Boolean hasChildren) {
+  public ExternalFormAllowedValueModel hasChildren(Boolean hasChildren) {
     this.hasChildren = hasChildren;
     return this;
   }
@@ -145,7 +141,7 @@ public class ExternalFormAllowedValueModel {
     return hasChildren;
   }
 
-  public void setHasChildren(@javax.annotation.Nonnull Boolean hasChildren) {
+  public void setHasChildren(Boolean hasChildren) {
     this.hasChildren = hasChildren;
   }
 

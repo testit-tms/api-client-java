@@ -52,27 +52,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemGroupModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemGroupModel {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
-  @javax.annotation.Nullable
   private Object key = null;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
-  @javax.annotation.Nonnull
   private Integer size;
 
   public static final String SERIALIZED_NAME_WORK_ITEMS = "workItems";
   @SerializedName(SERIALIZED_NAME_WORK_ITEMS)
-  @javax.annotation.Nonnull
   private List<WorkItemShortModel> workItems = new ArrayList<>();
 
   public WorkItemGroupModel() {
   }
 
-  public WorkItemGroupModel key(@javax.annotation.Nullable Object key) {
+  public WorkItemGroupModel key(Object key) {
     this.key = key;
     return this;
   }
@@ -86,12 +83,12 @@ public class WorkItemGroupModel {
     return key;
   }
 
-  public void setKey(@javax.annotation.Nullable Object key) {
+  public void setKey(Object key) {
     this.key = key;
   }
 
 
-  public WorkItemGroupModel size(@javax.annotation.Nonnull Integer size) {
+  public WorkItemGroupModel size(Integer size) {
     this.size = size;
     return this;
   }
@@ -105,12 +102,12 @@ public class WorkItemGroupModel {
     return size;
   }
 
-  public void setSize(@javax.annotation.Nonnull Integer size) {
+  public void setSize(Integer size) {
     this.size = size;
   }
 
 
-  public WorkItemGroupModel workItems(@javax.annotation.Nonnull List<WorkItemShortModel> workItems) {
+  public WorkItemGroupModel workItems(List<WorkItemShortModel> workItems) {
     this.workItems = workItems;
     return this;
   }
@@ -132,7 +129,7 @@ public class WorkItemGroupModel {
     return workItems;
   }
 
-  public void setWorkItems(@javax.annotation.Nonnull List<WorkItemShortModel> workItems) {
+  public void setWorkItems(List<WorkItemShortModel> workItems) {
     this.workItems = workItems;
   }
 

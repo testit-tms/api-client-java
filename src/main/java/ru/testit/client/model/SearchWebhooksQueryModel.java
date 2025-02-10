@@ -54,37 +54,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * SearchWebhooksQueryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SearchWebhooksQueryModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_EVENT_TYPES = "eventTypes";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPES)
-  @javax.annotation.Nullable
   private Set<WebHookEventTypeModel> eventTypes;
 
   public static final String SERIALIZED_NAME_METHODS = "methods";
   @SerializedName(SERIALIZED_NAME_METHODS)
-  @javax.annotation.Nullable
   private Set<RequestTypeModel> methods;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nullable
   private Boolean isEnabled;
 
   public SearchWebhooksQueryModel() {
   }
 
-  public SearchWebhooksQueryModel name(@javax.annotation.Nullable String name) {
+  public SearchWebhooksQueryModel name(String name) {
     this.name = name;
     return this;
   }
@@ -98,12 +93,12 @@ public class SearchWebhooksQueryModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public SearchWebhooksQueryModel eventTypes(@javax.annotation.Nullable Set<WebHookEventTypeModel> eventTypes) {
+  public SearchWebhooksQueryModel eventTypes(Set<WebHookEventTypeModel> eventTypes) {
     this.eventTypes = eventTypes;
     return this;
   }
@@ -125,12 +120,12 @@ public class SearchWebhooksQueryModel {
     return eventTypes;
   }
 
-  public void setEventTypes(@javax.annotation.Nullable Set<WebHookEventTypeModel> eventTypes) {
+  public void setEventTypes(Set<WebHookEventTypeModel> eventTypes) {
     this.eventTypes = eventTypes;
   }
 
 
-  public SearchWebhooksQueryModel methods(@javax.annotation.Nullable Set<RequestTypeModel> methods) {
+  public SearchWebhooksQueryModel methods(Set<RequestTypeModel> methods) {
     this.methods = methods;
     return this;
   }
@@ -152,12 +147,12 @@ public class SearchWebhooksQueryModel {
     return methods;
   }
 
-  public void setMethods(@javax.annotation.Nullable Set<RequestTypeModel> methods) {
+  public void setMethods(Set<RequestTypeModel> methods) {
     this.methods = methods;
   }
 
 
-  public SearchWebhooksQueryModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public SearchWebhooksQueryModel projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -179,12 +174,12 @@ public class SearchWebhooksQueryModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public SearchWebhooksQueryModel isEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public SearchWebhooksQueryModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -198,7 +193,7 @@ public class SearchWebhooksQueryModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 

@@ -52,22 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeTemplatePostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeTemplatePostModel {
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> customAttributeIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public CustomAttributeTemplatePostModel() {
   }
 
-  public CustomAttributeTemplatePostModel customAttributeIds(@javax.annotation.Nullable Set<UUID> customAttributeIds) {
+  public CustomAttributeTemplatePostModel customAttributeIds(Set<UUID> customAttributeIds) {
     this.customAttributeIds = customAttributeIds;
     return this;
   }
@@ -89,12 +87,12 @@ public class CustomAttributeTemplatePostModel {
     return customAttributeIds;
   }
 
-  public void setCustomAttributeIds(@javax.annotation.Nullable Set<UUID> customAttributeIds) {
+  public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
     this.customAttributeIds = customAttributeIds;
   }
 
 
-  public CustomAttributeTemplatePostModel name(@javax.annotation.Nonnull String name) {
+  public CustomAttributeTemplatePostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -108,7 +106,7 @@ public class CustomAttributeTemplatePostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

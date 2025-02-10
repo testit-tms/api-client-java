@@ -57,92 +57,76 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nullable
   private UUID id;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST = "workItemIdsForLinkWithAutoTest";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST)
-  @javax.annotation.Nullable
   private Set<UUID> workItemIdsForLinkWithAutoTest;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<LinkPutModel> links;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
-  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_CLASSNAME = "classname";
   @SerializedName(SERIALIZED_NAME_CLASSNAME)
-  @javax.annotation.Nullable
   private String classname;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> steps;
 
   public static final String SERIALIZED_NAME_SETUP = "setup";
   @SerializedName(SERIALIZED_NAME_SETUP)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> setup;
 
   public static final String SERIALIZED_NAME_TEARDOWN = "teardown";
   @SerializedName(SERIALIZED_NAME_TEARDOWN)
-  @javax.annotation.Nullable
   private List<AutoTestStepModel> teardown;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nullable
   private String title;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  @javax.annotation.Nullable
   private List<LabelPostModel> labels;
 
   public static final String SERIALIZED_NAME_IS_FLAKY = "isFlaky";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY)
-  @javax.annotation.Nullable
   private Boolean isFlaky;
 
   public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
-  @javax.annotation.Nullable
   private String externalKey;
 
   public AutoTestPutModel() {
   }
 
-  public AutoTestPutModel id(@javax.annotation.Nullable UUID id) {
+  public AutoTestPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -156,12 +140,12 @@ public class AutoTestPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nullable UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestPutModel workItemIdsForLinkWithAutoTest(@javax.annotation.Nullable Set<UUID> workItemIdsForLinkWithAutoTest) {
+  public AutoTestPutModel workItemIdsForLinkWithAutoTest(Set<UUID> workItemIdsForLinkWithAutoTest) {
     this.workItemIdsForLinkWithAutoTest = workItemIdsForLinkWithAutoTest;
     return this;
   }
@@ -183,12 +167,12 @@ public class AutoTestPutModel {
     return workItemIdsForLinkWithAutoTest;
   }
 
-  public void setWorkItemIdsForLinkWithAutoTest(@javax.annotation.Nullable Set<UUID> workItemIdsForLinkWithAutoTest) {
+  public void setWorkItemIdsForLinkWithAutoTest(Set<UUID> workItemIdsForLinkWithAutoTest) {
     this.workItemIdsForLinkWithAutoTest = workItemIdsForLinkWithAutoTest;
   }
 
 
-  public AutoTestPutModel externalId(@javax.annotation.Nonnull String externalId) {
+  public AutoTestPutModel externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -202,12 +186,12 @@ public class AutoTestPutModel {
     return externalId;
   }
 
-  public void setExternalId(@javax.annotation.Nonnull String externalId) {
+  public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestPutModel links(@javax.annotation.Nullable List<LinkPutModel> links) {
+  public AutoTestPutModel links(List<LinkPutModel> links) {
     this.links = links;
     return this;
   }
@@ -229,12 +213,12 @@ public class AutoTestPutModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<LinkPutModel> links) {
+  public void setLinks(List<LinkPutModel> links) {
     this.links = links;
   }
 
 
-  public AutoTestPutModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public AutoTestPutModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -248,12 +232,12 @@ public class AutoTestPutModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestPutModel name(@javax.annotation.Nonnull String name) {
+  public AutoTestPutModel name(String name) {
     this.name = name;
     return this;
   }
@@ -267,12 +251,12 @@ public class AutoTestPutModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AutoTestPutModel namespace(@javax.annotation.Nullable String namespace) {
+  public AutoTestPutModel namespace(String namespace) {
     this.namespace = namespace;
     return this;
   }
@@ -286,12 +270,12 @@ public class AutoTestPutModel {
     return namespace;
   }
 
-  public void setNamespace(@javax.annotation.Nullable String namespace) {
+  public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
-  public AutoTestPutModel classname(@javax.annotation.Nullable String classname) {
+  public AutoTestPutModel classname(String classname) {
     this.classname = classname;
     return this;
   }
@@ -305,12 +289,12 @@ public class AutoTestPutModel {
     return classname;
   }
 
-  public void setClassname(@javax.annotation.Nullable String classname) {
+  public void setClassname(String classname) {
     this.classname = classname;
   }
 
 
-  public AutoTestPutModel steps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
+  public AutoTestPutModel steps(List<AutoTestStepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -332,12 +316,12 @@ public class AutoTestPutModel {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nullable List<AutoTestStepModel> steps) {
+  public void setSteps(List<AutoTestStepModel> steps) {
     this.steps = steps;
   }
 
 
-  public AutoTestPutModel setup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
+  public AutoTestPutModel setup(List<AutoTestStepModel> setup) {
     this.setup = setup;
     return this;
   }
@@ -359,12 +343,12 @@ public class AutoTestPutModel {
     return setup;
   }
 
-  public void setSetup(@javax.annotation.Nullable List<AutoTestStepModel> setup) {
+  public void setSetup(List<AutoTestStepModel> setup) {
     this.setup = setup;
   }
 
 
-  public AutoTestPutModel teardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
+  public AutoTestPutModel teardown(List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
     return this;
   }
@@ -386,12 +370,12 @@ public class AutoTestPutModel {
     return teardown;
   }
 
-  public void setTeardown(@javax.annotation.Nullable List<AutoTestStepModel> teardown) {
+  public void setTeardown(List<AutoTestStepModel> teardown) {
     this.teardown = teardown;
   }
 
 
-  public AutoTestPutModel title(@javax.annotation.Nullable String title) {
+  public AutoTestPutModel title(String title) {
     this.title = title;
     return this;
   }
@@ -405,12 +389,12 @@ public class AutoTestPutModel {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nullable String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public AutoTestPutModel description(@javax.annotation.Nullable String description) {
+  public AutoTestPutModel description(String description) {
     this.description = description;
     return this;
   }
@@ -424,12 +408,12 @@ public class AutoTestPutModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public AutoTestPutModel labels(@javax.annotation.Nullable List<LabelPostModel> labels) {
+  public AutoTestPutModel labels(List<LabelPostModel> labels) {
     this.labels = labels;
     return this;
   }
@@ -451,12 +435,12 @@ public class AutoTestPutModel {
     return labels;
   }
 
-  public void setLabels(@javax.annotation.Nullable List<LabelPostModel> labels) {
+  public void setLabels(List<LabelPostModel> labels) {
     this.labels = labels;
   }
 
 
-  public AutoTestPutModel isFlaky(@javax.annotation.Nullable Boolean isFlaky) {
+  public AutoTestPutModel isFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
     return this;
   }
@@ -470,12 +454,12 @@ public class AutoTestPutModel {
     return isFlaky;
   }
 
-  public void setIsFlaky(@javax.annotation.Nullable Boolean isFlaky) {
+  public void setIsFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
-  public AutoTestPutModel externalKey(@javax.annotation.Nullable String externalKey) {
+  public AutoTestPutModel externalKey(String externalKey) {
     this.externalKey = externalKey;
     return this;
   }
@@ -489,7 +473,7 @@ public class AutoTestPutModel {
     return externalKey;
   }
 
-  public void setExternalKey(@javax.annotation.Nullable String externalKey) {
+  public void setExternalKey(String externalKey) {
     this.externalKey = externalKey;
   }
 

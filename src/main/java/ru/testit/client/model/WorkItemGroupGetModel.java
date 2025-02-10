@@ -52,27 +52,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemGroupGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemGroupGetModel {
   public static final String SERIALIZED_NAME_SELECT_MODEL = "selectModel";
   @SerializedName(SERIALIZED_NAME_SELECT_MODEL)
-  @javax.annotation.Nullable
   private WorkItemLocalSelectModel selectModel;
 
   public static final String SERIALIZED_NAME_GROUP_TYPE = "groupType";
   @SerializedName(SERIALIZED_NAME_GROUP_TYPE)
-  @javax.annotation.Nonnull
   private WorkItemGroupType groupType;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_ID = "customAttributeId";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_ID)
-  @javax.annotation.Nullable
   private UUID customAttributeId;
 
   public WorkItemGroupGetModel() {
   }
 
-  public WorkItemGroupGetModel selectModel(@javax.annotation.Nullable WorkItemLocalSelectModel selectModel) {
+  public WorkItemGroupGetModel selectModel(WorkItemLocalSelectModel selectModel) {
     this.selectModel = selectModel;
     return this;
   }
@@ -86,12 +83,12 @@ public class WorkItemGroupGetModel {
     return selectModel;
   }
 
-  public void setSelectModel(@javax.annotation.Nullable WorkItemLocalSelectModel selectModel) {
+  public void setSelectModel(WorkItemLocalSelectModel selectModel) {
     this.selectModel = selectModel;
   }
 
 
-  public WorkItemGroupGetModel groupType(@javax.annotation.Nonnull WorkItemGroupType groupType) {
+  public WorkItemGroupGetModel groupType(WorkItemGroupType groupType) {
     this.groupType = groupType;
     return this;
   }
@@ -105,12 +102,12 @@ public class WorkItemGroupGetModel {
     return groupType;
   }
 
-  public void setGroupType(@javax.annotation.Nonnull WorkItemGroupType groupType) {
+  public void setGroupType(WorkItemGroupType groupType) {
     this.groupType = groupType;
   }
 
 
-  public WorkItemGroupGetModel customAttributeId(@javax.annotation.Nullable UUID customAttributeId) {
+  public WorkItemGroupGetModel customAttributeId(UUID customAttributeId) {
     this.customAttributeId = customAttributeId;
     return this;
   }
@@ -124,7 +121,7 @@ public class WorkItemGroupGetModel {
     return customAttributeId;
   }
 
-  public void setCustomAttributeId(@javax.annotation.Nullable UUID customAttributeId) {
+  public void setCustomAttributeId(UUID customAttributeId) {
     this.customAttributeId = customAttributeId;
   }
 
