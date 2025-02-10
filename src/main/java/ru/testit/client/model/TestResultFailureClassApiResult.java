@@ -49,17 +49,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultFailureClassApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultFailureClassApiResult {
   public static final String SERIALIZED_NAME_FAILURE_CATEGORY = "failureCategory";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORY)
-  @javax.annotation.Nonnull
   private FailureCategory failureCategory;
 
   public TestResultFailureClassApiResult() {
   }
 
-  public TestResultFailureClassApiResult failureCategory(@javax.annotation.Nonnull FailureCategory failureCategory) {
+  public TestResultFailureClassApiResult failureCategory(FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -73,7 +72,7 @@ public class TestResultFailureClassApiResult {
     return failureCategory;
   }
 
-  public void setFailureCategory(@javax.annotation.Nonnull FailureCategory failureCategory) {
+  public void setFailureCategory(FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
   }
 

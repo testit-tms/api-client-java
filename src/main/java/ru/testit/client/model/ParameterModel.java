@@ -51,57 +51,48 @@ import ru.testit.client.invoker.JSON;
 /**
  * ParameterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ParameterModel {
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_PARAMETER_KEY_ID = "parameterKeyId";
   @SerializedName(SERIALIZED_NAME_PARAMETER_KEY_ID)
-  @javax.annotation.Nonnull
   private UUID parameterKeyId;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private String value;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public ParameterModel() {
   }
 
-  public ParameterModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public ParameterModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -115,12 +106,12 @@ public class ParameterModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public ParameterModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public ParameterModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -134,12 +125,12 @@ public class ParameterModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public ParameterModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public ParameterModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -153,12 +144,12 @@ public class ParameterModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public ParameterModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public ParameterModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -172,12 +163,12 @@ public class ParameterModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public ParameterModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public ParameterModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -191,12 +182,12 @@ public class ParameterModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ParameterModel parameterKeyId(@javax.annotation.Nonnull UUID parameterKeyId) {
+  public ParameterModel parameterKeyId(UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
     return this;
   }
@@ -210,12 +201,12 @@ public class ParameterModel {
     return parameterKeyId;
   }
 
-  public void setParameterKeyId(@javax.annotation.Nonnull UUID parameterKeyId) {
+  public void setParameterKeyId(UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
   }
 
 
-  public ParameterModel id(@javax.annotation.Nonnull UUID id) {
+  public ParameterModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -229,12 +220,12 @@ public class ParameterModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public ParameterModel value(@javax.annotation.Nonnull String value) {
+  public ParameterModel value(String value) {
     this.value = value;
     return this;
   }
@@ -248,12 +239,12 @@ public class ParameterModel {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
+  public void setValue(String value) {
     this.value = value;
   }
 
 
-  public ParameterModel name(@javax.annotation.Nonnull String name) {
+  public ParameterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -267,7 +258,7 @@ public class ParameterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

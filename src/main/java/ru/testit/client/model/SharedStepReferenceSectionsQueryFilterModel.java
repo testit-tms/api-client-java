@@ -53,37 +53,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * SharedStepReferenceSectionsQueryFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SharedStepReferenceSectionsQueryFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel modifiedDate;
 
   public SharedStepReferenceSectionsQueryFilterModel() {
   }
 
-  public SharedStepReferenceSectionsQueryFilterModel name(@javax.annotation.Nullable String name) {
+  public SharedStepReferenceSectionsQueryFilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -97,12 +92,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public SharedStepReferenceSectionsQueryFilterModel createdByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -124,12 +119,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel modifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public SharedStepReferenceSectionsQueryFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -151,12 +146,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public SharedStepReferenceSectionsQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -170,12 +165,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public SharedStepReferenceSectionsQueryFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -189,7 +184,7 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 

@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * RerunsModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class RerunsModel {
   public static final String SERIALIZED_NAME_RERUN_COUNT = "rerunCount";
   @SerializedName(SERIALIZED_NAME_RERUN_COUNT)
-  @javax.annotation.Nonnull
   private Integer rerunCount;
 
   public static final String SERIALIZED_NAME_RERUN_TEST_RESULTS = "rerunTestResults";
   @SerializedName(SERIALIZED_NAME_RERUN_TEST_RESULTS)
-  @javax.annotation.Nonnull
   private List<RerunTestResultModel> rerunTestResults = new ArrayList<>();
 
   public RerunsModel() {
   }
 
-  public RerunsModel rerunCount(@javax.annotation.Nonnull Integer rerunCount) {
+  public RerunsModel rerunCount(Integer rerunCount) {
     this.rerunCount = rerunCount;
     return this;
   }
@@ -80,12 +78,12 @@ public class RerunsModel {
     return rerunCount;
   }
 
-  public void setRerunCount(@javax.annotation.Nonnull Integer rerunCount) {
+  public void setRerunCount(Integer rerunCount) {
     this.rerunCount = rerunCount;
   }
 
 
-  public RerunsModel rerunTestResults(@javax.annotation.Nonnull List<RerunTestResultModel> rerunTestResults) {
+  public RerunsModel rerunTestResults(List<RerunTestResultModel> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
     return this;
   }
@@ -107,7 +105,7 @@ public class RerunsModel {
     return rerunTestResults;
   }
 
-  public void setRerunTestResults(@javax.annotation.Nonnull List<RerunTestResultModel> rerunTestResults) {
+  public void setRerunTestResults(List<RerunTestResultModel> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
   }
 

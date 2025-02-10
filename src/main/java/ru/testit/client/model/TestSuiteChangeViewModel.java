@@ -53,32 +53,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteChangeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteChangeViewModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_CONFIGURATIONS = "configurations";
   @SerializedName(SERIALIZED_NAME_CONFIGURATIONS)
-  @javax.annotation.Nullable
   private List<ShortConfiguration> configurations;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_COUNT = "workItemCount";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_COUNT)
-  @javax.annotation.Nonnull
   private Long workItemCount;
 
   public TestSuiteChangeViewModel() {
   }
 
-  public TestSuiteChangeViewModel id(@javax.annotation.Nonnull UUID id) {
+  public TestSuiteChangeViewModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -92,12 +88,12 @@ public class TestSuiteChangeViewModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteChangeViewModel name(@javax.annotation.Nonnull String name) {
+  public TestSuiteChangeViewModel name(String name) {
     this.name = name;
     return this;
   }
@@ -111,12 +107,12 @@ public class TestSuiteChangeViewModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestSuiteChangeViewModel configurations(@javax.annotation.Nullable List<ShortConfiguration> configurations) {
+  public TestSuiteChangeViewModel configurations(List<ShortConfiguration> configurations) {
     this.configurations = configurations;
     return this;
   }
@@ -138,12 +134,12 @@ public class TestSuiteChangeViewModel {
     return configurations;
   }
 
-  public void setConfigurations(@javax.annotation.Nullable List<ShortConfiguration> configurations) {
+  public void setConfigurations(List<ShortConfiguration> configurations) {
     this.configurations = configurations;
   }
 
 
-  public TestSuiteChangeViewModel workItemCount(@javax.annotation.Nonnull Long workItemCount) {
+  public TestSuiteChangeViewModel workItemCount(Long workItemCount) {
     this.workItemCount = workItemCount;
     return this;
   }
@@ -157,7 +153,7 @@ public class TestSuiteChangeViewModel {
     return workItemCount;
   }
 
-  public void setWorkItemCount(@javax.annotation.Nonnull Long workItemCount) {
+  public void setWorkItemCount(Long workItemCount) {
     this.workItemCount = workItemCount;
   }
 

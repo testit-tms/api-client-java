@@ -54,22 +54,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalFormModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalFormModel {
   public static final String SERIALIZED_NAME_FIELDS = "fields";
   @SerializedName(SERIALIZED_NAME_FIELDS)
-  @javax.annotation.Nonnull
   private List<ExternalFormFieldModel> fields = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_POSSIBLE_VALUES = "possibleValues";
   @SerializedName(SERIALIZED_NAME_POSSIBLE_VALUES)
-  @javax.annotation.Nonnull
   private Map<String, List<ExternalFormAllowedValueModel>> possibleValues = new HashMap<>();
 
   public ExternalFormModel() {
   }
 
-  public ExternalFormModel fields(@javax.annotation.Nonnull List<ExternalFormFieldModel> fields) {
+  public ExternalFormModel fields(List<ExternalFormFieldModel> fields) {
     this.fields = fields;
     return this;
   }
@@ -91,12 +89,12 @@ public class ExternalFormModel {
     return fields;
   }
 
-  public void setFields(@javax.annotation.Nonnull List<ExternalFormFieldModel> fields) {
+  public void setFields(List<ExternalFormFieldModel> fields) {
     this.fields = fields;
   }
 
 
-  public ExternalFormModel possibleValues(@javax.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public ExternalFormModel possibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
     return this;
   }
@@ -118,7 +116,7 @@ public class ExternalFormModel {
     return possibleValues;
   }
 
-  public void setPossibleValues(@javax.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public void setPossibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
   }
 

@@ -52,42 +52,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ConfigurationPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nonnull
   private Map<String, String> parameters = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_IS_DEFAULT = "isDefault";
   @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
-  @javax.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public ConfigurationPutModel() {
   }
 
-  public ConfigurationPutModel id(@javax.annotation.Nonnull UUID id) {
+  public ConfigurationPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -101,12 +95,12 @@ public class ConfigurationPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public ConfigurationPutModel description(@javax.annotation.Nullable String description) {
+  public ConfigurationPutModel description(String description) {
     this.description = description;
     return this;
   }
@@ -120,12 +114,12 @@ public class ConfigurationPutModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public ConfigurationPutModel parameters(@javax.annotation.Nonnull Map<String, String> parameters) {
+  public ConfigurationPutModel parameters(Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -147,12 +141,12 @@ public class ConfigurationPutModel {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nonnull Map<String, String> parameters) {
+  public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public ConfigurationPutModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public ConfigurationPutModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -166,12 +160,12 @@ public class ConfigurationPutModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationPutModel isDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public ConfigurationPutModel isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -185,12 +179,12 @@ public class ConfigurationPutModel {
     return isDefault;
   }
 
-  public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public ConfigurationPutModel name(@javax.annotation.Nonnull String name) {
+  public ConfigurationPutModel name(String name) {
     this.name = name;
     return this;
   }
@@ -204,7 +198,7 @@ public class ConfigurationPutModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

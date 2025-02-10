@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestBulkDeleteApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestBulkDeleteApiResult {
   public static final String SERIALIZED_NAME_DELETED_COUNT = "deletedCount";
   @SerializedName(SERIALIZED_NAME_DELETED_COUNT)
-  @javax.annotation.Nonnull
   private Integer deletedCount;
 
   public static final String SERIALIZED_NAME_IN_PROGRESS_COUNT = "inProgressCount";
   @SerializedName(SERIALIZED_NAME_IN_PROGRESS_COUNT)
-  @javax.annotation.Nonnull
   private Integer inProgressCount;
 
   public AutoTestBulkDeleteApiResult() {
   }
 
-  public AutoTestBulkDeleteApiResult deletedCount(@javax.annotation.Nonnull Integer deletedCount) {
+  public AutoTestBulkDeleteApiResult deletedCount(Integer deletedCount) {
     this.deletedCount = deletedCount;
     return this;
   }
@@ -77,12 +75,12 @@ public class AutoTestBulkDeleteApiResult {
     return deletedCount;
   }
 
-  public void setDeletedCount(@javax.annotation.Nonnull Integer deletedCount) {
+  public void setDeletedCount(Integer deletedCount) {
     this.deletedCount = deletedCount;
   }
 
 
-  public AutoTestBulkDeleteApiResult inProgressCount(@javax.annotation.Nonnull Integer inProgressCount) {
+  public AutoTestBulkDeleteApiResult inProgressCount(Integer inProgressCount) {
     this.inProgressCount = inProgressCount;
     return this;
   }
@@ -96,7 +94,7 @@ public class AutoTestBulkDeleteApiResult {
     return inProgressCount;
   }
 
-  public void setInProgressCount(@javax.annotation.Nonnull Integer inProgressCount) {
+  public void setInProgressCount(Integer inProgressCount) {
     this.inProgressCount = inProgressCount;
   }
 

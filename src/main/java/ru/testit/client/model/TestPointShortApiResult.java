@@ -51,63 +51,53 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointShortApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointShortApiResult {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
-  @javax.annotation.Nullable
   private UUID testerId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nullable
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private String status;
 
   public static final String SERIALIZED_NAME_STATUS_MODEL = "statusModel";
   @SerializedName(SERIALIZED_NAME_STATUS_MODEL)
-  @javax.annotation.Nonnull
   private TestStatusApiResult statusModel;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_ID = "lastTestResultId";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_ID)
-  @javax.annotation.Nullable
   private UUID lastTestResultId;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
-  @javax.annotation.Nonnull
   private UUID iterationId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION = "workItemMedianDuration";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION)
-  @javax.annotation.Nullable
   private Long workItemMedianDuration;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
-  @javax.annotation.Nonnull
   private UUID testSuiteId;
 
   public TestPointShortApiResult() {
   }
 
-  public TestPointShortApiResult id(@javax.annotation.Nonnull UUID id) {
+  public TestPointShortApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -121,12 +111,12 @@ public class TestPointShortApiResult {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPointShortApiResult testerId(@javax.annotation.Nullable UUID testerId) {
+  public TestPointShortApiResult testerId(UUID testerId) {
     this.testerId = testerId;
     return this;
   }
@@ -140,12 +130,12 @@ public class TestPointShortApiResult {
     return testerId;
   }
 
-  public void setTesterId(@javax.annotation.Nullable UUID testerId) {
+  public void setTesterId(UUID testerId) {
     this.testerId = testerId;
   }
 
 
-  public TestPointShortApiResult workItemId(@javax.annotation.Nullable UUID workItemId) {
+  public TestPointShortApiResult workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -159,12 +149,12 @@ public class TestPointShortApiResult {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public TestPointShortApiResult configurationId(@javax.annotation.Nullable UUID configurationId) {
+  public TestPointShortApiResult configurationId(UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -178,13 +168,13 @@ public class TestPointShortApiResult {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nullable UUID configurationId) {
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
   @Deprecated
-  public TestPointShortApiResult status(@javax.annotation.Nullable String status) {
+  public TestPointShortApiResult status(String status) {
     this.status = status;
     return this;
   }
@@ -201,12 +191,12 @@ public class TestPointShortApiResult {
   }
 
   @Deprecated
-  public void setStatus(@javax.annotation.Nullable String status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
 
-  public TestPointShortApiResult statusModel(@javax.annotation.Nonnull TestStatusApiResult statusModel) {
+  public TestPointShortApiResult statusModel(TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
     return this;
   }
@@ -220,12 +210,12 @@ public class TestPointShortApiResult {
     return statusModel;
   }
 
-  public void setStatusModel(@javax.annotation.Nonnull TestStatusApiResult statusModel) {
+  public void setStatusModel(TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
   }
 
 
-  public TestPointShortApiResult lastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+  public TestPointShortApiResult lastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
     return this;
   }
@@ -239,12 +229,12 @@ public class TestPointShortApiResult {
     return lastTestResultId;
   }
 
-  public void setLastTestResultId(@javax.annotation.Nullable UUID lastTestResultId) {
+  public void setLastTestResultId(UUID lastTestResultId) {
     this.lastTestResultId = lastTestResultId;
   }
 
 
-  public TestPointShortApiResult iterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public TestPointShortApiResult iterationId(UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -258,12 +248,12 @@ public class TestPointShortApiResult {
     return iterationId;
   }
 
-  public void setIterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPointShortApiResult workItemMedianDuration(@javax.annotation.Nullable Long workItemMedianDuration) {
+  public TestPointShortApiResult workItemMedianDuration(Long workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
     return this;
   }
@@ -277,12 +267,12 @@ public class TestPointShortApiResult {
     return workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(@javax.annotation.Nullable Long workItemMedianDuration) {
+  public void setWorkItemMedianDuration(Long workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
 
-  public TestPointShortApiResult testSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public TestPointShortApiResult testSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -296,7 +286,7 @@ public class TestPointShortApiResult {
     return testSuiteId;
   }
 
-  public void setTestSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 

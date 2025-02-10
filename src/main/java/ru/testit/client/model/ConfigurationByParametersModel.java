@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationByParametersModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ConfigurationByParametersModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PARAMETER_IDS = "parameterIds";
   @SerializedName(SERIALIZED_NAME_PARAMETER_IDS)
-  @javax.annotation.Nonnull
   private Set<UUID> parameterIds = new LinkedHashSet<>();
 
   public ConfigurationByParametersModel() {
   }
 
-  public ConfigurationByParametersModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public ConfigurationByParametersModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -80,12 +78,12 @@ public class ConfigurationByParametersModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationByParametersModel parameterIds(@javax.annotation.Nonnull Set<UUID> parameterIds) {
+  public ConfigurationByParametersModel parameterIds(Set<UUID> parameterIds) {
     this.parameterIds = parameterIds;
     return this;
   }
@@ -107,7 +105,7 @@ public class ConfigurationByParametersModel {
     return parameterIds;
   }
 
-  public void setParameterIds(@javax.annotation.Nonnull Set<UUID> parameterIds) {
+  public void setParameterIds(Set<UUID> parameterIds) {
     this.parameterIds = parameterIds;
   }
 

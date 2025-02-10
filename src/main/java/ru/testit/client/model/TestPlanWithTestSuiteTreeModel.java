@@ -58,127 +58,104 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanWithTestSuiteTreeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanWithTestSuiteTreeModel {
   public static final String SERIALIZED_NAME_TEST_SUITES = "testSuites";
   @SerializedName(SERIALIZED_NAME_TEST_SUITES)
-  @javax.annotation.Nonnull
   private List<TestSuiteWithChildrenModel> testSuites = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private TestPlanStatusModel status;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_LOCKED_DATE = "lockedDate";
   @SerializedName(SERIALIZED_NAME_LOCKED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime lockedDate;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_LOCKED_BY_ID = "lockedById";
   @SerializedName(SERIALIZED_NAME_LOCKED_BY_ID)
-  @javax.annotation.Nullable
   private UUID lockedById;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private List<TagPostModel> tags;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  @javax.annotation.Nullable
   private String build;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  @javax.annotation.Nullable
   private String productName;
 
   public static final String SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER = "hasAutomaticDurationTimer";
   @SerializedName(SERIALIZED_NAME_HAS_AUTOMATIC_DURATION_TIMER)
-  @javax.annotation.Nullable
   private Boolean hasAutomaticDurationTimer;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public TestPlanWithTestSuiteTreeModel() {
   }
 
-  public TestPlanWithTestSuiteTreeModel testSuites(@javax.annotation.Nonnull List<TestSuiteWithChildrenModel> testSuites) {
+  public TestPlanWithTestSuiteTreeModel testSuites(List<TestSuiteWithChildrenModel> testSuites) {
     this.testSuites = testSuites;
     return this;
   }
@@ -200,12 +177,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return testSuites;
   }
 
-  public void setTestSuites(@javax.annotation.Nonnull List<TestSuiteWithChildrenModel> testSuites) {
+  public void setTestSuites(List<TestSuiteWithChildrenModel> testSuites) {
     this.testSuites = testSuites;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel status(@javax.annotation.Nonnull TestPlanStatusModel status) {
+  public TestPlanWithTestSuiteTreeModel status(TestPlanStatusModel status) {
     this.status = status;
     return this;
   }
@@ -219,12 +196,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull TestPlanStatusModel status) {
+  public void setStatus(TestPlanStatusModel status) {
     this.status = status;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public TestPlanWithTestSuiteTreeModel startedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
@@ -238,12 +215,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return startedOn;
   }
 
-  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public TestPlanWithTestSuiteTreeModel completedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
@@ -257,12 +234,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return completedOn;
   }
 
-  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public TestPlanWithTestSuiteTreeModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -276,12 +253,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public TestPlanWithTestSuiteTreeModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -295,12 +272,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestPlanWithTestSuiteTreeModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -314,12 +291,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public TestPlanWithTestSuiteTreeModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -333,12 +310,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public TestPlanWithTestSuiteTreeModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -352,12 +329,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestPlanWithTestSuiteTreeModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -371,12 +348,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel lockedDate(@javax.annotation.Nullable OffsetDateTime lockedDate) {
+  public TestPlanWithTestSuiteTreeModel lockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
     return this;
   }
@@ -390,12 +367,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return lockedDate;
   }
 
-  public void setLockedDate(@javax.annotation.Nullable OffsetDateTime lockedDate) {
+  public void setLockedDate(OffsetDateTime lockedDate) {
     this.lockedDate = lockedDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel id(@javax.annotation.Nonnull UUID id) {
+  public TestPlanWithTestSuiteTreeModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -409,12 +386,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel lockedById(@javax.annotation.Nullable UUID lockedById) {
+  public TestPlanWithTestSuiteTreeModel lockedById(UUID lockedById) {
     this.lockedById = lockedById;
     return this;
   }
@@ -428,12 +405,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return lockedById;
   }
 
-  public void setLockedById(@javax.annotation.Nullable UUID lockedById) {
+  public void setLockedById(UUID lockedById) {
     this.lockedById = lockedById;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel tags(@javax.annotation.Nullable List<TagPostModel> tags) {
+  public TestPlanWithTestSuiteTreeModel tags(List<TagPostModel> tags) {
     this.tags = tags;
     return this;
   }
@@ -455,12 +432,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<TagPostModel> tags) {
+  public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel name(@javax.annotation.Nonnull String name) {
+  public TestPlanWithTestSuiteTreeModel name(String name) {
     this.name = name;
     return this;
   }
@@ -474,12 +451,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public TestPlanWithTestSuiteTreeModel startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -493,12 +470,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return startDate;
   }
 
-  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public TestPlanWithTestSuiteTreeModel endDate(OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -512,12 +489,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return endDate;
   }
 
-  public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel description(@javax.annotation.Nullable String description) {
+  public TestPlanWithTestSuiteTreeModel description(String description) {
     this.description = description;
     return this;
   }
@@ -531,12 +508,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel build(@javax.annotation.Nullable String build) {
+  public TestPlanWithTestSuiteTreeModel build(String build) {
     this.build = build;
     return this;
   }
@@ -550,12 +527,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return build;
   }
 
-  public void setBuild(@javax.annotation.Nullable String build) {
+  public void setBuild(String build) {
     this.build = build;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public TestPlanWithTestSuiteTreeModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -569,12 +546,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel productName(@javax.annotation.Nullable String productName) {
+  public TestPlanWithTestSuiteTreeModel productName(String productName) {
     this.productName = productName;
     return this;
   }
@@ -588,12 +565,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return productName;
   }
 
-  public void setProductName(@javax.annotation.Nullable String productName) {
+  public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel hasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
+  public TestPlanWithTestSuiteTreeModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
     return this;
   }
@@ -607,12 +584,12 @@ public class TestPlanWithTestSuiteTreeModel {
     return hasAutomaticDurationTimer;
   }
 
-  public void setHasAutomaticDurationTimer(@javax.annotation.Nullable Boolean hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public TestPlanWithTestSuiteTreeModel attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -634,7 +611,7 @@ public class TestPlanWithTestSuiteTreeModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 

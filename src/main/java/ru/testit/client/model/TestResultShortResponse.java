@@ -57,109 +57,90 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultShortResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultShortResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_AUTOTEST_GLOBAL_ID = "autotestGlobalId";
   @SerializedName(SERIALIZED_NAME_AUTOTEST_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long autotestGlobalId;
 
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
-  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
-  @javax.annotation.Nonnull
   private String configurationName;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nullable
   private String outcome;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private TestStatusApiResult status;
 
   public static final String SERIALIZED_NAME_RESULT_REASONS = "resultReasons";
   @SerializedName(SERIALIZED_NAME_RESULT_REASONS)
-  @javax.annotation.Nonnull
   private List<AutoTestResultReasonShort> resultReasons = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_DATE = "date";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime date;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime startedOn;
 
   public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
   @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nullable
   private Long duration;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nonnull
   private List<LinkShort> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nonnull
   private List<Attachment> attachments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RERUN_COMPLETED_COUNT = "rerunCompletedCount";
   @SerializedName(SERIALIZED_NAME_RERUN_COMPLETED_COUNT)
-  @javax.annotation.Nonnull
   private Integer rerunCompletedCount;
 
   public TestResultShortResponse() {
   }
 
-  public TestResultShortResponse id(@javax.annotation.Nonnull UUID id) {
+  public TestResultShortResponse id(UUID id) {
     this.id = id;
     return this;
   }
@@ -173,12 +154,12 @@ public class TestResultShortResponse {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestResultShortResponse name(@javax.annotation.Nonnull String name) {
+  public TestResultShortResponse name(String name) {
     this.name = name;
     return this;
   }
@@ -192,12 +173,12 @@ public class TestResultShortResponse {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestResultShortResponse autotestGlobalId(@javax.annotation.Nonnull Long autotestGlobalId) {
+  public TestResultShortResponse autotestGlobalId(Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
     return this;
   }
@@ -211,12 +192,12 @@ public class TestResultShortResponse {
     return autotestGlobalId;
   }
 
-  public void setAutotestGlobalId(@javax.annotation.Nonnull Long autotestGlobalId) {
+  public void setAutotestGlobalId(Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
   }
 
 
-  public TestResultShortResponse testRunId(@javax.annotation.Nonnull UUID testRunId) {
+  public TestResultShortResponse testRunId(UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -230,12 +211,12 @@ public class TestResultShortResponse {
     return testRunId;
   }
 
-  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
+  public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public TestResultShortResponse configurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public TestResultShortResponse configurationId(UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -249,12 +230,12 @@ public class TestResultShortResponse {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestResultShortResponse configurationName(@javax.annotation.Nonnull String configurationName) {
+  public TestResultShortResponse configurationName(String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
@@ -268,13 +249,13 @@ public class TestResultShortResponse {
     return configurationName;
   }
 
-  public void setConfigurationName(@javax.annotation.Nonnull String configurationName) {
+  public void setConfigurationName(String configurationName) {
     this.configurationName = configurationName;
   }
 
 
   @Deprecated
-  public TestResultShortResponse outcome(@javax.annotation.Nullable String outcome) {
+  public TestResultShortResponse outcome(String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -291,12 +272,12 @@ public class TestResultShortResponse {
   }
 
   @Deprecated
-  public void setOutcome(@javax.annotation.Nullable String outcome) {
+  public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultShortResponse status(@javax.annotation.Nullable TestStatusApiResult status) {
+  public TestResultShortResponse status(TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -310,12 +291,12 @@ public class TestResultShortResponse {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nullable TestStatusApiResult status) {
+  public void setStatus(TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public TestResultShortResponse resultReasons(@javax.annotation.Nonnull List<AutoTestResultReasonShort> resultReasons) {
+  public TestResultShortResponse resultReasons(List<AutoTestResultReasonShort> resultReasons) {
     this.resultReasons = resultReasons;
     return this;
   }
@@ -337,12 +318,12 @@ public class TestResultShortResponse {
     return resultReasons;
   }
 
-  public void setResultReasons(@javax.annotation.Nonnull List<AutoTestResultReasonShort> resultReasons) {
+  public void setResultReasons(List<AutoTestResultReasonShort> resultReasons) {
     this.resultReasons = resultReasons;
   }
 
 
-  public TestResultShortResponse comment(@javax.annotation.Nullable String comment) {
+  public TestResultShortResponse comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -356,13 +337,13 @@ public class TestResultShortResponse {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nullable String comment) {
+  public void setComment(String comment) {
     this.comment = comment;
   }
 
 
   @Deprecated
-  public TestResultShortResponse date(@javax.annotation.Nonnull OffsetDateTime date) {
+  public TestResultShortResponse date(OffsetDateTime date) {
     this.date = date;
     return this;
   }
@@ -379,12 +360,12 @@ public class TestResultShortResponse {
   }
 
   @Deprecated
-  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
+  public void setDate(OffsetDateTime date) {
     this.date = date;
   }
 
 
-  public TestResultShortResponse createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public TestResultShortResponse createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -398,12 +379,12 @@ public class TestResultShortResponse {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestResultShortResponse modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public TestResultShortResponse modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -417,12 +398,12 @@ public class TestResultShortResponse {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestResultShortResponse startedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public TestResultShortResponse startedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
     return this;
   }
@@ -436,12 +417,12 @@ public class TestResultShortResponse {
     return startedOn;
   }
 
-  public void setStartedOn(@javax.annotation.Nullable OffsetDateTime startedOn) {
+  public void setStartedOn(OffsetDateTime startedOn) {
     this.startedOn = startedOn;
   }
 
 
-  public TestResultShortResponse completedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public TestResultShortResponse completedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
     return this;
   }
@@ -455,12 +436,12 @@ public class TestResultShortResponse {
     return completedOn;
   }
 
-  public void setCompletedOn(@javax.annotation.Nullable OffsetDateTime completedOn) {
+  public void setCompletedOn(OffsetDateTime completedOn) {
     this.completedOn = completedOn;
   }
 
 
-  public TestResultShortResponse duration(@javax.annotation.Nullable Long duration) {
+  public TestResultShortResponse duration(Long duration) {
     this.duration = duration;
     return this;
   }
@@ -474,12 +455,12 @@ public class TestResultShortResponse {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nullable Long duration) {
+  public void setDuration(Long duration) {
     this.duration = duration;
   }
 
 
-  public TestResultShortResponse links(@javax.annotation.Nonnull List<LinkShort> links) {
+  public TestResultShortResponse links(List<LinkShort> links) {
     this.links = links;
     return this;
   }
@@ -501,12 +482,12 @@ public class TestResultShortResponse {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nonnull List<LinkShort> links) {
+  public void setLinks(List<LinkShort> links) {
     this.links = links;
   }
 
 
-  public TestResultShortResponse attachments(@javax.annotation.Nonnull List<Attachment> attachments) {
+  public TestResultShortResponse attachments(List<Attachment> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -528,12 +509,12 @@ public class TestResultShortResponse {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nonnull List<Attachment> attachments) {
+  public void setAttachments(List<Attachment> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestResultShortResponse rerunCompletedCount(@javax.annotation.Nonnull Integer rerunCompletedCount) {
+  public TestResultShortResponse rerunCompletedCount(Integer rerunCompletedCount) {
     this.rerunCompletedCount = rerunCompletedCount;
     return this;
   }
@@ -547,7 +528,7 @@ public class TestResultShortResponse {
     return rerunCompletedCount;
   }
 
-  public void setRerunCompletedCount(@javax.annotation.Nonnull Integer rerunCompletedCount) {
+  public void setRerunCompletedCount(Integer rerunCompletedCount) {
     this.rerunCompletedCount = rerunCompletedCount;
   }
 

@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunGroupByStatusApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunGroupByStatusApiResult {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private String status;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private Integer value;
 
   public TestRunGroupByStatusApiResult() {
   }
 
-  public TestRunGroupByStatusApiResult status(@javax.annotation.Nonnull String status) {
+  public TestRunGroupByStatusApiResult status(String status) {
     this.status = status;
     return this;
   }
@@ -77,12 +75,12 @@ public class TestRunGroupByStatusApiResult {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
 
-  public TestRunGroupByStatusApiResult value(@javax.annotation.Nonnull Integer value) {
+  public TestRunGroupByStatusApiResult value(Integer value) {
     this.value = value;
     return this;
   }
@@ -96,7 +94,7 @@ public class TestRunGroupByStatusApiResult {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Integer value) {
+  public void setValue(Integer value) {
     this.value = value;
   }
 

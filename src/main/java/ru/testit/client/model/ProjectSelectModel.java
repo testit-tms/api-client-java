@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private ProjectsFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private ProjectExtractionModel extractionModel;
 
   public ProjectSelectModel() {
   }
 
-  public ProjectSelectModel filter(@javax.annotation.Nullable ProjectsFilterModel filter) {
+  public ProjectSelectModel filter(ProjectsFilterModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class ProjectSelectModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable ProjectsFilterModel filter) {
+  public void setFilter(ProjectsFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public ProjectSelectModel extractionModel(@javax.annotation.Nullable ProjectExtractionModel extractionModel) {
+  public ProjectSelectModel extractionModel(ProjectExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -99,7 +97,7 @@ public class ProjectSelectModel {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable ProjectExtractionModel extractionModel) {
+  public void setExtractionModel(ProjectExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

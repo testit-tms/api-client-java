@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TagSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TagSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private TagsFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private TagExtractionModel extractionModel;
 
   public TagSelectModel() {
   }
 
-  public TagSelectModel filter(@javax.annotation.Nullable TagsFilterModel filter) {
+  public TagSelectModel filter(TagsFilterModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class TagSelectModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable TagsFilterModel filter) {
+  public void setFilter(TagsFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public TagSelectModel extractionModel(@javax.annotation.Nullable TagExtractionModel extractionModel) {
+  public TagSelectModel extractionModel(TagExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -99,7 +97,7 @@ public class TagSelectModel {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable TagExtractionModel extractionModel) {
+  public void setExtractionModel(TagExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

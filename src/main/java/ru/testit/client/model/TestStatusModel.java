@@ -51,47 +51,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestStatusModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestStatusModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private TestStatusType type;
 
   public static final String SERIALIZED_NAME_IS_BASED = "isBased";
   @SerializedName(SERIALIZED_NAME_IS_BASED)
-  @javax.annotation.Nonnull
   private Boolean isBased;
 
   public static final String SERIALIZED_NAME_IS_DEFAULT = "isDefault";
   @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
-  @javax.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
-  @javax.annotation.Nonnull
   private String code;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public TestStatusModel() {
   }
 
-  public TestStatusModel id(@javax.annotation.Nonnull UUID id) {
+  public TestStatusModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -105,12 +98,12 @@ public class TestStatusModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestStatusModel name(@javax.annotation.Nonnull String name) {
+  public TestStatusModel name(String name) {
     this.name = name;
     return this;
   }
@@ -124,12 +117,12 @@ public class TestStatusModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestStatusModel type(@javax.annotation.Nonnull TestStatusType type) {
+  public TestStatusModel type(TestStatusType type) {
     this.type = type;
     return this;
   }
@@ -143,12 +136,12 @@ public class TestStatusModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull TestStatusType type) {
+  public void setType(TestStatusType type) {
     this.type = type;
   }
 
 
-  public TestStatusModel isBased(@javax.annotation.Nonnull Boolean isBased) {
+  public TestStatusModel isBased(Boolean isBased) {
     this.isBased = isBased;
     return this;
   }
@@ -162,12 +155,12 @@ public class TestStatusModel {
     return isBased;
   }
 
-  public void setIsBased(@javax.annotation.Nonnull Boolean isBased) {
+  public void setIsBased(Boolean isBased) {
     this.isBased = isBased;
   }
 
 
-  public TestStatusModel isDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public TestStatusModel isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -181,12 +174,12 @@ public class TestStatusModel {
     return isDefault;
   }
 
-  public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public TestStatusModel code(@javax.annotation.Nonnull String code) {
+  public TestStatusModel code(String code) {
     this.code = code;
     return this;
   }
@@ -200,12 +193,12 @@ public class TestStatusModel {
     return code;
   }
 
-  public void setCode(@javax.annotation.Nonnull String code) {
+  public void setCode(String code) {
     this.code = code;
   }
 
 
-  public TestStatusModel description(@javax.annotation.Nullable String description) {
+  public TestStatusModel description(String description) {
     this.description = description;
     return this;
   }
@@ -219,7 +212,7 @@ public class TestStatusModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 

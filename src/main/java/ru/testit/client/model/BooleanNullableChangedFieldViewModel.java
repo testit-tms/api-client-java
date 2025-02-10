@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * BooleanNullableChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BooleanNullableChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private Boolean oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private Boolean newValue;
 
   public BooleanNullableChangedFieldViewModel() {
   }
 
-  public BooleanNullableChangedFieldViewModel oldValue(@javax.annotation.Nullable Boolean oldValue) {
+  public BooleanNullableChangedFieldViewModel oldValue(Boolean oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -78,12 +76,12 @@ public class BooleanNullableChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable Boolean oldValue) {
+  public void setOldValue(Boolean oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public BooleanNullableChangedFieldViewModel newValue(@javax.annotation.Nullable Boolean newValue) {
+  public BooleanNullableChangedFieldViewModel newValue(Boolean newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -97,7 +95,7 @@ public class BooleanNullableChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable Boolean newValue) {
+  public void setNewValue(Boolean newValue) {
     this.newValue = newValue;
   }
 

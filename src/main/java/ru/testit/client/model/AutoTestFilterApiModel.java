@@ -55,112 +55,92 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestFilterApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestFilterApiModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_EXTERNAL_IDS = "externalIds";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_IDS)
-  @javax.annotation.Nullable
   private Set<String> externalIds;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_IS_FLAKY = "isFlaky";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY)
-  @javax.annotation.Nullable
   private Boolean isFlaky;
 
   public static final String SERIALIZED_NAME_MUST_BE_APPROVED = "mustBeApproved";
   @SerializedName(SERIALIZED_NAME_MUST_BE_APPROVED)
-  @javax.annotation.Nullable
   private Boolean mustBeApproved;
 
   public static final String SERIALIZED_NAME_STABILITY_PERCENTAGE = "stabilityPercentage";
   @SerializedName(SERIALIZED_NAME_STABILITY_PERCENTAGE)
-  @javax.annotation.Nullable
   private Int64RangeSelectorModel stabilityPercentage;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
-  @javax.annotation.Nullable
   private String namespace;
 
   public static final String SERIALIZED_NAME_IS_EMPTY_NAMESPACE = "isEmptyNamespace";
   @SerializedName(SERIALIZED_NAME_IS_EMPTY_NAMESPACE)
-  @javax.annotation.Nullable
   private Boolean isEmptyNamespace;
 
   public static final String SERIALIZED_NAME_CLASS_NAME = "className";
   @SerializedName(SERIALIZED_NAME_CLASS_NAME)
-  @javax.annotation.Nullable
   private String className;
 
   public static final String SERIALIZED_NAME_IS_EMPTY_CLASS_NAME = "isEmptyClassName";
   @SerializedName(SERIALIZED_NAME_IS_EMPTY_CLASS_NAME)
-  @javax.annotation.Nullable
   private Boolean isEmptyClassName;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME = "lastTestResultOutcome";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME)
-  @javax.annotation.Nullable
   private AutotestResultOutcome lastTestResultOutcome;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_STATUS_CODE = "lastTestResultStatusCode";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_STATUS_CODE)
-  @javax.annotation.Nullable
   private String lastTestResultStatusCode;
 
   public static final String SERIALIZED_NAME_EXTERNAL_KEY = "externalKey";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_KEY)
-  @javax.annotation.Nullable
   private String externalKey;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION_IDS = "lastTestResultConfigurationIds";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> lastTestResultConfigurationIds;
 
   public AutoTestFilterApiModel() {
   }
 
-  public AutoTestFilterApiModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public AutoTestFilterApiModel projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -182,12 +162,12 @@ public class AutoTestFilterApiModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public AutoTestFilterApiModel externalIds(@javax.annotation.Nullable Set<String> externalIds) {
+  public AutoTestFilterApiModel externalIds(Set<String> externalIds) {
     this.externalIds = externalIds;
     return this;
   }
@@ -209,12 +189,12 @@ public class AutoTestFilterApiModel {
     return externalIds;
   }
 
-  public void setExternalIds(@javax.annotation.Nullable Set<String> externalIds) {
+  public void setExternalIds(Set<String> externalIds) {
     this.externalIds = externalIds;
   }
 
 
-  public AutoTestFilterApiModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public AutoTestFilterApiModel globalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -236,12 +216,12 @@ public class AutoTestFilterApiModel {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public AutoTestFilterApiModel name(@javax.annotation.Nullable String name) {
+  public AutoTestFilterApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -255,12 +235,12 @@ public class AutoTestFilterApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AutoTestFilterApiModel isFlaky(@javax.annotation.Nullable Boolean isFlaky) {
+  public AutoTestFilterApiModel isFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
     return this;
   }
@@ -274,12 +254,12 @@ public class AutoTestFilterApiModel {
     return isFlaky;
   }
 
-  public void setIsFlaky(@javax.annotation.Nullable Boolean isFlaky) {
+  public void setIsFlaky(Boolean isFlaky) {
     this.isFlaky = isFlaky;
   }
 
 
-  public AutoTestFilterApiModel mustBeApproved(@javax.annotation.Nullable Boolean mustBeApproved) {
+  public AutoTestFilterApiModel mustBeApproved(Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
     return this;
   }
@@ -293,12 +273,12 @@ public class AutoTestFilterApiModel {
     return mustBeApproved;
   }
 
-  public void setMustBeApproved(@javax.annotation.Nullable Boolean mustBeApproved) {
+  public void setMustBeApproved(Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
   }
 
 
-  public AutoTestFilterApiModel stabilityPercentage(@javax.annotation.Nullable Int64RangeSelectorModel stabilityPercentage) {
+  public AutoTestFilterApiModel stabilityPercentage(Int64RangeSelectorModel stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
     return this;
   }
@@ -312,12 +292,12 @@ public class AutoTestFilterApiModel {
     return stabilityPercentage;
   }
 
-  public void setStabilityPercentage(@javax.annotation.Nullable Int64RangeSelectorModel stabilityPercentage) {
+  public void setStabilityPercentage(Int64RangeSelectorModel stabilityPercentage) {
     this.stabilityPercentage = stabilityPercentage;
   }
 
 
-  public AutoTestFilterApiModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public AutoTestFilterApiModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -331,12 +311,12 @@ public class AutoTestFilterApiModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutoTestFilterApiModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public AutoTestFilterApiModel createdByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -358,12 +338,12 @@ public class AutoTestFilterApiModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public AutoTestFilterApiModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public AutoTestFilterApiModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -377,12 +357,12 @@ public class AutoTestFilterApiModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public AutoTestFilterApiModel modifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public AutoTestFilterApiModel modifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -404,12 +384,12 @@ public class AutoTestFilterApiModel {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public AutoTestFilterApiModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public AutoTestFilterApiModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -423,12 +403,12 @@ public class AutoTestFilterApiModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public AutoTestFilterApiModel namespace(@javax.annotation.Nullable String namespace) {
+  public AutoTestFilterApiModel namespace(String namespace) {
     this.namespace = namespace;
     return this;
   }
@@ -442,12 +422,12 @@ public class AutoTestFilterApiModel {
     return namespace;
   }
 
-  public void setNamespace(@javax.annotation.Nullable String namespace) {
+  public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
 
 
-  public AutoTestFilterApiModel isEmptyNamespace(@javax.annotation.Nullable Boolean isEmptyNamespace) {
+  public AutoTestFilterApiModel isEmptyNamespace(Boolean isEmptyNamespace) {
     this.isEmptyNamespace = isEmptyNamespace;
     return this;
   }
@@ -461,12 +441,12 @@ public class AutoTestFilterApiModel {
     return isEmptyNamespace;
   }
 
-  public void setIsEmptyNamespace(@javax.annotation.Nullable Boolean isEmptyNamespace) {
+  public void setIsEmptyNamespace(Boolean isEmptyNamespace) {
     this.isEmptyNamespace = isEmptyNamespace;
   }
 
 
-  public AutoTestFilterApiModel className(@javax.annotation.Nullable String className) {
+  public AutoTestFilterApiModel className(String className) {
     this.className = className;
     return this;
   }
@@ -480,12 +460,12 @@ public class AutoTestFilterApiModel {
     return className;
   }
 
-  public void setClassName(@javax.annotation.Nullable String className) {
+  public void setClassName(String className) {
     this.className = className;
   }
 
 
-  public AutoTestFilterApiModel isEmptyClassName(@javax.annotation.Nullable Boolean isEmptyClassName) {
+  public AutoTestFilterApiModel isEmptyClassName(Boolean isEmptyClassName) {
     this.isEmptyClassName = isEmptyClassName;
     return this;
   }
@@ -499,12 +479,12 @@ public class AutoTestFilterApiModel {
     return isEmptyClassName;
   }
 
-  public void setIsEmptyClassName(@javax.annotation.Nullable Boolean isEmptyClassName) {
+  public void setIsEmptyClassName(Boolean isEmptyClassName) {
     this.isEmptyClassName = isEmptyClassName;
   }
 
 
-  public AutoTestFilterApiModel lastTestResultOutcome(@javax.annotation.Nullable AutotestResultOutcome lastTestResultOutcome) {
+  public AutoTestFilterApiModel lastTestResultOutcome(AutotestResultOutcome lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
     return this;
   }
@@ -518,12 +498,12 @@ public class AutoTestFilterApiModel {
     return lastTestResultOutcome;
   }
 
-  public void setLastTestResultOutcome(@javax.annotation.Nullable AutotestResultOutcome lastTestResultOutcome) {
+  public void setLastTestResultOutcome(AutotestResultOutcome lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
   }
 
 
-  public AutoTestFilterApiModel lastTestResultStatusCode(@javax.annotation.Nullable String lastTestResultStatusCode) {
+  public AutoTestFilterApiModel lastTestResultStatusCode(String lastTestResultStatusCode) {
     this.lastTestResultStatusCode = lastTestResultStatusCode;
     return this;
   }
@@ -537,12 +517,12 @@ public class AutoTestFilterApiModel {
     return lastTestResultStatusCode;
   }
 
-  public void setLastTestResultStatusCode(@javax.annotation.Nullable String lastTestResultStatusCode) {
+  public void setLastTestResultStatusCode(String lastTestResultStatusCode) {
     this.lastTestResultStatusCode = lastTestResultStatusCode;
   }
 
 
-  public AutoTestFilterApiModel externalKey(@javax.annotation.Nullable String externalKey) {
+  public AutoTestFilterApiModel externalKey(String externalKey) {
     this.externalKey = externalKey;
     return this;
   }
@@ -556,12 +536,12 @@ public class AutoTestFilterApiModel {
     return externalKey;
   }
 
-  public void setExternalKey(@javax.annotation.Nullable String externalKey) {
+  public void setExternalKey(String externalKey) {
     this.externalKey = externalKey;
   }
 
 
-  public AutoTestFilterApiModel lastTestResultConfigurationIds(@javax.annotation.Nullable Set<UUID> lastTestResultConfigurationIds) {
+  public AutoTestFilterApiModel lastTestResultConfigurationIds(Set<UUID> lastTestResultConfigurationIds) {
     this.lastTestResultConfigurationIds = lastTestResultConfigurationIds;
     return this;
   }
@@ -583,7 +563,7 @@ public class AutoTestFilterApiModel {
     return lastTestResultConfigurationIds;
   }
 
-  public void setLastTestResultConfigurationIds(@javax.annotation.Nullable Set<UUID> lastTestResultConfigurationIds) {
+  public void setLastTestResultConfigurationIds(Set<UUID> lastTestResultConfigurationIds) {
     this.lastTestResultConfigurationIds = lastTestResultConfigurationIds;
   }
 

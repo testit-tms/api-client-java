@@ -53,52 +53,44 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  @javax.annotation.Nonnull
   private List<CustomAttributeOptionModel> options = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private CustomAttributeTypesEnum type;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  @javax.annotation.Nonnull
   private Boolean isRequired;
 
   public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
   @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
-  @javax.annotation.Nonnull
   private Boolean isGlobal;
 
   public CustomAttributeModel() {
   }
 
-  public CustomAttributeModel id(@javax.annotation.Nonnull UUID id) {
+  public CustomAttributeModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -112,12 +104,12 @@ public class CustomAttributeModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributeModel options(@javax.annotation.Nonnull List<CustomAttributeOptionModel> options) {
+  public CustomAttributeModel options(List<CustomAttributeOptionModel> options) {
     this.options = options;
     return this;
   }
@@ -139,12 +131,12 @@ public class CustomAttributeModel {
     return options;
   }
 
-  public void setOptions(@javax.annotation.Nonnull List<CustomAttributeOptionModel> options) {
+  public void setOptions(List<CustomAttributeOptionModel> options) {
     this.options = options;
   }
 
 
-  public CustomAttributeModel type(@javax.annotation.Nonnull CustomAttributeTypesEnum type) {
+  public CustomAttributeModel type(CustomAttributeTypesEnum type) {
     this.type = type;
     return this;
   }
@@ -158,12 +150,12 @@ public class CustomAttributeModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull CustomAttributeTypesEnum type) {
+  public void setType(CustomAttributeTypesEnum type) {
     this.type = type;
   }
 
 
-  public CustomAttributeModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public CustomAttributeModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -177,12 +169,12 @@ public class CustomAttributeModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public CustomAttributeModel name(@javax.annotation.Nonnull String name) {
+  public CustomAttributeModel name(String name) {
     this.name = name;
     return this;
   }
@@ -196,12 +188,12 @@ public class CustomAttributeModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public CustomAttributeModel isEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public CustomAttributeModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -215,12 +207,12 @@ public class CustomAttributeModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public CustomAttributeModel isRequired(@javax.annotation.Nonnull Boolean isRequired) {
+  public CustomAttributeModel isRequired(Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -234,12 +226,12 @@ public class CustomAttributeModel {
     return isRequired;
   }
 
-  public void setIsRequired(@javax.annotation.Nonnull Boolean isRequired) {
+  public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public CustomAttributeModel isGlobal(@javax.annotation.Nonnull Boolean isGlobal) {
+  public CustomAttributeModel isGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
     return this;
   }
@@ -253,7 +245,7 @@ public class CustomAttributeModel {
     return isGlobal;
   }
 
-  public void setIsGlobal(@javax.annotation.Nonnull Boolean isGlobal) {
+  public void setIsGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 

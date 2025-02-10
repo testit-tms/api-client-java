@@ -50,22 +50,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * PeriodViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PeriodViewModel {
   public static final String SERIALIZED_NAME_START_DATE = "startDate";
   @SerializedName(SERIALIZED_NAME_START_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime startDate;
 
   public static final String SERIALIZED_NAME_END_DATE = "endDate";
   @SerializedName(SERIALIZED_NAME_END_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public PeriodViewModel() {
   }
 
-  public PeriodViewModel startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public PeriodViewModel startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -79,12 +77,12 @@ public class PeriodViewModel {
     return startDate;
   }
 
-  public void setStartDate(@javax.annotation.Nullable OffsetDateTime startDate) {
+  public void setStartDate(OffsetDateTime startDate) {
     this.startDate = startDate;
   }
 
 
-  public PeriodViewModel endDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public PeriodViewModel endDate(OffsetDateTime endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -98,7 +96,7 @@ public class PeriodViewModel {
     return endDate;
   }
 
-  public void setEndDate(@javax.annotation.Nullable OffsetDateTime endDate) {
+  public void setEndDate(OffsetDateTime endDate) {
     this.endDate = endDate;
   }
 

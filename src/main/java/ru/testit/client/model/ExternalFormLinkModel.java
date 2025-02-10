@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ExternalFormLinkModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalFormLinkModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public ExternalFormLinkModel() {
   }
 
-  public ExternalFormLinkModel name(@javax.annotation.Nonnull String name) {
+  public ExternalFormLinkModel name(String name) {
     this.name = name;
     return this;
   }
@@ -77,12 +75,12 @@ public class ExternalFormLinkModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ExternalFormLinkModel url(@javax.annotation.Nonnull String url) {
+  public ExternalFormLinkModel url(String url) {
     this.url = url;
     return this;
   }
@@ -96,7 +94,7 @@ public class ExternalFormLinkModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 

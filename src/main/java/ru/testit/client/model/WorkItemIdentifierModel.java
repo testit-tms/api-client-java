@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemIdentifierModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemIdentifierModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public WorkItemIdentifierModel() {
   }
 
-  public WorkItemIdentifierModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemIdentifierModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -78,12 +76,12 @@ public class WorkItemIdentifierModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemIdentifierModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public WorkItemIdentifierModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -97,7 +95,7 @@ public class WorkItemIdentifierModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 

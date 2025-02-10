@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * ManualRerunSelectApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ManualRerunSelectApiModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private TestResultsFilterApiModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private TestResultsExtractionApiModel extractionModel;
 
   public ManualRerunSelectApiModel() {
   }
 
-  public ManualRerunSelectApiModel filter(@javax.annotation.Nullable TestResultsFilterApiModel filter) {
+  public ManualRerunSelectApiModel filter(TestResultsFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class ManualRerunSelectApiModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable TestResultsFilterApiModel filter) {
+  public void setFilter(TestResultsFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public ManualRerunSelectApiModel extractionModel(@javax.annotation.Nullable TestResultsExtractionApiModel extractionModel) {
+  public ManualRerunSelectApiModel extractionModel(TestResultsExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -99,7 +97,7 @@ public class ManualRerunSelectApiModel {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable TestResultsExtractionApiModel extractionModel) {
+  public void setExtractionModel(TestResultsExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

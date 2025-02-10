@@ -50,22 +50,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultChangeViewModelChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultChangeViewModelChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private TestResultChangeViewModel oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private TestResultChangeViewModel newValue;
 
   public TestResultChangeViewModelChangedFieldViewModel() {
   }
 
-  public TestResultChangeViewModelChangedFieldViewModel oldValue(@javax.annotation.Nullable TestResultChangeViewModel oldValue) {
+  public TestResultChangeViewModelChangedFieldViewModel oldValue(TestResultChangeViewModel oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -79,12 +77,12 @@ public class TestResultChangeViewModelChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable TestResultChangeViewModel oldValue) {
+  public void setOldValue(TestResultChangeViewModel oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public TestResultChangeViewModelChangedFieldViewModel newValue(@javax.annotation.Nullable TestResultChangeViewModel newValue) {
+  public TestResultChangeViewModelChangedFieldViewModel newValue(TestResultChangeViewModel newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -98,7 +96,7 @@ public class TestResultChangeViewModelChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable TestResultChangeViewModel newValue) {
+  public void setNewValue(TestResultChangeViewModel newValue) {
     this.newValue = newValue;
   }
 

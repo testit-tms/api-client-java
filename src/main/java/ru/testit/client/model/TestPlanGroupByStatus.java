@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanGroupByStatus
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanGroupByStatus {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private String status;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private Long value;
 
   public TestPlanGroupByStatus() {
   }
 
-  public TestPlanGroupByStatus status(@javax.annotation.Nonnull String status) {
+  public TestPlanGroupByStatus status(String status) {
     this.status = status;
     return this;
   }
@@ -77,12 +75,12 @@ public class TestPlanGroupByStatus {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
 
-  public TestPlanGroupByStatus value(@javax.annotation.Nonnull Long value) {
+  public TestPlanGroupByStatus value(Long value) {
     this.value = value;
     return this;
   }
@@ -96,7 +94,7 @@ public class TestPlanGroupByStatus {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Long value) {
+  public void setValue(Long value) {
     this.value = value;
   }
 

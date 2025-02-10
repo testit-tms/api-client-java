@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * Model containing options to filter work items
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nonnull
   private WorkItemFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private WorkItemExtractionModel extractionModel;
 
   public WorkItemSelectModel() {
   }
 
-  public WorkItemSelectModel filter(@javax.annotation.Nonnull WorkItemFilterModel filter) {
+  public WorkItemSelectModel filter(WorkItemFilterModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class WorkItemSelectModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nonnull WorkItemFilterModel filter) {
+  public void setFilter(WorkItemFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public WorkItemSelectModel extractionModel(@javax.annotation.Nullable WorkItemExtractionModel extractionModel) {
+  public WorkItemSelectModel extractionModel(WorkItemExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -99,7 +97,7 @@ public class WorkItemSelectModel {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable WorkItemExtractionModel extractionModel) {
+  public void setExtractionModel(WorkItemExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

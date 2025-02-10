@@ -50,22 +50,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * DateTimeRangeSelectorModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class DateTimeRangeSelectorModel {
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
-  @javax.annotation.Nullable
   private OffsetDateTime from;
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
-  @javax.annotation.Nullable
   private OffsetDateTime to;
 
   public DateTimeRangeSelectorModel() {
   }
 
-  public DateTimeRangeSelectorModel from(@javax.annotation.Nullable OffsetDateTime from) {
+  public DateTimeRangeSelectorModel from(OffsetDateTime from) {
     this.from = from;
     return this;
   }
@@ -79,12 +77,12 @@ public class DateTimeRangeSelectorModel {
     return from;
   }
 
-  public void setFrom(@javax.annotation.Nullable OffsetDateTime from) {
+  public void setFrom(OffsetDateTime from) {
     this.from = from;
   }
 
 
-  public DateTimeRangeSelectorModel to(@javax.annotation.Nullable OffsetDateTime to) {
+  public DateTimeRangeSelectorModel to(OffsetDateTime to) {
     this.to = to;
     return this;
   }
@@ -98,7 +96,7 @@ public class DateTimeRangeSelectorModel {
     return to;
   }
 
-  public void setTo(@javax.annotation.Nullable OffsetDateTime to) {
+  public void setTo(OffsetDateTime to) {
     this.to = to;
   }
 

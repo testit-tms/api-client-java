@@ -50,17 +50,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectExtractionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectExtractionModel {
   public static final String SERIALIZED_NAME_IDS = "ids";
   @SerializedName(SERIALIZED_NAME_IDS)
-  @javax.annotation.Nullable
   private GuidExtractionModel ids;
 
   public ProjectExtractionModel() {
   }
 
-  public ProjectExtractionModel ids(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public ProjectExtractionModel ids(GuidExtractionModel ids) {
     this.ids = ids;
     return this;
   }
@@ -74,7 +73,7 @@ public class ProjectExtractionModel {
     return ids;
   }
 
-  public void setIds(@javax.annotation.Nullable GuidExtractionModel ids) {
+  public void setIds(GuidExtractionModel ids) {
     this.ids = ids;
   }
 

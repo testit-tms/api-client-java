@@ -49,17 +49,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * AssignAttachmentApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AssignAttachmentApiModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public AssignAttachmentApiModel() {
   }
 
-  public AssignAttachmentApiModel id(@javax.annotation.Nonnull UUID id) {
+  public AssignAttachmentApiModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -73,7 +72,7 @@ public class AssignAttachmentApiModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

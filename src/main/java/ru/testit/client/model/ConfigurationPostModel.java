@@ -52,37 +52,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * ConfigurationPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ConfigurationPostModel {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nonnull
   private Map<String, String> parameters = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_IS_DEFAULT = "isDefault";
   @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
-  @javax.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public ConfigurationPostModel() {
   }
 
-  public ConfigurationPostModel description(@javax.annotation.Nullable String description) {
+  public ConfigurationPostModel description(String description) {
     this.description = description;
     return this;
   }
@@ -96,12 +91,12 @@ public class ConfigurationPostModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public ConfigurationPostModel parameters(@javax.annotation.Nonnull Map<String, String> parameters) {
+  public ConfigurationPostModel parameters(Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -123,12 +118,12 @@ public class ConfigurationPostModel {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nonnull Map<String, String> parameters) {
+  public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public ConfigurationPostModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public ConfigurationPostModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -142,12 +137,12 @@ public class ConfigurationPostModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationPostModel isDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public ConfigurationPostModel isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -161,12 +156,12 @@ public class ConfigurationPostModel {
     return isDefault;
   }
 
-  public void setIsDefault(@javax.annotation.Nonnull Boolean isDefault) {
+  public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public ConfigurationPostModel name(@javax.annotation.Nonnull String name) {
+  public ConfigurationPostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -180,7 +175,7 @@ public class ConfigurationPostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

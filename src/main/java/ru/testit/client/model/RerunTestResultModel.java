@@ -50,27 +50,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * RerunTestResultModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class RerunTestResultModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nullable
   private String outcome;
 
   public static final String SERIALIZED_NAME_RUN_NUMBER = "runNumber";
   @SerializedName(SERIALIZED_NAME_RUN_NUMBER)
-  @javax.annotation.Nonnull
   private Integer runNumber;
 
   public RerunTestResultModel() {
   }
 
-  public RerunTestResultModel id(@javax.annotation.Nonnull UUID id) {
+  public RerunTestResultModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -84,12 +81,12 @@ public class RerunTestResultModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public RerunTestResultModel outcome(@javax.annotation.Nullable String outcome) {
+  public RerunTestResultModel outcome(String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -103,12 +100,12 @@ public class RerunTestResultModel {
     return outcome;
   }
 
-  public void setOutcome(@javax.annotation.Nullable String outcome) {
+  public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 
 
-  public RerunTestResultModel runNumber(@javax.annotation.Nonnull Integer runNumber) {
+  public RerunTestResultModel runNumber(Integer runNumber) {
     this.runNumber = runNumber;
     return this;
   }
@@ -122,7 +119,7 @@ public class RerunTestResultModel {
     return runNumber;
   }
 
-  public void setRunNumber(@javax.annotation.Nonnull Integer runNumber) {
+  public void setRunNumber(Integer runNumber) {
     this.runNumber = runNumber;
   }
 

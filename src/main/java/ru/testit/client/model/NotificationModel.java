@@ -52,82 +52,68 @@ import ru.testit.client.invoker.JSON;
 /**
  * NotificationModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class NotificationModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_IS_READ = "isRead";
   @SerializedName(SERIALIZED_NAME_IS_READ)
-  @javax.annotation.Nonnull
   private Boolean isRead;
 
   public static final String SERIALIZED_NAME_ENTITY_ID = "entityId";
   @SerializedName(SERIALIZED_NAME_ENTITY_ID)
-  @javax.annotation.Nonnull
   private UUID entityId;
 
   public static final String SERIALIZED_NAME_NOTIFICATION_TYPE = "notificationType";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_TYPE)
-  @javax.annotation.Nonnull
   private NotificationTypeModel notificationType;
 
   public static final String SERIALIZED_NAME_PROJECT_GLOBAL_ID = "projectGlobalId";
   @SerializedName(SERIALIZED_NAME_PROJECT_GLOBAL_ID)
-  @javax.annotation.Nullable
   private Long projectGlobalId;
 
   public static final String SERIALIZED_NAME_PROJECT_NAME = "projectName";
   @SerializedName(SERIALIZED_NAME_PROJECT_NAME)
-  @javax.annotation.Nullable
   private String projectName;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long testPlanGlobalId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_NAME = "testPlanName";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_NAME)
-  @javax.annotation.Nonnull
   private String testPlanName;
 
   public static final String SERIALIZED_NAME_WORKITEM_GLOBAL_ID = "workitemGlobalId";
   @SerializedName(SERIALIZED_NAME_WORKITEM_GLOBAL_ID)
-  @javax.annotation.Nullable
   private Long workitemGlobalId;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nonnull
   private String comment;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
-  @javax.annotation.Nonnull
   private String workItemName;
 
   public static final String SERIALIZED_NAME_ATTRIBUTE_NAME = "attributeName";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTE_NAME)
-  @javax.annotation.Nullable
   private String attributeName;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public NotificationModel() {
   }
 
-  public NotificationModel id(@javax.annotation.Nonnull UUID id) {
+  public NotificationModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -141,12 +127,12 @@ public class NotificationModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public NotificationModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public NotificationModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -160,12 +146,12 @@ public class NotificationModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public NotificationModel isRead(@javax.annotation.Nonnull Boolean isRead) {
+  public NotificationModel isRead(Boolean isRead) {
     this.isRead = isRead;
     return this;
   }
@@ -179,12 +165,12 @@ public class NotificationModel {
     return isRead;
   }
 
-  public void setIsRead(@javax.annotation.Nonnull Boolean isRead) {
+  public void setIsRead(Boolean isRead) {
     this.isRead = isRead;
   }
 
 
-  public NotificationModel entityId(@javax.annotation.Nonnull UUID entityId) {
+  public NotificationModel entityId(UUID entityId) {
     this.entityId = entityId;
     return this;
   }
@@ -198,12 +184,12 @@ public class NotificationModel {
     return entityId;
   }
 
-  public void setEntityId(@javax.annotation.Nonnull UUID entityId) {
+  public void setEntityId(UUID entityId) {
     this.entityId = entityId;
   }
 
 
-  public NotificationModel notificationType(@javax.annotation.Nonnull NotificationTypeModel notificationType) {
+  public NotificationModel notificationType(NotificationTypeModel notificationType) {
     this.notificationType = notificationType;
     return this;
   }
@@ -217,12 +203,12 @@ public class NotificationModel {
     return notificationType;
   }
 
-  public void setNotificationType(@javax.annotation.Nonnull NotificationTypeModel notificationType) {
+  public void setNotificationType(NotificationTypeModel notificationType) {
     this.notificationType = notificationType;
   }
 
 
-  public NotificationModel projectGlobalId(@javax.annotation.Nullable Long projectGlobalId) {
+  public NotificationModel projectGlobalId(Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
     return this;
   }
@@ -236,12 +222,12 @@ public class NotificationModel {
     return projectGlobalId;
   }
 
-  public void setProjectGlobalId(@javax.annotation.Nullable Long projectGlobalId) {
+  public void setProjectGlobalId(Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
   }
 
 
-  public NotificationModel projectName(@javax.annotation.Nullable String projectName) {
+  public NotificationModel projectName(String projectName) {
     this.projectName = projectName;
     return this;
   }
@@ -255,12 +241,12 @@ public class NotificationModel {
     return projectName;
   }
 
-  public void setProjectName(@javax.annotation.Nullable String projectName) {
+  public void setProjectName(String projectName) {
     this.projectName = projectName;
   }
 
 
-  public NotificationModel testPlanGlobalId(@javax.annotation.Nonnull Long testPlanGlobalId) {
+  public NotificationModel testPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
@@ -274,12 +260,12 @@ public class NotificationModel {
     return testPlanGlobalId;
   }
 
-  public void setTestPlanGlobalId(@javax.annotation.Nonnull Long testPlanGlobalId) {
+  public void setTestPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
-  public NotificationModel testPlanName(@javax.annotation.Nonnull String testPlanName) {
+  public NotificationModel testPlanName(String testPlanName) {
     this.testPlanName = testPlanName;
     return this;
   }
@@ -293,12 +279,12 @@ public class NotificationModel {
     return testPlanName;
   }
 
-  public void setTestPlanName(@javax.annotation.Nonnull String testPlanName) {
+  public void setTestPlanName(String testPlanName) {
     this.testPlanName = testPlanName;
   }
 
 
-  public NotificationModel workitemGlobalId(@javax.annotation.Nullable Long workitemGlobalId) {
+  public NotificationModel workitemGlobalId(Long workitemGlobalId) {
     this.workitemGlobalId = workitemGlobalId;
     return this;
   }
@@ -312,12 +298,12 @@ public class NotificationModel {
     return workitemGlobalId;
   }
 
-  public void setWorkitemGlobalId(@javax.annotation.Nullable Long workitemGlobalId) {
+  public void setWorkitemGlobalId(Long workitemGlobalId) {
     this.workitemGlobalId = workitemGlobalId;
   }
 
 
-  public NotificationModel comment(@javax.annotation.Nonnull String comment) {
+  public NotificationModel comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -331,12 +317,12 @@ public class NotificationModel {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nonnull String comment) {
+  public void setComment(String comment) {
     this.comment = comment;
   }
 
 
-  public NotificationModel workItemName(@javax.annotation.Nonnull String workItemName) {
+  public NotificationModel workItemName(String workItemName) {
     this.workItemName = workItemName;
     return this;
   }
@@ -350,12 +336,12 @@ public class NotificationModel {
     return workItemName;
   }
 
-  public void setWorkItemName(@javax.annotation.Nonnull String workItemName) {
+  public void setWorkItemName(String workItemName) {
     this.workItemName = workItemName;
   }
 
 
-  public NotificationModel attributeName(@javax.annotation.Nullable String attributeName) {
+  public NotificationModel attributeName(String attributeName) {
     this.attributeName = attributeName;
     return this;
   }
@@ -369,12 +355,12 @@ public class NotificationModel {
     return attributeName;
   }
 
-  public void setAttributeName(@javax.annotation.Nullable String attributeName) {
+  public void setAttributeName(String attributeName) {
     this.attributeName = attributeName;
   }
 
 
-  public NotificationModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public NotificationModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -388,7 +374,7 @@ public class NotificationModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 

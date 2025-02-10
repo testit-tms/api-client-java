@@ -60,183 +60,149 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointShortResponseModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointShortResponseModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
-  @javax.annotation.Nullable
   private UUID testerId;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nullable
   private Map<String, String> parameters;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nonnull
   private List<String> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nonnull
   private List<String> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
-  @javax.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_NAME = "testSuiteName";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_NAME)
-  @javax.annotation.Nonnull
   private String testSuiteName;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nonnull
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long workItemGlobalId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID workItemVersionId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER = "workItemVersionNumber";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER)
-  @javax.annotation.Nonnull
   private Integer workItemVersionNumber;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION = "workItemMedianDuration";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION)
-  @javax.annotation.Nullable
   private Long workItemMedianDuration;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private TestPointStatus status;
 
   public static final String SERIALIZED_NAME_STATUS_MODEL = "statusModel";
   @SerializedName(SERIALIZED_NAME_STATUS_MODEL)
-  @javax.annotation.Nonnull
   private TestStatusApiResult statusModel;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  @javax.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  @javax.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nonnull
   private Integer duration;
 
   public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
   @SerializedName(SERIALIZED_NAME_SECTION_ID)
-  @javax.annotation.Nonnull
   private UUID sectionId;
 
   public static final String SERIALIZED_NAME_SECTION_NAME = "sectionName";
   @SerializedName(SERIALIZED_NAME_SECTION_NAME)
-  @javax.annotation.Nullable
   private String sectionName;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT = "lastTestResult";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT)
-  @javax.annotation.Nullable
   private LastTestResultModel lastTestResult;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
-  @javax.annotation.Nonnull
   private UUID iterationId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_STATE = "workItemState";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_STATE)
-  @javax.annotation.Nonnull
   private WorkItemState workItemState;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_BY_ID = "workItemCreatedById";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID workItemCreatedById;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_DATE = "workItemCreatedDate";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime workItemCreatedDate;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_ID = "workItemModifiedById";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID workItemModifiedById;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE = "workItemModifiedDate";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime workItemModifiedDate;
 
   public TestPointShortResponseModel() {
   }
 
-  public TestPointShortResponseModel id(@javax.annotation.Nonnull UUID id) {
+  public TestPointShortResponseModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -250,12 +216,12 @@ public class TestPointShortResponseModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestPointShortResponseModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public TestPointShortResponseModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -269,12 +235,12 @@ public class TestPointShortResponseModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestPointShortResponseModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public TestPointShortResponseModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -288,12 +254,12 @@ public class TestPointShortResponseModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPointShortResponseModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public TestPointShortResponseModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -307,12 +273,12 @@ public class TestPointShortResponseModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestPointShortResponseModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public TestPointShortResponseModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -326,12 +292,12 @@ public class TestPointShortResponseModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public TestPointShortResponseModel testerId(@javax.annotation.Nullable UUID testerId) {
+  public TestPointShortResponseModel testerId(UUID testerId) {
     this.testerId = testerId;
     return this;
   }
@@ -345,12 +311,12 @@ public class TestPointShortResponseModel {
     return testerId;
   }
 
-  public void setTesterId(@javax.annotation.Nullable UUID testerId) {
+  public void setTesterId(UUID testerId) {
     this.testerId = testerId;
   }
 
 
-  public TestPointShortResponseModel parameters(@javax.annotation.Nullable Map<String, String> parameters) {
+  public TestPointShortResponseModel parameters(Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -372,12 +338,12 @@ public class TestPointShortResponseModel {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nullable Map<String, String> parameters) {
+  public void setParameters(Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public TestPointShortResponseModel attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public TestPointShortResponseModel attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -399,12 +365,12 @@ public class TestPointShortResponseModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public TestPointShortResponseModel tags(@javax.annotation.Nonnull List<String> tags) {
+  public TestPointShortResponseModel tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -426,12 +392,12 @@ public class TestPointShortResponseModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nonnull List<String> tags) {
+  public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
 
-  public TestPointShortResponseModel links(@javax.annotation.Nonnull List<String> links) {
+  public TestPointShortResponseModel links(List<String> links) {
     this.links = links;
     return this;
   }
@@ -453,12 +419,12 @@ public class TestPointShortResponseModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nonnull List<String> links) {
+  public void setLinks(List<String> links) {
     this.links = links;
   }
 
 
-  public TestPointShortResponseModel testSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public TestPointShortResponseModel testSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -472,12 +438,12 @@ public class TestPointShortResponseModel {
     return testSuiteId;
   }
 
-  public void setTestSuiteId(@javax.annotation.Nonnull UUID testSuiteId) {
+  public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
-  public TestPointShortResponseModel testSuiteName(@javax.annotation.Nonnull String testSuiteName) {
+  public TestPointShortResponseModel testSuiteName(String testSuiteName) {
     this.testSuiteName = testSuiteName;
     return this;
   }
@@ -491,12 +457,12 @@ public class TestPointShortResponseModel {
     return testSuiteName;
   }
 
-  public void setTestSuiteName(@javax.annotation.Nonnull String testSuiteName) {
+  public void setTestSuiteName(String testSuiteName) {
     this.testSuiteName = testSuiteName;
   }
 
 
-  public TestPointShortResponseModel workItemId(@javax.annotation.Nonnull UUID workItemId) {
+  public TestPointShortResponseModel workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -510,12 +476,12 @@ public class TestPointShortResponseModel {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nonnull UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public TestPointShortResponseModel workItemGlobalId(@javax.annotation.Nonnull Long workItemGlobalId) {
+  public TestPointShortResponseModel workItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
@@ -529,12 +495,12 @@ public class TestPointShortResponseModel {
     return workItemGlobalId;
   }
 
-  public void setWorkItemGlobalId(@javax.annotation.Nonnull Long workItemGlobalId) {
+  public void setWorkItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
-  public TestPointShortResponseModel workItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
+  public TestPointShortResponseModel workItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -548,12 +514,12 @@ public class TestPointShortResponseModel {
     return workItemVersionId;
   }
 
-  public void setWorkItemVersionId(@javax.annotation.Nonnull UUID workItemVersionId) {
+  public void setWorkItemVersionId(UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public TestPointShortResponseModel workItemVersionNumber(@javax.annotation.Nonnull Integer workItemVersionNumber) {
+  public TestPointShortResponseModel workItemVersionNumber(Integer workItemVersionNumber) {
     this.workItemVersionNumber = workItemVersionNumber;
     return this;
   }
@@ -567,12 +533,12 @@ public class TestPointShortResponseModel {
     return workItemVersionNumber;
   }
 
-  public void setWorkItemVersionNumber(@javax.annotation.Nonnull Integer workItemVersionNumber) {
+  public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
     this.workItemVersionNumber = workItemVersionNumber;
   }
 
 
-  public TestPointShortResponseModel workItemMedianDuration(@javax.annotation.Nullable Long workItemMedianDuration) {
+  public TestPointShortResponseModel workItemMedianDuration(Long workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
     return this;
   }
@@ -586,13 +552,13 @@ public class TestPointShortResponseModel {
     return workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(@javax.annotation.Nullable Long workItemMedianDuration) {
+  public void setWorkItemMedianDuration(Long workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
 
   @Deprecated
-  public TestPointShortResponseModel status(@javax.annotation.Nonnull TestPointStatus status) {
+  public TestPointShortResponseModel status(TestPointStatus status) {
     this.status = status;
     return this;
   }
@@ -609,12 +575,12 @@ public class TestPointShortResponseModel {
   }
 
   @Deprecated
-  public void setStatus(@javax.annotation.Nonnull TestPointStatus status) {
+  public void setStatus(TestPointStatus status) {
     this.status = status;
   }
 
 
-  public TestPointShortResponseModel statusModel(@javax.annotation.Nonnull TestStatusApiResult statusModel) {
+  public TestPointShortResponseModel statusModel(TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
     return this;
   }
@@ -628,12 +594,12 @@ public class TestPointShortResponseModel {
     return statusModel;
   }
 
-  public void setStatusModel(@javax.annotation.Nonnull TestStatusApiResult statusModel) {
+  public void setStatusModel(TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
   }
 
 
-  public TestPointShortResponseModel priority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public TestPointShortResponseModel priority(WorkItemPriorityModel priority) {
     this.priority = priority;
     return this;
   }
@@ -647,12 +613,12 @@ public class TestPointShortResponseModel {
     return priority;
   }
 
-  public void setPriority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public TestPointShortResponseModel isAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
+  public TestPointShortResponseModel isAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -666,12 +632,12 @@ public class TestPointShortResponseModel {
     return isAutomated;
   }
 
-  public void setIsAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
+  public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestPointShortResponseModel name(@javax.annotation.Nonnull String name) {
+  public TestPointShortResponseModel name(String name) {
     this.name = name;
     return this;
   }
@@ -685,12 +651,12 @@ public class TestPointShortResponseModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestPointShortResponseModel configurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public TestPointShortResponseModel configurationId(UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -704,12 +670,12 @@ public class TestPointShortResponseModel {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestPointShortResponseModel duration(@javax.annotation.Nonnull Integer duration) {
+  public TestPointShortResponseModel duration(Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -723,12 +689,12 @@ public class TestPointShortResponseModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nonnull Integer duration) {
+  public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
-  public TestPointShortResponseModel sectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public TestPointShortResponseModel sectionId(UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -742,12 +708,12 @@ public class TestPointShortResponseModel {
     return sectionId;
   }
 
-  public void setSectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public TestPointShortResponseModel sectionName(@javax.annotation.Nullable String sectionName) {
+  public TestPointShortResponseModel sectionName(String sectionName) {
     this.sectionName = sectionName;
     return this;
   }
@@ -761,12 +727,12 @@ public class TestPointShortResponseModel {
     return sectionName;
   }
 
-  public void setSectionName(@javax.annotation.Nullable String sectionName) {
+  public void setSectionName(String sectionName) {
     this.sectionName = sectionName;
   }
 
 
-  public TestPointShortResponseModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public TestPointShortResponseModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -780,12 +746,12 @@ public class TestPointShortResponseModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPointShortResponseModel lastTestResult(@javax.annotation.Nullable LastTestResultModel lastTestResult) {
+  public TestPointShortResponseModel lastTestResult(LastTestResultModel lastTestResult) {
     this.lastTestResult = lastTestResult;
     return this;
   }
@@ -799,12 +765,12 @@ public class TestPointShortResponseModel {
     return lastTestResult;
   }
 
-  public void setLastTestResult(@javax.annotation.Nullable LastTestResultModel lastTestResult) {
+  public void setLastTestResult(LastTestResultModel lastTestResult) {
     this.lastTestResult = lastTestResult;
   }
 
 
-  public TestPointShortResponseModel iterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public TestPointShortResponseModel iterationId(UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -818,12 +784,12 @@ public class TestPointShortResponseModel {
     return iterationId;
   }
 
-  public void setIterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPointShortResponseModel workItemState(@javax.annotation.Nonnull WorkItemState workItemState) {
+  public TestPointShortResponseModel workItemState(WorkItemState workItemState) {
     this.workItemState = workItemState;
     return this;
   }
@@ -837,12 +803,12 @@ public class TestPointShortResponseModel {
     return workItemState;
   }
 
-  public void setWorkItemState(@javax.annotation.Nonnull WorkItemState workItemState) {
+  public void setWorkItemState(WorkItemState workItemState) {
     this.workItemState = workItemState;
   }
 
 
-  public TestPointShortResponseModel workItemCreatedById(@javax.annotation.Nonnull UUID workItemCreatedById) {
+  public TestPointShortResponseModel workItemCreatedById(UUID workItemCreatedById) {
     this.workItemCreatedById = workItemCreatedById;
     return this;
   }
@@ -856,12 +822,12 @@ public class TestPointShortResponseModel {
     return workItemCreatedById;
   }
 
-  public void setWorkItemCreatedById(@javax.annotation.Nonnull UUID workItemCreatedById) {
+  public void setWorkItemCreatedById(UUID workItemCreatedById) {
     this.workItemCreatedById = workItemCreatedById;
   }
 
 
-  public TestPointShortResponseModel workItemCreatedDate(@javax.annotation.Nonnull OffsetDateTime workItemCreatedDate) {
+  public TestPointShortResponseModel workItemCreatedDate(OffsetDateTime workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
     return this;
   }
@@ -875,12 +841,12 @@ public class TestPointShortResponseModel {
     return workItemCreatedDate;
   }
 
-  public void setWorkItemCreatedDate(@javax.annotation.Nonnull OffsetDateTime workItemCreatedDate) {
+  public void setWorkItemCreatedDate(OffsetDateTime workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
   }
 
 
-  public TestPointShortResponseModel workItemModifiedById(@javax.annotation.Nullable UUID workItemModifiedById) {
+  public TestPointShortResponseModel workItemModifiedById(UUID workItemModifiedById) {
     this.workItemModifiedById = workItemModifiedById;
     return this;
   }
@@ -894,12 +860,12 @@ public class TestPointShortResponseModel {
     return workItemModifiedById;
   }
 
-  public void setWorkItemModifiedById(@javax.annotation.Nullable UUID workItemModifiedById) {
+  public void setWorkItemModifiedById(UUID workItemModifiedById) {
     this.workItemModifiedById = workItemModifiedById;
   }
 
 
-  public TestPointShortResponseModel workItemModifiedDate(@javax.annotation.Nullable OffsetDateTime workItemModifiedDate) {
+  public TestPointShortResponseModel workItemModifiedDate(OffsetDateTime workItemModifiedDate) {
     this.workItemModifiedDate = workItemModifiedDate;
     return this;
   }
@@ -913,7 +879,7 @@ public class TestPointShortResponseModel {
     return workItemModifiedDate;
   }
 
-  public void setWorkItemModifiedDate(@javax.annotation.Nullable OffsetDateTime workItemModifiedDate) {
+  public void setWorkItemModifiedDate(OffsetDateTime workItemModifiedDate) {
     this.workItemModifiedDate = workItemModifiedDate;
   }
 

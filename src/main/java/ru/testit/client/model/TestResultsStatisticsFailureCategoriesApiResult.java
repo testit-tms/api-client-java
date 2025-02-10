@@ -48,27 +48,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultsStatisticsFailureCategoriesApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultsStatisticsFailureCategoriesApiResult {
   public static final String SERIALIZED_NAME_INFRASTRUCTURE_DEFECT = "infrastructureDefect";
   @SerializedName(SERIALIZED_NAME_INFRASTRUCTURE_DEFECT)
-  @javax.annotation.Nonnull
   private Integer infrastructureDefect;
 
   public static final String SERIALIZED_NAME_PRODUCT_DEFECT = "productDefect";
   @SerializedName(SERIALIZED_NAME_PRODUCT_DEFECT)
-  @javax.annotation.Nonnull
   private Integer productDefect;
 
   public static final String SERIALIZED_NAME_TEST_DEFECT = "testDefect";
   @SerializedName(SERIALIZED_NAME_TEST_DEFECT)
-  @javax.annotation.Nonnull
   private Integer testDefect;
 
   public TestResultsStatisticsFailureCategoriesApiResult() {
   }
 
-  public TestResultsStatisticsFailureCategoriesApiResult infrastructureDefect(@javax.annotation.Nonnull Integer infrastructureDefect) {
+  public TestResultsStatisticsFailureCategoriesApiResult infrastructureDefect(Integer infrastructureDefect) {
     this.infrastructureDefect = infrastructureDefect;
     return this;
   }
@@ -82,12 +79,12 @@ public class TestResultsStatisticsFailureCategoriesApiResult {
     return infrastructureDefect;
   }
 
-  public void setInfrastructureDefect(@javax.annotation.Nonnull Integer infrastructureDefect) {
+  public void setInfrastructureDefect(Integer infrastructureDefect) {
     this.infrastructureDefect = infrastructureDefect;
   }
 
 
-  public TestResultsStatisticsFailureCategoriesApiResult productDefect(@javax.annotation.Nonnull Integer productDefect) {
+  public TestResultsStatisticsFailureCategoriesApiResult productDefect(Integer productDefect) {
     this.productDefect = productDefect;
     return this;
   }
@@ -101,12 +98,12 @@ public class TestResultsStatisticsFailureCategoriesApiResult {
     return productDefect;
   }
 
-  public void setProductDefect(@javax.annotation.Nonnull Integer productDefect) {
+  public void setProductDefect(Integer productDefect) {
     this.productDefect = productDefect;
   }
 
 
-  public TestResultsStatisticsFailureCategoriesApiResult testDefect(@javax.annotation.Nonnull Integer testDefect) {
+  public TestResultsStatisticsFailureCategoriesApiResult testDefect(Integer testDefect) {
     this.testDefect = testDefect;
     return this;
   }
@@ -120,7 +117,7 @@ public class TestResultsStatisticsFailureCategoriesApiResult {
     return testDefect;
   }
 
-  public void setTestDefect(@javax.annotation.Nonnull Integer testDefect) {
+  public void setTestDefect(Integer testDefect) {
     this.testDefect = testDefect;
   }
 

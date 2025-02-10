@@ -49,42 +49,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebhookResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhookResponse {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
-  @javax.annotation.Nullable
   private String uri;
 
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
-  @javax.annotation.Nonnull
   private Integer statusCode;
 
   public static final String SERIALIZED_NAME_REQUEST_BODY = "requestBody";
   @SerializedName(SERIALIZED_NAME_REQUEST_BODY)
-  @javax.annotation.Nullable
   private String requestBody;
 
   public static final String SERIALIZED_NAME_REQUEST_META = "requestMeta";
   @SerializedName(SERIALIZED_NAME_REQUEST_META)
-  @javax.annotation.Nonnull
   private String requestMeta;
 
   public static final String SERIALIZED_NAME_RESPONSE_BODY = "responseBody";
   @SerializedName(SERIALIZED_NAME_RESPONSE_BODY)
-  @javax.annotation.Nonnull
   private String responseBody;
 
   public static final String SERIALIZED_NAME_RESPONSE_META = "responseMeta";
   @SerializedName(SERIALIZED_NAME_RESPONSE_META)
-  @javax.annotation.Nonnull
   private String responseMeta;
 
   public WebhookResponse() {
   }
 
-  public WebhookResponse uri(@javax.annotation.Nullable String uri) {
+  public WebhookResponse uri(String uri) {
     this.uri = uri;
     return this;
   }
@@ -98,12 +92,12 @@ public class WebhookResponse {
     return uri;
   }
 
-  public void setUri(@javax.annotation.Nullable String uri) {
+  public void setUri(String uri) {
     this.uri = uri;
   }
 
 
-  public WebhookResponse statusCode(@javax.annotation.Nonnull Integer statusCode) {
+  public WebhookResponse statusCode(Integer statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -117,12 +111,12 @@ public class WebhookResponse {
     return statusCode;
   }
 
-  public void setStatusCode(@javax.annotation.Nonnull Integer statusCode) {
+  public void setStatusCode(Integer statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public WebhookResponse requestBody(@javax.annotation.Nullable String requestBody) {
+  public WebhookResponse requestBody(String requestBody) {
     this.requestBody = requestBody;
     return this;
   }
@@ -136,12 +130,12 @@ public class WebhookResponse {
     return requestBody;
   }
 
-  public void setRequestBody(@javax.annotation.Nullable String requestBody) {
+  public void setRequestBody(String requestBody) {
     this.requestBody = requestBody;
   }
 
 
-  public WebhookResponse requestMeta(@javax.annotation.Nonnull String requestMeta) {
+  public WebhookResponse requestMeta(String requestMeta) {
     this.requestMeta = requestMeta;
     return this;
   }
@@ -155,12 +149,12 @@ public class WebhookResponse {
     return requestMeta;
   }
 
-  public void setRequestMeta(@javax.annotation.Nonnull String requestMeta) {
+  public void setRequestMeta(String requestMeta) {
     this.requestMeta = requestMeta;
   }
 
 
-  public WebhookResponse responseBody(@javax.annotation.Nonnull String responseBody) {
+  public WebhookResponse responseBody(String responseBody) {
     this.responseBody = responseBody;
     return this;
   }
@@ -174,12 +168,12 @@ public class WebhookResponse {
     return responseBody;
   }
 
-  public void setResponseBody(@javax.annotation.Nonnull String responseBody) {
+  public void setResponseBody(String responseBody) {
     this.responseBody = responseBody;
   }
 
 
-  public WebhookResponse responseMeta(@javax.annotation.Nonnull String responseMeta) {
+  public WebhookResponse responseMeta(String responseMeta) {
     this.responseMeta = responseMeta;
     return this;
   }
@@ -193,7 +187,7 @@ public class WebhookResponse {
     return responseMeta;
   }
 
-  public void setResponseMeta(@javax.annotation.Nonnull String responseMeta) {
+  public void setResponseMeta(String responseMeta) {
     this.responseMeta = responseMeta;
   }
 

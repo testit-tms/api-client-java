@@ -54,47 +54,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutotestHistoricalResultSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutotestHistoricalResultSelectModel {
   public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
   @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  @javax.annotation.Nullable
   private Set<AutotestResultOutcome> outcomes;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_IDS = "testPlanIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> testPlanIds;
 
   public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> testRunIds;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_USER_IDS = "userIds";
   @SerializedName(SERIALIZED_NAME_USER_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> userIds;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nullable
   private Int64RangeSelectorModel duration;
 
   public AutotestHistoricalResultSelectModel() {
   }
 
-  public AutotestHistoricalResultSelectModel outcomes(@javax.annotation.Nullable Set<AutotestResultOutcome> outcomes) {
+  public AutotestHistoricalResultSelectModel outcomes(Set<AutotestResultOutcome> outcomes) {
     this.outcomes = outcomes;
     return this;
   }
@@ -116,12 +109,12 @@ public class AutotestHistoricalResultSelectModel {
     return outcomes;
   }
 
-  public void setOutcomes(@javax.annotation.Nullable Set<AutotestResultOutcome> outcomes) {
+  public void setOutcomes(Set<AutotestResultOutcome> outcomes) {
     this.outcomes = outcomes;
   }
 
 
-  public AutotestHistoricalResultSelectModel testPlanIds(@javax.annotation.Nullable Set<UUID> testPlanIds) {
+  public AutotestHistoricalResultSelectModel testPlanIds(Set<UUID> testPlanIds) {
     this.testPlanIds = testPlanIds;
     return this;
   }
@@ -143,12 +136,12 @@ public class AutotestHistoricalResultSelectModel {
     return testPlanIds;
   }
 
-  public void setTestPlanIds(@javax.annotation.Nullable Set<UUID> testPlanIds) {
+  public void setTestPlanIds(Set<UUID> testPlanIds) {
     this.testPlanIds = testPlanIds;
   }
 
 
-  public AutotestHistoricalResultSelectModel testRunIds(@javax.annotation.Nullable Set<UUID> testRunIds) {
+  public AutotestHistoricalResultSelectModel testRunIds(Set<UUID> testRunIds) {
     this.testRunIds = testRunIds;
     return this;
   }
@@ -170,12 +163,12 @@ public class AutotestHistoricalResultSelectModel {
     return testRunIds;
   }
 
-  public void setTestRunIds(@javax.annotation.Nullable Set<UUID> testRunIds) {
+  public void setTestRunIds(Set<UUID> testRunIds) {
     this.testRunIds = testRunIds;
   }
 
 
-  public AutotestHistoricalResultSelectModel configurationIds(@javax.annotation.Nullable Set<UUID> configurationIds) {
+  public AutotestHistoricalResultSelectModel configurationIds(Set<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -197,12 +190,12 @@ public class AutotestHistoricalResultSelectModel {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nullable Set<UUID> configurationIds) {
+  public void setConfigurationIds(Set<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
-  public AutotestHistoricalResultSelectModel launchSource(@javax.annotation.Nullable String launchSource) {
+  public AutotestHistoricalResultSelectModel launchSource(String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
@@ -216,12 +209,12 @@ public class AutotestHistoricalResultSelectModel {
     return launchSource;
   }
 
-  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
+  public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public AutotestHistoricalResultSelectModel userIds(@javax.annotation.Nullable Set<UUID> userIds) {
+  public AutotestHistoricalResultSelectModel userIds(Set<UUID> userIds) {
     this.userIds = userIds;
     return this;
   }
@@ -243,12 +236,12 @@ public class AutotestHistoricalResultSelectModel {
     return userIds;
   }
 
-  public void setUserIds(@javax.annotation.Nullable Set<UUID> userIds) {
+  public void setUserIds(Set<UUID> userIds) {
     this.userIds = userIds;
   }
 
 
-  public AutotestHistoricalResultSelectModel duration(@javax.annotation.Nullable Int64RangeSelectorModel duration) {
+  public AutotestHistoricalResultSelectModel duration(Int64RangeSelectorModel duration) {
     this.duration = duration;
     return this;
   }
@@ -262,7 +255,7 @@ public class AutotestHistoricalResultSelectModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nullable Int64RangeSelectorModel duration) {
+  public void setDuration(Int64RangeSelectorModel duration) {
     this.duration = duration;
   }
 

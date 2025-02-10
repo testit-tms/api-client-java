@@ -50,32 +50,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemMovePostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemMovePostModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_NEW_SECTION_ID = "newSectionId";
   @SerializedName(SERIALIZED_NAME_NEW_SECTION_ID)
-  @javax.annotation.Nonnull
   private UUID newSectionId;
 
   public static final String SERIALIZED_NAME_OLD_SECTION_ID = "oldSectionId";
   @SerializedName(SERIALIZED_NAME_OLD_SECTION_ID)
-  @javax.annotation.Nullable
   private UUID oldSectionId;
 
   public static final String SERIALIZED_NAME_NEXT_WORK_ITEM_ID = "nextWorkItemId";
   @SerializedName(SERIALIZED_NAME_NEXT_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID nextWorkItemId;
 
   public WorkItemMovePostModel() {
   }
 
-  public WorkItemMovePostModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemMovePostModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -89,12 +85,12 @@ public class WorkItemMovePostModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemMovePostModel newSectionId(@javax.annotation.Nonnull UUID newSectionId) {
+  public WorkItemMovePostModel newSectionId(UUID newSectionId) {
     this.newSectionId = newSectionId;
     return this;
   }
@@ -108,12 +104,12 @@ public class WorkItemMovePostModel {
     return newSectionId;
   }
 
-  public void setNewSectionId(@javax.annotation.Nonnull UUID newSectionId) {
+  public void setNewSectionId(UUID newSectionId) {
     this.newSectionId = newSectionId;
   }
 
 
-  public WorkItemMovePostModel oldSectionId(@javax.annotation.Nullable UUID oldSectionId) {
+  public WorkItemMovePostModel oldSectionId(UUID oldSectionId) {
     this.oldSectionId = oldSectionId;
     return this;
   }
@@ -127,12 +123,12 @@ public class WorkItemMovePostModel {
     return oldSectionId;
   }
 
-  public void setOldSectionId(@javax.annotation.Nullable UUID oldSectionId) {
+  public void setOldSectionId(UUID oldSectionId) {
     this.oldSectionId = oldSectionId;
   }
 
 
-  public WorkItemMovePostModel nextWorkItemId(@javax.annotation.Nullable UUID nextWorkItemId) {
+  public WorkItemMovePostModel nextWorkItemId(UUID nextWorkItemId) {
     this.nextWorkItemId = nextWorkItemId;
     return this;
   }
@@ -146,7 +142,7 @@ public class WorkItemMovePostModel {
     return nextWorkItemId;
   }
 
-  public void setNextWorkItemId(@javax.annotation.Nullable UUID nextWorkItemId) {
+  public void setNextWorkItemId(UUID nextWorkItemId) {
     this.nextWorkItemId = nextWorkItemId;
   }
 

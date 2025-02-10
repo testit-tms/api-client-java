@@ -52,47 +52,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanLink
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanLink {
   public static final String SERIALIZED_NAME_BUG_LINK = "bugLink";
   @SerializedName(SERIALIZED_NAME_BUG_LINK)
-  @javax.annotation.Nullable
   private LinkModel bugLink;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID)
-  @javax.annotation.Nullable
   private Long workItemGlobalId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
-  @javax.annotation.Nullable
   private String workItemName;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
-  @javax.annotation.Nullable
   private String configurationName;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nullable
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_INFO = "info";
   @SerializedName(SERIALIZED_NAME_INFO)
-  @javax.annotation.Nullable
   private ExternalLinkModel info;
 
   public TestPlanLink() {
   }
 
-  public TestPlanLink bugLink(@javax.annotation.Nullable LinkModel bugLink) {
+  public TestPlanLink bugLink(LinkModel bugLink) {
     this.bugLink = bugLink;
     return this;
   }
@@ -106,12 +99,12 @@ public class TestPlanLink {
     return bugLink;
   }
 
-  public void setBugLink(@javax.annotation.Nullable LinkModel bugLink) {
+  public void setBugLink(LinkModel bugLink) {
     this.bugLink = bugLink;
   }
 
 
-  public TestPlanLink workItemGlobalId(@javax.annotation.Nullable Long workItemGlobalId) {
+  public TestPlanLink workItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
@@ -125,12 +118,12 @@ public class TestPlanLink {
     return workItemGlobalId;
   }
 
-  public void setWorkItemGlobalId(@javax.annotation.Nullable Long workItemGlobalId) {
+  public void setWorkItemGlobalId(Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
-  public TestPlanLink workItemName(@javax.annotation.Nullable String workItemName) {
+  public TestPlanLink workItemName(String workItemName) {
     this.workItemName = workItemName;
     return this;
   }
@@ -144,12 +137,12 @@ public class TestPlanLink {
     return workItemName;
   }
 
-  public void setWorkItemName(@javax.annotation.Nullable String workItemName) {
+  public void setWorkItemName(String workItemName) {
     this.workItemName = workItemName;
   }
 
 
-  public TestPlanLink configurationName(@javax.annotation.Nullable String configurationName) {
+  public TestPlanLink configurationName(String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
@@ -163,12 +156,12 @@ public class TestPlanLink {
     return configurationName;
   }
 
-  public void setConfigurationName(@javax.annotation.Nullable String configurationName) {
+  public void setConfigurationName(String configurationName) {
     this.configurationName = configurationName;
   }
 
 
-  public TestPlanLink createdById(@javax.annotation.Nullable UUID createdById) {
+  public TestPlanLink createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -182,12 +175,12 @@ public class TestPlanLink {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nullable UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanLink comment(@javax.annotation.Nullable String comment) {
+  public TestPlanLink comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -201,12 +194,12 @@ public class TestPlanLink {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nullable String comment) {
+  public void setComment(String comment) {
     this.comment = comment;
   }
 
 
-  public TestPlanLink info(@javax.annotation.Nullable ExternalLinkModel info) {
+  public TestPlanLink info(ExternalLinkModel info) {
     this.info = info;
     return this;
   }
@@ -220,7 +213,7 @@ public class TestPlanLink {
     return info;
   }
 
-  public void setInfo(@javax.annotation.Nullable ExternalLinkModel info) {
+  public void setInfo(ExternalLinkModel info) {
     this.info = info;
   }
 

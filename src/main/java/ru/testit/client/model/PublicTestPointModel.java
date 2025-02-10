@@ -53,42 +53,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * PublicTestPointModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PublicTestPointModel {
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_GLOBAL_ID = "configurationGlobalId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long configurationGlobalId;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_IDS = "autoTestIds";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_IDS)
-  @javax.annotation.Nullable
   private List<UUID> autoTestIds;
 
   public static final String SERIALIZED_NAME_ITERATION_ID = "iterationId";
   @SerializedName(SERIALIZED_NAME_ITERATION_ID)
-  @javax.annotation.Nonnull
   private UUID iterationId;
 
   public static final String SERIALIZED_NAME_PARAMETER_MODELS = "parameterModels";
   @SerializedName(SERIALIZED_NAME_PARAMETER_MODELS)
-  @javax.annotation.Nullable
   private List<ParameterShortModel> parameterModels;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public PublicTestPointModel() {
   }
 
-  public PublicTestPointModel configurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public PublicTestPointModel configurationId(UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -102,12 +96,12 @@ public class PublicTestPointModel {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public PublicTestPointModel configurationGlobalId(@javax.annotation.Nonnull Long configurationGlobalId) {
+  public PublicTestPointModel configurationGlobalId(Long configurationGlobalId) {
     this.configurationGlobalId = configurationGlobalId;
     return this;
   }
@@ -121,12 +115,12 @@ public class PublicTestPointModel {
     return configurationGlobalId;
   }
 
-  public void setConfigurationGlobalId(@javax.annotation.Nonnull Long configurationGlobalId) {
+  public void setConfigurationGlobalId(Long configurationGlobalId) {
     this.configurationGlobalId = configurationGlobalId;
   }
 
 
-  public PublicTestPointModel autoTestIds(@javax.annotation.Nullable List<UUID> autoTestIds) {
+  public PublicTestPointModel autoTestIds(List<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
     return this;
   }
@@ -148,12 +142,12 @@ public class PublicTestPointModel {
     return autoTestIds;
   }
 
-  public void setAutoTestIds(@javax.annotation.Nullable List<UUID> autoTestIds) {
+  public void setAutoTestIds(List<UUID> autoTestIds) {
     this.autoTestIds = autoTestIds;
   }
 
 
-  public PublicTestPointModel iterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public PublicTestPointModel iterationId(UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -167,12 +161,12 @@ public class PublicTestPointModel {
     return iterationId;
   }
 
-  public void setIterationId(@javax.annotation.Nonnull UUID iterationId) {
+  public void setIterationId(UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public PublicTestPointModel parameterModels(@javax.annotation.Nullable List<ParameterShortModel> parameterModels) {
+  public PublicTestPointModel parameterModels(List<ParameterShortModel> parameterModels) {
     this.parameterModels = parameterModels;
     return this;
   }
@@ -194,12 +188,12 @@ public class PublicTestPointModel {
     return parameterModels;
   }
 
-  public void setParameterModels(@javax.annotation.Nullable List<ParameterShortModel> parameterModels) {
+  public void setParameterModels(List<ParameterShortModel> parameterModels) {
     this.parameterModels = parameterModels;
   }
 
 
-  public PublicTestPointModel id(@javax.annotation.Nonnull UUID id) {
+  public PublicTestPointModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -213,7 +207,7 @@ public class PublicTestPointModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

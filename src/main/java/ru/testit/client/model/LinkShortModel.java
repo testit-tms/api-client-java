@@ -49,27 +49,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * LinkShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LinkShortModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public LinkShortModel() {
   }
 
-  public LinkShortModel id(@javax.annotation.Nonnull UUID id) {
+  public LinkShortModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -83,12 +80,12 @@ public class LinkShortModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public LinkShortModel title(@javax.annotation.Nonnull String title) {
+  public LinkShortModel title(String title) {
     this.title = title;
     return this;
   }
@@ -102,12 +99,12 @@ public class LinkShortModel {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nonnull String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public LinkShortModel url(@javax.annotation.Nonnull String url) {
+  public LinkShortModel url(String url) {
     this.url = url;
     return this;
   }
@@ -121,7 +118,7 @@ public class LinkShortModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 

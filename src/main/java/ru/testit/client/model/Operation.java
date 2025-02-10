@@ -49,32 +49,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * Operation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Operation {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nullable
   private Object value = null;
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
-  @javax.annotation.Nullable
   private String path;
 
   public static final String SERIALIZED_NAME_OP = "op";
   @SerializedName(SERIALIZED_NAME_OP)
-  @javax.annotation.Nullable
   private String op;
 
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
-  @javax.annotation.Nullable
   private String from;
 
   public Operation() {
   }
 
-  public Operation value(@javax.annotation.Nullable Object value) {
+  public Operation value(Object value) {
     this.value = value;
     return this;
   }
@@ -88,12 +84,12 @@ public class Operation {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nullable Object value) {
+  public void setValue(Object value) {
     this.value = value;
   }
 
 
-  public Operation path(@javax.annotation.Nullable String path) {
+  public Operation path(String path) {
     this.path = path;
     return this;
   }
@@ -107,12 +103,12 @@ public class Operation {
     return path;
   }
 
-  public void setPath(@javax.annotation.Nullable String path) {
+  public void setPath(String path) {
     this.path = path;
   }
 
 
-  public Operation op(@javax.annotation.Nullable String op) {
+  public Operation op(String op) {
     this.op = op;
     return this;
   }
@@ -126,12 +122,12 @@ public class Operation {
     return op;
   }
 
-  public void setOp(@javax.annotation.Nullable String op) {
+  public void setOp(String op) {
     this.op = op;
   }
 
 
-  public Operation from(@javax.annotation.Nullable String from) {
+  public Operation from(String from) {
     this.from = from;
     return this;
   }
@@ -145,7 +141,7 @@ public class Operation {
     return from;
   }
 
-  public void setFrom(@javax.annotation.Nullable String from) {
+  public void setFrom(String from) {
     this.from = from;
   }
 

@@ -49,37 +49,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestShortModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public AutoTestShortModel() {
   }
 
-  public AutoTestShortModel id(@javax.annotation.Nonnull UUID id) {
+  public AutoTestShortModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -93,12 +88,12 @@ public class AutoTestShortModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestShortModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public AutoTestShortModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -112,12 +107,12 @@ public class AutoTestShortModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public AutoTestShortModel externalId(@javax.annotation.Nonnull String externalId) {
+  public AutoTestShortModel externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -131,12 +126,12 @@ public class AutoTestShortModel {
     return externalId;
   }
 
-  public void setExternalId(@javax.annotation.Nonnull String externalId) {
+  public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestShortModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public AutoTestShortModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -150,12 +145,12 @@ public class AutoTestShortModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestShortModel name(@javax.annotation.Nonnull String name) {
+  public AutoTestShortModel name(String name) {
     this.name = name;
     return this;
   }
@@ -169,7 +164,7 @@ public class AutoTestShortModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

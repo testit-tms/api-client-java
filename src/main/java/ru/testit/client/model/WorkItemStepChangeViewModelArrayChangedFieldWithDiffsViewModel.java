@@ -52,27 +52,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
   public static final String SERIALIZED_NAME_DIFF_VALUE = "diffValue";
   @SerializedName(SERIALIZED_NAME_DIFF_VALUE)
-  @javax.annotation.Nullable
   private List<WorkItemStepChangeViewModel> diffValue;
 
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private List<WorkItemStepChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private List<WorkItemStepChangeViewModel> newValue;
 
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel() {
   }
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel diffValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> diffValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel diffValue(List<WorkItemStepChangeViewModel> diffValue) {
     this.diffValue = diffValue;
     return this;
   }
@@ -94,12 +91,12 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     return diffValue;
   }
 
-  public void setDiffValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> diffValue) {
+  public void setDiffValue(List<WorkItemStepChangeViewModel> diffValue) {
     this.diffValue = diffValue;
   }
 
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel oldValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> oldValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel oldValue(List<WorkItemStepChangeViewModel> oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -121,12 +118,12 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> oldValue) {
+  public void setOldValue(List<WorkItemStepChangeViewModel> oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel newValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> newValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel newValue(List<WorkItemStepChangeViewModel> newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -148,7 +145,7 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable List<WorkItemStepChangeViewModel> newValue) {
+  public void setNewValue(List<WorkItemStepChangeViewModel> newValue) {
     this.newValue = newValue;
   }
 

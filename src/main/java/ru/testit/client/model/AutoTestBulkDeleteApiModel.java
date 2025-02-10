@@ -49,17 +49,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestBulkDeleteApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestBulkDeleteApiModel {
   public static final String SERIALIZED_NAME_AUTO_TEST_SELECT = "autoTestSelect";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_SELECT)
-  @javax.annotation.Nonnull
   private AutoTestSelectModel autoTestSelect;
 
   public AutoTestBulkDeleteApiModel() {
   }
 
-  public AutoTestBulkDeleteApiModel autoTestSelect(@javax.annotation.Nonnull AutoTestSelectModel autoTestSelect) {
+  public AutoTestBulkDeleteApiModel autoTestSelect(AutoTestSelectModel autoTestSelect) {
     this.autoTestSelect = autoTestSelect;
     return this;
   }
@@ -73,7 +72,7 @@ public class AutoTestBulkDeleteApiModel {
     return autoTestSelect;
   }
 
-  public void setAutoTestSelect(@javax.annotation.Nonnull AutoTestSelectModel autoTestSelect) {
+  public void setAutoTestSelect(AutoTestSelectModel autoTestSelect) {
     this.autoTestSelect = autoTestSelect;
   }
 

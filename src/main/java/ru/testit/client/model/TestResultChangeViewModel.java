@@ -48,17 +48,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultChangeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultChangeViewModel {
   public static final String SERIALIZED_NAME_TEST_POINT_COUNT = "testPointCount";
   @SerializedName(SERIALIZED_NAME_TEST_POINT_COUNT)
-  @javax.annotation.Nonnull
   private Long testPointCount;
 
   public TestResultChangeViewModel() {
   }
 
-  public TestResultChangeViewModel testPointCount(@javax.annotation.Nonnull Long testPointCount) {
+  public TestResultChangeViewModel testPointCount(Long testPointCount) {
     this.testPointCount = testPointCount;
     return this;
   }
@@ -72,7 +71,7 @@ public class TestResultChangeViewModel {
     return testPointCount;
   }
 
-  public void setTestPointCount(@javax.annotation.Nonnull Long testPointCount) {
+  public void setTestPointCount(Long testPointCount) {
     this.testPointCount = testPointCount;
   }
 

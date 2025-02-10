@@ -52,62 +52,52 @@ import ru.testit.client.invoker.JSON;
 /**
  * FilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class FilterModel {
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  @javax.annotation.Nullable
   private WorkItemSearchQueryModel data;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_FIELDS_TO_SHOW = "fieldsToShow";
   @SerializedName(SERIALIZED_NAME_FIELDS_TO_SHOW)
-  @javax.annotation.Nullable
   private Object fieldsToShow = null;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public FilterModel() {
   }
 
-  public FilterModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public FilterModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -121,12 +111,12 @@ public class FilterModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public FilterModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public FilterModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -140,12 +130,12 @@ public class FilterModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public FilterModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public FilterModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -159,12 +149,12 @@ public class FilterModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public FilterModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public FilterModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -178,12 +168,12 @@ public class FilterModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public FilterModel data(@javax.annotation.Nullable WorkItemSearchQueryModel data) {
+  public FilterModel data(WorkItemSearchQueryModel data) {
     this.data = data;
     return this;
   }
@@ -197,12 +187,12 @@ public class FilterModel {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable WorkItemSearchQueryModel data) {
+  public void setData(WorkItemSearchQueryModel data) {
     this.data = data;
   }
 
 
-  public FilterModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public FilterModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -216,12 +206,12 @@ public class FilterModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public FilterModel fieldsToShow(@javax.annotation.Nullable Object fieldsToShow) {
+  public FilterModel fieldsToShow(Object fieldsToShow) {
     this.fieldsToShow = fieldsToShow;
     return this;
   }
@@ -235,12 +225,12 @@ public class FilterModel {
     return fieldsToShow;
   }
 
-  public void setFieldsToShow(@javax.annotation.Nullable Object fieldsToShow) {
+  public void setFieldsToShow(Object fieldsToShow) {
     this.fieldsToShow = fieldsToShow;
   }
 
 
-  public FilterModel name(@javax.annotation.Nonnull String name) {
+  public FilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -254,12 +244,12 @@ public class FilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public FilterModel id(@javax.annotation.Nonnull UUID id) {
+  public FilterModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -273,12 +263,12 @@ public class FilterModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public FilterModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public FilterModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -292,7 +282,7 @@ public class FilterModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

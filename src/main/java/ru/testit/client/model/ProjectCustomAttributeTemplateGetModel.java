@@ -52,32 +52,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectCustomAttributeTemplateGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectCustomAttributeTemplateGetModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS = "customAttributeModels";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS)
-  @javax.annotation.Nonnull
   private List<CustomAttributeModel> customAttributeModels = new ArrayList<>();
 
   public ProjectCustomAttributeTemplateGetModel() {
   }
 
-  public ProjectCustomAttributeTemplateGetModel id(@javax.annotation.Nonnull UUID id) {
+  public ProjectCustomAttributeTemplateGetModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -91,12 +87,12 @@ public class ProjectCustomAttributeTemplateGetModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public ProjectCustomAttributeTemplateGetModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public ProjectCustomAttributeTemplateGetModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -110,12 +106,12 @@ public class ProjectCustomAttributeTemplateGetModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectCustomAttributeTemplateGetModel name(@javax.annotation.Nonnull String name) {
+  public ProjectCustomAttributeTemplateGetModel name(String name) {
     this.name = name;
     return this;
   }
@@ -129,12 +125,12 @@ public class ProjectCustomAttributeTemplateGetModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectCustomAttributeTemplateGetModel customAttributeModels(@javax.annotation.Nonnull List<CustomAttributeModel> customAttributeModels) {
+  public ProjectCustomAttributeTemplateGetModel customAttributeModels(List<CustomAttributeModel> customAttributeModels) {
     this.customAttributeModels = customAttributeModels;
     return this;
   }
@@ -156,7 +152,7 @@ public class ProjectCustomAttributeTemplateGetModel {
     return customAttributeModels;
   }
 
-  public void setCustomAttributeModels(@javax.annotation.Nonnull List<CustomAttributeModel> customAttributeModels) {
+  public void setCustomAttributeModels(List<CustomAttributeModel> customAttributeModels) {
     this.customAttributeModels = customAttributeModels;
   }
 

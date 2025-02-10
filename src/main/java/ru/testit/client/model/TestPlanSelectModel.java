@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPlanSelectModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanSelectModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nonnull
   private ProjectTestPlansFilterModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private TestPlanExtractionModel extractionModel;
 
   public TestPlanSelectModel() {
   }
 
-  public TestPlanSelectModel filter(@javax.annotation.Nonnull ProjectTestPlansFilterModel filter) {
+  public TestPlanSelectModel filter(ProjectTestPlansFilterModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class TestPlanSelectModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nonnull ProjectTestPlansFilterModel filter) {
+  public void setFilter(ProjectTestPlansFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public TestPlanSelectModel extractionModel(@javax.annotation.Nullable TestPlanExtractionModel extractionModel) {
+  public TestPlanSelectModel extractionModel(TestPlanExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -99,7 +97,7 @@ public class TestPlanSelectModel {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable TestPlanExtractionModel extractionModel) {
+  public void setExtractionModel(TestPlanExtractionModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

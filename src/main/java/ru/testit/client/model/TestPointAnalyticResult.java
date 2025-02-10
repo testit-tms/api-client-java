@@ -54,37 +54,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointAnalyticResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointAnalyticResult {
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS)
-  @javax.annotation.Nonnull
   private List<TestPlanGroupByStatus> countGroupByStatus = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SUM_GROUP_BY_TESTER = "sumGroupByTester";
   @SerializedName(SERIALIZED_NAME_SUM_GROUP_BY_TESTER)
-  @javax.annotation.Nonnull
   private List<TestPlanGroupByTester> sumGroupByTester = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TESTER = "countGroupByTester";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TESTER)
-  @javax.annotation.Nonnull
   private List<TestPlanGroupByTester> countGroupByTester = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TEST_SUITE = "countGroupByTestSuite";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TEST_SUITE)
-  @javax.annotation.Nonnull
   private List<TestPlanGroupByTestSuite> countGroupByTestSuite = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS)
-  @javax.annotation.Nonnull
   private List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus = new ArrayList<>();
 
   public TestPointAnalyticResult() {
   }
 
-  public TestPointAnalyticResult countGroupByStatus(@javax.annotation.Nonnull List<TestPlanGroupByStatus> countGroupByStatus) {
+  public TestPointAnalyticResult countGroupByStatus(List<TestPlanGroupByStatus> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
     return this;
   }
@@ -106,12 +101,12 @@ public class TestPointAnalyticResult {
     return countGroupByStatus;
   }
 
-  public void setCountGroupByStatus(@javax.annotation.Nonnull List<TestPlanGroupByStatus> countGroupByStatus) {
+  public void setCountGroupByStatus(List<TestPlanGroupByStatus> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
   }
 
 
-  public TestPointAnalyticResult sumGroupByTester(@javax.annotation.Nonnull List<TestPlanGroupByTester> sumGroupByTester) {
+  public TestPointAnalyticResult sumGroupByTester(List<TestPlanGroupByTester> sumGroupByTester) {
     this.sumGroupByTester = sumGroupByTester;
     return this;
   }
@@ -133,12 +128,12 @@ public class TestPointAnalyticResult {
     return sumGroupByTester;
   }
 
-  public void setSumGroupByTester(@javax.annotation.Nonnull List<TestPlanGroupByTester> sumGroupByTester) {
+  public void setSumGroupByTester(List<TestPlanGroupByTester> sumGroupByTester) {
     this.sumGroupByTester = sumGroupByTester;
   }
 
 
-  public TestPointAnalyticResult countGroupByTester(@javax.annotation.Nonnull List<TestPlanGroupByTester> countGroupByTester) {
+  public TestPointAnalyticResult countGroupByTester(List<TestPlanGroupByTester> countGroupByTester) {
     this.countGroupByTester = countGroupByTester;
     return this;
   }
@@ -160,12 +155,12 @@ public class TestPointAnalyticResult {
     return countGroupByTester;
   }
 
-  public void setCountGroupByTester(@javax.annotation.Nonnull List<TestPlanGroupByTester> countGroupByTester) {
+  public void setCountGroupByTester(List<TestPlanGroupByTester> countGroupByTester) {
     this.countGroupByTester = countGroupByTester;
   }
 
 
-  public TestPointAnalyticResult countGroupByTestSuite(@javax.annotation.Nonnull List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
+  public TestPointAnalyticResult countGroupByTestSuite(List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
     this.countGroupByTestSuite = countGroupByTestSuite;
     return this;
   }
@@ -187,12 +182,12 @@ public class TestPointAnalyticResult {
     return countGroupByTestSuite;
   }
 
-  public void setCountGroupByTestSuite(@javax.annotation.Nonnull List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
+  public void setCountGroupByTestSuite(List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
     this.countGroupByTestSuite = countGroupByTestSuite;
   }
 
 
-  public TestPointAnalyticResult countGroupByTesterAndStatus(@javax.annotation.Nonnull List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
+  public TestPointAnalyticResult countGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
     this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
     return this;
   }
@@ -214,7 +209,7 @@ public class TestPointAnalyticResult {
     return countGroupByTesterAndStatus;
   }
 
-  public void setCountGroupByTesterAndStatus(@javax.annotation.Nonnull List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
+  public void setCountGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
     this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
   }
 

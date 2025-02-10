@@ -49,32 +49,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * ParameterShortModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ParameterShortModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_PARAMETER_KEY_ID = "parameterKeyId";
   @SerializedName(SERIALIZED_NAME_PARAMETER_KEY_ID)
-  @javax.annotation.Nonnull
   private UUID parameterKeyId;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private String value;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public ParameterShortModel() {
   }
 
-  public ParameterShortModel id(@javax.annotation.Nonnull UUID id) {
+  public ParameterShortModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -88,12 +84,12 @@ public class ParameterShortModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public ParameterShortModel parameterKeyId(@javax.annotation.Nonnull UUID parameterKeyId) {
+  public ParameterShortModel parameterKeyId(UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
     return this;
   }
@@ -107,12 +103,12 @@ public class ParameterShortModel {
     return parameterKeyId;
   }
 
-  public void setParameterKeyId(@javax.annotation.Nonnull UUID parameterKeyId) {
+  public void setParameterKeyId(UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
   }
 
 
-  public ParameterShortModel value(@javax.annotation.Nonnull String value) {
+  public ParameterShortModel value(String value) {
     this.value = value;
     return this;
   }
@@ -126,12 +122,12 @@ public class ParameterShortModel {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
+  public void setValue(String value) {
     this.value = value;
   }
 
 
-  public ParameterShortModel name(@javax.annotation.Nonnull String name) {
+  public ParameterShortModel name(String name) {
     this.name = name;
     return this;
   }
@@ -145,7 +141,7 @@ public class ParameterShortModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestNamespaceModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestNamespaceModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_CLASSES = "classes";
   @SerializedName(SERIALIZED_NAME_CLASSES)
-  @javax.annotation.Nullable
   private Set<String> classes;
 
   public AutoTestNamespaceModel() {
   }
 
-  public AutoTestNamespaceModel name(@javax.annotation.Nullable String name) {
+  public AutoTestNamespaceModel name(String name) {
     this.name = name;
     return this;
   }
@@ -80,12 +78,12 @@ public class AutoTestNamespaceModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AutoTestNamespaceModel classes(@javax.annotation.Nullable Set<String> classes) {
+  public AutoTestNamespaceModel classes(Set<String> classes) {
     this.classes = classes;
     return this;
   }
@@ -107,7 +105,7 @@ public class AutoTestNamespaceModel {
     return classes;
   }
 
-  public void setClasses(@javax.annotation.Nullable Set<String> classes) {
+  public void setClasses(Set<String> classes) {
     this.classes = classes;
   }
 

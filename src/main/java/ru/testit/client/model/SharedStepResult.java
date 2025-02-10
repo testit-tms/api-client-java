@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * SharedStepResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SharedStepResult {
   public static final String SERIALIZED_NAME_STEP_ID = "stepId";
   @SerializedName(SERIALIZED_NAME_STEP_ID)
-  @javax.annotation.Nonnull
   private UUID stepId;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
   @SerializedName(SERIALIZED_NAME_OUTCOME)
-  @javax.annotation.Nonnull
   private String outcome;
 
   public SharedStepResult() {
   }
 
-  public SharedStepResult stepId(@javax.annotation.Nonnull UUID stepId) {
+  public SharedStepResult stepId(UUID stepId) {
     this.stepId = stepId;
     return this;
   }
@@ -78,12 +76,12 @@ public class SharedStepResult {
     return stepId;
   }
 
-  public void setStepId(@javax.annotation.Nonnull UUID stepId) {
+  public void setStepId(UUID stepId) {
     this.stepId = stepId;
   }
 
 
-  public SharedStepResult outcome(@javax.annotation.Nonnull String outcome) {
+  public SharedStepResult outcome(String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -97,7 +95,7 @@ public class SharedStepResult {
     return outcome;
   }
 
-  public void setOutcome(@javax.annotation.Nonnull String outcome) {
+  public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
 

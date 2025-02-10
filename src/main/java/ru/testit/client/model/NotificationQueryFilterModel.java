@@ -53,27 +53,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * NotificationQueryFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class NotificationQueryFilterModel {
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
-  @javax.annotation.Nullable
   private Set<NotificationTypeModel> types;
 
   public static final String SERIALIZED_NAME_IS_READ = "isRead";
   @SerializedName(SERIALIZED_NAME_IS_READ)
-  @javax.annotation.Nullable
   private Boolean isRead;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public NotificationQueryFilterModel() {
   }
 
-  public NotificationQueryFilterModel types(@javax.annotation.Nullable Set<NotificationTypeModel> types) {
+  public NotificationQueryFilterModel types(Set<NotificationTypeModel> types) {
     this.types = types;
     return this;
   }
@@ -95,12 +92,12 @@ public class NotificationQueryFilterModel {
     return types;
   }
 
-  public void setTypes(@javax.annotation.Nullable Set<NotificationTypeModel> types) {
+  public void setTypes(Set<NotificationTypeModel> types) {
     this.types = types;
   }
 
 
-  public NotificationQueryFilterModel isRead(@javax.annotation.Nullable Boolean isRead) {
+  public NotificationQueryFilterModel isRead(Boolean isRead) {
     this.isRead = isRead;
     return this;
   }
@@ -114,12 +111,12 @@ public class NotificationQueryFilterModel {
     return isRead;
   }
 
-  public void setIsRead(@javax.annotation.Nullable Boolean isRead) {
+  public void setIsRead(Boolean isRead) {
     this.isRead = isRead;
   }
 
 
-  public NotificationQueryFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public NotificationQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -133,7 +130,7 @@ public class NotificationQueryFilterModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 

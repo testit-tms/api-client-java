@@ -54,59 +54,50 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteV2TreeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteV2TreeModel {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  @javax.annotation.Nullable
   private List<TestSuiteV2TreeModel> children;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_REFRESH_DATE = "refreshDate";
   @SerializedName(SERIALIZED_NAME_REFRESH_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime refreshDate;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nullable
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
   private TestSuiteType type;
 
   public static final String SERIALIZED_NAME_SAVE_STRUCTURE = "saveStructure";
   @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
-  @javax.annotation.Nullable
   private Boolean saveStructure;
 
   public static final String SERIALIZED_NAME_AUTO_REFRESH = "autoRefresh";
   @SerializedName(SERIALIZED_NAME_AUTO_REFRESH)
-  @javax.annotation.Nullable
   private Boolean autoRefresh;
 
   public TestSuiteV2TreeModel() {
   }
 
   @Deprecated
-  public TestSuiteV2TreeModel children(@javax.annotation.Nullable List<TestSuiteV2TreeModel> children) {
+  public TestSuiteV2TreeModel children(List<TestSuiteV2TreeModel> children) {
     this.children = children;
     return this;
   }
@@ -131,12 +122,12 @@ public class TestSuiteV2TreeModel {
   }
 
   @Deprecated
-  public void setChildren(@javax.annotation.Nullable List<TestSuiteV2TreeModel> children) {
+  public void setChildren(List<TestSuiteV2TreeModel> children) {
     this.children = children;
   }
 
 
-  public TestSuiteV2TreeModel id(@javax.annotation.Nonnull UUID id) {
+  public TestSuiteV2TreeModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -150,12 +141,12 @@ public class TestSuiteV2TreeModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteV2TreeModel refreshDate(@javax.annotation.Nullable OffsetDateTime refreshDate) {
+  public TestSuiteV2TreeModel refreshDate(OffsetDateTime refreshDate) {
     this.refreshDate = refreshDate;
     return this;
   }
@@ -169,12 +160,12 @@ public class TestSuiteV2TreeModel {
     return refreshDate;
   }
 
-  public void setRefreshDate(@javax.annotation.Nullable OffsetDateTime refreshDate) {
+  public void setRefreshDate(OffsetDateTime refreshDate) {
     this.refreshDate = refreshDate;
   }
 
 
-  public TestSuiteV2TreeModel parentId(@javax.annotation.Nullable UUID parentId) {
+  public TestSuiteV2TreeModel parentId(UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -188,12 +179,12 @@ public class TestSuiteV2TreeModel {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nullable UUID parentId) {
+  public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public TestSuiteV2TreeModel testPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public TestSuiteV2TreeModel testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -207,12 +198,12 @@ public class TestSuiteV2TreeModel {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestSuiteV2TreeModel name(@javax.annotation.Nonnull String name) {
+  public TestSuiteV2TreeModel name(String name) {
     this.name = name;
     return this;
   }
@@ -226,12 +217,12 @@ public class TestSuiteV2TreeModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestSuiteV2TreeModel type(@javax.annotation.Nullable TestSuiteType type) {
+  public TestSuiteV2TreeModel type(TestSuiteType type) {
     this.type = type;
     return this;
   }
@@ -245,12 +236,12 @@ public class TestSuiteV2TreeModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable TestSuiteType type) {
+  public void setType(TestSuiteType type) {
     this.type = type;
   }
 
 
-  public TestSuiteV2TreeModel saveStructure(@javax.annotation.Nullable Boolean saveStructure) {
+  public TestSuiteV2TreeModel saveStructure(Boolean saveStructure) {
     this.saveStructure = saveStructure;
     return this;
   }
@@ -264,12 +255,12 @@ public class TestSuiteV2TreeModel {
     return saveStructure;
   }
 
-  public void setSaveStructure(@javax.annotation.Nullable Boolean saveStructure) {
+  public void setSaveStructure(Boolean saveStructure) {
     this.saveStructure = saveStructure;
   }
 
 
-  public TestSuiteV2TreeModel autoRefresh(@javax.annotation.Nullable Boolean autoRefresh) {
+  public TestSuiteV2TreeModel autoRefresh(Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
     return this;
   }
@@ -283,7 +274,7 @@ public class TestSuiteV2TreeModel {
     return autoRefresh;
   }
 
-  public void setAutoRefresh(@javax.annotation.Nullable Boolean autoRefresh) {
+  public void setAutoRefresh(Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
   }
 

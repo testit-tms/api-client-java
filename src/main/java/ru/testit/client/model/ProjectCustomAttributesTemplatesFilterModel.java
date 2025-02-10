@@ -52,22 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * Collection of filters to apply to search
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectCustomAttributesTemplatesFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
-  @javax.annotation.Nullable
   private Set<CustomAttributeTypesEnum> customAttributeTypes;
 
   public ProjectCustomAttributesTemplatesFilterModel() {
   }
 
-  public ProjectCustomAttributesTemplatesFilterModel name(@javax.annotation.Nullable String name) {
+  public ProjectCustomAttributesTemplatesFilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -81,12 +79,12 @@ public class ProjectCustomAttributesTemplatesFilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectCustomAttributesTemplatesFilterModel customAttributeTypes(@javax.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public ProjectCustomAttributesTemplatesFilterModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
     return this;
   }
@@ -108,7 +106,7 @@ public class ProjectCustomAttributesTemplatesFilterModel {
     return customAttributeTypes;
   }
 
-  public void setCustomAttributeTypes(@javax.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
   }
 

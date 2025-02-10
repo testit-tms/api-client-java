@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestSearchApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestSearchApiModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private AutoTestFilterApiModel filter;
 
   public static final String SERIALIZED_NAME_INCLUDES = "includes";
   @SerializedName(SERIALIZED_NAME_INCLUDES)
-  @javax.annotation.Nullable
   private AutoTestSearchIncludeApiModel includes;
 
   public AutoTestSearchApiModel() {
   }
 
-  public AutoTestSearchApiModel filter(@javax.annotation.Nullable AutoTestFilterApiModel filter) {
+  public AutoTestSearchApiModel filter(AutoTestFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class AutoTestSearchApiModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable AutoTestFilterApiModel filter) {
+  public void setFilter(AutoTestFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public AutoTestSearchApiModel includes(@javax.annotation.Nullable AutoTestSearchIncludeApiModel includes) {
+  public AutoTestSearchApiModel includes(AutoTestSearchIncludeApiModel includes) {
     this.includes = includes;
     return this;
   }
@@ -99,7 +97,7 @@ public class AutoTestSearchApiModel {
     return includes;
   }
 
-  public void setIncludes(@javax.annotation.Nullable AutoTestSearchIncludeApiModel includes) {
+  public void setIncludes(AutoTestSearchIncludeApiModel includes) {
     this.includes = includes;
   }
 

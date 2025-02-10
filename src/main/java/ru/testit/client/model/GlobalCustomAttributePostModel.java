@@ -53,37 +53,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * GlobalCustomAttributePostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GlobalCustomAttributePostModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nullable
   private Boolean isEnabled;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  @javax.annotation.Nullable
   private Boolean isRequired;
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  @javax.annotation.Nullable
   private List<CustomAttributeOptionPostModel> options;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private CustomAttributeTypesEnum type;
 
   public GlobalCustomAttributePostModel() {
   }
 
-  public GlobalCustomAttributePostModel name(@javax.annotation.Nonnull String name) {
+  public GlobalCustomAttributePostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -97,12 +92,12 @@ public class GlobalCustomAttributePostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public GlobalCustomAttributePostModel isEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public GlobalCustomAttributePostModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -116,12 +111,12 @@ public class GlobalCustomAttributePostModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nullable Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public GlobalCustomAttributePostModel isRequired(@javax.annotation.Nullable Boolean isRequired) {
+  public GlobalCustomAttributePostModel isRequired(Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -135,12 +130,12 @@ public class GlobalCustomAttributePostModel {
     return isRequired;
   }
 
-  public void setIsRequired(@javax.annotation.Nullable Boolean isRequired) {
+  public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public GlobalCustomAttributePostModel options(@javax.annotation.Nullable List<CustomAttributeOptionPostModel> options) {
+  public GlobalCustomAttributePostModel options(List<CustomAttributeOptionPostModel> options) {
     this.options = options;
     return this;
   }
@@ -162,12 +157,12 @@ public class GlobalCustomAttributePostModel {
     return options;
   }
 
-  public void setOptions(@javax.annotation.Nullable List<CustomAttributeOptionPostModel> options) {
+  public void setOptions(List<CustomAttributeOptionPostModel> options) {
     this.options = options;
   }
 
 
-  public GlobalCustomAttributePostModel type(@javax.annotation.Nonnull CustomAttributeTypesEnum type) {
+  public GlobalCustomAttributePostModel type(CustomAttributeTypesEnum type) {
     this.type = type;
     return this;
   }
@@ -181,7 +176,7 @@ public class GlobalCustomAttributePostModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull CustomAttributeTypesEnum type) {
+  public void setType(CustomAttributeTypesEnum type) {
     this.type = type;
   }
 

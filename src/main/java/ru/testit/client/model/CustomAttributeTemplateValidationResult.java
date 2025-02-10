@@ -48,17 +48,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeTemplateValidationResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeTemplateValidationResult {
   public static final String SERIALIZED_NAME_EXISTS = "exists";
   @SerializedName(SERIALIZED_NAME_EXISTS)
-  @javax.annotation.Nonnull
   private Boolean exists;
 
   public CustomAttributeTemplateValidationResult() {
   }
 
-  public CustomAttributeTemplateValidationResult exists(@javax.annotation.Nonnull Boolean exists) {
+  public CustomAttributeTemplateValidationResult exists(Boolean exists) {
     this.exists = exists;
     return this;
   }
@@ -72,7 +71,7 @@ public class CustomAttributeTemplateValidationResult {
     return exists;
   }
 
-  public void setExists(@javax.annotation.Nonnull Boolean exists) {
+  public void setExists(Boolean exists) {
     this.exists = exists;
   }
 

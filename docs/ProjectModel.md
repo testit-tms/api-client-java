@@ -24,6 +24,7 @@
 |**modifiedById** | **UUID** | Unique ID of the project last editor |  [optional] |
 |**globalId** | **Long** | Global ID of the project |  |
 |**type** | **ProjectTypeModel** | Type of the project |  |
+|**isFlakyAuto** | **Boolean** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically |  |
 
 
 

@@ -54,32 +54,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebhooksFilterRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhooksFilterRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_EVENT_TYPES = "eventTypes";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPES)
-  @javax.annotation.Nullable
   private Set<WebHookEventTypeRequest> eventTypes;
 
   public static final String SERIALIZED_NAME_METHODS = "methods";
   @SerializedName(SERIALIZED_NAME_METHODS)
-  @javax.annotation.Nullable
   private Set<RequestTypeRequest> methods;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public WebhooksFilterRequest() {
   }
 
-  public WebhooksFilterRequest name(@javax.annotation.Nullable String name) {
+  public WebhooksFilterRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -93,12 +89,12 @@ public class WebhooksFilterRequest {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public WebhooksFilterRequest eventTypes(@javax.annotation.Nullable Set<WebHookEventTypeRequest> eventTypes) {
+  public WebhooksFilterRequest eventTypes(Set<WebHookEventTypeRequest> eventTypes) {
     this.eventTypes = eventTypes;
     return this;
   }
@@ -120,12 +116,12 @@ public class WebhooksFilterRequest {
     return eventTypes;
   }
 
-  public void setEventTypes(@javax.annotation.Nullable Set<WebHookEventTypeRequest> eventTypes) {
+  public void setEventTypes(Set<WebHookEventTypeRequest> eventTypes) {
     this.eventTypes = eventTypes;
   }
 
 
-  public WebhooksFilterRequest methods(@javax.annotation.Nullable Set<RequestTypeRequest> methods) {
+  public WebhooksFilterRequest methods(Set<RequestTypeRequest> methods) {
     this.methods = methods;
     return this;
   }
@@ -147,12 +143,12 @@ public class WebhooksFilterRequest {
     return methods;
   }
 
-  public void setMethods(@javax.annotation.Nullable Set<RequestTypeRequest> methods) {
+  public void setMethods(Set<RequestTypeRequest> methods) {
     this.methods = methods;
   }
 
 
-  public WebhooksFilterRequest projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public WebhooksFilterRequest projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -174,7 +170,7 @@ public class WebhooksFilterRequest {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 

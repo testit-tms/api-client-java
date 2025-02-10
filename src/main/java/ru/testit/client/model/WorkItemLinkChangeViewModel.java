@@ -49,42 +49,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemLinkChangeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemLinkChangeViewModel {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
-  @javax.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_HAS_INFO = "hasInfo";
   @SerializedName(SERIALIZED_NAME_HAS_INFO)
-  @javax.annotation.Nonnull
   private Boolean hasInfo;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private String type;
 
   public WorkItemLinkChangeViewModel() {
   }
 
-  public WorkItemLinkChangeViewModel description(@javax.annotation.Nonnull String description) {
+  public WorkItemLinkChangeViewModel description(String description) {
     this.description = description;
     return this;
   }
@@ -98,12 +92,12 @@ public class WorkItemLinkChangeViewModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nonnull String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public WorkItemLinkChangeViewModel url(@javax.annotation.Nonnull String url) {
+  public WorkItemLinkChangeViewModel url(String url) {
     this.url = url;
     return this;
   }
@@ -117,12 +111,12 @@ public class WorkItemLinkChangeViewModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 
 
-  public WorkItemLinkChangeViewModel title(@javax.annotation.Nonnull String title) {
+  public WorkItemLinkChangeViewModel title(String title) {
     this.title = title;
     return this;
   }
@@ -136,12 +130,12 @@ public class WorkItemLinkChangeViewModel {
     return title;
   }
 
-  public void setTitle(@javax.annotation.Nonnull String title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 
 
-  public WorkItemLinkChangeViewModel hasInfo(@javax.annotation.Nonnull Boolean hasInfo) {
+  public WorkItemLinkChangeViewModel hasInfo(Boolean hasInfo) {
     this.hasInfo = hasInfo;
     return this;
   }
@@ -155,12 +149,12 @@ public class WorkItemLinkChangeViewModel {
     return hasInfo;
   }
 
-  public void setHasInfo(@javax.annotation.Nonnull Boolean hasInfo) {
+  public void setHasInfo(Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 
 
-  public WorkItemLinkChangeViewModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemLinkChangeViewModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -174,12 +168,12 @@ public class WorkItemLinkChangeViewModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemLinkChangeViewModel type(@javax.annotation.Nonnull String type) {
+  public WorkItemLinkChangeViewModel type(String type) {
     this.type = type;
     return this;
   }
@@ -193,7 +187,7 @@ public class WorkItemLinkChangeViewModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
+  public void setType(String type) {
     this.type = type;
   }
 

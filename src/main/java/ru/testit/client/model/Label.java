@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * Label
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Label {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public Label() {
   }
 
-  public Label name(@javax.annotation.Nonnull String name) {
+  public Label name(String name) {
     this.name = name;
     return this;
   }
@@ -77,12 +75,12 @@ public class Label {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public Label globalId(@javax.annotation.Nonnull Long globalId) {
+  public Label globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -96,7 +94,7 @@ public class Label {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 

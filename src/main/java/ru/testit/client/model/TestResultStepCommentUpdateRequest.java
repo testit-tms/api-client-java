@@ -53,37 +53,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestResultStepCommentUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultStepCommentUpdateRequest {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
-  @javax.annotation.Nonnull
   private String text;
 
   public static final String SERIALIZED_NAME_STEP_ID = "stepId";
   @SerializedName(SERIALIZED_NAME_STEP_ID)
-  @javax.annotation.Nonnull
   private UUID stepId;
 
   public static final String SERIALIZED_NAME_PARENT_STEP_ID = "parentStepId";
   @SerializedName(SERIALIZED_NAME_PARENT_STEP_ID)
-  @javax.annotation.Nullable
   private UUID parentStepId;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nonnull
   private List<AttachmentUpdateRequest> attachments = new ArrayList<>();
 
   public TestResultStepCommentUpdateRequest() {
   }
 
-  public TestResultStepCommentUpdateRequest id(@javax.annotation.Nonnull UUID id) {
+  public TestResultStepCommentUpdateRequest id(UUID id) {
     this.id = id;
     return this;
   }
@@ -97,12 +92,12 @@ public class TestResultStepCommentUpdateRequest {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestResultStepCommentUpdateRequest text(@javax.annotation.Nonnull String text) {
+  public TestResultStepCommentUpdateRequest text(String text) {
     this.text = text;
     return this;
   }
@@ -116,12 +111,12 @@ public class TestResultStepCommentUpdateRequest {
     return text;
   }
 
-  public void setText(@javax.annotation.Nonnull String text) {
+  public void setText(String text) {
     this.text = text;
   }
 
 
-  public TestResultStepCommentUpdateRequest stepId(@javax.annotation.Nonnull UUID stepId) {
+  public TestResultStepCommentUpdateRequest stepId(UUID stepId) {
     this.stepId = stepId;
     return this;
   }
@@ -135,12 +130,12 @@ public class TestResultStepCommentUpdateRequest {
     return stepId;
   }
 
-  public void setStepId(@javax.annotation.Nonnull UUID stepId) {
+  public void setStepId(UUID stepId) {
     this.stepId = stepId;
   }
 
 
-  public TestResultStepCommentUpdateRequest parentStepId(@javax.annotation.Nullable UUID parentStepId) {
+  public TestResultStepCommentUpdateRequest parentStepId(UUID parentStepId) {
     this.parentStepId = parentStepId;
     return this;
   }
@@ -154,12 +149,12 @@ public class TestResultStepCommentUpdateRequest {
     return parentStepId;
   }
 
-  public void setParentStepId(@javax.annotation.Nullable UUID parentStepId) {
+  public void setParentStepId(UUID parentStepId) {
     this.parentStepId = parentStepId;
   }
 
 
-  public TestResultStepCommentUpdateRequest attachments(@javax.annotation.Nonnull List<AttachmentUpdateRequest> attachments) {
+  public TestResultStepCommentUpdateRequest attachments(List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -181,7 +176,7 @@ public class TestResultStepCommentUpdateRequest {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nonnull List<AttachmentUpdateRequest> attachments) {
+  public void setAttachments(List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
   }
 

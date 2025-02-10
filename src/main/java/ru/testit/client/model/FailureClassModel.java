@@ -55,57 +55,48 @@ import ru.testit.client.invoker.JSON;
 /**
  * FailureClassModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class FailureClassModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORY = "failureCategory";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORY)
-  @javax.annotation.Nonnull
   private FailureCategoryModel failureCategory;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_REGEXES = "failureClassRegexes";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_REGEXES)
-  @javax.annotation.Nullable
   private List<FailureClassRegexModel> failureClassRegexes;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public FailureClassModel() {
   }
 
-  public FailureClassModel name(@javax.annotation.Nullable String name) {
+  public FailureClassModel name(String name) {
     this.name = name;
     return this;
   }
@@ -119,12 +110,12 @@ public class FailureClassModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public FailureClassModel failureCategory(@javax.annotation.Nonnull FailureCategoryModel failureCategory) {
+  public FailureClassModel failureCategory(FailureCategoryModel failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -138,12 +129,12 @@ public class FailureClassModel {
     return failureCategory;
   }
 
-  public void setFailureCategory(@javax.annotation.Nonnull FailureCategoryModel failureCategory) {
+  public void setFailureCategory(FailureCategoryModel failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public FailureClassModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public FailureClassModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -157,12 +148,12 @@ public class FailureClassModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public FailureClassModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public FailureClassModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -176,12 +167,12 @@ public class FailureClassModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public FailureClassModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public FailureClassModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -195,12 +186,12 @@ public class FailureClassModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public FailureClassModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public FailureClassModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -214,12 +205,12 @@ public class FailureClassModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public FailureClassModel failureClassRegexes(@javax.annotation.Nullable List<FailureClassRegexModel> failureClassRegexes) {
+  public FailureClassModel failureClassRegexes(List<FailureClassRegexModel> failureClassRegexes) {
     this.failureClassRegexes = failureClassRegexes;
     return this;
   }
@@ -241,12 +232,12 @@ public class FailureClassModel {
     return failureClassRegexes;
   }
 
-  public void setFailureClassRegexes(@javax.annotation.Nullable List<FailureClassRegexModel> failureClassRegexes) {
+  public void setFailureClassRegexes(List<FailureClassRegexModel> failureClassRegexes) {
     this.failureClassRegexes = failureClassRegexes;
   }
 
 
-  public FailureClassModel id(@javax.annotation.Nonnull UUID id) {
+  public FailureClassModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -260,12 +251,12 @@ public class FailureClassModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public FailureClassModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public FailureClassModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -279,7 +270,7 @@ public class FailureClassModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

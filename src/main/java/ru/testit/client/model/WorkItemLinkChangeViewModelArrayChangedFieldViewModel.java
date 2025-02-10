@@ -52,22 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemLinkChangeViewModelArrayChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private List<WorkItemLinkChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private List<WorkItemLinkChangeViewModel> newValue;
 
   public WorkItemLinkChangeViewModelArrayChangedFieldViewModel() {
   }
 
-  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel oldValue(@javax.annotation.Nullable List<WorkItemLinkChangeViewModel> oldValue) {
+  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel oldValue(List<WorkItemLinkChangeViewModel> oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -89,12 +87,12 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable List<WorkItemLinkChangeViewModel> oldValue) {
+  public void setOldValue(List<WorkItemLinkChangeViewModel> oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel newValue(@javax.annotation.Nullable List<WorkItemLinkChangeViewModel> newValue) {
+  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel newValue(List<WorkItemLinkChangeViewModel> newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -116,7 +114,7 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable List<WorkItemLinkChangeViewModel> newValue) {
+  public void setNewValue(List<WorkItemLinkChangeViewModel> newValue) {
     this.newValue = newValue;
   }
 

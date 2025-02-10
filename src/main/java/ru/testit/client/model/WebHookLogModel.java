@@ -53,97 +53,80 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebHookLogModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebHookLogModel {
   public static final String SERIALIZED_NAME_WEB_HOOK_NAME = "webHookName";
   @SerializedName(SERIALIZED_NAME_WEB_HOOK_NAME)
-  @javax.annotation.Nonnull
   private String webHookName;
 
   public static final String SERIALIZED_NAME_EVENT_TYPE = "eventType";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
-  @javax.annotation.Nonnull
   private WebHookEventTypeModel eventType;
 
   public static final String SERIALIZED_NAME_WEB_HOOK_ID = "webHookId";
   @SerializedName(SERIALIZED_NAME_WEB_HOOK_ID)
-  @javax.annotation.Nonnull
   private UUID webHookId;
 
   public static final String SERIALIZED_NAME_REQUEST_BODY = "requestBody";
   @SerializedName(SERIALIZED_NAME_REQUEST_BODY)
-  @javax.annotation.Nullable
   private String requestBody;
 
   public static final String SERIALIZED_NAME_REQUEST_META = "requestMeta";
   @SerializedName(SERIALIZED_NAME_REQUEST_META)
-  @javax.annotation.Nullable
   private String requestMeta;
 
   public static final String SERIALIZED_NAME_RESPONSE_STATUS_CODE = "responseStatusCode";
   @SerializedName(SERIALIZED_NAME_RESPONSE_STATUS_CODE)
-  @javax.annotation.Nonnull
   private Integer responseStatusCode;
 
   public static final String SERIALIZED_NAME_RESPONSE_BODY = "responseBody";
   @SerializedName(SERIALIZED_NAME_RESPONSE_BODY)
-  @javax.annotation.Nullable
   private String responseBody;
 
   public static final String SERIALIZED_NAME_RESPONSE_META = "responseMeta";
   @SerializedName(SERIALIZED_NAME_RESPONSE_META)
-  @javax.annotation.Nullable
   private String responseMeta;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
   @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
-  @javax.annotation.Nonnull
   private RequestTypeModel requestType;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public WebHookLogModel() {
   }
 
-  public WebHookLogModel webHookName(@javax.annotation.Nonnull String webHookName) {
+  public WebHookLogModel webHookName(String webHookName) {
     this.webHookName = webHookName;
     return this;
   }
@@ -157,12 +140,12 @@ public class WebHookLogModel {
     return webHookName;
   }
 
-  public void setWebHookName(@javax.annotation.Nonnull String webHookName) {
+  public void setWebHookName(String webHookName) {
     this.webHookName = webHookName;
   }
 
 
-  public WebHookLogModel eventType(@javax.annotation.Nonnull WebHookEventTypeModel eventType) {
+  public WebHookLogModel eventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -176,12 +159,12 @@ public class WebHookLogModel {
     return eventType;
   }
 
-  public void setEventType(@javax.annotation.Nonnull WebHookEventTypeModel eventType) {
+  public void setEventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
   }
 
 
-  public WebHookLogModel webHookId(@javax.annotation.Nonnull UUID webHookId) {
+  public WebHookLogModel webHookId(UUID webHookId) {
     this.webHookId = webHookId;
     return this;
   }
@@ -195,12 +178,12 @@ public class WebHookLogModel {
     return webHookId;
   }
 
-  public void setWebHookId(@javax.annotation.Nonnull UUID webHookId) {
+  public void setWebHookId(UUID webHookId) {
     this.webHookId = webHookId;
   }
 
 
-  public WebHookLogModel requestBody(@javax.annotation.Nullable String requestBody) {
+  public WebHookLogModel requestBody(String requestBody) {
     this.requestBody = requestBody;
     return this;
   }
@@ -214,12 +197,12 @@ public class WebHookLogModel {
     return requestBody;
   }
 
-  public void setRequestBody(@javax.annotation.Nullable String requestBody) {
+  public void setRequestBody(String requestBody) {
     this.requestBody = requestBody;
   }
 
 
-  public WebHookLogModel requestMeta(@javax.annotation.Nullable String requestMeta) {
+  public WebHookLogModel requestMeta(String requestMeta) {
     this.requestMeta = requestMeta;
     return this;
   }
@@ -233,12 +216,12 @@ public class WebHookLogModel {
     return requestMeta;
   }
 
-  public void setRequestMeta(@javax.annotation.Nullable String requestMeta) {
+  public void setRequestMeta(String requestMeta) {
     this.requestMeta = requestMeta;
   }
 
 
-  public WebHookLogModel responseStatusCode(@javax.annotation.Nonnull Integer responseStatusCode) {
+  public WebHookLogModel responseStatusCode(Integer responseStatusCode) {
     this.responseStatusCode = responseStatusCode;
     return this;
   }
@@ -252,12 +235,12 @@ public class WebHookLogModel {
     return responseStatusCode;
   }
 
-  public void setResponseStatusCode(@javax.annotation.Nonnull Integer responseStatusCode) {
+  public void setResponseStatusCode(Integer responseStatusCode) {
     this.responseStatusCode = responseStatusCode;
   }
 
 
-  public WebHookLogModel responseBody(@javax.annotation.Nullable String responseBody) {
+  public WebHookLogModel responseBody(String responseBody) {
     this.responseBody = responseBody;
     return this;
   }
@@ -271,12 +254,12 @@ public class WebHookLogModel {
     return responseBody;
   }
 
-  public void setResponseBody(@javax.annotation.Nullable String responseBody) {
+  public void setResponseBody(String responseBody) {
     this.responseBody = responseBody;
   }
 
 
-  public WebHookLogModel responseMeta(@javax.annotation.Nullable String responseMeta) {
+  public WebHookLogModel responseMeta(String responseMeta) {
     this.responseMeta = responseMeta;
     return this;
   }
@@ -290,12 +273,12 @@ public class WebHookLogModel {
     return responseMeta;
   }
 
-  public void setResponseMeta(@javax.annotation.Nullable String responseMeta) {
+  public void setResponseMeta(String responseMeta) {
     this.responseMeta = responseMeta;
   }
 
 
-  public WebHookLogModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public WebHookLogModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -309,12 +292,12 @@ public class WebHookLogModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WebHookLogModel url(@javax.annotation.Nonnull String url) {
+  public WebHookLogModel url(String url) {
     this.url = url;
     return this;
   }
@@ -328,12 +311,12 @@ public class WebHookLogModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 
 
-  public WebHookLogModel requestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
+  public WebHookLogModel requestType(RequestTypeModel requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -347,12 +330,12 @@ public class WebHookLogModel {
     return requestType;
   }
 
-  public void setRequestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
+  public void setRequestType(RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookLogModel createdDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public WebHookLogModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -366,12 +349,12 @@ public class WebHookLogModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WebHookLogModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public WebHookLogModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -385,12 +368,12 @@ public class WebHookLogModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public WebHookLogModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public WebHookLogModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -404,12 +387,12 @@ public class WebHookLogModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WebHookLogModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public WebHookLogModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -423,12 +406,12 @@ public class WebHookLogModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public WebHookLogModel id(@javax.annotation.Nonnull UUID id) {
+  public WebHookLogModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -442,12 +425,12 @@ public class WebHookLogModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WebHookLogModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public WebHookLogModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -461,7 +444,7 @@ public class WebHookLogModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

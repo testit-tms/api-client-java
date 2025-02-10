@@ -54,37 +54,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunTestResultsPartialBulkSetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunTestResultsPartialBulkSetModel {
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
-  @javax.annotation.Nullable
   private TestRunTestResultsSelectModel selector;
 
   public static final String SERIALIZED_NAME_RESULT_REASON_IDS = "resultReasonIds";
   @SerializedName(SERIALIZED_NAME_RESULT_REASON_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> resultReasonIds;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private Set<LinkPostModel> links;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nullable
   private String comment;
 
   public static final String SERIALIZED_NAME_ATTACHMENT_IDS = "attachmentIds";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> attachmentIds;
 
   public TestRunTestResultsPartialBulkSetModel() {
   }
 
-  public TestRunTestResultsPartialBulkSetModel selector(@javax.annotation.Nullable TestRunTestResultsSelectModel selector) {
+  public TestRunTestResultsPartialBulkSetModel selector(TestRunTestResultsSelectModel selector) {
     this.selector = selector;
     return this;
   }
@@ -98,12 +93,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     return selector;
   }
 
-  public void setSelector(@javax.annotation.Nullable TestRunTestResultsSelectModel selector) {
+  public void setSelector(TestRunTestResultsSelectModel selector) {
     this.selector = selector;
   }
 
 
-  public TestRunTestResultsPartialBulkSetModel resultReasonIds(@javax.annotation.Nullable Set<UUID> resultReasonIds) {
+  public TestRunTestResultsPartialBulkSetModel resultReasonIds(Set<UUID> resultReasonIds) {
     this.resultReasonIds = resultReasonIds;
     return this;
   }
@@ -125,12 +120,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     return resultReasonIds;
   }
 
-  public void setResultReasonIds(@javax.annotation.Nullable Set<UUID> resultReasonIds) {
+  public void setResultReasonIds(Set<UUID> resultReasonIds) {
     this.resultReasonIds = resultReasonIds;
   }
 
 
-  public TestRunTestResultsPartialBulkSetModel links(@javax.annotation.Nullable Set<LinkPostModel> links) {
+  public TestRunTestResultsPartialBulkSetModel links(Set<LinkPostModel> links) {
     this.links = links;
     return this;
   }
@@ -152,12 +147,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable Set<LinkPostModel> links) {
+  public void setLinks(Set<LinkPostModel> links) {
     this.links = links;
   }
 
 
-  public TestRunTestResultsPartialBulkSetModel comment(@javax.annotation.Nullable String comment) {
+  public TestRunTestResultsPartialBulkSetModel comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -171,12 +166,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nullable String comment) {
+  public void setComment(String comment) {
     this.comment = comment;
   }
 
 
-  public TestRunTestResultsPartialBulkSetModel attachmentIds(@javax.annotation.Nullable Set<UUID> attachmentIds) {
+  public TestRunTestResultsPartialBulkSetModel attachmentIds(Set<UUID> attachmentIds) {
     this.attachmentIds = attachmentIds;
     return this;
   }
@@ -198,7 +193,7 @@ public class TestRunTestResultsPartialBulkSetModel {
     return attachmentIds;
   }
 
-  public void setAttachmentIds(@javax.annotation.Nullable Set<UUID> attachmentIds) {
+  public void setAttachmentIds(Set<UUID> attachmentIds) {
     this.attachmentIds = attachmentIds;
   }
 

@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * Int32RangeSelectorModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Int32RangeSelectorModel {
   public static final String SERIALIZED_NAME_FROM = "from";
   @SerializedName(SERIALIZED_NAME_FROM)
-  @javax.annotation.Nullable
   private Integer from;
 
   public static final String SERIALIZED_NAME_TO = "to";
   @SerializedName(SERIALIZED_NAME_TO)
-  @javax.annotation.Nullable
   private Integer to;
 
   public Int32RangeSelectorModel() {
   }
 
-  public Int32RangeSelectorModel from(@javax.annotation.Nullable Integer from) {
+  public Int32RangeSelectorModel from(Integer from) {
     this.from = from;
     return this;
   }
@@ -78,12 +76,12 @@ public class Int32RangeSelectorModel {
     return from;
   }
 
-  public void setFrom(@javax.annotation.Nullable Integer from) {
+  public void setFrom(Integer from) {
     this.from = from;
   }
 
 
-  public Int32RangeSelectorModel to(@javax.annotation.Nullable Integer to) {
+  public Int32RangeSelectorModel to(Integer to) {
     this.to = to;
     return this;
   }
@@ -97,7 +95,7 @@ public class Int32RangeSelectorModel {
     return to;
   }
 
-  public void setTo(@javax.annotation.Nullable Integer to) {
+  public void setTo(Integer to) {
     this.to = to;
   }
 

@@ -52,22 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AttachmentChangeViewModelArrayChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AttachmentChangeViewModelArrayChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private List<AttachmentChangeViewModel> oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private List<AttachmentChangeViewModel> newValue;
 
   public AttachmentChangeViewModelArrayChangedFieldViewModel() {
   }
 
-  public AttachmentChangeViewModelArrayChangedFieldViewModel oldValue(@javax.annotation.Nullable List<AttachmentChangeViewModel> oldValue) {
+  public AttachmentChangeViewModelArrayChangedFieldViewModel oldValue(List<AttachmentChangeViewModel> oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -89,12 +87,12 @@ public class AttachmentChangeViewModelArrayChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable List<AttachmentChangeViewModel> oldValue) {
+  public void setOldValue(List<AttachmentChangeViewModel> oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public AttachmentChangeViewModelArrayChangedFieldViewModel newValue(@javax.annotation.Nullable List<AttachmentChangeViewModel> newValue) {
+  public AttachmentChangeViewModelArrayChangedFieldViewModel newValue(List<AttachmentChangeViewModel> newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -116,7 +114,7 @@ public class AttachmentChangeViewModelArrayChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable List<AttachmentChangeViewModel> newValue) {
+  public void setNewValue(List<AttachmentChangeViewModel> newValue) {
     this.newValue = newValue;
   }
 

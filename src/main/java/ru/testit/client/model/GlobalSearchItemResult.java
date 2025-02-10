@@ -50,37 +50,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * GlobalSearchItemResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GlobalSearchItemResult {
   public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resourceType";
   @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
-  @javax.annotation.Nonnull
   private String resourceType;
 
   public static final String SERIALIZED_NAME_RESOURCE_ID = "resourceId";
   @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
-  @javax.annotation.Nonnull
   private UUID resourceId;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nullable
   private Long globalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_GLOBAL_ID = "projectGlobalId";
   @SerializedName(SERIALIZED_NAME_PROJECT_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long projectGlobalId;
 
   public GlobalSearchItemResult() {
   }
 
-  public GlobalSearchItemResult resourceType(@javax.annotation.Nonnull String resourceType) {
+  public GlobalSearchItemResult resourceType(String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -94,12 +89,12 @@ public class GlobalSearchItemResult {
     return resourceType;
   }
 
-  public void setResourceType(@javax.annotation.Nonnull String resourceType) {
+  public void setResourceType(String resourceType) {
     this.resourceType = resourceType;
   }
 
 
-  public GlobalSearchItemResult resourceId(@javax.annotation.Nonnull UUID resourceId) {
+  public GlobalSearchItemResult resourceId(UUID resourceId) {
     this.resourceId = resourceId;
     return this;
   }
@@ -113,12 +108,12 @@ public class GlobalSearchItemResult {
     return resourceId;
   }
 
-  public void setResourceId(@javax.annotation.Nonnull UUID resourceId) {
+  public void setResourceId(UUID resourceId) {
     this.resourceId = resourceId;
   }
 
 
-  public GlobalSearchItemResult globalId(@javax.annotation.Nullable Long globalId) {
+  public GlobalSearchItemResult globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -132,12 +127,12 @@ public class GlobalSearchItemResult {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nullable Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public GlobalSearchItemResult name(@javax.annotation.Nonnull String name) {
+  public GlobalSearchItemResult name(String name) {
     this.name = name;
     return this;
   }
@@ -151,12 +146,12 @@ public class GlobalSearchItemResult {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public GlobalSearchItemResult projectGlobalId(@javax.annotation.Nonnull Long projectGlobalId) {
+  public GlobalSearchItemResult projectGlobalId(Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
     return this;
   }
@@ -170,7 +165,7 @@ public class GlobalSearchItemResult {
     return projectGlobalId;
   }
 
-  public void setProjectGlobalId(@javax.annotation.Nonnull Long projectGlobalId) {
+  public void setProjectGlobalId(Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
   }
 

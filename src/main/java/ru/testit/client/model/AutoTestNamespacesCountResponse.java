@@ -51,17 +51,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestNamespacesCountResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestNamespacesCountResponse {
   public static final String SERIALIZED_NAME_NAMESPACES = "namespaces";
   @SerializedName(SERIALIZED_NAME_NAMESPACES)
-  @javax.annotation.Nonnull
   private List<AutoTestNamespaceCountApiModel> namespaces = new ArrayList<>();
 
   public AutoTestNamespacesCountResponse() {
   }
 
-  public AutoTestNamespacesCountResponse namespaces(@javax.annotation.Nonnull List<AutoTestNamespaceCountApiModel> namespaces) {
+  public AutoTestNamespacesCountResponse namespaces(List<AutoTestNamespaceCountApiModel> namespaces) {
     this.namespaces = namespaces;
     return this;
   }
@@ -83,7 +82,7 @@ public class AutoTestNamespacesCountResponse {
     return namespaces;
   }
 
-  public void setNamespaces(@javax.annotation.Nonnull List<AutoTestNamespaceCountApiModel> namespaces) {
+  public void setNamespaces(List<AutoTestNamespaceCountApiModel> namespaces) {
     this.namespaces = namespaces;
   }
 

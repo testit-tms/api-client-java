@@ -51,32 +51,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemVersionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemVersionModel {
   public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
   @SerializedName(SERIALIZED_NAME_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID versionId;
 
   public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
   @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
-  @javax.annotation.Nonnull
   private Integer versionNumber;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public WorkItemVersionModel() {
   }
 
-  public WorkItemVersionModel versionId(@javax.annotation.Nonnull UUID versionId) {
+  public WorkItemVersionModel versionId(UUID versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -90,12 +86,12 @@ public class WorkItemVersionModel {
     return versionId;
   }
 
-  public void setVersionId(@javax.annotation.Nonnull UUID versionId) {
+  public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public WorkItemVersionModel versionNumber(@javax.annotation.Nonnull Integer versionNumber) {
+  public WorkItemVersionModel versionNumber(Integer versionNumber) {
     this.versionNumber = versionNumber;
     return this;
   }
@@ -109,12 +105,12 @@ public class WorkItemVersionModel {
     return versionNumber;
   }
 
-  public void setVersionNumber(@javax.annotation.Nonnull Integer versionNumber) {
+  public void setVersionNumber(Integer versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
-  public WorkItemVersionModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public WorkItemVersionModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -128,12 +124,12 @@ public class WorkItemVersionModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public WorkItemVersionModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public WorkItemVersionModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -147,7 +143,7 @@ public class WorkItemVersionModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 

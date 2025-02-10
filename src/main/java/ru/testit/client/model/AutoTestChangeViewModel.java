@@ -49,32 +49,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestChangeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestChangeViewModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public AutoTestChangeViewModel() {
   }
 
-  public AutoTestChangeViewModel id(@javax.annotation.Nonnull UUID id) {
+  public AutoTestChangeViewModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -88,12 +84,12 @@ public class AutoTestChangeViewModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestChangeViewModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public AutoTestChangeViewModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -107,12 +103,12 @@ public class AutoTestChangeViewModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestChangeViewModel externalId(@javax.annotation.Nonnull String externalId) {
+  public AutoTestChangeViewModel externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -126,12 +122,12 @@ public class AutoTestChangeViewModel {
     return externalId;
   }
 
-  public void setExternalId(@javax.annotation.Nonnull String externalId) {
+  public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestChangeViewModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public AutoTestChangeViewModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -145,7 +141,7 @@ public class AutoTestChangeViewModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 

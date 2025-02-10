@@ -52,22 +52,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * GetExternalFormApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetExternalFormApiResult {
   public static final String SERIALIZED_NAME_TEST_RESULT_IDS = "testResultIds";
   @SerializedName(SERIALIZED_NAME_TEST_RESULT_IDS)
-  @javax.annotation.Nonnull
   private List<UUID> testResultIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_FORM = "form";
   @SerializedName(SERIALIZED_NAME_FORM)
-  @javax.annotation.Nonnull
   private ExternalFormModel form;
 
   public GetExternalFormApiResult() {
   }
 
-  public GetExternalFormApiResult testResultIds(@javax.annotation.Nonnull List<UUID> testResultIds) {
+  public GetExternalFormApiResult testResultIds(List<UUID> testResultIds) {
     this.testResultIds = testResultIds;
     return this;
   }
@@ -89,12 +87,12 @@ public class GetExternalFormApiResult {
     return testResultIds;
   }
 
-  public void setTestResultIds(@javax.annotation.Nonnull List<UUID> testResultIds) {
+  public void setTestResultIds(List<UUID> testResultIds) {
     this.testResultIds = testResultIds;
   }
 
 
-  public GetExternalFormApiResult form(@javax.annotation.Nonnull ExternalFormModel form) {
+  public GetExternalFormApiResult form(ExternalFormModel form) {
     this.form = form;
     return this;
   }
@@ -108,7 +106,7 @@ public class GetExternalFormApiResult {
     return form;
   }
 
-  public void setForm(@javax.annotation.Nonnull ExternalFormModel form) {
+  public void setForm(ExternalFormModel form) {
     this.form = form;
   }
 

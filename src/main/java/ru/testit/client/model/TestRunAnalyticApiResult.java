@@ -53,27 +53,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunAnalyticApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunAnalyticApiResult {
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS)
-  @javax.annotation.Nonnull
   private List<TestRunGroupByStatusApiResult> countGroupByStatus = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS_TYPE = "countGroupByStatusType";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS_TYPE)
-  @javax.annotation.Nonnull
   private List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_FAILURE_CLASS = "countGroupByFailureClass";
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_FAILURE_CLASS)
-  @javax.annotation.Nonnull
   private List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass = new ArrayList<>();
 
   public TestRunAnalyticApiResult() {
   }
 
-  public TestRunAnalyticApiResult countGroupByStatus(@javax.annotation.Nonnull List<TestRunGroupByStatusApiResult> countGroupByStatus) {
+  public TestRunAnalyticApiResult countGroupByStatus(List<TestRunGroupByStatusApiResult> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
     return this;
   }
@@ -95,12 +92,12 @@ public class TestRunAnalyticApiResult {
     return countGroupByStatus;
   }
 
-  public void setCountGroupByStatus(@javax.annotation.Nonnull List<TestRunGroupByStatusApiResult> countGroupByStatus) {
+  public void setCountGroupByStatus(List<TestRunGroupByStatusApiResult> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
   }
 
 
-  public TestRunAnalyticApiResult countGroupByStatusType(@javax.annotation.Nonnull List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType) {
+  public TestRunAnalyticApiResult countGroupByStatusType(List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType) {
     this.countGroupByStatusType = countGroupByStatusType;
     return this;
   }
@@ -122,12 +119,12 @@ public class TestRunAnalyticApiResult {
     return countGroupByStatusType;
   }
 
-  public void setCountGroupByStatusType(@javax.annotation.Nonnull List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType) {
+  public void setCountGroupByStatusType(List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType) {
     this.countGroupByStatusType = countGroupByStatusType;
   }
 
 
-  public TestRunAnalyticApiResult countGroupByFailureClass(@javax.annotation.Nonnull List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass) {
+  public TestRunAnalyticApiResult countGroupByFailureClass(List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass) {
     this.countGroupByFailureClass = countGroupByFailureClass;
     return this;
   }
@@ -149,7 +146,7 @@ public class TestRunAnalyticApiResult {
     return countGroupByFailureClass;
   }
 
-  public void setCountGroupByFailureClass(@javax.annotation.Nonnull List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass) {
+  public void setCountGroupByFailureClass(List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass) {
     this.countGroupByFailureClass = countGroupByFailureClass;
   }
 

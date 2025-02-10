@@ -51,37 +51,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
   @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
-  @javax.annotation.Nullable
   private Boolean isFavorite;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private ProjectTypeModel type;
 
   public ProjectPutModel() {
   }
 
-  public ProjectPutModel id(@javax.annotation.Nonnull UUID id) {
+  public ProjectPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -95,12 +90,12 @@ public class ProjectPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public ProjectPutModel description(@javax.annotation.Nullable String description) {
+  public ProjectPutModel description(String description) {
     this.description = description;
     return this;
   }
@@ -114,12 +109,12 @@ public class ProjectPutModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public ProjectPutModel name(@javax.annotation.Nonnull String name) {
+  public ProjectPutModel name(String name) {
     this.name = name;
     return this;
   }
@@ -133,12 +128,12 @@ public class ProjectPutModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectPutModel isFavorite(@javax.annotation.Nullable Boolean isFavorite) {
+  public ProjectPutModel isFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
@@ -152,12 +147,12 @@ public class ProjectPutModel {
     return isFavorite;
   }
 
-  public void setIsFavorite(@javax.annotation.Nullable Boolean isFavorite) {
+  public void setIsFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 
 
-  public ProjectPutModel type(@javax.annotation.Nonnull ProjectTypeModel type) {
+  public ProjectPutModel type(ProjectTypeModel type) {
     this.type = type;
     return this;
   }
@@ -171,7 +166,7 @@ public class ProjectPutModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull ProjectTypeModel type) {
+  public void setType(ProjectTypeModel type) {
     this.type = type;
   }
 

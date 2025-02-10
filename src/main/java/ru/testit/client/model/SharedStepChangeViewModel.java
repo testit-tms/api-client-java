@@ -52,32 +52,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * SharedStepChangeViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SharedStepChangeViewModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nonnull
   private List<WorkItemStepChangeViewModel> steps = new ArrayList<>();
 
   public SharedStepChangeViewModel() {
   }
 
-  public SharedStepChangeViewModel id(@javax.annotation.Nonnull UUID id) {
+  public SharedStepChangeViewModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -91,12 +87,12 @@ public class SharedStepChangeViewModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public SharedStepChangeViewModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public SharedStepChangeViewModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -110,12 +106,12 @@ public class SharedStepChangeViewModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public SharedStepChangeViewModel name(@javax.annotation.Nonnull String name) {
+  public SharedStepChangeViewModel name(String name) {
     this.name = name;
     return this;
   }
@@ -129,12 +125,12 @@ public class SharedStepChangeViewModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public SharedStepChangeViewModel steps(@javax.annotation.Nonnull List<WorkItemStepChangeViewModel> steps) {
+  public SharedStepChangeViewModel steps(List<WorkItemStepChangeViewModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -156,7 +152,7 @@ public class SharedStepChangeViewModel {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nonnull List<WorkItemStepChangeViewModel> steps) {
+  public void setSteps(List<WorkItemStepChangeViewModel> steps) {
     this.steps = steps;
   }
 

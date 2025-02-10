@@ -51,47 +51,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemLikeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemLikeModel {
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nonnull
   private UUID workItemId;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public WorkItemLikeModel() {
   }
 
-  public WorkItemLikeModel workItemId(@javax.annotation.Nonnull UUID workItemId) {
+  public WorkItemLikeModel workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -105,12 +98,12 @@ public class WorkItemLikeModel {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nonnull UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public WorkItemLikeModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public WorkItemLikeModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -124,12 +117,12 @@ public class WorkItemLikeModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WorkItemLikeModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public WorkItemLikeModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -143,12 +136,12 @@ public class WorkItemLikeModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public WorkItemLikeModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public WorkItemLikeModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -162,12 +155,12 @@ public class WorkItemLikeModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkItemLikeModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public WorkItemLikeModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -181,12 +174,12 @@ public class WorkItemLikeModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public WorkItemLikeModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemLikeModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -200,12 +193,12 @@ public class WorkItemLikeModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemLikeModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public WorkItemLikeModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -219,7 +212,7 @@ public class WorkItemLikeModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

@@ -48,17 +48,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebhookBulkUpdateApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhookBulkUpdateApiModel {
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean isEnabled;
 
   public WebhookBulkUpdateApiModel() {
   }
 
-  public WebhookBulkUpdateApiModel isEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public WebhookBulkUpdateApiModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -72,7 +71,7 @@ public class WebhookBulkUpdateApiModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 

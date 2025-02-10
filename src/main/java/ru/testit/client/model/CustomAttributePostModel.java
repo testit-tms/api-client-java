@@ -53,42 +53,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributePostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributePostModel {
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  @javax.annotation.Nullable
   private List<CustomAttributeOptionPostModel> options;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private CustomAttributeTypesEnum type;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  @javax.annotation.Nonnull
   private Boolean isRequired;
 
   public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
   @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
-  @javax.annotation.Nonnull
   private Boolean isGlobal;
 
   public CustomAttributePostModel() {
   }
 
-  public CustomAttributePostModel options(@javax.annotation.Nullable List<CustomAttributeOptionPostModel> options) {
+  public CustomAttributePostModel options(List<CustomAttributeOptionPostModel> options) {
     this.options = options;
     return this;
   }
@@ -110,12 +104,12 @@ public class CustomAttributePostModel {
     return options;
   }
 
-  public void setOptions(@javax.annotation.Nullable List<CustomAttributeOptionPostModel> options) {
+  public void setOptions(List<CustomAttributeOptionPostModel> options) {
     this.options = options;
   }
 
 
-  public CustomAttributePostModel type(@javax.annotation.Nonnull CustomAttributeTypesEnum type) {
+  public CustomAttributePostModel type(CustomAttributeTypesEnum type) {
     this.type = type;
     return this;
   }
@@ -129,12 +123,12 @@ public class CustomAttributePostModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull CustomAttributeTypesEnum type) {
+  public void setType(CustomAttributeTypesEnum type) {
     this.type = type;
   }
 
 
-  public CustomAttributePostModel name(@javax.annotation.Nonnull String name) {
+  public CustomAttributePostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -148,12 +142,12 @@ public class CustomAttributePostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public CustomAttributePostModel isEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public CustomAttributePostModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -167,12 +161,12 @@ public class CustomAttributePostModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public CustomAttributePostModel isRequired(@javax.annotation.Nonnull Boolean isRequired) {
+  public CustomAttributePostModel isRequired(Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -186,12 +180,12 @@ public class CustomAttributePostModel {
     return isRequired;
   }
 
-  public void setIsRequired(@javax.annotation.Nonnull Boolean isRequired) {
+  public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public CustomAttributePostModel isGlobal(@javax.annotation.Nonnull Boolean isGlobal) {
+  public CustomAttributePostModel isGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
     return this;
   }
@@ -205,7 +199,7 @@ public class CustomAttributePostModel {
     return isGlobal;
   }
 
-  public void setIsGlobal(@javax.annotation.Nonnull Boolean isGlobal) {
+  public void setIsGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 

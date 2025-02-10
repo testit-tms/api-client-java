@@ -63,97 +63,80 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemPostModel {
   public static final String SERIALIZED_NAME_ENTITY_TYPE_NAME = "entityTypeName";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE_NAME)
-  @javax.annotation.Nonnull
   private WorkItemEntityTypes entityTypeName;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nonnull
   private WorkItemStates state;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  @javax.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPostModel> steps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPostModel> preconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  @javax.annotation.Nonnull
   private List<StepPostModel> postconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nonnull
   private Integer duration;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nonnull
   private List<TagPostModel> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentPutModel> attachments;
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  @javax.annotation.Nullable
   private List<IterationPutModel> iterations;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nonnull
   private List<LinkPostModel> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
   @SerializedName(SERIALIZED_NAME_SECTION_ID)
-  @javax.annotation.Nonnull
   private UUID sectionId;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  @javax.annotation.Nullable
   private List<AutoTestIdModel> autoTests;
 
   public WorkItemPostModel() {
   }
 
-  public WorkItemPostModel entityTypeName(@javax.annotation.Nonnull WorkItemEntityTypes entityTypeName) {
+  public WorkItemPostModel entityTypeName(WorkItemEntityTypes entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -167,12 +150,12 @@ public class WorkItemPostModel {
     return entityTypeName;
   }
 
-  public void setEntityTypeName(@javax.annotation.Nonnull WorkItemEntityTypes entityTypeName) {
+  public void setEntityTypeName(WorkItemEntityTypes entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
-  public WorkItemPostModel description(@javax.annotation.Nullable String description) {
+  public WorkItemPostModel description(String description) {
     this.description = description;
     return this;
   }
@@ -186,12 +169,12 @@ public class WorkItemPostModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public WorkItemPostModel state(@javax.annotation.Nonnull WorkItemStates state) {
+  public WorkItemPostModel state(WorkItemStates state) {
     this.state = state;
     return this;
   }
@@ -205,12 +188,12 @@ public class WorkItemPostModel {
     return state;
   }
 
-  public void setState(@javax.annotation.Nonnull WorkItemStates state) {
+  public void setState(WorkItemStates state) {
     this.state = state;
   }
 
 
-  public WorkItemPostModel priority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public WorkItemPostModel priority(WorkItemPriorityModel priority) {
     this.priority = priority;
     return this;
   }
@@ -224,12 +207,12 @@ public class WorkItemPostModel {
     return priority;
   }
 
-  public void setPriority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public WorkItemPostModel steps(@javax.annotation.Nonnull List<StepPostModel> steps) {
+  public WorkItemPostModel steps(List<StepPostModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -251,12 +234,12 @@ public class WorkItemPostModel {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nonnull List<StepPostModel> steps) {
+  public void setSteps(List<StepPostModel> steps) {
     this.steps = steps;
   }
 
 
-  public WorkItemPostModel preconditionSteps(@javax.annotation.Nonnull List<StepPostModel> preconditionSteps) {
+  public WorkItemPostModel preconditionSteps(List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -278,12 +261,12 @@ public class WorkItemPostModel {
     return preconditionSteps;
   }
 
-  public void setPreconditionSteps(@javax.annotation.Nonnull List<StepPostModel> preconditionSteps) {
+  public void setPreconditionSteps(List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public WorkItemPostModel postconditionSteps(@javax.annotation.Nonnull List<StepPostModel> postconditionSteps) {
+  public WorkItemPostModel postconditionSteps(List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -305,12 +288,12 @@ public class WorkItemPostModel {
     return postconditionSteps;
   }
 
-  public void setPostconditionSteps(@javax.annotation.Nonnull List<StepPostModel> postconditionSteps) {
+  public void setPostconditionSteps(List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public WorkItemPostModel duration(@javax.annotation.Nonnull Integer duration) {
+  public WorkItemPostModel duration(Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -326,12 +309,12 @@ public class WorkItemPostModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nonnull Integer duration) {
+  public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemPostModel attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public WorkItemPostModel attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -353,12 +336,12 @@ public class WorkItemPostModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public WorkItemPostModel tags(@javax.annotation.Nonnull List<TagPostModel> tags) {
+  public WorkItemPostModel tags(List<TagPostModel> tags) {
     this.tags = tags;
     return this;
   }
@@ -380,12 +363,12 @@ public class WorkItemPostModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nonnull List<TagPostModel> tags) {
+  public void setTags(List<TagPostModel> tags) {
     this.tags = tags;
   }
 
 
-  public WorkItemPostModel attachments(@javax.annotation.Nullable List<AttachmentPutModel> attachments) {
+  public WorkItemPostModel attachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -407,12 +390,12 @@ public class WorkItemPostModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentPutModel> attachments) {
+  public void setAttachments(List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public WorkItemPostModel iterations(@javax.annotation.Nullable List<IterationPutModel> iterations) {
+  public WorkItemPostModel iterations(List<IterationPutModel> iterations) {
     this.iterations = iterations;
     return this;
   }
@@ -434,12 +417,12 @@ public class WorkItemPostModel {
     return iterations;
   }
 
-  public void setIterations(@javax.annotation.Nullable List<IterationPutModel> iterations) {
+  public void setIterations(List<IterationPutModel> iterations) {
     this.iterations = iterations;
   }
 
 
-  public WorkItemPostModel links(@javax.annotation.Nonnull List<LinkPostModel> links) {
+  public WorkItemPostModel links(List<LinkPostModel> links) {
     this.links = links;
     return this;
   }
@@ -461,12 +444,12 @@ public class WorkItemPostModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nonnull List<LinkPostModel> links) {
+  public void setLinks(List<LinkPostModel> links) {
     this.links = links;
   }
 
 
-  public WorkItemPostModel name(@javax.annotation.Nonnull String name) {
+  public WorkItemPostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -480,12 +463,12 @@ public class WorkItemPostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public WorkItemPostModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public WorkItemPostModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -499,12 +482,12 @@ public class WorkItemPostModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WorkItemPostModel sectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public WorkItemPostModel sectionId(UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -518,12 +501,12 @@ public class WorkItemPostModel {
     return sectionId;
   }
 
-  public void setSectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public WorkItemPostModel autoTests(@javax.annotation.Nullable List<AutoTestIdModel> autoTests) {
+  public WorkItemPostModel autoTests(List<AutoTestIdModel> autoTests) {
     this.autoTests = autoTests;
     return this;
   }
@@ -545,7 +528,7 @@ public class WorkItemPostModel {
     return autoTests;
   }
 
-  public void setAutoTests(@javax.annotation.Nullable List<AutoTestIdModel> autoTests) {
+  public void setAutoTests(List<AutoTestIdModel> autoTests) {
     this.autoTests = autoTests;
   }
 

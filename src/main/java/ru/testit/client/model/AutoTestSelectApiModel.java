@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestSelectApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestSelectApiModel {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nullable
   private AutoTestFilterApiModel filter;
 
   public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
   @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  @javax.annotation.Nullable
   private AutoTestExtractionApiModel extractionModel;
 
   public AutoTestSelectApiModel() {
   }
 
-  public AutoTestSelectApiModel filter(@javax.annotation.Nullable AutoTestFilterApiModel filter) {
+  public AutoTestSelectApiModel filter(AutoTestFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -80,12 +78,12 @@ public class AutoTestSelectApiModel {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nullable AutoTestFilterApiModel filter) {
+  public void setFilter(AutoTestFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public AutoTestSelectApiModel extractionModel(@javax.annotation.Nullable AutoTestExtractionApiModel extractionModel) {
+  public AutoTestSelectApiModel extractionModel(AutoTestExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -99,7 +97,7 @@ public class AutoTestSelectApiModel {
     return extractionModel;
   }
 
-  public void setExtractionModel(@javax.annotation.Nullable AutoTestExtractionApiModel extractionModel) {
+  public void setExtractionModel(AutoTestExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

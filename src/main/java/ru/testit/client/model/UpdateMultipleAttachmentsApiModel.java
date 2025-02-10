@@ -53,22 +53,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * UpdateMultipleAttachmentsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateMultipleAttachmentsApiModel {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  @javax.annotation.Nonnull
   private ActionUpdate action;
 
   public static final String SERIALIZED_NAME_ATTACHMENT_IDS = "attachmentIds";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_IDS)
-  @javax.annotation.Nullable
   private List<UUID> attachmentIds;
 
   public UpdateMultipleAttachmentsApiModel() {
   }
 
-  public UpdateMultipleAttachmentsApiModel action(@javax.annotation.Nonnull ActionUpdate action) {
+  public UpdateMultipleAttachmentsApiModel action(ActionUpdate action) {
     this.action = action;
     return this;
   }
@@ -82,12 +80,12 @@ public class UpdateMultipleAttachmentsApiModel {
     return action;
   }
 
-  public void setAction(@javax.annotation.Nonnull ActionUpdate action) {
+  public void setAction(ActionUpdate action) {
     this.action = action;
   }
 
 
-  public UpdateMultipleAttachmentsApiModel attachmentIds(@javax.annotation.Nullable List<UUID> attachmentIds) {
+  public UpdateMultipleAttachmentsApiModel attachmentIds(List<UUID> attachmentIds) {
     this.attachmentIds = attachmentIds;
     return this;
   }
@@ -109,7 +107,7 @@ public class UpdateMultipleAttachmentsApiModel {
     return attachmentIds;
   }
 
-  public void setAttachmentIds(@javax.annotation.Nullable List<UUID> attachmentIds) {
+  public void setAttachmentIds(List<UUID> attachmentIds) {
     this.attachmentIds = attachmentIds;
   }
 

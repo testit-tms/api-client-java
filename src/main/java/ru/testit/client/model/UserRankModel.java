@@ -48,47 +48,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * UserRankModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UserRankModel {
   public static final String SERIALIZED_NAME_SCORE = "score";
   @SerializedName(SERIALIZED_NAME_SCORE)
-  @javax.annotation.Nonnull
   private Integer score;
 
   public static final String SERIALIZED_NAME_WORK_ITEMS_CREATED = "workItemsCreated";
   @SerializedName(SERIALIZED_NAME_WORK_ITEMS_CREATED)
-  @javax.annotation.Nonnull
   private Integer workItemsCreated;
 
   public static final String SERIALIZED_NAME_PASSED_TEST_POINTS = "passedTestPoints";
   @SerializedName(SERIALIZED_NAME_PASSED_TEST_POINTS)
-  @javax.annotation.Nonnull
   private Integer passedTestPoints;
 
   public static final String SERIALIZED_NAME_FAILED_TEST_POINTS = "failedTestPoints";
   @SerializedName(SERIALIZED_NAME_FAILED_TEST_POINTS)
-  @javax.annotation.Nonnull
   private Integer failedTestPoints;
 
   public static final String SERIALIZED_NAME_SKIPPED_TEST_POINTS = "skippedTestPoints";
   @SerializedName(SERIALIZED_NAME_SKIPPED_TEST_POINTS)
-  @javax.annotation.Nonnull
   private Integer skippedTestPoints;
 
   public static final String SERIALIZED_NAME_BLOCKED_TEST_POINTS = "blockedTestPoints";
   @SerializedName(SERIALIZED_NAME_BLOCKED_TEST_POINTS)
-  @javax.annotation.Nonnull
   private Integer blockedTestPoints;
 
   public static final String SERIALIZED_NAME_LEVEL_AVATAR_ENABLED = "levelAvatarEnabled";
   @SerializedName(SERIALIZED_NAME_LEVEL_AVATAR_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean levelAvatarEnabled;
 
   public UserRankModel() {
   }
 
-  public UserRankModel score(@javax.annotation.Nonnull Integer score) {
+  public UserRankModel score(Integer score) {
     this.score = score;
     return this;
   }
@@ -102,12 +95,12 @@ public class UserRankModel {
     return score;
   }
 
-  public void setScore(@javax.annotation.Nonnull Integer score) {
+  public void setScore(Integer score) {
     this.score = score;
   }
 
 
-  public UserRankModel workItemsCreated(@javax.annotation.Nonnull Integer workItemsCreated) {
+  public UserRankModel workItemsCreated(Integer workItemsCreated) {
     this.workItemsCreated = workItemsCreated;
     return this;
   }
@@ -121,12 +114,12 @@ public class UserRankModel {
     return workItemsCreated;
   }
 
-  public void setWorkItemsCreated(@javax.annotation.Nonnull Integer workItemsCreated) {
+  public void setWorkItemsCreated(Integer workItemsCreated) {
     this.workItemsCreated = workItemsCreated;
   }
 
 
-  public UserRankModel passedTestPoints(@javax.annotation.Nonnull Integer passedTestPoints) {
+  public UserRankModel passedTestPoints(Integer passedTestPoints) {
     this.passedTestPoints = passedTestPoints;
     return this;
   }
@@ -140,12 +133,12 @@ public class UserRankModel {
     return passedTestPoints;
   }
 
-  public void setPassedTestPoints(@javax.annotation.Nonnull Integer passedTestPoints) {
+  public void setPassedTestPoints(Integer passedTestPoints) {
     this.passedTestPoints = passedTestPoints;
   }
 
 
-  public UserRankModel failedTestPoints(@javax.annotation.Nonnull Integer failedTestPoints) {
+  public UserRankModel failedTestPoints(Integer failedTestPoints) {
     this.failedTestPoints = failedTestPoints;
     return this;
   }
@@ -159,12 +152,12 @@ public class UserRankModel {
     return failedTestPoints;
   }
 
-  public void setFailedTestPoints(@javax.annotation.Nonnull Integer failedTestPoints) {
+  public void setFailedTestPoints(Integer failedTestPoints) {
     this.failedTestPoints = failedTestPoints;
   }
 
 
-  public UserRankModel skippedTestPoints(@javax.annotation.Nonnull Integer skippedTestPoints) {
+  public UserRankModel skippedTestPoints(Integer skippedTestPoints) {
     this.skippedTestPoints = skippedTestPoints;
     return this;
   }
@@ -178,12 +171,12 @@ public class UserRankModel {
     return skippedTestPoints;
   }
 
-  public void setSkippedTestPoints(@javax.annotation.Nonnull Integer skippedTestPoints) {
+  public void setSkippedTestPoints(Integer skippedTestPoints) {
     this.skippedTestPoints = skippedTestPoints;
   }
 
 
-  public UserRankModel blockedTestPoints(@javax.annotation.Nonnull Integer blockedTestPoints) {
+  public UserRankModel blockedTestPoints(Integer blockedTestPoints) {
     this.blockedTestPoints = blockedTestPoints;
     return this;
   }
@@ -197,12 +190,12 @@ public class UserRankModel {
     return blockedTestPoints;
   }
 
-  public void setBlockedTestPoints(@javax.annotation.Nonnull Integer blockedTestPoints) {
+  public void setBlockedTestPoints(Integer blockedTestPoints) {
     this.blockedTestPoints = blockedTestPoints;
   }
 
 
-  public UserRankModel levelAvatarEnabled(@javax.annotation.Nonnull Boolean levelAvatarEnabled) {
+  public UserRankModel levelAvatarEnabled(Boolean levelAvatarEnabled) {
     this.levelAvatarEnabled = levelAvatarEnabled;
     return this;
   }
@@ -216,7 +209,7 @@ public class UserRankModel {
     return levelAvatarEnabled;
   }
 
-  public void setLevelAvatarEnabled(@javax.annotation.Nonnull Boolean levelAvatarEnabled) {
+  public void setLevelAvatarEnabled(Boolean levelAvatarEnabled) {
     this.levelAvatarEnabled = levelAvatarEnabled;
   }
 

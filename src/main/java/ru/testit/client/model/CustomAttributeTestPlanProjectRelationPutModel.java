@@ -49,27 +49,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeTestPlanProjectRelationPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeTestPlanProjectRelationPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
   @SerializedName(SERIALIZED_NAME_IS_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
   @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  @javax.annotation.Nonnull
   private Boolean isRequired;
 
   public CustomAttributeTestPlanProjectRelationPutModel() {
   }
 
-  public CustomAttributeTestPlanProjectRelationPutModel id(@javax.annotation.Nonnull UUID id) {
+  public CustomAttributeTestPlanProjectRelationPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -83,12 +80,12 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributeTestPlanProjectRelationPutModel isEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public CustomAttributeTestPlanProjectRelationPutModel isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -102,12 +99,12 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
     return isEnabled;
   }
 
-  public void setIsEnabled(@javax.annotation.Nonnull Boolean isEnabled) {
+  public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public CustomAttributeTestPlanProjectRelationPutModel isRequired(@javax.annotation.Nonnull Boolean isRequired) {
+  public CustomAttributeTestPlanProjectRelationPutModel isRequired(Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -121,7 +118,7 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
     return isRequired;
   }
 
-  public void setIsRequired(@javax.annotation.Nonnull Boolean isRequired) {
+  public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
 

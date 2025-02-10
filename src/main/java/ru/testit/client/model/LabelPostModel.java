@@ -48,17 +48,16 @@ import ru.testit.client.invoker.JSON;
 /**
  * LabelPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LabelPostModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public LabelPostModel() {
   }
 
-  public LabelPostModel name(@javax.annotation.Nonnull String name) {
+  public LabelPostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -72,7 +71,7 @@ public class LabelPostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

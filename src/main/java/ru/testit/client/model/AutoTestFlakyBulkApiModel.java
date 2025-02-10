@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestFlakyBulkApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestFlakyBulkApiModel {
   public static final String SERIALIZED_NAME_AUTO_TEST_SELECT = "autoTestSelect";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_SELECT)
-  @javax.annotation.Nonnull
   private AutoTestSelectApiModel autoTestSelect;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
   private Boolean value;
 
   public AutoTestFlakyBulkApiModel() {
   }
 
-  public AutoTestFlakyBulkApiModel autoTestSelect(@javax.annotation.Nonnull AutoTestSelectApiModel autoTestSelect) {
+  public AutoTestFlakyBulkApiModel autoTestSelect(AutoTestSelectApiModel autoTestSelect) {
     this.autoTestSelect = autoTestSelect;
     return this;
   }
@@ -78,12 +76,12 @@ public class AutoTestFlakyBulkApiModel {
     return autoTestSelect;
   }
 
-  public void setAutoTestSelect(@javax.annotation.Nonnull AutoTestSelectApiModel autoTestSelect) {
+  public void setAutoTestSelect(AutoTestSelectApiModel autoTestSelect) {
     this.autoTestSelect = autoTestSelect;
   }
 
 
-  public AutoTestFlakyBulkApiModel value(@javax.annotation.Nonnull Boolean value) {
+  public AutoTestFlakyBulkApiModel value(Boolean value) {
     this.value = value;
     return this;
   }
@@ -97,7 +95,7 @@ public class AutoTestFlakyBulkApiModel {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Boolean value) {
+  public void setValue(Boolean value) {
     this.value = value;
   }
 

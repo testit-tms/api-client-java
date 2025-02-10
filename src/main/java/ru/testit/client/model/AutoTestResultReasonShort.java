@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestResultReasonShort
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestResultReasonShort {
   public static final String SERIALIZED_NAME_FAILURE_CATEGORY = "failureCategory";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORY)
-  @javax.annotation.Nonnull
   private FailureCategoryModel failureCategory;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public AutoTestResultReasonShort() {
   }
 
-  public AutoTestResultReasonShort failureCategory(@javax.annotation.Nonnull FailureCategoryModel failureCategory) {
+  public AutoTestResultReasonShort failureCategory(FailureCategoryModel failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -78,12 +76,12 @@ public class AutoTestResultReasonShort {
     return failureCategory;
   }
 
-  public void setFailureCategory(@javax.annotation.Nonnull FailureCategoryModel failureCategory) {
+  public void setFailureCategory(FailureCategoryModel failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public AutoTestResultReasonShort name(@javax.annotation.Nonnull String name) {
+  public AutoTestResultReasonShort name(String name) {
     this.name = name;
     return this;
   }
@@ -97,7 +95,7 @@ public class AutoTestResultReasonShort {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

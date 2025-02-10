@@ -49,27 +49,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * ProjectPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectPostModel {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
   @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
-  @javax.annotation.Nullable
   private Boolean isFavorite;
 
   public ProjectPostModel() {
   }
 
-  public ProjectPostModel description(@javax.annotation.Nullable String description) {
+  public ProjectPostModel description(String description) {
     this.description = description;
     return this;
   }
@@ -83,12 +80,12 @@ public class ProjectPostModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public ProjectPostModel name(@javax.annotation.Nonnull String name) {
+  public ProjectPostModel name(String name) {
     this.name = name;
     return this;
   }
@@ -102,12 +99,12 @@ public class ProjectPostModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public ProjectPostModel isFavorite(@javax.annotation.Nullable Boolean isFavorite) {
+  public ProjectPostModel isFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
@@ -121,7 +118,7 @@ public class ProjectPostModel {
     return isFavorite;
   }
 
-  public void setIsFavorite(@javax.annotation.Nullable Boolean isFavorite) {
+  public void setIsFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 

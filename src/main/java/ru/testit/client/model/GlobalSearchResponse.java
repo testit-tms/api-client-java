@@ -51,27 +51,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * GlobalSearchResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GlobalSearchResponse {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  @javax.annotation.Nonnull
   private List<GlobalSearchItemResult> results = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MORE_RESULTS_AVAILABLE = "moreResultsAvailable";
   @SerializedName(SERIALIZED_NAME_MORE_RESULTS_AVAILABLE)
-  @javax.annotation.Nonnull
   private Boolean moreResultsAvailable;
 
   public static final String SERIALIZED_NAME_AVAILABLE_RESOURCE_TYPES = "availableResourceTypes";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_RESOURCE_TYPES)
-  @javax.annotation.Nonnull
   private List<String> availableResourceTypes = new ArrayList<>();
 
   public GlobalSearchResponse() {
   }
 
-  public GlobalSearchResponse results(@javax.annotation.Nonnull List<GlobalSearchItemResult> results) {
+  public GlobalSearchResponse results(List<GlobalSearchItemResult> results) {
     this.results = results;
     return this;
   }
@@ -93,12 +90,12 @@ public class GlobalSearchResponse {
     return results;
   }
 
-  public void setResults(@javax.annotation.Nonnull List<GlobalSearchItemResult> results) {
+  public void setResults(List<GlobalSearchItemResult> results) {
     this.results = results;
   }
 
 
-  public GlobalSearchResponse moreResultsAvailable(@javax.annotation.Nonnull Boolean moreResultsAvailable) {
+  public GlobalSearchResponse moreResultsAvailable(Boolean moreResultsAvailable) {
     this.moreResultsAvailable = moreResultsAvailable;
     return this;
   }
@@ -112,12 +109,12 @@ public class GlobalSearchResponse {
     return moreResultsAvailable;
   }
 
-  public void setMoreResultsAvailable(@javax.annotation.Nonnull Boolean moreResultsAvailable) {
+  public void setMoreResultsAvailable(Boolean moreResultsAvailable) {
     this.moreResultsAvailable = moreResultsAvailable;
   }
 
 
-  public GlobalSearchResponse availableResourceTypes(@javax.annotation.Nonnull List<String> availableResourceTypes) {
+  public GlobalSearchResponse availableResourceTypes(List<String> availableResourceTypes) {
     this.availableResourceTypes = availableResourceTypes;
     return this;
   }
@@ -139,7 +136,7 @@ public class GlobalSearchResponse {
     return availableResourceTypes;
   }
 
-  public void setAvailableResourceTypes(@javax.annotation.Nonnull List<String> availableResourceTypes) {
+  public void setAvailableResourceTypes(List<String> availableResourceTypes) {
     this.availableResourceTypes = availableResourceTypes;
   }
 

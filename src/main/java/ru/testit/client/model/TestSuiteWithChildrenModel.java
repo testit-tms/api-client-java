@@ -52,47 +52,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestSuiteWithChildrenModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteWithChildrenModel {
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
-  @javax.annotation.Nullable
   private List<TestSuiteWithChildrenModel> children;
 
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
-  @javax.annotation.Nullable
   private UUID testerId;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  @javax.annotation.Nullable
   private UUID parentId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public TestSuiteWithChildrenModel() {
   }
 
-  public TestSuiteWithChildrenModel children(@javax.annotation.Nullable List<TestSuiteWithChildrenModel> children) {
+  public TestSuiteWithChildrenModel children(List<TestSuiteWithChildrenModel> children) {
     this.children = children;
     return this;
   }
@@ -114,12 +107,12 @@ public class TestSuiteWithChildrenModel {
     return children;
   }
 
-  public void setChildren(@javax.annotation.Nullable List<TestSuiteWithChildrenModel> children) {
+  public void setChildren(List<TestSuiteWithChildrenModel> children) {
     this.children = children;
   }
 
 
-  public TestSuiteWithChildrenModel testerId(@javax.annotation.Nullable UUID testerId) {
+  public TestSuiteWithChildrenModel testerId(UUID testerId) {
     this.testerId = testerId;
     return this;
   }
@@ -133,12 +126,12 @@ public class TestSuiteWithChildrenModel {
     return testerId;
   }
 
-  public void setTesterId(@javax.annotation.Nullable UUID testerId) {
+  public void setTesterId(UUID testerId) {
     this.testerId = testerId;
   }
 
 
-  public TestSuiteWithChildrenModel parentId(@javax.annotation.Nullable UUID parentId) {
+  public TestSuiteWithChildrenModel parentId(UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -152,12 +145,12 @@ public class TestSuiteWithChildrenModel {
     return parentId;
   }
 
-  public void setParentId(@javax.annotation.Nullable UUID parentId) {
+  public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public TestSuiteWithChildrenModel testPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public TestSuiteWithChildrenModel testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -171,12 +164,12 @@ public class TestSuiteWithChildrenModel {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nonnull UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestSuiteWithChildrenModel name(@javax.annotation.Nonnull String name) {
+  public TestSuiteWithChildrenModel name(String name) {
     this.name = name;
     return this;
   }
@@ -190,12 +183,12 @@ public class TestSuiteWithChildrenModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestSuiteWithChildrenModel id(@javax.annotation.Nonnull UUID id) {
+  public TestSuiteWithChildrenModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -209,12 +202,12 @@ public class TestSuiteWithChildrenModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteWithChildrenModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public TestSuiteWithChildrenModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -228,7 +221,7 @@ public class TestSuiteWithChildrenModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

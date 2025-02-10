@@ -54,52 +54,44 @@ import ru.testit.client.invoker.JSON;
 /**
  * CreateTestRunAndFillByAutoTestsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateTestRunAndFillByAutoTestsApiModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nonnull
   private List<UUID> configurationIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_AUTO_TEST_EXTERNAL_IDS = "autoTestExternalIds";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_EXTERNAL_IDS)
-  @javax.annotation.Nonnull
   private List<String> autoTestExternalIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
   @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  @javax.annotation.Nullable
   private String launchSource;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AssignAttachmentApiModel> attachments;
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nullable
   private List<CreateLinkApiModel> links;
 
   public CreateTestRunAndFillByAutoTestsApiModel() {
   }
 
-  public CreateTestRunAndFillByAutoTestsApiModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public CreateTestRunAndFillByAutoTestsApiModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -113,12 +105,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel name(@javax.annotation.Nullable String name) {
+  public CreateTestRunAndFillByAutoTestsApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -132,12 +124,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel configurationIds(@javax.annotation.Nonnull List<UUID> configurationIds) {
+  public CreateTestRunAndFillByAutoTestsApiModel configurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -159,12 +151,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nonnull List<UUID> configurationIds) {
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel autoTestExternalIds(@javax.annotation.Nonnull List<String> autoTestExternalIds) {
+  public CreateTestRunAndFillByAutoTestsApiModel autoTestExternalIds(List<String> autoTestExternalIds) {
     this.autoTestExternalIds = autoTestExternalIds;
     return this;
   }
@@ -186,12 +178,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     return autoTestExternalIds;
   }
 
-  public void setAutoTestExternalIds(@javax.annotation.Nonnull List<String> autoTestExternalIds) {
+  public void setAutoTestExternalIds(List<String> autoTestExternalIds) {
     this.autoTestExternalIds = autoTestExternalIds;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel description(@javax.annotation.Nullable String description) {
+  public CreateTestRunAndFillByAutoTestsApiModel description(String description) {
     this.description = description;
     return this;
   }
@@ -205,12 +197,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel launchSource(@javax.annotation.Nullable String launchSource) {
+  public CreateTestRunAndFillByAutoTestsApiModel launchSource(String launchSource) {
     this.launchSource = launchSource;
     return this;
   }
@@ -224,12 +216,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     return launchSource;
   }
 
-  public void setLaunchSource(@javax.annotation.Nullable String launchSource) {
+  public void setLaunchSource(String launchSource) {
     this.launchSource = launchSource;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel attachments(@javax.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
+  public CreateTestRunAndFillByAutoTestsApiModel attachments(List<AssignAttachmentApiModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -251,12 +243,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
+  public void setAttachments(List<AssignAttachmentApiModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel links(@javax.annotation.Nullable List<CreateLinkApiModel> links) {
+  public CreateTestRunAndFillByAutoTestsApiModel links(List<CreateLinkApiModel> links) {
     this.links = links;
     return this;
   }
@@ -278,7 +270,7 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nullable List<CreateLinkApiModel> links) {
+  public void setLinks(List<CreateLinkApiModel> links) {
     this.links = links;
   }
 

@@ -51,27 +51,24 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebhooksUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhooksUpdateRequest {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nonnull
   private WebhooksFilterRequest filter;
 
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)
-  @javax.annotation.Nonnull
   private WebhookBulkUpdateApiModel model;
 
   public static final String SERIALIZED_NAME_EXTRACTOR = "extractor";
   @SerializedName(SERIALIZED_NAME_EXTRACTOR)
-  @javax.annotation.Nonnull
   private WebhooksExtractionRequest extractor;
 
   public WebhooksUpdateRequest() {
   }
 
-  public WebhooksUpdateRequest filter(@javax.annotation.Nonnull WebhooksFilterRequest filter) {
+  public WebhooksUpdateRequest filter(WebhooksFilterRequest filter) {
     this.filter = filter;
     return this;
   }
@@ -85,12 +82,12 @@ public class WebhooksUpdateRequest {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nonnull WebhooksFilterRequest filter) {
+  public void setFilter(WebhooksFilterRequest filter) {
     this.filter = filter;
   }
 
 
-  public WebhooksUpdateRequest model(@javax.annotation.Nonnull WebhookBulkUpdateApiModel model) {
+  public WebhooksUpdateRequest model(WebhookBulkUpdateApiModel model) {
     this.model = model;
     return this;
   }
@@ -104,12 +101,12 @@ public class WebhooksUpdateRequest {
     return model;
   }
 
-  public void setModel(@javax.annotation.Nonnull WebhookBulkUpdateApiModel model) {
+  public void setModel(WebhookBulkUpdateApiModel model) {
     this.model = model;
   }
 
 
-  public WebhooksUpdateRequest extractor(@javax.annotation.Nonnull WebhooksExtractionRequest extractor) {
+  public WebhooksUpdateRequest extractor(WebhooksExtractionRequest extractor) {
     this.extractor = extractor;
     return this;
   }
@@ -123,7 +120,7 @@ public class WebhooksUpdateRequest {
     return extractor;
   }
 
-  public void setExtractor(@javax.annotation.Nonnull WebhooksExtractionRequest extractor) {
+  public void setExtractor(WebhooksExtractionRequest extractor) {
     this.extractor = extractor;
   }
 

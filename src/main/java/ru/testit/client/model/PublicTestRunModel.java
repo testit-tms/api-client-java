@@ -57,72 +57,60 @@ import ru.testit.client.invoker.JSON;
 /**
  * PublicTestRunModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PublicTestRunModel {
   public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
-  @javax.annotation.Nonnull
   private UUID testRunId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  @javax.annotation.Nullable
   private UUID testPlanId;
 
   public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long testPlanGlobalId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
   @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  @javax.annotation.Nullable
   private String productName;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
-  @javax.annotation.Nullable
   private String build;
 
   public static final String SERIALIZED_NAME_CONFIGURATIONS = "configurations";
   @SerializedName(SERIALIZED_NAME_CONFIGURATIONS)
-  @javax.annotation.Nonnull
   private List<ConfigurationModel> configurations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  @javax.annotation.Nonnull
   private List<AutoTestModel> autoTests = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TEST_POINTS = "testPoints";
   @SerializedName(SERIALIZED_NAME_TEST_POINTS)
-  @javax.annotation.Nonnull
   private List<PublicTestPointModel> testPoints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
   private String status;
 
   public static final String SERIALIZED_NAME_CUSTOM_PARAMETERS = "customParameters";
   @SerializedName(SERIALIZED_NAME_CUSTOM_PARAMETERS)
-  @javax.annotation.Nullable
   private Map<String, String> customParameters;
 
   public static final String SERIALIZED_NAME_TEST_RUN_DESCRIPTION = "testRunDescription";
   @SerializedName(SERIALIZED_NAME_TEST_RUN_DESCRIPTION)
-  @javax.annotation.Nullable
   private String testRunDescription;
 
   public PublicTestRunModel() {
   }
 
-  public PublicTestRunModel testRunId(@javax.annotation.Nonnull UUID testRunId) {
+  public PublicTestRunModel testRunId(UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -136,12 +124,12 @@ public class PublicTestRunModel {
     return testRunId;
   }
 
-  public void setTestRunId(@javax.annotation.Nonnull UUID testRunId) {
+  public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public PublicTestRunModel testPlanId(@javax.annotation.Nullable UUID testPlanId) {
+  public PublicTestRunModel testPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -155,12 +143,12 @@ public class PublicTestRunModel {
     return testPlanId;
   }
 
-  public void setTestPlanId(@javax.annotation.Nullable UUID testPlanId) {
+  public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public PublicTestRunModel testPlanGlobalId(@javax.annotation.Nonnull Long testPlanGlobalId) {
+  public PublicTestRunModel testPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
@@ -174,12 +162,12 @@ public class PublicTestRunModel {
     return testPlanGlobalId;
   }
 
-  public void setTestPlanGlobalId(@javax.annotation.Nonnull Long testPlanGlobalId) {
+  public void setTestPlanGlobalId(Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
-  public PublicTestRunModel name(@javax.annotation.Nonnull String name) {
+  public PublicTestRunModel name(String name) {
     this.name = name;
     return this;
   }
@@ -193,12 +181,12 @@ public class PublicTestRunModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public PublicTestRunModel productName(@javax.annotation.Nullable String productName) {
+  public PublicTestRunModel productName(String productName) {
     this.productName = productName;
     return this;
   }
@@ -212,12 +200,12 @@ public class PublicTestRunModel {
     return productName;
   }
 
-  public void setProductName(@javax.annotation.Nullable String productName) {
+  public void setProductName(String productName) {
     this.productName = productName;
   }
 
 
-  public PublicTestRunModel build(@javax.annotation.Nullable String build) {
+  public PublicTestRunModel build(String build) {
     this.build = build;
     return this;
   }
@@ -231,12 +219,12 @@ public class PublicTestRunModel {
     return build;
   }
 
-  public void setBuild(@javax.annotation.Nullable String build) {
+  public void setBuild(String build) {
     this.build = build;
   }
 
 
-  public PublicTestRunModel configurations(@javax.annotation.Nonnull List<ConfigurationModel> configurations) {
+  public PublicTestRunModel configurations(List<ConfigurationModel> configurations) {
     this.configurations = configurations;
     return this;
   }
@@ -258,12 +246,12 @@ public class PublicTestRunModel {
     return configurations;
   }
 
-  public void setConfigurations(@javax.annotation.Nonnull List<ConfigurationModel> configurations) {
+  public void setConfigurations(List<ConfigurationModel> configurations) {
     this.configurations = configurations;
   }
 
 
-  public PublicTestRunModel autoTests(@javax.annotation.Nonnull List<AutoTestModel> autoTests) {
+  public PublicTestRunModel autoTests(List<AutoTestModel> autoTests) {
     this.autoTests = autoTests;
     return this;
   }
@@ -285,12 +273,12 @@ public class PublicTestRunModel {
     return autoTests;
   }
 
-  public void setAutoTests(@javax.annotation.Nonnull List<AutoTestModel> autoTests) {
+  public void setAutoTests(List<AutoTestModel> autoTests) {
     this.autoTests = autoTests;
   }
 
 
-  public PublicTestRunModel testPoints(@javax.annotation.Nonnull List<PublicTestPointModel> testPoints) {
+  public PublicTestRunModel testPoints(List<PublicTestPointModel> testPoints) {
     this.testPoints = testPoints;
     return this;
   }
@@ -312,12 +300,12 @@ public class PublicTestRunModel {
     return testPoints;
   }
 
-  public void setTestPoints(@javax.annotation.Nonnull List<PublicTestPointModel> testPoints) {
+  public void setTestPoints(List<PublicTestPointModel> testPoints) {
     this.testPoints = testPoints;
   }
 
 
-  public PublicTestRunModel status(@javax.annotation.Nonnull String status) {
+  public PublicTestRunModel status(String status) {
     this.status = status;
     return this;
   }
@@ -331,12 +319,12 @@ public class PublicTestRunModel {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
 
-  public PublicTestRunModel customParameters(@javax.annotation.Nullable Map<String, String> customParameters) {
+  public PublicTestRunModel customParameters(Map<String, String> customParameters) {
     this.customParameters = customParameters;
     return this;
   }
@@ -358,12 +346,12 @@ public class PublicTestRunModel {
     return customParameters;
   }
 
-  public void setCustomParameters(@javax.annotation.Nullable Map<String, String> customParameters) {
+  public void setCustomParameters(Map<String, String> customParameters) {
     this.customParameters = customParameters;
   }
 
 
-  public PublicTestRunModel testRunDescription(@javax.annotation.Nullable String testRunDescription) {
+  public PublicTestRunModel testRunDescription(String testRunDescription) {
     this.testRunDescription = testRunDescription;
     return this;
   }
@@ -377,7 +365,7 @@ public class PublicTestRunModel {
     return testRunDescription;
   }
 
-  public void setTestRunDescription(@javax.annotation.Nullable String testRunDescription) {
+  public void setTestRunDescription(String testRunDescription) {
     this.testRunDescription = testRunDescription;
   }
 

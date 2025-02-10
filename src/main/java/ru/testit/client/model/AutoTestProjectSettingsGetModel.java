@@ -49,42 +49,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * AutoTestProjectSettingsGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestProjectSettingsGetModel {
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_IS_FLAKY_AUTO = "isFlakyAuto";
   @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
-  @javax.annotation.Nullable
   private Boolean isFlakyAuto = false;
 
   public static final String SERIALIZED_NAME_FLAKY_STABILITY_PERCENTAGE = "flakyStabilityPercentage";
   @SerializedName(SERIALIZED_NAME_FLAKY_STABILITY_PERCENTAGE)
-  @javax.annotation.Nullable
   private Integer flakyStabilityPercentage = 100;
 
   public static final String SERIALIZED_NAME_FLAKY_TEST_RUN_COUNT = "flakyTestRunCount";
   @SerializedName(SERIALIZED_NAME_FLAKY_TEST_RUN_COUNT)
-  @javax.annotation.Nullable
   private Integer flakyTestRunCount = 100;
 
   public static final String SERIALIZED_NAME_RERUN_ENABLED = "rerunEnabled";
   @SerializedName(SERIALIZED_NAME_RERUN_ENABLED)
-  @javax.annotation.Nonnull
   private Boolean rerunEnabled;
 
   public static final String SERIALIZED_NAME_RERUN_ATTEMPTS_COUNT = "rerunAttemptsCount";
   @SerializedName(SERIALIZED_NAME_RERUN_ATTEMPTS_COUNT)
-  @javax.annotation.Nonnull
   private Integer rerunAttemptsCount;
 
   public AutoTestProjectSettingsGetModel() {
   }
 
-  public AutoTestProjectSettingsGetModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public AutoTestProjectSettingsGetModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -98,12 +92,12 @@ public class AutoTestProjectSettingsGetModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestProjectSettingsGetModel isFlakyAuto(@javax.annotation.Nullable Boolean isFlakyAuto) {
+  public AutoTestProjectSettingsGetModel isFlakyAuto(Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
     return this;
   }
@@ -117,12 +111,12 @@ public class AutoTestProjectSettingsGetModel {
     return isFlakyAuto;
   }
 
-  public void setIsFlakyAuto(@javax.annotation.Nullable Boolean isFlakyAuto) {
+  public void setIsFlakyAuto(Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
   }
 
 
-  public AutoTestProjectSettingsGetModel flakyStabilityPercentage(@javax.annotation.Nullable Integer flakyStabilityPercentage) {
+  public AutoTestProjectSettingsGetModel flakyStabilityPercentage(Integer flakyStabilityPercentage) {
     this.flakyStabilityPercentage = flakyStabilityPercentage;
     return this;
   }
@@ -138,12 +132,12 @@ public class AutoTestProjectSettingsGetModel {
     return flakyStabilityPercentage;
   }
 
-  public void setFlakyStabilityPercentage(@javax.annotation.Nullable Integer flakyStabilityPercentage) {
+  public void setFlakyStabilityPercentage(Integer flakyStabilityPercentage) {
     this.flakyStabilityPercentage = flakyStabilityPercentage;
   }
 
 
-  public AutoTestProjectSettingsGetModel flakyTestRunCount(@javax.annotation.Nullable Integer flakyTestRunCount) {
+  public AutoTestProjectSettingsGetModel flakyTestRunCount(Integer flakyTestRunCount) {
     this.flakyTestRunCount = flakyTestRunCount;
     return this;
   }
@@ -159,12 +153,12 @@ public class AutoTestProjectSettingsGetModel {
     return flakyTestRunCount;
   }
 
-  public void setFlakyTestRunCount(@javax.annotation.Nullable Integer flakyTestRunCount) {
+  public void setFlakyTestRunCount(Integer flakyTestRunCount) {
     this.flakyTestRunCount = flakyTestRunCount;
   }
 
 
-  public AutoTestProjectSettingsGetModel rerunEnabled(@javax.annotation.Nonnull Boolean rerunEnabled) {
+  public AutoTestProjectSettingsGetModel rerunEnabled(Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
     return this;
   }
@@ -178,12 +172,12 @@ public class AutoTestProjectSettingsGetModel {
     return rerunEnabled;
   }
 
-  public void setRerunEnabled(@javax.annotation.Nonnull Boolean rerunEnabled) {
+  public void setRerunEnabled(Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
   }
 
 
-  public AutoTestProjectSettingsGetModel rerunAttemptsCount(@javax.annotation.Nonnull Integer rerunAttemptsCount) {
+  public AutoTestProjectSettingsGetModel rerunAttemptsCount(Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
     return this;
   }
@@ -199,7 +193,7 @@ public class AutoTestProjectSettingsGetModel {
     return rerunAttemptsCount;
   }
 
-  public void setRerunAttemptsCount(@javax.annotation.Nonnull Integer rerunAttemptsCount) {
+  public void setRerunAttemptsCount(Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
   }
 

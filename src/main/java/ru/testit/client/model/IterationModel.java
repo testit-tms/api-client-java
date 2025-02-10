@@ -53,22 +53,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * IterationModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class IterationModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  @javax.annotation.Nullable
   private List<ParameterShortModel> parameters;
 
   public IterationModel() {
   }
 
-  public IterationModel id(@javax.annotation.Nonnull UUID id) {
+  public IterationModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -82,12 +80,12 @@ public class IterationModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public IterationModel parameters(@javax.annotation.Nullable List<ParameterShortModel> parameters) {
+  public IterationModel parameters(List<ParameterShortModel> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -109,7 +107,7 @@ public class IterationModel {
     return parameters;
   }
 
-  public void setParameters(@javax.annotation.Nullable List<ParameterShortModel> parameters) {
+  public void setParameters(List<ParameterShortModel> parameters) {
     this.parameters = parameters;
   }
 

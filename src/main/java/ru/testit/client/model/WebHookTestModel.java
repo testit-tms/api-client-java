@@ -49,22 +49,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebHookTestModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebHookTestModel {
   public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
   @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
-  @javax.annotation.Nonnull
   private RequestTypeModel requestType;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
   private String url;
 
   public WebHookTestModel() {
   }
 
-  public WebHookTestModel requestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
+  public WebHookTestModel requestType(RequestTypeModel requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -78,12 +76,12 @@ public class WebHookTestModel {
     return requestType;
   }
 
-  public void setRequestType(@javax.annotation.Nonnull RequestTypeModel requestType) {
+  public void setRequestType(RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookTestModel url(@javax.annotation.Nonnull String url) {
+  public WebHookTestModel url(String url) {
     this.url = url;
     return this;
   }
@@ -97,7 +95,7 @@ public class WebHookTestModel {
     return url;
   }
 
-  public void setUrl(@javax.annotation.Nonnull String url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 

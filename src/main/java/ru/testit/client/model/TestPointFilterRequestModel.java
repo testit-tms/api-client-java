@@ -59,133 +59,109 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointFilterRequestModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointFilterRequestModel {
   public static final String SERIALIZED_NAME_TEST_PLAN_IDS = "testPlanIds";
   @SerializedName(SERIALIZED_NAME_TEST_PLAN_IDS)
-  @javax.annotation.Nullable
   private List<UUID> testPlanIds;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_IDS = "testSuiteIds";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_IDS)
-  @javax.annotation.Nullable
   private List<UUID> testSuiteIds;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_IDS = "workItemGlobalIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private List<Long> workItemGlobalIds;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION = "workItemMedianDuration";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MEDIAN_DURATION)
-  @javax.annotation.Nullable
   private Int64RangeSelectorModel workItemMedianDuration;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_IS_DELETED = "workItemIsDeleted";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean workItemIsDeleted;
 
   public static final String SERIALIZED_NAME_STATUSES = "statuses";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUSES)
-  @javax.annotation.Nullable
   private List<TestPointStatus> statuses;
 
   public static final String SERIALIZED_NAME_STATUS_CODES = "statusCodes";
   @SerializedName(SERIALIZED_NAME_STATUS_CODES)
-  @javax.annotation.Nullable
   private List<String> statusCodes;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  @javax.annotation.Nullable
   private List<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  @javax.annotation.Nullable
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> configurationIds;
 
   public static final String SERIALIZED_NAME_TESTER_IDS = "testerIds";
   @SerializedName(SERIALIZED_NAME_TESTER_IDS)
-  @javax.annotation.Nullable
   private List<UUID> testerIds;
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nullable
   private Int64RangeSelectorModel duration;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private List<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel modifiedDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private List<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private List<String> tags;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nullable
   private Map<String, Set<String>> attributes;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_DATE = "workItemCreatedDate";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel workItemCreatedDate;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_CREATED_BY_IDS = "workItemCreatedByIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private List<UUID> workItemCreatedByIds;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE = "workItemModifiedDate";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel workItemModifiedDate;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_IDS = "workItemModifiedByIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private List<UUID> workItemModifiedByIds;
 
   public TestPointFilterRequestModel() {
   }
 
-  public TestPointFilterRequestModel testPlanIds(@javax.annotation.Nullable List<UUID> testPlanIds) {
+  public TestPointFilterRequestModel testPlanIds(List<UUID> testPlanIds) {
     this.testPlanIds = testPlanIds;
     return this;
   }
@@ -207,12 +183,12 @@ public class TestPointFilterRequestModel {
     return testPlanIds;
   }
 
-  public void setTestPlanIds(@javax.annotation.Nullable List<UUID> testPlanIds) {
+  public void setTestPlanIds(List<UUID> testPlanIds) {
     this.testPlanIds = testPlanIds;
   }
 
 
-  public TestPointFilterRequestModel testSuiteIds(@javax.annotation.Nullable List<UUID> testSuiteIds) {
+  public TestPointFilterRequestModel testSuiteIds(List<UUID> testSuiteIds) {
     this.testSuiteIds = testSuiteIds;
     return this;
   }
@@ -234,12 +210,12 @@ public class TestPointFilterRequestModel {
     return testSuiteIds;
   }
 
-  public void setTestSuiteIds(@javax.annotation.Nullable List<UUID> testSuiteIds) {
+  public void setTestSuiteIds(List<UUID> testSuiteIds) {
     this.testSuiteIds = testSuiteIds;
   }
 
 
-  public TestPointFilterRequestModel workItemGlobalIds(@javax.annotation.Nullable List<Long> workItemGlobalIds) {
+  public TestPointFilterRequestModel workItemGlobalIds(List<Long> workItemGlobalIds) {
     this.workItemGlobalIds = workItemGlobalIds;
     return this;
   }
@@ -261,12 +237,12 @@ public class TestPointFilterRequestModel {
     return workItemGlobalIds;
   }
 
-  public void setWorkItemGlobalIds(@javax.annotation.Nullable List<Long> workItemGlobalIds) {
+  public void setWorkItemGlobalIds(List<Long> workItemGlobalIds) {
     this.workItemGlobalIds = workItemGlobalIds;
   }
 
 
-  public TestPointFilterRequestModel workItemMedianDuration(@javax.annotation.Nullable Int64RangeSelectorModel workItemMedianDuration) {
+  public TestPointFilterRequestModel workItemMedianDuration(Int64RangeSelectorModel workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
     return this;
   }
@@ -280,12 +256,12 @@ public class TestPointFilterRequestModel {
     return workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(@javax.annotation.Nullable Int64RangeSelectorModel workItemMedianDuration) {
+  public void setWorkItemMedianDuration(Int64RangeSelectorModel workItemMedianDuration) {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
 
-  public TestPointFilterRequestModel workItemIsDeleted(@javax.annotation.Nullable Boolean workItemIsDeleted) {
+  public TestPointFilterRequestModel workItemIsDeleted(Boolean workItemIsDeleted) {
     this.workItemIsDeleted = workItemIsDeleted;
     return this;
   }
@@ -299,13 +275,13 @@ public class TestPointFilterRequestModel {
     return workItemIsDeleted;
   }
 
-  public void setWorkItemIsDeleted(@javax.annotation.Nullable Boolean workItemIsDeleted) {
+  public void setWorkItemIsDeleted(Boolean workItemIsDeleted) {
     this.workItemIsDeleted = workItemIsDeleted;
   }
 
 
   @Deprecated
-  public TestPointFilterRequestModel statuses(@javax.annotation.Nullable List<TestPointStatus> statuses) {
+  public TestPointFilterRequestModel statuses(List<TestPointStatus> statuses) {
     this.statuses = statuses;
     return this;
   }
@@ -330,12 +306,12 @@ public class TestPointFilterRequestModel {
   }
 
   @Deprecated
-  public void setStatuses(@javax.annotation.Nullable List<TestPointStatus> statuses) {
+  public void setStatuses(List<TestPointStatus> statuses) {
     this.statuses = statuses;
   }
 
 
-  public TestPointFilterRequestModel statusCodes(@javax.annotation.Nullable List<String> statusCodes) {
+  public TestPointFilterRequestModel statusCodes(List<String> statusCodes) {
     this.statusCodes = statusCodes;
     return this;
   }
@@ -357,12 +333,12 @@ public class TestPointFilterRequestModel {
     return statusCodes;
   }
 
-  public void setStatusCodes(@javax.annotation.Nullable List<String> statusCodes) {
+  public void setStatusCodes(List<String> statusCodes) {
     this.statusCodes = statusCodes;
   }
 
 
-  public TestPointFilterRequestModel priorities(@javax.annotation.Nullable List<WorkItemPriorityModel> priorities) {
+  public TestPointFilterRequestModel priorities(List<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
     return this;
   }
@@ -384,12 +360,12 @@ public class TestPointFilterRequestModel {
     return priorities;
   }
 
-  public void setPriorities(@javax.annotation.Nullable List<WorkItemPriorityModel> priorities) {
+  public void setPriorities(List<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
   }
 
 
-  public TestPointFilterRequestModel isAutomated(@javax.annotation.Nullable Boolean isAutomated) {
+  public TestPointFilterRequestModel isAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -403,12 +379,12 @@ public class TestPointFilterRequestModel {
     return isAutomated;
   }
 
-  public void setIsAutomated(@javax.annotation.Nullable Boolean isAutomated) {
+  public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestPointFilterRequestModel name(@javax.annotation.Nullable String name) {
+  public TestPointFilterRequestModel name(String name) {
     this.name = name;
     return this;
   }
@@ -422,12 +398,12 @@ public class TestPointFilterRequestModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestPointFilterRequestModel configurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public TestPointFilterRequestModel configurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -449,12 +425,12 @@ public class TestPointFilterRequestModel {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
-  public TestPointFilterRequestModel testerIds(@javax.annotation.Nullable List<UUID> testerIds) {
+  public TestPointFilterRequestModel testerIds(List<UUID> testerIds) {
     this.testerIds = testerIds;
     return this;
   }
@@ -476,12 +452,12 @@ public class TestPointFilterRequestModel {
     return testerIds;
   }
 
-  public void setTesterIds(@javax.annotation.Nullable List<UUID> testerIds) {
+  public void setTesterIds(List<UUID> testerIds) {
     this.testerIds = testerIds;
   }
 
 
-  public TestPointFilterRequestModel duration(@javax.annotation.Nullable Int64RangeSelectorModel duration) {
+  public TestPointFilterRequestModel duration(Int64RangeSelectorModel duration) {
     this.duration = duration;
     return this;
   }
@@ -495,12 +471,12 @@ public class TestPointFilterRequestModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nullable Int64RangeSelectorModel duration) {
+  public void setDuration(Int64RangeSelectorModel duration) {
     this.duration = duration;
   }
 
 
-  public TestPointFilterRequestModel sectionIds(@javax.annotation.Nullable List<UUID> sectionIds) {
+  public TestPointFilterRequestModel sectionIds(List<UUID> sectionIds) {
     this.sectionIds = sectionIds;
     return this;
   }
@@ -522,12 +498,12 @@ public class TestPointFilterRequestModel {
     return sectionIds;
   }
 
-  public void setSectionIds(@javax.annotation.Nullable List<UUID> sectionIds) {
+  public void setSectionIds(List<UUID> sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
-  public TestPointFilterRequestModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public TestPointFilterRequestModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -541,12 +517,12 @@ public class TestPointFilterRequestModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestPointFilterRequestModel createdByIds(@javax.annotation.Nullable List<UUID> createdByIds) {
+  public TestPointFilterRequestModel createdByIds(List<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -568,12 +544,12 @@ public class TestPointFilterRequestModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable List<UUID> createdByIds) {
+  public void setCreatedByIds(List<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public TestPointFilterRequestModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public TestPointFilterRequestModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -587,12 +563,12 @@ public class TestPointFilterRequestModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public TestPointFilterRequestModel modifiedByIds(@javax.annotation.Nullable List<UUID> modifiedByIds) {
+  public TestPointFilterRequestModel modifiedByIds(List<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -614,12 +590,12 @@ public class TestPointFilterRequestModel {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable List<UUID> modifiedByIds) {
+  public void setModifiedByIds(List<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public TestPointFilterRequestModel tags(@javax.annotation.Nullable List<String> tags) {
+  public TestPointFilterRequestModel tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -641,12 +617,12 @@ public class TestPointFilterRequestModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
+  public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
 
-  public TestPointFilterRequestModel attributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
+  public TestPointFilterRequestModel attributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -668,12 +644,12 @@ public class TestPointFilterRequestModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nullable Map<String, Set<String>> attributes) {
+  public void setAttributes(Map<String, Set<String>> attributes) {
     this.attributes = attributes;
   }
 
 
-  public TestPointFilterRequestModel workItemCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel workItemCreatedDate) {
+  public TestPointFilterRequestModel workItemCreatedDate(DateTimeRangeSelectorModel workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
     return this;
   }
@@ -687,12 +663,12 @@ public class TestPointFilterRequestModel {
     return workItemCreatedDate;
   }
 
-  public void setWorkItemCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel workItemCreatedDate) {
+  public void setWorkItemCreatedDate(DateTimeRangeSelectorModel workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
   }
 
 
-  public TestPointFilterRequestModel workItemCreatedByIds(@javax.annotation.Nullable List<UUID> workItemCreatedByIds) {
+  public TestPointFilterRequestModel workItemCreatedByIds(List<UUID> workItemCreatedByIds) {
     this.workItemCreatedByIds = workItemCreatedByIds;
     return this;
   }
@@ -714,12 +690,12 @@ public class TestPointFilterRequestModel {
     return workItemCreatedByIds;
   }
 
-  public void setWorkItemCreatedByIds(@javax.annotation.Nullable List<UUID> workItemCreatedByIds) {
+  public void setWorkItemCreatedByIds(List<UUID> workItemCreatedByIds) {
     this.workItemCreatedByIds = workItemCreatedByIds;
   }
 
 
-  public TestPointFilterRequestModel workItemModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel workItemModifiedDate) {
+  public TestPointFilterRequestModel workItemModifiedDate(DateTimeRangeSelectorModel workItemModifiedDate) {
     this.workItemModifiedDate = workItemModifiedDate;
     return this;
   }
@@ -733,12 +709,12 @@ public class TestPointFilterRequestModel {
     return workItemModifiedDate;
   }
 
-  public void setWorkItemModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel workItemModifiedDate) {
+  public void setWorkItemModifiedDate(DateTimeRangeSelectorModel workItemModifiedDate) {
     this.workItemModifiedDate = workItemModifiedDate;
   }
 
 
-  public TestPointFilterRequestModel workItemModifiedByIds(@javax.annotation.Nullable List<UUID> workItemModifiedByIds) {
+  public TestPointFilterRequestModel workItemModifiedByIds(List<UUID> workItemModifiedByIds) {
     this.workItemModifiedByIds = workItemModifiedByIds;
     return this;
   }
@@ -760,7 +736,7 @@ public class TestPointFilterRequestModel {
     return workItemModifiedByIds;
   }
 
-  public void setWorkItemModifiedByIds(@javax.annotation.Nullable List<UUID> workItemModifiedByIds) {
+  public void setWorkItemModifiedByIds(List<UUID> workItemModifiedByIds) {
     this.workItemModifiedByIds = workItemModifiedByIds;
   }
 

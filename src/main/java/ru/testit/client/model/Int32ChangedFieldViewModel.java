@@ -48,22 +48,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * Int32ChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Int32ChangedFieldViewModel {
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nonnull
   private Integer oldValue;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nonnull
   private Integer newValue;
 
   public Int32ChangedFieldViewModel() {
   }
 
-  public Int32ChangedFieldViewModel oldValue(@javax.annotation.Nonnull Integer oldValue) {
+  public Int32ChangedFieldViewModel oldValue(Integer oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -77,12 +75,12 @@ public class Int32ChangedFieldViewModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nonnull Integer oldValue) {
+  public void setOldValue(Integer oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public Int32ChangedFieldViewModel newValue(@javax.annotation.Nonnull Integer newValue) {
+  public Int32ChangedFieldViewModel newValue(Integer newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -96,7 +94,7 @@ public class Int32ChangedFieldViewModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nonnull Integer newValue) {
+  public void setNewValue(Integer newValue) {
     this.newValue = newValue;
   }
 

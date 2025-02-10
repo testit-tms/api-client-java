@@ -49,37 +49,32 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeChangeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeChangeModel {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
   private String type;
 
   public static final String SERIALIZED_NAME_OLD_ATTRIBUTE_NAME = "oldAttributeName";
   @SerializedName(SERIALIZED_NAME_OLD_ATTRIBUTE_NAME)
-  @javax.annotation.Nullable
   private String oldAttributeName;
 
   public static final String SERIALIZED_NAME_NEW_ATTRIBUTE_NAME = "newAttributeName";
   @SerializedName(SERIALIZED_NAME_NEW_ATTRIBUTE_NAME)
-  @javax.annotation.Nullable
   private String newAttributeName;
 
   public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
   @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  @javax.annotation.Nullable
   private Object oldValue = null;
 
   public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
   @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  @javax.annotation.Nullable
   private Object newValue = null;
 
   public CustomAttributeChangeModel() {
   }
 
-  public CustomAttributeChangeModel type(@javax.annotation.Nullable String type) {
+  public CustomAttributeChangeModel type(String type) {
     this.type = type;
     return this;
   }
@@ -93,12 +88,12 @@ public class CustomAttributeChangeModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable String type) {
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public CustomAttributeChangeModel oldAttributeName(@javax.annotation.Nullable String oldAttributeName) {
+  public CustomAttributeChangeModel oldAttributeName(String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
     return this;
   }
@@ -112,12 +107,12 @@ public class CustomAttributeChangeModel {
     return oldAttributeName;
   }
 
-  public void setOldAttributeName(@javax.annotation.Nullable String oldAttributeName) {
+  public void setOldAttributeName(String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
   }
 
 
-  public CustomAttributeChangeModel newAttributeName(@javax.annotation.Nullable String newAttributeName) {
+  public CustomAttributeChangeModel newAttributeName(String newAttributeName) {
     this.newAttributeName = newAttributeName;
     return this;
   }
@@ -131,12 +126,12 @@ public class CustomAttributeChangeModel {
     return newAttributeName;
   }
 
-  public void setNewAttributeName(@javax.annotation.Nullable String newAttributeName) {
+  public void setNewAttributeName(String newAttributeName) {
     this.newAttributeName = newAttributeName;
   }
 
 
-  public CustomAttributeChangeModel oldValue(@javax.annotation.Nullable Object oldValue) {
+  public CustomAttributeChangeModel oldValue(Object oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -150,12 +145,12 @@ public class CustomAttributeChangeModel {
     return oldValue;
   }
 
-  public void setOldValue(@javax.annotation.Nullable Object oldValue) {
+  public void setOldValue(Object oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public CustomAttributeChangeModel newValue(@javax.annotation.Nullable Object newValue) {
+  public CustomAttributeChangeModel newValue(Object newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -169,7 +164,7 @@ public class CustomAttributeChangeModel {
     return newValue;
   }
 
-  public void setNewValue(@javax.annotation.Nullable Object newValue) {
+  public void setNewValue(Object newValue) {
     this.newValue = newValue;
   }
 

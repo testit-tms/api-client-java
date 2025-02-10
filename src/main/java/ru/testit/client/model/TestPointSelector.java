@@ -51,22 +51,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestPointSelector
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointSelector {
   public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
-  @javax.annotation.Nonnull
   private UUID configurationId;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_IDS = "workItemIds";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS)
-  @javax.annotation.Nonnull
   private List<UUID> workItemIds = new ArrayList<>();
 
   public TestPointSelector() {
   }
 
-  public TestPointSelector configurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public TestPointSelector configurationId(UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -80,12 +78,12 @@ public class TestPointSelector {
     return configurationId;
   }
 
-  public void setConfigurationId(@javax.annotation.Nonnull UUID configurationId) {
+  public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestPointSelector workItemIds(@javax.annotation.Nonnull List<UUID> workItemIds) {
+  public TestPointSelector workItemIds(List<UUID> workItemIds) {
     this.workItemIds = workItemIds;
     return this;
   }
@@ -107,7 +105,7 @@ public class TestPointSelector {
     return workItemIds;
   }
 
-  public void setWorkItemIds(@javax.annotation.Nonnull List<UUID> workItemIds) {
+  public void setWorkItemIds(List<UUID> workItemIds) {
     this.workItemIds = workItemIds;
   }
 

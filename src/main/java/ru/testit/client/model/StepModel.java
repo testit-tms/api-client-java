@@ -51,47 +51,40 @@ import ru.testit.client.invoker.JSON;
 /**
  * StepModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StepModel {
   public static final String SERIALIZED_NAME_WORK_ITEM = "workItem";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM)
-  @javax.annotation.Nullable
   private SharedStepModel workItem;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  @javax.annotation.Nullable
   private String action;
 
   public static final String SERIALIZED_NAME_EXPECTED = "expected";
   @SerializedName(SERIALIZED_NAME_EXPECTED)
-  @javax.annotation.Nullable
   private String expected;
 
   public static final String SERIALIZED_NAME_TEST_DATA = "testData";
   @SerializedName(SERIALIZED_NAME_TEST_DATA)
-  @javax.annotation.Nullable
   private String testData;
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
-  @javax.annotation.Nullable
   private String comments;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID workItemId;
 
   public StepModel() {
   }
 
-  public StepModel workItem(@javax.annotation.Nullable SharedStepModel workItem) {
+  public StepModel workItem(SharedStepModel workItem) {
     this.workItem = workItem;
     return this;
   }
@@ -105,12 +98,12 @@ public class StepModel {
     return workItem;
   }
 
-  public void setWorkItem(@javax.annotation.Nullable SharedStepModel workItem) {
+  public void setWorkItem(SharedStepModel workItem) {
     this.workItem = workItem;
   }
 
 
-  public StepModel id(@javax.annotation.Nonnull UUID id) {
+  public StepModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -124,12 +117,12 @@ public class StepModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public StepModel action(@javax.annotation.Nullable String action) {
+  public StepModel action(String action) {
     this.action = action;
     return this;
   }
@@ -143,12 +136,12 @@ public class StepModel {
     return action;
   }
 
-  public void setAction(@javax.annotation.Nullable String action) {
+  public void setAction(String action) {
     this.action = action;
   }
 
 
-  public StepModel expected(@javax.annotation.Nullable String expected) {
+  public StepModel expected(String expected) {
     this.expected = expected;
     return this;
   }
@@ -162,12 +155,12 @@ public class StepModel {
     return expected;
   }
 
-  public void setExpected(@javax.annotation.Nullable String expected) {
+  public void setExpected(String expected) {
     this.expected = expected;
   }
 
 
-  public StepModel testData(@javax.annotation.Nullable String testData) {
+  public StepModel testData(String testData) {
     this.testData = testData;
     return this;
   }
@@ -181,12 +174,12 @@ public class StepModel {
     return testData;
   }
 
-  public void setTestData(@javax.annotation.Nullable String testData) {
+  public void setTestData(String testData) {
     this.testData = testData;
   }
 
 
-  public StepModel comments(@javax.annotation.Nullable String comments) {
+  public StepModel comments(String comments) {
     this.comments = comments;
     return this;
   }
@@ -200,12 +193,12 @@ public class StepModel {
     return comments;
   }
 
-  public void setComments(@javax.annotation.Nullable String comments) {
+  public void setComments(String comments) {
     this.comments = comments;
   }
 
 
-  public StepModel workItemId(@javax.annotation.Nullable UUID workItemId) {
+  public StepModel workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -219,7 +212,7 @@ public class StepModel {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 

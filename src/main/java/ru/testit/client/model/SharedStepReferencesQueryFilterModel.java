@@ -55,72 +55,60 @@ import ru.testit.client.invoker.JSON;
 /**
  * SharedStepReferencesQueryFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SharedStepReferencesQueryFilterModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
   @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  @javax.annotation.Nullable
   private Set<Long> globalIds;
 
   public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
   @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> sectionIds;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @SerializedName(SERIALIZED_NAME_STATES)
-  @javax.annotation.Nullable
   private Set<WorkItemStates> states;
 
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  @javax.annotation.Nullable
   private Set<WorkItemPriorityModel> priorities;
 
   public static final String SERIALIZED_NAME_ENTITY_TYPES = "entityTypes";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPES)
-  @javax.annotation.Nullable
   private Set<String> entityTypes;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel modifiedDate;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  @javax.annotation.Nullable
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
   private Set<String> tags;
 
   public SharedStepReferencesQueryFilterModel() {
   }
 
-  public SharedStepReferencesQueryFilterModel name(@javax.annotation.Nullable String name) {
+  public SharedStepReferencesQueryFilterModel name(String name) {
     this.name = name;
     return this;
   }
@@ -134,12 +122,12 @@ public class SharedStepReferencesQueryFilterModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public SharedStepReferencesQueryFilterModel globalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public SharedStepReferencesQueryFilterModel globalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
     return this;
   }
@@ -161,12 +149,12 @@ public class SharedStepReferencesQueryFilterModel {
     return globalIds;
   }
 
-  public void setGlobalIds(@javax.annotation.Nullable Set<Long> globalIds) {
+  public void setGlobalIds(Set<Long> globalIds) {
     this.globalIds = globalIds;
   }
 
 
-  public SharedStepReferencesQueryFilterModel sectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
+  public SharedStepReferencesQueryFilterModel sectionIds(Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
     return this;
   }
@@ -188,12 +176,12 @@ public class SharedStepReferencesQueryFilterModel {
     return sectionIds;
   }
 
-  public void setSectionIds(@javax.annotation.Nullable Set<UUID> sectionIds) {
+  public void setSectionIds(Set<UUID> sectionIds) {
     this.sectionIds = sectionIds;
   }
 
 
-  public SharedStepReferencesQueryFilterModel createdByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public SharedStepReferencesQueryFilterModel createdByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -215,12 +203,12 @@ public class SharedStepReferencesQueryFilterModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable Set<UUID> createdByIds) {
+  public void setCreatedByIds(Set<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public SharedStepReferencesQueryFilterModel modifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public SharedStepReferencesQueryFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -242,12 +230,12 @@ public class SharedStepReferencesQueryFilterModel {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(Set<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public SharedStepReferencesQueryFilterModel states(@javax.annotation.Nullable Set<WorkItemStates> states) {
+  public SharedStepReferencesQueryFilterModel states(Set<WorkItemStates> states) {
     this.states = states;
     return this;
   }
@@ -269,12 +257,12 @@ public class SharedStepReferencesQueryFilterModel {
     return states;
   }
 
-  public void setStates(@javax.annotation.Nullable Set<WorkItemStates> states) {
+  public void setStates(Set<WorkItemStates> states) {
     this.states = states;
   }
 
 
-  public SharedStepReferencesQueryFilterModel priorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
+  public SharedStepReferencesQueryFilterModel priorities(Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
     return this;
   }
@@ -296,12 +284,12 @@ public class SharedStepReferencesQueryFilterModel {
     return priorities;
   }
 
-  public void setPriorities(@javax.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
+  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
   }
 
 
-  public SharedStepReferencesQueryFilterModel entityTypes(@javax.annotation.Nullable Set<String> entityTypes) {
+  public SharedStepReferencesQueryFilterModel entityTypes(Set<String> entityTypes) {
     this.entityTypes = entityTypes;
     return this;
   }
@@ -323,12 +311,12 @@ public class SharedStepReferencesQueryFilterModel {
     return entityTypes;
   }
 
-  public void setEntityTypes(@javax.annotation.Nullable Set<String> entityTypes) {
+  public void setEntityTypes(Set<String> entityTypes) {
     this.entityTypes = entityTypes;
   }
 
 
-  public SharedStepReferencesQueryFilterModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public SharedStepReferencesQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -342,12 +330,12 @@ public class SharedStepReferencesQueryFilterModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public SharedStepReferencesQueryFilterModel modifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public SharedStepReferencesQueryFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -361,12 +349,12 @@ public class SharedStepReferencesQueryFilterModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public SharedStepReferencesQueryFilterModel isAutomated(@javax.annotation.Nullable Boolean isAutomated) {
+  public SharedStepReferencesQueryFilterModel isAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -380,12 +368,12 @@ public class SharedStepReferencesQueryFilterModel {
     return isAutomated;
   }
 
-  public void setIsAutomated(@javax.annotation.Nullable Boolean isAutomated) {
+  public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public SharedStepReferencesQueryFilterModel tags(@javax.annotation.Nullable Set<String> tags) {
+  public SharedStepReferencesQueryFilterModel tags(Set<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -407,7 +395,7 @@ public class SharedStepReferencesQueryFilterModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nullable Set<String> tags) {
+  public void setTags(Set<String> tags) {
     this.tags = tags;
   }
 

@@ -57,89 +57,74 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestRunFilterApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunFilterApiModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private List<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_STATES = "states";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATES)
-  @javax.annotation.Nullable
   private List<TestRunState> states;
 
   public static final String SERIALIZED_NAME_STATUS_CODES = "statusCodes";
   @SerializedName(SERIALIZED_NAME_STATUS_CODES)
-  @javax.annotation.Nullable
   private List<String> statusCodes;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel createdDate;
 
   public static final String SERIALIZED_NAME_STARTED_DATE = "startedDate";
   @SerializedName(SERIALIZED_NAME_STARTED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel startedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  @javax.annotation.Nullable
   private List<UUID> createdByIds;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  @javax.annotation.Nullable
   private List<UUID> modifiedByIds;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS_COUNT = "autoTestsCount";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS_COUNT)
-  @javax.annotation.Nullable
   private Int32RangeSelectorModel autoTestsCount;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS_OUTCOME = "testResultsOutcome";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS_OUTCOME)
-  @javax.annotation.Nullable
   private List<TestResultOutcome> testResultsOutcome;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS_STATUS_CODES = "testResultsStatusCodes";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS_STATUS_CODES)
-  @javax.annotation.Nullable
   private List<String> testResultsStatusCodes;
 
   public static final String SERIALIZED_NAME_FAILURE_CATEGORY = "failureCategory";
   @SerializedName(SERIALIZED_NAME_FAILURE_CATEGORY)
-  @javax.annotation.Nullable
   private List<FailureCategory> failureCategory;
 
   public static final String SERIALIZED_NAME_COMPLETED_DATE = "completedDate";
   @SerializedName(SERIALIZED_NAME_COMPLETED_DATE)
-  @javax.annotation.Nullable
   private DateTimeRangeSelectorModel completedDate;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS_CONFIGURATION_IDS = "testResultsConfigurationIds";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> testResultsConfigurationIds;
 
   public TestRunFilterApiModel() {
   }
 
-  public TestRunFilterApiModel projectIds(@javax.annotation.Nullable List<UUID> projectIds) {
+  public TestRunFilterApiModel projectIds(List<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -161,12 +146,12 @@ public class TestRunFilterApiModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable List<UUID> projectIds) {
+  public void setProjectIds(List<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public TestRunFilterApiModel name(@javax.annotation.Nullable String name) {
+  public TestRunFilterApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -180,13 +165,13 @@ public class TestRunFilterApiModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
   @Deprecated
-  public TestRunFilterApiModel states(@javax.annotation.Nullable List<TestRunState> states) {
+  public TestRunFilterApiModel states(List<TestRunState> states) {
     this.states = states;
     return this;
   }
@@ -211,12 +196,12 @@ public class TestRunFilterApiModel {
   }
 
   @Deprecated
-  public void setStates(@javax.annotation.Nullable List<TestRunState> states) {
+  public void setStates(List<TestRunState> states) {
     this.states = states;
   }
 
 
-  public TestRunFilterApiModel statusCodes(@javax.annotation.Nullable List<String> statusCodes) {
+  public TestRunFilterApiModel statusCodes(List<String> statusCodes) {
     this.statusCodes = statusCodes;
     return this;
   }
@@ -238,12 +223,12 @@ public class TestRunFilterApiModel {
     return statusCodes;
   }
 
-  public void setStatusCodes(@javax.annotation.Nullable List<String> statusCodes) {
+  public void setStatusCodes(List<String> statusCodes) {
     this.statusCodes = statusCodes;
   }
 
 
-  public TestRunFilterApiModel createdDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public TestRunFilterApiModel createdDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -257,12 +242,12 @@ public class TestRunFilterApiModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestRunFilterApiModel startedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startedDate) {
+  public TestRunFilterApiModel startedDate(DateTimeRangeSelectorModel startedDate) {
     this.startedDate = startedDate;
     return this;
   }
@@ -276,12 +261,12 @@ public class TestRunFilterApiModel {
     return startedDate;
   }
 
-  public void setStartedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel startedDate) {
+  public void setStartedDate(DateTimeRangeSelectorModel startedDate) {
     this.startedDate = startedDate;
   }
 
 
-  public TestRunFilterApiModel createdByIds(@javax.annotation.Nullable List<UUID> createdByIds) {
+  public TestRunFilterApiModel createdByIds(List<UUID> createdByIds) {
     this.createdByIds = createdByIds;
     return this;
   }
@@ -303,12 +288,12 @@ public class TestRunFilterApiModel {
     return createdByIds;
   }
 
-  public void setCreatedByIds(@javax.annotation.Nullable List<UUID> createdByIds) {
+  public void setCreatedByIds(List<UUID> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
 
-  public TestRunFilterApiModel modifiedByIds(@javax.annotation.Nullable List<UUID> modifiedByIds) {
+  public TestRunFilterApiModel modifiedByIds(List<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
     return this;
   }
@@ -330,12 +315,12 @@ public class TestRunFilterApiModel {
     return modifiedByIds;
   }
 
-  public void setModifiedByIds(@javax.annotation.Nullable List<UUID> modifiedByIds) {
+  public void setModifiedByIds(List<UUID> modifiedByIds) {
     this.modifiedByIds = modifiedByIds;
   }
 
 
-  public TestRunFilterApiModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public TestRunFilterApiModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -349,12 +334,12 @@ public class TestRunFilterApiModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestRunFilterApiModel autoTestsCount(@javax.annotation.Nullable Int32RangeSelectorModel autoTestsCount) {
+  public TestRunFilterApiModel autoTestsCount(Int32RangeSelectorModel autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -368,13 +353,13 @@ public class TestRunFilterApiModel {
     return autoTestsCount;
   }
 
-  public void setAutoTestsCount(@javax.annotation.Nullable Int32RangeSelectorModel autoTestsCount) {
+  public void setAutoTestsCount(Int32RangeSelectorModel autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
   @Deprecated
-  public TestRunFilterApiModel testResultsOutcome(@javax.annotation.Nullable List<TestResultOutcome> testResultsOutcome) {
+  public TestRunFilterApiModel testResultsOutcome(List<TestResultOutcome> testResultsOutcome) {
     this.testResultsOutcome = testResultsOutcome;
     return this;
   }
@@ -399,12 +384,12 @@ public class TestRunFilterApiModel {
   }
 
   @Deprecated
-  public void setTestResultsOutcome(@javax.annotation.Nullable List<TestResultOutcome> testResultsOutcome) {
+  public void setTestResultsOutcome(List<TestResultOutcome> testResultsOutcome) {
     this.testResultsOutcome = testResultsOutcome;
   }
 
 
-  public TestRunFilterApiModel testResultsStatusCodes(@javax.annotation.Nullable List<String> testResultsStatusCodes) {
+  public TestRunFilterApiModel testResultsStatusCodes(List<String> testResultsStatusCodes) {
     this.testResultsStatusCodes = testResultsStatusCodes;
     return this;
   }
@@ -426,12 +411,12 @@ public class TestRunFilterApiModel {
     return testResultsStatusCodes;
   }
 
-  public void setTestResultsStatusCodes(@javax.annotation.Nullable List<String> testResultsStatusCodes) {
+  public void setTestResultsStatusCodes(List<String> testResultsStatusCodes) {
     this.testResultsStatusCodes = testResultsStatusCodes;
   }
 
 
-  public TestRunFilterApiModel failureCategory(@javax.annotation.Nullable List<FailureCategory> failureCategory) {
+  public TestRunFilterApiModel failureCategory(List<FailureCategory> failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -453,12 +438,12 @@ public class TestRunFilterApiModel {
     return failureCategory;
   }
 
-  public void setFailureCategory(@javax.annotation.Nullable List<FailureCategory> failureCategory) {
+  public void setFailureCategory(List<FailureCategory> failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public TestRunFilterApiModel completedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel completedDate) {
+  public TestRunFilterApiModel completedDate(DateTimeRangeSelectorModel completedDate) {
     this.completedDate = completedDate;
     return this;
   }
@@ -472,12 +457,12 @@ public class TestRunFilterApiModel {
     return completedDate;
   }
 
-  public void setCompletedDate(@javax.annotation.Nullable DateTimeRangeSelectorModel completedDate) {
+  public void setCompletedDate(DateTimeRangeSelectorModel completedDate) {
     this.completedDate = completedDate;
   }
 
 
-  public TestRunFilterApiModel testResultsConfigurationIds(@javax.annotation.Nullable List<UUID> testResultsConfigurationIds) {
+  public TestRunFilterApiModel testResultsConfigurationIds(List<UUID> testResultsConfigurationIds) {
     this.testResultsConfigurationIds = testResultsConfigurationIds;
     return this;
   }
@@ -499,7 +484,7 @@ public class TestRunFilterApiModel {
     return testResultsConfigurationIds;
   }
 
-  public void setTestResultsConfigurationIds(@javax.annotation.Nullable List<UUID> testResultsConfigurationIds) {
+  public void setTestResultsConfigurationIds(List<UUID> testResultsConfigurationIds) {
     this.testResultsConfigurationIds = testResultsConfigurationIds;
   }
 

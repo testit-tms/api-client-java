@@ -52,82 +52,68 @@ import ru.testit.client.invoker.JSON;
 /**
  * GetXlsxTestPointsByTestPlanModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetXlsxTestPointsByTestPlanModel {
   public static final String SERIALIZED_NAME_INCLUDE_NAME = "includeName";
   @SerializedName(SERIALIZED_NAME_INCLUDE_NAME)
-  @javax.annotation.Nonnull
   private Boolean includeName;
 
   public static final String SERIALIZED_NAME_INCLUDE_SECTION = "includeSection";
   @SerializedName(SERIALIZED_NAME_INCLUDE_SECTION)
-  @javax.annotation.Nonnull
   private Boolean includeSection;
 
   public static final String SERIALIZED_NAME_INCLUDE_PRIORITY = "includePriority";
   @SerializedName(SERIALIZED_NAME_INCLUDE_PRIORITY)
-  @javax.annotation.Nonnull
   private Boolean includePriority;
 
   public static final String SERIALIZED_NAME_INCLUDE_AUTOMATED = "includeAutomated";
   @SerializedName(SERIALIZED_NAME_INCLUDE_AUTOMATED)
-  @javax.annotation.Nonnull
   private Boolean includeAutomated;
 
   public static final String SERIALIZED_NAME_INCLUDE_STATUS = "includeStatus";
   @SerializedName(SERIALIZED_NAME_INCLUDE_STATUS)
-  @javax.annotation.Nonnull
   private Boolean includeStatus;
 
   public static final String SERIALIZED_NAME_INCLUDE_DURATION = "includeDuration";
   @SerializedName(SERIALIZED_NAME_INCLUDE_DURATION)
-  @javax.annotation.Nonnull
   private Boolean includeDuration;
 
   public static final String SERIALIZED_NAME_INCLUDE_CREATION_DATE = "includeCreationDate";
   @SerializedName(SERIALIZED_NAME_INCLUDE_CREATION_DATE)
-  @javax.annotation.Nonnull
   private Boolean includeCreationDate;
 
   public static final String SERIALIZED_NAME_INCLUDE_AUTHOR = "includeAuthor";
   @SerializedName(SERIALIZED_NAME_INCLUDE_AUTHOR)
-  @javax.annotation.Nonnull
   private Boolean includeAuthor;
 
   public static final String SERIALIZED_NAME_INCLUDE_MODIFICATION_DATE = "includeModificationDate";
   @SerializedName(SERIALIZED_NAME_INCLUDE_MODIFICATION_DATE)
-  @javax.annotation.Nonnull
   private Boolean includeModificationDate;
 
   public static final String SERIALIZED_NAME_INCLUDE_MODIFIED_BY = "includeModifiedBy";
   @SerializedName(SERIALIZED_NAME_INCLUDE_MODIFIED_BY)
-  @javax.annotation.Nonnull
   private Boolean includeModifiedBy;
 
   public static final String SERIALIZED_NAME_INCLUDE_TAGS = "includeTags";
   @SerializedName(SERIALIZED_NAME_INCLUDE_TAGS)
-  @javax.annotation.Nonnull
   private Boolean includeTags;
 
   public static final String SERIALIZED_NAME_INCLUDE_ITERATIONS = "includeIterations";
   @SerializedName(SERIALIZED_NAME_INCLUDE_ITERATIONS)
-  @javax.annotation.Nonnull
   private Boolean includeIterations;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTES_IDS = "customAttributesIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTES_IDS)
-  @javax.annotation.Nullable
   private List<UUID> customAttributesIds;
 
   public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  @javax.annotation.Nullable
   private List<UUID> configurationIds;
 
   public GetXlsxTestPointsByTestPlanModel() {
   }
 
-  public GetXlsxTestPointsByTestPlanModel includeName(@javax.annotation.Nonnull Boolean includeName) {
+  public GetXlsxTestPointsByTestPlanModel includeName(Boolean includeName) {
     this.includeName = includeName;
     return this;
   }
@@ -141,12 +127,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeName;
   }
 
-  public void setIncludeName(@javax.annotation.Nonnull Boolean includeName) {
+  public void setIncludeName(Boolean includeName) {
     this.includeName = includeName;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeSection(@javax.annotation.Nonnull Boolean includeSection) {
+  public GetXlsxTestPointsByTestPlanModel includeSection(Boolean includeSection) {
     this.includeSection = includeSection;
     return this;
   }
@@ -160,12 +146,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeSection;
   }
 
-  public void setIncludeSection(@javax.annotation.Nonnull Boolean includeSection) {
+  public void setIncludeSection(Boolean includeSection) {
     this.includeSection = includeSection;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includePriority(@javax.annotation.Nonnull Boolean includePriority) {
+  public GetXlsxTestPointsByTestPlanModel includePriority(Boolean includePriority) {
     this.includePriority = includePriority;
     return this;
   }
@@ -179,12 +165,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includePriority;
   }
 
-  public void setIncludePriority(@javax.annotation.Nonnull Boolean includePriority) {
+  public void setIncludePriority(Boolean includePriority) {
     this.includePriority = includePriority;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeAutomated(@javax.annotation.Nonnull Boolean includeAutomated) {
+  public GetXlsxTestPointsByTestPlanModel includeAutomated(Boolean includeAutomated) {
     this.includeAutomated = includeAutomated;
     return this;
   }
@@ -198,12 +184,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeAutomated;
   }
 
-  public void setIncludeAutomated(@javax.annotation.Nonnull Boolean includeAutomated) {
+  public void setIncludeAutomated(Boolean includeAutomated) {
     this.includeAutomated = includeAutomated;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeStatus(@javax.annotation.Nonnull Boolean includeStatus) {
+  public GetXlsxTestPointsByTestPlanModel includeStatus(Boolean includeStatus) {
     this.includeStatus = includeStatus;
     return this;
   }
@@ -217,12 +203,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeStatus;
   }
 
-  public void setIncludeStatus(@javax.annotation.Nonnull Boolean includeStatus) {
+  public void setIncludeStatus(Boolean includeStatus) {
     this.includeStatus = includeStatus;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeDuration(@javax.annotation.Nonnull Boolean includeDuration) {
+  public GetXlsxTestPointsByTestPlanModel includeDuration(Boolean includeDuration) {
     this.includeDuration = includeDuration;
     return this;
   }
@@ -236,12 +222,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeDuration;
   }
 
-  public void setIncludeDuration(@javax.annotation.Nonnull Boolean includeDuration) {
+  public void setIncludeDuration(Boolean includeDuration) {
     this.includeDuration = includeDuration;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeCreationDate(@javax.annotation.Nonnull Boolean includeCreationDate) {
+  public GetXlsxTestPointsByTestPlanModel includeCreationDate(Boolean includeCreationDate) {
     this.includeCreationDate = includeCreationDate;
     return this;
   }
@@ -255,12 +241,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeCreationDate;
   }
 
-  public void setIncludeCreationDate(@javax.annotation.Nonnull Boolean includeCreationDate) {
+  public void setIncludeCreationDate(Boolean includeCreationDate) {
     this.includeCreationDate = includeCreationDate;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeAuthor(@javax.annotation.Nonnull Boolean includeAuthor) {
+  public GetXlsxTestPointsByTestPlanModel includeAuthor(Boolean includeAuthor) {
     this.includeAuthor = includeAuthor;
     return this;
   }
@@ -274,12 +260,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeAuthor;
   }
 
-  public void setIncludeAuthor(@javax.annotation.Nonnull Boolean includeAuthor) {
+  public void setIncludeAuthor(Boolean includeAuthor) {
     this.includeAuthor = includeAuthor;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeModificationDate(@javax.annotation.Nonnull Boolean includeModificationDate) {
+  public GetXlsxTestPointsByTestPlanModel includeModificationDate(Boolean includeModificationDate) {
     this.includeModificationDate = includeModificationDate;
     return this;
   }
@@ -293,12 +279,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeModificationDate;
   }
 
-  public void setIncludeModificationDate(@javax.annotation.Nonnull Boolean includeModificationDate) {
+  public void setIncludeModificationDate(Boolean includeModificationDate) {
     this.includeModificationDate = includeModificationDate;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeModifiedBy(@javax.annotation.Nonnull Boolean includeModifiedBy) {
+  public GetXlsxTestPointsByTestPlanModel includeModifiedBy(Boolean includeModifiedBy) {
     this.includeModifiedBy = includeModifiedBy;
     return this;
   }
@@ -312,12 +298,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeModifiedBy;
   }
 
-  public void setIncludeModifiedBy(@javax.annotation.Nonnull Boolean includeModifiedBy) {
+  public void setIncludeModifiedBy(Boolean includeModifiedBy) {
     this.includeModifiedBy = includeModifiedBy;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeTags(@javax.annotation.Nonnull Boolean includeTags) {
+  public GetXlsxTestPointsByTestPlanModel includeTags(Boolean includeTags) {
     this.includeTags = includeTags;
     return this;
   }
@@ -331,12 +317,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeTags;
   }
 
-  public void setIncludeTags(@javax.annotation.Nonnull Boolean includeTags) {
+  public void setIncludeTags(Boolean includeTags) {
     this.includeTags = includeTags;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeIterations(@javax.annotation.Nonnull Boolean includeIterations) {
+  public GetXlsxTestPointsByTestPlanModel includeIterations(Boolean includeIterations) {
     this.includeIterations = includeIterations;
     return this;
   }
@@ -350,12 +336,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return includeIterations;
   }
 
-  public void setIncludeIterations(@javax.annotation.Nonnull Boolean includeIterations) {
+  public void setIncludeIterations(Boolean includeIterations) {
     this.includeIterations = includeIterations;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel customAttributesIds(@javax.annotation.Nullable List<UUID> customAttributesIds) {
+  public GetXlsxTestPointsByTestPlanModel customAttributesIds(List<UUID> customAttributesIds) {
     this.customAttributesIds = customAttributesIds;
     return this;
   }
@@ -377,12 +363,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     return customAttributesIds;
   }
 
-  public void setCustomAttributesIds(@javax.annotation.Nullable List<UUID> customAttributesIds) {
+  public void setCustomAttributesIds(List<UUID> customAttributesIds) {
     this.customAttributesIds = customAttributesIds;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel configurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public GetXlsxTestPointsByTestPlanModel configurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -404,7 +390,7 @@ public class GetXlsxTestPointsByTestPlanModel {
     return configurationIds;
   }
 
-  public void setConfigurationIds(@javax.annotation.Nullable List<UUID> configurationIds) {
+  public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 

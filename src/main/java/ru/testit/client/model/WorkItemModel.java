@@ -64,162 +64,132 @@ import ru.testit.client.invoker.JSON;
 /**
  * WorkItemModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemModel {
   public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
   @SerializedName(SERIALIZED_NAME_VERSION_ID)
-  @javax.annotation.Nonnull
   private UUID versionId;
 
   public static final String SERIALIZED_NAME_MEDIAN_DURATION = "medianDuration";
   @SerializedName(SERIALIZED_NAME_MEDIAN_DURATION)
-  @javax.annotation.Nonnull
   private Long medianDuration;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-  @javax.annotation.Nonnull
   private UUID projectId;
 
   public static final String SERIALIZED_NAME_ENTITY_TYPE_NAME = "entityTypeName";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE_NAME)
-  @javax.annotation.Nonnull
   private WorkItemEntityTypes entityTypeName;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  @javax.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String SERIALIZED_NAME_AUTO_TESTS = "autoTests";
   @SerializedName(SERIALIZED_NAME_AUTO_TESTS)
-  @javax.annotation.Nullable
   private List<AutoTestModel> autoTests;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  @javax.annotation.Nullable
   private List<AttachmentModel> attachments;
 
   public static final String SERIALIZED_NAME_SECTION_PRECONDITION_STEPS = "sectionPreconditionSteps";
   @SerializedName(SERIALIZED_NAME_SECTION_PRECONDITION_STEPS)
-  @javax.annotation.Nullable
   private List<StepModel> sectionPreconditionSteps;
 
   public static final String SERIALIZED_NAME_SECTION_POSTCONDITION_STEPS = "sectionPostconditionSteps";
   @SerializedName(SERIALIZED_NAME_SECTION_POSTCONDITION_STEPS)
-  @javax.annotation.Nullable
   private List<StepModel> sectionPostconditionSteps;
 
   public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
   @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
-  @javax.annotation.Nonnull
   private Integer versionNumber;
 
   public static final String SERIALIZED_NAME_ITERATIONS = "iterations";
   @SerializedName(SERIALIZED_NAME_ITERATIONS)
-  @javax.annotation.Nullable
   private List<IterationModel> iterations;
 
   public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
   @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  @javax.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
   @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  @javax.annotation.Nullable
   private OffsetDateTime modifiedDate;
 
   public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
   @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
-  @javax.annotation.Nonnull
   private UUID createdById;
 
   public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
   @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  @javax.annotation.Nullable
   private UUID modifiedById;
 
   public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
   @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
-  @javax.annotation.Nonnull
   private Long globalId;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
   @SerializedName(SERIALIZED_NAME_SECTION_ID)
-  @javax.annotation.Nonnull
   private UUID sectionId;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
-  @javax.annotation.Nonnull
   private WorkItemStates state;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  @javax.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
-  @javax.annotation.Nonnull
   private List<StepModel> steps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRECONDITION_STEPS = "preconditionSteps";
   @SerializedName(SERIALIZED_NAME_PRECONDITION_STEPS)
-  @javax.annotation.Nonnull
   private List<StepModel> preconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_POSTCONDITION_STEPS = "postconditionSteps";
   @SerializedName(SERIALIZED_NAME_POSTCONDITION_STEPS)
-  @javax.annotation.Nonnull
   private List<StepModel> postconditionSteps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
-  @javax.annotation.Nonnull
   private Integer duration;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  @javax.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nonnull
   private List<TagPutModel> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  @javax.annotation.Nonnull
   private List<LinkModel> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public WorkItemModel() {
   }
 
-  public WorkItemModel versionId(@javax.annotation.Nonnull UUID versionId) {
+  public WorkItemModel versionId(UUID versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -233,12 +203,12 @@ public class WorkItemModel {
     return versionId;
   }
 
-  public void setVersionId(@javax.annotation.Nonnull UUID versionId) {
+  public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public WorkItemModel medianDuration(@javax.annotation.Nonnull Long medianDuration) {
+  public WorkItemModel medianDuration(Long medianDuration) {
     this.medianDuration = medianDuration;
     return this;
   }
@@ -252,12 +222,12 @@ public class WorkItemModel {
     return medianDuration;
   }
 
-  public void setMedianDuration(@javax.annotation.Nonnull Long medianDuration) {
+  public void setMedianDuration(Long medianDuration) {
     this.medianDuration = medianDuration;
   }
 
 
-  public WorkItemModel isDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public WorkItemModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -271,12 +241,12 @@ public class WorkItemModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nonnull Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public WorkItemModel projectId(@javax.annotation.Nonnull UUID projectId) {
+  public WorkItemModel projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -290,12 +260,12 @@ public class WorkItemModel {
     return projectId;
   }
 
-  public void setProjectId(@javax.annotation.Nonnull UUID projectId) {
+  public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WorkItemModel entityTypeName(@javax.annotation.Nonnull WorkItemEntityTypes entityTypeName) {
+  public WorkItemModel entityTypeName(WorkItemEntityTypes entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -309,12 +279,12 @@ public class WorkItemModel {
     return entityTypeName;
   }
 
-  public void setEntityTypeName(@javax.annotation.Nonnull WorkItemEntityTypes entityTypeName) {
+  public void setEntityTypeName(WorkItemEntityTypes entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
-  public WorkItemModel isAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
+  public WorkItemModel isAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -328,12 +298,12 @@ public class WorkItemModel {
     return isAutomated;
   }
 
-  public void setIsAutomated(@javax.annotation.Nonnull Boolean isAutomated) {
+  public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public WorkItemModel autoTests(@javax.annotation.Nullable List<AutoTestModel> autoTests) {
+  public WorkItemModel autoTests(List<AutoTestModel> autoTests) {
     this.autoTests = autoTests;
     return this;
   }
@@ -355,12 +325,12 @@ public class WorkItemModel {
     return autoTests;
   }
 
-  public void setAutoTests(@javax.annotation.Nullable List<AutoTestModel> autoTests) {
+  public void setAutoTests(List<AutoTestModel> autoTests) {
     this.autoTests = autoTests;
   }
 
 
-  public WorkItemModel attachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public WorkItemModel attachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -382,12 +352,12 @@ public class WorkItemModel {
     return attachments;
   }
 
-  public void setAttachments(@javax.annotation.Nullable List<AttachmentModel> attachments) {
+  public void setAttachments(List<AttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public WorkItemModel sectionPreconditionSteps(@javax.annotation.Nullable List<StepModel> sectionPreconditionSteps) {
+  public WorkItemModel sectionPreconditionSteps(List<StepModel> sectionPreconditionSteps) {
     this.sectionPreconditionSteps = sectionPreconditionSteps;
     return this;
   }
@@ -409,12 +379,12 @@ public class WorkItemModel {
     return sectionPreconditionSteps;
   }
 
-  public void setSectionPreconditionSteps(@javax.annotation.Nullable List<StepModel> sectionPreconditionSteps) {
+  public void setSectionPreconditionSteps(List<StepModel> sectionPreconditionSteps) {
     this.sectionPreconditionSteps = sectionPreconditionSteps;
   }
 
 
-  public WorkItemModel sectionPostconditionSteps(@javax.annotation.Nullable List<StepModel> sectionPostconditionSteps) {
+  public WorkItemModel sectionPostconditionSteps(List<StepModel> sectionPostconditionSteps) {
     this.sectionPostconditionSteps = sectionPostconditionSteps;
     return this;
   }
@@ -436,12 +406,12 @@ public class WorkItemModel {
     return sectionPostconditionSteps;
   }
 
-  public void setSectionPostconditionSteps(@javax.annotation.Nullable List<StepModel> sectionPostconditionSteps) {
+  public void setSectionPostconditionSteps(List<StepModel> sectionPostconditionSteps) {
     this.sectionPostconditionSteps = sectionPostconditionSteps;
   }
 
 
-  public WorkItemModel versionNumber(@javax.annotation.Nonnull Integer versionNumber) {
+  public WorkItemModel versionNumber(Integer versionNumber) {
     this.versionNumber = versionNumber;
     return this;
   }
@@ -455,12 +425,12 @@ public class WorkItemModel {
     return versionNumber;
   }
 
-  public void setVersionNumber(@javax.annotation.Nonnull Integer versionNumber) {
+  public void setVersionNumber(Integer versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
-  public WorkItemModel iterations(@javax.annotation.Nullable List<IterationModel> iterations) {
+  public WorkItemModel iterations(List<IterationModel> iterations) {
     this.iterations = iterations;
     return this;
   }
@@ -482,12 +452,12 @@ public class WorkItemModel {
     return iterations;
   }
 
-  public void setIterations(@javax.annotation.Nullable List<IterationModel> iterations) {
+  public void setIterations(List<IterationModel> iterations) {
     this.iterations = iterations;
   }
 
 
-  public WorkItemModel createdDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public WorkItemModel createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -501,12 +471,12 @@ public class WorkItemModel {
     return createdDate;
   }
 
-  public void setCreatedDate(@javax.annotation.Nonnull OffsetDateTime createdDate) {
+  public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WorkItemModel modifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public WorkItemModel modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -520,12 +490,12 @@ public class WorkItemModel {
     return modifiedDate;
   }
 
-  public void setModifiedDate(@javax.annotation.Nullable OffsetDateTime modifiedDate) {
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public WorkItemModel createdById(@javax.annotation.Nonnull UUID createdById) {
+  public WorkItemModel createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -539,12 +509,12 @@ public class WorkItemModel {
     return createdById;
   }
 
-  public void setCreatedById(@javax.annotation.Nonnull UUID createdById) {
+  public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkItemModel modifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public WorkItemModel modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -558,12 +528,12 @@ public class WorkItemModel {
     return modifiedById;
   }
 
-  public void setModifiedById(@javax.annotation.Nullable UUID modifiedById) {
+  public void setModifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public WorkItemModel globalId(@javax.annotation.Nonnull Long globalId) {
+  public WorkItemModel globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -577,12 +547,12 @@ public class WorkItemModel {
     return globalId;
   }
 
-  public void setGlobalId(@javax.annotation.Nonnull Long globalId) {
+  public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public WorkItemModel id(@javax.annotation.Nonnull UUID id) {
+  public WorkItemModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -596,12 +566,12 @@ public class WorkItemModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemModel sectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public WorkItemModel sectionId(UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -615,12 +585,12 @@ public class WorkItemModel {
     return sectionId;
   }
 
-  public void setSectionId(@javax.annotation.Nonnull UUID sectionId) {
+  public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public WorkItemModel description(@javax.annotation.Nullable String description) {
+  public WorkItemModel description(String description) {
     this.description = description;
     return this;
   }
@@ -634,12 +604,12 @@ public class WorkItemModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public WorkItemModel state(@javax.annotation.Nonnull WorkItemStates state) {
+  public WorkItemModel state(WorkItemStates state) {
     this.state = state;
     return this;
   }
@@ -653,12 +623,12 @@ public class WorkItemModel {
     return state;
   }
 
-  public void setState(@javax.annotation.Nonnull WorkItemStates state) {
+  public void setState(WorkItemStates state) {
     this.state = state;
   }
 
 
-  public WorkItemModel priority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public WorkItemModel priority(WorkItemPriorityModel priority) {
     this.priority = priority;
     return this;
   }
@@ -672,12 +642,12 @@ public class WorkItemModel {
     return priority;
   }
 
-  public void setPriority(@javax.annotation.Nonnull WorkItemPriorityModel priority) {
+  public void setPriority(WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public WorkItemModel steps(@javax.annotation.Nonnull List<StepModel> steps) {
+  public WorkItemModel steps(List<StepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -699,12 +669,12 @@ public class WorkItemModel {
     return steps;
   }
 
-  public void setSteps(@javax.annotation.Nonnull List<StepModel> steps) {
+  public void setSteps(List<StepModel> steps) {
     this.steps = steps;
   }
 
 
-  public WorkItemModel preconditionSteps(@javax.annotation.Nonnull List<StepModel> preconditionSteps) {
+  public WorkItemModel preconditionSteps(List<StepModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -726,12 +696,12 @@ public class WorkItemModel {
     return preconditionSteps;
   }
 
-  public void setPreconditionSteps(@javax.annotation.Nonnull List<StepModel> preconditionSteps) {
+  public void setPreconditionSteps(List<StepModel> preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public WorkItemModel postconditionSteps(@javax.annotation.Nonnull List<StepModel> postconditionSteps) {
+  public WorkItemModel postconditionSteps(List<StepModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -753,12 +723,12 @@ public class WorkItemModel {
     return postconditionSteps;
   }
 
-  public void setPostconditionSteps(@javax.annotation.Nonnull List<StepModel> postconditionSteps) {
+  public void setPostconditionSteps(List<StepModel> postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public WorkItemModel duration(@javax.annotation.Nonnull Integer duration) {
+  public WorkItemModel duration(Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -774,12 +744,12 @@ public class WorkItemModel {
     return duration;
   }
 
-  public void setDuration(@javax.annotation.Nonnull Integer duration) {
+  public void setDuration(Integer duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemModel attributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public WorkItemModel attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -801,12 +771,12 @@ public class WorkItemModel {
     return attributes;
   }
 
-  public void setAttributes(@javax.annotation.Nonnull Map<String, Object> attributes) {
+  public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public WorkItemModel tags(@javax.annotation.Nonnull List<TagPutModel> tags) {
+  public WorkItemModel tags(List<TagPutModel> tags) {
     this.tags = tags;
     return this;
   }
@@ -828,12 +798,12 @@ public class WorkItemModel {
     return tags;
   }
 
-  public void setTags(@javax.annotation.Nonnull List<TagPutModel> tags) {
+  public void setTags(List<TagPutModel> tags) {
     this.tags = tags;
   }
 
 
-  public WorkItemModel links(@javax.annotation.Nonnull List<LinkModel> links) {
+  public WorkItemModel links(List<LinkModel> links) {
     this.links = links;
     return this;
   }
@@ -855,12 +825,12 @@ public class WorkItemModel {
     return links;
   }
 
-  public void setLinks(@javax.annotation.Nonnull List<LinkModel> links) {
+  public void setLinks(List<LinkModel> links) {
     this.links = links;
   }
 
 
-  public WorkItemModel name(@javax.annotation.Nonnull String name) {
+  public WorkItemModel name(String name) {
     this.name = name;
     return this;
   }
@@ -874,7 +844,7 @@ public class WorkItemModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 

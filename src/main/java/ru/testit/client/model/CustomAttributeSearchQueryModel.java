@@ -53,42 +53,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * CustomAttributeSearchQueryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeSearchQueryModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> projectIds;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS)
-  @javax.annotation.Nullable
   private Set<UUID> customAttributeIds;
 
   public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
-  @javax.annotation.Nullable
   private Set<CustomAttributeTypesEnum> customAttributeTypes;
 
   public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
   @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
-  @javax.annotation.Nullable
   private Boolean isGlobal;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public CustomAttributeSearchQueryModel() {
   }
 
-  public CustomAttributeSearchQueryModel name(@javax.annotation.Nullable String name) {
+  public CustomAttributeSearchQueryModel name(String name) {
     this.name = name;
     return this;
   }
@@ -102,12 +96,12 @@ public class CustomAttributeSearchQueryModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public CustomAttributeSearchQueryModel projectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public CustomAttributeSearchQueryModel projectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -129,12 +123,12 @@ public class CustomAttributeSearchQueryModel {
     return projectIds;
   }
 
-  public void setProjectIds(@javax.annotation.Nullable Set<UUID> projectIds) {
+  public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public CustomAttributeSearchQueryModel customAttributeIds(@javax.annotation.Nullable Set<UUID> customAttributeIds) {
+  public CustomAttributeSearchQueryModel customAttributeIds(Set<UUID> customAttributeIds) {
     this.customAttributeIds = customAttributeIds;
     return this;
   }
@@ -156,12 +150,12 @@ public class CustomAttributeSearchQueryModel {
     return customAttributeIds;
   }
 
-  public void setCustomAttributeIds(@javax.annotation.Nullable Set<UUID> customAttributeIds) {
+  public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
     this.customAttributeIds = customAttributeIds;
   }
 
 
-  public CustomAttributeSearchQueryModel customAttributeTypes(@javax.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public CustomAttributeSearchQueryModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
     return this;
   }
@@ -183,12 +177,12 @@ public class CustomAttributeSearchQueryModel {
     return customAttributeTypes;
   }
 
-  public void setCustomAttributeTypes(@javax.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
   }
 
 
-  public CustomAttributeSearchQueryModel isGlobal(@javax.annotation.Nullable Boolean isGlobal) {
+  public CustomAttributeSearchQueryModel isGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
     return this;
   }
@@ -202,12 +196,12 @@ public class CustomAttributeSearchQueryModel {
     return isGlobal;
   }
 
-  public void setIsGlobal(@javax.annotation.Nullable Boolean isGlobal) {
+  public void setIsGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 
 
-  public CustomAttributeSearchQueryModel isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public CustomAttributeSearchQueryModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -221,7 +215,7 @@ public class CustomAttributeSearchQueryModel {
     return isDeleted;
   }
 
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

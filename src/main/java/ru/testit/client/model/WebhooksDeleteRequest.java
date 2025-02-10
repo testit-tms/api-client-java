@@ -50,22 +50,20 @@ import ru.testit.client.invoker.JSON;
 /**
  * WebhooksDeleteRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhooksDeleteRequest {
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
-  @javax.annotation.Nonnull
   private WebhooksDeleteFilterRequest filter;
 
   public static final String SERIALIZED_NAME_EXTRACTOR = "extractor";
   @SerializedName(SERIALIZED_NAME_EXTRACTOR)
-  @javax.annotation.Nonnull
   private WebhooksExtractionRequest extractor;
 
   public WebhooksDeleteRequest() {
   }
 
-  public WebhooksDeleteRequest filter(@javax.annotation.Nonnull WebhooksDeleteFilterRequest filter) {
+  public WebhooksDeleteRequest filter(WebhooksDeleteFilterRequest filter) {
     this.filter = filter;
     return this;
   }
@@ -79,12 +77,12 @@ public class WebhooksDeleteRequest {
     return filter;
   }
 
-  public void setFilter(@javax.annotation.Nonnull WebhooksDeleteFilterRequest filter) {
+  public void setFilter(WebhooksDeleteFilterRequest filter) {
     this.filter = filter;
   }
 
 
-  public WebhooksDeleteRequest extractor(@javax.annotation.Nonnull WebhooksExtractionRequest extractor) {
+  public WebhooksDeleteRequest extractor(WebhooksExtractionRequest extractor) {
     this.extractor = extractor;
     return this;
   }
@@ -98,7 +96,7 @@ public class WebhooksDeleteRequest {
     return extractor;
   }
 
-  public void setExtractor(@javax.annotation.Nonnull WebhooksExtractionRequest extractor) {
+  public void setExtractor(WebhooksExtractionRequest extractor) {
     this.extractor = extractor;
   }
 

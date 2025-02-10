@@ -50,42 +50,36 @@ import ru.testit.client.invoker.JSON;
 /**
  * StepPutModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StepPutModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private UUID id;
 
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
-  @javax.annotation.Nullable
   private String action;
 
   public static final String SERIALIZED_NAME_EXPECTED = "expected";
   @SerializedName(SERIALIZED_NAME_EXPECTED)
-  @javax.annotation.Nullable
   private String expected;
 
   public static final String SERIALIZED_NAME_TEST_DATA = "testData";
   @SerializedName(SERIALIZED_NAME_TEST_DATA)
-  @javax.annotation.Nullable
   private String testData;
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
-  @javax.annotation.Nullable
   private String comments;
 
   public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
   @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
-  @javax.annotation.Nullable
   private UUID workItemId;
 
   public StepPutModel() {
   }
 
-  public StepPutModel id(@javax.annotation.Nonnull UUID id) {
+  public StepPutModel id(UUID id) {
     this.id = id;
     return this;
   }
@@ -99,12 +93,12 @@ public class StepPutModel {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull UUID id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public StepPutModel action(@javax.annotation.Nullable String action) {
+  public StepPutModel action(String action) {
     this.action = action;
     return this;
   }
@@ -118,12 +112,12 @@ public class StepPutModel {
     return action;
   }
 
-  public void setAction(@javax.annotation.Nullable String action) {
+  public void setAction(String action) {
     this.action = action;
   }
 
 
-  public StepPutModel expected(@javax.annotation.Nullable String expected) {
+  public StepPutModel expected(String expected) {
     this.expected = expected;
     return this;
   }
@@ -137,12 +131,12 @@ public class StepPutModel {
     return expected;
   }
 
-  public void setExpected(@javax.annotation.Nullable String expected) {
+  public void setExpected(String expected) {
     this.expected = expected;
   }
 
 
-  public StepPutModel testData(@javax.annotation.Nullable String testData) {
+  public StepPutModel testData(String testData) {
     this.testData = testData;
     return this;
   }
@@ -156,12 +150,12 @@ public class StepPutModel {
     return testData;
   }
 
-  public void setTestData(@javax.annotation.Nullable String testData) {
+  public void setTestData(String testData) {
     this.testData = testData;
   }
 
 
-  public StepPutModel comments(@javax.annotation.Nullable String comments) {
+  public StepPutModel comments(String comments) {
     this.comments = comments;
     return this;
   }
@@ -175,12 +169,12 @@ public class StepPutModel {
     return comments;
   }
 
-  public void setComments(@javax.annotation.Nullable String comments) {
+  public void setComments(String comments) {
     this.comments = comments;
   }
 
 
-  public StepPutModel workItemId(@javax.annotation.Nullable UUID workItemId) {
+  public StepPutModel workItemId(UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -194,7 +188,7 @@ public class StepPutModel {
     return workItemId;
   }
 
-  public void setWorkItemId(@javax.annotation.Nullable UUID workItemId) {
+  public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
 

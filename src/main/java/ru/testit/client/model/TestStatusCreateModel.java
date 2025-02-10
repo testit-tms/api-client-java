@@ -50,32 +50,28 @@ import ru.testit.client.invoker.JSON;
 /**
  * TestStatusCreateModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestStatusCreateModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private TestStatusType type;
 
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
-  @javax.annotation.Nonnull
   private String code;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public TestStatusCreateModel() {
   }
 
-  public TestStatusCreateModel name(@javax.annotation.Nonnull String name) {
+  public TestStatusCreateModel name(String name) {
     this.name = name;
     return this;
   }
@@ -89,12 +85,12 @@ public class TestStatusCreateModel {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public TestStatusCreateModel type(@javax.annotation.Nonnull TestStatusType type) {
+  public TestStatusCreateModel type(TestStatusType type) {
     this.type = type;
     return this;
   }
@@ -108,12 +104,12 @@ public class TestStatusCreateModel {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull TestStatusType type) {
+  public void setType(TestStatusType type) {
     this.type = type;
   }
 
 
-  public TestStatusCreateModel code(@javax.annotation.Nonnull String code) {
+  public TestStatusCreateModel code(String code) {
     this.code = code;
     return this;
   }
@@ -127,12 +123,12 @@ public class TestStatusCreateModel {
     return code;
   }
 
-  public void setCode(@javax.annotation.Nonnull String code) {
+  public void setCode(String code) {
     this.code = code;
   }
 
 
-  public TestStatusCreateModel description(@javax.annotation.Nullable String description) {
+  public TestStatusCreateModel description(String description) {
     this.description = description;
     return this;
   }
@@ -146,7 +142,7 @@ public class TestStatusCreateModel {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
