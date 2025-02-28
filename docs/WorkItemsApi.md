@@ -13,6 +13,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2WorkItemsIdLikesGet**](WorkItemsApi.md#apiV2WorkItemsIdLikesGet) | **GET** /api/v2/workItems/{id}/likes | Get likes of WorkItem |
 | [**apiV2WorkItemsIdTestResultsHistoryGet**](WorkItemsApi.md#apiV2WorkItemsIdTestResultsHistoryGet) | **GET** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem |
 | [**apiV2WorkItemsIdVersionVersionIdActualPost**](WorkItemsApi.md#apiV2WorkItemsIdVersionVersionIdActualPost) | **POST** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual |
+| [**apiV2WorkItemsLinksUrlsSearchPost**](WorkItemsApi.md#apiV2WorkItemsLinksUrlsSearchPost) | **POST** /api/v2/workItems/links/urls/search |  |
 | [**apiV2WorkItemsMovePost**](WorkItemsApi.md#apiV2WorkItemsMovePost) | **POST** /api/v2/workItems/move | Move WorkItem to another section |
 | [**apiV2WorkItemsSearchPost**](WorkItemsApi.md#apiV2WorkItemsSearchPost) | **POST** /api/v2/workItems/search | Search for work items |
 | [**apiV2WorkItemsSharedStepIdReferencesSectionsPost**](WorkItemsApi.md#apiV2WorkItemsSharedStepIdReferencesSectionsPost) | **POST** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections |
@@ -568,7 +569,7 @@ public class Example {
 
 <a id="apiV2WorkItemsIdTestResultsHistoryGet"></a>
 # **apiV2WorkItemsIdTestResultsHistoryGet**
-> List&lt;TestResultHistoryResponse&gt; apiV2WorkItemsIdTestResultsHistoryGet(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue)
+> List&lt;TestResultHistoryReportApiResult&gt; apiV2WorkItemsIdTestResultsHistoryGet(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue)
 
 Get test results history of WorkItem
 
@@ -603,6 +604,7 @@ public class Example {
     List<UUID> testPlanIds = Arrays.asList(); // List<UUID> | Identifiers of test plans which contain test results
     List<UUID> userIds = Arrays.asList(); // List<UUID> | Identifiers of users who set test results
     List<String> outcomes = Arrays.asList(); // List<String> | List of outcomes of test results
+    List<String> statusCodes = Arrays.asList(); // List<String> | List of status codes of test results
     Boolean isAutomated = true; // Boolean | OBSOLETE: Use `Automated` instead
     Boolean automated = true; // Boolean | If result must consist of only manual/automated test results
     List<UUID> testRunIds = Arrays.asList(); // List<UUID> | Identifiers of test runs which contain test results
@@ -612,7 +614,7 @@ public class Example {
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
     try {
-      List<TestResultHistoryResponse> result = apiInstance.apiV2WorkItemsIdTestResultsHistoryGet(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
+      List<TestResultHistoryReportApiResult> result = apiInstance.apiV2WorkItemsIdTestResultsHistoryGet(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdTestResultsHistoryGet");
@@ -636,6 +638,7 @@ public class Example {
 | **testPlanIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of test plans which contain test results | [optional] |
 | **userIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of users who set test results | [optional] |
 | **outcomes** | [**List&lt;String&gt;**](String.md)| List of outcomes of test results | [optional] |
+| **statusCodes** | [**List&lt;String&gt;**](String.md)| List of status codes of test results | [optional] |
 | **isAutomated** | **Boolean**| OBSOLETE: Use &#x60;Automated&#x60; instead | [optional] |
 | **automated** | **Boolean**| If result must consist of only manual/automated test results | [optional] |
 | **testRunIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of test runs which contain test results | [optional] |
@@ -647,7 +650,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TestResultHistoryResponse&gt;**](TestResultHistoryResponse.md)
+[**List&lt;TestResultHistoryReportApiResult&gt;**](TestResultHistoryReportApiResult.md)
 
 ### Authorization
 
@@ -746,6 +749,89 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
+<a id="apiV2WorkItemsLinksUrlsSearchPost"></a>
+# **apiV2WorkItemsLinksUrlsSearchPost**
+> SearchWorkItemLinkUrlsApiResult apiV2WorkItemsLinksUrlsSearchPost(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel)
+
+
+
+### Example
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.models.*;
+import ru.testit.client.api.WorkItemsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: Bearer or PrivateToken
+    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+    Bearer or PrivateToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+    Integer take = 56; // Integer | Amount of items to be taken (limit)
+    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+    String searchField = "searchField_example"; // String | Property name for searching
+    String searchValue = "searchValue_example"; // String | Value for searching
+    WorkItemLinkUrlApiModel workItemLinkUrlApiModel = new WorkItemLinkUrlApiModel(); // WorkItemLinkUrlApiModel | 
+    try {
+      SearchWorkItemLinkUrlsApiResult result = apiInstance.apiV2WorkItemsLinksUrlsSearchPost(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsLinksUrlsSearchPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **workItemLinkUrlApiModel** | [**WorkItemLinkUrlApiModel**](WorkItemLinkUrlApiModel.md)|  | [optional] |
+
+### Return type
+
+[**SearchWorkItemLinkUrlsApiResult**](SearchWorkItemLinkUrlsApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
 <a id="apiV2WorkItemsMovePost"></a>
 # **apiV2WorkItemsMovePost**
 > WorkItemShortModel apiV2WorkItemsMovePost(workItemMovePostModel)
@@ -823,7 +909,7 @@ public class Example {
 
 <a id="apiV2WorkItemsSearchPost"></a>
 # **apiV2WorkItemsSearchPost**
-> List&lt;WorkItemShortModel&gt; apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectModel)
+> List&lt;WorkItemShortApiResult&gt; apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel)
 
 Search for work items
 
@@ -854,9 +940,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
+    WorkItemSelectApiModel workItemSelectApiModel = new WorkItemSelectApiModel(); // WorkItemSelectApiModel | 
     try {
-      List<WorkItemShortModel> result = apiInstance.apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+      List<WorkItemShortApiResult> result = apiInstance.apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSearchPost");
@@ -878,11 +964,11 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
+| **workItemSelectApiModel** | [**WorkItemSelectApiModel**](WorkItemSelectApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;WorkItemShortModel&gt;**](WorkItemShortModel.md)
+[**List&lt;WorkItemShortApiResult&gt;**](WorkItemShortApiResult.md)
 
 ### Authorization
 

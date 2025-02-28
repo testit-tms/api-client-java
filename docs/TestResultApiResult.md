@@ -32,7 +32,7 @@
 |**attachments** | [**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md) |  |  |
 |**links** | [**List&lt;LinkApiResult&gt;**](LinkApiResult.md) |  |  |
 |**failureClasses** | [**List&lt;TestResultFailureClassApiResult&gt;**](TestResultFailureClassApiResult.md) |  |  |
-|**stepComments** | [**List&lt;StepCommentApiResult&gt;**](StepCommentApiResult.md) |  |  [optional] |
+|**stepComments** | [**List&lt;StepCommentApiModel&gt;**](StepCommentApiModel.md) |  |  [optional] |
 |**parameters** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**properties** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  |

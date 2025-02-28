@@ -18,7 +18,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2WebhooksDelete"></a>
 # **apiV2WebhooksDelete**
-> apiV2WebhooksDelete(webhooksDeleteRequest)
+> apiV2WebhooksDelete(webhooksDeleteApiModel)
 
 
 
@@ -44,9 +44,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-    WebhooksDeleteRequest webhooksDeleteRequest = new WebhooksDeleteRequest(); // WebhooksDeleteRequest | 
+    WebhooksDeleteApiModel webhooksDeleteApiModel = new WebhooksDeleteApiModel(); // WebhooksDeleteApiModel | 
     try {
-      apiInstance.apiV2WebhooksDelete(webhooksDeleteRequest);
+      apiInstance.apiV2WebhooksDelete(webhooksDeleteApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksDelete");
       System.err.println("Status code: " + e.getCode());
@@ -62,7 +62,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **webhooksDeleteRequest** | [**WebhooksDeleteRequest**](WebhooksDeleteRequest.md)|  | [optional] |
+| **webhooksDeleteApiModel** | [**WebhooksDeleteApiModel**](WebhooksDeleteApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -457,7 +457,7 @@ public class Example {
 
 <a id="apiV2WebhooksPut"></a>
 # **apiV2WebhooksPut**
-> WebhooksUpdateResponse apiV2WebhooksPut(webhooksUpdateRequest)
+> WebhooksUpdateApiResult apiV2WebhooksPut(webhooksUpdateApiModel)
 
 
 
@@ -483,9 +483,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     WebhooksApi apiInstance = new WebhooksApi(defaultClient);
-    WebhooksUpdateRequest webhooksUpdateRequest = new WebhooksUpdateRequest(); // WebhooksUpdateRequest | 
+    WebhooksUpdateApiModel webhooksUpdateApiModel = new WebhooksUpdateApiModel(); // WebhooksUpdateApiModel | 
     try {
-      WebhooksUpdateResponse result = apiInstance.apiV2WebhooksPut(webhooksUpdateRequest);
+      WebhooksUpdateApiResult result = apiInstance.apiV2WebhooksPut(webhooksUpdateApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling WebhooksApi#apiV2WebhooksPut");
@@ -502,11 +502,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **webhooksUpdateRequest** | [**WebhooksUpdateRequest**](WebhooksUpdateRequest.md)|  | [optional] |
+| **webhooksUpdateApiModel** | [**WebhooksUpdateApiModel**](WebhooksUpdateApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**WebhooksUpdateResponse**](WebhooksUpdateResponse.md)
+[**WebhooksUpdateApiResult**](WebhooksUpdateApiResult.md)
 
 ### Authorization
 

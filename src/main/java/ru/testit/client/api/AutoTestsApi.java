@@ -35,13 +35,13 @@ import ru.testit.client.model.AutoTestFlakyBulkApiModel;
 import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.AutoTestPostModel;
 import ru.testit.client.model.AutoTestPutModel;
+import ru.testit.client.model.AutoTestResultHistoryApiResult;
+import ru.testit.client.model.AutoTestResultHistorySelectApiModel;
 import ru.testit.client.model.AutoTestSearchApiModel;
-import ru.testit.client.model.AutotestHistoricalResultSelectModel;
-import ru.testit.client.model.AutotestResultHistoricalGetModel;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TestResultChronologyModel;
-import ru.testit.client.model.TestRunShortModel;
+import ru.testit.client.model.TestRunByAutoTestApiResult;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemIdModel;
@@ -566,7 +566,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestHistoricalResultSelectModel  (optional)
+     * @param autoTestResultHistorySelectApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -582,7 +582,7 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestResultHistorySelectApiModel autoTestResultHistorySelectApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -596,7 +596,7 @@ public class AutoTestsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = autotestHistoricalResultSelectModel;
+        Object localVarPostBody = autoTestResultHistorySelectApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/autoTests/{id}/testResults/search"
@@ -649,13 +649,13 @@ public class AutoTestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestResultHistorySelectApiModel autoTestResultHistorySelectApiModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2AutoTestsIdTestResultsSearchPost(Async)");
         }
 
-        return apiV2AutoTestsIdTestResultsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, _callback);
+        return apiV2AutoTestsIdTestResultsSearchPostCall(id, skip, take, orderBy, searchField, searchValue, autoTestResultHistorySelectApiModel, _callback);
 
     }
 
@@ -668,8 +668,8 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestHistoricalResultSelectModel  (optional)
-     * @return List&lt;AutotestResultHistoricalGetModel&gt;
+     * @param autoTestResultHistorySelectApiModel  (optional)
+     * @return List&lt;AutoTestResultHistoryApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -683,8 +683,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<AutotestResultHistoricalGetModel> apiV2AutoTestsIdTestResultsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel) throws ApiException {
-        ApiResponse<List<AutotestResultHistoricalGetModel>> localVarResp = apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel);
+    public List<AutoTestResultHistoryApiResult> apiV2AutoTestsIdTestResultsSearchPost(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestResultHistorySelectApiModel autoTestResultHistorySelectApiModel) throws ApiException {
+        ApiResponse<List<AutoTestResultHistoryApiResult>> localVarResp = apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(id, skip, take, orderBy, searchField, searchValue, autoTestResultHistorySelectApiModel);
         return localVarResp.getData();
     }
 
@@ -697,8 +697,8 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestHistoricalResultSelectModel  (optional)
-     * @return ApiResponse&lt;List&lt;AutotestResultHistoricalGetModel&gt;&gt;
+     * @param autoTestResultHistorySelectApiModel  (optional)
+     * @return ApiResponse&lt;List&lt;AutoTestResultHistoryApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -712,9 +712,9 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<AutotestResultHistoricalGetModel>> apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, null);
-        Type localVarReturnType = new TypeToken<List<AutotestResultHistoricalGetModel>>(){}.getType();
+    public ApiResponse<List<AutoTestResultHistoryApiResult>> apiV2AutoTestsIdTestResultsSearchPostWithHttpInfo(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestResultHistorySelectApiModel autoTestResultHistorySelectApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, autoTestResultHistorySelectApiModel, null);
+        Type localVarReturnType = new TypeToken<List<AutoTestResultHistoryApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -727,7 +727,7 @@ public class AutoTestsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param autotestHistoricalResultSelectModel  (optional)
+     * @param autoTestResultHistorySelectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -743,10 +743,10 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel, final ApiCallback<List<AutotestResultHistoricalGetModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2AutoTestsIdTestResultsSearchPostAsync(String id, Integer skip, Integer take, String orderBy, String searchField, String searchValue, AutoTestResultHistorySelectApiModel autoTestResultHistorySelectApiModel, final ApiCallback<List<AutoTestResultHistoryApiResult>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel, _callback);
-        Type localVarReturnType = new TypeToken<List<AutotestResultHistoricalGetModel>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2AutoTestsIdTestResultsSearchPostValidateBeforeCall(id, skip, take, orderBy, searchField, searchValue, autoTestResultHistorySelectApiModel, _callback);
+        Type localVarReturnType = new TypeToken<List<AutoTestResultHistoryApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2691,7 +2691,7 @@ public class AutoTestsApi {
      * Get completed tests runs for autotests
      *  Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search for all test runs related to the autotest   System returns the enumeration of test runs
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @return List&lt;TestRunShortModel&gt;
+     * @return List&lt;TestRunByAutoTestApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2705,8 +2705,8 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestRunShortModel> getTestRuns(String id) throws ApiException {
-        ApiResponse<List<TestRunShortModel>> localVarResp = getTestRunsWithHttpInfo(id);
+    public List<TestRunByAutoTestApiResult> getTestRuns(String id) throws ApiException {
+        ApiResponse<List<TestRunByAutoTestApiResult>> localVarResp = getTestRunsWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -2714,7 +2714,7 @@ public class AutoTestsApi {
      * Get completed tests runs for autotests
      *  Use case   User sets autotest internal (guid format) or global (integer format) identifier   User runs method execution   System search for all test runs related to the autotest   System returns the enumeration of test runs
      * @param id Autotest internal (UUID) or global (integer) identifier (required)
-     * @return ApiResponse&lt;List&lt;TestRunShortModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;TestRunByAutoTestApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2728,9 +2728,9 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestRunShortModel>> getTestRunsWithHttpInfo(String id) throws ApiException {
+    public ApiResponse<List<TestRunByAutoTestApiResult>> getTestRunsWithHttpInfo(String id) throws ApiException {
         okhttp3.Call localVarCall = getTestRunsValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<List<TestRunShortModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TestRunByAutoTestApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2753,10 +2753,10 @@ public class AutoTestsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTestRunsAsync(String id, final ApiCallback<List<TestRunShortModel>> _callback) throws ApiException {
+    public okhttp3.Call getTestRunsAsync(String id, final ApiCallback<List<TestRunByAutoTestApiResult>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTestRunsValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<List<TestRunShortModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TestRunByAutoTestApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

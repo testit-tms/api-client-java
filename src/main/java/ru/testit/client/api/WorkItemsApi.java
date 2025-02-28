@@ -32,21 +32,24 @@ import java.io.File;
 import ru.testit.client.model.IterationModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.SearchWorkItemLinkUrlsApiResult;
 import ru.testit.client.model.SharedStepReferenceModel;
 import ru.testit.client.model.SharedStepReferenceSectionModel;
 import ru.testit.client.model.SharedStepReferenceSectionsQueryFilterModel;
 import ru.testit.client.model.SharedStepReferencesQueryFilterModel;
 import ru.testit.client.model.TestResultChronologyModel;
-import ru.testit.client.model.TestResultHistoryResponse;
+import ru.testit.client.model.TestResultHistoryReportApiResult;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemChangeModel;
 import ru.testit.client.model.WorkItemLikeModel;
+import ru.testit.client.model.WorkItemLinkUrlApiModel;
 import ru.testit.client.model.WorkItemModel;
 import ru.testit.client.model.WorkItemMovePostModel;
 import ru.testit.client.model.WorkItemPostModel;
 import ru.testit.client.model.WorkItemPutModel;
-import ru.testit.client.model.WorkItemSelectModel;
+import ru.testit.client.model.WorkItemSelectApiModel;
+import ru.testit.client.model.WorkItemShortApiResult;
 import ru.testit.client.model.WorkItemShortModel;
 import ru.testit.client.model.WorkItemVersionModel;
 
@@ -1172,6 +1175,7 @@ public class WorkItemsApi {
      * @param testPlanIds Identifiers of test plans which contain test results (optional)
      * @param userIds Identifiers of users who set test results (optional)
      * @param outcomes List of outcomes of test results (optional)
+     * @param statusCodes List of status codes of test results (optional)
      * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
      * @param automated If result must consist of only manual/automated test results (optional)
      * @param testRunIds Identifiers of test runs which contain test results (optional)
@@ -1195,7 +1199,7 @@ public class WorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsIdTestResultsHistoryGetCall(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsIdTestResultsHistoryGetCall(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, List<String> statusCodes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1243,6 +1247,10 @@ public class WorkItemsApi {
 
         if (outcomes != null) {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "outcomes", outcomes));
+        }
+
+        if (statusCodes != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "statusCodes", statusCodes));
         }
 
         if (isAutomated != null) {
@@ -1297,13 +1305,13 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, List<String> statusCodes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2WorkItemsIdTestResultsHistoryGet(Async)");
         }
 
-        return apiV2WorkItemsIdTestResultsHistoryGetCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, _callback);
+        return apiV2WorkItemsIdTestResultsHistoryGetCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, _callback);
 
     }
 
@@ -1317,6 +1325,7 @@ public class WorkItemsApi {
      * @param testPlanIds Identifiers of test plans which contain test results (optional)
      * @param userIds Identifiers of users who set test results (optional)
      * @param outcomes List of outcomes of test results (optional)
+     * @param statusCodes List of status codes of test results (optional)
      * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
      * @param automated If result must consist of only manual/automated test results (optional)
      * @param testRunIds Identifiers of test runs which contain test results (optional)
@@ -1325,7 +1334,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @return List&lt;TestResultHistoryResponse&gt;
+     * @return List&lt;TestResultHistoryReportApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1339,8 +1348,8 @@ public class WorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestResultHistoryResponse> apiV2WorkItemsIdTestResultsHistoryGet(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        ApiResponse<List<TestResultHistoryResponse>> localVarResp = apiV2WorkItemsIdTestResultsHistoryGetWithHttpInfo(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
+    public List<TestResultHistoryReportApiResult> apiV2WorkItemsIdTestResultsHistoryGet(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, List<String> statusCodes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<TestResultHistoryReportApiResult>> localVarResp = apiV2WorkItemsIdTestResultsHistoryGetWithHttpInfo(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
         return localVarResp.getData();
     }
 
@@ -1354,6 +1363,7 @@ public class WorkItemsApi {
      * @param testPlanIds Identifiers of test plans which contain test results (optional)
      * @param userIds Identifiers of users who set test results (optional)
      * @param outcomes List of outcomes of test results (optional)
+     * @param statusCodes List of status codes of test results (optional)
      * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
      * @param automated If result must consist of only manual/automated test results (optional)
      * @param testRunIds Identifiers of test runs which contain test results (optional)
@@ -1362,7 +1372,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @return ApiResponse&lt;List&lt;TestResultHistoryResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;TestResultHistoryReportApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1376,9 +1386,9 @@ public class WorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestResultHistoryResponse>> apiV2WorkItemsIdTestResultsHistoryGetWithHttpInfo(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, null);
-        Type localVarReturnType = new TypeToken<List<TestResultHistoryResponse>>(){}.getType();
+    public ApiResponse<List<TestResultHistoryReportApiResult>> apiV2WorkItemsIdTestResultsHistoryGetWithHttpInfo(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, List<String> statusCodes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, null);
+        Type localVarReturnType = new TypeToken<List<TestResultHistoryReportApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1392,6 +1402,7 @@ public class WorkItemsApi {
      * @param testPlanIds Identifiers of test plans which contain test results (optional)
      * @param userIds Identifiers of users who set test results (optional)
      * @param outcomes List of outcomes of test results (optional)
+     * @param statusCodes List of status codes of test results (optional)
      * @param isAutomated OBSOLETE: Use &#x60;Automated&#x60; instead (optional)
      * @param automated If result must consist of only manual/automated test results (optional)
      * @param testRunIds Identifiers of test runs which contain test results (optional)
@@ -1415,10 +1426,10 @@ public class WorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsIdTestResultsHistoryGetAsync(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestResultHistoryResponse>> _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsIdTestResultsHistoryGetAsync(UUID id, OffsetDateTime from, OffsetDateTime to, List<UUID> configurationIds, List<UUID> testPlanIds, List<UUID> userIds, List<String> outcomes, List<String> statusCodes, Boolean isAutomated, Boolean automated, List<UUID> testRunIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<TestResultHistoryReportApiResult>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, _callback);
-        Type localVarReturnType = new TypeToken<List<TestResultHistoryResponse>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2WorkItemsIdTestResultsHistoryGetValidateBeforeCall(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue, _callback);
+        Type localVarReturnType = new TypeToken<List<TestResultHistoryReportApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1580,6 +1591,188 @@ public class WorkItemsApi {
         return localVarCall;
     }
     /**
+     * Build call for apiV2WorkItemsLinksUrlsSearchPost
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param workItemLinkUrlApiModel  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2WorkItemsLinksUrlsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemLinkUrlApiModel workItemLinkUrlApiModel, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = workItemLinkUrlApiModel;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/workItems/links/urls/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Skip", skip));
+        }
+
+        if (take != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("Take", take));
+        }
+
+        if (orderBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("OrderBy", orderBy));
+        }
+
+        if (searchField != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("SearchField", searchField));
+        }
+
+        if (searchValue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("SearchValue", searchValue));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2WorkItemsLinksUrlsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemLinkUrlApiModel workItemLinkUrlApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2WorkItemsLinksUrlsSearchPostCall(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param workItemLinkUrlApiModel  (optional)
+     * @return SearchWorkItemLinkUrlsApiResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public SearchWorkItemLinkUrlsApiResult apiV2WorkItemsLinksUrlsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemLinkUrlApiModel workItemLinkUrlApiModel) throws ApiException {
+        ApiResponse<SearchWorkItemLinkUrlsApiResult> localVarResp = apiV2WorkItemsLinksUrlsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param workItemLinkUrlApiModel  (optional)
+     * @return ApiResponse&lt;SearchWorkItemLinkUrlsApiResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SearchWorkItemLinkUrlsApiResult> apiV2WorkItemsLinksUrlsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemLinkUrlApiModel workItemLinkUrlApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsLinksUrlsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel, null);
+        Type localVarReturnType = new TypeToken<SearchWorkItemLinkUrlsApiResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param skip Amount of items to be skipped (offset) (optional)
+     * @param take Amount of items to be taken (limit) (optional)
+     * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+     * @param searchField Property name for searching (optional)
+     * @param searchValue Value for searching (optional)
+     * @param workItemLinkUrlApiModel  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2WorkItemsLinksUrlsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemLinkUrlApiModel workItemLinkUrlApiModel, final ApiCallback<SearchWorkItemLinkUrlsApiResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2WorkItemsLinksUrlsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel, _callback);
+        Type localVarReturnType = new TypeToken<SearchWorkItemLinkUrlsApiResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for apiV2WorkItemsMovePost
      * @param workItemMovePostModel  (optional)
      * @param _callback Callback for upload/download progress
@@ -1728,7 +1921,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param workItemSelectApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1744,7 +1937,7 @@ public class WorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectApiModel workItemSelectApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1758,7 +1951,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemSelectModel;
+        Object localVarPostBody = workItemSelectApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems/search";
@@ -1810,8 +2003,8 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WorkItemsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback _callback) throws ApiException {
-        return apiV2WorkItemsSearchPostCall(skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
+    private okhttp3.Call apiV2WorkItemsSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectApiModel workItemSelectApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2WorkItemsSearchPostCall(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel, _callback);
 
     }
 
@@ -1823,8 +2016,8 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
-     * @return List&lt;WorkItemShortModel&gt;
+     * @param workItemSelectApiModel  (optional)
+     * @return List&lt;WorkItemShortApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1838,8 +2031,8 @@ public class WorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<WorkItemShortModel> apiV2WorkItemsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        ApiResponse<List<WorkItemShortModel>> localVarResp = apiV2WorkItemsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+    public List<WorkItemShortApiResult> apiV2WorkItemsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectApiModel workItemSelectApiModel) throws ApiException {
+        ApiResponse<List<WorkItemShortApiResult>> localVarResp = apiV2WorkItemsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel);
         return localVarResp.getData();
     }
 
@@ -1851,8 +2044,8 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
-     * @return ApiResponse&lt;List&lt;WorkItemShortModel&gt;&gt;
+     * @param workItemSelectApiModel  (optional)
+     * @return ApiResponse&lt;List&lt;WorkItemShortApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1866,9 +2059,9 @@ public class WorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<WorkItemShortModel>> apiV2WorkItemsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WorkItemsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, workItemSelectModel, null);
-        Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
+    public ApiResponse<List<WorkItemShortApiResult>> apiV2WorkItemsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectApiModel workItemSelectApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WorkItemsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel, null);
+        Type localVarReturnType = new TypeToken<List<WorkItemShortApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1880,7 +2073,7 @@ public class WorkItemsApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param workItemSelectModel  (optional)
+     * @param workItemSelectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1896,10 +2089,10 @@ public class WorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WorkItemsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectModel workItemSelectModel, final ApiCallback<List<WorkItemShortModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2WorkItemsSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectApiModel workItemSelectApiModel, final ApiCallback<List<WorkItemShortApiResult>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WorkItemsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, workItemSelectModel, _callback);
-        Type localVarReturnType = new TypeToken<List<WorkItemShortModel>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2WorkItemsSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel, _callback);
+        Type localVarReturnType = new TypeToken<List<WorkItemShortApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

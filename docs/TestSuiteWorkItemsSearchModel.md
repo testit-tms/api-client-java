@@ -13,6 +13,7 @@
 |**includeIds** | **Set&lt;UUID&gt;** | Collection of identifiers of work items which need to be included in result regardless of filtering |  [optional] |
 |**excludeIds** | **Set&lt;UUID&gt;** | Collection of identifiers of work items which need to be excluded from result regardless of filtering |  [optional] |
 |**projectIds** | **Set&lt;UUID&gt;** | Collection of project identifiers |  [optional] |
+|**links** | [**WorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links |  [optional] |
 |**name** | **String** | Name of work item |  [optional] |
 |**ids** | **Set&lt;UUID&gt;** | Specifies a work item unique IDs to search for |  [optional] |
 |**globalIds** | **Set&lt;Long&gt;** | Collection of global (integer) identifiers |  [optional] |

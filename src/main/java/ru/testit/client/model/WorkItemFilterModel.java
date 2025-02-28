@@ -33,6 +33,7 @@ import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.WorkItemEntityTypes;
+import ru.testit.client.model.WorkItemLinkFilterModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemStates;
 
@@ -79,6 +80,10 @@ public class WorkItemFilterModel {
   public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
   @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
   private Set<UUID> projectIds;
+
+  public static final String SERIALIZED_NAME_LINKS = "links";
+  @SerializedName(SERIALIZED_NAME_LINKS)
+  private WorkItemLinkFilterModel links;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -256,6 +261,25 @@ public class WorkItemFilterModel {
 
   public void setProjectIds(Set<UUID> projectIds) {
     this.projectIds = projectIds;
+  }
+
+
+  public WorkItemFilterModel links(WorkItemLinkFilterModel links) {
+    this.links = links;
+    return this;
+  }
+
+  /**
+   * Specifies a work item filter by its links
+   * @return links
+   */
+  @javax.annotation.Nullable
+  public WorkItemLinkFilterModel getLinks() {
+    return links;
+  }
+
+  public void setLinks(WorkItemLinkFilterModel links) {
+    this.links = links;
   }
 
 
@@ -730,6 +754,7 @@ public class WorkItemFilterModel {
         Objects.equals(this.includeIds, workItemFilterModel.includeIds) &&
         Objects.equals(this.excludeIds, workItemFilterModel.excludeIds) &&
         Objects.equals(this.projectIds, workItemFilterModel.projectIds) &&
+        Objects.equals(this.links, workItemFilterModel.links) &&
         Objects.equals(this.name, workItemFilterModel.name) &&
         Objects.equals(this.ids, workItemFilterModel.ids) &&
         Objects.equals(this.globalIds, workItemFilterModel.globalIds) &&
@@ -757,7 +782,7 @@ public class WorkItemFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nameOrId, includeIds, excludeIds, projectIds, name, ids, globalIds, attributes, isDeleted, sectionIds, createdByIds, modifiedByIds, states, priorities, types, createdDate, modifiedDate, duration, medianDuration, isAutomated, tags, autoTestIds, workItemVersionIds);
+    return Objects.hash(nameOrId, includeIds, excludeIds, projectIds, links, name, ids, globalIds, attributes, isDeleted, sectionIds, createdByIds, modifiedByIds, states, priorities, types, createdDate, modifiedDate, duration, medianDuration, isAutomated, tags, autoTestIds, workItemVersionIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -775,6 +800,7 @@ public class WorkItemFilterModel {
     sb.append("    includeIds: ").append(toIndentedString(includeIds)).append("\n");
     sb.append("    excludeIds: ").append(toIndentedString(excludeIds)).append("\n");
     sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
     sb.append("    globalIds: ").append(toIndentedString(globalIds)).append("\n");
@@ -820,6 +846,7 @@ public class WorkItemFilterModel {
     openapiFields.add("includeIds");
     openapiFields.add("excludeIds");
     openapiFields.add("projectIds");
+    openapiFields.add("links");
     openapiFields.add("name");
     openapiFields.add("ids");
     openapiFields.add("globalIds");
@@ -879,6 +906,10 @@ public class WorkItemFilterModel {
       // ensure the optional json data is an array if present
       if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
+      }
+      // validate the optional field `links`
+      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
+        WorkItemLinkFilterModel.validateJsonElement(jsonObj.get("links"));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

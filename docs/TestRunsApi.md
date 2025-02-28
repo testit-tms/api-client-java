@@ -328,7 +328,7 @@ null (empty response body)
 
 <a id="apiV2TestRunsIdRerunsPost"></a>
 # **apiV2TestRunsIdRerunsPost**
-> ManualRerunApiResult apiV2TestRunsIdRerunsPost(id, manualRerunSelectApiModel)
+> ManualRerunApiResult apiV2TestRunsIdRerunsPost(id, manualRerunSelectTestResultsApiModel)
 
 Manual autotests rerun in test run
 
@@ -355,9 +355,9 @@ public class Example {
 
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | 
-    ManualRerunSelectApiModel manualRerunSelectApiModel = new ManualRerunSelectApiModel(); // ManualRerunSelectApiModel | 
+    ManualRerunSelectTestResultsApiModel manualRerunSelectTestResultsApiModel = new ManualRerunSelectTestResultsApiModel(); // ManualRerunSelectTestResultsApiModel | 
     try {
-      ManualRerunApiResult result = apiInstance.apiV2TestRunsIdRerunsPost(id, manualRerunSelectApiModel);
+      ManualRerunApiResult result = apiInstance.apiV2TestRunsIdRerunsPost(id, manualRerunSelectTestResultsApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdRerunsPost");
@@ -375,7 +375,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **manualRerunSelectApiModel** | [**ManualRerunSelectApiModel**](ManualRerunSelectApiModel.md)|  | [optional] |
+| **manualRerunSelectTestResultsApiModel** | [**ManualRerunSelectTestResultsApiModel**](ManualRerunSelectTestResultsApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -552,7 +552,7 @@ public class Example {
 
 <a id="apiV2TestRunsIdTestPointsResultsGet"></a>
 # **apiV2TestRunsIdTestPointsResultsGet**
-> List&lt;TestPointResultModel&gt; apiV2TestRunsIdTestPointsResultsGet(id)
+> List&lt;TestPointResultApiResult&gt; apiV2TestRunsIdTestPointsResultsGet(id)
 
 Get test results from the test run grouped by test points
 
@@ -580,7 +580,7 @@ public class Example {
     TestRunsApi apiInstance = new TestRunsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Test run unique ID
     try {
-      List<TestPointResultModel> result = apiInstance.apiV2TestRunsIdTestPointsResultsGet(id);
+      List<TestPointResultApiResult> result = apiInstance.apiV2TestRunsIdTestPointsResultsGet(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TestRunsApi#apiV2TestRunsIdTestPointsResultsGet");
@@ -601,7 +601,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TestPointResultModel&gt;**](TestPointResultModel.md)
+[**List&lt;TestPointResultApiResult&gt;**](TestPointResultApiResult.md)
 
 ### Authorization
 

@@ -261,7 +261,7 @@ null (empty response body)
 
 <a id="apiV2AutoTestsIdTestResultsSearchPost"></a>
 # **apiV2AutoTestsIdTestResultsSearchPost**
-> List&lt;AutotestResultHistoricalGetModel&gt; apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel)
+> List&lt;AutoTestResultHistoryApiResult&gt; apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autoTestResultHistorySelectApiModel)
 
 Get test results history for autotest
 
@@ -295,9 +295,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    AutotestHistoricalResultSelectModel autotestHistoricalResultSelectModel = new AutotestHistoricalResultSelectModel(); // AutotestHistoricalResultSelectModel | 
+    AutoTestResultHistorySelectApiModel autoTestResultHistorySelectApiModel = new AutoTestResultHistorySelectApiModel(); // AutoTestResultHistorySelectApiModel | 
     try {
-      List<AutotestResultHistoricalGetModel> result = apiInstance.apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autotestHistoricalResultSelectModel);
+      List<AutoTestResultHistoryApiResult> result = apiInstance.apiV2AutoTestsIdTestResultsSearchPost(id, skip, take, orderBy, searchField, searchValue, autoTestResultHistorySelectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#apiV2AutoTestsIdTestResultsSearchPost");
@@ -320,11 +320,11 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **autotestHistoricalResultSelectModel** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md)|  | [optional] |
+| **autoTestResultHistorySelectApiModel** | [**AutoTestResultHistorySelectApiModel**](AutoTestResultHistorySelectApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;AutotestResultHistoricalGetModel&gt;**](AutotestResultHistoricalGetModel.md)
+[**List&lt;AutoTestResultHistoryApiResult&gt;**](AutoTestResultHistoryApiResult.md)
 
 ### Authorization
 
@@ -1232,7 +1232,7 @@ public class Example {
 
 <a id="getTestRuns"></a>
 # **getTestRuns**
-> List&lt;TestRunShortModel&gt; getTestRuns(id)
+> List&lt;TestRunByAutoTestApiResult&gt; getTestRuns(id)
 
 Get completed tests runs for autotests
 
@@ -1262,7 +1262,7 @@ public class Example {
     AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
     String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
     try {
-      List<TestRunShortModel> result = apiInstance.getTestRuns(id);
+      List<TestRunByAutoTestApiResult> result = apiInstance.getTestRuns(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AutoTestsApi#getTestRuns");
@@ -1283,7 +1283,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TestRunShortModel&gt;**](TestRunShortModel.md)
+[**List&lt;TestRunByAutoTestApiResult&gt;**](TestRunByAutoTestApiResult.md)
 
 ### Authorization
 

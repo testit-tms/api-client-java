@@ -57,6 +57,10 @@ public class TestPointShortApiResult {
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  private Boolean isDeleted;
+
   public static final String SERIALIZED_NAME_TESTER_ID = "testerId";
   @SerializedName(SERIALIZED_NAME_TESTER_ID)
   private UUID testerId;
@@ -113,6 +117,25 @@ public class TestPointShortApiResult {
 
   public void setId(UUID id) {
     this.id = id;
+  }
+
+
+  public TestPointShortApiResult isDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+    return this;
+  }
+
+  /**
+   * Indicates if the entity is deleted
+   * @return isDeleted
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIsDeleted() {
+    return isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
   }
 
 
@@ -302,6 +325,7 @@ public class TestPointShortApiResult {
     }
     TestPointShortApiResult testPointShortApiResult = (TestPointShortApiResult) o;
     return Objects.equals(this.id, testPointShortApiResult.id) &&
+        Objects.equals(this.isDeleted, testPointShortApiResult.isDeleted) &&
         Objects.equals(this.testerId, testPointShortApiResult.testerId) &&
         Objects.equals(this.workItemId, testPointShortApiResult.workItemId) &&
         Objects.equals(this.configurationId, testPointShortApiResult.configurationId) &&
@@ -319,7 +343,7 @@ public class TestPointShortApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, testerId, workItemId, configurationId, status, statusModel, lastTestResultId, iterationId, workItemMedianDuration, testSuiteId);
+    return Objects.hash(id, isDeleted, testerId, workItemId, configurationId, status, statusModel, lastTestResultId, iterationId, workItemMedianDuration, testSuiteId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -334,6 +358,7 @@ public class TestPointShortApiResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestPointShortApiResult {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    testerId: ").append(toIndentedString(testerId)).append("\n");
     sb.append("    workItemId: ").append(toIndentedString(workItemId)).append("\n");
     sb.append("    configurationId: ").append(toIndentedString(configurationId)).append("\n");
@@ -366,6 +391,7 @@ public class TestPointShortApiResult {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("isDeleted");
     openapiFields.add("testerId");
     openapiFields.add("workItemId");
     openapiFields.add("configurationId");
@@ -379,6 +405,7 @@ public class TestPointShortApiResult {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
+    openapiRequiredFields.add("isDeleted");
     openapiRequiredFields.add("statusModel");
     openapiRequiredFields.add("iterationId");
     openapiRequiredFields.add("testSuiteId");
