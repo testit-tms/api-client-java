@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.Attachment;
+import ru.testit.client.model.AttachmentApiResult;
 import ru.testit.client.model.AvailableTestResultOutcome;
 
 import com.google.gson.Gson;
@@ -92,7 +92,7 @@ public class AutoTestStepResult {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<Attachment> attachments;
+  private List<AttachmentApiResult> attachments;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
@@ -263,12 +263,12 @@ public class AutoTestStepResult {
   }
 
 
-  public AutoTestStepResult attachments(List<Attachment> attachments) {
+  public AutoTestStepResult attachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
 
-  public AutoTestStepResult addAttachmentsItem(Attachment attachmentsItem) {
+  public AutoTestStepResult addAttachmentsItem(AttachmentApiResult attachmentsItem) {
     if (this.attachments == null) {
       this.attachments = new ArrayList<>();
     }
@@ -281,11 +281,11 @@ public class AutoTestStepResult {
    * @return attachments
    */
   @javax.annotation.Nullable
-  public List<Attachment> getAttachments() {
+  public List<AttachmentApiResult> getAttachments() {
     return attachments;
   }
 
-  public void setAttachments(List<Attachment> attachments) {
+  public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
@@ -464,7 +464,7 @@ public class AutoTestStepResult {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            Attachment.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentApiResult.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }

@@ -28,7 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentPutModelAutoTestStepResultsModel;
 import ru.testit.client.model.AttachmentUpdateRequest;
 import ru.testit.client.model.Link;
-import ru.testit.client.model.StepResult;
+import ru.testit.client.model.StepResultApiModel;
 import ru.testit.client.model.TestResultOutcome;
 import ru.testit.client.model.TestResultStepCommentUpdateRequest;
 
@@ -83,7 +83,7 @@ public class TestResultUpdateV2Request {
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  private List<StepResult> stepResults;
+  private List<StepResultApiModel> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
@@ -236,12 +236,12 @@ public class TestResultUpdateV2Request {
   }
 
 
-  public TestResultUpdateV2Request stepResults(List<StepResult> stepResults) {
+  public TestResultUpdateV2Request stepResults(List<StepResultApiModel> stepResults) {
     this.stepResults = stepResults;
     return this;
   }
 
-  public TestResultUpdateV2Request addStepResultsItem(StepResult stepResultsItem) {
+  public TestResultUpdateV2Request addStepResultsItem(StepResultApiModel stepResultsItem) {
     if (this.stepResults == null) {
       this.stepResults = new ArrayList<>();
     }
@@ -254,11 +254,11 @@ public class TestResultUpdateV2Request {
    * @return stepResults
    */
   @javax.annotation.Nullable
-  public List<StepResult> getStepResults() {
+  public List<StepResultApiModel> getStepResults() {
     return stepResults;
   }
 
-  public void setStepResults(List<StepResult> stepResults) {
+  public void setStepResults(List<StepResultApiModel> stepResults) {
     this.stepResults = stepResults;
   }
 
@@ -613,7 +613,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `stepResults` (array)
           for (int i = 0; i < jsonArraystepResults.size(); i++) {
-            StepResult.validateJsonElement(jsonArraystepResults.get(i));
+            StepResultApiModel.validateJsonElement(jsonArraystepResults.get(i));
           };
         }
       }

@@ -183,7 +183,7 @@ public class Example {
 
 <a id="apiV2ProjectsProjectIdWorkItemsSearchPost"></a>
 # **apiV2ProjectsProjectIdWorkItemsSearchPost**
-> List&lt;WorkItemShortModel&gt; apiV2ProjectsProjectIdWorkItemsSearchPost(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel)
+> List&lt;WorkItemShortApiResult&gt; apiV2ProjectsProjectIdWorkItemsSearchPost(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectApiModel)
 
 Search for work items
 
@@ -215,9 +215,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | 
+    WorkItemSelectApiModel workItemSelectApiModel = new WorkItemSelectApiModel(); // WorkItemSelectApiModel | 
     try {
-      List<WorkItemShortModel> result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchPost(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectModel);
+      List<WorkItemShortApiResult> result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchPost(projectId, skip, take, orderBy, searchField, searchValue, workItemSelectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectWorkItemsApi#apiV2ProjectsProjectIdWorkItemsSearchPost");
@@ -240,11 +240,11 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)|  | [optional] |
+| **workItemSelectApiModel** | [**WorkItemSelectApiModel**](WorkItemSelectApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;WorkItemShortModel&gt;**](WorkItemShortModel.md)
+[**List&lt;WorkItemShortApiResult&gt;**](WorkItemShortApiResult.md)
 
 ### Authorization
 

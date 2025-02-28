@@ -34,10 +34,10 @@ import ru.testit.client.model.CreateTestRunAndFillByAutoTestsApiModel;
 import ru.testit.client.model.CreateTestRunAndFillByConfigurationsApiModel;
 import ru.testit.client.model.CreateTestRunAndFillByWorkItemsApiModel;
 import ru.testit.client.model.ManualRerunApiResult;
-import ru.testit.client.model.ManualRerunSelectApiModel;
+import ru.testit.client.model.ManualRerunSelectTestResultsApiModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.TestPointResultModel;
+import ru.testit.client.model.TestPointResultApiResult;
 import ru.testit.client.model.TestResultsStatisticsApiResult;
 import ru.testit.client.model.TestRunFilterApiModel;
 import ru.testit.client.model.TestRunSelectApiModel;
@@ -671,7 +671,7 @@ public class TestRunsApi {
     /**
      * Build call for apiV2TestRunsIdRerunsPost
      * @param id  (required)
-     * @param manualRerunSelectApiModel  (optional)
+     * @param manualRerunSelectTestResultsApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -687,7 +687,7 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdRerunsPostCall(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdRerunsPostCall(UUID id, ManualRerunSelectTestResultsApiModel manualRerunSelectTestResultsApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -701,7 +701,7 @@ public class TestRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = manualRerunSelectApiModel;
+        Object localVarPostBody = manualRerunSelectTestResultsApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/testRuns/{id}/reruns"
@@ -734,13 +734,13 @@ public class TestRunsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2TestRunsIdRerunsPostValidateBeforeCall(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call apiV2TestRunsIdRerunsPostValidateBeforeCall(UUID id, ManualRerunSelectTestResultsApiModel manualRerunSelectTestResultsApiModel, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling apiV2TestRunsIdRerunsPost(Async)");
         }
 
-        return apiV2TestRunsIdRerunsPostCall(id, manualRerunSelectApiModel, _callback);
+        return apiV2TestRunsIdRerunsPostCall(id, manualRerunSelectTestResultsApiModel, _callback);
 
     }
 
@@ -748,7 +748,7 @@ public class TestRunsApi {
      * Manual autotests rerun in test run
      * 
      * @param id  (required)
-     * @param manualRerunSelectApiModel  (optional)
+     * @param manualRerunSelectTestResultsApiModel  (optional)
      * @return ManualRerunApiResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -763,8 +763,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ManualRerunApiResult apiV2TestRunsIdRerunsPost(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel) throws ApiException {
-        ApiResponse<ManualRerunApiResult> localVarResp = apiV2TestRunsIdRerunsPostWithHttpInfo(id, manualRerunSelectApiModel);
+    public ManualRerunApiResult apiV2TestRunsIdRerunsPost(UUID id, ManualRerunSelectTestResultsApiModel manualRerunSelectTestResultsApiModel) throws ApiException {
+        ApiResponse<ManualRerunApiResult> localVarResp = apiV2TestRunsIdRerunsPostWithHttpInfo(id, manualRerunSelectTestResultsApiModel);
         return localVarResp.getData();
     }
 
@@ -772,7 +772,7 @@ public class TestRunsApi {
      * Manual autotests rerun in test run
      * 
      * @param id  (required)
-     * @param manualRerunSelectApiModel  (optional)
+     * @param manualRerunSelectTestResultsApiModel  (optional)
      * @return ApiResponse&lt;ManualRerunApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -787,8 +787,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ManualRerunApiResult> apiV2TestRunsIdRerunsPostWithHttpInfo(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2TestRunsIdRerunsPostValidateBeforeCall(id, manualRerunSelectApiModel, null);
+    public ApiResponse<ManualRerunApiResult> apiV2TestRunsIdRerunsPostWithHttpInfo(UUID id, ManualRerunSelectTestResultsApiModel manualRerunSelectTestResultsApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2TestRunsIdRerunsPostValidateBeforeCall(id, manualRerunSelectTestResultsApiModel, null);
         Type localVarReturnType = new TypeToken<ManualRerunApiResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -797,7 +797,7 @@ public class TestRunsApi {
      * Manual autotests rerun in test run (asynchronously)
      * 
      * @param id  (required)
-     * @param manualRerunSelectApiModel  (optional)
+     * @param manualRerunSelectTestResultsApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -813,9 +813,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdRerunsPostAsync(UUID id, ManualRerunSelectApiModel manualRerunSelectApiModel, final ApiCallback<ManualRerunApiResult> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdRerunsPostAsync(UUID id, ManualRerunSelectTestResultsApiModel manualRerunSelectTestResultsApiModel, final ApiCallback<ManualRerunApiResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2TestRunsIdRerunsPostValidateBeforeCall(id, manualRerunSelectApiModel, _callback);
+        okhttp3.Call localVarCall = apiV2TestRunsIdRerunsPostValidateBeforeCall(id, manualRerunSelectTestResultsApiModel, _callback);
         Type localVarReturnType = new TypeToken<ManualRerunApiResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1193,7 +1193,7 @@ public class TestRunsApi {
      * Get test results from the test run grouped by test points
      * 
      * @param id Test run unique ID (required)
-     * @return List&lt;TestPointResultModel&gt;
+     * @return List&lt;TestPointResultApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1207,8 +1207,8 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TestPointResultModel> apiV2TestRunsIdTestPointsResultsGet(UUID id) throws ApiException {
-        ApiResponse<List<TestPointResultModel>> localVarResp = apiV2TestRunsIdTestPointsResultsGetWithHttpInfo(id);
+    public List<TestPointResultApiResult> apiV2TestRunsIdTestPointsResultsGet(UUID id) throws ApiException {
+        ApiResponse<List<TestPointResultApiResult>> localVarResp = apiV2TestRunsIdTestPointsResultsGetWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -1216,7 +1216,7 @@ public class TestRunsApi {
      * Get test results from the test run grouped by test points
      * 
      * @param id Test run unique ID (required)
-     * @return ApiResponse&lt;List&lt;TestPointResultModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;TestPointResultApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1230,9 +1230,9 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TestPointResultModel>> apiV2TestRunsIdTestPointsResultsGetWithHttpInfo(UUID id) throws ApiException {
+    public ApiResponse<List<TestPointResultApiResult>> apiV2TestRunsIdTestPointsResultsGetWithHttpInfo(UUID id) throws ApiException {
         okhttp3.Call localVarCall = apiV2TestRunsIdTestPointsResultsGetValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<List<TestPointResultModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TestPointResultApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1255,10 +1255,10 @@ public class TestRunsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2TestRunsIdTestPointsResultsGetAsync(UUID id, final ApiCallback<List<TestPointResultModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2TestRunsIdTestPointsResultsGetAsync(UUID id, final ApiCallback<List<TestPointResultApiResult>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2TestRunsIdTestPointsResultsGetValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<List<TestPointResultModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TestPointResultApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

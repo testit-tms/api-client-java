@@ -28,12 +28,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.Attachment;
+import ru.testit.client.model.AttachmentApiResult;
 import ru.testit.client.model.AutoTest;
 import ru.testit.client.model.AutoTestStepResult;
 import ru.testit.client.model.Link;
-import ru.testit.client.model.StepComment;
-import ru.testit.client.model.StepResult;
+import ru.testit.client.model.StepCommentApiModel;
+import ru.testit.client.model.StepResultApiModel;
 import ru.testit.client.model.TestPoint;
 import ru.testit.client.model.TestResultOutcome;
 import ru.testit.client.model.TestStatusApiResult;
@@ -88,7 +88,7 @@ public class TestResultResponse {
 
   public static final String SERIALIZED_NAME_STEP_COMMENTS = "stepComments";
   @SerializedName(SERIALIZED_NAME_STEP_COMMENTS)
-  private List<StepComment> stepComments;
+  private List<StepCommentApiModel> stepComments;
 
   public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
   @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
@@ -113,11 +113,11 @@ public class TestResultResponse {
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  private List<StepResult> stepResults;
+  private List<StepResultApiModel> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<Attachment> attachments;
+  private List<AttachmentApiResult> attachments;
 
   public static final String SERIALIZED_NAME_AUTO_TEST_ID = "autoTestId";
   @SerializedName(SERIALIZED_NAME_AUTO_TEST_ID)
@@ -301,12 +301,12 @@ public class TestResultResponse {
   }
 
 
-  public TestResultResponse stepComments(List<StepComment> stepComments) {
+  public TestResultResponse stepComments(List<StepCommentApiModel> stepComments) {
     this.stepComments = stepComments;
     return this;
   }
 
-  public TestResultResponse addStepCommentsItem(StepComment stepCommentsItem) {
+  public TestResultResponse addStepCommentsItem(StepCommentApiModel stepCommentsItem) {
     if (this.stepComments == null) {
       this.stepComments = new ArrayList<>();
     }
@@ -319,11 +319,11 @@ public class TestResultResponse {
    * @return stepComments
    */
   @javax.annotation.Nullable
-  public List<StepComment> getStepComments() {
+  public List<StepCommentApiModel> getStepComments() {
     return stepComments;
   }
 
-  public void setStepComments(List<StepComment> stepComments) {
+  public void setStepComments(List<StepCommentApiModel> stepComments) {
     this.stepComments = stepComments;
   }
 
@@ -443,12 +443,12 @@ public class TestResultResponse {
   }
 
 
-  public TestResultResponse stepResults(List<StepResult> stepResults) {
+  public TestResultResponse stepResults(List<StepResultApiModel> stepResults) {
     this.stepResults = stepResults;
     return this;
   }
 
-  public TestResultResponse addStepResultsItem(StepResult stepResultsItem) {
+  public TestResultResponse addStepResultsItem(StepResultApiModel stepResultsItem) {
     if (this.stepResults == null) {
       this.stepResults = new ArrayList<>();
     }
@@ -461,21 +461,21 @@ public class TestResultResponse {
    * @return stepResults
    */
   @javax.annotation.Nullable
-  public List<StepResult> getStepResults() {
+  public List<StepResultApiModel> getStepResults() {
     return stepResults;
   }
 
-  public void setStepResults(List<StepResult> stepResults) {
+  public void setStepResults(List<StepResultApiModel> stepResults) {
     this.stepResults = stepResults;
   }
 
 
-  public TestResultResponse attachments(List<Attachment> attachments) {
+  public TestResultResponse attachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
 
-  public TestResultResponse addAttachmentsItem(Attachment attachmentsItem) {
+  public TestResultResponse addAttachmentsItem(AttachmentApiResult attachmentsItem) {
     if (this.attachments == null) {
       this.attachments = new ArrayList<>();
     }
@@ -488,11 +488,11 @@ public class TestResultResponse {
    * @return attachments
    */
   @javax.annotation.Nullable
-  public List<Attachment> getAttachments() {
+  public List<AttachmentApiResult> getAttachments() {
     return attachments;
   }
 
-  public void setAttachments(List<Attachment> attachments) {
+  public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
@@ -1152,7 +1152,7 @@ public class TestResultResponse {
 
           // validate the optional field `stepComments` (array)
           for (int i = 0; i < jsonArraystepComments.size(); i++) {
-            StepComment.validateJsonElement(jsonArraystepComments.get(i));
+            StepCommentApiModel.validateJsonElement(jsonArraystepComments.get(i));
           };
         }
       }
@@ -1197,7 +1197,7 @@ public class TestResultResponse {
 
           // validate the optional field `stepResults` (array)
           for (int i = 0; i < jsonArraystepResults.size(); i++) {
-            StepResult.validateJsonElement(jsonArraystepResults.get(i));
+            StepResultApiModel.validateJsonElement(jsonArraystepResults.get(i));
           };
         }
       }
@@ -1211,7 +1211,7 @@ public class TestResultResponse {
 
           // validate the optional field `attachments` (array)
           for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            Attachment.validateJsonElement(jsonArrayattachments.get(i));
+            AttachmentApiResult.validateJsonElement(jsonArrayattachments.get(i));
           };
         }
       }

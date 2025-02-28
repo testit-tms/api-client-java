@@ -24,7 +24,7 @@
 |**completedOn** | **OffsetDateTime** | Date when the test result has been completed |  [optional] |
 |**duration** | **Long** | Time which it took to run the test |  [optional] |
 |**links** | [**List&lt;LinkShort&gt;**](LinkShort.md) | Collection of links attached to the test result |  |
-|**attachments** | [**List&lt;Attachment&gt;**](Attachment.md) | Collection of files attached to the test result |  |
+|**attachments** | [**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md) | Collection of files attached to the test result |  |
 |**rerunCompletedCount** | **Integer** | Run count |  |
 
 

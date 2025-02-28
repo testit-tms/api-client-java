@@ -32,7 +32,7 @@ import ru.testit.client.model.AttachmentApiResult;
 import ru.testit.client.model.AutoTestApiResult;
 import ru.testit.client.model.AutoTestStepResultsApiResult;
 import ru.testit.client.model.LinkApiResult;
-import ru.testit.client.model.StepCommentApiResult;
+import ru.testit.client.model.StepCommentApiModel;
 import ru.testit.client.model.TestPointShortApiResult;
 import ru.testit.client.model.TestResultFailureClassApiResult;
 import ru.testit.client.model.TestStatusApiResult;
@@ -167,7 +167,7 @@ public class TestResultApiResult {
 
   public static final String SERIALIZED_NAME_STEP_COMMENTS = "stepComments";
   @SerializedName(SERIALIZED_NAME_STEP_COMMENTS)
-  private List<StepCommentApiResult> stepComments;
+  private List<StepCommentApiModel> stepComments;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
@@ -723,12 +723,12 @@ public class TestResultApiResult {
   }
 
 
-  public TestResultApiResult stepComments(List<StepCommentApiResult> stepComments) {
+  public TestResultApiResult stepComments(List<StepCommentApiModel> stepComments) {
     this.stepComments = stepComments;
     return this;
   }
 
-  public TestResultApiResult addStepCommentsItem(StepCommentApiResult stepCommentsItem) {
+  public TestResultApiResult addStepCommentsItem(StepCommentApiModel stepCommentsItem) {
     if (this.stepComments == null) {
       this.stepComments = new ArrayList<>();
     }
@@ -741,11 +741,11 @@ public class TestResultApiResult {
    * @return stepComments
    */
   @javax.annotation.Nullable
-  public List<StepCommentApiResult> getStepComments() {
+  public List<StepCommentApiModel> getStepComments() {
     return stepComments;
   }
 
-  public void setStepComments(List<StepCommentApiResult> stepComments) {
+  public void setStepComments(List<StepCommentApiModel> stepComments) {
     this.stepComments = stepComments;
   }
 
@@ -1224,7 +1224,7 @@ public class TestResultApiResult {
 
           // validate the optional field `stepComments` (array)
           for (int i = 0; i < jsonArraystepComments.size(); i++) {
-            StepCommentApiResult.validateJsonElement(jsonArraystepComments.get(i));
+            StepCommentApiModel.validateJsonElement(jsonArraystepComments.get(i));
           };
         }
       }

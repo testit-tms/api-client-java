@@ -37,9 +37,9 @@ import ru.testit.client.model.WebHookPostModel;
 import ru.testit.client.model.WebHookTestModel;
 import ru.testit.client.model.WebhookResponse;
 import ru.testit.client.model.WebhookVariablesType;
-import ru.testit.client.model.WebhooksDeleteRequest;
-import ru.testit.client.model.WebhooksUpdateRequest;
-import ru.testit.client.model.WebhooksUpdateResponse;
+import ru.testit.client.model.WebhooksDeleteApiModel;
+import ru.testit.client.model.WebhooksUpdateApiModel;
+import ru.testit.client.model.WebhooksUpdateApiResult;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -86,7 +86,7 @@ public class WebhooksApi {
 
     /**
      * Build call for apiV2WebhooksDelete
-     * @param webhooksDeleteRequest  (optional)
+     * @param webhooksDeleteApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -102,7 +102,7 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksDeleteCall(WebhooksDeleteRequest webhooksDeleteRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksDeleteCall(WebhooksDeleteApiModel webhooksDeleteApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,7 +116,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webhooksDeleteRequest;
+        Object localVarPostBody = webhooksDeleteApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks";
@@ -148,15 +148,15 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksDeleteValidateBeforeCall(WebhooksDeleteRequest webhooksDeleteRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksDeleteCall(webhooksDeleteRequest, _callback);
+    private okhttp3.Call apiV2WebhooksDeleteValidateBeforeCall(WebhooksDeleteApiModel webhooksDeleteApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksDeleteCall(webhooksDeleteApiModel, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param webhooksDeleteRequest  (optional)
+     * @param webhooksDeleteApiModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -170,14 +170,14 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2WebhooksDelete(WebhooksDeleteRequest webhooksDeleteRequest) throws ApiException {
-        apiV2WebhooksDeleteWithHttpInfo(webhooksDeleteRequest);
+    public void apiV2WebhooksDelete(WebhooksDeleteApiModel webhooksDeleteApiModel) throws ApiException {
+        apiV2WebhooksDeleteWithHttpInfo(webhooksDeleteApiModel);
     }
 
     /**
      * 
      * 
-     * @param webhooksDeleteRequest  (optional)
+     * @param webhooksDeleteApiModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -192,15 +192,15 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2WebhooksDeleteWithHttpInfo(WebhooksDeleteRequest webhooksDeleteRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksDeleteValidateBeforeCall(webhooksDeleteRequest, null);
+    public ApiResponse<Void> apiV2WebhooksDeleteWithHttpInfo(WebhooksDeleteApiModel webhooksDeleteApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksDeleteValidateBeforeCall(webhooksDeleteApiModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * 
-     * @param webhooksDeleteRequest  (optional)
+     * @param webhooksDeleteApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -216,9 +216,9 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksDeleteAsync(WebhooksDeleteRequest webhooksDeleteRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksDeleteAsync(WebhooksDeleteApiModel webhooksDeleteApiModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksDeleteValidateBeforeCall(webhooksDeleteRequest, _callback);
+        okhttp3.Call localVarCall = apiV2WebhooksDeleteValidateBeforeCall(webhooksDeleteApiModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -957,7 +957,7 @@ public class WebhooksApi {
     }
     /**
      * Build call for apiV2WebhooksPut
-     * @param webhooksUpdateRequest  (optional)
+     * @param webhooksUpdateApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -973,7 +973,7 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksPutCall(WebhooksUpdateRequest webhooksUpdateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksPutCall(WebhooksUpdateApiModel webhooksUpdateApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -987,7 +987,7 @@ public class WebhooksApi {
             basePath = null;
         }
 
-        Object localVarPostBody = webhooksUpdateRequest;
+        Object localVarPostBody = webhooksUpdateApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/webhooks";
@@ -1019,16 +1019,16 @@ public class WebhooksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2WebhooksPutValidateBeforeCall(WebhooksUpdateRequest webhooksUpdateRequest, final ApiCallback _callback) throws ApiException {
-        return apiV2WebhooksPutCall(webhooksUpdateRequest, _callback);
+    private okhttp3.Call apiV2WebhooksPutValidateBeforeCall(WebhooksUpdateApiModel webhooksUpdateApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2WebhooksPutCall(webhooksUpdateApiModel, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param webhooksUpdateRequest  (optional)
-     * @return WebhooksUpdateResponse
+     * @param webhooksUpdateApiModel  (optional)
+     * @return WebhooksUpdateApiResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1042,16 +1042,16 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public WebhooksUpdateResponse apiV2WebhooksPut(WebhooksUpdateRequest webhooksUpdateRequest) throws ApiException {
-        ApiResponse<WebhooksUpdateResponse> localVarResp = apiV2WebhooksPutWithHttpInfo(webhooksUpdateRequest);
+    public WebhooksUpdateApiResult apiV2WebhooksPut(WebhooksUpdateApiModel webhooksUpdateApiModel) throws ApiException {
+        ApiResponse<WebhooksUpdateApiResult> localVarResp = apiV2WebhooksPutWithHttpInfo(webhooksUpdateApiModel);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param webhooksUpdateRequest  (optional)
-     * @return ApiResponse&lt;WebhooksUpdateResponse&gt;
+     * @param webhooksUpdateApiModel  (optional)
+     * @return ApiResponse&lt;WebhooksUpdateApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1065,16 +1065,16 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WebhooksUpdateResponse> apiV2WebhooksPutWithHttpInfo(WebhooksUpdateRequest webhooksUpdateRequest) throws ApiException {
-        okhttp3.Call localVarCall = apiV2WebhooksPutValidateBeforeCall(webhooksUpdateRequest, null);
-        Type localVarReturnType = new TypeToken<WebhooksUpdateResponse>(){}.getType();
+    public ApiResponse<WebhooksUpdateApiResult> apiV2WebhooksPutWithHttpInfo(WebhooksUpdateApiModel webhooksUpdateApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2WebhooksPutValidateBeforeCall(webhooksUpdateApiModel, null);
+        Type localVarReturnType = new TypeToken<WebhooksUpdateApiResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
      * 
-     * @param webhooksUpdateRequest  (optional)
+     * @param webhooksUpdateApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1090,10 +1090,10 @@ public class WebhooksApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2WebhooksPutAsync(WebhooksUpdateRequest webhooksUpdateRequest, final ApiCallback<WebhooksUpdateResponse> _callback) throws ApiException {
+    public okhttp3.Call apiV2WebhooksPutAsync(WebhooksUpdateApiModel webhooksUpdateApiModel, final ApiCallback<WebhooksUpdateApiResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2WebhooksPutValidateBeforeCall(webhooksUpdateRequest, _callback);
-        Type localVarReturnType = new TypeToken<WebhooksUpdateResponse>(){}.getType();
+        okhttp3.Call localVarCall = apiV2WebhooksPutValidateBeforeCall(webhooksUpdateApiModel, _callback);
+        Type localVarReturnType = new TypeToken<WebhooksUpdateApiResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

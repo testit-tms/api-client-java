@@ -12,14 +12,14 @@
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
-|**stepComments** | [**List&lt;StepComment&gt;**](StepComment.md) |  |  [optional] |
+|**stepComments** | [**List&lt;StepCommentApiModel&gt;**](StepCommentApiModel.md) |  |  [optional] |
 |**failureClassIds** | **List&lt;UUID&gt;** |  |  |
 |**outcome** | **TestResultOutcome** |  |  [optional] |
 |**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
-|**stepResults** | [**List&lt;StepResult&gt;**](StepResult.md) |  |  [optional] |
-|**attachments** | [**List&lt;Attachment&gt;**](Attachment.md) |  |  [optional] |
+|**stepResults** | [**List&lt;StepResultApiModel&gt;**](StepResultApiModel.md) |  |  [optional] |
+|**attachments** | [**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md) |  |  [optional] |
 |**autoTestId** | **UUID** |  |  [optional] |
 |**configurationId** | **UUID** |  |  |
 |**startedOn** | **OffsetDateTime** |  |  [optional] |

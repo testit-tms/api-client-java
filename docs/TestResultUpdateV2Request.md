@@ -12,7 +12,7 @@
 |**statusCode** | **String** |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
-|**stepResults** | [**List&lt;StepResult&gt;**](StepResult.md) |  |  [optional] |
+|**stepResults** | [**List&lt;StepResultApiModel&gt;**](StepResultApiModel.md) |  |  [optional] |
 |**attachments** | [**List&lt;AttachmentUpdateRequest&gt;**](AttachmentUpdateRequest.md) |  |  [optional] |
 |**durationInMs** | **Long** |  |  [optional] |
 |**duration** | **Long** |  |  [optional] |

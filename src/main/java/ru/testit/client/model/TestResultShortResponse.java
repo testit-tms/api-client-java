@@ -26,7 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.Attachment;
+import ru.testit.client.model.AttachmentApiResult;
 import ru.testit.client.model.AutoTestResultReasonShort;
 import ru.testit.client.model.LinkShort;
 import ru.testit.client.model.TestStatusApiResult;
@@ -131,7 +131,7 @@ public class TestResultShortResponse {
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<Attachment> attachments = new ArrayList<>();
+  private List<AttachmentApiResult> attachments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RERUN_COMPLETED_COUNT = "rerunCompletedCount";
   @SerializedName(SERIALIZED_NAME_RERUN_COMPLETED_COUNT)
@@ -487,12 +487,12 @@ public class TestResultShortResponse {
   }
 
 
-  public TestResultShortResponse attachments(List<Attachment> attachments) {
+  public TestResultShortResponse attachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
 
-  public TestResultShortResponse addAttachmentsItem(Attachment attachmentsItem) {
+  public TestResultShortResponse addAttachmentsItem(AttachmentApiResult attachmentsItem) {
     if (this.attachments == null) {
       this.attachments = new ArrayList<>();
     }
@@ -505,11 +505,11 @@ public class TestResultShortResponse {
    * @return attachments
    */
   @javax.annotation.Nonnull
-  public List<Attachment> getAttachments() {
+  public List<AttachmentApiResult> getAttachments() {
     return attachments;
   }
 
-  public void setAttachments(List<Attachment> attachments) {
+  public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
@@ -742,7 +742,7 @@ public class TestResultShortResponse {
       JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
       // validate the required field `attachments` (array)
       for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        Attachment.validateJsonElement(jsonArrayattachments.get(i));
+        AttachmentApiResult.validateJsonElement(jsonArrayattachments.get(i));
       };
   }
 
