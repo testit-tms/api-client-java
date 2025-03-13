@@ -10,8 +10,7 @@
 |**id** | **UUID** |  |  |
 |**name** | **String** |  |  |
 |**type** | **TestStatusType** |  |  |
-|**isBased** | **Boolean** |  |  |
-|**isDefault** | **Boolean** |  |  |
+|**isSystem** | **Boolean** |  |  |
 |**code** | **String** |  |  |
 |**description** | **String** |  |  [optional] |
 

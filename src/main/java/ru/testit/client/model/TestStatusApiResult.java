@@ -65,13 +65,9 @@ public class TestStatusApiResult {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TestStatusType type;
 
-  public static final String SERIALIZED_NAME_IS_BASED = "isBased";
-  @SerializedName(SERIALIZED_NAME_IS_BASED)
-  private Boolean isBased;
-
-  public static final String SERIALIZED_NAME_IS_DEFAULT = "isDefault";
-  @SerializedName(SERIALIZED_NAME_IS_DEFAULT)
-  private Boolean isDefault;
+  public static final String SERIALIZED_NAME_IS_SYSTEM = "isSystem";
+  @SerializedName(SERIALIZED_NAME_IS_SYSTEM)
+  private Boolean isSystem;
 
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -141,41 +137,22 @@ public class TestStatusApiResult {
   }
 
 
-  public TestStatusApiResult isBased(Boolean isBased) {
-    this.isBased = isBased;
+  public TestStatusApiResult isSystem(Boolean isSystem) {
+    this.isSystem = isSystem;
     return this;
   }
 
   /**
-   * Get isBased
-   * @return isBased
+   * Get isSystem
+   * @return isSystem
    */
   @javax.annotation.Nonnull
-  public Boolean getIsBased() {
-    return isBased;
+  public Boolean getIsSystem() {
+    return isSystem;
   }
 
-  public void setIsBased(Boolean isBased) {
-    this.isBased = isBased;
-  }
-
-
-  public TestStatusApiResult isDefault(Boolean isDefault) {
-    this.isDefault = isDefault;
-    return this;
-  }
-
-  /**
-   * Get isDefault
-   * @return isDefault
-   */
-  @javax.annotation.Nonnull
-  public Boolean getIsDefault() {
-    return isDefault;
-  }
-
-  public void setIsDefault(Boolean isDefault) {
-    this.isDefault = isDefault;
+  public void setIsSystem(Boolean isSystem) {
+    this.isSystem = isSystem;
   }
 
 
@@ -230,8 +207,7 @@ public class TestStatusApiResult {
     return Objects.equals(this.id, testStatusApiResult.id) &&
         Objects.equals(this.name, testStatusApiResult.name) &&
         Objects.equals(this.type, testStatusApiResult.type) &&
-        Objects.equals(this.isBased, testStatusApiResult.isBased) &&
-        Objects.equals(this.isDefault, testStatusApiResult.isDefault) &&
+        Objects.equals(this.isSystem, testStatusApiResult.isSystem) &&
         Objects.equals(this.code, testStatusApiResult.code) &&
         Objects.equals(this.description, testStatusApiResult.description);
   }
@@ -242,7 +218,7 @@ public class TestStatusApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, isBased, isDefault, code, description);
+    return Objects.hash(id, name, type, isSystem, code, description);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -259,8 +235,7 @@ public class TestStatusApiResult {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isBased: ").append(toIndentedString(isBased)).append("\n");
-    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
@@ -288,8 +263,7 @@ public class TestStatusApiResult {
     openapiFields.add("id");
     openapiFields.add("name");
     openapiFields.add("type");
-    openapiFields.add("isBased");
-    openapiFields.add("isDefault");
+    openapiFields.add("isSystem");
     openapiFields.add("code");
     openapiFields.add("description");
 
@@ -298,8 +272,7 @@ public class TestStatusApiResult {
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("type");
-    openapiRequiredFields.add("isBased");
-    openapiRequiredFields.add("isDefault");
+    openapiRequiredFields.add("isSystem");
     openapiRequiredFields.add("code");
   }
 
