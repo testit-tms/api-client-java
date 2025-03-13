@@ -25,8 +25,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AttachmentPutModelAutoTestStepResultsModel;
 import ru.testit.client.model.AttachmentUpdateRequest;
+import ru.testit.client.model.AutoTestStepResultUpdateRequest;
 import ru.testit.client.model.Link;
 import ru.testit.client.model.StepResultApiModel;
 import ru.testit.client.model.TestResultOutcome;
@@ -104,11 +104,11 @@ public class TestResultUpdateV2Request {
 
   public static final String SERIALIZED_NAME_SETUP_RESULTS = "setupResults";
   @SerializedName(SERIALIZED_NAME_SETUP_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> setupResults;
+  private List<AutoTestStepResultUpdateRequest> setupResults;
 
   public static final String SERIALIZED_NAME_TEARDOWN_RESULTS = "teardownResults";
   @SerializedName(SERIALIZED_NAME_TEARDOWN_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> teardownResults;
+  private List<AutoTestStepResultUpdateRequest> teardownResults;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -361,12 +361,12 @@ public class TestResultUpdateV2Request {
   }
 
 
-  public TestResultUpdateV2Request setupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public TestResultUpdateV2Request setupResults(List<AutoTestStepResultUpdateRequest> setupResults) {
     this.setupResults = setupResults;
     return this;
   }
 
-  public TestResultUpdateV2Request addSetupResultsItem(AttachmentPutModelAutoTestStepResultsModel setupResultsItem) {
+  public TestResultUpdateV2Request addSetupResultsItem(AutoTestStepResultUpdateRequest setupResultsItem) {
     if (this.setupResults == null) {
       this.setupResults = new ArrayList<>();
     }
@@ -379,21 +379,21 @@ public class TestResultUpdateV2Request {
    * @return setupResults
    */
   @javax.annotation.Nullable
-  public List<AttachmentPutModelAutoTestStepResultsModel> getSetupResults() {
+  public List<AutoTestStepResultUpdateRequest> getSetupResults() {
     return setupResults;
   }
 
-  public void setSetupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public void setSetupResults(List<AutoTestStepResultUpdateRequest> setupResults) {
     this.setupResults = setupResults;
   }
 
 
-  public TestResultUpdateV2Request teardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public TestResultUpdateV2Request teardownResults(List<AutoTestStepResultUpdateRequest> teardownResults) {
     this.teardownResults = teardownResults;
     return this;
   }
 
-  public TestResultUpdateV2Request addTeardownResultsItem(AttachmentPutModelAutoTestStepResultsModel teardownResultsItem) {
+  public TestResultUpdateV2Request addTeardownResultsItem(AutoTestStepResultUpdateRequest teardownResultsItem) {
     if (this.teardownResults == null) {
       this.teardownResults = new ArrayList<>();
     }
@@ -406,11 +406,11 @@ public class TestResultUpdateV2Request {
    * @return teardownResults
    */
   @javax.annotation.Nullable
-  public List<AttachmentPutModelAutoTestStepResultsModel> getTeardownResults() {
+  public List<AutoTestStepResultUpdateRequest> getTeardownResults() {
     return teardownResults;
   }
 
-  public void setTeardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public void setTeardownResults(List<AutoTestStepResultUpdateRequest> teardownResults) {
     this.teardownResults = teardownResults;
   }
 
@@ -655,7 +655,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `setupResults` (array)
           for (int i = 0; i < jsonArraysetupResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArraysetupResults.get(i));
+            AutoTestStepResultUpdateRequest.validateJsonElement(jsonArraysetupResults.get(i));
           };
         }
       }
@@ -669,7 +669,7 @@ public class TestResultUpdateV2Request {
 
           // validate the optional field `teardownResults` (array)
           for (int i = 0; i < jsonArrayteardownResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArrayteardownResults.get(i));
+            AutoTestStepResultUpdateRequest.validateJsonElement(jsonArrayteardownResults.get(i));
           };
         }
       }

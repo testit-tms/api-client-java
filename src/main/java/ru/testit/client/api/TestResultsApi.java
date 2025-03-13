@@ -408,7 +408,9 @@ public class TestResultsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call apiV2TestResultsIdAggregatedGetCall(UUID id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -454,6 +456,7 @@ public class TestResultsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call apiV2TestResultsIdAggregatedGetValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
@@ -482,7 +485,9 @@ public class TestResultsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public TestResultResponse apiV2TestResultsIdAggregatedGet(UUID id) throws ApiException {
         ApiResponse<TestResultResponse> localVarResp = apiV2TestResultsIdAggregatedGetWithHttpInfo(id);
         return localVarResp.getData();
@@ -505,7 +510,9 @@ public class TestResultsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<TestResultResponse> apiV2TestResultsIdAggregatedGetWithHttpInfo(UUID id) throws ApiException {
         okhttp3.Call localVarCall = apiV2TestResultsIdAggregatedGetValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<TestResultResponse>(){}.getType();
@@ -530,7 +537,9 @@ public class TestResultsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call apiV2TestResultsIdAggregatedGetAsync(UUID id, final ApiCallback<TestResultResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2TestResultsIdAggregatedGetValidateBeforeCall(id, _callback);

@@ -178,6 +178,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.CustomAttributeValidationResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.DateTimeRangeSelectorModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.DefectApiModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.EnableProjectExternalServiceApiModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ExternalFormAllowedValueModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ExternalFormCreateModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ExternalFormFieldModel.CustomTypeAdapterFactory());
@@ -240,6 +241,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectCustomAttributeTemplateGetModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectCustomAttributesTemplatesFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectExternalServiceApiResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectExternalServiceSettingsApiResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectExternalServicesApiResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectExtractionModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectModel.CustomTypeAdapterFactory());
