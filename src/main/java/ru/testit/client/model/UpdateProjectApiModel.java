@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -47,45 +48,53 @@ import java.util.Set;
 import ru.testit.client.invoker.JSON;
 
 /**
- * ProjectPostModel
+ * UpdateProjectApiModel
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class ProjectPostModel {
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+public class UpdateProjectApiModel {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private UUID id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
   @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
   private Boolean isFavorite;
 
-  public ProjectPostModel() {
+  public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflowId";
+  @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
+  private UUID workflowId;
+
+  public UpdateProjectApiModel() {
   }
 
-  public ProjectPostModel description(String description) {
-    this.description = description;
+  public UpdateProjectApiModel id(UUID id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Description of the project
-   * @return description
+   * Unique ID of the project
+   * @return id
    */
-  @javax.annotation.Nullable
-  public String getDescription() {
-    return description;
+  @javax.annotation.Nonnull
+  public UUID getId() {
+    return id;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setId(UUID id) {
+    this.id = id;
   }
 
 
-  public ProjectPostModel name(String name) {
+  public UpdateProjectApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -104,7 +113,26 @@ public class ProjectPostModel {
   }
 
 
-  public ProjectPostModel isFavorite(Boolean isFavorite) {
+  public UpdateProjectApiModel description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Description of the project
+   * @return description
+   */
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public UpdateProjectApiModel isFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
@@ -123,6 +151,25 @@ public class ProjectPostModel {
   }
 
 
+  public UpdateProjectApiModel workflowId(UUID workflowId) {
+    this.workflowId = workflowId;
+    return this;
+  }
+
+  /**
+   * Identifier of the workflow project should use
+   * @return workflowId
+   */
+  @javax.annotation.Nullable
+  public UUID getWorkflowId() {
+    return workflowId;
+  }
+
+  public void setWorkflowId(UUID workflowId) {
+    this.workflowId = workflowId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -132,10 +179,12 @@ public class ProjectPostModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectPostModel projectPostModel = (ProjectPostModel) o;
-    return Objects.equals(this.description, projectPostModel.description) &&
-        Objects.equals(this.name, projectPostModel.name) &&
-        Objects.equals(this.isFavorite, projectPostModel.isFavorite);
+    UpdateProjectApiModel updateProjectApiModel = (UpdateProjectApiModel) o;
+    return Objects.equals(this.id, updateProjectApiModel.id) &&
+        Objects.equals(this.name, updateProjectApiModel.name) &&
+        Objects.equals(this.description, updateProjectApiModel.description) &&
+        Objects.equals(this.isFavorite, updateProjectApiModel.isFavorite) &&
+        Objects.equals(this.workflowId, updateProjectApiModel.workflowId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -144,7 +193,7 @@ public class ProjectPostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, isFavorite);
+    return Objects.hash(id, name, description, isFavorite, workflowId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -157,10 +206,12 @@ public class ProjectPostModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectPostModel {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("class UpdateProjectApiModel {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
+    sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -183,12 +234,15 @@ public class ProjectPostModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("description");
+    openapiFields.add("id");
     openapiFields.add("name");
+    openapiFields.add("description");
     openapiFields.add("isFavorite");
+    openapiFields.add("workflowId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
     openapiRequiredFields.add("name");
   }
 
@@ -196,35 +250,41 @@ public class ProjectPostModel {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProjectPostModel
+   * @throws IOException if the JSON Element is invalid with respect to UpdateProjectApiModel
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ProjectPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectPostModel is not found in the empty JSON string", ProjectPostModel.openapiRequiredFields.toString()));
+        if (!UpdateProjectApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateProjectApiModel is not found in the empty JSON string", UpdateProjectApiModel.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ProjectPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!UpdateProjectApiModel.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateProjectApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ProjectPostModel.openapiRequiredFields) {
+      for (String requiredField : UpdateProjectApiModel.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("workflowId") != null && !jsonObj.get("workflowId").isJsonNull()) && !jsonObj.get("workflowId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workflowId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workflowId").toString()));
       }
   }
 
@@ -232,22 +292,22 @@ public class ProjectPostModel {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectPostModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectPostModel' and its subtypes
+       if (!UpdateProjectApiModel.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateProjectApiModel' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectPostModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectPostModel.class));
+       final TypeAdapter<UpdateProjectApiModel> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateProjectApiModel.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ProjectPostModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdateProjectApiModel>() {
            @Override
-           public void write(JsonWriter out, ProjectPostModel value) throws IOException {
+           public void write(JsonWriter out, UpdateProjectApiModel value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ProjectPostModel read(JsonReader in) throws IOException {
+           public UpdateProjectApiModel read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -258,18 +318,18 @@ public class ProjectPostModel {
   }
 
   /**
-   * Create an instance of ProjectPostModel given an JSON string
+   * Create an instance of UpdateProjectApiModel given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ProjectPostModel
-   * @throws IOException if the JSON string is invalid with respect to ProjectPostModel
+   * @return An instance of UpdateProjectApiModel
+   * @throws IOException if the JSON string is invalid with respect to UpdateProjectApiModel
    */
-  public static ProjectPostModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectPostModel.class);
+  public static UpdateProjectApiModel fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateProjectApiModel.class);
   }
 
   /**
-   * Convert an instance of ProjectPostModel to an JSON string
+   * Convert an instance of UpdateProjectApiModel to an JSON string
    *
    * @return JSON string
    */

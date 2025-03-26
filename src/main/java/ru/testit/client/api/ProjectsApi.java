@@ -28,15 +28,15 @@ import java.io.IOException;
 
 
 import ru.testit.client.model.AutoTestNamespaceModel;
+import ru.testit.client.model.CreateProjectApiModel;
 import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
+import ru.testit.client.model.DemoProjectApiResult;
 import ru.testit.client.model.FailureClassModel;
 import ru.testit.client.model.FilterModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.ProjectModel;
-import ru.testit.client.model.ProjectPostModel;
-import ru.testit.client.model.ProjectPutModel;
 import ru.testit.client.model.ProjectSelectModel;
 import ru.testit.client.model.ProjectShortModel;
 import ru.testit.client.model.ProjectsFilterModel;
@@ -46,6 +46,7 @@ import ru.testit.client.model.TestPlanModel;
 import ru.testit.client.model.TestRunApiResult;
 import ru.testit.client.model.TestRunV2ApiResult;
 import java.util.UUID;
+import ru.testit.client.model.UpdateProjectApiModel;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
@@ -241,7 +242,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for apiV2ProjectsDemoPost
-     * @param projectPostModel  (optional)
+     * @param createProjectApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -257,7 +258,7 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsDemoPostCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsDemoPostCall(CreateProjectApiModel createProjectApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -271,7 +272,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectPostModel;
+        Object localVarPostBody = createProjectApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects/demo";
@@ -303,16 +304,16 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ProjectsDemoPostValidateBeforeCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ProjectsDemoPostCall(projectPostModel, _callback);
+    private okhttp3.Call apiV2ProjectsDemoPostValidateBeforeCall(CreateProjectApiModel createProjectApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsDemoPostCall(createProjectApiModel, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param projectPostModel  (optional)
-     * @return ProjectModel
+     * @param createProjectApiModel  (optional)
+     * @return DemoProjectApiResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -326,16 +327,16 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectModel apiV2ProjectsDemoPost(ProjectPostModel projectPostModel) throws ApiException {
-        ApiResponse<ProjectModel> localVarResp = apiV2ProjectsDemoPostWithHttpInfo(projectPostModel);
+    public DemoProjectApiResult apiV2ProjectsDemoPost(CreateProjectApiModel createProjectApiModel) throws ApiException {
+        ApiResponse<DemoProjectApiResult> localVarResp = apiV2ProjectsDemoPostWithHttpInfo(createProjectApiModel);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param projectPostModel  (optional)
-     * @return ApiResponse&lt;ProjectModel&gt;
+     * @param createProjectApiModel  (optional)
+     * @return ApiResponse&lt;DemoProjectApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -349,16 +350,16 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectModel> apiV2ProjectsDemoPostWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(projectPostModel, null);
-        Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
+    public ApiResponse<DemoProjectApiResult> apiV2ProjectsDemoPostWithHttpInfo(CreateProjectApiModel createProjectApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(createProjectApiModel, null);
+        Type localVarReturnType = new TypeToken<DemoProjectApiResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
      * 
-     * @param projectPostModel  (optional)
+     * @param createProjectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -374,10 +375,10 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsDemoPostAsync(ProjectPostModel projectPostModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsDemoPostAsync(CreateProjectApiModel createProjectApiModel, final ApiCallback<DemoProjectApiResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(projectPostModel, _callback);
-        Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
+        okhttp3.Call localVarCall = apiV2ProjectsDemoPostValidateBeforeCall(createProjectApiModel, _callback);
+        Type localVarReturnType = new TypeToken<DemoProjectApiResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2743,7 +2744,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for createProject
-     * @param projectPostModel  (optional)
+     * @param createProjectApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2759,7 +2760,7 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createProjectCall(CreateProjectApiModel createProjectApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2773,7 +2774,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectPostModel;
+        Object localVarPostBody = createProjectApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects";
@@ -2805,15 +2806,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createProjectValidateBeforeCall(ProjectPostModel projectPostModel, final ApiCallback _callback) throws ApiException {
-        return createProjectCall(projectPostModel, _callback);
+    private okhttp3.Call createProjectValidateBeforeCall(CreateProjectApiModel createProjectApiModel, final ApiCallback _callback) throws ApiException {
+        return createProjectCall(createProjectApiModel, _callback);
 
     }
 
     /**
      * Create project
      *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     * @param createProjectApiModel  (optional)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2828,15 +2829,15 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectModel createProject(ProjectPostModel projectPostModel) throws ApiException {
-        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(projectPostModel);
+    public ProjectModel createProject(CreateProjectApiModel createProjectApiModel) throws ApiException {
+        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(createProjectApiModel);
         return localVarResp.getData();
     }
 
     /**
      * Create project
      *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     * @param createProjectApiModel  (optional)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2851,8 +2852,8 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectModel> createProjectWithHttpInfo(ProjectPostModel projectPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createProjectValidateBeforeCall(projectPostModel, null);
+    public ApiResponse<ProjectModel> createProjectWithHttpInfo(CreateProjectApiModel createProjectApiModel) throws ApiException {
+        okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectApiModel, null);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2860,7 +2861,7 @@ public class ProjectsApi {
     /**
      * Create project (asynchronously)
      *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
-     * @param projectPostModel  (optional)
+     * @param createProjectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2876,9 +2877,9 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectAsync(ProjectPostModel projectPostModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
+    public okhttp3.Call createProjectAsync(CreateProjectApiModel createProjectApiModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createProjectValidateBeforeCall(projectPostModel, _callback);
+        okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectApiModel, _callback);
         Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3946,7 +3947,7 @@ public class ProjectsApi {
     }
     /**
      * Build call for updateProject
-     * @param projectPutModel  (optional)
+     * @param updateProjectApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3962,7 +3963,7 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateProjectCall(UpdateProjectApiModel updateProjectApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3976,7 +3977,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = projectPutModel;
+        Object localVarPostBody = updateProjectApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/projects";
@@ -4008,15 +4009,15 @@ public class ProjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateProjectValidateBeforeCall(ProjectPutModel projectPutModel, final ApiCallback _callback) throws ApiException {
-        return updateProjectCall(projectPutModel, _callback);
+    private okhttp3.Call updateProjectValidateBeforeCall(UpdateProjectApiModel updateProjectApiModel, final ApiCallback _callback) throws ApiException {
+        return updateProjectCall(updateProjectApiModel, _callback);
 
     }
 
     /**
      * Update project
      *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     * @param updateProjectApiModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -4030,14 +4031,14 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void updateProject(ProjectPutModel projectPutModel) throws ApiException {
-        updateProjectWithHttpInfo(projectPutModel);
+    public void updateProject(UpdateProjectApiModel updateProjectApiModel) throws ApiException {
+        updateProjectWithHttpInfo(updateProjectApiModel);
     }
 
     /**
      * Update project
      *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     * @param updateProjectApiModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4052,15 +4053,15 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateProjectWithHttpInfo(ProjectPutModel projectPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(projectPutModel, null);
+    public ApiResponse<Void> updateProjectWithHttpInfo(UpdateProjectApiModel updateProjectApiModel) throws ApiException {
+        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(updateProjectApiModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update project (asynchronously)
      *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
-     * @param projectPutModel  (optional)
+     * @param updateProjectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4076,9 +4077,9 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateProjectAsync(ProjectPutModel projectPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateProjectAsync(UpdateProjectApiModel updateProjectApiModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(projectPutModel, _callback);
+        okhttp3.Call localVarCall = updateProjectValidateBeforeCall(updateProjectApiModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

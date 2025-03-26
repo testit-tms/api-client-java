@@ -109,7 +109,7 @@ null (empty response body)
 
 <a id="apiV2ProjectsDemoPost"></a>
 # **apiV2ProjectsDemoPost**
-> ProjectModel apiV2ProjectsDemoPost(projectPostModel)
+> DemoProjectApiResult apiV2ProjectsDemoPost(createProjectApiModel)
 
 
 
@@ -135,9 +135,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectPostModel projectPostModel = new ProjectPostModel(); // ProjectPostModel | 
+    CreateProjectApiModel createProjectApiModel = new CreateProjectApiModel(); // CreateProjectApiModel | 
     try {
-      ProjectModel result = apiInstance.apiV2ProjectsDemoPost(projectPostModel);
+      DemoProjectApiResult result = apiInstance.apiV2ProjectsDemoPost(createProjectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#apiV2ProjectsDemoPost");
@@ -154,11 +154,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] |
+| **createProjectApiModel** | [**CreateProjectApiModel**](CreateProjectApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**DemoProjectApiResult**](DemoProjectApiResult.md)
 
 ### Authorization
 
@@ -1328,7 +1328,7 @@ public class Example {
 
 <a id="createProject"></a>
 # **createProject**
-> ProjectModel createProject(projectPostModel)
+> ProjectModel createProject(createProjectApiModel)
 
 Create project
 
@@ -1356,9 +1356,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectPostModel projectPostModel = new ProjectPostModel(); // ProjectPostModel | 
+    CreateProjectApiModel createProjectApiModel = new CreateProjectApiModel(); // CreateProjectApiModel | 
     try {
-      ProjectModel result = apiInstance.createProject(projectPostModel);
+      ProjectModel result = apiInstance.createProject(createProjectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#createProject");
@@ -1375,7 +1375,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md)|  | [optional] |
+| **createProjectApiModel** | [**CreateProjectApiModel**](CreateProjectApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1889,7 +1889,7 @@ public class Example {
 
 <a id="updateProject"></a>
 # **updateProject**
-> updateProject(projectPutModel)
+> updateProject(updateProjectApiModel)
 
 Update project
 
@@ -1917,9 +1917,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-    ProjectPutModel projectPutModel = new ProjectPutModel(); // ProjectPutModel | 
+    UpdateProjectApiModel updateProjectApiModel = new UpdateProjectApiModel(); // UpdateProjectApiModel | 
     try {
-      apiInstance.updateProject(projectPutModel);
+      apiInstance.updateProject(updateProjectApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#updateProject");
       System.err.println("Status code: " + e.getCode());
@@ -1935,7 +1935,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectPutModel** | [**ProjectPutModel**](ProjectPutModel.md)|  | [optional] |
+| **updateProjectApiModel** | [**UpdateProjectApiModel**](UpdateProjectApiModel.md)|  | [optional] |
 
 ### Return type
 
