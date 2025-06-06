@@ -20,7 +20,7 @@
 |**lockedDate** | **OffsetDateTime** |  |  [optional] |
 |**id** | **UUID** |  |  |
 |**lockedById** | **UUID** |  |  [optional] |
-|**tags** | [**List&lt;TagPostModel&gt;**](TagPostModel.md) |  |  [optional] |
+|**tags** | [**List&lt;TagModel&gt;**](TagModel.md) |  |  [optional] |
 |**name** | **String** |  |  |
 |**startDate** | **OffsetDateTime** | Used for analytics |  [optional] |
 |**endDate** | **OffsetDateTime** | Used for analytics |  [optional] |

@@ -30,6 +30,7 @@ import ru.testit.client.model.AutoTestStepModel;
 import ru.testit.client.model.ConfigurationShortModel;
 import ru.testit.client.model.LabelShortModel;
 import ru.testit.client.model.LinkPutModel;
+import ru.testit.client.model.TestStatusModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -108,8 +109,13 @@ public class AutoTestModel {
   private ConfigurationShortModel lastTestResultConfiguration;
 
   public static final String SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME = "lastTestResultOutcome";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_OUTCOME)
   private String lastTestResultOutcome;
+
+  public static final String SERIALIZED_NAME_LAST_TEST_RESULT_STATUS = "lastTestResultStatus";
+  @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT_STATUS)
+  private TestStatusModel lastTestResultStatus;
 
   public static final String SERIALIZED_NAME_STABILITY_PERCENTAGE = "stabilityPercentage";
   @SerializedName(SERIALIZED_NAME_STABILITY_PERCENTAGE)
@@ -402,6 +408,7 @@ public class AutoTestModel {
   }
 
 
+  @Deprecated
   public AutoTestModel lastTestResultOutcome(String lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
     return this;
@@ -410,14 +417,36 @@ public class AutoTestModel {
   /**
    * Outcome of the autotest last test result
    * @return lastTestResultOutcome
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public String getLastTestResultOutcome() {
     return lastTestResultOutcome;
   }
 
+  @Deprecated
   public void setLastTestResultOutcome(String lastTestResultOutcome) {
     this.lastTestResultOutcome = lastTestResultOutcome;
+  }
+
+
+  public AutoTestModel lastTestResultStatus(TestStatusModel lastTestResultStatus) {
+    this.lastTestResultStatus = lastTestResultStatus;
+    return this;
+  }
+
+  /**
+   * Status of the autotest last test result
+   * @return lastTestResultStatus
+   */
+  @javax.annotation.Nonnull
+  public TestStatusModel getLastTestResultStatus() {
+    return lastTestResultStatus;
+  }
+
+  public void setLastTestResultStatus(TestStatusModel lastTestResultStatus) {
+    this.lastTestResultStatus = lastTestResultStatus;
   }
 
 
@@ -769,6 +798,7 @@ public class AutoTestModel {
         Objects.equals(this.lastTestResultId, autoTestModel.lastTestResultId) &&
         Objects.equals(this.lastTestResultConfiguration, autoTestModel.lastTestResultConfiguration) &&
         Objects.equals(this.lastTestResultOutcome, autoTestModel.lastTestResultOutcome) &&
+        Objects.equals(this.lastTestResultStatus, autoTestModel.lastTestResultStatus) &&
         Objects.equals(this.stabilityPercentage, autoTestModel.stabilityPercentage) &&
         Objects.equals(this.externalId, autoTestModel.externalId) &&
         Objects.equals(this.links, autoTestModel.links) &&
@@ -792,7 +822,7 @@ public class AutoTestModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(globalId, isDeleted, mustBeApproved, id, createdDate, modifiedDate, createdById, modifiedById, lastTestRunId, lastTestRunName, lastTestResultId, lastTestResultConfiguration, lastTestResultOutcome, stabilityPercentage, externalId, links, projectId, name, namespace, classname, steps, setup, teardown, title, description, labels, isFlaky, externalKey);
+    return Objects.hash(globalId, isDeleted, mustBeApproved, id, createdDate, modifiedDate, createdById, modifiedById, lastTestRunId, lastTestRunName, lastTestResultId, lastTestResultConfiguration, lastTestResultOutcome, lastTestResultStatus, stabilityPercentage, externalId, links, projectId, name, namespace, classname, steps, setup, teardown, title, description, labels, isFlaky, externalKey);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -819,6 +849,7 @@ public class AutoTestModel {
     sb.append("    lastTestResultId: ").append(toIndentedString(lastTestResultId)).append("\n");
     sb.append("    lastTestResultConfiguration: ").append(toIndentedString(lastTestResultConfiguration)).append("\n");
     sb.append("    lastTestResultOutcome: ").append(toIndentedString(lastTestResultOutcome)).append("\n");
+    sb.append("    lastTestResultStatus: ").append(toIndentedString(lastTestResultStatus)).append("\n");
     sb.append("    stabilityPercentage: ").append(toIndentedString(stabilityPercentage)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
@@ -869,6 +900,7 @@ public class AutoTestModel {
     openapiFields.add("lastTestResultId");
     openapiFields.add("lastTestResultConfiguration");
     openapiFields.add("lastTestResultOutcome");
+    openapiFields.add("lastTestResultStatus");
     openapiFields.add("stabilityPercentage");
     openapiFields.add("externalId");
     openapiFields.add("links");
@@ -893,6 +925,7 @@ public class AutoTestModel {
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("createdDate");
     openapiRequiredFields.add("createdById");
+    openapiRequiredFields.add("lastTestResultStatus");
     openapiRequiredFields.add("externalId");
     openapiRequiredFields.add("projectId");
     openapiRequiredFields.add("name");
@@ -951,6 +984,8 @@ public class AutoTestModel {
       if ((jsonObj.get("lastTestResultOutcome") != null && !jsonObj.get("lastTestResultOutcome").isJsonNull()) && !jsonObj.get("lastTestResultOutcome").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultOutcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultOutcome").toString()));
       }
+      // validate the required field `lastTestResultStatus`
+      TestStatusModel.validateJsonElement(jsonObj.get("lastTestResultStatus"));
       if (!jsonObj.get("externalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
       }

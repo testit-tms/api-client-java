@@ -32,6 +32,7 @@ import ru.testit.client.model.LastTestResultModel;
 import ru.testit.client.model.TestPointStatus;
 import ru.testit.client.model.TestStatusApiResult;
 import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemState;
 
 import com.google.gson.Gson;
@@ -142,6 +143,10 @@ public class TestPointShortResponseModel {
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
   private WorkItemPriorityModel priority;
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "sourceType";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  private WorkItemSourceTypeModel sourceType;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
@@ -618,6 +623,25 @@ public class TestPointShortResponseModel {
   }
 
 
+  public TestPointShortResponseModel sourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+    return this;
+  }
+
+  /**
+   * Source type of the test point
+   * @return sourceType
+   */
+  @javax.annotation.Nonnull
+  public WorkItemSourceTypeModel getSourceType() {
+    return sourceType;
+  }
+
+  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+  }
+
+
   public TestPointShortResponseModel isAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
@@ -914,6 +938,7 @@ public class TestPointShortResponseModel {
         Objects.equals(this.status, testPointShortResponseModel.status) &&
         Objects.equals(this.statusModel, testPointShortResponseModel.statusModel) &&
         Objects.equals(this.priority, testPointShortResponseModel.priority) &&
+        Objects.equals(this.sourceType, testPointShortResponseModel.sourceType) &&
         Objects.equals(this.isAutomated, testPointShortResponseModel.isAutomated) &&
         Objects.equals(this.name, testPointShortResponseModel.name) &&
         Objects.equals(this.configurationId, testPointShortResponseModel.configurationId) &&
@@ -936,7 +961,7 @@ public class TestPointShortResponseModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdDate, createdById, modifiedDate, modifiedById, testerId, parameters, attributes, tags, links, testSuiteId, testSuiteName, workItemId, workItemGlobalId, workItemVersionId, workItemVersionNumber, workItemMedianDuration, status, statusModel, priority, isAutomated, name, configurationId, duration, sectionId, sectionName, projectId, lastTestResult, iterationId, workItemState, workItemCreatedById, workItemCreatedDate, workItemModifiedById, workItemModifiedDate);
+    return Objects.hash(id, createdDate, createdById, modifiedDate, modifiedById, testerId, parameters, attributes, tags, links, testSuiteId, testSuiteName, workItemId, workItemGlobalId, workItemVersionId, workItemVersionNumber, workItemMedianDuration, status, statusModel, priority, sourceType, isAutomated, name, configurationId, duration, sectionId, sectionName, projectId, lastTestResult, iterationId, workItemState, workItemCreatedById, workItemCreatedDate, workItemModifiedById, workItemModifiedDate);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -970,6 +995,7 @@ public class TestPointShortResponseModel {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusModel: ").append(toIndentedString(statusModel)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    configurationId: ").append(toIndentedString(configurationId)).append("\n");
@@ -1026,6 +1052,7 @@ public class TestPointShortResponseModel {
     openapiFields.add("status");
     openapiFields.add("statusModel");
     openapiFields.add("priority");
+    openapiFields.add("sourceType");
     openapiFields.add("isAutomated");
     openapiFields.add("name");
     openapiFields.add("configurationId");
@@ -1058,6 +1085,7 @@ public class TestPointShortResponseModel {
     openapiRequiredFields.add("status");
     openapiRequiredFields.add("statusModel");
     openapiRequiredFields.add("priority");
+    openapiRequiredFields.add("sourceType");
     openapiRequiredFields.add("isAutomated");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("configurationId");
@@ -1136,11 +1164,14 @@ public class TestPointShortResponseModel {
       }
       // validate the required field `status`
       TestPointStatus.validateJsonElement(jsonObj.get("status"));
+      // Validated statusModel
       if ((jsonObj.get("statusModel") != null && !jsonObj.get("statusModel").isJsonNull())) {
         TestStatusApiResult.validateJsonElement(jsonObj.get("statusModel"));
       }
       // validate the required field `priority`
       WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
+      // validate the required field `sourceType`
+      WorkItemSourceTypeModel.validateJsonElement(jsonObj.get("sourceType"));
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }

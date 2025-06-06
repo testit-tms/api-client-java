@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.ConfigurationModel;
 import ru.testit.client.model.PublicTestPointModel;
+import ru.testit.client.model.TestStatusModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -96,8 +97,13 @@ public class PublicTestRunModel {
   private List<PublicTestPointModel> testPoints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STATUS = "status";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
+
+  public static final String SERIALIZED_NAME_STATUS_MODEL = "statusModel";
+  @SerializedName(SERIALIZED_NAME_STATUS_MODEL)
+  private TestStatusModel statusModel;
 
   public static final String SERIALIZED_NAME_CUSTOM_PARAMETERS = "customParameters";
   @SerializedName(SERIALIZED_NAME_CUSTOM_PARAMETERS)
@@ -305,6 +311,7 @@ public class PublicTestRunModel {
   }
 
 
+  @Deprecated
   public PublicTestRunModel status(String status) {
     this.status = status;
     return this;
@@ -313,14 +320,36 @@ public class PublicTestRunModel {
   /**
    * Get status
    * @return status
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public String getStatus() {
     return status;
   }
 
+  @Deprecated
   public void setStatus(String status) {
     this.status = status;
+  }
+
+
+  public PublicTestRunModel statusModel(TestStatusModel statusModel) {
+    this.statusModel = statusModel;
+    return this;
+  }
+
+  /**
+   * Get statusModel
+   * @return statusModel
+   */
+  @javax.annotation.Nonnull
+  public TestStatusModel getStatusModel() {
+    return statusModel;
+  }
+
+  public void setStatusModel(TestStatusModel statusModel) {
+    this.statusModel = statusModel;
   }
 
 
@@ -390,6 +419,7 @@ public class PublicTestRunModel {
         Objects.equals(this.autoTests, publicTestRunModel.autoTests) &&
         Objects.equals(this.testPoints, publicTestRunModel.testPoints) &&
         Objects.equals(this.status, publicTestRunModel.status) &&
+        Objects.equals(this.statusModel, publicTestRunModel.statusModel) &&
         Objects.equals(this.customParameters, publicTestRunModel.customParameters) &&
         Objects.equals(this.testRunDescription, publicTestRunModel.testRunDescription);
   }
@@ -400,7 +430,7 @@ public class PublicTestRunModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testRunId, testPlanId, testPlanGlobalId, name, productName, build, configurations, autoTests, testPoints, status, customParameters, testRunDescription);
+    return Objects.hash(testRunId, testPlanId, testPlanGlobalId, name, productName, build, configurations, autoTests, testPoints, status, statusModel, customParameters, testRunDescription);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -424,6 +454,7 @@ public class PublicTestRunModel {
     sb.append("    autoTests: ").append(toIndentedString(autoTests)).append("\n");
     sb.append("    testPoints: ").append(toIndentedString(testPoints)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusModel: ").append(toIndentedString(statusModel)).append("\n");
     sb.append("    customParameters: ").append(toIndentedString(customParameters)).append("\n");
     sb.append("    testRunDescription: ").append(toIndentedString(testRunDescription)).append("\n");
     sb.append("}");
@@ -458,6 +489,7 @@ public class PublicTestRunModel {
     openapiFields.add("autoTests");
     openapiFields.add("testPoints");
     openapiFields.add("status");
+    openapiFields.add("statusModel");
     openapiFields.add("customParameters");
     openapiFields.add("testRunDescription");
 
@@ -470,6 +502,7 @@ public class PublicTestRunModel {
     openapiRequiredFields.add("autoTests");
     openapiRequiredFields.add("testPoints");
     openapiRequiredFields.add("status");
+    openapiRequiredFields.add("statusModel");
   }
 
   /**
@@ -548,6 +581,8 @@ public class PublicTestRunModel {
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
+      // validate the required field `statusModel`
+      TestStatusModel.validateJsonElement(jsonObj.get("statusModel"));
       if ((jsonObj.get("testRunDescription") != null && !jsonObj.get("testRunDescription").isJsonNull()) && !jsonObj.get("testRunDescription").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `testRunDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunDescription").toString()));
       }

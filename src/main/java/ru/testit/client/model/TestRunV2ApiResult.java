@@ -214,7 +214,7 @@ public class TestRunV2ApiResult {
   }
 
   /**
-   * Test run launch source                Once launch source is specified it cannot be updated.
+   * Test run launch source              Once launch source is specified it cannot be updated.
    * @return launchSource
    */
   @javax.annotation.Nullable
@@ -313,7 +313,7 @@ public class TestRunV2ApiResult {
   }
 
   /**
-   * Project unique identifier                This property is used to link test run with project.
+   * Project unique identifier              This property is used to link test run with project.
    * @return projectId
    */
   @javax.annotation.Nonnull
@@ -332,7 +332,7 @@ public class TestRunV2ApiResult {
   }
 
   /**
-   * Test plan unique identifier                This property is used to link test run with test plan.
+   * Test plan unique identifier              This property is used to link test run with test plan.
    * @return testPlanId
    */
   @javax.annotation.Nullable

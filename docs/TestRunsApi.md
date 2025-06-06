@@ -36,7 +36,7 @@ All URIs are relative to *http://localhost*
 
 Delete multiple test runs
 
- Use case   User sets selection parameters of test runs   System search and delete collection of test runs   System returns the number of deleted test runs
+ Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs
 
 ### Example
 ```java
@@ -98,7 +98,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** |  - ID is not valid   - Project was archived and cannot be edited anymore |  -  |
+| **400** |  - ID is not valid  - Project was archived and cannot be edited anymore |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -184,7 +184,7 @@ public class Example {
 
 Delete test run
 
- Use case   User sets test run internal (guid format) identifier   System search and delete test run
+ Use case  User sets test run internal (guid format) identifier  System search and delete test run
 
 ### Example
 ```java
@@ -245,7 +245,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |  - ID is not valid   - Project was archived and cannot be edited anymore |  -  |
+| **400** |  - ID is not valid  - Project was archived and cannot be edited anymore |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Test run with provided ID cannot be found |  -  |
@@ -258,7 +258,7 @@ null (empty response body)
 
 Permanently delete test run from archive
 
- Use case   User sets archived test run internal (guid format) identifier   System search and purge archived test run
+ Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run
 
 ### Example
 ```java
@@ -407,7 +407,7 @@ public class Example {
 
 Restore test run from the archive
 
- Use case   User sets archived test run internal (guid format) identifier   System search and restore test run
+ Use case  User sets archived test run internal (guid format) identifier  System search and restore test run
 
 ### Example
 ```java
@@ -468,7 +468,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |  - ID is not valid   - Project was archived and cannot be edited anymore |  -  |
+| **400** |  - ID is not valid  - Project was archived and cannot be edited anymore |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for archive is required |  -  |
 | **404** | Not Found |  -  |
@@ -776,7 +776,7 @@ public class Example {
 
 Permanently delete multiple test runs from archive
 
- Use case   User sets selection parameters of archived test runs   System search and delete collection of archived test runs   System returns the number of deleted archived test runs
+ Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs
 
 ### Example
 ```java
@@ -851,7 +851,7 @@ public class Example {
 
 Restore multiple test runs from the archive
 
- Use case   User sets selection parameters of archived test runs   System search and restore collection of archived test runs   System returns the number of restored test runs
+ Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs
 
 ### Example
 ```java
@@ -1081,7 +1081,7 @@ null (empty response body)
 
 Complete TestRun
 
- Use case   User sets test run identifier   User runs method execution   System completes test run   System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response
 
 ### Example
 ```java
@@ -1142,7 +1142,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Field is required   the StateName is already Stopped   the StateName is already Completed |  -  |
+| **400** |  Field is required  the StateName is already Stopped  the StateName is already Completed |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
 | **404** |  Can&#39;t find a TestRun with id! |  -  |
@@ -1155,7 +1155,7 @@ null (empty response body)
 
 Create test runs based on autotests and configurations
 
-This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
+This method creates a test run based on an autotest and a configuration. The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is that in this method there is no need to create a test plan and work items (test cases and checklists).
 
 ### Example
 ```java
@@ -1217,7 +1217,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |  - Field is required   - Configuration does not exist in the project   - Autotest does not exist in the project   - Test run must be automated   - Project ID is invalid   - Autotest external IDs are required   - Configuration IDs are required |  -  |
+| **400** |  - Field is required  - Configuration does not exist in the project  - Autotest does not exist in the project  - Test run must be automated  - Project ID is invalid  - Autotest external IDs are required  - Configuration IDs are required |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test results is required |  -  |
 | **404** | Some autotests do not exist |  -  |
@@ -1230,7 +1230,7 @@ public class Example {
 
 Create test runs picking the needed test points
 
-This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
+This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
 
 ### Example
 ```java
@@ -1292,7 +1292,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Test run must be automated   - Some work items do not exist   - Project ID is invalid   - Test point selectors are required   - Some work item IDs are invalid   - Some configuration IDs are invalid |  -  |
+| **400** |  - Field is required  - Test run cannot be created with deleted test points  - Test suites with IDs [ids] is archived  - Configurations with IDs [ids] is archived  - Test run cannot be created with non-automated test point  - Test run must be automated  - Some work items do not exist  - Project ID is invalid  - Test point selectors are required  - Some work item IDs are invalid  - Some configuration IDs are invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test results is required |  -  |
 | **404** | Some test points do not exists |  -  |
@@ -1305,7 +1305,7 @@ public class Example {
 
 Create test run based on configurations and work items
 
-This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
+This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
 
 ### Example
 ```java
@@ -1367,7 +1367,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |  - Field is required   - Test run cannot be created with deleted test points   - Test suites with IDs [ids] is archived   - Configurations with IDs [ids] is archived   - Test run cannot be created with non-automated test point   - Some work items do not exist   - Project ID is invalid |  -  |
+| **400** |  - Field is required  - Test run cannot be created with deleted test points  - Test suites with IDs [ids] is archived  - Configurations with IDs [ids] is archived  - Test run cannot be created with non-automated test point  - Some work items do not exist  - Project ID is invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test results is required |  -  |
 | **404** | Some test points, work items or configurations do not exist |  -  |
@@ -1380,7 +1380,7 @@ public class Example {
 
 Create empty TestRun
 
- Use case   User sets test run model (listed in the request example)   User runs method execution   System creates test run   System returns test run model
+ Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model
 
 ### Example
 ```java
@@ -1442,7 +1442,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful operation |  -  |
-| **400** |  Field is required   TestRun must be automated   ProjectId is not a valid! |  -  |
+| **400** |  Field is required  TestRun must be automated  ProjectId is not a valid! |  -  |
 | **401** | TestRunTesterRequirement permission required |  -  |
 | **403** | Update permission for test result required |  -  |
 | **404** | Can&#39;t find a TestRun with id &#x3D; testRunId |  -  |
@@ -1455,7 +1455,7 @@ public class Example {
 
 Get TestRun by Id
 
- Use case   User sets test run identifier   User runs method execution   System finds test run   System returns test run
+ Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run
 
 ### Example
 ```java
@@ -1594,12 +1594,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
-| **400** |  - Field is required   - Body is invalid   - Test points are required   - Duration must be a positive number   - Outcome is not defined   - Test run is stopped |  -  |
+| **400** |  - Field is required  - Body is invalid  - Test points are required  - Duration must be a positive number  - Outcome is not defined  - Test run is stopped |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test results is required |  -  |
-| **404** |  - Test run with provided ID was not found   - Test point was not found   - Autotest with provided external ID was not found |  -  |
+| **404** |  - Test run with provided ID was not found  - Test point was not found  - Autotest with provided external ID was not found |  -  |
 | **409** | Conflict |  -  |
-| **422** |  - Configuration with provided ID was not found   - Test points relevant to provided filters were not found |  -  |
+| **422** |  - Configuration with provided ID was not found  - Test points relevant to provided filters were not found |  -  |
 
 <a id="startTestRun"></a>
 # **startTestRun**
@@ -1607,7 +1607,7 @@ public class Example {
 
 Start TestRun
 
- Use case   User sets test run identifier   User runs method execution   System starts test run   System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response
 
 ### Example
 ```java
@@ -1668,7 +1668,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Field is required   the StateName is already InProgress   the StateName is already Stopped   the StateName is already Completed |  -  |
+| **400** |  Field is required  the StateName is already InProgress  the StateName is already Stopped  the StateName is already Completed |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
 | **404** |  Can&#39;t find a TestRun with id! |  -  |
@@ -1681,7 +1681,7 @@ null (empty response body)
 
 Stop TestRun
 
- Use case   User sets test run identifier   User runs method execution   System stops test run   System returns no content response
+ Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response
 
 ### Example
 ```java
@@ -1742,7 +1742,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Field is required   the StateName is already Stopped   the StateName is already Completed |  -  |
+| **400** |  Field is required  the StateName is already Stopped  the StateName is already Completed |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
 | **404** |  Can&#39;t find a TestRun with id! |  -  |
@@ -1755,7 +1755,7 @@ null (empty response body)
 
 Update empty TestRun
 
- Use case   User sets test run properties (listed in the request example)   User runs method execution   System updates test run   System returns returns no content response
+ Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response
 
 ### Example
 ```java
@@ -1816,7 +1816,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Field is required   Name is not valid |  -  |
+| **400** |  Field is required  Name is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test result required |  -  |
 | **404** |  Can&#39;t find a TestRun with id! |  -  |

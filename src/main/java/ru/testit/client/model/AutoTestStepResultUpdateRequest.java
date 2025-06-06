@@ -27,7 +27,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AttachmentPutModelAutoTestStepResultsModel;
 import ru.testit.client.model.AttachmentUpdateRequest;
 import ru.testit.client.model.AvailableTestResultOutcome;
 
@@ -89,7 +88,7 @@ public class AutoTestStepResultUpdateRequest {
 
   public static final String SERIALIZED_NAME_STEP_RESULTS = "stepResults";
   @SerializedName(SERIALIZED_NAME_STEP_RESULTS)
-  private List<AttachmentPutModelAutoTestStepResultsModel> stepResults;
+  private List<AutoTestStepResultUpdateRequest> stepResults;
 
   public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
   @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
@@ -237,12 +236,12 @@ public class AutoTestStepResultUpdateRequest {
   }
 
 
-  public AutoTestStepResultUpdateRequest stepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+  public AutoTestStepResultUpdateRequest stepResults(List<AutoTestStepResultUpdateRequest> stepResults) {
     this.stepResults = stepResults;
     return this;
   }
 
-  public AutoTestStepResultUpdateRequest addStepResultsItem(AttachmentPutModelAutoTestStepResultsModel stepResultsItem) {
+  public AutoTestStepResultUpdateRequest addStepResultsItem(AutoTestStepResultUpdateRequest stepResultsItem) {
     if (this.stepResults == null) {
       this.stepResults = new ArrayList<>();
     }
@@ -255,11 +254,11 @@ public class AutoTestStepResultUpdateRequest {
    * @return stepResults
    */
   @javax.annotation.Nullable
-  public List<AttachmentPutModelAutoTestStepResultsModel> getStepResults() {
+  public List<AutoTestStepResultUpdateRequest> getStepResults() {
     return stepResults;
   }
 
-  public void setStepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+  public void setStepResults(List<AutoTestStepResultUpdateRequest> stepResults) {
     this.stepResults = stepResults;
   }
 
@@ -278,7 +277,7 @@ public class AutoTestStepResultUpdateRequest {
   }
 
   /**
-   * /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt;
+   * /// &lt;summary&gt; Specifies an attachment GUID. Multiple values can be sent. &lt;/summary&gt;
    * @return attachments
    */
   @javax.annotation.Nullable
@@ -451,7 +450,7 @@ public class AutoTestStepResultUpdateRequest {
 
           // validate the optional field `stepResults` (array)
           for (int i = 0; i < jsonArraystepResults.size(); i++) {
-            AttachmentPutModelAutoTestStepResultsModel.validateJsonElement(jsonArraystepResults.get(i));
+            AutoTestStepResultUpdateRequest.validateJsonElement(jsonArraystepResults.get(i));
           };
         }
       }

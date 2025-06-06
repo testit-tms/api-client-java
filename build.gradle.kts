@@ -121,7 +121,7 @@ publishing.publications.named<MavenPublication>("maven") {
         from(components["java"])
     }
 }
-val junitVersion = "5.8.2"
+val junitVersion = "5.10.3"
 val junitLauncherVersion = "1.9.0"
 val jakarta_annotation_version = "1.3.5"
 

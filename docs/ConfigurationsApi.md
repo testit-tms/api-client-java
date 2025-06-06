@@ -762,7 +762,7 @@ public class Example {
 
 Create Configuration
 
- Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)
+ Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
 
 ### Example
 ```java
@@ -837,7 +837,7 @@ public class Example {
 
 Get configuration by internal or global ID
 
- Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration
+ Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
 
 ### Example
 ```java

@@ -24,9 +24,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import ru.testit.client.model.TestPlanGroupByStatus;
+import ru.testit.client.model.TestPlanGroupByStatusCode;
 import ru.testit.client.model.TestPlanGroupByTestSuite;
 import ru.testit.client.model.TestPlanGroupByTester;
 import ru.testit.client.model.TestPlanGroupByTesterAndStatus;
+import ru.testit.client.model.TestPlanGroupByTesterAndStatusCode;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,6 +59,7 @@ import ru.testit.client.invoker.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointAnalyticResult {
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS)
   private List<TestPlanGroupByStatus> countGroupByStatus = new ArrayList<>();
 
@@ -73,12 +76,22 @@ public class TestPointAnalyticResult {
   private List<TestPlanGroupByTestSuite> countGroupByTestSuite = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS)
   private List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_COUNT_GROUP_BY_STATUS_CODE = "countGroupByStatusCode";
+  @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_STATUS_CODE)
+  private List<TestPlanGroupByStatusCode> countGroupByStatusCode = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS_CODE = "countGroupByTesterAndStatusCode";
+  @SerializedName(SERIALIZED_NAME_COUNT_GROUP_BY_TESTER_AND_STATUS_CODE)
+  private List<TestPlanGroupByTesterAndStatusCode> countGroupByTesterAndStatusCode = new ArrayList<>();
 
   public TestPointAnalyticResult() {
   }
 
+  @Deprecated
   public TestPointAnalyticResult countGroupByStatus(List<TestPlanGroupByStatus> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
     return this;
@@ -95,12 +108,15 @@ public class TestPointAnalyticResult {
   /**
    * Get countGroupByStatus
    * @return countGroupByStatus
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public List<TestPlanGroupByStatus> getCountGroupByStatus() {
     return countGroupByStatus;
   }
 
+  @Deprecated
   public void setCountGroupByStatus(List<TestPlanGroupByStatus> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
   }
@@ -187,6 +203,7 @@ public class TestPointAnalyticResult {
   }
 
 
+  @Deprecated
   public TestPointAnalyticResult countGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
     this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
     return this;
@@ -203,14 +220,71 @@ public class TestPointAnalyticResult {
   /**
    * Get countGroupByTesterAndStatus
    * @return countGroupByTesterAndStatus
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public List<TestPlanGroupByTesterAndStatus> getCountGroupByTesterAndStatus() {
     return countGroupByTesterAndStatus;
   }
 
+  @Deprecated
   public void setCountGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
     this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
+  }
+
+
+  public TestPointAnalyticResult countGroupByStatusCode(List<TestPlanGroupByStatusCode> countGroupByStatusCode) {
+    this.countGroupByStatusCode = countGroupByStatusCode;
+    return this;
+  }
+
+  public TestPointAnalyticResult addCountGroupByStatusCodeItem(TestPlanGroupByStatusCode countGroupByStatusCodeItem) {
+    if (this.countGroupByStatusCode == null) {
+      this.countGroupByStatusCode = new ArrayList<>();
+    }
+    this.countGroupByStatusCode.add(countGroupByStatusCodeItem);
+    return this;
+  }
+
+  /**
+   * Get countGroupByStatusCode
+   * @return countGroupByStatusCode
+   */
+  @javax.annotation.Nonnull
+  public List<TestPlanGroupByStatusCode> getCountGroupByStatusCode() {
+    return countGroupByStatusCode;
+  }
+
+  public void setCountGroupByStatusCode(List<TestPlanGroupByStatusCode> countGroupByStatusCode) {
+    this.countGroupByStatusCode = countGroupByStatusCode;
+  }
+
+
+  public TestPointAnalyticResult countGroupByTesterAndStatusCode(List<TestPlanGroupByTesterAndStatusCode> countGroupByTesterAndStatusCode) {
+    this.countGroupByTesterAndStatusCode = countGroupByTesterAndStatusCode;
+    return this;
+  }
+
+  public TestPointAnalyticResult addCountGroupByTesterAndStatusCodeItem(TestPlanGroupByTesterAndStatusCode countGroupByTesterAndStatusCodeItem) {
+    if (this.countGroupByTesterAndStatusCode == null) {
+      this.countGroupByTesterAndStatusCode = new ArrayList<>();
+    }
+    this.countGroupByTesterAndStatusCode.add(countGroupByTesterAndStatusCodeItem);
+    return this;
+  }
+
+  /**
+   * Get countGroupByTesterAndStatusCode
+   * @return countGroupByTesterAndStatusCode
+   */
+  @javax.annotation.Nonnull
+  public List<TestPlanGroupByTesterAndStatusCode> getCountGroupByTesterAndStatusCode() {
+    return countGroupByTesterAndStatusCode;
+  }
+
+  public void setCountGroupByTesterAndStatusCode(List<TestPlanGroupByTesterAndStatusCode> countGroupByTesterAndStatusCode) {
+    this.countGroupByTesterAndStatusCode = countGroupByTesterAndStatusCode;
   }
 
 
@@ -228,12 +302,14 @@ public class TestPointAnalyticResult {
         Objects.equals(this.sumGroupByTester, testPointAnalyticResult.sumGroupByTester) &&
         Objects.equals(this.countGroupByTester, testPointAnalyticResult.countGroupByTester) &&
         Objects.equals(this.countGroupByTestSuite, testPointAnalyticResult.countGroupByTestSuite) &&
-        Objects.equals(this.countGroupByTesterAndStatus, testPointAnalyticResult.countGroupByTesterAndStatus);
+        Objects.equals(this.countGroupByTesterAndStatus, testPointAnalyticResult.countGroupByTesterAndStatus) &&
+        Objects.equals(this.countGroupByStatusCode, testPointAnalyticResult.countGroupByStatusCode) &&
+        Objects.equals(this.countGroupByTesterAndStatusCode, testPointAnalyticResult.countGroupByTesterAndStatusCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countGroupByStatus, sumGroupByTester, countGroupByTester, countGroupByTestSuite, countGroupByTesterAndStatus);
+    return Objects.hash(countGroupByStatus, sumGroupByTester, countGroupByTester, countGroupByTestSuite, countGroupByTesterAndStatus, countGroupByStatusCode, countGroupByTesterAndStatusCode);
   }
 
   @Override
@@ -245,6 +321,8 @@ public class TestPointAnalyticResult {
     sb.append("    countGroupByTester: ").append(toIndentedString(countGroupByTester)).append("\n");
     sb.append("    countGroupByTestSuite: ").append(toIndentedString(countGroupByTestSuite)).append("\n");
     sb.append("    countGroupByTesterAndStatus: ").append(toIndentedString(countGroupByTesterAndStatus)).append("\n");
+    sb.append("    countGroupByStatusCode: ").append(toIndentedString(countGroupByStatusCode)).append("\n");
+    sb.append("    countGroupByTesterAndStatusCode: ").append(toIndentedString(countGroupByTesterAndStatusCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -272,6 +350,8 @@ public class TestPointAnalyticResult {
     openapiFields.add("countGroupByTester");
     openapiFields.add("countGroupByTestSuite");
     openapiFields.add("countGroupByTesterAndStatus");
+    openapiFields.add("countGroupByStatusCode");
+    openapiFields.add("countGroupByTesterAndStatusCode");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -280,6 +360,8 @@ public class TestPointAnalyticResult {
     openapiRequiredFields.add("countGroupByTester");
     openapiRequiredFields.add("countGroupByTestSuite");
     openapiRequiredFields.add("countGroupByTesterAndStatus");
+    openapiRequiredFields.add("countGroupByStatusCode");
+    openapiRequiredFields.add("countGroupByTesterAndStatusCode");
   }
 
   /**
@@ -359,6 +441,26 @@ public class TestPointAnalyticResult {
       // validate the required field `countGroupByTesterAndStatus` (array)
       for (int i = 0; i < jsonArraycountGroupByTesterAndStatus.size(); i++) {
         TestPlanGroupByTesterAndStatus.validateJsonElement(jsonArraycountGroupByTesterAndStatus.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("countGroupByStatusCode").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `countGroupByStatusCode` to be an array in the JSON string but got `%s`", jsonObj.get("countGroupByStatusCode").toString()));
+      }
+
+      JsonArray jsonArraycountGroupByStatusCode = jsonObj.getAsJsonArray("countGroupByStatusCode");
+      // validate the required field `countGroupByStatusCode` (array)
+      for (int i = 0; i < jsonArraycountGroupByStatusCode.size(); i++) {
+        TestPlanGroupByStatusCode.validateJsonElement(jsonArraycountGroupByStatusCode.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("countGroupByTesterAndStatusCode").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `countGroupByTesterAndStatusCode` to be an array in the JSON string but got `%s`", jsonObj.get("countGroupByTesterAndStatusCode").toString()));
+      }
+
+      JsonArray jsonArraycountGroupByTesterAndStatusCode = jsonObj.getAsJsonArray("countGroupByTesterAndStatusCode");
+      // validate the required field `countGroupByTesterAndStatusCode` (array)
+      for (int i = 0; i < jsonArraycountGroupByTesterAndStatusCode.size(); i++) {
+        TestPlanGroupByTesterAndStatusCode.validateJsonElement(jsonArraycountGroupByTesterAndStatusCode.get(i));
       };
   }
 

@@ -91,11 +91,11 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;   - Priority is invalid   - Attribute with &#x60;Options&#x60; type must have an options   - ID is not &#x60;null&#x60;   - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;  - Priority is invalid  - Attribute with &#x60;Options&#x60; type must have an options  - ID is not &#x60;null&#x60;  - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes   &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
@@ -158,7 +158,7 @@ public class ProjectAttributesApi {
 
     /**
      * Create project attribute
-     *  Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)
+     *  Use case  User sets attribute parameters (listed in request example) and runs method execution  System search project  System creates attribute and relates it to the project  System returns project attribute properties (example listed in response parameters)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributePostModel  (optional)
      * @return CustomAttributeModel
@@ -167,11 +167,11 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;   - Priority is invalid   - Attribute with &#x60;Options&#x60; type must have an options   - ID is not &#x60;null&#x60;   - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;  - Priority is invalid  - Attribute with &#x60;Options&#x60; type must have an options  - ID is not &#x60;null&#x60;  - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes   &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
@@ -182,7 +182,7 @@ public class ProjectAttributesApi {
 
     /**
      * Create project attribute
-     *  Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)
+     *  Use case  User sets attribute parameters (listed in request example) and runs method execution  System search project  System creates attribute and relates it to the project  System returns project attribute properties (example listed in response parameters)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributePostModel  (optional)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
@@ -191,11 +191,11 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;   - Priority is invalid   - Attribute with &#x60;Options&#x60; type must have an options   - ID is not &#x60;null&#x60;   - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;  - Priority is invalid  - Attribute with &#x60;Options&#x60; type must have an options  - ID is not &#x60;null&#x60;  - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes   &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
@@ -207,7 +207,7 @@ public class ProjectAttributesApi {
 
     /**
      * Create project attribute (asynchronously)
-     *  Use case   User sets attribute parameters (listed in request example) and runs method execution   System search project   System creates attribute and relates it to the project   System returns project attribute properties (example listed in response parameters)
+     *  Use case  User sets attribute parameters (listed in request example) and runs method execution  System search project  System creates attribute and relates it to the project  System returns project attribute properties (example listed in response parameters)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributePostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -217,11 +217,11 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;   - Priority is invalid   - Attribute with &#x60;Options&#x60; type must have an options   - ID is not &#x60;null&#x60;   - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Attribute is &#x60;null&#x60;  - Priority is invalid  - Attribute with &#x60;Options&#x60; type must have an options  - ID is not &#x60;null&#x60;  - Option ID is not &#x60;null&#x60; </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes   &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td>  &#x60;CustomAttribute.Name&#x60; or &#x60;CustomAttribute.Id&#x60; are not unique in attributes schemes  &#x60;CustomAttributeOptionModel.Id&#x60; or &#x60;CustomAttributeOptionModel.Value&#x60; are not unique in &#x60;attributesScheme.Options&#x60; </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Cannot add new attribute from template which is in use </td><td>  -  </td></tr>
      </table>
      */
@@ -243,7 +243,7 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - Project ID is invalid   - Project attribute ID is invalid   - Attribute is empty </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Project ID is invalid  - Project attribute ID is invalid  - Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -315,7 +315,7 @@ public class ProjectAttributesApi {
 
     /**
      * Delete project attribute
-     *  Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response
+     *  Use case  User sets project identifier and runs method execution  User sets attribute identifier  User runs method execution  System search project  System search and delete attribute  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -323,7 +323,7 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - Project ID is invalid   - Project attribute ID is invalid   - Attribute is empty </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Project ID is invalid  - Project attribute ID is invalid  - Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -337,7 +337,7 @@ public class ProjectAttributesApi {
 
     /**
      * Delete project attribute
-     *  Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response
+     *  Use case  User sets project identifier and runs method execution  User sets attribute identifier  User runs method execution  System search project  System search and delete attribute  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) (required)
      * @return ApiResponse&lt;Void&gt;
@@ -346,7 +346,7 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - Project ID is invalid   - Project attribute ID is invalid   - Attribute is empty </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Project ID is invalid  - Project attribute ID is invalid  - Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -361,7 +361,7 @@ public class ProjectAttributesApi {
 
     /**
      * Delete project attribute (asynchronously)
-     *  Use case   User sets project identifier and runs method execution   User sets attribute identifier   User runs method execution   System search project   System search and delete attribute   System returns no content response
+     *  Use case  User sets project identifier and runs method execution  User sets attribute identifier  User runs method execution  System search project  System search and delete attribute  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -371,7 +371,7 @@ public class ProjectAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - Project ID is invalid   - Project attribute ID is invalid   - Attribute is empty </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - Project ID is invalid  - Project attribute ID is invalid  - Attribute is empty </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -399,7 +399,7 @@ public class ProjectAttributesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  - Project with provided ID was not found   - Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Project with provided ID was not found  - Project attribute with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -468,7 +468,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attribute
-     *  Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)
+     *  Use case  User sets project internal or global identifier  User sets project attribute identifier  User runs method execution  System search project  System search project attribute  System returns project attribute (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @return CustomAttributeModel
@@ -480,7 +480,7 @@ public class ProjectAttributesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  - Project with provided ID was not found   - Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Project with provided ID was not found  - Project attribute with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -492,7 +492,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attribute
-     *  Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)
+     *  Use case  User sets project internal or global identifier  User sets project attribute identifier  User runs method execution  System search project  System search project attribute  System returns project attribute (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;CustomAttributeModel&gt;
@@ -504,7 +504,7 @@ public class ProjectAttributesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  - Project with provided ID was not found   - Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Project with provided ID was not found  - Project attribute with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -517,7 +517,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attribute (asynchronously)
-     *  Use case   User sets project internal or global identifier   User sets project attribute identifier   User runs method execution   System search project   System search project attribute    System returns project attribute (listed in response model)
+     *  Use case  User sets project internal or global identifier  User sets project attribute identifier  User runs method execution  System search project  System search project attribute  System returns project attribute (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId Project attribute internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -530,7 +530,7 @@ public class ProjectAttributesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  - Project with provided ID was not found   - Project attribute with provided ID was not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Project with provided ID was not found  - Project attribute with provided ID was not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -623,7 +623,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attributes
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all attributes related to project  System returns array of found attributes (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @return List&lt;CustomAttributeModel&gt;
@@ -647,7 +647,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attributes
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all attributes related to project  System returns array of found attributes (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
@@ -672,7 +672,7 @@ public class ProjectAttributesApi {
 
     /**
      * Get project attributes (asynchronously)
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project   [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all attributes related to project   System returns array of found attributes (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted attributes related to project  [Optional] If User sets isDeleted field value as false, System search all attributes related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all attributes related to project  System returns array of found attributes (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @param _callback The callback to be executed when the API call finishes

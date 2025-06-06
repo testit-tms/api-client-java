@@ -79,8 +79,13 @@ public class AutoTestResultsForTestRunModel {
   private String autoTestExternalId;
 
   public static final String SERIALIZED_NAME_OUTCOME = "outcome";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_OUTCOME)
   private AvailableTestResultOutcome outcome;
+
+  public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
+  @SerializedName(SERIALIZED_NAME_STATUS_CODE)
+  private String statusCode;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -221,6 +226,7 @@ public class AutoTestResultsForTestRunModel {
   }
 
 
+  @Deprecated
   public AutoTestResultsForTestRunModel outcome(AvailableTestResultOutcome outcome) {
     this.outcome = outcome;
     return this;
@@ -229,14 +235,36 @@ public class AutoTestResultsForTestRunModel {
   /**
    * Specifies the result of the autotest execution.
    * @return outcome
+   * @deprecated
    */
-  @javax.annotation.Nonnull
+  @Deprecated
+  @javax.annotation.Nullable
   public AvailableTestResultOutcome getOutcome() {
     return outcome;
   }
 
+  @Deprecated
   public void setOutcome(AvailableTestResultOutcome outcome) {
     this.outcome = outcome;
+  }
+
+
+  public AutoTestResultsForTestRunModel statusCode(String statusCode) {
+    this.statusCode = statusCode;
+    return this;
+  }
+
+  /**
+   * Specifies the result of the autotest execution.
+   * @return statusCode
+   */
+  @javax.annotation.Nullable
+  public String getStatusCode() {
+    return statusCode;
+  }
+
+  public void setStatusCode(String statusCode) {
+    this.statusCode = statusCode;
   }
 
 
@@ -514,6 +542,7 @@ public class AutoTestResultsForTestRunModel {
         Objects.equals(this.failureReasonNames, autoTestResultsForTestRunModel.failureReasonNames) &&
         Objects.equals(this.autoTestExternalId, autoTestResultsForTestRunModel.autoTestExternalId) &&
         Objects.equals(this.outcome, autoTestResultsForTestRunModel.outcome) &&
+        Objects.equals(this.statusCode, autoTestResultsForTestRunModel.statusCode) &&
         Objects.equals(this.message, autoTestResultsForTestRunModel.message) &&
         Objects.equals(this.traces, autoTestResultsForTestRunModel.traces) &&
         Objects.equals(this.startedOn, autoTestResultsForTestRunModel.startedOn) &&
@@ -533,7 +562,7 @@ public class AutoTestResultsForTestRunModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationId, links, failureReasonNames, autoTestExternalId, outcome, message, traces, startedOn, completedOn, duration, attachments, parameters, properties, stepResults, setupResults, teardownResults);
+    return Objects.hash(configurationId, links, failureReasonNames, autoTestExternalId, outcome, statusCode, message, traces, startedOn, completedOn, duration, attachments, parameters, properties, stepResults, setupResults, teardownResults);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -552,6 +581,7 @@ public class AutoTestResultsForTestRunModel {
     sb.append("    failureReasonNames: ").append(toIndentedString(failureReasonNames)).append("\n");
     sb.append("    autoTestExternalId: ").append(toIndentedString(autoTestExternalId)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
+    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    traces: ").append(toIndentedString(traces)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
@@ -590,6 +620,7 @@ public class AutoTestResultsForTestRunModel {
     openapiFields.add("failureReasonNames");
     openapiFields.add("autoTestExternalId");
     openapiFields.add("outcome");
+    openapiFields.add("statusCode");
     openapiFields.add("message");
     openapiFields.add("traces");
     openapiFields.add("startedOn");
@@ -606,7 +637,6 @@ public class AutoTestResultsForTestRunModel {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("configurationId");
     openapiRequiredFields.add("autoTestExternalId");
-    openapiRequiredFields.add("outcome");
   }
 
   /**
@@ -661,8 +691,13 @@ public class AutoTestResultsForTestRunModel {
       if (!jsonObj.get("autoTestExternalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `autoTestExternalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("autoTestExternalId").toString()));
       }
-      // validate the required field `outcome`
-      AvailableTestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
+      // validate the optional field `outcome`
+      if (jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) {
+        AvailableTestResultOutcome.validateJsonElement(jsonObj.get("outcome"));
+      }
+      if ((jsonObj.get("statusCode") != null && !jsonObj.get("statusCode").isJsonNull()) && !jsonObj.get("statusCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `statusCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusCode").toString()));
+      }
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }

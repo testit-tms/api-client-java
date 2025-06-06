@@ -150,7 +150,7 @@ public class ProjectConfigurationsApi {
 
     /**
      * Get project configurations
-     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all configurations related to project   System returns array of found configurations (listed in response model)
+     *  Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -173,7 +173,7 @@ public class ProjectConfigurationsApi {
 
     /**
      * Get project configurations
-     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all configurations related to project   System returns array of found configurations (listed in response model)
+     *  Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -197,7 +197,7 @@ public class ProjectConfigurationsApi {
 
     /**
      * Get project configurations (asynchronously)
-     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all configurations related to project   System returns array of found configurations (listed in response model)
+     *  Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

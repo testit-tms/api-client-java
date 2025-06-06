@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.IterationApiResult;
 import ru.testit.client.model.LinkShortApiResult;
 import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
 
 import com.google.gson.Gson;
@@ -136,6 +137,10 @@ public class WorkItemShortApiResult {
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
   private WorkItemPriorityModel priority;
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "sourceType";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  private WorkItemSourceTypeModel sourceType;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -525,6 +530,25 @@ public class WorkItemShortApiResult {
   }
 
 
+  public WorkItemShortApiResult sourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+    return this;
+  }
+
+  /**
+   * Work Item priority level
+   * @return sourceType
+   */
+  @javax.annotation.Nonnull
+  public WorkItemSourceTypeModel getSourceType() {
+    return sourceType;
+  }
+
+  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+  }
+
+
   public WorkItemShortApiResult isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
@@ -654,6 +678,7 @@ public class WorkItemShortApiResult {
         Objects.equals(this.modifiedDate, workItemShortApiResult.modifiedDate) &&
         Objects.equals(this.state, workItemShortApiResult.state) &&
         Objects.equals(this.priority, workItemShortApiResult.priority) &&
+        Objects.equals(this.sourceType, workItemShortApiResult.sourceType) &&
         Objects.equals(this.isDeleted, workItemShortApiResult.isDeleted) &&
         Objects.equals(this.tagNames, workItemShortApiResult.tagNames) &&
         Objects.equals(this.iterations, workItemShortApiResult.iterations) &&
@@ -666,7 +691,7 @@ public class WorkItemShortApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, versionId, versionNumber, name, entityTypeName, projectId, sectionId, sectionName, isAutomated, globalId, duration, medianDuration, attributes, createdById, modifiedById, createdDate, modifiedDate, state, priority, isDeleted, tagNames, iterations, links);
+    return Objects.hash(id, versionId, versionNumber, name, entityTypeName, projectId, sectionId, sectionName, isAutomated, globalId, duration, medianDuration, attributes, createdById, modifiedById, createdDate, modifiedDate, state, priority, sourceType, isDeleted, tagNames, iterations, links);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -699,6 +724,7 @@ public class WorkItemShortApiResult {
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
     sb.append("    iterations: ").append(toIndentedString(iterations)).append("\n");
@@ -744,6 +770,7 @@ public class WorkItemShortApiResult {
     openapiFields.add("modifiedDate");
     openapiFields.add("state");
     openapiFields.add("priority");
+    openapiFields.add("sourceType");
     openapiFields.add("isDeleted");
     openapiFields.add("tagNames");
     openapiFields.add("iterations");
@@ -765,6 +792,7 @@ public class WorkItemShortApiResult {
     openapiRequiredFields.add("createdById");
     openapiRequiredFields.add("state");
     openapiRequiredFields.add("priority");
+    openapiRequiredFields.add("sourceType");
     openapiRequiredFields.add("isDeleted");
     openapiRequiredFields.add("iterations");
     openapiRequiredFields.add("links");
@@ -829,6 +857,8 @@ public class WorkItemShortApiResult {
       WorkItemStates.validateJsonElement(jsonObj.get("state"));
       // validate the required field `priority`
       WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
+      // validate the required field `sourceType`
+      WorkItemSourceTypeModel.validateJsonElement(jsonObj.get("sourceType"));
       // ensure the optional json data is an array if present
       if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonNull() && !jsonObj.get("tagNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tagNames` to be an array in the JSON string but got `%s`", jsonObj.get("tagNames").toString()));

@@ -23,11 +23,11 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2ParametersBulkPost"></a>
 # **apiV2ParametersBulkPost**
-> List&lt;ParameterModel&gt; apiV2ParametersBulkPost(parameterPostModel)
+> List&lt;ParameterApiResult&gt; apiV2ParametersBulkPost(createParameterApiModel)
 
 Create multiple parameters
 
- Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
+ Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
 
 ### Example
 ```java
@@ -51,9 +51,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    List<ParameterPostModel> parameterPostModel = Arrays.asList(); // List<ParameterPostModel> | 
+    List<CreateParameterApiModel> createParameterApiModel = Arrays.asList(); // List<CreateParameterApiModel> | 
     try {
-      List<ParameterModel> result = apiInstance.apiV2ParametersBulkPost(parameterPostModel);
+      List<ParameterApiResult> result = apiInstance.apiV2ParametersBulkPost(createParameterApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersBulkPost");
@@ -70,11 +70,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterPostModel** | [**List&lt;ParameterPostModel&gt;**](ParameterPostModel.md)|  | [optional] |
+| **createParameterApiModel** | [**List&lt;CreateParameterApiModel&gt;**](CreateParameterApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;ParameterModel&gt;**](ParameterModel.md)
+[**List&lt;ParameterApiResult&gt;**](ParameterApiResult.md)
 
 ### Authorization
 
@@ -98,11 +98,11 @@ public class Example {
 
 <a id="apiV2ParametersBulkPut"></a>
 # **apiV2ParametersBulkPut**
-> apiV2ParametersBulkPut(parameterPutModel)
+> apiV2ParametersBulkPut(updateParameterApiModel)
 
 Update multiple parameters
 
- Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
+ Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
 
 ### Example
 ```java
@@ -126,9 +126,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    List<ParameterPutModel> parameterPutModel = Arrays.asList(); // List<ParameterPutModel> | 
+    List<UpdateParameterApiModel> updateParameterApiModel = Arrays.asList(); // List<UpdateParameterApiModel> | 
     try {
-      apiInstance.apiV2ParametersBulkPut(parameterPutModel);
+      apiInstance.apiV2ParametersBulkPut(updateParameterApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersBulkPut");
       System.err.println("Status code: " + e.getCode());
@@ -144,7 +144,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterPutModel** | [**List&lt;ParameterPutModel&gt;**](ParameterPutModel.md)|  | [optional] |
+| **updateParameterApiModel** | [**List&lt;UpdateParameterApiModel&gt;**](UpdateParameterApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -172,11 +172,11 @@ null (empty response body)
 
 <a id="apiV2ParametersGroupsGet"></a>
 # **apiV2ParametersGroupsGet**
-> List&lt;ParameterGroupModel&gt; apiV2ParametersGroupsGet(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue)
+> List&lt;ParameterGroupApiResult&gt; apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue)
 
 Get parameters as group
 
- Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
+ Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
 
 ### Example
 ```java
@@ -200,15 +200,16 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    Boolean isDeleted = true; // Boolean | 
     Set<UUID> parameterKeyIds = Arrays.asList(); // Set<UUID> | 
+    String name = "name_example"; // String | 
+    Boolean isDeleted = true; // Boolean | 
     Integer skip = 56; // Integer | Amount of items to be skipped (offset)
     Integer take = 56; // Integer | Amount of items to be taken (limit)
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
     try {
-      List<ParameterGroupModel> result = apiInstance.apiV2ParametersGroupsGet(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue);
+      List<ParameterGroupApiResult> result = apiInstance.apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersGroupsGet");
@@ -225,8 +226,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **isDeleted** | **Boolean**|  | [optional] |
 | **parameterKeyIds** | [**Set&lt;UUID&gt;**](UUID.md)|  | [optional] |
+| **name** | **String**|  | [optional] |
+| **isDeleted** | **Boolean**|  | [optional] |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
@@ -235,7 +237,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;ParameterGroupModel&gt;**](ParameterGroupModel.md)
+[**List&lt;ParameterGroupApiResult&gt;**](ParameterGroupApiResult.md)
 
 ### Authorization
 
@@ -263,7 +265,7 @@ public class Example {
 
 Check existence parameter key in system
 
- Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
+ Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
 
 ### Example
 ```java
@@ -338,7 +340,7 @@ public class Example {
 
 Get all parameter key values
 
- Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
+ Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
 
 ### Example
 ```java
@@ -413,7 +415,7 @@ public class Example {
 
 Get all parameter keys
 
- Use case   User runs method execution   System search all parameter keys   System returns parameter keys
+ Use case  User runs method execution  System search all parameter keys  System returns parameter keys
 
 ### Example
 ```java
@@ -480,7 +482,7 @@ This endpoint does not need any parameter.
 
 <a id="apiV2ParametersSearchGroupsPost"></a>
 # **apiV2ParametersSearchGroupsPost**
-> List&lt;ParameterGroupModel&gt; apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel)
+> List&lt;ParameterGroupApiResult&gt; apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel)
 
 Search for parameters as group
 
@@ -511,9 +513,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ParameterFilterModel parameterFilterModel = new ParameterFilterModel(); // ParameterFilterModel | 
+    ParameterGroupsFilterApiModel parameterGroupsFilterApiModel = new ParameterGroupsFilterApiModel(); // ParameterGroupsFilterApiModel | 
     try {
-      List<ParameterGroupModel> result = apiInstance.apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+      List<ParameterGroupApiResult> result = apiInstance.apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchGroupsPost");
@@ -535,11 +537,11 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] |
+| **parameterGroupsFilterApiModel** | [**ParameterGroupsFilterApiModel**](ParameterGroupsFilterApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;ParameterGroupModel&gt;**](ParameterGroupModel.md)
+[**List&lt;ParameterGroupApiResult&gt;**](ParameterGroupApiResult.md)
 
 ### Authorization
 
@@ -563,7 +565,7 @@ public class Example {
 
 <a id="apiV2ParametersSearchPost"></a>
 # **apiV2ParametersSearchPost**
-> List&lt;ParameterModel&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel)
+> List&lt;ParameterApiResult&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel)
 
 Search for parameters
 
@@ -594,9 +596,9 @@ public class Example {
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
-    ParameterFilterModel parameterFilterModel = new ParameterFilterModel(); // ParameterFilterModel | 
+    ParametersFilterApiModel parametersFilterApiModel = new ParametersFilterApiModel(); // ParametersFilterApiModel | 
     try {
-      List<ParameterModel> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+      List<ParameterApiResult> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchPost");
@@ -618,11 +620,11 @@ public class Example {
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
 | **searchField** | **String**| Property name for searching | [optional] |
 | **searchValue** | **String**| Value for searching | [optional] |
-| **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md)|  | [optional] |
+| **parametersFilterApiModel** | [**ParametersFilterApiModel**](ParametersFilterApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;ParameterModel&gt;**](ParameterModel.md)
+[**List&lt;ParameterApiResult&gt;**](ParameterApiResult.md)
 
 ### Authorization
 
@@ -646,11 +648,11 @@ public class Example {
 
 <a id="createParameter"></a>
 # **createParameter**
-> ParameterModel createParameter(parameterPostModel)
+> ParameterApiResult createParameter(createParameterApiModel)
 
 Create parameter
 
- Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
+ Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
 
 ### Example
 ```java
@@ -674,9 +676,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    ParameterPostModel parameterPostModel = new ParameterPostModel(); // ParameterPostModel | 
+    CreateParameterApiModel createParameterApiModel = new CreateParameterApiModel(); // CreateParameterApiModel | 
     try {
-      ParameterModel result = apiInstance.createParameter(parameterPostModel);
+      ParameterApiResult result = apiInstance.createParameter(createParameterApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#createParameter");
@@ -693,11 +695,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterPostModel** | [**ParameterPostModel**](ParameterPostModel.md)|  | [optional] |
+| **createParameterApiModel** | [**CreateParameterApiModel**](CreateParameterApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**ParameterModel**](ParameterModel.md)
+[**ParameterApiResult**](ParameterApiResult.md)
 
 ### Authorization
 
@@ -873,7 +875,7 @@ null (empty response body)
 
 Delete parameter
 
- Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
+ Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
 
 ### Example
 ```java
@@ -934,21 +936,20 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **404** | Not Found |  -  |
-| **400** |  - ID is not valid   - DTO is not valid |  -  |
+| **400** |  - ID is not valid  - DTO is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Parameter is in use in iterations |  -  |
-| **0** | Error |  -  |
 
 <a id="getAllParameters"></a>
 # **getAllParameters**
-> List&lt;ParameterModel&gt; getAllParameters(isDeleted, skip, take, orderBy, searchField, searchValue)
+> List&lt;ParameterApiResult&gt; getAllParameters(isDeleted, skip, take, orderBy, searchField, searchValue)
 
 Get all parameters
 
- Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
+ Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
 
 ### Example
 ```java
@@ -979,7 +980,7 @@ public class Example {
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
     try {
-      List<ParameterModel> result = apiInstance.getAllParameters(isDeleted, skip, take, orderBy, searchField, searchValue);
+      List<ParameterApiResult> result = apiInstance.getAllParameters(isDeleted, skip, take, orderBy, searchField, searchValue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#getAllParameters");
@@ -1005,7 +1006,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;ParameterModel&gt;**](ParameterModel.md)
+[**List&lt;ParameterApiResult&gt;**](ParameterApiResult.md)
 
 ### Authorization
 
@@ -1029,11 +1030,11 @@ public class Example {
 
 <a id="getParameterById"></a>
 # **getParameterById**
-> ParameterModel getParameterById(id)
+> ParameterApiResult getParameterById(id)
 
 Get parameter by ID
 
- Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
+ Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
 
 ### Example
 ```java
@@ -1059,7 +1060,7 @@ public class Example {
     ParametersApi apiInstance = new ParametersApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | Parameter internal (UUID) identifier
     try {
-      ParameterModel result = apiInstance.getParameterById(id);
+      ParameterApiResult result = apiInstance.getParameterById(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#getParameterById");
@@ -1080,7 +1081,7 @@ public class Example {
 
 ### Return type
 
-[**ParameterModel**](ParameterModel.md)
+[**ParameterApiResult**](ParameterApiResult.md)
 
 ### Authorization
 
@@ -1104,11 +1105,11 @@ public class Example {
 
 <a id="updateParameter"></a>
 # **updateParameter**
-> updateParameter(parameterPutModel)
+> updateParameter(updateParameterApiModel)
 
 Update parameter
 
- Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
+ Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
 
 ### Example
 ```java
@@ -1132,9 +1133,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
-    ParameterPutModel parameterPutModel = new ParameterPutModel(); // ParameterPutModel | 
+    UpdateParameterApiModel updateParameterApiModel = new UpdateParameterApiModel(); // UpdateParameterApiModel | 
     try {
-      apiInstance.updateParameter(parameterPutModel);
+      apiInstance.updateParameter(updateParameterApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#updateParameter");
       System.err.println("Status code: " + e.getCode());
@@ -1150,7 +1151,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterPutModel** | [**ParameterPutModel**](ParameterPutModel.md)|  | [optional] |
+| **updateParameterApiModel** | [**UpdateParameterApiModel**](UpdateParameterApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1169,7 +1170,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |  - ID is not valid   - DTO is not valid |  -  |
+| **400** |  - ID is not valid  - DTO is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Parameter with provided ID was not found |  -  |

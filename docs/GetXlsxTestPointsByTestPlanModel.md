@@ -10,6 +10,7 @@
 |**includeName** | **Boolean** |  |  |
 |**includeSection** | **Boolean** |  |  |
 |**includePriority** | **Boolean** |  |  |
+|**includeSourceType** | **Boolean** |  |  |
 |**includeAutomated** | **Boolean** |  |  |
 |**includeStatus** | **Boolean** |  |  |
 |**includeDuration** | **Boolean** |  |  |

@@ -29,12 +29,13 @@
 |**description** | **String** |  |  [optional] |
 |**state** | **WorkItemStates** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
+|**sourceType** | **WorkItemSourceTypeModel** |  |  |
 |**steps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  |
 |**preconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  |
 |**postconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  |
 |**duration** | **Integer** |  |  |
 |**attributes** | **Map&lt;String, Object&gt;** |  |  |
-|**tags** | [**List&lt;TagPutModel&gt;**](TagPutModel.md) |  |  |
+|**tags** | [**List&lt;TagModel&gt;**](TagModel.md) |  |  |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  |
 |**name** | **String** |  |  |
 

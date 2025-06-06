@@ -89,7 +89,7 @@ public class CreateEmptyTestRunApiModel {
   }
 
   /**
-   * Project unique identifier                This property is to link test run with a project
+   * Project unique identifier              This property is to link test run with a project
    * @return projectId
    */
   @javax.annotation.Nonnull

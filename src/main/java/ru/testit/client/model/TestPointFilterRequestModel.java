@@ -32,6 +32,7 @@ import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.TestPointStatus;
 import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemSourceTypeModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -93,6 +94,10 @@ public class TestPointFilterRequestModel {
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
   private List<WorkItemPriorityModel> priorities;
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPES = "sourceTypes";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPES)
+  private List<WorkItemSourceTypeModel> sourceTypes;
 
   public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
   @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
@@ -362,6 +367,33 @@ public class TestPointFilterRequestModel {
 
   public void setPriorities(List<WorkItemPriorityModel> priorities) {
     this.priorities = priorities;
+  }
+
+
+  public TestPointFilterRequestModel sourceTypes(List<WorkItemSourceTypeModel> sourceTypes) {
+    this.sourceTypes = sourceTypes;
+    return this;
+  }
+
+  public TestPointFilterRequestModel addSourceTypesItem(WorkItemSourceTypeModel sourceTypesItem) {
+    if (this.sourceTypes == null) {
+      this.sourceTypes = new ArrayList<>();
+    }
+    this.sourceTypes.add(sourceTypesItem);
+    return this;
+  }
+
+  /**
+   * Specifies a test point source types to search for
+   * @return sourceTypes
+   */
+  @javax.annotation.Nullable
+  public List<WorkItemSourceTypeModel> getSourceTypes() {
+    return sourceTypes;
+  }
+
+  public void setSourceTypes(List<WorkItemSourceTypeModel> sourceTypes) {
+    this.sourceTypes = sourceTypes;
   }
 
 
@@ -759,6 +791,7 @@ public class TestPointFilterRequestModel {
         Objects.equals(this.statuses, testPointFilterRequestModel.statuses) &&
         Objects.equals(this.statusCodes, testPointFilterRequestModel.statusCodes) &&
         Objects.equals(this.priorities, testPointFilterRequestModel.priorities) &&
+        Objects.equals(this.sourceTypes, testPointFilterRequestModel.sourceTypes) &&
         Objects.equals(this.isAutomated, testPointFilterRequestModel.isAutomated) &&
         Objects.equals(this.name, testPointFilterRequestModel.name) &&
         Objects.equals(this.configurationIds, testPointFilterRequestModel.configurationIds) &&
@@ -783,7 +816,7 @@ public class TestPointFilterRequestModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testPlanIds, testSuiteIds, workItemGlobalIds, workItemMedianDuration, workItemIsDeleted, statuses, statusCodes, priorities, isAutomated, name, configurationIds, testerIds, duration, sectionIds, createdDate, createdByIds, modifiedDate, modifiedByIds, tags, attributes, workItemCreatedDate, workItemCreatedByIds, workItemModifiedDate, workItemModifiedByIds);
+    return Objects.hash(testPlanIds, testSuiteIds, workItemGlobalIds, workItemMedianDuration, workItemIsDeleted, statuses, statusCodes, priorities, sourceTypes, isAutomated, name, configurationIds, testerIds, duration, sectionIds, createdDate, createdByIds, modifiedDate, modifiedByIds, tags, attributes, workItemCreatedDate, workItemCreatedByIds, workItemModifiedDate, workItemModifiedByIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -805,6 +838,7 @@ public class TestPointFilterRequestModel {
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("    statusCodes: ").append(toIndentedString(statusCodes)).append("\n");
     sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
+    sb.append("    sourceTypes: ").append(toIndentedString(sourceTypes)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
@@ -851,6 +885,7 @@ public class TestPointFilterRequestModel {
     openapiFields.add("statuses");
     openapiFields.add("statusCodes");
     openapiFields.add("priorities");
+    openapiFields.add("sourceTypes");
     openapiFields.add("isAutomated");
     openapiFields.add("name");
     openapiFields.add("configurationIds");
@@ -920,6 +955,10 @@ public class TestPointFilterRequestModel {
       // ensure the optional json data is an array if present
       if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonNull() && !jsonObj.get("priorities").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("sourceTypes") != null && !jsonObj.get("sourceTypes").isJsonNull() && !jsonObj.get("sourceTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sourceTypes` to be an array in the JSON string but got `%s`", jsonObj.get("sourceTypes").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

@@ -17,8 +17,8 @@
 |**durationInMs** | **Long** |  |  [optional] |
 |**duration** | **Long** |  |  [optional] |
 |**stepComments** | [**List&lt;TestResultStepCommentUpdateRequest&gt;**](TestResultStepCommentUpdateRequest.md) |  |  [optional] |
-|**setupResults** | [**List&lt;AttachmentPutModelAutoTestStepResultsModel&gt;**](AttachmentPutModelAutoTestStepResultsModel.md) |  |  [optional] |
-|**teardownResults** | [**List&lt;AttachmentPutModelAutoTestStepResultsModel&gt;**](AttachmentPutModelAutoTestStepResultsModel.md) |  |  [optional] |
+|**setupResults** | [**List&lt;AutoTestStepResultUpdateRequest&gt;**](AutoTestStepResultUpdateRequest.md) |  |  [optional] |
+|**teardownResults** | [**List&lt;AutoTestStepResultUpdateRequest&gt;**](AutoTestStepResultUpdateRequest.md) |  |  [optional] |
 |**message** | **String** |  |  [optional] |
 |**trace** | **String** |  |  [optional] |
 

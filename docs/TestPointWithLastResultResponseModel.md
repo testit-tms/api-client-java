@@ -29,6 +29,7 @@
 |**tagNames** | **List&lt;String&gt;** |  |  [optional] |
 |**duration** | **Integer** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
+|**sourceType** | **WorkItemSourceTypeModel** |  |  |
 |**testSuiteNameBreadCrumbs** | **List&lt;String&gt;** |  |  [optional] |
 |**groupCount** | **Integer** |  |  [optional] |
 |**iteration** | [**IterationModel**](IterationModel.md) |  |  [optional] |

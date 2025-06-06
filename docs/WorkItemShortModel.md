@@ -26,6 +26,7 @@
 |**modifiedDate** | **OffsetDateTime** | Date and time of the latest modification of Work Item |  [optional] |
 |**state** | **WorkItemStates** | The current state of Work Item |  |
 |**priority** | **WorkItemPriorityModel** | Work Item priority level |  |
+|**sourceType** | **WorkItemSourceTypeModel** | Work Item source type |  |
 |**isDeleted** | **Boolean** | Flag determining whether Work Item is deleted |  |
 |**tagNames** | **List&lt;String&gt;** | Array of tag names of Work Item |  [optional] |
 |**iterations** | [**List&lt;IterationModel&gt;**](IterationModel.md) | Set of iterations related to Work Item |  |

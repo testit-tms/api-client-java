@@ -66,6 +66,10 @@ public class GetXlsxTestPointsByTestPlanModel {
   @SerializedName(SERIALIZED_NAME_INCLUDE_PRIORITY)
   private Boolean includePriority;
 
+  public static final String SERIALIZED_NAME_INCLUDE_SOURCE_TYPE = "includeSourceType";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_SOURCE_TYPE)
+  private Boolean includeSourceType;
+
   public static final String SERIALIZED_NAME_INCLUDE_AUTOMATED = "includeAutomated";
   @SerializedName(SERIALIZED_NAME_INCLUDE_AUTOMATED)
   private Boolean includeAutomated;
@@ -167,6 +171,25 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   public void setIncludePriority(Boolean includePriority) {
     this.includePriority = includePriority;
+  }
+
+
+  public GetXlsxTestPointsByTestPlanModel includeSourceType(Boolean includeSourceType) {
+    this.includeSourceType = includeSourceType;
+    return this;
+  }
+
+  /**
+   * Get includeSourceType
+   * @return includeSourceType
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIncludeSourceType() {
+    return includeSourceType;
+  }
+
+  public void setIncludeSourceType(Boolean includeSourceType) {
+    this.includeSourceType = includeSourceType;
   }
 
 
@@ -408,6 +431,7 @@ public class GetXlsxTestPointsByTestPlanModel {
     return Objects.equals(this.includeName, getXlsxTestPointsByTestPlanModel.includeName) &&
         Objects.equals(this.includeSection, getXlsxTestPointsByTestPlanModel.includeSection) &&
         Objects.equals(this.includePriority, getXlsxTestPointsByTestPlanModel.includePriority) &&
+        Objects.equals(this.includeSourceType, getXlsxTestPointsByTestPlanModel.includeSourceType) &&
         Objects.equals(this.includeAutomated, getXlsxTestPointsByTestPlanModel.includeAutomated) &&
         Objects.equals(this.includeStatus, getXlsxTestPointsByTestPlanModel.includeStatus) &&
         Objects.equals(this.includeDuration, getXlsxTestPointsByTestPlanModel.includeDuration) &&
@@ -427,7 +451,7 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeName, includeSection, includePriority, includeAutomated, includeStatus, includeDuration, includeCreationDate, includeAuthor, includeModificationDate, includeModifiedBy, includeTags, includeIterations, customAttributesIds, configurationIds);
+    return Objects.hash(includeName, includeSection, includePriority, includeSourceType, includeAutomated, includeStatus, includeDuration, includeCreationDate, includeAuthor, includeModificationDate, includeModifiedBy, includeTags, includeIterations, customAttributesIds, configurationIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -444,6 +468,7 @@ public class GetXlsxTestPointsByTestPlanModel {
     sb.append("    includeName: ").append(toIndentedString(includeName)).append("\n");
     sb.append("    includeSection: ").append(toIndentedString(includeSection)).append("\n");
     sb.append("    includePriority: ").append(toIndentedString(includePriority)).append("\n");
+    sb.append("    includeSourceType: ").append(toIndentedString(includeSourceType)).append("\n");
     sb.append("    includeAutomated: ").append(toIndentedString(includeAutomated)).append("\n");
     sb.append("    includeStatus: ").append(toIndentedString(includeStatus)).append("\n");
     sb.append("    includeDuration: ").append(toIndentedString(includeDuration)).append("\n");
@@ -480,6 +505,7 @@ public class GetXlsxTestPointsByTestPlanModel {
     openapiFields.add("includeName");
     openapiFields.add("includeSection");
     openapiFields.add("includePriority");
+    openapiFields.add("includeSourceType");
     openapiFields.add("includeAutomated");
     openapiFields.add("includeStatus");
     openapiFields.add("includeDuration");
@@ -497,6 +523,7 @@ public class GetXlsxTestPointsByTestPlanModel {
     openapiRequiredFields.add("includeName");
     openapiRequiredFields.add("includeSection");
     openapiRequiredFields.add("includePriority");
+    openapiRequiredFields.add("includeSourceType");
     openapiRequiredFields.add("includeAutomated");
     openapiRequiredFields.add("includeStatus");
     openapiRequiredFields.add("includeDuration");

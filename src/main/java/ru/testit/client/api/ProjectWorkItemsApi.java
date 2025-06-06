@@ -28,7 +28,7 @@ import java.io.IOException;
 
 
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.TagShortModel;
+import ru.testit.client.model.TagShortApiResult;
 import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemGroupGetModel;
@@ -738,10 +738,10 @@ public class ProjectWorkItemsApi {
 
     /**
      * Get WorkItems Tags
-     *  Use case   User sets project internal identifier    User runs method execution   System returns work items tags
+     *  Use case  User sets project internal identifier  User runs method execution  System returns work items tags
      * @param projectId Project internal (UUID) identifier (required)
      * @param isDeleted  (optional)
-     * @return List&lt;TagShortModel&gt;
+     * @return List&lt;TagShortApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -755,17 +755,17 @@ public class ProjectWorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<TagShortModel> apiV2ProjectsProjectIdWorkItemsTagsGet(UUID projectId, Boolean isDeleted) throws ApiException {
-        ApiResponse<List<TagShortModel>> localVarResp = apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(projectId, isDeleted);
+    public List<TagShortApiResult> apiV2ProjectsProjectIdWorkItemsTagsGet(UUID projectId, Boolean isDeleted) throws ApiException {
+        ApiResponse<List<TagShortApiResult>> localVarResp = apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(projectId, isDeleted);
         return localVarResp.getData();
     }
 
     /**
      * Get WorkItems Tags
-     *  Use case   User sets project internal identifier    User runs method execution   System returns work items tags
+     *  Use case  User sets project internal identifier  User runs method execution  System returns work items tags
      * @param projectId Project internal (UUID) identifier (required)
      * @param isDeleted  (optional)
-     * @return ApiResponse&lt;List&lt;TagShortModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;TagShortApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -779,15 +779,15 @@ public class ProjectWorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<TagShortModel>> apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(UUID projectId, Boolean isDeleted) throws ApiException {
+    public ApiResponse<List<TagShortApiResult>> apiV2ProjectsProjectIdWorkItemsTagsGetWithHttpInfo(UUID projectId, Boolean isDeleted) throws ApiException {
         okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsTagsGetValidateBeforeCall(projectId, isDeleted, null);
-        Type localVarReturnType = new TypeToken<List<TagShortModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TagShortApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get WorkItems Tags (asynchronously)
-     *  Use case   User sets project internal identifier    User runs method execution   System returns work items tags
+     *  Use case  User sets project internal identifier  User runs method execution  System returns work items tags
      * @param projectId Project internal (UUID) identifier (required)
      * @param isDeleted  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -805,10 +805,10 @@ public class ProjectWorkItemsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsTagsGetAsync(UUID projectId, Boolean isDeleted, final ApiCallback<List<TagShortModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ProjectsProjectIdWorkItemsTagsGetAsync(UUID projectId, Boolean isDeleted, final ApiCallback<List<TagShortApiResult>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2ProjectsProjectIdWorkItemsTagsGetValidateBeforeCall(projectId, isDeleted, _callback);
-        Type localVarReturnType = new TypeToken<List<TagShortModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<TagShortApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -830,7 +830,7 @@ public class ProjectWorkItemsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -931,7 +931,7 @@ public class ProjectWorkItemsApi {
 
     /**
      * Get project work items
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
      * @param tagNames List of tags to filter by (optional)
@@ -947,7 +947,7 @@ public class ProjectWorkItemsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -964,7 +964,7 @@ public class ProjectWorkItemsApi {
 
     /**
      * Get project work items
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
      * @param tagNames List of tags to filter by (optional)
@@ -980,7 +980,7 @@ public class ProjectWorkItemsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -998,7 +998,7 @@ public class ProjectWorkItemsApi {
 
     /**
      * Get project work items (asynchronously)
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
      * @param tagNames List of tags to filter by (optional)
@@ -1015,7 +1015,7 @@ public class ProjectWorkItemsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>

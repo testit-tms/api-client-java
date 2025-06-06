@@ -28,6 +28,7 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TagModel;
 import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemSourceTypeModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -108,6 +109,10 @@ public class SharedStepReferenceModel {
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
   private WorkItemPriorityModel priority;
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "sourceType";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  private WorkItemSourceTypeModel sourceType;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
@@ -379,6 +384,25 @@ public class SharedStepReferenceModel {
   }
 
 
+  public SharedStepReferenceModel sourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+    return this;
+  }
+
+  /**
+   * Get sourceType
+   * @return sourceType
+   */
+  @javax.annotation.Nonnull
+  public WorkItemSourceTypeModel getSourceType() {
+    return sourceType;
+  }
+
+  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+  }
+
+
   public SharedStepReferenceModel isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
@@ -505,6 +529,7 @@ public class SharedStepReferenceModel {
         Objects.equals(this.modifiedDate, sharedStepReferenceModel.modifiedDate) &&
         Objects.equals(this.state, sharedStepReferenceModel.state) &&
         Objects.equals(this.priority, sharedStepReferenceModel.priority) &&
+        Objects.equals(this.sourceType, sharedStepReferenceModel.sourceType) &&
         Objects.equals(this.isDeleted, sharedStepReferenceModel.isDeleted) &&
         Objects.equals(this.versionId, sharedStepReferenceModel.versionId) &&
         Objects.equals(this.isAutomated, sharedStepReferenceModel.isAutomated) &&
@@ -518,7 +543,7 @@ public class SharedStepReferenceModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, globalId, name, entityTypeName, hasThisSharedStepAsStep, hasThisSharedStepAsPrecondition, hasThisSharedStepAsPostcondition, createdById, modifiedById, createdDate, modifiedDate, state, priority, isDeleted, versionId, isAutomated, sectionId, tags);
+    return Objects.hash(id, globalId, name, entityTypeName, hasThisSharedStepAsStep, hasThisSharedStepAsPrecondition, hasThisSharedStepAsPostcondition, createdById, modifiedById, createdDate, modifiedDate, state, priority, sourceType, isDeleted, versionId, isAutomated, sectionId, tags);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -545,6 +570,7 @@ public class SharedStepReferenceModel {
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
@@ -585,6 +611,7 @@ public class SharedStepReferenceModel {
     openapiFields.add("modifiedDate");
     openapiFields.add("state");
     openapiFields.add("priority");
+    openapiFields.add("sourceType");
     openapiFields.add("isDeleted");
     openapiFields.add("versionId");
     openapiFields.add("isAutomated");
@@ -603,6 +630,7 @@ public class SharedStepReferenceModel {
     openapiRequiredFields.add("createdById");
     openapiRequiredFields.add("state");
     openapiRequiredFields.add("priority");
+    openapiRequiredFields.add("sourceType");
     openapiRequiredFields.add("isDeleted");
     openapiRequiredFields.add("versionId");
     openapiRequiredFields.add("isAutomated");
@@ -657,6 +685,8 @@ public class SharedStepReferenceModel {
       }
       // validate the required field `priority`
       WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
+      // validate the required field `sourceType`
+      WorkItemSourceTypeModel.validateJsonElement(jsonObj.get("sourceType"));
       if (!jsonObj.get("versionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
       }

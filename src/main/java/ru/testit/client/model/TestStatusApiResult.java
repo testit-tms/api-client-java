@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.TestStatusType;
+import ru.testit.client.model.TestStatusApiType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -63,7 +63,7 @@ public class TestStatusApiResult {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TestStatusType type;
+  private TestStatusApiType type;
 
   public static final String SERIALIZED_NAME_IS_SYSTEM = "isSystem";
   @SerializedName(SERIALIZED_NAME_IS_SYSTEM)
@@ -118,21 +118,21 @@ public class TestStatusApiResult {
   }
 
 
-  public TestStatusApiResult type(TestStatusType type) {
+  public TestStatusApiResult type(TestStatusApiType type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Get type
+   * Collection of possible status types
    * @return type
    */
   @javax.annotation.Nonnull
-  public TestStatusType getType() {
+  public TestStatusApiType getType() {
     return type;
   }
 
-  public void setType(TestStatusType type) {
+  public void setType(TestStatusApiType type) {
     this.type = type;
   }
 
@@ -311,7 +311,7 @@ public class TestStatusApiResult {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the required field `type`
-      TestStatusType.validateJsonElement(jsonObj.get("type"));
+      TestStatusApiType.validateJsonElement(jsonObj.get("type"));
       if (!jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
