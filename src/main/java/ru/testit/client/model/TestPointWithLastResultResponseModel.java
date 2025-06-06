@@ -32,6 +32,7 @@ import ru.testit.client.model.IterationModel;
 import ru.testit.client.model.LastTestResultModel;
 import ru.testit.client.model.TestStatusApiResult;
 import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemSourceTypeModel;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -149,6 +150,10 @@ public class TestPointWithLastResultResponseModel {
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
   private WorkItemPriorityModel priority;
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "sourceType";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  private WorkItemSourceTypeModel sourceType;
 
   public static final String SERIALIZED_NAME_TEST_SUITE_NAME_BREAD_CRUMBS = "testSuiteNameBreadCrumbs";
   @SerializedName(SERIALIZED_NAME_TEST_SUITE_NAME_BREAD_CRUMBS)
@@ -603,6 +608,25 @@ public class TestPointWithLastResultResponseModel {
   }
 
 
+  public TestPointWithLastResultResponseModel sourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+    return this;
+  }
+
+  /**
+   * Get sourceType
+   * @return sourceType
+   */
+  @javax.annotation.Nonnull
+  public WorkItemSourceTypeModel getSourceType() {
+    return sourceType;
+  }
+
+  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+  }
+
+
   public TestPointWithLastResultResponseModel testSuiteNameBreadCrumbs(List<String> testSuiteNameBreadCrumbs) {
     this.testSuiteNameBreadCrumbs = testSuiteNameBreadCrumbs;
     return this;
@@ -700,6 +724,7 @@ public class TestPointWithLastResultResponseModel {
         Objects.equals(this.tagNames, testPointWithLastResultResponseModel.tagNames) &&
         Objects.equals(this.duration, testPointWithLastResultResponseModel.duration) &&
         Objects.equals(this.priority, testPointWithLastResultResponseModel.priority) &&
+        Objects.equals(this.sourceType, testPointWithLastResultResponseModel.sourceType) &&
         Objects.equals(this.testSuiteNameBreadCrumbs, testPointWithLastResultResponseModel.testSuiteNameBreadCrumbs) &&
         Objects.equals(this.groupCount, testPointWithLastResultResponseModel.groupCount) &&
         Objects.equals(this.iteration, testPointWithLastResultResponseModel.iteration);
@@ -711,7 +736,7 @@ public class TestPointWithLastResultResponseModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, workItemName, isAutomated, testerId, workItemId, configurationId, testSuiteId, lastTestResult, status, statusModel, workItemGlobalId, workItemEntityTypeName, sectionId, sectionName, createdDate, modifiedDate, createdById, modifiedById, attributes, tagNames, duration, priority, testSuiteNameBreadCrumbs, groupCount, iteration);
+    return Objects.hash(id, workItemName, isAutomated, testerId, workItemId, configurationId, testSuiteId, lastTestResult, status, statusModel, workItemGlobalId, workItemEntityTypeName, sectionId, sectionName, createdDate, modifiedDate, createdById, modifiedById, attributes, tagNames, duration, priority, sourceType, testSuiteNameBreadCrumbs, groupCount, iteration);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -747,6 +772,7 @@ public class TestPointWithLastResultResponseModel {
     sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    testSuiteNameBreadCrumbs: ").append(toIndentedString(testSuiteNameBreadCrumbs)).append("\n");
     sb.append("    groupCount: ").append(toIndentedString(groupCount)).append("\n");
     sb.append("    iteration: ").append(toIndentedString(iteration)).append("\n");
@@ -794,6 +820,7 @@ public class TestPointWithLastResultResponseModel {
     openapiFields.add("tagNames");
     openapiFields.add("duration");
     openapiFields.add("priority");
+    openapiFields.add("sourceType");
     openapiFields.add("testSuiteNameBreadCrumbs");
     openapiFields.add("groupCount");
     openapiFields.add("iteration");
@@ -808,6 +835,7 @@ public class TestPointWithLastResultResponseModel {
     openapiRequiredFields.add("createdById");
     openapiRequiredFields.add("duration");
     openapiRequiredFields.add("priority");
+    openapiRequiredFields.add("sourceType");
   }
 
   /**
@@ -888,6 +916,8 @@ public class TestPointWithLastResultResponseModel {
       }
       // validate the required field `priority`
       WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
+      // validate the required field `sourceType`
+      WorkItemSourceTypeModel.validateJsonElement(jsonObj.get("sourceType"));
       // ensure the optional json data is an array if present
       if (jsonObj.get("testSuiteNameBreadCrumbs") != null && !jsonObj.get("testSuiteNameBreadCrumbs").isJsonNull() && !jsonObj.get("testSuiteNameBreadCrumbs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `testSuiteNameBreadCrumbs` to be an array in the JSON string but got `%s`", jsonObj.get("testSuiteNameBreadCrumbs").toString()));

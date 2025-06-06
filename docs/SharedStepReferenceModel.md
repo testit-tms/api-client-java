@@ -20,6 +20,7 @@
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**state** | **String** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
+|**sourceType** | **WorkItemSourceTypeModel** |  |  |
 |**isDeleted** | **Boolean** |  |  |
 |**versionId** | **UUID** | used for versioning changes in workitem |  |
 |**isAutomated** | **Boolean** |  |  |

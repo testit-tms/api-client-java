@@ -33,9 +33,10 @@ import ru.testit.client.model.AutoTestModel;
 import ru.testit.client.model.IterationModel;
 import ru.testit.client.model.LinkModel;
 import ru.testit.client.model.StepModel;
-import ru.testit.client.model.TagPutModel;
+import ru.testit.client.model.TagModel;
 import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
 
 import com.google.gson.Gson;
@@ -154,6 +155,10 @@ public class WorkItemModel {
   @SerializedName(SERIALIZED_NAME_PRIORITY)
   private WorkItemPriorityModel priority;
 
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "sourceType";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  private WorkItemSourceTypeModel sourceType;
+
   public static final String SERIALIZED_NAME_STEPS = "steps";
   @SerializedName(SERIALIZED_NAME_STEPS)
   private List<StepModel> steps = new ArrayList<>();
@@ -176,7 +181,7 @@ public class WorkItemModel {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagPutModel> tags = new ArrayList<>();
+  private List<TagModel> tags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LINKS = "links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -647,6 +652,25 @@ public class WorkItemModel {
   }
 
 
+  public WorkItemModel sourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+    return this;
+  }
+
+  /**
+   * Get sourceType
+   * @return sourceType
+   */
+  @javax.annotation.Nonnull
+  public WorkItemSourceTypeModel getSourceType() {
+    return sourceType;
+  }
+
+  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+    this.sourceType = sourceType;
+  }
+
+
   public WorkItemModel steps(List<StepModel> steps) {
     this.steps = steps;
     return this;
@@ -776,12 +800,12 @@ public class WorkItemModel {
   }
 
 
-  public WorkItemModel tags(List<TagPutModel> tags) {
+  public WorkItemModel tags(List<TagModel> tags) {
     this.tags = tags;
     return this;
   }
 
-  public WorkItemModel addTagsItem(TagPutModel tagsItem) {
+  public WorkItemModel addTagsItem(TagModel tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -794,11 +818,11 @@ public class WorkItemModel {
    * @return tags
    */
   @javax.annotation.Nonnull
-  public List<TagPutModel> getTags() {
+  public List<TagModel> getTags() {
     return tags;
   }
 
-  public void setTags(List<TagPutModel> tags) {
+  public void setTags(List<TagModel> tags) {
     this.tags = tags;
   }
 
@@ -881,6 +905,7 @@ public class WorkItemModel {
         Objects.equals(this.description, workItemModel.description) &&
         Objects.equals(this.state, workItemModel.state) &&
         Objects.equals(this.priority, workItemModel.priority) &&
+        Objects.equals(this.sourceType, workItemModel.sourceType) &&
         Objects.equals(this.steps, workItemModel.steps) &&
         Objects.equals(this.preconditionSteps, workItemModel.preconditionSteps) &&
         Objects.equals(this.postconditionSteps, workItemModel.postconditionSteps) &&
@@ -897,7 +922,7 @@ public class WorkItemModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(versionId, medianDuration, isDeleted, projectId, entityTypeName, isAutomated, autoTests, attachments, sectionPreconditionSteps, sectionPostconditionSteps, versionNumber, iterations, createdDate, modifiedDate, createdById, modifiedById, globalId, id, sectionId, description, state, priority, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name);
+    return Objects.hash(versionId, medianDuration, isDeleted, projectId, entityTypeName, isAutomated, autoTests, attachments, sectionPreconditionSteps, sectionPostconditionSteps, versionNumber, iterations, createdDate, modifiedDate, createdById, modifiedById, globalId, id, sectionId, description, state, priority, sourceType, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -933,6 +958,7 @@ public class WorkItemModel {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("    preconditionSteps: ").append(toIndentedString(preconditionSteps)).append("\n");
     sb.append("    postconditionSteps: ").append(toIndentedString(postconditionSteps)).append("\n");
@@ -985,6 +1011,7 @@ public class WorkItemModel {
     openapiFields.add("description");
     openapiFields.add("state");
     openapiFields.add("priority");
+    openapiFields.add("sourceType");
     openapiFields.add("steps");
     openapiFields.add("preconditionSteps");
     openapiFields.add("postconditionSteps");
@@ -1010,6 +1037,7 @@ public class WorkItemModel {
     openapiRequiredFields.add("sectionId");
     openapiRequiredFields.add("state");
     openapiRequiredFields.add("priority");
+    openapiRequiredFields.add("sourceType");
     openapiRequiredFields.add("steps");
     openapiRequiredFields.add("preconditionSteps");
     openapiRequiredFields.add("postconditionSteps");
@@ -1145,6 +1173,8 @@ public class WorkItemModel {
       WorkItemStates.validateJsonElement(jsonObj.get("state"));
       // validate the required field `priority`
       WorkItemPriorityModel.validateJsonElement(jsonObj.get("priority"));
+      // validate the required field `sourceType`
+      WorkItemSourceTypeModel.validateJsonElement(jsonObj.get("sourceType"));
       // ensure the json data is an array
       if (!jsonObj.get("steps").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `steps` to be an array in the JSON string but got `%s`", jsonObj.get("steps").toString()));
@@ -1183,7 +1213,7 @@ public class WorkItemModel {
       JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
       // validate the required field `tags` (array)
       for (int i = 0; i < jsonArraytags.size(); i++) {
-        TagPutModel.validateJsonElement(jsonArraytags.get(i));
+        TagModel.validateJsonElement(jsonArraytags.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("links").isJsonArray()) {

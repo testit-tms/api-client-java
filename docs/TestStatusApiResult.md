@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**name** | **String** |  |  |
-|**type** | **TestStatusType** |  |  |
+|**type** | **TestStatusApiType** | Collection of possible status types |  |
 |**isSystem** | **Boolean** |  |  |
 |**code** | **String** |  |  |
 |**description** | **String** |  |  [optional] |

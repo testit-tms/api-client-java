@@ -153,7 +153,7 @@ public class WorkItemsCommentsApi {
 
     /**
      * Delete WorkItem comment
-     *  Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code
+     *  Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
      * @param commentId Comment internal (guid format) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -174,7 +174,7 @@ public class WorkItemsCommentsApi {
 
     /**
      * Delete WorkItem comment
-     *  Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code
+     *  Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
      * @param commentId Comment internal (guid format) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -197,7 +197,7 @@ public class WorkItemsCommentsApi {
 
     /**
      * Delete WorkItem comment (asynchronously)
-     *  Use case   User sets comment identifier   User runs method execution   System delete comment    System returns success status code
+     *  Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
      * @param commentId Comment internal (guid format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -291,7 +291,7 @@ public class WorkItemsCommentsApi {
 
     /**
      * Create WorkItem comment
-     *  Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
+     *  Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
      * @param workItemCommentPostModel  (optional)
      * @return WorkItemCommentModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -314,7 +314,7 @@ public class WorkItemsCommentsApi {
 
     /**
      * Create WorkItem comment
-     *  Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
+     *  Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
      * @param workItemCommentPostModel  (optional)
      * @return ApiResponse&lt;WorkItemCommentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -338,7 +338,7 @@ public class WorkItemsCommentsApi {
 
     /**
      * Create WorkItem comment (asynchronously)
-     *  Use case   User sets comment properties (listed in request parameters)   User runs method execution   System creates comment    System returns comment model (listed in response parameters)
+     *  Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
      * @param workItemCommentPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

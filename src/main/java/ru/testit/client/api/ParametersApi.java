@@ -27,14 +27,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ru.testit.client.model.ParameterFilterModel;
-import ru.testit.client.model.ParameterGroupModel;
-import ru.testit.client.model.ParameterModel;
-import ru.testit.client.model.ParameterPostModel;
-import ru.testit.client.model.ParameterPutModel;
+import ru.testit.client.model.CreateParameterApiModel;
+import ru.testit.client.model.ParameterApiResult;
+import ru.testit.client.model.ParameterGroupApiResult;
+import ru.testit.client.model.ParameterGroupsFilterApiModel;
+import ru.testit.client.model.ParametersFilterApiModel;
 import ru.testit.client.model.ProblemDetails;
 import java.util.Set;
 import java.util.UUID;
+import ru.testit.client.model.UpdateParameterApiModel;
 import ru.testit.client.model.ValidationProblemDetails;
 
 import java.lang.reflect.Type;
@@ -82,7 +83,7 @@ public class ParametersApi {
 
     /**
      * Build call for apiV2ParametersBulkPost
-     * @param parameterPostModel  (optional)
+     * @param createParameterApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +99,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersBulkPostCall(List<ParameterPostModel> parameterPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersBulkPostCall(List<CreateParameterApiModel> createParameterApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -112,7 +113,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterPostModel;
+        Object localVarPostBody = createParameterApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters/bulk";
@@ -144,16 +145,16 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersBulkPostValidateBeforeCall(List<ParameterPostModel> parameterPostModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersBulkPostCall(parameterPostModel, _callback);
+    private okhttp3.Call apiV2ParametersBulkPostValidateBeforeCall(List<CreateParameterApiModel> createParameterApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersBulkPostCall(createParameterApiModel, _callback);
 
     }
 
     /**
      * Create multiple parameters
-     *  Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
-     * @param parameterPostModel  (optional)
-     * @return List&lt;ParameterModel&gt;
+     *  Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
+     * @param createParameterApiModel  (optional)
+     * @return List&lt;ParameterApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -167,16 +168,16 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ParameterModel> apiV2ParametersBulkPost(List<ParameterPostModel> parameterPostModel) throws ApiException {
-        ApiResponse<List<ParameterModel>> localVarResp = apiV2ParametersBulkPostWithHttpInfo(parameterPostModel);
+    public List<ParameterApiResult> apiV2ParametersBulkPost(List<CreateParameterApiModel> createParameterApiModel) throws ApiException {
+        ApiResponse<List<ParameterApiResult>> localVarResp = apiV2ParametersBulkPostWithHttpInfo(createParameterApiModel);
         return localVarResp.getData();
     }
 
     /**
      * Create multiple parameters
-     *  Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
-     * @param parameterPostModel  (optional)
-     * @return ApiResponse&lt;List&lt;ParameterModel&gt;&gt;
+     *  Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
+     * @param createParameterApiModel  (optional)
+     * @return ApiResponse&lt;List&lt;ParameterApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -190,16 +191,16 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ParameterModel>> apiV2ParametersBulkPostWithHttpInfo(List<ParameterPostModel> parameterPostModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersBulkPostValidateBeforeCall(parameterPostModel, null);
-        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+    public ApiResponse<List<ParameterApiResult>> apiV2ParametersBulkPostWithHttpInfo(List<CreateParameterApiModel> createParameterApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersBulkPostValidateBeforeCall(createParameterApiModel, null);
+        Type localVarReturnType = new TypeToken<List<ParameterApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create multiple parameters (asynchronously)
-     *  Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System creates parameters   System returns list of parameter model (listed in the response example)
-     * @param parameterPostModel  (optional)
+     *  Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
+     * @param createParameterApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -215,16 +216,16 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersBulkPostAsync(List<ParameterPostModel> parameterPostModel, final ApiCallback<List<ParameterModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersBulkPostAsync(List<CreateParameterApiModel> createParameterApiModel, final ApiCallback<List<ParameterApiResult>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersBulkPostValidateBeforeCall(parameterPostModel, _callback);
-        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2ParametersBulkPostValidateBeforeCall(createParameterApiModel, _callback);
+        Type localVarReturnType = new TypeToken<List<ParameterApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2ParametersBulkPut
-     * @param parameterPutModel  (optional)
+     * @param updateParameterApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -240,7 +241,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersBulkPutCall(List<ParameterPutModel> parameterPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersBulkPutCall(List<UpdateParameterApiModel> updateParameterApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -254,7 +255,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterPutModel;
+        Object localVarPostBody = updateParameterApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters/bulk";
@@ -286,15 +287,15 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersBulkPutValidateBeforeCall(List<ParameterPutModel> parameterPutModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersBulkPutCall(parameterPutModel, _callback);
+    private okhttp3.Call apiV2ParametersBulkPutValidateBeforeCall(List<UpdateParameterApiModel> updateParameterApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersBulkPutCall(updateParameterApiModel, _callback);
 
     }
 
     /**
      * Update multiple parameters
-     *  Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
-     * @param parameterPutModel  (optional)
+     *  Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
+     * @param updateParameterApiModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -308,14 +309,14 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void apiV2ParametersBulkPut(List<ParameterPutModel> parameterPutModel) throws ApiException {
-        apiV2ParametersBulkPutWithHttpInfo(parameterPutModel);
+    public void apiV2ParametersBulkPut(List<UpdateParameterApiModel> updateParameterApiModel) throws ApiException {
+        apiV2ParametersBulkPutWithHttpInfo(updateParameterApiModel);
     }
 
     /**
      * Update multiple parameters
-     *  Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
-     * @param parameterPutModel  (optional)
+     *  Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
+     * @param updateParameterApiModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -330,15 +331,15 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> apiV2ParametersBulkPutWithHttpInfo(List<ParameterPutModel> parameterPutModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersBulkPutValidateBeforeCall(parameterPutModel, null);
+    public ApiResponse<Void> apiV2ParametersBulkPutWithHttpInfo(List<UpdateParameterApiModel> updateParameterApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersBulkPutValidateBeforeCall(updateParameterApiModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update multiple parameters (asynchronously)
-     *  Use case   User sets list of parameter model (listed in the request example)   User runs method execution   System updates parameters
-     * @param parameterPutModel  (optional)
+     *  Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
+     * @param updateParameterApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -354,16 +355,17 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersBulkPutAsync(List<ParameterPutModel> parameterPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersBulkPutAsync(List<UpdateParameterApiModel> updateParameterApiModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersBulkPutValidateBeforeCall(parameterPutModel, _callback);
+        okhttp3.Call localVarCall = apiV2ParametersBulkPutValidateBeforeCall(updateParameterApiModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for apiV2ParametersGroupsGet
-     * @param isDeleted  (optional)
      * @param parameterKeyIds  (optional)
+     * @param name  (optional)
+     * @param isDeleted  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -384,7 +386,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersGroupsGetCall(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersGroupsGetCall(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -409,12 +411,16 @@ public class ParametersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (isDeleted != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isDeleted", isDeleted));
-        }
-
         if (parameterKeyIds != null) {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "parameterKeyIds", parameterKeyIds));
+        }
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (isDeleted != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isDeleted", isDeleted));
         }
 
         if (skip != null) {
@@ -457,22 +463,23 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersGroupsGetValidateBeforeCall(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersGroupsGetCall(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue, _callback);
+    private okhttp3.Call apiV2ParametersGroupsGetValidateBeforeCall(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersGroupsGetCall(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue, _callback);
 
     }
 
     /**
      * Get parameters as group
-     *  Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
-     * @param isDeleted  (optional)
+     *  Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
      * @param parameterKeyIds  (optional)
+     * @param name  (optional)
+     * @param isDeleted  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @return List&lt;ParameterGroupModel&gt;
+     * @return List&lt;ParameterGroupApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -486,22 +493,23 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ParameterGroupModel> apiV2ParametersGroupsGet(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        ApiResponse<List<ParameterGroupModel>> localVarResp = apiV2ParametersGroupsGetWithHttpInfo(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue);
+    public List<ParameterGroupApiResult> apiV2ParametersGroupsGet(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<ParameterGroupApiResult>> localVarResp = apiV2ParametersGroupsGetWithHttpInfo(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue);
         return localVarResp.getData();
     }
 
     /**
      * Get parameters as group
-     *  Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
-     * @param isDeleted  (optional)
+     *  Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
      * @param parameterKeyIds  (optional)
+     * @param name  (optional)
+     * @param isDeleted  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @return ApiResponse&lt;List&lt;ParameterGroupModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;ParameterGroupApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -515,17 +523,18 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ParameterGroupModel>> apiV2ParametersGroupsGetWithHttpInfo(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersGroupsGetValidateBeforeCall(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue, null);
-        Type localVarReturnType = new TypeToken<List<ParameterGroupModel>>(){}.getType();
+    public ApiResponse<List<ParameterGroupApiResult>> apiV2ParametersGroupsGetWithHttpInfo(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersGroupsGetValidateBeforeCall(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue, null);
+        Type localVarReturnType = new TypeToken<List<ParameterGroupApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get parameters as group (asynchronously)
-     *  Use case   User runs method execution   System search parameters   System returns parameters models as groups (listed in the response example)
-     * @param isDeleted  (optional)
+     *  Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
      * @param parameterKeyIds  (optional)
+     * @param name  (optional)
+     * @param isDeleted  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -546,10 +555,10 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersGroupsGetAsync(Boolean isDeleted, Set<UUID> parameterKeyIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ParameterGroupModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersGroupsGetAsync(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ParameterGroupApiResult>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersGroupsGetValidateBeforeCall(isDeleted, parameterKeyIds, skip, take, orderBy, searchField, searchValue, _callback);
-        Type localVarReturnType = new TypeToken<List<ParameterGroupModel>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2ParametersGroupsGetValidateBeforeCall(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue, _callback);
+        Type localVarReturnType = new TypeToken<List<ParameterGroupApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -629,7 +638,7 @@ public class ParametersApi {
 
     /**
      * Check existence parameter key in system
-     *  Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
+     *  Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
      * @param name  (required)
      * @return Boolean
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -652,7 +661,7 @@ public class ParametersApi {
 
     /**
      * Check existence parameter key in system
-     *  Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
+     *  Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
      * @param name  (required)
      * @return ApiResponse&lt;Boolean&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -676,7 +685,7 @@ public class ParametersApi {
 
     /**
      * Check existence parameter key in system (asynchronously)
-     *  Use case   User sets name of parameter key   User runs method execution   System search parameter key   System returns the flag for the existence of the parameter key in the system
+     *  Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
      * @param name  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -776,7 +785,7 @@ public class ParametersApi {
 
     /**
      * Get all parameter key values
-     *  Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
+     *  Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
      * @param key Parameter key (string format) (required)
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -799,7 +808,7 @@ public class ParametersApi {
 
     /**
      * Get all parameter key values
-     *  Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
+     *  Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
      * @param key Parameter key (string format) (required)
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -823,7 +832,7 @@ public class ParametersApi {
 
     /**
      * Get all parameter key values (asynchronously)
-     *  Use case   User sets parameter key (string format)   User runs method execution   System search parameter values using the key   System returns parameter
+     *  Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
      * @param key Parameter key (string format) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -916,7 +925,7 @@ public class ParametersApi {
 
     /**
      * Get all parameter keys
-     *  Use case   User runs method execution   System search all parameter keys   System returns parameter keys
+     *  Use case  User runs method execution  System search all parameter keys  System returns parameter keys
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -938,7 +947,7 @@ public class ParametersApi {
 
     /**
      * Get all parameter keys
-     *  Use case   User runs method execution   System search all parameter keys   System returns parameter keys
+     *  Use case  User runs method execution  System search all parameter keys  System returns parameter keys
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -961,7 +970,7 @@ public class ParametersApi {
 
     /**
      * Get all parameter keys (asynchronously)
-     *  Use case   User runs method execution   System search all parameter keys   System returns parameter keys
+     *  Use case  User runs method execution  System search all parameter keys  System returns parameter keys
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -991,7 +1000,7 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param parameterGroupsFilterApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1007,7 +1016,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersSearchGroupsPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersSearchGroupsPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterGroupsFilterApiModel parameterGroupsFilterApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1021,7 +1030,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterFilterModel;
+        Object localVarPostBody = parameterGroupsFilterApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters/search/groups";
@@ -1073,8 +1082,8 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersSearchGroupsPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersSearchGroupsPostCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, _callback);
+    private okhttp3.Call apiV2ParametersSearchGroupsPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterGroupsFilterApiModel parameterGroupsFilterApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersSearchGroupsPostCall(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel, _callback);
 
     }
 
@@ -1086,8 +1095,8 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
-     * @return List&lt;ParameterGroupModel&gt;
+     * @param parameterGroupsFilterApiModel  (optional)
+     * @return List&lt;ParameterGroupApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1101,8 +1110,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ParameterGroupModel> apiV2ParametersSearchGroupsPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel) throws ApiException {
-        ApiResponse<List<ParameterGroupModel>> localVarResp = apiV2ParametersSearchGroupsPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+    public List<ParameterGroupApiResult> apiV2ParametersSearchGroupsPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterGroupsFilterApiModel parameterGroupsFilterApiModel) throws ApiException {
+        ApiResponse<List<ParameterGroupApiResult>> localVarResp = apiV2ParametersSearchGroupsPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel);
         return localVarResp.getData();
     }
 
@@ -1114,8 +1123,8 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
-     * @return ApiResponse&lt;List&lt;ParameterGroupModel&gt;&gt;
+     * @param parameterGroupsFilterApiModel  (optional)
+     * @return ApiResponse&lt;List&lt;ParameterGroupApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1129,9 +1138,9 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ParameterGroupModel>> apiV2ParametersSearchGroupsPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersSearchGroupsPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, null);
-        Type localVarReturnType = new TypeToken<List<ParameterGroupModel>>(){}.getType();
+    public ApiResponse<List<ParameterGroupApiResult>> apiV2ParametersSearchGroupsPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterGroupsFilterApiModel parameterGroupsFilterApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersSearchGroupsPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel, null);
+        Type localVarReturnType = new TypeToken<List<ParameterGroupApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1143,7 +1152,7 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param parameterGroupsFilterApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1159,10 +1168,10 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersSearchGroupsPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback<List<ParameterGroupModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersSearchGroupsPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterGroupsFilterApiModel parameterGroupsFilterApiModel, final ApiCallback<List<ParameterGroupApiResult>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersSearchGroupsPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, _callback);
-        Type localVarReturnType = new TypeToken<List<ParameterGroupModel>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2ParametersSearchGroupsPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel, _callback);
+        Type localVarReturnType = new TypeToken<List<ParameterGroupApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1173,7 +1182,7 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param parametersFilterApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1189,7 +1198,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersSearchPostCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParametersFilterApiModel parametersFilterApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1203,7 +1212,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterFilterModel;
+        Object localVarPostBody = parametersFilterApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters/search";
@@ -1255,8 +1264,8 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersSearchPostCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, _callback);
+    private okhttp3.Call apiV2ParametersSearchPostValidateBeforeCall(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParametersFilterApiModel parametersFilterApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersSearchPostCall(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel, _callback);
 
     }
 
@@ -1268,8 +1277,8 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
-     * @return List&lt;ParameterModel&gt;
+     * @param parametersFilterApiModel  (optional)
+     * @return List&lt;ParameterApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1283,8 +1292,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ParameterModel> apiV2ParametersSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel) throws ApiException {
-        ApiResponse<List<ParameterModel>> localVarResp = apiV2ParametersSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, parameterFilterModel);
+    public List<ParameterApiResult> apiV2ParametersSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParametersFilterApiModel parametersFilterApiModel) throws ApiException {
+        ApiResponse<List<ParameterApiResult>> localVarResp = apiV2ParametersSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel);
         return localVarResp.getData();
     }
 
@@ -1296,8 +1305,8 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
-     * @return ApiResponse&lt;List&lt;ParameterModel&gt;&gt;
+     * @param parametersFilterApiModel  (optional)
+     * @return ApiResponse&lt;List&lt;ParameterApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1311,9 +1320,9 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ParameterModel>> apiV2ParametersSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, null);
-        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+    public ApiResponse<List<ParameterApiResult>> apiV2ParametersSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParametersFilterApiModel parametersFilterApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel, null);
+        Type localVarReturnType = new TypeToken<List<ParameterApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1325,7 +1334,7 @@ public class ParametersApi {
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @param parameterFilterModel  (optional)
+     * @param parametersFilterApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1341,16 +1350,16 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParameterFilterModel parameterFilterModel, final ApiCallback<List<ParameterModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ParametersFilterApiModel parametersFilterApiModel, final ApiCallback<List<ParameterApiResult>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parameterFilterModel, _callback);
-        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+        okhttp3.Call localVarCall = apiV2ParametersSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel, _callback);
+        Type localVarReturnType = new TypeToken<List<ParameterApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for createParameter
-     * @param parameterPostModel  (optional)
+     * @param createParameterApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1366,7 +1375,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createParameterCall(ParameterPostModel parameterPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createParameterCall(CreateParameterApiModel createParameterApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1380,7 +1389,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterPostModel;
+        Object localVarPostBody = createParameterApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters";
@@ -1412,16 +1421,16 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createParameterValidateBeforeCall(ParameterPostModel parameterPostModel, final ApiCallback _callback) throws ApiException {
-        return createParameterCall(parameterPostModel, _callback);
+    private okhttp3.Call createParameterValidateBeforeCall(CreateParameterApiModel createParameterApiModel, final ApiCallback _callback) throws ApiException {
+        return createParameterCall(createParameterApiModel, _callback);
 
     }
 
     /**
      * Create parameter
-     *  Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
-     * @param parameterPostModel  (optional)
-     * @return ParameterModel
+     *  Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
+     * @param createParameterApiModel  (optional)
+     * @return ParameterApiResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1435,16 +1444,16 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ParameterModel createParameter(ParameterPostModel parameterPostModel) throws ApiException {
-        ApiResponse<ParameterModel> localVarResp = createParameterWithHttpInfo(parameterPostModel);
+    public ParameterApiResult createParameter(CreateParameterApiModel createParameterApiModel) throws ApiException {
+        ApiResponse<ParameterApiResult> localVarResp = createParameterWithHttpInfo(createParameterApiModel);
         return localVarResp.getData();
     }
 
     /**
      * Create parameter
-     *  Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
-     * @param parameterPostModel  (optional)
-     * @return ApiResponse&lt;ParameterModel&gt;
+     *  Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
+     * @param createParameterApiModel  (optional)
+     * @return ApiResponse&lt;ParameterApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1458,16 +1467,16 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ParameterModel> createParameterWithHttpInfo(ParameterPostModel parameterPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createParameterValidateBeforeCall(parameterPostModel, null);
-        Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
+    public ApiResponse<ParameterApiResult> createParameterWithHttpInfo(CreateParameterApiModel createParameterApiModel) throws ApiException {
+        okhttp3.Call localVarCall = createParameterValidateBeforeCall(createParameterApiModel, null);
+        Type localVarReturnType = new TypeToken<ParameterApiResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create parameter (asynchronously)
-     *  Use case   User sets parameter model (listed in the request example)   User runs method execution   System creates parameter   System returns parameter model
-     * @param parameterPostModel  (optional)
+     *  Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
+     * @param createParameterApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1483,10 +1492,10 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createParameterAsync(ParameterPostModel parameterPostModel, final ApiCallback<ParameterModel> _callback) throws ApiException {
+    public okhttp3.Call createParameterAsync(CreateParameterApiModel createParameterApiModel, final ApiCallback<ParameterApiResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createParameterValidateBeforeCall(parameterPostModel, _callback);
-        Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
+        okhttp3.Call localVarCall = createParameterValidateBeforeCall(createParameterApiModel, _callback);
+        Type localVarReturnType = new TypeToken<ParameterApiResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1786,13 +1795,12 @@ public class ParametersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid  - DTO is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteParameterCall(UUID id, final ApiCallback _callback) throws ApiException {
@@ -1853,20 +1861,19 @@ public class ParametersApi {
 
     /**
      * Delete parameter
-     *  Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
+     *  Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
      * @param id Parameter internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid  - DTO is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public void deleteParameter(UUID id) throws ApiException {
@@ -1875,7 +1882,7 @@ public class ParametersApi {
 
     /**
      * Delete parameter
-     *  Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
+     *  Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
      * @param id Parameter internal (UUID) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1883,13 +1890,12 @@ public class ParametersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid  - DTO is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> deleteParameterWithHttpInfo(UUID id) throws ApiException {
@@ -1899,7 +1905,7 @@ public class ParametersApi {
 
     /**
      * Delete parameter (asynchronously)
-     *  Use case   User sets parameter internal (guid format) identifier   System search and delete parameter   System returns deleted parameter
+     *  Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
      * @param id Parameter internal (UUID) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1908,13 +1914,12 @@ public class ParametersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid  - DTO is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Parameter is in use in iterations </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteParameterAsync(UUID id, final ApiCallback<Void> _callback) throws ApiException {
@@ -2022,14 +2027,14 @@ public class ParametersApi {
 
     /**
      * Get all parameters
-     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
+     *  Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @return List&lt;ParameterModel&gt;
+     * @return List&lt;ParameterApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2043,21 +2048,21 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ParameterModel> getAllParameters(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        ApiResponse<List<ParameterModel>> localVarResp = getAllParametersWithHttpInfo(isDeleted, skip, take, orderBy, searchField, searchValue);
+    public List<ParameterApiResult> getAllParameters(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<ParameterApiResult>> localVarResp = getAllParametersWithHttpInfo(isDeleted, skip, take, orderBy, searchField, searchValue);
         return localVarResp.getData();
     }
 
     /**
      * Get all parameters
-     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
+     *  Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
-     * @return ApiResponse&lt;List&lt;ParameterModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;ParameterApiResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2071,15 +2076,15 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ParameterModel>> getAllParametersWithHttpInfo(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+    public ApiResponse<List<ParameterApiResult>> getAllParametersWithHttpInfo(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
         okhttp3.Call localVarCall = getAllParametersValidateBeforeCall(isDeleted, skip, take, orderBy, searchField, searchValue, null);
-        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<ParameterApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get all parameters (asynchronously)
-     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted parameters   [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted   If User did not set isDeleted field value, System search all parameters   System returns array of all found parameters(listed in response model)
+     *  Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -2101,10 +2106,10 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAllParametersAsync(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ParameterModel>> _callback) throws ApiException {
+    public okhttp3.Call getAllParametersAsync(Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ParameterApiResult>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAllParametersValidateBeforeCall(isDeleted, skip, take, orderBy, searchField, searchValue, _callback);
-        Type localVarReturnType = new TypeToken<List<ParameterModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<ParameterApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2184,9 +2189,9 @@ public class ParametersApi {
 
     /**
      * Get parameter by ID
-     *  Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
+     *  Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
      * @param id Parameter internal (UUID) identifier (required)
-     * @return ParameterModel
+     * @return ParameterApiResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2200,16 +2205,16 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ParameterModel getParameterById(UUID id) throws ApiException {
-        ApiResponse<ParameterModel> localVarResp = getParameterByIdWithHttpInfo(id);
+    public ParameterApiResult getParameterById(UUID id) throws ApiException {
+        ApiResponse<ParameterApiResult> localVarResp = getParameterByIdWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
      * Get parameter by ID
-     *  Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
+     *  Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
      * @param id Parameter internal (UUID) identifier (required)
-     * @return ApiResponse&lt;ParameterModel&gt;
+     * @return ApiResponse&lt;ParameterApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2223,15 +2228,15 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ParameterModel> getParameterByIdWithHttpInfo(UUID id) throws ApiException {
+    public ApiResponse<ParameterApiResult> getParameterByIdWithHttpInfo(UUID id) throws ApiException {
         okhttp3.Call localVarCall = getParameterByIdValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterApiResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get parameter by ID (asynchronously)
-     *  Use case   User sets parameter internal (guid format) identifier   User runs method execution   System search parameter using the identifier   System returns parameter
+     *  Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
      * @param id Parameter internal (UUID) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2248,16 +2253,16 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getParameterByIdAsync(UUID id, final ApiCallback<ParameterModel> _callback) throws ApiException {
+    public okhttp3.Call getParameterByIdAsync(UUID id, final ApiCallback<ParameterApiResult> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getParameterByIdValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<ParameterModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterApiResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for updateParameter
-     * @param parameterPutModel  (optional)
+     * @param updateParameterApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2265,7 +2270,7 @@ public class ParametersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid  - DTO is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
@@ -2273,7 +2278,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateParameterCall(ParameterPutModel parameterPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateParameterCall(UpdateParameterApiModel updateParameterApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2287,7 +2292,7 @@ public class ParametersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = parameterPutModel;
+        Object localVarPostBody = updateParameterApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/parameters";
@@ -2319,21 +2324,21 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateParameterValidateBeforeCall(ParameterPutModel parameterPutModel, final ApiCallback _callback) throws ApiException {
-        return updateParameterCall(parameterPutModel, _callback);
+    private okhttp3.Call updateParameterValidateBeforeCall(UpdateParameterApiModel updateParameterApiModel, final ApiCallback _callback) throws ApiException {
+        return updateParameterCall(updateParameterApiModel, _callback);
 
     }
 
     /**
      * Update parameter
-     *  Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
-     * @param parameterPutModel  (optional)
+     *  Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
+     * @param updateParameterApiModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid  - DTO is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
@@ -2341,21 +2346,21 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void updateParameter(ParameterPutModel parameterPutModel) throws ApiException {
-        updateParameterWithHttpInfo(parameterPutModel);
+    public void updateParameter(UpdateParameterApiModel updateParameterApiModel) throws ApiException {
+        updateParameterWithHttpInfo(updateParameterApiModel);
     }
 
     /**
      * Update parameter
-     *  Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
-     * @param parameterPutModel  (optional)
+     *  Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
+     * @param updateParameterApiModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid  - DTO is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
@@ -2363,15 +2368,15 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateParameterWithHttpInfo(ParameterPutModel parameterPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateParameterValidateBeforeCall(parameterPutModel, null);
+    public ApiResponse<Void> updateParameterWithHttpInfo(UpdateParameterApiModel updateParameterApiModel) throws ApiException {
+        okhttp3.Call localVarCall = updateParameterValidateBeforeCall(updateParameterApiModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update parameter (asynchronously)
-     *  Use case   User sets parameter updated properties(listed in the request example)   User runs method execution   System updated parameter using updated properties   System returns no content response
-     * @param parameterPutModel  (optional)
+     *  Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
+     * @param updateParameterApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2379,7 +2384,7 @@ public class ParametersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is not valid   - DTO is not valid </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is not valid  - DTO is not valid </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Parameter with provided ID was not found </td><td>  -  </td></tr>
@@ -2387,9 +2392,9 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateParameterAsync(ParameterPutModel parameterPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateParameterAsync(UpdateParameterApiModel updateParameterApiModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateParameterValidateBeforeCall(parameterPutModel, _callback);
+        okhttp3.Call localVarCall = updateParameterValidateBeforeCall(updateParameterApiModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

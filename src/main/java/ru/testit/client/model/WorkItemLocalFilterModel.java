@@ -34,6 +34,7 @@ import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemPriorityModel;
+import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
 
 import com.google.gson.Gson;
@@ -103,6 +104,10 @@ public class WorkItemLocalFilterModel {
   public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
   @SerializedName(SERIALIZED_NAME_PRIORITIES)
   private Set<WorkItemPriorityModel> priorities;
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPES = "sourceTypes";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPES)
+  private Set<WorkItemSourceTypeModel> sourceTypes;
 
   public static final String SERIALIZED_NAME_TYPES = "types";
   @SerializedName(SERIALIZED_NAME_TYPES)
@@ -397,6 +402,33 @@ public class WorkItemLocalFilterModel {
   }
 
 
+  public WorkItemLocalFilterModel sourceTypes(Set<WorkItemSourceTypeModel> sourceTypes) {
+    this.sourceTypes = sourceTypes;
+    return this;
+  }
+
+  public WorkItemLocalFilterModel addSourceTypesItem(WorkItemSourceTypeModel sourceTypesItem) {
+    if (this.sourceTypes == null) {
+      this.sourceTypes = new LinkedHashSet<>();
+    }
+    this.sourceTypes.add(sourceTypesItem);
+    return this;
+  }
+
+  /**
+   * Collection of priorities of work item
+   * @return sourceTypes
+   */
+  @javax.annotation.Nullable
+  public Set<WorkItemSourceTypeModel> getSourceTypes() {
+    return sourceTypes;
+  }
+
+  public void setSourceTypes(Set<WorkItemSourceTypeModel> sourceTypes) {
+    this.sourceTypes = sourceTypes;
+  }
+
+
   public WorkItemLocalFilterModel types(Set<WorkItemEntityTypes> types) {
     this.types = types;
     return this;
@@ -620,6 +652,7 @@ public class WorkItemLocalFilterModel {
         Objects.equals(this.modifiedByIds, workItemLocalFilterModel.modifiedByIds) &&
         Objects.equals(this.states, workItemLocalFilterModel.states) &&
         Objects.equals(this.priorities, workItemLocalFilterModel.priorities) &&
+        Objects.equals(this.sourceTypes, workItemLocalFilterModel.sourceTypes) &&
         Objects.equals(this.types, workItemLocalFilterModel.types) &&
         Objects.equals(this.createdDate, workItemLocalFilterModel.createdDate) &&
         Objects.equals(this.modifiedDate, workItemLocalFilterModel.modifiedDate) &&
@@ -637,7 +670,7 @@ public class WorkItemLocalFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, ids, globalIds, attributes, isDeleted, sectionIds, createdByIds, modifiedByIds, states, priorities, types, createdDate, modifiedDate, duration, medianDuration, isAutomated, tags, autoTestIds, workItemVersionIds);
+    return Objects.hash(name, ids, globalIds, attributes, isDeleted, sectionIds, createdByIds, modifiedByIds, states, priorities, sourceTypes, types, createdDate, modifiedDate, duration, medianDuration, isAutomated, tags, autoTestIds, workItemVersionIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -661,6 +694,7 @@ public class WorkItemLocalFilterModel {
     sb.append("    modifiedByIds: ").append(toIndentedString(modifiedByIds)).append("\n");
     sb.append("    states: ").append(toIndentedString(states)).append("\n");
     sb.append("    priorities: ").append(toIndentedString(priorities)).append("\n");
+    sb.append("    sourceTypes: ").append(toIndentedString(sourceTypes)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
@@ -702,6 +736,7 @@ public class WorkItemLocalFilterModel {
     openapiFields.add("modifiedByIds");
     openapiFields.add("states");
     openapiFields.add("priorities");
+    openapiFields.add("sourceTypes");
     openapiFields.add("types");
     openapiFields.add("createdDate");
     openapiFields.add("modifiedDate");
@@ -767,6 +802,10 @@ public class WorkItemLocalFilterModel {
       // ensure the optional json data is an array if present
       if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonNull() && !jsonObj.get("priorities").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("sourceTypes") != null && !jsonObj.get("sourceTypes").isJsonNull() && !jsonObj.get("sourceTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sourceTypes` to be an array in the JSON string but got `%s`", jsonObj.get("sourceTypes").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull() && !jsonObj.get("types").isJsonArray()) {

@@ -301,7 +301,7 @@ public class SectionsApi {
 
     /**
      * Create section
-     *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
+     *  Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)
      * @param sectionPostModel  (optional)
      * @return SectionWithStepsModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -324,7 +324,7 @@ public class SectionsApi {
 
     /**
      * Create section
-     *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
+     *  Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)
      * @param sectionPostModel  (optional)
      * @return ApiResponse&lt;SectionWithStepsModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -348,7 +348,7 @@ public class SectionsApi {
 
     /**
      * Create section (asynchronously)
-     *  Use case   User sets section properties (listed in request example)   User runs method execution   System creates section property values   System returns section (listed in response example)
+     *  Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)
      * @param sectionPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -448,7 +448,7 @@ public class SectionsApi {
 
     /**
      * Delete section
-     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response
+     *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response
      * @param id Section internal (UUID) identifier (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -469,7 +469,7 @@ public class SectionsApi {
 
     /**
      * Delete section
-     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response
+     *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response
      * @param id Section internal (UUID) identifier (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -492,7 +492,7 @@ public class SectionsApi {
 
     /**
      * Delete section (asynchronously)
-     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search and delete nested sections of the found section   System search and delete workitems related to the found nested sections   System deletes initial section and related workitem   System returns no content response
+     *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response
      * @param id Section internal (UUID) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -596,7 +596,7 @@ public class SectionsApi {
 
     /**
      * Get section
-     *  Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section
+     *  Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @return SectionWithStepsModel
@@ -620,7 +620,7 @@ public class SectionsApi {
 
     /**
      * Get section
-     *  Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section
+     *  Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @return ApiResponse&lt;SectionWithStepsModel&gt;
@@ -645,7 +645,7 @@ public class SectionsApi {
 
     /**
      * Get section (asynchronously)
-     *  Use case   User sets section internal (guid format) identifier   User runs method execution   System search section by the section identifier                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns section
+     *  Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted  (optional, default to NotDeleted)
      * @param _callback The callback to be executed when the API call finishes
@@ -688,7 +688,7 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -789,7 +789,7 @@ public class SectionsApi {
 
     /**
      * Get section work items
-     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection
+     *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted Requested section is deleted (optional, default to false)
      * @param tagNames List of work item tags (optional)
@@ -805,7 +805,7 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -822,7 +822,7 @@ public class SectionsApi {
 
     /**
      * Get section work items
-     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection
+     *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted Requested section is deleted (optional, default to false)
      * @param tagNames List of work item tags (optional)
@@ -838,7 +838,7 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -856,7 +856,7 @@ public class SectionsApi {
 
     /**
      * Get section work items (asynchronously)
-     *  Use case   User sets section identifier   User runs method execution   System search section by the identifier   System search work items related to the section                 [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.                 System returns work item collection
+     *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection
      * @param id Section internal (UUID) identifier (required)
      * @param isDeleted Requested section is deleted (optional, default to false)
      * @param tagNames List of work item tags (optional)
@@ -873,7 +873,7 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -1099,7 +1099,7 @@ public class SectionsApi {
 
     /**
      * Rename section
-     *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
+     *  Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response
      * @param sectionRenameModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1120,7 +1120,7 @@ public class SectionsApi {
 
     /**
      * Rename section
-     *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
+     *  Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response
      * @param sectionRenameModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1143,7 +1143,7 @@ public class SectionsApi {
 
     /**
      * Rename section (asynchronously)
-     *  Use case   User sets section identifier and new name (listed in request example)   User runs method execution   System search section by the identifier   System updates section name using the new name   System returns no content response
+     *  Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response
      * @param sectionRenameModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1176,12 +1176,12 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid  - Root section cannot be create </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  - Section cannot be found   - Parent section cannot be found   - Project cannot be found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Section cannot be found  - Parent section cannot be found  - Project cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td>  - Root section cannot be edited  - Parent ID cannot be changed  - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateSectionCall(SectionPutModel sectionPutModel, final ApiCallback _callback) throws ApiException {
@@ -1237,19 +1237,19 @@ public class SectionsApi {
 
     /**
      * Update section
-     *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
+     *  Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response
      * @param sectionPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid  - Root section cannot be create </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  - Section cannot be found   - Parent section cannot be found   - Project cannot be found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Section cannot be found  - Parent section cannot be found  - Project cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td>  - Root section cannot be edited  - Parent ID cannot be changed  - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
     public void updateSection(SectionPutModel sectionPutModel) throws ApiException {
@@ -1258,7 +1258,7 @@ public class SectionsApi {
 
     /**
      * Update section
-     *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
+     *  Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response
      * @param sectionPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1266,12 +1266,12 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid  - Root section cannot be create </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  - Section cannot be found   - Parent section cannot be found   - Project cannot be found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Section cannot be found  - Parent section cannot be found  - Project cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td>  - Root section cannot be edited  - Parent ID cannot be changed  - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> updateSectionWithHttpInfo(SectionPutModel sectionPutModel) throws ApiException {
@@ -1281,7 +1281,7 @@ public class SectionsApi {
 
     /**
      * Update section (asynchronously)
-     *  Use case   User sets section properties (listed in request example)   User runs method execution   System search section by the identifier   System updates section using the property values   System returns no content response
+     *  Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response
      * @param sectionPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1290,12 +1290,12 @@ public class SectionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is invalid   - Root section cannot be create </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid  - Root section cannot be create </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  - Section cannot be found   - Parent section cannot be found   - Project cannot be found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  - Section cannot be found  - Parent section cannot be found  - Project cannot be found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td>  - Root section cannot be edited   - Parent ID cannot be changed   - Project ID cannot be changed </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td>  - Root section cannot be edited  - Parent ID cannot be changed  - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateSectionAsync(SectionPutModel sectionPutModel, final ApiCallback<Void> _callback) throws ApiException {

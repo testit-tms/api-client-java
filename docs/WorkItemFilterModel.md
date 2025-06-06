@@ -23,6 +23,7 @@ Collection of filters to apply to search
 |**modifiedByIds** | **Set&lt;UUID&gt;** | Collection of identifiers of users who applied last modification to work item |  [optional] |
 |**states** | **Set&lt;WorkItemStates&gt;** | Collection of states of work item |  [optional] |
 |**priorities** | **Set&lt;WorkItemPriorityModel&gt;** | Collection of priorities of work item |  [optional] |
+|**sourceTypes** | **Set&lt;WorkItemSourceTypeModel&gt;** | Collection of priorities of work item |  [optional] |
 |**types** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item |  [optional] |
 |**createdDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for |  [optional] |
 |**modifiedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for |  [optional] |

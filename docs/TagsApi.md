@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**apiV2TagsDelete**](TagsApi.md#apiV2TagsDelete) | **DELETE** /api/v2/tags | Delete tags |
-| [**apiV2TagsGet**](TagsApi.md#apiV2TagsGet) | **GET** /api/v2/tags | Get all Tags |
 | [**apiV2TagsIdDelete**](TagsApi.md#apiV2TagsIdDelete) | **DELETE** /api/v2/tags/{id} | Delete tag |
 | [**apiV2TagsPost**](TagsApi.md#apiV2TagsPost) | **POST** /api/v2/tags | Create tag |
 | [**apiV2TagsPut**](TagsApi.md#apiV2TagsPut) | **PUT** /api/v2/tags | Update tag |
@@ -15,11 +14,11 @@ All URIs are relative to *http://localhost*
 
 <a id="apiV2TagsDelete"></a>
 # **apiV2TagsDelete**
-> apiV2TagsDelete(tagSelectModel)
+> apiV2TagsDelete(selectTagsApiModel)
 
 Delete tags
 
- Use case   User sets collection of tags internal (guid format) identifiers   System searches and deletes a collection of tags
+ Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags
 
 ### Example
 ```java
@@ -43,9 +42,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TagsApi apiInstance = new TagsApi(defaultClient);
-    TagSelectModel tagSelectModel = new TagSelectModel(); // TagSelectModel | 
+    SelectTagsApiModel selectTagsApiModel = new SelectTagsApiModel(); // SelectTagsApiModel | 
     try {
-      apiInstance.apiV2TagsDelete(tagSelectModel);
+      apiInstance.apiV2TagsDelete(selectTagsApiModel);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsDelete");
       System.err.println("Status code: " + e.getCode());
@@ -61,7 +60,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tagSelectModel** | [**TagSelectModel**](TagSelectModel.md)|  | [optional] |
+| **selectTagsApiModel** | [**SelectTagsApiModel**](SelectTagsApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -87,84 +86,13 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2TagsGet"></a>
-# **apiV2TagsGet**
-> List&lt;TagModel&gt; apiV2TagsGet()
-
-Get all Tags
-
- Use case   User runs method execution   System returns tags (listed in the response example)
-
-### Example
-```java
-// Import classes:
-import ru.testit.client.invoker.ApiClient;
-import ru.testit.client.invoker.ApiException;
-import ru.testit.client.invoker.Configuration;
-import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
-import ru.testit.client.api.TagsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-    TagsApi apiInstance = new TagsApi(defaultClient);
-    try {
-      List<TagModel> result = apiInstance.apiV2TagsGet();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling TagsApi#apiV2TagsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;TagModel&gt;**](TagModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-
 <a id="apiV2TagsIdDelete"></a>
 # **apiV2TagsIdDelete**
 > apiV2TagsIdDelete(id)
 
 Delete tag
 
- Use case   User sets tag internal (guid format) identifier   System search and delete tag
+ Use case  User sets tag internal (guid format) identifier  System search and delete tag
 
 ### Example
 ```java
@@ -234,11 +162,11 @@ null (empty response body)
 
 <a id="apiV2TagsPost"></a>
 # **apiV2TagsPost**
-> TagModel apiV2TagsPost(tagPostModel)
+> TagApiResult apiV2TagsPost(createTagApiModel)
 
 Create tag
 
- Use case   User sets tag model (listed in the request example)   User runs method execution   System creates tag   System returns tag model (listed in the response example)
+ Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)
 
 ### Example
 ```java
@@ -262,9 +190,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     TagsApi apiInstance = new TagsApi(defaultClient);
-    TagPostModel tagPostModel = new TagPostModel(); // TagPostModel | 
+    CreateTagApiModel createTagApiModel = new CreateTagApiModel(); // CreateTagApiModel | 
     try {
-      TagModel result = apiInstance.apiV2TagsPost(tagPostModel);
+      TagApiResult result = apiInstance.apiV2TagsPost(createTagApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsPost");
@@ -281,11 +209,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tagPostModel** | [**TagPostModel**](TagPostModel.md)|  | [optional] |
+| **createTagApiModel** | [**CreateTagApiModel**](CreateTagApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**TagModel**](TagModel.md)
+[**TagApiResult**](TagApiResult.md)
 
 ### Authorization
 
@@ -300,7 +228,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful operation |  -  |
-| **400** |  - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long |  -  |
+| **400** |  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -309,11 +237,11 @@ public class Example {
 
 <a id="apiV2TagsPut"></a>
 # **apiV2TagsPut**
-> TagModel apiV2TagsPut(id, tagPutModel)
+> TagApiResult apiV2TagsPut(id, updateTagApiModel)
 
 Update tag
 
- Use case   User sets tag ID and model (listed in the request example)   User runs method execution   System updates tag   System returns tag model (listed in the response example)
+ Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)
 
 ### Example
 ```java
@@ -338,9 +266,9 @@ public class Example {
 
     TagsApi apiInstance = new TagsApi(defaultClient);
     UUID id = UUID.randomUUID(); // UUID | 
-    TagPutModel tagPutModel = new TagPutModel(); // TagPutModel | 
+    UpdateTagApiModel updateTagApiModel = new UpdateTagApiModel(); // UpdateTagApiModel | 
     try {
-      TagModel result = apiInstance.apiV2TagsPut(id, tagPutModel);
+      TagApiResult result = apiInstance.apiV2TagsPut(id, updateTagApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsPut");
@@ -358,11 +286,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | [optional] |
-| **tagPutModel** | [**TagPutModel**](TagPutModel.md)|  | [optional] |
+| **updateTagApiModel** | [**UpdateTagApiModel**](UpdateTagApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**TagModel**](TagModel.md)
+[**TagApiResult**](TagApiResult.md)
 
 ### Authorization
 
@@ -377,7 +305,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
-| **400** |  - ID is not valid   - Name cannot be empty or contain only white space characters   - Name already in use   - Name must be no more than 30 characters long |  -  |
+| **400** |  - ID is not valid  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Project creator role is required |  -  |
 | **404** | Tag with provided ID cannot be found |  -  |
@@ -386,11 +314,11 @@ public class Example {
 
 <a id="apiV2TagsSearchGet"></a>
 # **apiV2TagsSearchGet**
-> List&lt;TagModel&gt; apiV2TagsSearchGet(skip, take, orderBy, searchField, searchValue)
+> List&lt;TagApiResult&gt; apiV2TagsSearchGet(skip, take, orderBy, searchField, searchValue)
 
 Search tags
 
- Use case   User runs method execution   System returns collection of tags (listed in the response example)
+ Use case  User runs method execution  System returns collection of tags (listed in the response example)
 
 ### Example
 ```java
@@ -420,7 +348,7 @@ public class Example {
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
     try {
-      List<TagModel> result = apiInstance.apiV2TagsSearchGet(skip, take, orderBy, searchField, searchValue);
+      List<TagApiResult> result = apiInstance.apiV2TagsSearchGet(skip, take, orderBy, searchField, searchValue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsSearchGet");
@@ -445,7 +373,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TagModel&gt;**](TagModel.md)
+[**List&lt;TagApiResult&gt;**](TagApiResult.md)
 
 ### Authorization
 
@@ -460,7 +388,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found |  -  |
+| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -469,11 +397,11 @@ public class Example {
 
 <a id="apiV2TagsTestPlansTagsGet"></a>
 # **apiV2TagsTestPlansTagsGet**
-> List&lt;TagModel&gt; apiV2TagsTestPlansTagsGet(skip, take, orderBy, searchField, searchValue)
+> List&lt;TagApiResult&gt; apiV2TagsTestPlansTagsGet(skip, take, orderBy, searchField, searchValue)
 
 Get all Tags that are used in TestPlans
 
- Use case   User runs method execution   System returns tags (listed in the response example)
+ Use case  User runs method execution  System returns tags (listed in the response example)
 
 ### Example
 ```java
@@ -503,7 +431,7 @@ public class Example {
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
     try {
-      List<TagModel> result = apiInstance.apiV2TagsTestPlansTagsGet(skip, take, orderBy, searchField, searchValue);
+      List<TagApiResult> result = apiInstance.apiV2TagsTestPlansTagsGet(skip, take, orderBy, searchField, searchValue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagsApi#apiV2TagsTestPlansTagsGet");
@@ -528,7 +456,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TagModel&gt;**](TagModel.md)
+[**List&lt;TagApiResult&gt;**](TagApiResult.md)
 
 ### Authorization
 
@@ -543,7 +471,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found |  -  |
+| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |

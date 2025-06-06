@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tags** | [**List&lt;TagPostModel&gt;**](TagPostModel.md) | Test plan tag names collection |  [optional] |
+|**tags** | [**List&lt;TagApiModel&gt;**](TagApiModel.md) | Test plan tag names collection |  [optional] |
 |**name** | **String** | Test plan name |  |
 |**startDate** | **OffsetDateTime** | Date and time of test plan start |  [optional] |
 |**endDate** | **OffsetDateTime** | Date and time of test plan end |  [optional] |

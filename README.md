@@ -19,7 +19,7 @@
 | 5.2     | 0.4.2           |
 | 5.2.2   | 1.0.0-TMS-5.2.2 |
 | 5.3     | 2.0.1-TMS-5.3   |
-| Cloud   | 2.0.0-TMS-CLOUD |
+| Cloud   | 2.1.0-TMS-CLOUD |
 
 ### Installation
 
@@ -209,6 +209,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**apiV2ProjectsPurgeBulkPost**](docs/ProjectsApi.md#apiV2ProjectsPurgeBulkPost) | **POST** /api/v2/projects/purge/bulk | Purge multiple projects
 *ProjectsApi* | [**apiV2ProjectsRestoreBulkPost**](docs/ProjectsApi.md#apiV2ProjectsRestoreBulkPost) | **POST** /api/v2/projects/restore/bulk | Restore multiple projects
 *ProjectsApi* | [**apiV2ProjectsSearchPost**](docs/ProjectsApi.md#apiV2ProjectsSearchPost) | **POST** /api/v2/projects/search | Search for projects
+*ProjectsApi* | [**apiV2ProjectsShortsPost**](docs/ProjectsApi.md#apiV2ProjectsShortsPost) | **POST** /api/v2/projects/shorts | Get projects short models
 *ProjectsApi* | [**createProject**](docs/ProjectsApi.md#createProject) | **POST** /api/v2/projects | Create project
 *ProjectsApi* | [**deleteProjectAutoTests**](docs/ProjectsApi.md#deleteProjectAutoTests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 *ProjectsApi* | [**getAllProjects**](docs/ProjectsApi.md#getAllProjects) | **GET** /api/v2/projects | Get all projects
@@ -227,7 +228,6 @@ Class | Method | HTTP request | Description
 *SectionsApi* | [**rename**](docs/SectionsApi.md#rename) | **POST** /api/v2/sections/rename | Rename section
 *SectionsApi* | [**updateSection**](docs/SectionsApi.md#updateSection) | **PUT** /api/v2/sections | Update section
 *TagsApi* | [**apiV2TagsDelete**](docs/TagsApi.md#apiV2TagsDelete) | **DELETE** /api/v2/tags | Delete tags
-*TagsApi* | [**apiV2TagsGet**](docs/TagsApi.md#apiV2TagsGet) | **GET** /api/v2/tags | Get all Tags
 *TagsApi* | [**apiV2TagsIdDelete**](docs/TagsApi.md#apiV2TagsIdDelete) | **DELETE** /api/v2/tags/{id} | Delete tag
 *TagsApi* | [**apiV2TagsPost**](docs/TagsApi.md#apiV2TagsPost) | **POST** /api/v2/tags | Create tag
 *TagsApi* | [**apiV2TagsPut**](docs/TagsApi.md#apiV2TagsPut) | **PUT** /api/v2/tags | Update tag
@@ -307,13 +307,6 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**startTestRun**](docs/TestRunsApi.md#startTestRun) | **POST** /api/v2/testRuns/{id}/start | Start TestRun
 *TestRunsApi* | [**stopTestRun**](docs/TestRunsApi.md#stopTestRun) | **POST** /api/v2/testRuns/{id}/stop | Stop TestRun
 *TestRunsApi* | [**updateEmpty**](docs/TestRunsApi.md#updateEmpty) | **PUT** /api/v2/testRuns | Update empty TestRun
-*TestStatusesApi* | [**apiV2TestStatusesCodeCodeExistsGet**](docs/TestStatusesApi.md#apiV2TestStatusesCodeCodeExistsGet) | **GET** /api/v2/testStatuses/code/{code}/exists | 
-*TestStatusesApi* | [**apiV2TestStatusesGet**](docs/TestStatusesApi.md#apiV2TestStatusesGet) | **GET** /api/v2/testStatuses | 
-*TestStatusesApi* | [**apiV2TestStatusesIdDelete**](docs/TestStatusesApi.md#apiV2TestStatusesIdDelete) | **DELETE** /api/v2/testStatuses/{id} | 
-*TestStatusesApi* | [**apiV2TestStatusesIdGet**](docs/TestStatusesApi.md#apiV2TestStatusesIdGet) | **GET** /api/v2/testStatuses/{id} | 
-*TestStatusesApi* | [**apiV2TestStatusesNameNameExistsGet**](docs/TestStatusesApi.md#apiV2TestStatusesNameNameExistsGet) | **GET** /api/v2/testStatuses/name/{name}/exists | 
-*TestStatusesApi* | [**apiV2TestStatusesPost**](docs/TestStatusesApi.md#apiV2TestStatusesPost) | **POST** /api/v2/testStatuses | 
-*TestStatusesApi* | [**apiV2TestStatusesPut**](docs/TestStatusesApi.md#apiV2TestStatusesPut) | **PUT** /api/v2/testStatuses | 
 *TestSuitesApi* | [**addTestPointsToTestSuite**](docs/TestSuitesApi.md#addTestPointsToTestSuite) | **POST** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 *TestSuitesApi* | [**apiV2TestSuitesIdPatch**](docs/TestSuitesApi.md#apiV2TestSuitesIdPatch) | **PATCH** /api/v2/testSuites/{id} | Patch test suite
 *TestSuitesApi* | [**apiV2TestSuitesIdRefreshPost**](docs/TestSuitesApi.md#apiV2TestSuitesIdRefreshPost) | **POST** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method

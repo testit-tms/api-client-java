@@ -15,6 +15,7 @@
 |**statuses** | **List&lt;TestPointStatus&gt;** | Specifies a test point statuses to search for |  [optional] |
 |**statusCodes** | **List&lt;String&gt;** | Specifies a test point status codes to search for |  [optional] |
 |**priorities** | **List&lt;WorkItemPriorityModel&gt;** | Specifies a test point priorities to search for |  [optional] |
+|**sourceTypes** | **List&lt;WorkItemSourceTypeModel&gt;** | Specifies a test point source types to search for |  [optional] |
 |**isAutomated** | **Boolean** | Specifies a test point automation status to search for |  [optional] |
 |**name** | **String** | Specifies a test point name to search for |  [optional] |
 |**configurationIds** | **List&lt;UUID&gt;** | Specifies a test point configuration IDs to search for |  [optional] |

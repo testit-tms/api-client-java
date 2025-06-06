@@ -303,7 +303,7 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   /**
-   * Collection of types of work item   Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
+   * Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
    */
   @javax.annotation.Nullable

@@ -151,7 +151,7 @@ public class NotificationsApi {
 
     /**
      * Get unread Notifications total in last 7 days
-     *  Use case   User runs method execution   System returns unread notifications total (listed in the response example)
+     *  Use case  User runs method execution  System returns unread notifications total (listed in the response example)
      * @param isRead  (optional)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -174,7 +174,7 @@ public class NotificationsApi {
 
     /**
      * Get unread Notifications total in last 7 days
-     *  Use case   User runs method execution   System returns unread notifications total (listed in the response example)
+     *  Use case  User runs method execution  System returns unread notifications total (listed in the response example)
      * @param isRead  (optional)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -198,7 +198,7 @@ public class NotificationsApi {
 
     /**
      * Get unread Notifications total in last 7 days (asynchronously)
-     *  Use case   User runs method execution   System returns unread notifications total (listed in the response example)
+     *  Use case  User runs method execution  System returns unread notifications total (listed in the response example)
      * @param isRead  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -237,7 +237,7 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -321,7 +321,7 @@ public class NotificationsApi {
 
     /**
      * Get all Notifications for current User
-     *  Use case   User runs method execution   System returns notifications (listed in the response example)
+     *  Use case  User runs method execution  System returns notifications (listed in the response example)
      * @param notificationType  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -334,7 +334,7 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -349,7 +349,7 @@ public class NotificationsApi {
 
     /**
      * Get all Notifications for current User
-     *  Use case   User runs method execution   System returns notifications (listed in the response example)
+     *  Use case  User runs method execution  System returns notifications (listed in the response example)
      * @param notificationType  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -362,7 +362,7 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -378,7 +378,7 @@ public class NotificationsApi {
 
     /**
      * Get all Notifications for current User (asynchronously)
-     *  Use case   User runs method execution   System returns notifications (listed in the response example)
+     *  Use case  User runs method execution  System returns notifications (listed in the response example)
      * @param notificationType  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -392,7 +392,7 @@ public class NotificationsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols   orderByStatement has invalid length   orderByStatement must have uuid as attribute key   Search field not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -484,7 +484,7 @@ public class NotificationsApi {
 
     /**
      * Set Notification as read
-     *  Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
+     *  Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
      * @param id  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -506,7 +506,7 @@ public class NotificationsApi {
 
     /**
      * Set Notification as read
-     *  Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
+     *  Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
      * @param id  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -530,7 +530,7 @@ public class NotificationsApi {
 
     /**
      * Set Notification as read (asynchronously)
-     *  Use case   User sets notification internal (guid format) identifier   User runs method execution   System set notification as read
+     *  Use case  User sets notification internal (guid format) identifier  User runs method execution  System set notification as read
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -624,7 +624,7 @@ public class NotificationsApi {
 
     /**
      * Set all Notifications as read
-     *  Use case   User runs method execution   System set all notifications as read
+     *  Use case  User runs method execution  System set all notifications as read
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -645,7 +645,7 @@ public class NotificationsApi {
 
     /**
      * Set all Notifications as read
-     *  Use case   User runs method execution   System set all notifications as read
+     *  Use case  User runs method execution  System set all notifications as read
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -668,7 +668,7 @@ public class NotificationsApi {
 
     /**
      * Set all Notifications as read (asynchronously)
-     *  Use case   User runs method execution   System set all notifications as read
+     *  Use case  User runs method execution  System set all notifications as read
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -787,7 +787,7 @@ public class NotificationsApi {
 
     /**
      * Search Notifications for current User
-     *  Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
+     *  Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -815,7 +815,7 @@ public class NotificationsApi {
 
     /**
      * Search Notifications for current User
-     *  Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
+     *  Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -844,7 +844,7 @@ public class NotificationsApi {
 
     /**
      * Search Notifications for current User (asynchronously)
-     *  Use case   User set filter and runs method execution   System returns notifications (listed in the response example)
+     *  Use case  User set filter and runs method execution  System returns notifications (listed in the response example)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)

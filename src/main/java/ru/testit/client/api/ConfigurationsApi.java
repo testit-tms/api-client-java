@@ -1613,7 +1613,7 @@ public class ConfigurationsApi {
 
     /**
      * Create Configuration
-     *  Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)
+     *  Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
      * @param configurationPostModel  (optional)
      * @return ConfigurationModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1636,7 +1636,7 @@ public class ConfigurationsApi {
 
     /**
      * Create Configuration
-     *  Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)
+     *  Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
      * @param configurationPostModel  (optional)
      * @return ApiResponse&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1660,7 +1660,7 @@ public class ConfigurationsApi {
 
     /**
      * Create Configuration (asynchronously)
-     *  Use case   User sets configuration model (listed in the request example)   User runs method execution   System creates configuration   System returns created configuration (listed in the response example)
+     *  Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
      * @param configurationPostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1760,7 +1760,7 @@ public class ConfigurationsApi {
 
     /**
      * Get configuration by internal or global ID
-     *  Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration
+     *  Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
      * @param id Configuration internal (guid format) or global (integer format) identifier (required)
      * @return ConfigurationModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1783,7 +1783,7 @@ public class ConfigurationsApi {
 
     /**
      * Get configuration by internal or global ID
-     *  Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration
+     *  Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
      * @param id Configuration internal (guid format) or global (integer format) identifier (required)
      * @return ApiResponse&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1807,7 +1807,7 @@ public class ConfigurationsApi {
 
     /**
      * Get configuration by internal or global ID (asynchronously)
-     *  Use case   User sets configuration internal (guid format) or global (integer format) identifier   User runs method execution   System search configuration using the identifier   System returns configuration
+     *  Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
      * @param id Configuration internal (guid format) or global (integer format) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

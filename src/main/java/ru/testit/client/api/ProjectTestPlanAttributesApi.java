@@ -90,7 +90,7 @@ public class ProjectTestPlanAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -157,7 +157,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Add attributes to project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attributes identifiers   User runs method execution   System updates project and add attributes to project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -165,7 +165,7 @@ public class ProjectTestPlanAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -179,7 +179,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Add attributes to project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attributes identifiers   User runs method execution   System updates project and add attributes to project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -188,7 +188,7 @@ public class ProjectTestPlanAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -203,7 +203,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Add attributes to project&#39;s test plans (asynchronously)
-     *  Use case   User sets project internal or global identifier and attributes identifiers   User runs method execution   System updates project and add attributes to project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -213,7 +213,7 @@ public class ProjectTestPlanAttributesApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -310,7 +310,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Delete attribute from project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -332,7 +332,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Delete attribute from project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -356,7 +356,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Delete attribute from project&#39;s test plans (asynchronously)
-     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -456,7 +456,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Get project&#39;s test plan attributes
-     *  Use case   User runs method execution   System returns project for test plans attributes by project identifier
+     *  Use case  User runs method execution  System returns project for test plans attributes by project identifier
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;CustomAttributeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -479,7 +479,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Get project&#39;s test plan attributes
-     *  Use case   User runs method execution   System returns project for test plans attributes by project identifier
+     *  Use case  User runs method execution  System returns project for test plans attributes by project identifier
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -503,7 +503,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Get project&#39;s test plan attributes (asynchronously)
-     *  Use case   User runs method execution   System returns project for test plans attributes by project identifier
+     *  Use case  User runs method execution  System returns project for test plans attributes by project identifier
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -797,7 +797,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Update attribute of project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -819,7 +819,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Update attribute of project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -843,7 +843,7 @@ public class ProjectTestPlanAttributesApi {
 
     /**
      * Update attribute of project&#39;s test plans (asynchronously)
-     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
      * @param projectId Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes

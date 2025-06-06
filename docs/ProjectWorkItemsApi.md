@@ -268,11 +268,11 @@ public class Example {
 
 <a id="apiV2ProjectsProjectIdWorkItemsTagsGet"></a>
 # **apiV2ProjectsProjectIdWorkItemsTagsGet**
-> List&lt;TagShortModel&gt; apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted)
+> List&lt;TagShortApiResult&gt; apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted)
 
 Get WorkItems Tags
 
- Use case   User sets project internal identifier    User runs method execution   System returns work items tags
+ Use case  User sets project internal identifier  User runs method execution  System returns work items tags
 
 ### Example
 ```java
@@ -299,7 +299,7 @@ public class Example {
     UUID projectId = UUID.randomUUID(); // UUID | Project internal (UUID) identifier
     Boolean isDeleted = true; // Boolean | 
     try {
-      List<TagShortModel> result = apiInstance.apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted);
+      List<TagShortApiResult> result = apiInstance.apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectWorkItemsApi#apiV2ProjectsProjectIdWorkItemsTagsGet");
@@ -321,7 +321,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;TagShortModel&gt;**](TagShortModel.md)
+[**List&lt;TagShortApiResult&gt;**](TagShortApiResult.md)
 
 ### Authorization
 
@@ -349,7 +349,7 @@ public class Example {
 
 Get project work items
 
- Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project   [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted   If User did not set isDeleted field value, System search all  workitems related to project   System returns array of found workitems (listed in response model)
+ Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
 
 ### Example
 ```java
@@ -427,7 +427,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** |  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters   - &#x60;orderBy&#x60; statement has invalid length   - &#x60;orderBy&#x60; statement must have UUID as attribute key   - Search field was not found |  -  |
+| **400** |  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |

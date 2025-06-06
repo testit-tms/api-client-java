@@ -33,11 +33,13 @@ import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
 import ru.testit.client.model.DemoProjectApiResult;
 import ru.testit.client.model.FailureClassModel;
 import ru.testit.client.model.FilterModel;
+import ru.testit.client.model.GetShortProjectsApiModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.ProjectModel;
 import ru.testit.client.model.ProjectSelectModel;
+import ru.testit.client.model.ProjectShortApiResultReply;
 import ru.testit.client.model.ProjectShortModel;
 import ru.testit.client.model.ProjectsFilterModel;
 import ru.testit.client.model.PublicTestRunModel;
@@ -103,7 +105,7 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -170,7 +172,7 @@ public class ProjectsApi {
 
     /**
      * Add global attributes to project
-     *  Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
+     *  Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -178,7 +180,7 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -192,7 +194,7 @@ public class ProjectsApi {
 
     /**
      * Add global attributes to project
-     *  Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
+     *  Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -201,7 +203,7 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -216,7 +218,7 @@ public class ProjectsApi {
 
     /**
      * Add global attributes to project (asynchronously)
-     *  Use case   User sets project internal or global identifier and attributes identifiers   System search project   System relates global attributes with project   System returns no content response
+     *  Use case  User sets project internal or global identifier and attributes identifiers  System search project  System relates global attributes with project  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param UUID  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -226,7 +228,7 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>   Attributes must be global  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Project admin permission for project settings is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -899,7 +901,7 @@ public class ProjectsApi {
 
     /**
      * Get Project filters
-     *  Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
+     *  Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;FilterModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -922,7 +924,7 @@ public class ProjectsApi {
 
     /**
      * Get Project filters
-     *  Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
+     *  Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;FilterModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -946,7 +948,7 @@ public class ProjectsApi {
 
     /**
      * Get Project filters (asynchronously)
-     *  Use case   User sets project internal or global identifier    User runs method execution   System returns project filters
+     *  Use case  User sets project internal or global identifier  User runs method execution  System returns project filters
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1490,7 +1492,7 @@ public class ProjectsApi {
 
     /**
      * Delete attribute from project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1514,7 +1516,7 @@ public class ProjectsApi {
 
     /**
      * Delete attribute from project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1540,7 +1542,7 @@ public class ProjectsApi {
 
     /**
      * Delete attribute from project&#39;s test plans (asynchronously)
-     *  Use case   User sets project internal or global identifier and attribute identifier   User runs method execution   System updates project and delete attribute from project for test plans   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param attributeId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1647,7 +1649,7 @@ public class ProjectsApi {
 
     /**
      * Update attribute of project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1671,7 +1673,7 @@ public class ProjectsApi {
 
     /**
      * Update attribute of project&#39;s test plans
-     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -1697,7 +1699,7 @@ public class ProjectsApi {
 
     /**
      * Update attribute of project&#39;s test plans (asynchronously)
-     *  Use case   User sets project internal or global identifier and attribute model   User runs method execution   System updates project and project attribute for test plan   System returns no content response
+     *  Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param customAttributeTestPlanProjectRelationPutModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1799,7 +1801,7 @@ public class ProjectsApi {
 
     /**
      * Get active Project TestRuns
-     *  Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
+     *  Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;PublicTestRunModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1822,7 +1824,7 @@ public class ProjectsApi {
 
     /**
      * Get active Project TestRuns
-     *  Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
+     *  Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;PublicTestRunModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1846,7 +1848,7 @@ public class ProjectsApi {
 
     /**
      * Get active Project TestRuns (asynchronously)
-     *  Use case   User sets project internal or global identifier    User runs method execution   System returns active testruns
+     *  Use case  User sets project internal or global identifier  User runs method execution  System returns active testruns
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2016,7 +2018,7 @@ public class ProjectsApi {
 
     /**
      * Get Project TestRuns full models
-     *  Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
+     *  Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param includeTestResults  (optional)
      * @param mustAggregateTestResults  (optional)
@@ -2053,7 +2055,7 @@ public class ProjectsApi {
 
     /**
      * Get Project TestRuns full models
-     *  Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
+     *  Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param includeTestResults  (optional)
      * @param mustAggregateTestResults  (optional)
@@ -2091,7 +2093,7 @@ public class ProjectsApi {
 
     /**
      * Get Project TestRuns full models (asynchronously)
-     *  Use case   User sets project internal or global identifier    User sets query params    User runs method execution   System returns project test runs full models
+     *  Use case  User sets project internal or global identifier  User sets query params  User runs method execution  System returns project test runs full models
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param includeTestResults  (optional)
      * @param mustAggregateTestResults  (optional)
@@ -2743,6 +2745,148 @@ public class ProjectsApi {
         return localVarCall;
     }
     /**
+     * Build call for apiV2ProjectsShortsPost
+     * @param getShortProjectsApiModel  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2ProjectsShortsPostCall(GetShortProjectsApiModel getShortProjectsApiModel, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = getShortProjectsApiModel;
+
+        // create path and map variables
+        String localVarPath = "/api/v2/projects/shorts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer or PrivateToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call apiV2ProjectsShortsPostValidateBeforeCall(GetShortProjectsApiModel getShortProjectsApiModel, final ApiCallback _callback) throws ApiException {
+        return apiV2ProjectsShortsPostCall(getShortProjectsApiModel, _callback);
+
+    }
+
+    /**
+     * Get projects short models
+     *  Use case  User sets query params  User runs method execution  System return projects short models
+     * @param getShortProjectsApiModel  (optional)
+     * @return ProjectShortApiResultReply
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public ProjectShortApiResultReply apiV2ProjectsShortsPost(GetShortProjectsApiModel getShortProjectsApiModel) throws ApiException {
+        ApiResponse<ProjectShortApiResultReply> localVarResp = apiV2ProjectsShortsPostWithHttpInfo(getShortProjectsApiModel);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get projects short models
+     *  Use case  User sets query params  User runs method execution  System return projects short models
+     * @param getShortProjectsApiModel  (optional)
+     * @return ApiResponse&lt;ProjectShortApiResultReply&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ProjectShortApiResultReply> apiV2ProjectsShortsPostWithHttpInfo(GetShortProjectsApiModel getShortProjectsApiModel) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ProjectsShortsPostValidateBeforeCall(getShortProjectsApiModel, null);
+        Type localVarReturnType = new TypeToken<ProjectShortApiResultReply>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get projects short models (asynchronously)
+     *  Use case  User sets query params  User runs method execution  System return projects short models
+     * @param getShortProjectsApiModel  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call apiV2ProjectsShortsPostAsync(GetShortProjectsApiModel getShortProjectsApiModel, final ApiCallback<ProjectShortApiResultReply> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = apiV2ProjectsShortsPostValidateBeforeCall(getShortProjectsApiModel, _callback);
+        Type localVarReturnType = new TypeToken<ProjectShortApiResultReply>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createProject
      * @param createProjectApiModel  (optional)
      * @param _callback Callback for upload/download progress
@@ -2813,7 +2957,7 @@ public class ProjectsApi {
 
     /**
      * Create project
-     *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+     *  Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
      * @param createProjectApiModel  (optional)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2836,7 +2980,7 @@ public class ProjectsApi {
 
     /**
      * Create project
-     *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+     *  Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
      * @param createProjectApiModel  (optional)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2860,7 +3004,7 @@ public class ProjectsApi {
 
     /**
      * Create project (asynchronously)
-     *  Use case   User sets project parameters (listed in request example) and runs method execution   System creates project   System returns project model (example listed in response parameters)
+     *  Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
      * @param createProjectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3134,7 +3278,7 @@ public class ProjectsApi {
 
     /**
      * Get all projects
-     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
+     *  Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -3165,7 +3309,7 @@ public class ProjectsApi {
 
     /**
      * Get all projects
-     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
+     *  Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -3197,7 +3341,7 @@ public class ProjectsApi {
 
     /**
      * Get all projects (asynchronously)
-     *  Use case   [Optional] User sets isDeleted field value   [Optional] If User sets isDeleted field value as true, System search all deleted projects   [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted   If User did not set isDeleted field value, System search all projects   System returns array of all found projects(listed in response model)
+     *  Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted projects  [Optional] If User sets isDeleted field value as false, System search all projects which are not deleted  If User did not set isDeleted field value, System search all projects  System returns array of all found projects(listed in response model)
      * @param isDeleted If result must consist of only actual/deleted parameters (optional)
      * @param projectName  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
@@ -3305,7 +3449,7 @@ public class ProjectsApi {
 
     /**
      * Get namespaces of autotests in project
-     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
+     *  Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return List&lt;AutoTestNamespaceModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3328,7 +3472,7 @@ public class ProjectsApi {
 
     /**
      * Get namespaces of autotests in project
-     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
+     *  Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;List&lt;AutoTestNamespaceModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3352,7 +3496,7 @@ public class ProjectsApi {
 
     /**
      * Get namespaces of autotests in project (asynchronously)
-     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System search all autotest related to the project   System returns array of autotest with namespaces and classnames (listed in response)
+     *  Use case  User sets project internal or global identifier and runs method execution  System search project  System search all autotest related to the project  System returns array of autotest with namespaces and classnames (listed in response)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3453,7 +3597,7 @@ public class ProjectsApi {
 
     /**
      * Get project by ID
-     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
+     *  Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ProjectModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3477,7 +3621,7 @@ public class ProjectsApi {
 
     /**
      * Get project by ID
-     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
+     *  Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @return ApiResponse&lt;ProjectModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3502,7 +3646,7 @@ public class ProjectsApi {
 
     /**
      * Get project by ID (asynchronously)
-     *  Use case   User sets project internal or global identifier and runs method execution   System search project   System returns project (example listed in response parameters)
+     *  Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3608,7 +3752,7 @@ public class ProjectsApi {
 
     /**
      * Get project test plans
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @return List&lt;TestPlanModel&gt;
@@ -3632,7 +3776,7 @@ public class ProjectsApi {
 
     /**
      * Get project test plans
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @return ApiResponse&lt;List&lt;TestPlanModel&gt;&gt;
@@ -3657,7 +3801,7 @@ public class ProjectsApi {
 
     /**
      * Get project test plans (asynchronously)
-     *  Use case   User sets project internal or global identifier   [Optional] User sets isDeleted field value   User runs method execution   System search project   [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project   [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted   [Optional] If User did not set isDeleted field value, System search all v related to project   System returns array of found test plans (listed in response model)
+     *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param isDeleted If result must consist of only actual/archived test plans (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3838,7 +3982,7 @@ public class ProjectsApi {
 
     /**
      * Get project test runs
-     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
+     *  Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (required)
      * @param inProgress  (required)
@@ -3873,7 +4017,7 @@ public class ProjectsApi {
 
     /**
      * Get project test runs
-     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
+     *  Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (required)
      * @param inProgress  (required)
@@ -3909,7 +4053,7 @@ public class ProjectsApi {
 
     /**
      * Get project test runs (asynchronously)
-     *  Use case   User sets project internal or global identifier   User runs method execution   System search project   System search all test runs related to project   System returns array of found test runs (listed in response model)
+     *  Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all test runs related to project  System returns array of found test runs (listed in response model)
      * @param id Project internal (UUID) or global (integer) identifier (required)
      * @param notStarted  (required)
      * @param inProgress  (required)
@@ -3955,7 +4099,7 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is invalid   - Field is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid  - Field is required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -4016,14 +4160,14 @@ public class ProjectsApi {
 
     /**
      * Update project
-     *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+     *  Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
      * @param updateProjectApiModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is invalid   - Field is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid  - Field is required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -4037,7 +4181,7 @@ public class ProjectsApi {
 
     /**
      * Update project
-     *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+     *  Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
      * @param updateProjectApiModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4045,7 +4189,7 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is invalid   - Field is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid  - Field is required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -4060,7 +4204,7 @@ public class ProjectsApi {
 
     /**
      * Update project (asynchronously)
-     *  Use case   User sets project parameters (listed in request example) and runs method execution   System updates project   System returns updated project model (example listed in response parameters)
+     *  Use case  User sets project parameters (listed in request example) and runs method execution  System updates project  System returns updated project model (example listed in response parameters)
      * @param updateProjectApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4069,7 +4213,7 @@ public class ProjectsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  - ID is invalid   - Field is required </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  - ID is invalid  - Field is required </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for projects is required </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>

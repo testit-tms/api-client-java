@@ -277,7 +277,7 @@ public class AutoTestStepResult {
   }
 
   /**
-   * /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt;
+   * /// &lt;summary&gt; Specifies an attachment GUID. Multiple values can be sent. &lt;/summary&gt;
    * @return attachments
    */
   @javax.annotation.Nullable

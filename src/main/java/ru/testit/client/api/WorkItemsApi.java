@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import ru.testit.client.model.AutoTestModel;
+import ru.testit.client.model.CreateWorkItemApiModel;
 import java.io.File;
 import ru.testit.client.model.IterationModel;
 import java.time.OffsetDateTime;
@@ -40,14 +41,13 @@ import ru.testit.client.model.SharedStepReferencesQueryFilterModel;
 import ru.testit.client.model.TestResultChronologyModel;
 import ru.testit.client.model.TestResultHistoryReportApiResult;
 import java.util.UUID;
+import ru.testit.client.model.UpdateWorkItemApiModel;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemChangeModel;
 import ru.testit.client.model.WorkItemLikeModel;
 import ru.testit.client.model.WorkItemLinkUrlApiModel;
 import ru.testit.client.model.WorkItemModel;
 import ru.testit.client.model.WorkItemMovePostModel;
-import ru.testit.client.model.WorkItemPostModel;
-import ru.testit.client.model.WorkItemPutModel;
 import ru.testit.client.model.WorkItemSelectApiModel;
 import ru.testit.client.model.WorkItemShortApiResult;
 import ru.testit.client.model.WorkItemShortModel;
@@ -179,7 +179,7 @@ public class WorkItemsApi {
 
     /**
      * Upload and link attachment to WorkItem
-     *  Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier
+     *  Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
      * @param id Work item internal identifier (guid format) (required)
      * @param _file Select file (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -202,7 +202,7 @@ public class WorkItemsApi {
 
     /**
      * Upload and link attachment to WorkItem
-     *  Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier
+     *  Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
      * @param id Work item internal identifier (guid format) (required)
      * @param _file Select file (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -227,7 +227,7 @@ public class WorkItemsApi {
 
     /**
      * Upload and link attachment to WorkItem (asynchronously)
-     *  Use case   User sets workItemId   User attaches a file   System creates attachment and links it to the work item   System returns attachment identifier
+     *  Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
      * @param id Work item internal identifier (guid format) (required)
      * @param _file Select file (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -328,7 +328,7 @@ public class WorkItemsApi {
 
     /**
      * Transform CheckList to TestCase
-     *  Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase
+     *  Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
      * @param id  (required)
      * @return WorkItemModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -351,7 +351,7 @@ public class WorkItemsApi {
 
     /**
      * Transform CheckList to TestCase
-     *  Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase
+     *  Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
      * @param id  (required)
      * @return ApiResponse&lt;WorkItemModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -375,7 +375,7 @@ public class WorkItemsApi {
 
     /**
      * Transform CheckList to TestCase (asynchronously)
-     *  Use case   User sets checklist identifier   User runs method execution   System transform CheckList to TestCase
+     *  Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -500,7 +500,7 @@ public class WorkItemsApi {
 
     /**
      * Get change history of WorkItem
-     *  Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem
+     *  Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
      * @param id  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -528,7 +528,7 @@ public class WorkItemsApi {
 
     /**
      * Get change history of WorkItem
-     *  Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem
+     *  Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
      * @param id  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -557,7 +557,7 @@ public class WorkItemsApi {
 
     /**
      * Get change history of WorkItem (asynchronously)
-     *  Use case   User sets work item identifier   User runs method execution   System return change history of WorkItem
+     *  Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
      * @param id  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -662,7 +662,7 @@ public class WorkItemsApi {
 
     /**
      * Delete like from WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
      * @param id  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -683,7 +683,7 @@ public class WorkItemsApi {
 
     /**
      * Delete like from WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
      * @param id  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -706,7 +706,7 @@ public class WorkItemsApi {
 
     /**
      * Delete like from WorkItem (asynchronously)
-     *  Use case   User sets WorkItem identifier   User runs method execution   System delete like from WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -805,7 +805,7 @@ public class WorkItemsApi {
 
     /**
      * Set like to WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
      * @param id  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -826,7 +826,7 @@ public class WorkItemsApi {
 
     /**
      * Set like to WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
      * @param id  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -849,7 +849,7 @@ public class WorkItemsApi {
 
     /**
      * Set like to WorkItem (asynchronously)
-     *  Use case   User sets WorkItem identifier   User runs method execution   System set like to WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -948,7 +948,7 @@ public class WorkItemsApi {
 
     /**
      * Get likes count of WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
      * @param id  (required)
      * @return Integer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -971,7 +971,7 @@ public class WorkItemsApi {
 
     /**
      * Get likes count of WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
      * @param id  (required)
      * @return ApiResponse&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -995,7 +995,7 @@ public class WorkItemsApi {
 
     /**
      * Get likes count of WorkItem (asynchronously)
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return likes count of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1095,7 +1095,7 @@ public class WorkItemsApi {
 
     /**
      * Get likes of WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
      * @param id  (required)
      * @return List&lt;WorkItemLikeModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1118,7 +1118,7 @@ public class WorkItemsApi {
 
     /**
      * Get likes of WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
      * @param id  (required)
      * @return ApiResponse&lt;List&lt;WorkItemLikeModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1142,7 +1142,7 @@ public class WorkItemsApi {
 
     /**
      * Get likes of WorkItem (asynchronously)
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return likes of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1317,7 +1317,7 @@ public class WorkItemsApi {
 
     /**
      * Get test results history of WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
      * @param id  (required)
      * @param from Take results from this date (optional)
      * @param to Take results until this date (optional)
@@ -1355,7 +1355,7 @@ public class WorkItemsApi {
 
     /**
      * Get test results history of WorkItem
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
      * @param id  (required)
      * @param from Take results from this date (optional)
      * @param to Take results until this date (optional)
@@ -1394,7 +1394,7 @@ public class WorkItemsApi {
 
     /**
      * Get test results history of WorkItem (asynchronously)
-     *  Use case   User sets WorkItem identifier   User runs method execution   System return test results history of WorkItem
+     *  Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
      * @param id  (required)
      * @param from Take results from this date (optional)
      * @param to Take results until this date (optional)
@@ -1516,7 +1516,7 @@ public class WorkItemsApi {
 
     /**
      * Set WorkItem as actual
-     *  Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual
+     *  Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
      * @param id  (required)
      * @param versionId  (required)
      * @return WorkItemModel
@@ -1540,7 +1540,7 @@ public class WorkItemsApi {
 
     /**
      * Set WorkItem as actual
-     *  Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual
+     *  Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
      * @param id  (required)
      * @param versionId  (required)
      * @return ApiResponse&lt;WorkItemModel&gt;
@@ -1565,7 +1565,7 @@ public class WorkItemsApi {
 
     /**
      * Set WorkItem as actual (asynchronously)
-     *  Use case   User sets work item identifier   User runs method execution   System set WorkItem as actual
+     *  Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
      * @param id  (required)
      * @param versionId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1843,7 +1843,7 @@ public class WorkItemsApi {
 
     /**
      * Move WorkItem to another section
-     *  Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section
+     *  Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
      * @param workItemMovePostModel  (optional)
      * @return WorkItemShortModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1866,7 +1866,7 @@ public class WorkItemsApi {
 
     /**
      * Move WorkItem to another section
-     *  Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section
+     *  Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
      * @param workItemMovePostModel  (optional)
      * @return ApiResponse&lt;WorkItemShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1890,7 +1890,7 @@ public class WorkItemsApi {
 
     /**
      * Move WorkItem to another section (asynchronously)
-     *  Use case   User sets WorkItem identifier   User runs method execution   System move WorkItem to another section
+     *  Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
      * @param workItemMovePostModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2199,7 +2199,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references in sections
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -2228,7 +2228,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references in sections
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -2258,7 +2258,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references in sections (asynchronously)
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -2391,7 +2391,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references in work items
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -2420,7 +2420,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references in work items
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -2450,7 +2450,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references in work items (asynchronously)
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -2559,7 +2559,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @return List&lt;SharedStepReferenceModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2584,7 +2584,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @return ApiResponse&lt;List&lt;SharedStepReferenceModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2610,7 +2610,7 @@ public class WorkItemsApi {
 
     /**
      * Get SharedStep references (asynchronously)
-     *  Use case   User sets SharedStep identifier   User runs method execution   System return SharedStep references
+     *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
      * @param sharedStepId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2638,7 +2638,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for createWorkItem
-     * @param workItemPostModel  (optional)
+     * @param createWorkItemApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2646,15 +2646,15 @@ public class WorkItemsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  Field is required   Priority is not a valid   Tags must be set   Duration should be a positive number   Should be empty for CheckList   Attribute value must be a valid guid for user scheme   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required  Priority is not a valid  Tags must be set  Duration should be a positive number  Should be empty for CheckList  Attribute value must be a valid guid for user scheme  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  Can&#39;t find section   Can&#39;t find project   Can&#39;t find attachmentIds   Project not found   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find section  Can&#39;t find project  Can&#39;t find attachmentIds  Project not found  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWorkItemCall(WorkItemPostModel workItemPostModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createWorkItemCall(CreateWorkItemApiModel createWorkItemApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2668,7 +2668,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemPostModel;
+        Object localVarPostBody = createWorkItemApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems";
@@ -2700,62 +2700,62 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createWorkItemValidateBeforeCall(WorkItemPostModel workItemPostModel, final ApiCallback _callback) throws ApiException {
-        return createWorkItemCall(workItemPostModel, _callback);
+    private okhttp3.Call createWorkItemValidateBeforeCall(CreateWorkItemApiModel createWorkItemApiModel, final ApiCallback _callback) throws ApiException {
+        return createWorkItemCall(createWorkItemApiModel, _callback);
 
     }
 
     /**
      * Create Test Case, Checklist or Shared Step
-     *  Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)
-     * @param workItemPostModel  (optional)
+     *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
+     * @param createWorkItemApiModel  (optional)
      * @return WorkItemModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  Field is required   Priority is not a valid   Tags must be set   Duration should be a positive number   Should be empty for CheckList   Attribute value must be a valid guid for user scheme   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required  Priority is not a valid  Tags must be set  Duration should be a positive number  Should be empty for CheckList  Attribute value must be a valid guid for user scheme  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  Can&#39;t find section   Can&#39;t find project   Can&#39;t find attachmentIds   Project not found   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find section  Can&#39;t find project  Can&#39;t find attachmentIds  Project not found  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public WorkItemModel createWorkItem(WorkItemPostModel workItemPostModel) throws ApiException {
-        ApiResponse<WorkItemModel> localVarResp = createWorkItemWithHttpInfo(workItemPostModel);
+    public WorkItemModel createWorkItem(CreateWorkItemApiModel createWorkItemApiModel) throws ApiException {
+        ApiResponse<WorkItemModel> localVarResp = createWorkItemWithHttpInfo(createWorkItemApiModel);
         return localVarResp.getData();
     }
 
     /**
      * Create Test Case, Checklist or Shared Step
-     *  Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)
-     * @param workItemPostModel  (optional)
+     *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
+     * @param createWorkItemApiModel  (optional)
      * @return ApiResponse&lt;WorkItemModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  Field is required   Priority is not a valid   Tags must be set   Duration should be a positive number   Should be empty for CheckList   Attribute value must be a valid guid for user scheme   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required  Priority is not a valid  Tags must be set  Duration should be a positive number  Should be empty for CheckList  Attribute value must be a valid guid for user scheme  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  Can&#39;t find section   Can&#39;t find project   Can&#39;t find attachmentIds   Project not found   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find section  Can&#39;t find project  Can&#39;t find attachmentIds  Project not found  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WorkItemModel> createWorkItemWithHttpInfo(WorkItemPostModel workItemPostModel) throws ApiException {
-        okhttp3.Call localVarCall = createWorkItemValidateBeforeCall(workItemPostModel, null);
+    public ApiResponse<WorkItemModel> createWorkItemWithHttpInfo(CreateWorkItemApiModel createWorkItemApiModel) throws ApiException {
+        okhttp3.Call localVarCall = createWorkItemValidateBeforeCall(createWorkItemApiModel, null);
         Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create Test Case, Checklist or Shared Step (asynchronously)
-     *  Use case   User sets work item properties (listed in request parameters)   User runs method execution   System creates work item by identifier   System returns work item model (listed in response parameters)
-     * @param workItemPostModel  (optional)
+     *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
+     * @param createWorkItemApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2763,24 +2763,24 @@ public class WorkItemsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  Field is required   Priority is not a valid   Tags must be set   Duration should be a positive number   Should be empty for CheckList   Attribute value must be a valid guid for user scheme   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required  Priority is not a valid  Tags must be set  Duration should be a positive number  Should be empty for CheckList  Attribute value must be a valid guid for user scheme  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  Can&#39;t find section   Can&#39;t find project   Can&#39;t find attachmentIds   Project not found   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  Can&#39;t find section  Can&#39;t find project  Can&#39;t find attachmentIds  Project not found  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createWorkItemAsync(WorkItemPostModel workItemPostModel, final ApiCallback<WorkItemModel> _callback) throws ApiException {
+    public okhttp3.Call createWorkItemAsync(CreateWorkItemApiModel createWorkItemApiModel, final ApiCallback<WorkItemModel> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createWorkItemValidateBeforeCall(workItemPostModel, _callback);
+        okhttp3.Call localVarCall = createWorkItemValidateBeforeCall(createWorkItemApiModel, _callback);
         Type localVarReturnType = new TypeToken<WorkItemModel>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for deleteAllWorkItemsFromAutoTest
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2855,8 +2855,8 @@ public class WorkItemsApi {
 
     /**
      * Delete all links AutoTests from WorkItem by Id or GlobalId
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2877,8 +2877,8 @@ public class WorkItemsApi {
 
     /**
      * Delete all links AutoTests from WorkItem by Id or GlobalId
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2901,8 +2901,8 @@ public class WorkItemsApi {
 
     /**
      * Delete all links AutoTests from WorkItem by Id or GlobalId (asynchronously)
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search and delete all autotests, related to found work item   System returns no content response
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2927,7 +2927,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for deleteWorkItem
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3001,8 +3001,8 @@ public class WorkItemsApi {
 
     /**
      * Delete Test Case, Checklist or Shared Step by Id or GlobalId
-     *  Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3022,8 +3022,8 @@ public class WorkItemsApi {
 
     /**
      * Delete Test Case, Checklist or Shared Step by Id or GlobalId
-     *  Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3045,8 +3045,8 @@ public class WorkItemsApi {
 
     /**
      * Delete Test Case, Checklist or Shared Step by Id or GlobalId (asynchronously)
-     *  Use case   User sets work item identifier   User runs method execution   System deletes work item   System returns no content response
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3070,7 +3070,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for getAutoTestsForWorkItem
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3144,8 +3144,8 @@ public class WorkItemsApi {
 
     /**
      * Get all AutoTests linked to WorkItem by Id or GlobalId
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @return List&lt;AutoTestModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3167,8 +3167,8 @@ public class WorkItemsApi {
 
     /**
      * Get all AutoTests linked to WorkItem by Id or GlobalId
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3191,8 +3191,8 @@ public class WorkItemsApi {
 
     /**
      * Get all AutoTests linked to WorkItem by Id or GlobalId (asynchronously)
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search all autotests, related to found work item   System returns list of found autotests
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3217,7 +3217,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for getIterations
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @param _callback Callback for upload/download progress
@@ -3302,7 +3302,7 @@ public class WorkItemsApi {
     /**
      * Get iterations by work item Id or GlobalId
      * 
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @return List&lt;IterationModel&gt;
@@ -3327,7 +3327,7 @@ public class WorkItemsApi {
     /**
      * Get iterations by work item Id or GlobalId
      * 
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @return ApiResponse&lt;List&lt;IterationModel&gt;&gt;
@@ -3353,7 +3353,7 @@ public class WorkItemsApi {
     /**
      * Get iterations by work item Id or GlobalId (asynchronously)
      * 
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3380,7 +3380,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for getWorkItemById
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @param _callback Callback for upload/download progress
@@ -3464,8 +3464,8 @@ public class WorkItemsApi {
 
     /**
      * Get Test Case, Checklist or Shared Step by Id or GlobalId
-     *  Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item 
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @return WorkItemModel
@@ -3489,8 +3489,8 @@ public class WorkItemsApi {
 
     /**
      * Get Test Case, Checklist or Shared Step by Id or GlobalId
-     *  Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item 
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @return ApiResponse&lt;WorkItemModel&gt;
@@ -3515,8 +3515,8 @@ public class WorkItemsApi {
 
     /**
      * Get Test Case, Checklist or Shared Step by Id or GlobalId (asynchronously)
-     *  Use case   User sets work item identifier   [Optional] User sets work item version identifier   [Optional] User sets work item version number   User runs method execution   System search work item by identifier   [Optional] if User sets work item version identifier, system search work item version by identifier.   [Optional] if user sets work item version number, system search work item version by number   Otherwise, system search last work item version   System returns work item 
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+     *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
      * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
      * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -3558,7 +3558,9 @@ public class WorkItemsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getWorkItemChronologyCall(String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3604,6 +3606,7 @@ public class WorkItemsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWorkItemChronologyValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
@@ -3617,7 +3620,7 @@ public class WorkItemsApi {
 
     /**
      * Get WorkItem chronology by Id or GlobalId
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
      * @param id  (required)
      * @return List&lt;TestResultChronologyModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3632,7 +3635,9 @@ public class WorkItemsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public List<TestResultChronologyModel> getWorkItemChronology(String id) throws ApiException {
         ApiResponse<List<TestResultChronologyModel>> localVarResp = getWorkItemChronologyWithHttpInfo(id);
         return localVarResp.getData();
@@ -3640,7 +3645,7 @@ public class WorkItemsApi {
 
     /**
      * Get WorkItem chronology by Id or GlobalId
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
      * @param id  (required)
      * @return ApiResponse&lt;List&lt;TestResultChronologyModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3655,7 +3660,9 @@ public class WorkItemsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<TestResultChronologyModel>> getWorkItemChronologyWithHttpInfo(String id) throws ApiException {
         okhttp3.Call localVarCall = getWorkItemChronologyValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<List<TestResultChronologyModel>>(){}.getType();
@@ -3664,7 +3671,7 @@ public class WorkItemsApi {
 
     /**
      * Get WorkItem chronology by Id or GlobalId (asynchronously)
-     *  Use case   User sets work item identifier   User runs method execution   System search work item by identifier   System search test results of all autotests, related to found work item   System sort results by CompletedOn ascending, then by CreatedDate ascending   System returns sorted collection of test results
+     *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3680,7 +3687,9 @@ public class WorkItemsApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getWorkItemChronologyAsync(String id, final ApiCallback<List<TestResultChronologyModel>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getWorkItemChronologyValidateBeforeCall(id, _callback);
@@ -3690,9 +3699,9 @@ public class WorkItemsApi {
     }
     /**
      * Build call for getWorkItemVersions
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
-     * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
-     * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+     * @param workItemVersionId WorkItem version (guid format) identifier\&quot; (optional)
+     * @param versionNumber WorkItem version (integer format) number\&quot; (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3774,10 +3783,10 @@ public class WorkItemsApi {
 
     /**
      * Get WorkItem versions
-     *  Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
-     * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
-     * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
+     *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+     * @param workItemVersionId WorkItem version (guid format) identifier\&quot; (optional)
+     * @param versionNumber WorkItem version (integer format) number\&quot; (optional)
      * @return List&lt;WorkItemVersionModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3799,10 +3808,10 @@ public class WorkItemsApi {
 
     /**
      * Get WorkItem versions
-     *  Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
-     * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
-     * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
+     *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+     * @param workItemVersionId WorkItem version (guid format) identifier\&quot; (optional)
+     * @param versionNumber WorkItem version (integer format) number\&quot; (optional)
      * @return ApiResponse&lt;List&lt;WorkItemVersionModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3825,10 +3834,10 @@ public class WorkItemsApi {
 
     /**
      * Get WorkItem versions (asynchronously)
-     *  Use case   User sets work item identifier   [Optional] User sets work item version identifier   User runs method execution   System search work item by identifier                         [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                     System returns array of work item version models (listed in response example)
-     * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
-     * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
-     * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
+     *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
+     * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+     * @param workItemVersionId WorkItem version (guid format) identifier\&quot; (optional)
+     * @param versionNumber WorkItem version (integer format) number\&quot; (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4139,7 +4148,7 @@ public class WorkItemsApi {
     }
     /**
      * Build call for updateWorkItem
-     * @param workItemPutModel  (optional)
+     * @param updateWorkItemApiModel  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4147,15 +4156,15 @@ public class WorkItemsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  Field is required   Priority is not a valid   duration should be a positive number   should be empty for CheckList   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  WorkItem not found   Can&#39;t find section   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateWorkItemCall(WorkItemPutModel workItemPutModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateWorkItemCall(UpdateWorkItemApiModel updateWorkItemApiModel, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4169,7 +4178,7 @@ public class WorkItemsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = workItemPutModel;
+        Object localVarPostBody = updateWorkItemApiModel;
 
         // create path and map variables
         String localVarPath = "/api/v2/workItems";
@@ -4201,59 +4210,59 @@ public class WorkItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateWorkItemValidateBeforeCall(WorkItemPutModel workItemPutModel, final ApiCallback _callback) throws ApiException {
-        return updateWorkItemCall(workItemPutModel, _callback);
+    private okhttp3.Call updateWorkItemValidateBeforeCall(UpdateWorkItemApiModel updateWorkItemApiModel, final ApiCallback _callback) throws ApiException {
+        return updateWorkItemCall(updateWorkItemApiModel, _callback);
 
     }
 
     /**
      * Update Test Case, Checklist or Shared Step
-     *  Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)
-     * @param workItemPutModel  (optional)
+     *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
+     * @param updateWorkItemApiModel  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  Field is required   Priority is not a valid   duration should be a positive number   should be empty for CheckList   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  WorkItem not found   Can&#39;t find section   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public void updateWorkItem(WorkItemPutModel workItemPutModel) throws ApiException {
-        updateWorkItemWithHttpInfo(workItemPutModel);
+    public void updateWorkItem(UpdateWorkItemApiModel updateWorkItemApiModel) throws ApiException {
+        updateWorkItemWithHttpInfo(updateWorkItemApiModel);
     }
 
     /**
      * Update Test Case, Checklist or Shared Step
-     *  Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)
-     * @param workItemPutModel  (optional)
+     *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
+     * @param updateWorkItemApiModel  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  Field is required   Priority is not a valid   duration should be a positive number   should be empty for CheckList   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  WorkItem not found   Can&#39;t find section   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> updateWorkItemWithHttpInfo(WorkItemPutModel workItemPutModel) throws ApiException {
-        okhttp3.Call localVarCall = updateWorkItemValidateBeforeCall(workItemPutModel, null);
+    public ApiResponse<Void> updateWorkItemWithHttpInfo(UpdateWorkItemApiModel updateWorkItemApiModel) throws ApiException {
+        okhttp3.Call localVarCall = updateWorkItemValidateBeforeCall(updateWorkItemApiModel, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update Test Case, Checklist or Shared Step (asynchronously)
-     *  Use case   User sets work item properties (listed in request parameters)   User runs method execution   System updates work item by identifier   System returns updated work item model (listed in response parameters)
-     * @param workItemPutModel  (optional)
+     *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
+     * @param updateWorkItemApiModel  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4261,17 +4270,17 @@ public class WorkItemsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  Field is required   Priority is not a valid   duration should be a positive number   should be empty for CheckList   There is no option in ProjectAttributesScheme with such Id   Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  WorkItem not found   Can&#39;t find section   Can&#39;t attributesScheme   Can&#39;t attribute   AutoTestIds not exist in project </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateWorkItemAsync(WorkItemPutModel workItemPutModel, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateWorkItemAsync(UpdateWorkItemApiModel updateWorkItemApiModel, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateWorkItemValidateBeforeCall(workItemPutModel, _callback);
+        okhttp3.Call localVarCall = updateWorkItemValidateBeforeCall(updateWorkItemApiModel, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

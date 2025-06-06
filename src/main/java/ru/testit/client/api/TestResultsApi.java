@@ -1696,7 +1696,7 @@ public class TestResultsApi {
 
     /**
      * Upload and link attachment to TestResult
-     *  Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier
+     *  Use case  User sets testResultId  User attaches a file  System creates attachment and links it to the test result  System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param _file Select file (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1719,7 +1719,7 @@ public class TestResultsApi {
 
     /**
      * Upload and link attachment to TestResult
-     *  Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier
+     *  Use case  User sets testResultId  User attaches a file  System creates attachment and links it to the test result  System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param _file Select file (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -1744,7 +1744,7 @@ public class TestResultsApi {
 
     /**
      * Upload and link attachment to TestResult (asynchronously)
-     *  Use case   User sets testResultId   User attaches a file   System creates attachment and links it to the test result   System returns attachment identifier
+     *  Use case  User sets testResultId  User attaches a file  System creates attachment and links it to the test result  System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param _file Select file (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1852,7 +1852,7 @@ public class TestResultsApi {
 
     /**
      * Remove attachment and unlink from TestResult
-     *  Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier
+     *  Use case  User sets testResultId and attachmentId  User attaches a file  User runs method execution  System deletes attachment and unlinks it from the test result  System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1874,7 +1874,7 @@ public class TestResultsApi {
 
     /**
      * Remove attachment and unlink from TestResult
-     *  Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier
+     *  Use case  User sets testResultId and attachmentId  User attaches a file  User runs method execution  System deletes attachment and unlinks it from the test result  System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @return ApiResponse&lt;Void&gt;
@@ -1898,7 +1898,7 @@ public class TestResultsApi {
 
     /**
      * Remove attachment and unlink from TestResult (asynchronously)
-     *  Use case   User sets testResultId and attachmentId   User attaches a file   User runs method execution   System deletes attachment and unlinks it from the test result   System returns attachment identifier
+     *  Use case  User sets testResultId and attachmentId  User attaches a file  User runs method execution  System deletes attachment and unlinks it from the test result  System returns attachment identifier
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1941,7 +1941,7 @@ public class TestResultsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  File not found   Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  File not found  Attachment not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -2030,7 +2030,7 @@ public class TestResultsApi {
 
     /**
      * Get attachment of TestResult
-     *  Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file
+     *  Use case  User sets attachmentId and testResultId  [Optional] User sets resize configuration  User runs method execution  System search attachments by the attachmentId and the testResultId  [Optional] If resize configuration is set, System resizes the attachment according to the resize                     configuration  [Optional] Otherwise, System does not resize the attachment  System returns attachment as a file
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param id Test result internal identifier (guid format) (required)
      * @param width Width of the result image (optional)
@@ -2046,7 +2046,7 @@ public class TestResultsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  File not found   Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  File not found  Attachment not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -2057,7 +2057,7 @@ public class TestResultsApi {
 
     /**
      * Get attachment of TestResult
-     *  Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file
+     *  Use case  User sets attachmentId and testResultId  [Optional] User sets resize configuration  User runs method execution  System search attachments by the attachmentId and the testResultId  [Optional] If resize configuration is set, System resizes the attachment according to the resize                     configuration  [Optional] Otherwise, System does not resize the attachment  System returns attachment as a file
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param id Test result internal identifier (guid format) (required)
      * @param width Width of the result image (optional)
@@ -2074,7 +2074,7 @@ public class TestResultsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  File not found   Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  File not found  Attachment not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -2086,7 +2086,7 @@ public class TestResultsApi {
 
     /**
      * Get attachment of TestResult (asynchronously)
-     *  Use case   User sets attachmentId and testResultId   [Optional] User sets resize configuration   User runs method execution   System search attachments by the attachmentId and the testResultId                         [Optional] If resize configuration is set, System resizes the attachment according to the resize                      configuration                     [Optional] Otherwise, System does not resize the attachment   System returns attachment as a file
+     *  Use case  User sets attachmentId and testResultId  [Optional] User sets resize configuration  User runs method execution  System search attachments by the attachmentId and the testResultId  [Optional] If resize configuration is set, System resizes the attachment according to the resize                     configuration  [Optional] Otherwise, System does not resize the attachment  System returns attachment as a file
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param id Test result internal identifier (guid format) (required)
      * @param width Width of the result image (optional)
@@ -2104,7 +2104,7 @@ public class TestResultsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td>  File not found   Attachment not found </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td>  File not found  Attachment not found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -2198,7 +2198,7 @@ public class TestResultsApi {
 
     /**
      * Get Metadata of TestResult&#39;s attachment
-     *  Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data
+     *  Use case  User sets attachmentId and testResultId  User runs method execution  System search attachment by the attachmentId and the testResultId  System returns attachment data
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @return AttachmentModel
@@ -2222,7 +2222,7 @@ public class TestResultsApi {
 
     /**
      * Get Metadata of TestResult&#39;s attachment
-     *  Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data
+     *  Use case  User sets attachmentId and testResultId  User runs method execution  System search attachment by the attachmentId and the testResultId  System returns attachment data
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @return ApiResponse&lt;AttachmentModel&gt;
@@ -2247,7 +2247,7 @@ public class TestResultsApi {
 
     /**
      * Get Metadata of TestResult&#39;s attachment (asynchronously)
-     *  Use case   User sets attachmentId and testResultId   User runs method execution   System search attachment by the attachmentId and the testResultId   System returns attachment data
+     *  Use case  User sets attachmentId and testResultId  User runs method execution  System search attachment by the attachmentId and the testResultId  System returns attachment data
      * @param id Test result internal identifier (guid format) (required)
      * @param attachmentId Attachment internal identifier (guid format) (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2348,7 +2348,7 @@ public class TestResultsApi {
 
     /**
      * Get all attachments of TestResult
-     *  Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration
+     *  Use case  User sets testResultId  User runs method execution  System search all attachments of the test result  System returns attachments enumeration
      * @param id Test result internal identifier (guid format) (required)
      * @return List&lt;AttachmentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2371,7 +2371,7 @@ public class TestResultsApi {
 
     /**
      * Get all attachments of TestResult
-     *  Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration
+     *  Use case  User sets testResultId  User runs method execution  System search all attachments of the test result  System returns attachments enumeration
      * @param id Test result internal identifier (guid format) (required)
      * @return ApiResponse&lt;List&lt;AttachmentModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2395,7 +2395,7 @@ public class TestResultsApi {
 
     /**
      * Get all attachments of TestResult (asynchronously)
-     *  Use case   User sets testResultId   User runs method execution   System search all attachments of the test result   System returns attachments enumeration
+     *  Use case  User sets testResultId  User runs method execution  System search all attachments of the test result  System returns attachments enumeration
      * @param id Test result internal identifier (guid format) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

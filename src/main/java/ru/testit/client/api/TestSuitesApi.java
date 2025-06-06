@@ -1028,7 +1028,7 @@ public class TestSuitesApi {
 
     /**
      * Delete TestSuite
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1049,7 +1049,7 @@ public class TestSuitesApi {
 
     /**
      * Delete TestSuite
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1072,7 +1072,7 @@ public class TestSuitesApi {
 
     /**
      * Delete TestSuite (asynchronously)
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System deletes test suite   System returns no content response
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1171,7 +1171,7 @@ public class TestSuitesApi {
 
     /**
      * Get Configurations By Id
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;ConfigurationModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1194,7 +1194,7 @@ public class TestSuitesApi {
 
     /**
      * Get Configurations By Id
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1218,7 +1218,7 @@ public class TestSuitesApi {
 
     /**
      * Get Configurations By Id (asynchronously)
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configurations related to the test points   System returns configurations array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1318,7 +1318,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestPoints By Id
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;TestPointByTestSuiteModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1341,7 +1341,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestPoints By Id
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;TestPointByTestSuiteModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1365,7 +1365,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestPoints By Id (asynchronously)
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System returns test points array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1465,7 +1465,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestResults By Id
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return List&lt;TestResultV2ShortModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1488,7 +1488,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestResults By Id
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;List&lt;TestResultV2ShortModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1512,7 +1512,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestResults By Id (asynchronously)
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search test results related to the test points   System returns test results array
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1613,7 +1613,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestSuite by Id
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return TestSuiteV2GetModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1637,7 +1637,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestSuite by Id
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @return ApiResponse&lt;TestSuiteV2GetModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1662,7 +1662,7 @@ public class TestSuitesApi {
 
     /**
      * Get TestSuite by Id (asynchronously)
-     *  Use case   User sets test suite identifier   User runs method execution   System search test suite by identifier   System returns test suite
+     *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1793,7 +1793,7 @@ public class TestSuitesApi {
 
     /**
      * Search WorkItems
-     *  Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
+     *  Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -1824,7 +1824,7 @@ public class TestSuitesApi {
 
     /**
      * Search WorkItems
-     *  Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
+     *  Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -1856,7 +1856,7 @@ public class TestSuitesApi {
 
     /**
      * Search WorkItems (asynchronously)
-     *  Use case   User sets test suite identifier   [Optional] User sets filter   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search work items related to the test points                         [Optional] User sets filter, system applies filter                     System returns work items array
+     *  Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
@@ -1966,7 +1966,7 @@ public class TestSuitesApi {
 
     /**
      * Set Configurations By TestSuite Id
-     *  Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
+     *  Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param UUID Collection of configuration identifiers\&quot; (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1988,7 +1988,7 @@ public class TestSuitesApi {
 
     /**
      * Set Configurations By TestSuite Id
-     *  Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
+     *  Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param UUID Collection of configuration identifiers\&quot; (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -2012,7 +2012,7 @@ public class TestSuitesApi {
 
     /**
      * Set Configurations By TestSuite Id (asynchronously)
-     *  Use case   User sets test suite identifier   User sets collection of configuration identifiers   User runs method execution   System search test suite by identifier   System search test points related to the test suite   System search configuration   System restores(if exist) or creates test points with listed configuration   System returns no content response
+     *  Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
      * @param id Test suite internal (guid format) identifier\&quot; (required)
      * @param UUID Collection of configuration identifiers\&quot; (optional)
      * @param _callback The callback to be executed when the API call finishes
