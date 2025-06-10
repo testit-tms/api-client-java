@@ -984,8 +984,10 @@ public class AutoTestModel {
       if ((jsonObj.get("lastTestResultOutcome") != null && !jsonObj.get("lastTestResultOutcome").isJsonNull()) && !jsonObj.get("lastTestResultOutcome").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultOutcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultOutcome").toString()));
       }
-      // validate the required field `lastTestResultStatus`
-      TestStatusModel.validateJsonElement(jsonObj.get("lastTestResultStatus"));
+      // validate the NOT required field `lastTestResultStatus`
+      if ((jsonObj.get("lastTestResultStatus") != null && !jsonObj.get("lastTestResultStatus").isJsonNull())) {
+        TestStatusModel.validateJsonElement(jsonObj.get("lastTestResultStatus"));
+      }
       if (!jsonObj.get("externalId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
       }

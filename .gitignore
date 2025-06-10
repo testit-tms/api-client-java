@@ -23,3 +23,5 @@ build
 .metals
 generation
 .vscode
+secring.gpg
+.gradle.properties
