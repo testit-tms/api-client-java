@@ -20,3 +20,8 @@ target
 .gradle
 build
 .idea/
+secring.gpg
+.metals
+.vscode
+generation
+.gradle.properties
