@@ -36,6 +36,6 @@ deploy:
         active: ALWAYS
         url: https://central.sonatype.com/api/v1/publisher
         stagingRepositories:
-          - "*/build/staging-deploy"
+          - "build/staging-deploy"
         retryDelay: 20
         maxRetries: 60 
