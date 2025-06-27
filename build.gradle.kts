@@ -2,7 +2,6 @@ plugins {
     java
     `maven-publish`
     signing
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 }
 
 group = "ru.testit"
@@ -23,31 +22,16 @@ repositories {
     mavenCentral()
 }
 
-val sonaUsername = providers.gradleProperty("sonatypeAccessToken")
-val sonaPassword = providers.gradleProperty("sonatypeAccessPassword")
-
-nexusPublishing {
-    repositories {
-        sonatype {
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-            username.set(sonaUsername.get())
-            password.set(sonaPassword.get())
-        }
-    }
-}
 
 publishing {
     repositories {
+        // JReleaser staging repository
         maven {
-            val releasesUrl = uri("https://s01.oss.sonatype.org/content/repositories/releases")
-            val snapshotsUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
-            url = if (version.toString().toLowerCase().contains("snapshot")) snapshotsUrl else releasesUrl
-            credentials {
-                username = sonaUsername.get()
-                password = sonaPassword.get()
-            }
+            name = "staging"
+            url = uri(layout.buildDirectory.dir("staging-deploy"))
         }
+        mavenLocal()
+        mavenCentral()
     }
     publications {
         create<MavenPublication>("maven") {
@@ -86,10 +70,6 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    sign(publishing.publications["maven"])
 }
 
 tasks.withType<Sign>().configureEach {
@@ -147,4 +127,21 @@ tasks.test {
 }
 
 
+// JReleaser helper tasks
+tasks.register("jreleaserStage") {
+    group = "publishing"
+    description = "Stages all modules for JReleaser deployment"
 
+    // Depend on publishing tasks from all subprojects
+    dependsOn(":publishMavenPublicationToStagingRepository")
+
+    doLast {
+        println("✅ All modules staged for JReleaser deployment")
+        println("📁 Staging directories:")
+        val stagingDir = project.layout.buildDirectory.dir("staging-deploy").get().asFile
+        if (stagingDir.exists()) {
+            println("   ${project.name}: ${stagingDir.absolutePath}")
+        }
+        println("🚀 Run 'jreleaser deploy' to publish to Maven Central")
+    }
+}
