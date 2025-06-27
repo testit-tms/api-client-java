@@ -1,0 +1,41 @@
+project:
+  name: testit-api-client
+  version: "XXX" # set automatically by publish-maven-central.sh
+  description: Java API client for TestIT.
+  authors:
+    - Integration team
+  license: Apache-2.0
+  links:
+    homepage: https://github.com/testit-tms/api-client-java
+    documentation: https://github.com/testit-tms/api-client-java
+  copyright: TestIT
+  java:
+    groupId: ru.testit
+
+# Environment variables setup
+environment:
+  properties:
+    artifactsDir: "out/jreleaser/assemble"
+
+# Disable GitHub release
+release:
+  github:
+    enabled: false
+
+# Signing configuration - will sign all artifacts
+signing:
+  active: ALWAYS
+  armored: true
+  verify: true
+
+# Deploy configuration for Maven Central Portal Publisher API
+deploy:
+  maven:
+    mavenCentral:
+      sonatype:
+        active: ALWAYS
+        url: https://central.sonatype.com/api/v1/publisher
+        stagingRepositories:
+          - "*/build/staging-deploy"
+        retryDelay: 20
+        maxRetries: 60 
