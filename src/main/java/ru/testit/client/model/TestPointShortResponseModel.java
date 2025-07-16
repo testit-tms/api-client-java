@@ -1164,6 +1164,7 @@ public class TestPointShortResponseModel {
       }
       // validate the required field `status`
       TestPointStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the required field `statusModel`
       // Validated statusModel
       if ((jsonObj.get("statusModel") != null && !jsonObj.get("statusModel").isJsonNull())) {
         TestStatusApiResult.validateJsonElement(jsonObj.get("statusModel"));
