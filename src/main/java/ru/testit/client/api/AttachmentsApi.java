@@ -762,7 +762,7 @@ public class AttachmentsApi {
 
     /**
      * Upload new attachment file
-     * File size is restricted to 50 MB (52 428 800 bytes)
+     * File size is restricted to 1 GB (1 073 741 824 bytes)
      * @param _file  (optional)
      * @return AttachmentModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -785,7 +785,7 @@ public class AttachmentsApi {
 
     /**
      * Upload new attachment file
-     * File size is restricted to 50 MB (52 428 800 bytes)
+     * File size is restricted to 1 GB (1 073 741 824 bytes)
      * @param _file  (optional)
      * @return ApiResponse&lt;AttachmentModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -809,7 +809,7 @@ public class AttachmentsApi {
 
     /**
      * Upload new attachment file (asynchronously)
-     * File size is restricted to 50 MB (52 428 800 bytes)
+     * File size is restricted to 1 GB (1 073 741 824 bytes)
      * @param _file  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
