@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -88,6 +90,10 @@ public class ParameterApiResult {
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
   private Boolean isDeleted;
+
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private List<UUID> projectIds = new ArrayList<>();
 
   public ParameterApiResult() {
   }
@@ -263,6 +269,33 @@ public class ParameterApiResult {
   }
 
 
+  public ParameterApiResult projectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+    return this;
+  }
+
+  public ParameterApiResult addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new ArrayList<>();
+    }
+    this.projectIds.add(projectIdsItem);
+    return this;
+  }
+
+  /**
+   * Get projectIds
+   * @return projectIds
+   */
+  @javax.annotation.Nonnull
+  public List<UUID> getProjectIds() {
+    return projectIds;
+  }
+
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -281,7 +314,8 @@ public class ParameterApiResult {
         Objects.equals(this.createdById, parameterApiResult.createdById) &&
         Objects.equals(this.modifiedDate, parameterApiResult.modifiedDate) &&
         Objects.equals(this.modifiedById, parameterApiResult.modifiedById) &&
-        Objects.equals(this.isDeleted, parameterApiResult.isDeleted);
+        Objects.equals(this.isDeleted, parameterApiResult.isDeleted) &&
+        Objects.equals(this.projectIds, parameterApiResult.projectIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -290,7 +324,7 @@ public class ParameterApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parameterKeyId, name, value, createdDate, createdById, modifiedDate, modifiedById, isDeleted);
+    return Objects.hash(id, parameterKeyId, name, value, createdDate, createdById, modifiedDate, modifiedById, isDeleted, projectIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -313,6 +347,7 @@ public class ParameterApiResult {
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -344,6 +379,7 @@ public class ParameterApiResult {
     openapiFields.add("modifiedDate");
     openapiFields.add("modifiedById");
     openapiFields.add("isDeleted");
+    openapiFields.add("projectIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -354,6 +390,7 @@ public class ParameterApiResult {
     openapiRequiredFields.add("createdDate");
     openapiRequiredFields.add("createdById");
     openapiRequiredFields.add("isDeleted");
+    openapiRequiredFields.add("projectIds");
   }
 
   /**
@@ -401,6 +438,12 @@ public class ParameterApiResult {
       }
       if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("projectIds") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
   }
 

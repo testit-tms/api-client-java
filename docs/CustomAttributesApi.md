@@ -382,7 +382,7 @@ public class Example {
 
 <a id="apiV2CustomAttributesSearchPost"></a>
 # **apiV2CustomAttributesSearchPost**
-> List&lt;CustomAttributeModel&gt; apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel)
+> List&lt;CustomAttributeSearchResponseModel&gt; apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel)
 
 Search for attributes
 
@@ -415,7 +415,7 @@ public class Example {
     String searchValue = "searchValue_example"; // String | Value for searching
     CustomAttributeSearchQueryModel customAttributeSearchQueryModel = new CustomAttributeSearchQueryModel(); // CustomAttributeSearchQueryModel | 
     try {
-      List<CustomAttributeModel> result = apiInstance.apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel);
+      List<CustomAttributeSearchResponseModel> result = apiInstance.apiV2CustomAttributesSearchPost(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CustomAttributesApi#apiV2CustomAttributesSearchPost");
@@ -441,7 +441,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;CustomAttributeModel&gt;**](CustomAttributeModel.md)
+[**List&lt;CustomAttributeSearchResponseModel&gt;**](CustomAttributeSearchResponseModel.md)
 
 ### Authorization
 

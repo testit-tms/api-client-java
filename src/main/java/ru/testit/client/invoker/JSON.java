@@ -180,6 +180,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.CustomAttributePostModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.CustomAttributePutModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.CustomAttributeSearchQueryModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.CustomAttributeSearchResponseModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.CustomAttributeTemplateModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.CustomAttributeTemplatePostModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.CustomAttributeTemplatePutModel.CustomTypeAdapterFactory());
@@ -253,6 +254,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ParametersFilterApiModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.PeriodViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.PeriodViewModelChangedFieldViewModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.PreviewsIssueLinkApiModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.PreviewsIssueLinkApiResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProblemDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectAttributesFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectCustomAttributeTemplateGetModel.CustomTypeAdapterFactory());

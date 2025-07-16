@@ -366,6 +366,7 @@ public class ParametersApi {
      * @param parameterKeyIds  (optional)
      * @param name  (optional)
      * @param isDeleted  (optional)
+     * @param projectIds  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -386,7 +387,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersGroupsGetCall(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersGroupsGetCall(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, List<UUID> projectIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -421,6 +422,10 @@ public class ParametersApi {
 
         if (isDeleted != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("isDeleted", isDeleted));
+        }
+
+        if (projectIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "projectIds", projectIds));
         }
 
         if (skip != null) {
@@ -463,8 +468,8 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersGroupsGetValidateBeforeCall(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersGroupsGetCall(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue, _callback);
+    private okhttp3.Call apiV2ParametersGroupsGetValidateBeforeCall(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, List<UUID> projectIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersGroupsGetCall(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue, _callback);
 
     }
 
@@ -474,6 +479,7 @@ public class ParametersApi {
      * @param parameterKeyIds  (optional)
      * @param name  (optional)
      * @param isDeleted  (optional)
+     * @param projectIds  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -493,8 +499,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<ParameterGroupApiResult> apiV2ParametersGroupsGet(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        ApiResponse<List<ParameterGroupApiResult>> localVarResp = apiV2ParametersGroupsGetWithHttpInfo(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue);
+    public List<ParameterGroupApiResult> apiV2ParametersGroupsGet(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, List<UUID> projectIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        ApiResponse<List<ParameterGroupApiResult>> localVarResp = apiV2ParametersGroupsGetWithHttpInfo(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue);
         return localVarResp.getData();
     }
 
@@ -504,6 +510,7 @@ public class ParametersApi {
      * @param parameterKeyIds  (optional)
      * @param name  (optional)
      * @param isDeleted  (optional)
+     * @param projectIds  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -523,8 +530,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ParameterGroupApiResult>> apiV2ParametersGroupsGetWithHttpInfo(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersGroupsGetValidateBeforeCall(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue, null);
+    public ApiResponse<List<ParameterGroupApiResult>> apiV2ParametersGroupsGetWithHttpInfo(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, List<UUID> projectIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersGroupsGetValidateBeforeCall(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue, null);
         Type localVarReturnType = new TypeToken<List<ParameterGroupApiResult>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -535,6 +542,7 @@ public class ParametersApi {
      * @param parameterKeyIds  (optional)
      * @param name  (optional)
      * @param isDeleted  (optional)
+     * @param projectIds  (optional)
      * @param skip Amount of items to be skipped (offset) (optional)
      * @param take Amount of items to be taken (limit) (optional)
      * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -555,9 +563,9 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersGroupsGetAsync(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ParameterGroupApiResult>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersGroupsGetAsync(Set<UUID> parameterKeyIds, String name, Boolean isDeleted, List<UUID> projectIds, Integer skip, Integer take, String orderBy, String searchField, String searchValue, final ApiCallback<List<ParameterGroupApiResult>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersGroupsGetValidateBeforeCall(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue, _callback);
+        okhttp3.Call localVarCall = apiV2ParametersGroupsGetValidateBeforeCall(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue, _callback);
         Type localVarReturnType = new TypeToken<List<ParameterGroupApiResult>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -858,6 +866,7 @@ public class ParametersApi {
     }
     /**
      * Build call for apiV2ParametersKeysGet
+     * @param projectIds  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -873,7 +882,7 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersKeysGetCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersKeysGetCall(List<UUID> projectIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -898,6 +907,10 @@ public class ParametersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (projectIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "projectIds", projectIds));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -918,14 +931,15 @@ public class ParametersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call apiV2ParametersKeysGetValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return apiV2ParametersKeysGetCall(_callback);
+    private okhttp3.Call apiV2ParametersKeysGetValidateBeforeCall(List<UUID> projectIds, final ApiCallback _callback) throws ApiException {
+        return apiV2ParametersKeysGetCall(projectIds, _callback);
 
     }
 
     /**
      * Get all parameter keys
      *  Use case  User runs method execution  System search all parameter keys  System returns parameter keys
+     * @param projectIds  (optional)
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -940,14 +954,15 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<String> apiV2ParametersKeysGet() throws ApiException {
-        ApiResponse<List<String>> localVarResp = apiV2ParametersKeysGetWithHttpInfo();
+    public List<String> apiV2ParametersKeysGet(List<UUID> projectIds) throws ApiException {
+        ApiResponse<List<String>> localVarResp = apiV2ParametersKeysGetWithHttpInfo(projectIds);
         return localVarResp.getData();
     }
 
     /**
      * Get all parameter keys
      *  Use case  User runs method execution  System search all parameter keys  System returns parameter keys
+     * @param projectIds  (optional)
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -962,8 +977,8 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<String>> apiV2ParametersKeysGetWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = apiV2ParametersKeysGetValidateBeforeCall(null);
+    public ApiResponse<List<String>> apiV2ParametersKeysGetWithHttpInfo(List<UUID> projectIds) throws ApiException {
+        okhttp3.Call localVarCall = apiV2ParametersKeysGetValidateBeforeCall(projectIds, null);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -971,6 +986,7 @@ public class ParametersApi {
     /**
      * Get all parameter keys (asynchronously)
      *  Use case  User runs method execution  System search all parameter keys  System returns parameter keys
+     * @param projectIds  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -986,9 +1002,9 @@ public class ParametersApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2ParametersKeysGetAsync(final ApiCallback<List<String>> _callback) throws ApiException {
+    public okhttp3.Call apiV2ParametersKeysGetAsync(List<UUID> projectIds, final ApiCallback<List<String>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = apiV2ParametersKeysGetValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = apiV2ParametersKeysGetValidateBeforeCall(projectIds, _callback);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

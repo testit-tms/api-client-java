@@ -440,7 +440,7 @@ public class AutoTestModel {
    * Status of the autotest last test result
    * @return lastTestResultStatus
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public TestStatusModel getLastTestResultStatus() {
     return lastTestResultStatus;
   }
@@ -925,7 +925,6 @@ public class AutoTestModel {
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("createdDate");
     openapiRequiredFields.add("createdById");
-    openapiRequiredFields.add("lastTestResultStatus");
     openapiRequiredFields.add("externalId");
     openapiRequiredFields.add("projectId");
     openapiRequiredFields.add("name");
@@ -984,8 +983,8 @@ public class AutoTestModel {
       if ((jsonObj.get("lastTestResultOutcome") != null && !jsonObj.get("lastTestResultOutcome").isJsonNull()) && !jsonObj.get("lastTestResultOutcome").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastTestResultOutcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastTestResultOutcome").toString()));
       }
-      // validate the NOT required field `lastTestResultStatus`
-      if ((jsonObj.get("lastTestResultStatus") != null && !jsonObj.get("lastTestResultStatus").isJsonNull())) {
+      // validate the optional field `lastTestResultStatus`
+      if (jsonObj.get("lastTestResultStatus") != null && !jsonObj.get("lastTestResultStatus").isJsonNull()) {
         TestStatusModel.validateJsonElement(jsonObj.get("lastTestResultStatus"));
       }
       if (!jsonObj.get("externalId").isJsonPrimitive()) {

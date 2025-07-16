@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import ru.testit.client.model.CustomAttributeModel;
 import ru.testit.client.model.CustomAttributeSearchQueryModel;
+import ru.testit.client.model.CustomAttributeSearchResponseModel;
 import ru.testit.client.model.CustomAttributeValidationResult;
 import ru.testit.client.model.GlobalCustomAttributePostModel;
 import ru.testit.client.model.GlobalCustomAttributeUpdateModel;
@@ -919,7 +920,7 @@ public class CustomAttributesApi {
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
      * @param customAttributeSearchQueryModel  (optional)
-     * @return List&lt;CustomAttributeModel&gt;
+     * @return List&lt;CustomAttributeSearchResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -933,8 +934,8 @@ public class CustomAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public List<CustomAttributeModel> apiV2CustomAttributesSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel) throws ApiException {
-        ApiResponse<List<CustomAttributeModel>> localVarResp = apiV2CustomAttributesSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel);
+    public List<CustomAttributeSearchResponseModel> apiV2CustomAttributesSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel) throws ApiException {
+        ApiResponse<List<CustomAttributeSearchResponseModel>> localVarResp = apiV2CustomAttributesSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel);
         return localVarResp.getData();
     }
 
@@ -947,7 +948,7 @@ public class CustomAttributesApi {
      * @param searchField Property name for searching (optional)
      * @param searchValue Value for searching (optional)
      * @param customAttributeSearchQueryModel  (optional)
-     * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
+     * @return ApiResponse&lt;List&lt;CustomAttributeSearchResponseModel&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -961,9 +962,9 @@ public class CustomAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CustomAttributeModel>> apiV2CustomAttributesSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel) throws ApiException {
+    public ApiResponse<List<CustomAttributeSearchResponseModel>> apiV2CustomAttributesSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel) throws ApiException {
         okhttp3.Call localVarCall = apiV2CustomAttributesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel, null);
-        Type localVarReturnType = new TypeToken<List<CustomAttributeModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<CustomAttributeSearchResponseModel>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -991,10 +992,10 @@ public class CustomAttributesApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call apiV2CustomAttributesSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel, final ApiCallback<List<CustomAttributeModel>> _callback) throws ApiException {
+    public okhttp3.Call apiV2CustomAttributesSearchPostAsync(Integer skip, Integer take, String orderBy, String searchField, String searchValue, CustomAttributeSearchQueryModel customAttributeSearchQueryModel, final ApiCallback<List<CustomAttributeSearchResponseModel>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiV2CustomAttributesSearchPostValidateBeforeCall(skip, take, orderBy, searchField, searchValue, customAttributeSearchQueryModel, _callback);
-        Type localVarReturnType = new TypeToken<List<CustomAttributeModel>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<CustomAttributeSearchResponseModel>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

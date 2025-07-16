@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.PreviewsIssueLinkApiResult;
 import ru.testit.client.model.WorkItemPreviewApiModel;
 
 import com.google.gson.Gson;
@@ -57,6 +59,10 @@ public class GenerateWorkItemPreviewsApiResult {
   @SerializedName(SERIALIZED_NAME_PREVIEWS)
   private List<WorkItemPreviewApiModel> previews = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_LINK = "link";
+  @SerializedName(SERIALIZED_NAME_LINK)
+  private PreviewsIssueLinkApiResult link;
+
   public GenerateWorkItemPreviewsApiResult() {
   }
 
@@ -87,6 +93,25 @@ public class GenerateWorkItemPreviewsApiResult {
   }
 
 
+  public GenerateWorkItemPreviewsApiResult link(PreviewsIssueLinkApiResult link) {
+    this.link = link;
+    return this;
+  }
+
+  /**
+   * Get link
+   * @return link
+   */
+  @javax.annotation.Nullable
+  public PreviewsIssueLinkApiResult getLink() {
+    return link;
+  }
+
+  public void setLink(PreviewsIssueLinkApiResult link) {
+    this.link = link;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -97,12 +122,24 @@ public class GenerateWorkItemPreviewsApiResult {
       return false;
     }
     GenerateWorkItemPreviewsApiResult generateWorkItemPreviewsApiResult = (GenerateWorkItemPreviewsApiResult) o;
-    return Objects.equals(this.previews, generateWorkItemPreviewsApiResult.previews);
+    return Objects.equals(this.previews, generateWorkItemPreviewsApiResult.previews) &&
+        Objects.equals(this.link, generateWorkItemPreviewsApiResult.link);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(previews);
+    return Objects.hash(previews, link);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -110,6 +147,7 @@ public class GenerateWorkItemPreviewsApiResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class GenerateWorkItemPreviewsApiResult {\n");
     sb.append("    previews: ").append(toIndentedString(previews)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -133,6 +171,7 @@ public class GenerateWorkItemPreviewsApiResult {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("previews");
+    openapiFields.add("link");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -177,6 +216,10 @@ public class GenerateWorkItemPreviewsApiResult {
       for (int i = 0; i < jsonArraypreviews.size(); i++) {
         WorkItemPreviewApiModel.validateJsonElement(jsonArraypreviews.get(i));
       };
+      // validate the optional field `link`
+      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) {
+        PreviewsIssueLinkApiResult.validateJsonElement(jsonObj.get("link"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

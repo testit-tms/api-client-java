@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -66,6 +68,10 @@ public class ParameterShortModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private List<UUID> projectIds = new ArrayList<>();
 
   public ParameterShortModel() {
   }
@@ -146,6 +152,33 @@ public class ParameterShortModel {
   }
 
 
+  public ParameterShortModel projectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+    return this;
+  }
+
+  public ParameterShortModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new ArrayList<>();
+    }
+    this.projectIds.add(projectIdsItem);
+    return this;
+  }
+
+  /**
+   * Get projectIds
+   * @return projectIds
+   */
+  @javax.annotation.Nonnull
+  public List<UUID> getProjectIds() {
+    return projectIds;
+  }
+
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -159,12 +192,13 @@ public class ParameterShortModel {
     return Objects.equals(this.id, parameterShortModel.id) &&
         Objects.equals(this.parameterKeyId, parameterShortModel.parameterKeyId) &&
         Objects.equals(this.value, parameterShortModel.value) &&
-        Objects.equals(this.name, parameterShortModel.name);
+        Objects.equals(this.name, parameterShortModel.name) &&
+        Objects.equals(this.projectIds, parameterShortModel.projectIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, parameterKeyId, value, name);
+    return Objects.hash(id, parameterKeyId, value, name, projectIds);
   }
 
   @Override
@@ -175,6 +209,7 @@ public class ParameterShortModel {
     sb.append("    parameterKeyId: ").append(toIndentedString(parameterKeyId)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -201,6 +236,7 @@ public class ParameterShortModel {
     openapiFields.add("parameterKeyId");
     openapiFields.add("value");
     openapiFields.add("name");
+    openapiFields.add("projectIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -208,6 +244,7 @@ public class ParameterShortModel {
     openapiRequiredFields.add("parameterKeyId");
     openapiRequiredFields.add("value");
     openapiRequiredFields.add("name");
+    openapiRequiredFields.add("projectIds");
   }
 
   /**
@@ -249,6 +286,12 @@ public class ParameterShortModel {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("projectIds") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
   }
 

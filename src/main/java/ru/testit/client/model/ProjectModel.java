@@ -130,6 +130,10 @@ public class ProjectModel {
   @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
   private Boolean isFlakyAuto;
 
+  public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflowId";
+  @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
+  private UUID workflowId;
+
   public ProjectModel() {
   }
 
@@ -495,6 +499,25 @@ public class ProjectModel {
   }
 
 
+  public ProjectModel workflowId(UUID workflowId) {
+    this.workflowId = workflowId;
+    return this;
+  }
+
+  /**
+   * Get workflowId
+   * @return workflowId
+   */
+  @javax.annotation.Nonnull
+  public UUID getWorkflowId() {
+    return workflowId;
+  }
+
+  public void setWorkflowId(UUID workflowId) {
+    this.workflowId = workflowId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -522,7 +545,8 @@ public class ProjectModel {
         Objects.equals(this.modifiedById, projectModel.modifiedById) &&
         Objects.equals(this.globalId, projectModel.globalId) &&
         Objects.equals(this.type, projectModel.type) &&
-        Objects.equals(this.isFlakyAuto, projectModel.isFlakyAuto);
+        Objects.equals(this.isFlakyAuto, projectModel.isFlakyAuto) &&
+        Objects.equals(this.workflowId, projectModel.workflowId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -531,7 +555,7 @@ public class ProjectModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, description, name, isFavorite, attributesScheme, testPlansAttributesScheme, testCasesCount, sharedStepsCount, checkListsCount, autoTestsCount, isDeleted, createdDate, modifiedDate, createdById, modifiedById, globalId, type, isFlakyAuto);
+    return Objects.hash(id, description, name, isFavorite, attributesScheme, testPlansAttributesScheme, testCasesCount, sharedStepsCount, checkListsCount, autoTestsCount, isDeleted, createdDate, modifiedDate, createdById, modifiedById, globalId, type, isFlakyAuto, workflowId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -563,6 +587,7 @@ public class ProjectModel {
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
+    sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -603,6 +628,7 @@ public class ProjectModel {
     openapiFields.add("globalId");
     openapiFields.add("type");
     openapiFields.add("isFlakyAuto");
+    openapiFields.add("workflowId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -615,6 +641,7 @@ public class ProjectModel {
     openapiRequiredFields.add("globalId");
     openapiRequiredFields.add("type");
     openapiRequiredFields.add("isFlakyAuto");
+    openapiRequiredFields.add("workflowId");
   }
 
   /**
@@ -690,6 +717,9 @@ public class ProjectModel {
       }
       // validate the required field `type`
       ProjectTypeModel.validateJsonElement(jsonObj.get("type"));
+      if (!jsonObj.get("workflowId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workflowId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workflowId").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

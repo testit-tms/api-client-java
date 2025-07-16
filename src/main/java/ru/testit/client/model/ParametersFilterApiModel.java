@@ -20,7 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -58,6 +61,10 @@ public class ParametersFilterApiModel {
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
   private Boolean isDeleted;
+
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private List<UUID> projectIds;
 
   public ParametersFilterApiModel() {
   }
@@ -100,6 +107,33 @@ public class ParametersFilterApiModel {
   }
 
 
+  public ParametersFilterApiModel projectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+    return this;
+  }
+
+  public ParametersFilterApiModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new ArrayList<>();
+    }
+    this.projectIds.add(projectIdsItem);
+    return this;
+  }
+
+  /**
+   * Get projectIds
+   * @return projectIds
+   */
+  @javax.annotation.Nullable
+  public List<UUID> getProjectIds() {
+    return projectIds;
+  }
+
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -111,7 +145,8 @@ public class ParametersFilterApiModel {
     }
     ParametersFilterApiModel parametersFilterApiModel = (ParametersFilterApiModel) o;
     return Objects.equals(this.name, parametersFilterApiModel.name) &&
-        Objects.equals(this.isDeleted, parametersFilterApiModel.isDeleted);
+        Objects.equals(this.isDeleted, parametersFilterApiModel.isDeleted) &&
+        Objects.equals(this.projectIds, parametersFilterApiModel.projectIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -120,7 +155,7 @@ public class ParametersFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, isDeleted);
+    return Objects.hash(name, isDeleted, projectIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -136,6 +171,7 @@ public class ParametersFilterApiModel {
     sb.append("class ParametersFilterApiModel {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -160,6 +196,7 @@ public class ParametersFilterApiModel {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("isDeleted");
+    openapiFields.add("projectIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -188,6 +225,10 @@ public class ParametersFilterApiModel {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
   }
 

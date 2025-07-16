@@ -20,7 +20,11 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,6 +61,10 @@ public class CreateParameterApiModel {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
+
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private List<UUID> projectIds;
 
   public CreateParameterApiModel() {
   }
@@ -99,6 +107,33 @@ public class CreateParameterApiModel {
   }
 
 
+  public CreateParameterApiModel projectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+    return this;
+  }
+
+  public CreateParameterApiModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new ArrayList<>();
+    }
+    this.projectIds.add(projectIdsItem);
+    return this;
+  }
+
+  /**
+   * List of projects where parameter should be available
+   * @return projectIds
+   */
+  @javax.annotation.Nullable
+  public List<UUID> getProjectIds() {
+    return projectIds;
+  }
+
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -110,12 +145,24 @@ public class CreateParameterApiModel {
     }
     CreateParameterApiModel createParameterApiModel = (CreateParameterApiModel) o;
     return Objects.equals(this.name, createParameterApiModel.name) &&
-        Objects.equals(this.value, createParameterApiModel.value);
+        Objects.equals(this.value, createParameterApiModel.value) &&
+        Objects.equals(this.projectIds, createParameterApiModel.projectIds);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(name, value, projectIds);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -124,6 +171,7 @@ public class CreateParameterApiModel {
     sb.append("class CreateParameterApiModel {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -148,6 +196,7 @@ public class CreateParameterApiModel {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("value");
+    openapiFields.add("projectIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -188,6 +237,10 @@ public class CreateParameterApiModel {
       }
       if (!jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
   }
 
