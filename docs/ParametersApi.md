@@ -172,7 +172,7 @@ null (empty response body)
 
 <a id="apiV2ParametersGroupsGet"></a>
 # **apiV2ParametersGroupsGet**
-> List&lt;ParameterGroupApiResult&gt; apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue)
+> List&lt;ParameterGroupApiResult&gt; apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue)
 
 Get parameters as group
 
@@ -203,13 +203,14 @@ public class Example {
     Set<UUID> parameterKeyIds = Arrays.asList(); // Set<UUID> | 
     String name = "name_example"; // String | 
     Boolean isDeleted = true; // Boolean | 
+    List<UUID> projectIds = Arrays.asList(); // List<UUID> | 
     Integer skip = 56; // Integer | Amount of items to be skipped (offset)
     Integer take = 56; // Integer | Amount of items to be taken (limit)
     String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
     String searchField = "searchField_example"; // String | Property name for searching
     String searchValue = "searchValue_example"; // String | Value for searching
     try {
-      List<ParameterGroupApiResult> result = apiInstance.apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, skip, take, orderBy, searchField, searchValue);
+      List<ParameterGroupApiResult> result = apiInstance.apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersGroupsGet");
@@ -229,6 +230,7 @@ public class Example {
 | **parameterKeyIds** | [**Set&lt;UUID&gt;**](UUID.md)|  | [optional] |
 | **name** | **String**|  | [optional] |
 | **isDeleted** | **Boolean**|  | [optional] |
+| **projectIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional] |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
@@ -411,7 +413,7 @@ public class Example {
 
 <a id="apiV2ParametersKeysGet"></a>
 # **apiV2ParametersKeysGet**
-> List&lt;String&gt; apiV2ParametersKeysGet()
+> List&lt;String&gt; apiV2ParametersKeysGet(projectIds)
 
 Get all parameter keys
 
@@ -439,8 +441,9 @@ public class Example {
     //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
     ParametersApi apiInstance = new ParametersApi(defaultClient);
+    List<UUID> projectIds = Arrays.asList(); // List<UUID> | 
     try {
-      List<String> result = apiInstance.apiV2ParametersKeysGet();
+      List<String> result = apiInstance.apiV2ParametersKeysGet(projectIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ParametersApi#apiV2ParametersKeysGet");
@@ -454,7 +457,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional] |
 
 ### Return type
 

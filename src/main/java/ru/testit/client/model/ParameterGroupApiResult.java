@@ -20,8 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -64,6 +66,10 @@ public class ParameterGroupApiResult {
   public static final String SERIALIZED_NAME_VALUES = "values";
   @SerializedName(SERIALIZED_NAME_VALUES)
   private Map<String, String> values = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private List<UUID> projectIds = new ArrayList<>();
 
   public ParameterGroupApiResult() {
   }
@@ -133,6 +139,33 @@ public class ParameterGroupApiResult {
   }
 
 
+  public ParameterGroupApiResult projectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+    return this;
+  }
+
+  public ParameterGroupApiResult addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new ArrayList<>();
+    }
+    this.projectIds.add(projectIdsItem);
+    return this;
+  }
+
+  /**
+   * Get projectIds
+   * @return projectIds
+   */
+  @javax.annotation.Nonnull
+  public List<UUID> getProjectIds() {
+    return projectIds;
+  }
+
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -145,12 +178,13 @@ public class ParameterGroupApiResult {
     ParameterGroupApiResult parameterGroupApiResult = (ParameterGroupApiResult) o;
     return Objects.equals(this.parameterKeyId, parameterGroupApiResult.parameterKeyId) &&
         Objects.equals(this.name, parameterGroupApiResult.name) &&
-        Objects.equals(this.values, parameterGroupApiResult.values);
+        Objects.equals(this.values, parameterGroupApiResult.values) &&
+        Objects.equals(this.projectIds, parameterGroupApiResult.projectIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(parameterKeyId, name, values);
+    return Objects.hash(parameterKeyId, name, values, projectIds);
   }
 
   @Override
@@ -160,6 +194,7 @@ public class ParameterGroupApiResult {
     sb.append("    parameterKeyId: ").append(toIndentedString(parameterKeyId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -185,12 +220,14 @@ public class ParameterGroupApiResult {
     openapiFields.add("parameterKeyId");
     openapiFields.add("name");
     openapiFields.add("values");
+    openapiFields.add("projectIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("parameterKeyId");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("values");
+    openapiRequiredFields.add("projectIds");
   }
 
   /**
@@ -226,6 +263,12 @@ public class ParameterGroupApiResult {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("projectIds") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
   }
 

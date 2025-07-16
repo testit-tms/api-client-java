@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.PreviewsIssueLinkApiModel;
 import ru.testit.client.model.WorkItemPreviewApiModel;
 
 import com.google.gson.Gson;
@@ -68,6 +69,10 @@ public class CreateWorkItemPreviewsApiModel {
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private Map<String, Object> attributes;
+
+  public static final String SERIALIZED_NAME_LINK = "link";
+  @SerializedName(SERIALIZED_NAME_LINK)
+  private PreviewsIssueLinkApiModel link;
 
   public CreateWorkItemPreviewsApiModel() {
   }
@@ -145,6 +150,25 @@ public class CreateWorkItemPreviewsApiModel {
   }
 
 
+  public CreateWorkItemPreviewsApiModel link(PreviewsIssueLinkApiModel link) {
+    this.link = link;
+    return this;
+  }
+
+  /**
+   * Get link
+   * @return link
+   */
+  @javax.annotation.Nullable
+  public PreviewsIssueLinkApiModel getLink() {
+    return link;
+  }
+
+  public void setLink(PreviewsIssueLinkApiModel link) {
+    this.link = link;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -157,7 +181,8 @@ public class CreateWorkItemPreviewsApiModel {
     CreateWorkItemPreviewsApiModel createWorkItemPreviewsApiModel = (CreateWorkItemPreviewsApiModel) o;
     return Objects.equals(this.sectionId, createWorkItemPreviewsApiModel.sectionId) &&
         Objects.equals(this.previews, createWorkItemPreviewsApiModel.previews) &&
-        Objects.equals(this.attributes, createWorkItemPreviewsApiModel.attributes);
+        Objects.equals(this.attributes, createWorkItemPreviewsApiModel.attributes) &&
+        Objects.equals(this.link, createWorkItemPreviewsApiModel.link);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -166,7 +191,7 @@ public class CreateWorkItemPreviewsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sectionId, previews, attributes);
+    return Objects.hash(sectionId, previews, attributes, link);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -183,6 +208,7 @@ public class CreateWorkItemPreviewsApiModel {
     sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
     sb.append("    previews: ").append(toIndentedString(previews)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -208,6 +234,7 @@ public class CreateWorkItemPreviewsApiModel {
     openapiFields.add("sectionId");
     openapiFields.add("previews");
     openapiFields.add("attributes");
+    openapiFields.add("link");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -256,6 +283,10 @@ public class CreateWorkItemPreviewsApiModel {
       for (int i = 0; i < jsonArraypreviews.size(); i++) {
         WorkItemPreviewApiModel.validateJsonElement(jsonArraypreviews.get(i));
       };
+      // validate the optional field `link`
+      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) {
+        PreviewsIssueLinkApiModel.validateJsonElement(jsonObj.get("link"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

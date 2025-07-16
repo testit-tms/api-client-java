@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  [optional] |
 |**isDeleted** | **Boolean** |  |  [optional] |
+|**projectIds** | **List&lt;UUID&gt;** |  |  [optional] |
 
 
 

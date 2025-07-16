@@ -20,8 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -65,6 +67,10 @@ public class ParameterGroupsFilterApiModel {
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
   private Boolean isDeleted;
+
+  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
+  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
+  private List<UUID> projectIds;
 
   public ParameterGroupsFilterApiModel() {
   }
@@ -134,6 +140,33 @@ public class ParameterGroupsFilterApiModel {
   }
 
 
+  public ParameterGroupsFilterApiModel projectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+    return this;
+  }
+
+  public ParameterGroupsFilterApiModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new ArrayList<>();
+    }
+    this.projectIds.add(projectIdsItem);
+    return this;
+  }
+
+  /**
+   * Get projectIds
+   * @return projectIds
+   */
+  @javax.annotation.Nullable
+  public List<UUID> getProjectIds() {
+    return projectIds;
+  }
+
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -146,7 +179,8 @@ public class ParameterGroupsFilterApiModel {
     ParameterGroupsFilterApiModel parameterGroupsFilterApiModel = (ParameterGroupsFilterApiModel) o;
     return Objects.equals(this.parameterKeyIds, parameterGroupsFilterApiModel.parameterKeyIds) &&
         Objects.equals(this.name, parameterGroupsFilterApiModel.name) &&
-        Objects.equals(this.isDeleted, parameterGroupsFilterApiModel.isDeleted);
+        Objects.equals(this.isDeleted, parameterGroupsFilterApiModel.isDeleted) &&
+        Objects.equals(this.projectIds, parameterGroupsFilterApiModel.projectIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -155,7 +189,7 @@ public class ParameterGroupsFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(parameterKeyIds, name, isDeleted);
+    return Objects.hash(parameterKeyIds, name, isDeleted, projectIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -172,6 +206,7 @@ public class ParameterGroupsFilterApiModel {
     sb.append("    parameterKeyIds: ").append(toIndentedString(parameterKeyIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -197,6 +232,7 @@ public class ParameterGroupsFilterApiModel {
     openapiFields.add("parameterKeyIds");
     openapiFields.add("name");
     openapiFields.add("isDeleted");
+    openapiFields.add("projectIds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -229,6 +265,10 @@ public class ParameterGroupsFilterApiModel {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
       }
   }
 

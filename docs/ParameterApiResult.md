@@ -16,6 +16,7 @@
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**isDeleted** | **Boolean** |  |  |
+|**projectIds** | **List&lt;UUID&gt;** |  |  |
 
 
 
