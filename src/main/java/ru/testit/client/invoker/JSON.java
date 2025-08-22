@@ -254,8 +254,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ParametersFilterApiModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.PeriodViewModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.PeriodViewModelChangedFieldViewModel.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.PreviewsIssueLinkApiModel.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.PreviewsIssueLinkApiResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProblemDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectAttributesFilterModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ru.testit.client.model.ProjectCustomAttributeTemplateGetModel.CustomTypeAdapterFactory());
