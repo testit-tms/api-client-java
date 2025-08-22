@@ -21,9 +21,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.CustomAttributeModel;
 import ru.testit.client.model.ProjectTypeModel;
 
 import com.google.gson.Gson;
@@ -50,10 +53,10 @@ import java.util.Set;
 import ru.testit.client.invoker.JSON;
 
 /**
- * ProjectShortModel
+ * ProjectApiResult
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class ProjectShortModel {
+public class ProjectApiResult {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
@@ -69,6 +72,14 @@ public class ProjectShortModel {
   public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
   @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
   private Boolean isFavorite;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTES_SCHEME = "attributesScheme";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES_SCHEME)
+  private List<CustomAttributeModel> attributesScheme;
+
+  public static final String SERIALIZED_NAME_TEST_PLANS_ATTRIBUTES_SCHEME = "testPlansAttributesScheme";
+  @SerializedName(SERIALIZED_NAME_TEST_PLANS_ATTRIBUTES_SCHEME)
+  private List<CustomAttributeModel> testPlansAttributesScheme;
 
   public static final String SERIALIZED_NAME_TEST_CASES_COUNT = "testCasesCount";
   @SerializedName(SERIALIZED_NAME_TEST_CASES_COUNT)
@@ -119,10 +130,14 @@ public class ProjectShortModel {
   @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
   private Boolean isFlakyAuto;
 
-  public ProjectShortModel() {
+  public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflowId";
+  @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
+  private UUID workflowId;
+
+  public ProjectApiResult() {
   }
 
-  public ProjectShortModel id(UUID id) {
+  public ProjectApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -141,7 +156,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel description(String description) {
+  public ProjectApiResult description(String description) {
     this.description = description;
     return this;
   }
@@ -160,7 +175,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel name(String name) {
+  public ProjectApiResult name(String name) {
     this.name = name;
     return this;
   }
@@ -179,7 +194,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel isFavorite(Boolean isFavorite) {
+  public ProjectApiResult isFavorite(Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
@@ -198,7 +213,61 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel testCasesCount(Integer testCasesCount) {
+  public ProjectApiResult attributesScheme(List<CustomAttributeModel> attributesScheme) {
+    this.attributesScheme = attributesScheme;
+    return this;
+  }
+
+  public ProjectApiResult addAttributesSchemeItem(CustomAttributeModel attributesSchemeItem) {
+    if (this.attributesScheme == null) {
+      this.attributesScheme = new ArrayList<>();
+    }
+    this.attributesScheme.add(attributesSchemeItem);
+    return this;
+  }
+
+  /**
+   * Collection of the project attributes
+   * @return attributesScheme
+   */
+  @javax.annotation.Nullable
+  public List<CustomAttributeModel> getAttributesScheme() {
+    return attributesScheme;
+  }
+
+  public void setAttributesScheme(List<CustomAttributeModel> attributesScheme) {
+    this.attributesScheme = attributesScheme;
+  }
+
+
+  public ProjectApiResult testPlansAttributesScheme(List<CustomAttributeModel> testPlansAttributesScheme) {
+    this.testPlansAttributesScheme = testPlansAttributesScheme;
+    return this;
+  }
+
+  public ProjectApiResult addTestPlansAttributesSchemeItem(CustomAttributeModel testPlansAttributesSchemeItem) {
+    if (this.testPlansAttributesScheme == null) {
+      this.testPlansAttributesScheme = new ArrayList<>();
+    }
+    this.testPlansAttributesScheme.add(testPlansAttributesSchemeItem);
+    return this;
+  }
+
+  /**
+   * Collection of the project test plans attributes
+   * @return testPlansAttributesScheme
+   */
+  @javax.annotation.Nullable
+  public List<CustomAttributeModel> getTestPlansAttributesScheme() {
+    return testPlansAttributesScheme;
+  }
+
+  public void setTestPlansAttributesScheme(List<CustomAttributeModel> testPlansAttributesScheme) {
+    this.testPlansAttributesScheme = testPlansAttributesScheme;
+  }
+
+
+  public ProjectApiResult testCasesCount(Integer testCasesCount) {
     this.testCasesCount = testCasesCount;
     return this;
   }
@@ -217,7 +286,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel sharedStepsCount(Integer sharedStepsCount) {
+  public ProjectApiResult sharedStepsCount(Integer sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
     return this;
   }
@@ -236,7 +305,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel checkListsCount(Integer checkListsCount) {
+  public ProjectApiResult checkListsCount(Integer checkListsCount) {
     this.checkListsCount = checkListsCount;
     return this;
   }
@@ -255,7 +324,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel autoTestsCount(Integer autoTestsCount) {
+  public ProjectApiResult autoTestsCount(Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -274,7 +343,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel isDeleted(Boolean isDeleted) {
+  public ProjectApiResult isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -293,7 +362,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel createdDate(OffsetDateTime createdDate) {
+  public ProjectApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -312,7 +381,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel modifiedDate(OffsetDateTime modifiedDate) {
+  public ProjectApiResult modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -331,7 +400,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel createdById(UUID createdById) {
+  public ProjectApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -350,7 +419,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel modifiedById(UUID modifiedById) {
+  public ProjectApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -369,7 +438,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel globalId(Long globalId) {
+  public ProjectApiResult globalId(Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -388,7 +457,7 @@ public class ProjectShortModel {
   }
 
 
-  public ProjectShortModel type(ProjectTypeModel type) {
+  public ProjectApiResult type(ProjectTypeModel type) {
     this.type = type;
     return this;
   }
@@ -408,7 +477,7 @@ public class ProjectShortModel {
 
 
   @Deprecated
-  public ProjectShortModel isFlakyAuto(Boolean isFlakyAuto) {
+  public ProjectApiResult isFlakyAuto(Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
     return this;
   }
@@ -430,6 +499,25 @@ public class ProjectShortModel {
   }
 
 
+  public ProjectApiResult workflowId(UUID workflowId) {
+    this.workflowId = workflowId;
+    return this;
+  }
+
+  /**
+   * Get workflowId
+   * @return workflowId
+   */
+  @javax.annotation.Nonnull
+  public UUID getWorkflowId() {
+    return workflowId;
+  }
+
+  public void setWorkflowId(UUID workflowId) {
+    this.workflowId = workflowId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -439,23 +527,26 @@ public class ProjectShortModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectShortModel projectShortModel = (ProjectShortModel) o;
-    return Objects.equals(this.id, projectShortModel.id) &&
-        Objects.equals(this.description, projectShortModel.description) &&
-        Objects.equals(this.name, projectShortModel.name) &&
-        Objects.equals(this.isFavorite, projectShortModel.isFavorite) &&
-        Objects.equals(this.testCasesCount, projectShortModel.testCasesCount) &&
-        Objects.equals(this.sharedStepsCount, projectShortModel.sharedStepsCount) &&
-        Objects.equals(this.checkListsCount, projectShortModel.checkListsCount) &&
-        Objects.equals(this.autoTestsCount, projectShortModel.autoTestsCount) &&
-        Objects.equals(this.isDeleted, projectShortModel.isDeleted) &&
-        Objects.equals(this.createdDate, projectShortModel.createdDate) &&
-        Objects.equals(this.modifiedDate, projectShortModel.modifiedDate) &&
-        Objects.equals(this.createdById, projectShortModel.createdById) &&
-        Objects.equals(this.modifiedById, projectShortModel.modifiedById) &&
-        Objects.equals(this.globalId, projectShortModel.globalId) &&
-        Objects.equals(this.type, projectShortModel.type) &&
-        Objects.equals(this.isFlakyAuto, projectShortModel.isFlakyAuto);
+    ProjectApiResult projectApiResult = (ProjectApiResult) o;
+    return Objects.equals(this.id, projectApiResult.id) &&
+        Objects.equals(this.description, projectApiResult.description) &&
+        Objects.equals(this.name, projectApiResult.name) &&
+        Objects.equals(this.isFavorite, projectApiResult.isFavorite) &&
+        Objects.equals(this.attributesScheme, projectApiResult.attributesScheme) &&
+        Objects.equals(this.testPlansAttributesScheme, projectApiResult.testPlansAttributesScheme) &&
+        Objects.equals(this.testCasesCount, projectApiResult.testCasesCount) &&
+        Objects.equals(this.sharedStepsCount, projectApiResult.sharedStepsCount) &&
+        Objects.equals(this.checkListsCount, projectApiResult.checkListsCount) &&
+        Objects.equals(this.autoTestsCount, projectApiResult.autoTestsCount) &&
+        Objects.equals(this.isDeleted, projectApiResult.isDeleted) &&
+        Objects.equals(this.createdDate, projectApiResult.createdDate) &&
+        Objects.equals(this.modifiedDate, projectApiResult.modifiedDate) &&
+        Objects.equals(this.createdById, projectApiResult.createdById) &&
+        Objects.equals(this.modifiedById, projectApiResult.modifiedById) &&
+        Objects.equals(this.globalId, projectApiResult.globalId) &&
+        Objects.equals(this.type, projectApiResult.type) &&
+        Objects.equals(this.isFlakyAuto, projectApiResult.isFlakyAuto) &&
+        Objects.equals(this.workflowId, projectApiResult.workflowId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -464,7 +555,7 @@ public class ProjectShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, description, name, isFavorite, testCasesCount, sharedStepsCount, checkListsCount, autoTestsCount, isDeleted, createdDate, modifiedDate, createdById, modifiedById, globalId, type, isFlakyAuto);
+    return Objects.hash(id, description, name, isFavorite, attributesScheme, testPlansAttributesScheme, testCasesCount, sharedStepsCount, checkListsCount, autoTestsCount, isDeleted, createdDate, modifiedDate, createdById, modifiedById, globalId, type, isFlakyAuto, workflowId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -477,11 +568,13 @@ public class ProjectShortModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectShortModel {\n");
+    sb.append("class ProjectApiResult {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
+    sb.append("    attributesScheme: ").append(toIndentedString(attributesScheme)).append("\n");
+    sb.append("    testPlansAttributesScheme: ").append(toIndentedString(testPlansAttributesScheme)).append("\n");
     sb.append("    testCasesCount: ").append(toIndentedString(testCasesCount)).append("\n");
     sb.append("    sharedStepsCount: ").append(toIndentedString(sharedStepsCount)).append("\n");
     sb.append("    checkListsCount: ").append(toIndentedString(checkListsCount)).append("\n");
@@ -494,6 +587,7 @@ public class ProjectShortModel {
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
+    sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -520,6 +614,8 @@ public class ProjectShortModel {
     openapiFields.add("description");
     openapiFields.add("name");
     openapiFields.add("isFavorite");
+    openapiFields.add("attributesScheme");
+    openapiFields.add("testPlansAttributesScheme");
     openapiFields.add("testCasesCount");
     openapiFields.add("sharedStepsCount");
     openapiFields.add("checkListsCount");
@@ -532,6 +628,7 @@ public class ProjectShortModel {
     openapiFields.add("globalId");
     openapiFields.add("type");
     openapiFields.add("isFlakyAuto");
+    openapiFields.add("workflowId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -544,31 +641,32 @@ public class ProjectShortModel {
     openapiRequiredFields.add("globalId");
     openapiRequiredFields.add("type");
     openapiRequiredFields.add("isFlakyAuto");
+    openapiRequiredFields.add("workflowId");
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProjectShortModel
+   * @throws IOException if the JSON Element is invalid with respect to ProjectApiResult
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ProjectShortModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectShortModel is not found in the empty JSON string", ProjectShortModel.openapiRequiredFields.toString()));
+        if (!ProjectApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectApiResult is not found in the empty JSON string", ProjectApiResult.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ProjectShortModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectShortModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ProjectApiResult.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ProjectShortModel.openapiRequiredFields) {
+      for (String requiredField : ProjectApiResult.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -583,6 +681,34 @@ public class ProjectShortModel {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      if (jsonObj.get("attributesScheme") != null && !jsonObj.get("attributesScheme").isJsonNull()) {
+        JsonArray jsonArrayattributesScheme = jsonObj.getAsJsonArray("attributesScheme");
+        if (jsonArrayattributesScheme != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("attributesScheme").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `attributesScheme` to be an array in the JSON string but got `%s`", jsonObj.get("attributesScheme").toString()));
+          }
+
+          // validate the optional field `attributesScheme` (array)
+          for (int i = 0; i < jsonArrayattributesScheme.size(); i++) {
+            CustomAttributeModel.validateJsonElement(jsonArrayattributesScheme.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("testPlansAttributesScheme") != null && !jsonObj.get("testPlansAttributesScheme").isJsonNull()) {
+        JsonArray jsonArraytestPlansAttributesScheme = jsonObj.getAsJsonArray("testPlansAttributesScheme");
+        if (jsonArraytestPlansAttributesScheme != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("testPlansAttributesScheme").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `testPlansAttributesScheme` to be an array in the JSON string but got `%s`", jsonObj.get("testPlansAttributesScheme").toString()));
+          }
+
+          // validate the optional field `testPlansAttributesScheme` (array)
+          for (int i = 0; i < jsonArraytestPlansAttributesScheme.size(); i++) {
+            CustomAttributeModel.validateJsonElement(jsonArraytestPlansAttributesScheme.get(i));
+          };
+        }
+      }
       if (!jsonObj.get("createdById").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
       }
@@ -591,28 +717,31 @@ public class ProjectShortModel {
       }
       // validate the required field `type`
       ProjectTypeModel.validateJsonElement(jsonObj.get("type"));
+      if (!jsonObj.get("workflowId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `workflowId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workflowId").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectShortModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectShortModel' and its subtypes
+       if (!ProjectApiResult.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ProjectApiResult' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectShortModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectShortModel.class));
+       final TypeAdapter<ProjectApiResult> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectApiResult.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ProjectShortModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<ProjectApiResult>() {
            @Override
-           public void write(JsonWriter out, ProjectShortModel value) throws IOException {
+           public void write(JsonWriter out, ProjectApiResult value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ProjectShortModel read(JsonReader in) throws IOException {
+           public ProjectApiResult read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -623,18 +752,18 @@ public class ProjectShortModel {
   }
 
   /**
-   * Create an instance of ProjectShortModel given an JSON string
+   * Create an instance of ProjectApiResult given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ProjectShortModel
-   * @throws IOException if the JSON string is invalid with respect to ProjectShortModel
+   * @return An instance of ProjectApiResult
+   * @throws IOException if the JSON string is invalid with respect to ProjectApiResult
    */
-  public static ProjectShortModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectShortModel.class);
+  public static ProjectApiResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ProjectApiResult.class);
   }
 
   /**
-   * Convert an instance of ProjectShortModel to an JSON string
+   * Convert an instance of ProjectApiResult to an JSON string
    *
    * @return JSON string
    */

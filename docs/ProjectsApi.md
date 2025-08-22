@@ -1330,7 +1330,7 @@ public class Example {
 
 <a id="createProject"></a>
 # **createProject**
-> ProjectModel createProject(createProjectApiModel)
+> ProjectApiResult createProject(createProjectApiModel)
 
 Create project
 
@@ -1360,7 +1360,7 @@ public class Example {
     ProjectsApi apiInstance = new ProjectsApi(defaultClient);
     CreateProjectApiModel createProjectApiModel = new CreateProjectApiModel(); // CreateProjectApiModel | 
     try {
-      ProjectModel result = apiInstance.createProject(createProjectApiModel);
+      ProjectApiResult result = apiInstance.createProject(createProjectApiModel);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectsApi#createProject");
@@ -1381,7 +1381,7 @@ public class Example {
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 

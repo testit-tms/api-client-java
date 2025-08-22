@@ -36,6 +36,7 @@ import ru.testit.client.model.GetShortProjectsApiModel;
 import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
+import ru.testit.client.model.ProjectApiResult;
 import ru.testit.client.model.ProjectModel;
 import ru.testit.client.model.ProjectSelectModel;
 import ru.testit.client.model.ProjectShortApiResultReply;
@@ -2816,7 +2817,7 @@ public class ProjectsApi {
      * Create project
      *  Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
      * @param createProjectApiModel  (optional)
-     * @return ProjectModel
+     * @return ProjectApiResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2830,8 +2831,8 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ProjectModel createProject(CreateProjectApiModel createProjectApiModel) throws ApiException {
-        ApiResponse<ProjectModel> localVarResp = createProjectWithHttpInfo(createProjectApiModel);
+    public ProjectApiResult createProject(CreateProjectApiModel createProjectApiModel) throws ApiException {
+        ApiResponse<ProjectApiResult> localVarResp = createProjectWithHttpInfo(createProjectApiModel);
         return localVarResp.getData();
     }
 
@@ -2839,7 +2840,7 @@ public class ProjectsApi {
      * Create project
      *  Use case  User sets project parameters (listed in request example) and runs method execution  System creates project  System returns project model (example listed in response parameters)
      * @param createProjectApiModel  (optional)
-     * @return ApiResponse&lt;ProjectModel&gt;
+     * @return ApiResponse&lt;ProjectApiResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2853,9 +2854,9 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProjectModel> createProjectWithHttpInfo(CreateProjectApiModel createProjectApiModel) throws ApiException {
+    public ApiResponse<ProjectApiResult> createProjectWithHttpInfo(CreateProjectApiModel createProjectApiModel) throws ApiException {
         okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectApiModel, null);
-        Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProjectApiResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2878,10 +2879,10 @@ public class ProjectsApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createProjectAsync(CreateProjectApiModel createProjectApiModel, final ApiCallback<ProjectModel> _callback) throws ApiException {
+    public okhttp3.Call createProjectAsync(CreateProjectApiModel createProjectApiModel, final ApiCallback<ProjectApiResult> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createProjectValidateBeforeCall(createProjectApiModel, _callback);
-        Type localVarReturnType = new TypeToken<ProjectModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProjectApiResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
