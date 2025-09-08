@@ -14,72 +14,58 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanSummaryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPlanSummaryModel.JSON_PROPERTY_TOTAL_TEST_POINTS_COUNT,
+  TestPlanSummaryModel.JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT,
+  TestPlanSummaryModel.JSON_PROPERTY_AUTOMATED_TEST_POINTS_COUNT,
+  TestPlanSummaryModel.JSON_PROPERTY_COMPLETED_TEST_POINTS_COUNT,
+  TestPlanSummaryModel.JSON_PROPERTY_DEFECTS_COUNT,
+  TestPlanSummaryModel.JSON_PROPERTY_PLANNED_TEST_POINTS_DURATION,
+  TestPlanSummaryModel.JSON_PROPERTY_SPENT_TEST_POINTS_DURATION
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanSummaryModel {
-  public static final String SERIALIZED_NAME_TOTAL_TEST_POINTS_COUNT = "totalTestPointsCount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_TEST_POINTS_COUNT)
+  public static final String JSON_PROPERTY_TOTAL_TEST_POINTS_COUNT = "totalTestPointsCount";
   private Integer totalTestPointsCount;
 
-  public static final String SERIALIZED_NAME_MANUAL_TEST_POINTS_COUNT = "manualTestPointsCount";
-  @SerializedName(SERIALIZED_NAME_MANUAL_TEST_POINTS_COUNT)
+  public static final String JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT = "manualTestPointsCount";
   private Integer manualTestPointsCount;
 
-  public static final String SERIALIZED_NAME_AUTOMATED_TEST_POINTS_COUNT = "automatedTestPointsCount";
-  @SerializedName(SERIALIZED_NAME_AUTOMATED_TEST_POINTS_COUNT)
+  public static final String JSON_PROPERTY_AUTOMATED_TEST_POINTS_COUNT = "automatedTestPointsCount";
   private Integer automatedTestPointsCount;
 
-  public static final String SERIALIZED_NAME_COMPLETED_TEST_POINTS_COUNT = "completedTestPointsCount";
-  @SerializedName(SERIALIZED_NAME_COMPLETED_TEST_POINTS_COUNT)
+  public static final String JSON_PROPERTY_COMPLETED_TEST_POINTS_COUNT = "completedTestPointsCount";
   private Integer completedTestPointsCount;
 
-  public static final String SERIALIZED_NAME_DEFECTS_COUNT = "defectsCount";
-  @SerializedName(SERIALIZED_NAME_DEFECTS_COUNT)
+  public static final String JSON_PROPERTY_DEFECTS_COUNT = "defectsCount";
   private Integer defectsCount;
 
-  public static final String SERIALIZED_NAME_PLANNED_TEST_POINTS_DURATION = "plannedTestPointsDuration";
-  @SerializedName(SERIALIZED_NAME_PLANNED_TEST_POINTS_DURATION)
+  public static final String JSON_PROPERTY_PLANNED_TEST_POINTS_DURATION = "plannedTestPointsDuration";
   private Long plannedTestPointsDuration;
 
-  public static final String SERIALIZED_NAME_SPENT_TEST_POINTS_DURATION = "spentTestPointsDuration";
-  @SerializedName(SERIALIZED_NAME_SPENT_TEST_POINTS_DURATION)
-  private Long spentTestPointsDuration;
+  public static final String JSON_PROPERTY_SPENT_TEST_POINTS_DURATION = "spentTestPointsDuration";
+  private JsonNullable<Long> spentTestPointsDuration = JsonNullable.<Long>undefined();
 
-  public TestPlanSummaryModel() {
+  public TestPlanSummaryModel() { 
   }
 
   public TestPlanSummaryModel totalTestPointsCount(Integer totalTestPointsCount) {
@@ -91,11 +77,17 @@ public class TestPlanSummaryModel {
    * Get totalTestPointsCount
    * @return totalTestPointsCount
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TOTAL_TEST_POINTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getTotalTestPointsCount() {
     return totalTestPointsCount;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TOTAL_TEST_POINTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTotalTestPointsCount(Integer totalTestPointsCount) {
     this.totalTestPointsCount = totalTestPointsCount;
   }
@@ -110,11 +102,17 @@ public class TestPlanSummaryModel {
    * Get manualTestPointsCount
    * @return manualTestPointsCount
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getManualTestPointsCount() {
     return manualTestPointsCount;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setManualTestPointsCount(Integer manualTestPointsCount) {
     this.manualTestPointsCount = manualTestPointsCount;
   }
@@ -129,11 +127,17 @@ public class TestPlanSummaryModel {
    * Get automatedTestPointsCount
    * @return automatedTestPointsCount
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_AUTOMATED_TEST_POINTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getAutomatedTestPointsCount() {
     return automatedTestPointsCount;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_AUTOMATED_TEST_POINTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAutomatedTestPointsCount(Integer automatedTestPointsCount) {
     this.automatedTestPointsCount = automatedTestPointsCount;
   }
@@ -148,11 +152,17 @@ public class TestPlanSummaryModel {
    * Get completedTestPointsCount
    * @return completedTestPointsCount
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_COMPLETED_TEST_POINTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getCompletedTestPointsCount() {
     return completedTestPointsCount;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_COMPLETED_TEST_POINTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCompletedTestPointsCount(Integer completedTestPointsCount) {
     this.completedTestPointsCount = completedTestPointsCount;
   }
@@ -167,11 +177,17 @@ public class TestPlanSummaryModel {
    * Get defectsCount
    * @return defectsCount
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DEFECTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getDefectsCount() {
     return defectsCount;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_DEFECTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDefectsCount(Integer defectsCount) {
     this.defectsCount = defectsCount;
   }
@@ -186,18 +202,24 @@ public class TestPlanSummaryModel {
    * Get plannedTestPointsDuration
    * @return plannedTestPointsDuration
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PLANNED_TEST_POINTS_DURATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getPlannedTestPointsDuration() {
     return plannedTestPointsDuration;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PLANNED_TEST_POINTS_DURATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPlannedTestPointsDuration(Long plannedTestPointsDuration) {
     this.plannedTestPointsDuration = plannedTestPointsDuration;
   }
 
 
   public TestPlanSummaryModel spentTestPointsDuration(Long spentTestPointsDuration) {
-    this.spentTestPointsDuration = spentTestPointsDuration;
+    this.spentTestPointsDuration = JsonNullable.<Long>of(spentTestPointsDuration);
     return this;
   }
 
@@ -205,17 +227,33 @@ public class TestPlanSummaryModel {
    * Get spentTestPointsDuration
    * @return spentTestPointsDuration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Long getSpentTestPointsDuration() {
-    return spentTestPointsDuration;
+        return spentTestPointsDuration.orElse(null);
   }
 
-  public void setSpentTestPointsDuration(Long spentTestPointsDuration) {
+  @JsonProperty(JSON_PROPERTY_SPENT_TEST_POINTS_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getSpentTestPointsDuration_JsonNullable() {
+    return spentTestPointsDuration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SPENT_TEST_POINTS_DURATION)
+  public void setSpentTestPointsDuration_JsonNullable(JsonNullable<Long> spentTestPointsDuration) {
     this.spentTestPointsDuration = spentTestPointsDuration;
   }
 
+  public void setSpentTestPointsDuration(Long spentTestPointsDuration) {
+    this.spentTestPointsDuration = JsonNullable.<Long>of(spentTestPointsDuration);
+  }
 
 
+  /**
+   * Return true if this TestPlanSummaryModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -231,7 +269,7 @@ public class TestPlanSummaryModel {
         Objects.equals(this.completedTestPointsCount, testPlanSummaryModel.completedTestPointsCount) &&
         Objects.equals(this.defectsCount, testPlanSummaryModel.defectsCount) &&
         Objects.equals(this.plannedTestPointsDuration, testPlanSummaryModel.plannedTestPointsDuration) &&
-        Objects.equals(this.spentTestPointsDuration, testPlanSummaryModel.spentTestPointsDuration);
+        equalsNullable(this.spentTestPointsDuration, testPlanSummaryModel.spentTestPointsDuration);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -240,7 +278,7 @@ public class TestPlanSummaryModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalTestPointsCount, manualTestPointsCount, automatedTestPointsCount, completedTestPointsCount, defectsCount, plannedTestPointsDuration, spentTestPointsDuration);
+    return Objects.hash(totalTestPointsCount, manualTestPointsCount, automatedTestPointsCount, completedTestPointsCount, defectsCount, plannedTestPointsDuration, hashCodeNullable(spentTestPointsDuration));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -276,108 +314,5 @@ public class TestPlanSummaryModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("totalTestPointsCount");
-    openapiFields.add("manualTestPointsCount");
-    openapiFields.add("automatedTestPointsCount");
-    openapiFields.add("completedTestPointsCount");
-    openapiFields.add("defectsCount");
-    openapiFields.add("plannedTestPointsDuration");
-    openapiFields.add("spentTestPointsDuration");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("totalTestPointsCount");
-    openapiRequiredFields.add("manualTestPointsCount");
-    openapiRequiredFields.add("automatedTestPointsCount");
-    openapiRequiredFields.add("completedTestPointsCount");
-    openapiRequiredFields.add("defectsCount");
-    openapiRequiredFields.add("plannedTestPointsDuration");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanSummaryModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanSummaryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanSummaryModel is not found in the empty JSON string", TestPlanSummaryModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanSummaryModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanSummaryModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanSummaryModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanSummaryModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanSummaryModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanSummaryModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanSummaryModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanSummaryModel>() {
-           @Override
-           public void write(JsonWriter out, TestPlanSummaryModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanSummaryModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPlanSummaryModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanSummaryModel
-   * @throws IOException if the JSON string is invalid with respect to TestPlanSummaryModel
-   */
-  public static TestPlanSummaryModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanSummaryModel.class);
-  }
-
-  /**
-   * Convert an instance of TestPlanSummaryModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

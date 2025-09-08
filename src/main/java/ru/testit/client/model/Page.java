@@ -14,51 +14,34 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.Arrays;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Page
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  Page.JSON_PROPERTY_SKIP,
+  Page.JSON_PROPERTY_TAKE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Page {
-  public static final String SERIALIZED_NAME_SKIP = "skip";
-  @SerializedName(SERIALIZED_NAME_SKIP)
+  public static final String JSON_PROPERTY_SKIP = "skip";
   private Integer skip;
 
-  public static final String SERIALIZED_NAME_TAKE = "take";
-  @SerializedName(SERIALIZED_NAME_TAKE)
+  public static final String JSON_PROPERTY_TAKE = "take";
   private Integer take;
 
-  public Page() {
+  public Page() { 
   }
 
   public Page skip(Integer skip) {
@@ -72,11 +55,17 @@ public class Page {
    * maximum: 2147483647
    * @return skip
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SKIP)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getSkip() {
     return skip;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SKIP)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSkip(Integer skip) {
     this.skip = skip;
   }
@@ -93,17 +82,25 @@ public class Page {
    * maximum: 2147483647
    * @return take
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TAKE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getTake() {
     return take;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TAKE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTake(Integer take) {
     this.take = take;
   }
 
 
-
+  /**
+   * Return true if this Page object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,99 +140,5 @@ public class Page {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("skip");
-    openapiFields.add("take");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("skip");
-    openapiRequiredFields.add("take");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Page
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Page.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Page is not found in the empty JSON string", Page.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Page.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Page` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Page.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Page.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Page' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Page> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Page.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Page>() {
-           @Override
-           public void write(JsonWriter out, Page value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Page read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of Page given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Page
-   * @throws IOException if the JSON string is invalid with respect to Page
-   */
-  public static Page fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Page.class);
-  }
-
-  /**
-   * Convert an instance of Page to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

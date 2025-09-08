@@ -18,9 +18,9 @@
 |**avatarMetadata** | **String** |  |  |
 |**isDeleted** | **Boolean** |  |  |
 |**isDisabled** | **Boolean** |  |  |
-|**providerId** | **UUID** |  |  [optional] |
 |**isActiveStatusByEntity** | **Boolean** |  |  |
 |**userRank** | [**UserRankModel**](UserRankModel.md) |  |  |
+|**providerId** | **UUID** |  |  [optional] |
 
 
 

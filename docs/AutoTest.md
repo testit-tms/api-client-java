@@ -8,9 +8,15 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**externalId** | **String** | External ID of the autotest |  |
-|**links** | [**List&lt;Link&gt;**](Link.md) | Collection of the autotest links |  [optional] |
 |**projectId** | **UUID** | Unique ID of the autotest project |  |
 |**name** | **String** | Name of the autotest |  |
+|**globalId** | **Long** | Global ID of the autotest |  |
+|**isDeleted** | **Boolean** | Indicates if the autotest is deleted |  |
+|**mustBeApproved** | **Boolean** | Indicates if the autotest has unapproved changes from linked work items |  |
+|**id** | **UUID** | Unique ID of the autotest |  |
+|**createdDate** | **OffsetDateTime** | Creation date of the autotest |  |
+|**createdById** | **UUID** | Unique ID of the project creator |  |
+|**links** | [**List&lt;Link&gt;**](Link.md) | Collection of the autotest links |  [optional] |
 |**namespace** | **String** | Name of the autotest namespace |  [optional] |
 |**classname** | **String** | Name of the autotest class |  [optional] |
 |**steps** | [**List&lt;AutoTestStep&gt;**](AutoTestStep.md) | Collection of the autotest steps |  [optional] |
@@ -21,13 +27,7 @@
 |**labels** | [**List&lt;Label&gt;**](Label.md) | Collection of the autotest labels |  [optional] |
 |**isFlaky** | **Boolean** | Indicates if the autotest is marked as flaky |  [optional] |
 |**externalKey** | **String** | External key of the autotest |  [optional] |
-|**globalId** | **Long** | Global ID of the autotest |  |
-|**isDeleted** | **Boolean** | Indicates if the autotest is deleted |  |
-|**mustBeApproved** | **Boolean** | Indicates if the autotest has unapproved changes from linked work items |  |
-|**id** | **UUID** | Unique ID of the autotest |  |
-|**createdDate** | **OffsetDateTime** | Creation date of the autotest |  |
 |**modifiedDate** | **OffsetDateTime** | Last modification date of the project |  [optional] |
-|**createdById** | **UUID** | Unique ID of the project creator |  |
 |**modifiedById** | **UUID** | Unique ID of the project last editor |  [optional] |
 |**lastTestRunId** | **UUID** | Unique ID of the autotest last test run |  [optional] |
 |**lastTestRunName** | **String** | Name of the autotest last test run |  [optional] |

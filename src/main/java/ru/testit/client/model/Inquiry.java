@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,68 +28,34 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CompositeFilter;
 import ru.testit.client.model.Order;
 import ru.testit.client.model.Page;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Inquiry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  Inquiry.JSON_PROPERTY_ORDER,
+  Inquiry.JSON_PROPERTY_FILTER,
+  Inquiry.JSON_PROPERTY_PAGE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Inquiry {
-  public static final String SERIALIZED_NAME_FILTER = "filter";
-  @SerializedName(SERIALIZED_NAME_FILTER)
-  private CompositeFilter filter;
-
-  public static final String SERIALIZED_NAME_ORDER = "order";
-  @SerializedName(SERIALIZED_NAME_ORDER)
+  public static final String JSON_PROPERTY_ORDER = "order";
   private List<Order> order = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private Page page;
+  public static final String JSON_PROPERTY_FILTER = "filter";
+  private JsonNullable<CompositeFilter> filter = JsonNullable.<CompositeFilter>undefined();
 
-  public Inquiry() {
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private JsonNullable<Page> page = JsonNullable.<Page>undefined();
+
+  public Inquiry() { 
   }
-
-  public Inquiry filter(CompositeFilter filter) {
-    this.filter = filter;
-    return this;
-  }
-
-  /**
-   * Get filter
-   * @return filter
-   */
-  @javax.annotation.Nullable
-  public CompositeFilter getFilter() {
-    return filter;
-  }
-
-  public void setFilter(CompositeFilter filter) {
-    this.filter = filter;
-  }
-
 
   public Inquiry order(List<Order> order) {
     this.order = order;
@@ -107,18 +74,57 @@ public class Inquiry {
    * Get order
    * @return order
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<Order> getOrder() {
     return order;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOrder(List<Order> order) {
     this.order = order;
   }
 
 
+  public Inquiry filter(CompositeFilter filter) {
+    this.filter = JsonNullable.<CompositeFilter>of(filter);
+    return this;
+  }
+
+  /**
+   * Get filter
+   * @return filter
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public CompositeFilter getFilter() {
+        return filter.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<CompositeFilter> getFilter_JsonNullable() {
+    return filter;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  public void setFilter_JsonNullable(JsonNullable<CompositeFilter> filter) {
+    this.filter = filter;
+  }
+
+  public void setFilter(CompositeFilter filter) {
+    this.filter = JsonNullable.<CompositeFilter>of(filter);
+  }
+
+
   public Inquiry page(Page page) {
-    this.page = page;
+    this.page = JsonNullable.<Page>of(page);
     return this;
   }
 
@@ -126,17 +132,33 @@ public class Inquiry {
    * Get page
    * @return page
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Page getPage() {
-    return page;
+        return page.orElse(null);
   }
 
-  public void setPage(Page page) {
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Page> getPage_JsonNullable() {
+    return page;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  public void setPage_JsonNullable(JsonNullable<Page> page) {
     this.page = page;
   }
 
+  public void setPage(Page page) {
+    this.page = JsonNullable.<Page>of(page);
+  }
 
 
+  /**
+   * Return true if this Inquiry object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,9 +168,9 @@ public class Inquiry {
       return false;
     }
     Inquiry inquiry = (Inquiry) o;
-    return Objects.equals(this.filter, inquiry.filter) &&
-        Objects.equals(this.order, inquiry.order) &&
-        Objects.equals(this.page, inquiry.page);
+    return Objects.equals(this.order, inquiry.order) &&
+        equalsNullable(this.filter, inquiry.filter) &&
+        equalsNullable(this.page, inquiry.page);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -157,7 +179,7 @@ public class Inquiry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, order, page);
+    return Objects.hash(order, hashCodeNullable(filter), hashCodeNullable(page));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -171,8 +193,8 @@ public class Inquiry {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Inquiry {\n");
-    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -189,117 +211,5 @@ public class Inquiry {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("filter");
-    openapiFields.add("order");
-    openapiFields.add("page");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("order");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Inquiry
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Inquiry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Inquiry is not found in the empty JSON string", Inquiry.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Inquiry.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Inquiry` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Inquiry.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `filter`
-      if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        CompositeFilter.validateJsonElement(jsonObj.get("filter"));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("order").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `order` to be an array in the JSON string but got `%s`", jsonObj.get("order").toString()));
-      }
-
-      JsonArray jsonArrayorder = jsonObj.getAsJsonArray("order");
-      // validate the required field `order` (array)
-      for (int i = 0; i < jsonArrayorder.size(); i++) {
-        Order.validateJsonElement(jsonArrayorder.get(i));
-      };
-      // validate the optional field `page`
-      if (jsonObj.get("page") != null && !jsonObj.get("page").isJsonNull()) {
-        Page.validateJsonElement(jsonObj.get("page"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Inquiry.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Inquiry' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Inquiry> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Inquiry.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Inquiry>() {
-           @Override
-           public void write(JsonWriter out, Inquiry value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Inquiry read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of Inquiry given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Inquiry
-   * @throws IOException if the JSON string is invalid with respect to Inquiry
-   */
-  public static Inquiry fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Inquiry.class);
-  }
-
-  /**
-   * Convert an instance of Inquiry to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

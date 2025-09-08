@@ -14,56 +14,39 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanGroupByTestSuite
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPlanGroupByTestSuite.JSON_PROPERTY_TEST_SUITE_ID,
+  TestPlanGroupByTestSuite.JSON_PROPERTY_TEST_SUITE_NAME,
+  TestPlanGroupByTestSuite.JSON_PROPERTY_VALUE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanGroupByTestSuite {
-  public static final String SERIALIZED_NAME_TEST_SUITE_ID = "testSuiteId";
-  @SerializedName(SERIALIZED_NAME_TEST_SUITE_ID)
+  public static final String JSON_PROPERTY_TEST_SUITE_ID = "testSuiteId";
   private UUID testSuiteId;
 
-  public static final String SERIALIZED_NAME_TEST_SUITE_NAME = "testSuiteName";
-  @SerializedName(SERIALIZED_NAME_TEST_SUITE_NAME)
+  public static final String JSON_PROPERTY_TEST_SUITE_NAME = "testSuiteName";
   private String testSuiteName;
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+  public static final String JSON_PROPERTY_VALUE = "value";
   private Long value;
 
-  public TestPlanGroupByTestSuite() {
+  public TestPlanGroupByTestSuite() { 
   }
 
   public TestPlanGroupByTestSuite testSuiteId(UUID testSuiteId) {
@@ -75,11 +58,17 @@ public class TestPlanGroupByTestSuite {
    * Get testSuiteId
    * @return testSuiteId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getTestSuiteId() {
     return testSuiteId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestSuiteId(UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
@@ -94,11 +83,17 @@ public class TestPlanGroupByTestSuite {
    * Get testSuiteName
    * @return testSuiteName
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getTestSuiteName() {
     return testSuiteName;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestSuiteName(String testSuiteName) {
     this.testSuiteName = testSuiteName;
   }
@@ -113,17 +108,25 @@ public class TestPlanGroupByTestSuite {
    * Get value
    * @return value
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getValue() {
     return value;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setValue(Long value) {
     this.value = value;
   }
 
 
-
+  /**
+   * Return true if this TestPlanGroupByTestSuite object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,107 +168,5 @@ public class TestPlanGroupByTestSuite {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("testSuiteId");
-    openapiFields.add("testSuiteName");
-    openapiFields.add("value");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("testSuiteId");
-    openapiRequiredFields.add("testSuiteName");
-    openapiRequiredFields.add("value");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanGroupByTestSuite
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanGroupByTestSuite.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanGroupByTestSuite is not found in the empty JSON string", TestPlanGroupByTestSuite.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanGroupByTestSuite.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanGroupByTestSuite` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanGroupByTestSuite.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("testSuiteId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testSuiteId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testSuiteId").toString()));
-      }
-      if (!jsonObj.get("testSuiteName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testSuiteName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testSuiteName").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanGroupByTestSuite.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanGroupByTestSuite' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanGroupByTestSuite> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanGroupByTestSuite.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanGroupByTestSuite>() {
-           @Override
-           public void write(JsonWriter out, TestPlanGroupByTestSuite value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanGroupByTestSuite read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPlanGroupByTestSuite given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanGroupByTestSuite
-   * @throws IOException if the JSON string is invalid with respect to TestPlanGroupByTestSuite
-   */
-  public static TestPlanGroupByTestSuite fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanGroupByTestSuite.class);
-  }
-
-  /**
-   * Convert an instance of TestPlanGroupByTestSuite to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

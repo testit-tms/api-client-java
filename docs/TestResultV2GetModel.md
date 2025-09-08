@@ -7,11 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**_configuration** | [**ConfigurationModel**](ConfigurationModel.md) |  |  [optional] |
-|**autoTest** | [**AutoTestModelV2GetModel**](AutoTestModelV2GetModel.md) |  |  [optional] |
 |**id** | **UUID** |  |  |
 |**configurationId** | **UUID** |  |  |
 |**workItemVersionId** | **UUID** |  |  |
+|**testRunId** | **UUID** |  |  |
+|**outcome** | **String** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped |  |
+|**_configuration** | [**ConfigurationModel**](ConfigurationModel.md) |  |  [optional] |
+|**autoTest** | [**AutoTestModelV2GetModel**](AutoTestModelV2GetModel.md) |  |  [optional] |
 |**autoTestId** | **UUID** |  |  [optional] |
 |**message** | **String** |  |  [optional] |
 |**traces** | **String** |  |  [optional] |
@@ -21,8 +23,6 @@
 |**stoppedByUserId** | **UUID** |  |  [optional] |
 |**testPointId** | **UUID** |  |  [optional] |
 |**testPoint** | [**TestPointShortModel**](TestPointShortModel.md) |  |  [optional] |
-|**testRunId** | **UUID** |  |  |
-|**outcome** | **String** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped |  |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  [optional] |
 |**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) |  |  [optional] |

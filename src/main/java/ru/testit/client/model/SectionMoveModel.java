@@ -14,61 +14,47 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * SectionMoveModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  SectionMoveModel.JSON_PROPERTY_ID,
+  SectionMoveModel.JSON_PROPERTY_OLD_PARENT_ID,
+  SectionMoveModel.JSON_PROPERTY_PARENT_ID,
+  SectionMoveModel.JSON_PROPERTY_NEXT_SECTION_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SectionMoveModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_OLD_PARENT_ID = "oldParentId";
-  @SerializedName(SERIALIZED_NAME_OLD_PARENT_ID)
+  public static final String JSON_PROPERTY_OLD_PARENT_ID = "oldParentId";
   private UUID oldParentId;
 
-  public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
-  @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  public static final String JSON_PROPERTY_PARENT_ID = "parentId";
   private UUID parentId;
 
-  public static final String SERIALIZED_NAME_NEXT_SECTION_ID = "nextSectionId";
-  @SerializedName(SERIALIZED_NAME_NEXT_SECTION_ID)
-  private UUID nextSectionId;
+  public static final String JSON_PROPERTY_NEXT_SECTION_ID = "nextSectionId";
+  private JsonNullable<UUID> nextSectionId = JsonNullable.<UUID>undefined();
 
-  public SectionMoveModel() {
+  public SectionMoveModel() { 
   }
 
   public SectionMoveModel id(UUID id) {
@@ -80,11 +66,17 @@ public class SectionMoveModel {
    * Unique ID of the section
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -99,11 +91,17 @@ public class SectionMoveModel {
    * Unique ID of the section&#39;s current parent section
    * @return oldParentId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_OLD_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getOldParentId() {
     return oldParentId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_OLD_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOldParentId(UUID oldParentId) {
     this.oldParentId = oldParentId;
   }
@@ -118,18 +116,24 @@ public class SectionMoveModel {
    * Unique ID of the section&#39;s target parent section
    * @return parentId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getParentId() {
     return parentId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setParentId(UUID parentId) {
     this.parentId = parentId;
   }
 
 
   public SectionMoveModel nextSectionId(UUID nextSectionId) {
-    this.nextSectionId = nextSectionId;
+    this.nextSectionId = JsonNullable.<UUID>of(nextSectionId);
     return this;
   }
 
@@ -137,17 +141,33 @@ public class SectionMoveModel {
    * Unique ID of the section&#39;s following section
    * @return nextSectionId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getNextSectionId() {
-    return nextSectionId;
+        return nextSectionId.orElse(null);
   }
 
-  public void setNextSectionId(UUID nextSectionId) {
+  @JsonProperty(JSON_PROPERTY_NEXT_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getNextSectionId_JsonNullable() {
+    return nextSectionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEXT_SECTION_ID)
+  public void setNextSectionId_JsonNullable(JsonNullable<UUID> nextSectionId) {
     this.nextSectionId = nextSectionId;
   }
 
+  public void setNextSectionId(UUID nextSectionId) {
+    this.nextSectionId = JsonNullable.<UUID>of(nextSectionId);
+  }
 
 
+  /**
+   * Return true if this SectionMoveModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,7 +180,7 @@ public class SectionMoveModel {
     return Objects.equals(this.id, sectionMoveModel.id) &&
         Objects.equals(this.oldParentId, sectionMoveModel.oldParentId) &&
         Objects.equals(this.parentId, sectionMoveModel.parentId) &&
-        Objects.equals(this.nextSectionId, sectionMoveModel.nextSectionId);
+        equalsNullable(this.nextSectionId, sectionMoveModel.nextSectionId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -169,7 +189,7 @@ public class SectionMoveModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, oldParentId, parentId, nextSectionId);
+    return Objects.hash(id, oldParentId, parentId, hashCodeNullable(nextSectionId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -202,114 +222,5 @@ public class SectionMoveModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("oldParentId");
-    openapiFields.add("parentId");
-    openapiFields.add("nextSectionId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("oldParentId");
-    openapiRequiredFields.add("parentId");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SectionMoveModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SectionMoveModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SectionMoveModel is not found in the empty JSON string", SectionMoveModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SectionMoveModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectionMoveModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SectionMoveModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("oldParentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `oldParentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldParentId").toString()));
-      }
-      if (!jsonObj.get("parentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
-      }
-      if ((jsonObj.get("nextSectionId") != null && !jsonObj.get("nextSectionId").isJsonNull()) && !jsonObj.get("nextSectionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nextSectionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nextSectionId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SectionMoveModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SectionMoveModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SectionMoveModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SectionMoveModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SectionMoveModel>() {
-           @Override
-           public void write(JsonWriter out, SectionMoveModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SectionMoveModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of SectionMoveModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of SectionMoveModel
-   * @throws IOException if the JSON string is invalid with respect to SectionMoveModel
-   */
-  public static SectionMoveModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SectionMoveModel.class);
-  }
-
-  /**
-   * Convert an instance of SectionMoveModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

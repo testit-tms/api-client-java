@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**outcome** | **String** |  |  [optional] |
 |**runNumber** | **Integer** |  |  |
+|**outcome** | **String** |  |  [optional] |
 
 
 

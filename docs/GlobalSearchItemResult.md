@@ -9,9 +9,9 @@
 |------------ | ------------- | ------------- | -------------|
 |**resourceType** | **String** |  |  |
 |**resourceId** | **UUID** |  |  |
-|**globalId** | **Long** |  |  [optional] |
 |**name** | **String** |  |  |
 |**projectGlobalId** | **Long** |  |  |
+|**globalId** | **Long** |  |  [optional] |
 
 
 

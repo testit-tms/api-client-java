@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**workItem** | [**SharedStepModel**](SharedStepModel.md) | Nested shared steps are allowed |  [optional] |
 |**id** | **UUID** |  |  |
+|**workItem** | [**SharedStepModel**](SharedStepModel.md) | Nested shared steps are allowed |  [optional] |
 |**action** | **String** |  |  [optional] |
 |**expected** | **String** |  |  [optional] |
 |**testData** | **String** |  |  [optional] |

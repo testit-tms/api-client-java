@@ -15,11 +15,11 @@ All URIs are relative to *http://localhost*
 | [**apiV2WorkItemsIdVersionVersionIdActualPost**](WorkItemsApi.md#apiV2WorkItemsIdVersionVersionIdActualPost) | **POST** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual |
 | [**apiV2WorkItemsLinksUrlsSearchPost**](WorkItemsApi.md#apiV2WorkItemsLinksUrlsSearchPost) | **POST** /api/v2/workItems/links/urls/search |  |
 | [**apiV2WorkItemsMovePost**](WorkItemsApi.md#apiV2WorkItemsMovePost) | **POST** /api/v2/workItems/move | Move WorkItem to another section |
+| [**apiV2WorkItemsPost**](WorkItemsApi.md#apiV2WorkItemsPost) | **POST** /api/v2/workItems | Creates work item |
 | [**apiV2WorkItemsSearchPost**](WorkItemsApi.md#apiV2WorkItemsSearchPost) | **POST** /api/v2/workItems/search | Search for work items |
 | [**apiV2WorkItemsSharedStepIdReferencesSectionsPost**](WorkItemsApi.md#apiV2WorkItemsSharedStepIdReferencesSectionsPost) | **POST** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections |
 | [**apiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](WorkItemsApi.md#apiV2WorkItemsSharedStepIdReferencesWorkItemsPost) | **POST** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items |
 | [**apiV2WorkItemsSharedStepsSharedStepIdReferencesGet**](WorkItemsApi.md#apiV2WorkItemsSharedStepsSharedStepIdReferencesGet) | **GET** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references |
-| [**createWorkItem**](WorkItemsApi.md#createWorkItem) | **POST** /api/v2/workItems | Create Test Case, Checklist or Shared Step |
 | [**deleteAllWorkItemsFromAutoTest**](WorkItemsApi.md#deleteAllWorkItemsFromAutoTest) | **DELETE** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId |
 | [**deleteWorkItem**](WorkItemsApi.md#deleteWorkItem) | **DELETE** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId |
 | [**getAutoTestsForWorkItem**](WorkItemsApi.md#getAutoTestsForWorkItem) | **GET** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId |
@@ -32,52 +32,66 @@ All URIs are relative to *http://localhost*
 | [**updateWorkItem**](WorkItemsApi.md#updateWorkItem) | **PUT** /api/v2/workItems | Update Test Case, Checklist or Shared Step |
 
 
-<a id="apiV2WorkItemsIdAttachmentsPost"></a>
-# **apiV2WorkItemsIdAttachmentsPost**
+
+## apiV2WorkItemsIdAttachmentsPost
+
 > apiV2WorkItemsIdAttachmentsPost(id, _file)
 
 Upload and link attachment to WorkItem
 
- Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
+
+Use case
+
+User sets workItemId
+
+User attaches a file
+
+System creates attachment and links it to the work item
+
+System returns attachment identifier
 
 ### Example
+
 ```java
+import java.io.File;
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Work item internal identifier (guid format)
-    File _file = new File("/path/to/file"); // File | Select file
-    try {
-      apiInstance.apiV2WorkItemsIdAttachmentsPost(id, _file);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdAttachmentsPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Work item internal identifier (guid format)
+        File _file = new File("/path/to/file"); // File | Select file
+        try {
+            apiInstance.apiV2WorkItemsIdAttachmentsPost(id, _file);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdAttachmentsPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -94,8 +108,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -109,52 +123,63 @@ null (empty response body)
 | **422** | Unprocessable Entity |  -  |
 | **200** | Successful operation |  -  |
 
-<a id="apiV2WorkItemsIdCheckListTransformToTestCasePost"></a>
-# **apiV2WorkItemsIdCheckListTransformToTestCasePost**
+
+## apiV2WorkItemsIdCheckListTransformToTestCasePost
+
 > WorkItemModel apiV2WorkItemsIdCheckListTransformToTestCasePost(id)
 
 Transform CheckList to TestCase
 
- Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
+
+Use case
+
+User sets checklist identifier
+
+User runs method execution
+
+System transform CheckList to TestCase
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    try {
-      WorkItemModel result = apiInstance.apiV2WorkItemsIdCheckListTransformToTestCasePost(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdCheckListTransformToTestCasePost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            WorkItemModel result = apiInstance.apiV2WorkItemsIdCheckListTransformToTestCasePost(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdCheckListTransformToTestCasePost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -170,8 +195,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -184,57 +209,68 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsIdHistoryGet"></a>
-# **apiV2WorkItemsIdHistoryGet**
+
+## apiV2WorkItemsIdHistoryGet
+
 > List&lt;WorkItemChangeModel&gt; apiV2WorkItemsIdHistoryGet(id, skip, take, orderBy, searchField, searchValue)
 
 Get change history of WorkItem
 
- Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System return change history of WorkItem
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    try {
-      List<WorkItemChangeModel> result = apiInstance.apiV2WorkItemsIdHistoryGet(id, skip, take, orderBy, searchField, searchValue);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdHistoryGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<WorkItemChangeModel> result = apiInstance.apiV2WorkItemsIdHistoryGet(id, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdHistoryGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -255,8 +291,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -269,51 +305,62 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsIdLikeDelete"></a>
-# **apiV2WorkItemsIdLikeDelete**
+
+## apiV2WorkItemsIdLikeDelete
+
 > apiV2WorkItemsIdLikeDelete(id)
 
 Delete like from WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System delete like from WorkItem
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    try {
-      apiInstance.apiV2WorkItemsIdLikeDelete(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdLikeDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            apiInstance.apiV2WorkItemsIdLikeDelete(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdLikeDelete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -329,8 +376,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -343,51 +390,62 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsIdLikePost"></a>
-# **apiV2WorkItemsIdLikePost**
+
+## apiV2WorkItemsIdLikePost
+
 > apiV2WorkItemsIdLikePost(id)
 
 Set like to WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System set like to WorkItem
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    try {
-      apiInstance.apiV2WorkItemsIdLikePost(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdLikePost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            apiInstance.apiV2WorkItemsIdLikePost(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdLikePost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -403,8 +461,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -417,52 +475,63 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsIdLikesCountGet"></a>
-# **apiV2WorkItemsIdLikesCountGet**
+
+## apiV2WorkItemsIdLikesCountGet
+
 > Integer apiV2WorkItemsIdLikesCountGet(id)
 
 Get likes count of WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System return likes count of WorkItem
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    try {
-      Integer result = apiInstance.apiV2WorkItemsIdLikesCountGet(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdLikesCountGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            Integer result = apiInstance.apiV2WorkItemsIdLikesCountGet(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdLikesCountGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -478,8 +547,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -492,52 +561,63 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsIdLikesGet"></a>
-# **apiV2WorkItemsIdLikesGet**
+
+## apiV2WorkItemsIdLikesGet
+
 > List&lt;WorkItemLikeModel&gt; apiV2WorkItemsIdLikesGet(id)
 
 Get likes of WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System return likes of WorkItem
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    try {
-      List<WorkItemLikeModel> result = apiInstance.apiV2WorkItemsIdLikesGet(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdLikesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            List<WorkItemLikeModel> result = apiInstance.apiV2WorkItemsIdLikesGet(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdLikesGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -553,8 +633,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -567,81 +647,93 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsIdTestResultsHistoryGet"></a>
-# **apiV2WorkItemsIdTestResultsHistoryGet**
+
+## apiV2WorkItemsIdTestResultsHistoryGet
+
 > List&lt;TestResultHistoryReportApiResult&gt; apiV2WorkItemsIdTestResultsHistoryGet(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue)
 
 Get test results history of WorkItem
 
- Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System return test results history of WorkItem
 
 ### Example
+
 ```java
+import java.time.OffsetDateTime;
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    OffsetDateTime from = OffsetDateTime.now(); // OffsetDateTime | Take results from this date
-    OffsetDateTime to = OffsetDateTime.now(); // OffsetDateTime | Take results until this date
-    List<UUID> configurationIds = Arrays.asList(); // List<UUID> | Identifiers of test result configurations
-    List<UUID> testPlanIds = Arrays.asList(); // List<UUID> | Identifiers of test plans which contain test results
-    List<UUID> userIds = Arrays.asList(); // List<UUID> | Identifiers of users who set test results
-    List<String> outcomes = Arrays.asList(); // List<String> | List of outcomes of test results
-    List<String> statusCodes = Arrays.asList(); // List<String> | List of status codes of test results
-    Boolean isAutomated = true; // Boolean | OBSOLETE: Use `Automated` instead
-    Boolean automated = true; // Boolean | If result must consist of only manual/automated test results
-    List<UUID> testRunIds = Arrays.asList(); // List<UUID> | Identifiers of test runs which contain test results
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    try {
-      List<TestResultHistoryReportApiResult> result = apiInstance.apiV2WorkItemsIdTestResultsHistoryGet(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdTestResultsHistoryGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        OffsetDateTime from = OffsetDateTime.now(); // OffsetDateTime | Take results from this date
+        OffsetDateTime to = OffsetDateTime.now(); // OffsetDateTime | Take results until this date
+        List<UUID> configurationIds = Arrays.asList(); // List<UUID> | Identifiers of test result configurations
+        List<UUID> testPlanIds = Arrays.asList(); // List<UUID> | Identifiers of test plans which contain test results
+        List<UUID> userIds = Arrays.asList(); // List<UUID> | Identifiers of users who set test results
+        List<String> outcomes = Arrays.asList(); // List<String> | List of outcomes of test results
+        List<String> statusCodes = Arrays.asList(); // List<String> | List of status codes of test results
+        Boolean isAutomated = true; // Boolean | OBSOLETE: Use `Automated` instead
+        Boolean automated = true; // Boolean | If result must consist of only manual/automated test results
+        List<UUID> testRunIds = Arrays.asList(); // List<UUID> | Identifiers of test runs which contain test results
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<TestResultHistoryReportApiResult> result = apiInstance.apiV2WorkItemsIdTestResultsHistoryGet(id, from, to, configurationIds, testPlanIds, userIds, outcomes, statusCodes, isAutomated, automated, testRunIds, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdTestResultsHistoryGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **from** | **OffsetDateTime**| Take results from this date | [optional] |
 | **to** | **OffsetDateTime**| Take results until this date | [optional] |
-| **configurationIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of test result configurations | [optional] |
-| **testPlanIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of test plans which contain test results | [optional] |
-| **userIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of users who set test results | [optional] |
-| **outcomes** | [**List&lt;String&gt;**](String.md)| List of outcomes of test results | [optional] |
-| **statusCodes** | [**List&lt;String&gt;**](String.md)| List of status codes of test results | [optional] |
+| **configurationIds** | **List&lt;UUID&gt;**| Identifiers of test result configurations | [optional] |
+| **testPlanIds** | **List&lt;UUID&gt;**| Identifiers of test plans which contain test results | [optional] |
+| **userIds** | **List&lt;UUID&gt;**| Identifiers of users who set test results | [optional] |
+| **outcomes** | **List&lt;String&gt;**| List of outcomes of test results | [optional] |
+| **statusCodes** | **List&lt;String&gt;**| List of status codes of test results | [optional] |
 | **isAutomated** | **Boolean**| OBSOLETE: Use &#x60;Automated&#x60; instead | [optional] |
 | **automated** | **Boolean**| If result must consist of only manual/automated test results | [optional] |
-| **testRunIds** | [**List&lt;UUID&gt;**](UUID.md)| Identifiers of test runs which contain test results | [optional] |
+| **testRunIds** | **List&lt;UUID&gt;**| Identifiers of test runs which contain test results | [optional] |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
@@ -658,8 +750,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -672,53 +764,64 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsIdVersionVersionIdActualPost"></a>
-# **apiV2WorkItemsIdVersionVersionIdActualPost**
+
+## apiV2WorkItemsIdVersionVersionIdActualPost
+
 > WorkItemModel apiV2WorkItemsIdVersionVersionIdActualPost(id, versionId)
 
 Set WorkItem as actual
 
- Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System set WorkItem as actual
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | 
-    UUID versionId = UUID.randomUUID(); // UUID | 
-    try {
-      WorkItemModel result = apiInstance.apiV2WorkItemsIdVersionVersionIdActualPost(id, versionId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdVersionVersionIdActualPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        UUID versionId = UUID.randomUUID(); // UUID | 
+        try {
+            WorkItemModel result = apiInstance.apiV2WorkItemsIdVersionVersionIdActualPost(id, versionId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsIdVersionVersionIdActualPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -735,8 +838,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -749,55 +852,58 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsLinksUrlsSearchPost"></a>
-# **apiV2WorkItemsLinksUrlsSearchPost**
+
+## apiV2WorkItemsLinksUrlsSearchPost
+
 > SearchWorkItemLinkUrlsApiResult apiV2WorkItemsLinksUrlsSearchPost(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    WorkItemLinkUrlApiModel workItemLinkUrlApiModel = new WorkItemLinkUrlApiModel(); // WorkItemLinkUrlApiModel | 
-    try {
-      SearchWorkItemLinkUrlsApiResult result = apiInstance.apiV2WorkItemsLinksUrlsSearchPost(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsLinksUrlsSearchPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        WorkItemLinkUrlApiModel workItemLinkUrlApiModel = new WorkItemLinkUrlApiModel(); // WorkItemLinkUrlApiModel | 
+        try {
+            SearchWorkItemLinkUrlsApiResult result = apiInstance.apiV2WorkItemsLinksUrlsSearchPost(skip, take, orderBy, searchField, searchValue, workItemLinkUrlApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsLinksUrlsSearchPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -818,8 +924,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -832,52 +938,62 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsMovePost"></a>
-# **apiV2WorkItemsMovePost**
+
+## apiV2WorkItemsMovePost
+
 > WorkItemShortModel apiV2WorkItemsMovePost(workItemMovePostModel)
 
 Move WorkItem to another section
 
- Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
+
+Use case
+
+User sets WorkItem identifier
+
+User runs method execution
+
+System move WorkItem to another section
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    WorkItemMovePostModel workItemMovePostModel = new WorkItemMovePostModel(); // WorkItemMovePostModel | 
-    try {
-      WorkItemShortModel result = apiInstance.apiV2WorkItemsMovePost(workItemMovePostModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsMovePost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        WorkItemMovePostModel workItemMovePostModel = new WorkItemMovePostModel(); // WorkItemMovePostModel | 
+        try {
+            WorkItemShortModel result = apiInstance.apiV2WorkItemsMovePost(workItemMovePostModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsMovePost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -893,8 +1009,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -907,55 +1023,134 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsSearchPost"></a>
-# **apiV2WorkItemsSearchPost**
-> List&lt;WorkItemShortApiResult&gt; apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel)
 
-Search for work items
+## apiV2WorkItemsPost
+
+> WorkItemApiResult apiV2WorkItemsPost(createWorkItemApiModel)
+
+Creates work item
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    WorkItemSelectApiModel workItemSelectApiModel = new WorkItemSelectApiModel(); // WorkItemSelectApiModel | 
-    try {
-      List<WorkItemShortApiResult> result = apiInstance.apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSearchPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        CreateWorkItemApiModel createWorkItemApiModel = new CreateWorkItemApiModel(); // CreateWorkItemApiModel | 
+        try {
+            WorkItemApiResult result = apiInstance.apiV2WorkItemsPost(createWorkItemApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createWorkItemApiModel** | [**CreateWorkItemApiModel**](CreateWorkItemApiModel.md)|  | [optional] |
+
+### Return type
+
+[**WorkItemApiResult**](WorkItemApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+
+## apiV2WorkItemsSearchPost
+
+> List&lt;WorkItemShortApiResult&gt; apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel)
+
+Search for work items
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.WorkItemsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        WorkItemSelectApiModel workItemSelectApiModel = new WorkItemSelectApiModel(); // WorkItemSelectApiModel | 
+        try {
+            List<WorkItemShortApiResult> result = apiInstance.apiV2WorkItemsSearchPost(skip, take, orderBy, searchField, searchValue, workItemSelectApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSearchPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -976,8 +1171,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -990,58 +1185,69 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsSharedStepIdReferencesSectionsPost"></a>
-# **apiV2WorkItemsSharedStepIdReferencesSectionsPost**
+
+## apiV2WorkItemsSharedStepIdReferencesSectionsPost
+
 > List&lt;SharedStepReferenceSectionModel&gt; apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel)
 
 Get SharedStep references in sections
 
- Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+
+Use case
+
+User sets SharedStep identifier
+
+User runs method execution
+
+System return SharedStep references
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID sharedStepId = UUID.randomUUID(); // UUID | 
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel = new SharedStepReferenceSectionsQueryFilterModel(); // SharedStepReferenceSectionsQueryFilterModel | 
-    try {
-      List<SharedStepReferenceSectionModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepIdReferencesSectionsPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID sharedStepId = UUID.randomUUID(); // UUID | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        SharedStepReferenceSectionsQueryFilterModel sharedStepReferenceSectionsQueryFilterModel = new SharedStepReferenceSectionsQueryFilterModel(); // SharedStepReferenceSectionsQueryFilterModel | 
+        try {
+            List<SharedStepReferenceSectionModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesSectionsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferenceSectionsQueryFilterModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepIdReferencesSectionsPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1063,8 +1269,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1077,58 +1283,69 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsSharedStepIdReferencesWorkItemsPost"></a>
-# **apiV2WorkItemsSharedStepIdReferencesWorkItemsPost**
+
+## apiV2WorkItemsSharedStepIdReferencesWorkItemsPost
+
 > List&lt;SharedStepReferenceModel&gt; apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel)
 
 Get SharedStep references in work items
 
- Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+
+Use case
+
+User sets SharedStep identifier
+
+User runs method execution
+
+System return SharedStep references
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID sharedStepId = UUID.randomUUID(); // UUID | 
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel = new SharedStepReferencesQueryFilterModel(); // SharedStepReferencesQueryFilterModel | 
-    try {
-      List<SharedStepReferenceModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepIdReferencesWorkItemsPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID sharedStepId = UUID.randomUUID(); // UUID | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel = new SharedStepReferencesQueryFilterModel(); // SharedStepReferencesQueryFilterModel | 
+        try {
+            List<SharedStepReferenceModel> result = apiInstance.apiV2WorkItemsSharedStepIdReferencesWorkItemsPost(sharedStepId, skip, take, orderBy, searchField, searchValue, sharedStepReferencesQueryFilterModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepIdReferencesWorkItemsPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1150,8 +1367,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1164,52 +1381,63 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2WorkItemsSharedStepsSharedStepIdReferencesGet"></a>
-# **apiV2WorkItemsSharedStepsSharedStepIdReferencesGet**
+
+## apiV2WorkItemsSharedStepsSharedStepIdReferencesGet
+
 > List&lt;SharedStepReferenceModel&gt; apiV2WorkItemsSharedStepsSharedStepIdReferencesGet(sharedStepId)
 
 Get SharedStep references
 
- Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+
+Use case
+
+User sets SharedStep identifier
+
+User runs method execution
+
+System return SharedStep references
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UUID sharedStepId = UUID.randomUUID(); // UUID | 
-    try {
-      List<SharedStepReferenceModel> result = apiInstance.apiV2WorkItemsSharedStepsSharedStepIdReferencesGet(sharedStepId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepsSharedStepIdReferencesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UUID sharedStepId = UUID.randomUUID(); // UUID | 
+        try {
+            List<SharedStepReferenceModel> result = apiInstance.apiV2WorkItemsSharedStepsSharedStepIdReferencesGet(sharedStepId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#apiV2WorkItemsSharedStepsSharedStepIdReferencesGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1225,8 +1453,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1239,126 +1467,65 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="createWorkItem"></a>
-# **createWorkItem**
-> WorkItemModel createWorkItem(createWorkItemApiModel)
 
-Create Test Case, Checklist or Shared Step
+## deleteAllWorkItemsFromAutoTest
 
- Use case  User sets work item properties (listed in request parameters)  User runs method execution  System creates work item by identifier  System returns work item model (listed in response parameters)
-
-### Example
-```java
-// Import classes:
-import ru.testit.client.invoker.ApiClient;
-import ru.testit.client.invoker.ApiException;
-import ru.testit.client.invoker.Configuration;
-import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
-import ru.testit.client.api.WorkItemsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    CreateWorkItemApiModel createWorkItemApiModel = new CreateWorkItemApiModel(); // CreateWorkItemApiModel | 
-    try {
-      WorkItemModel result = apiInstance.createWorkItem(createWorkItemApiModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#createWorkItem");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createWorkItemApiModel** | [**CreateWorkItemApiModel**](CreateWorkItemApiModel.md)|  | [optional] |
-
-### Return type
-
-[**WorkItemModel**](WorkItemModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Successful operation |  -  |
-| **400** |  Field is required  Priority is not a valid  Tags must be set  Duration should be a positive number  Should be empty for CheckList  Attribute value must be a valid guid for user scheme  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Update permission for test library required |  -  |
-| **404** |  Can&#39;t find section  Can&#39;t find project  Can&#39;t find attachmentIds  Project not found  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-
-<a id="deleteAllWorkItemsFromAutoTest"></a>
-# **deleteAllWorkItemsFromAutoTest**
 > deleteAllWorkItemsFromAutoTest(id)
 
 Delete all links AutoTests from WorkItem by Id or GlobalId
 
- Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System search work item by identifier
+
+System search and delete all autotests, related to found work item
+
+System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
-    try {
-      apiInstance.deleteAllWorkItemsFromAutoTest(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#deleteAllWorkItemsFromAutoTest");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        try {
+            apiInstance.deleteAllWorkItemsFromAutoTest(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#deleteAllWorkItemsFromAutoTest");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1374,8 +1541,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1389,51 +1556,63 @@ null (empty response body)
 | **422** | Unprocessable Entity |  -  |
 | **200** | Successful operation |  -  |
 
-<a id="deleteWorkItem"></a>
-# **deleteWorkItem**
+
+## deleteWorkItem
+
 > deleteWorkItem(id)
 
 Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
- Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System deletes work item
+
+System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
-    try {
-      apiInstance.deleteWorkItem(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#deleteWorkItem");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        try {
+            apiInstance.deleteWorkItem(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#deleteWorkItem");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1449,8 +1628,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1463,52 +1642,66 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Could not delete Shared Step that has references |  -  |
 
-<a id="getAutoTestsForWorkItem"></a>
-# **getAutoTestsForWorkItem**
+
+## getAutoTestsForWorkItem
+
 > List&lt;AutoTestModel&gt; getAutoTestsForWorkItem(id)
 
 Get all AutoTests linked to WorkItem by Id or GlobalId
 
- Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System search work item by identifier
+
+System search all autotests, related to found work item
+
+System returns list of found autotests
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
-    try {
-      List<AutoTestModel> result = apiInstance.getAutoTestsForWorkItem(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#getAutoTestsForWorkItem");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        try {
+            List<AutoTestModel> result = apiInstance.getAutoTestsForWorkItem(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#getAutoTestsForWorkItem");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1524,8 +1717,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1538,52 +1731,56 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="getIterations"></a>
-# **getIterations**
+
+## getIterations
+
 > List&lt;IterationModel&gt; getIterations(id, versionId, versionNumber)
 
 Get iterations by work item Id or GlobalId
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
-    UUID versionId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | WorkItem version (guid format) identifier
-    Integer versionNumber = 0; // Integer | WorkItem version number (0 is the last version)\"
-    try {
-      List<IterationModel> result = apiInstance.getIterations(id, versionId, versionNumber);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#getIterations");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        UUID versionId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | WorkItem version (guid format) identifier
+        Integer versionNumber = 0; // Integer | WorkItem version number (0 is the last version)\"
+        try {
+            List<IterationModel> result = apiInstance.getIterations(id, versionId, versionNumber);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#getIterations");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1601,8 +1798,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1615,54 +1812,77 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="getWorkItemById"></a>
-# **getWorkItemById**
+
+## getWorkItemById
+
 > WorkItemModel getWorkItemById(id, versionId, versionNumber)
 
 Get Test Case, Checklist or Shared Step by Id or GlobalId
 
- Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
+
+Use case
+
+User sets work item identifier
+
+[Optional] User sets work item version identifier
+
+[Optional] User sets work item version number
+
+User runs method execution
+
+System search work item by identifier
+
+[Optional] if User sets work item version identifier, system search work item version by identifier.
+
+[Optional] if user sets work item version number, system search work item version by number
+
+Otherwise, system search last work item version
+
+System returns work item
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
-    UUID versionId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | WorkItem version (guid format) identifier\"
-    Integer versionNumber = 0; // Integer | WorkItem version number (0 is the last version)\"
-    try {
-      WorkItemModel result = apiInstance.getWorkItemById(id, versionId, versionNumber);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#getWorkItemById");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        UUID versionId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | WorkItem version (guid format) identifier\"
+        Integer versionNumber = 0; // Integer | WorkItem version number (0 is the last version)\"
+        try {
+            WorkItemModel result = apiInstance.getWorkItemById(id, versionId, versionNumber);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#getWorkItemById");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1680,8 +1900,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1694,52 +1914,68 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="getWorkItemChronology"></a>
-# **getWorkItemChronology**
+
+## getWorkItemChronology
+
 > List&lt;TestResultChronologyModel&gt; getWorkItemChronology(id)
 
 Get WorkItem chronology by Id or GlobalId
 
- Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
+
+Use case
+
+User sets work item identifier
+
+User runs method execution
+
+System search work item by identifier
+
+System search test results of all autotests, related to found work item
+
+System sort results by CompletedOn ascending, then by CreatedDate ascending
+
+System returns sorted collection of test results
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "id_example"; // String | 
-    try {
-      List<TestResultChronologyModel> result = apiInstance.getWorkItemChronology(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#getWorkItemChronology");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "id_example"; // String | 
+        try {
+            List<TestResultChronologyModel> result = apiInstance.getWorkItemChronology(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#getWorkItemChronology");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1755,8 +1991,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1769,54 +2005,72 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="getWorkItemVersions"></a>
-# **getWorkItemVersions**
+
+## getWorkItemVersions
+
 > List&lt;WorkItemVersionModel&gt; getWorkItemVersions(id, workItemVersionId, versionNumber)
 
 Get WorkItem versions
 
- Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
+
+Use case
+
+User sets work item identifier
+
+[Optional] User sets work item version identifier
+
+User runs method execution
+
+System search work item by identifier
+
+[Optional] If User set work item version identifier, System search work item version by version identifier
+                    Otherwise, system search all version of work item
+
+System returns array of work item version models (listed in response example)
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
-    UUID workItemVersionId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | WorkItem version (guid format) identifier\"
-    Integer versionNumber = 1; // Integer | WorkItem version (integer format) number\"
-    try {
-      List<WorkItemVersionModel> result = apiInstance.getWorkItemVersions(id, workItemVersionId, versionNumber);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#getWorkItemVersions");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        UUID workItemVersionId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | WorkItem version (guid format) identifier\"
+        Integer versionNumber = 1; // Integer | WorkItem version (integer format) number\"
+        try {
+            List<WorkItemVersionModel> result = apiInstance.getWorkItemVersions(id, workItemVersionId, versionNumber);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#getWorkItemVersions");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1834,8 +2088,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1848,49 +2102,52 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="purgeWorkItem"></a>
-# **purgeWorkItem**
+
+## purgeWorkItem
+
 > purgeWorkItem(id)
 
 Permanently delete test case, checklist or shared steps from archive
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "id_example"; // String | Unique or global ID of the work item
-    try {
-      apiInstance.purgeWorkItem(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#purgeWorkItem");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "id_example"; // String | Unique or global ID of the work item
+        try {
+            apiInstance.purgeWorkItem(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#purgeWorkItem");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1906,8 +2163,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1920,49 +2177,52 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="restoreWorkItem"></a>
-# **restoreWorkItem**
+
+## restoreWorkItem
+
 > restoreWorkItem(id)
 
 Restore test case, checklist or shared steps from archive
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    String id = "id_example"; // String | Unique or global ID of the work item
-    try {
-      apiInstance.restoreWorkItem(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#restoreWorkItem");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        String id = "id_example"; // String | Unique or global ID of the work item
+        try {
+            apiInstance.restoreWorkItem(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#restoreWorkItem");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1978,8 +2238,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1992,51 +2252,63 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="updateWorkItem"></a>
-# **updateWorkItem**
+
+## updateWorkItem
+
 > updateWorkItem(updateWorkItemApiModel)
 
 Update Test Case, Checklist or Shared Step
 
- Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
+
+Use case
+
+User sets work item properties (listed in request parameters)
+
+User runs method execution
+
+System updates work item by identifier
+
+System returns updated work item model (listed in response parameters)
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.WorkItemsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-    UpdateWorkItemApiModel updateWorkItemApiModel = new UpdateWorkItemApiModel(); // UpdateWorkItemApiModel | 
-    try {
-      apiInstance.updateWorkItem(updateWorkItemApiModel);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WorkItemsApi#updateWorkItem");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
+        UpdateWorkItemApiModel updateWorkItemApiModel = new UpdateWorkItemApiModel(); // UpdateWorkItemApiModel | 
+        try {
+            apiInstance.updateWorkItem(updateWorkItemApiModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WorkItemsApi#updateWorkItem");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -2052,8 +2324,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

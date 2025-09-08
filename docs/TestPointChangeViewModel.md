@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**userId** | **UUID** |  |  |
-|**userName** | **String** |  |  [optional] |
 |**testPointCount** | **Long** |  |  |
+|**userName** | **String** |  |  [optional] |
 
 
 

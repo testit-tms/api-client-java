@@ -14,19 +14,18 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import ru.testit.client.invoker.JSON;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets FailureCategoryModel
  */
-@JsonAdapter(FailureCategoryModel.Adapter.class)
 public enum FailureCategoryModel {
   
   INFRASTRUCTURE_DEFECT("InfrastructureDefect"),
@@ -37,7 +36,9 @@ public enum FailureCategoryModel {
   
   NO_DEFECT("NoDefect"),
   
-  NO_ANALYTICS("NoAnalytics");
+  NO_ANALYTICS("NoAnalytics"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -45,6 +46,7 @@ public enum FailureCategoryModel {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -54,31 +56,14 @@ public enum FailureCategoryModel {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static FailureCategoryModel fromValue(String value) {
     for (FailureCategoryModel b : FailureCategoryModel.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-
-  public static class Adapter extends TypeAdapter<FailureCategoryModel> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final FailureCategoryModel enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public FailureCategoryModel read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return FailureCategoryModel.fromValue(value);
-    }
-  }
-
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    FailureCategoryModel.fromValue(value);
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 }
 

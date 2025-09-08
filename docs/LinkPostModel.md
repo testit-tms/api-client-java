@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**title** | **String** | Link name. |  [optional] |
 |**url** | **String** | Address can be specified without protocol, but necessarily with the domain. |  |
+|**hasInfo** | **Boolean** |  |  |
+|**title** | **String** | Link name. |  [optional] |
 |**description** | **String** | Link description. |  [optional] |
 |**type** | **LinkType** | Specifies the type of the link. |  [optional] |
-|**hasInfo** | **Boolean** |  |  |
 
 
 

@@ -14,60 +14,46 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * StringChangedFieldWithDiffsViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  StringChangedFieldWithDiffsViewModel.JSON_PROPERTY_DIFF_VALUE,
+  StringChangedFieldWithDiffsViewModel.JSON_PROPERTY_OLD_VALUE,
+  StringChangedFieldWithDiffsViewModel.JSON_PROPERTY_NEW_VALUE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StringChangedFieldWithDiffsViewModel {
-  public static final String SERIALIZED_NAME_DIFF_VALUE = "diffValue";
-  @SerializedName(SERIALIZED_NAME_DIFF_VALUE)
-  private String diffValue;
+  public static final String JSON_PROPERTY_DIFF_VALUE = "diffValue";
+  private JsonNullable<String> diffValue = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
-  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private String oldValue;
+  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  private JsonNullable<String> oldValue = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
-  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private String newValue;
+  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  private JsonNullable<String> newValue = JsonNullable.<String>undefined();
 
-  public StringChangedFieldWithDiffsViewModel() {
+  public StringChangedFieldWithDiffsViewModel() { 
   }
 
   public StringChangedFieldWithDiffsViewModel diffValue(String diffValue) {
-    this.diffValue = diffValue;
+    this.diffValue = JsonNullable.<String>of(diffValue);
     return this;
   }
 
@@ -75,18 +61,32 @@ public class StringChangedFieldWithDiffsViewModel {
    * Get diffValue
    * @return diffValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getDiffValue() {
+        return diffValue.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DIFF_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDiffValue_JsonNullable() {
     return diffValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIFF_VALUE)
+  public void setDiffValue_JsonNullable(JsonNullable<String> diffValue) {
+    this.diffValue = diffValue;
   }
 
   public void setDiffValue(String diffValue) {
-    this.diffValue = diffValue;
+    this.diffValue = JsonNullable.<String>of(diffValue);
   }
 
 
   public StringChangedFieldWithDiffsViewModel oldValue(String oldValue) {
-    this.oldValue = oldValue;
+    this.oldValue = JsonNullable.<String>of(oldValue);
     return this;
   }
 
@@ -94,18 +94,32 @@ public class StringChangedFieldWithDiffsViewModel {
    * Get oldValue
    * @return oldValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getOldValue() {
+        return oldValue.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getOldValue_JsonNullable() {
     return oldValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  public void setOldValue_JsonNullable(JsonNullable<String> oldValue) {
+    this.oldValue = oldValue;
   }
 
   public void setOldValue(String oldValue) {
-    this.oldValue = oldValue;
+    this.oldValue = JsonNullable.<String>of(oldValue);
   }
 
 
   public StringChangedFieldWithDiffsViewModel newValue(String newValue) {
-    this.newValue = newValue;
+    this.newValue = JsonNullable.<String>of(newValue);
     return this;
   }
 
@@ -113,17 +127,33 @@ public class StringChangedFieldWithDiffsViewModel {
    * Get newValue
    * @return newValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getNewValue() {
-    return newValue;
+        return newValue.orElse(null);
   }
 
-  public void setNewValue(String newValue) {
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getNewValue_JsonNullable() {
+    return newValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  public void setNewValue_JsonNullable(JsonNullable<String> newValue) {
     this.newValue = newValue;
   }
 
+  public void setNewValue(String newValue) {
+    this.newValue = JsonNullable.<String>of(newValue);
+  }
 
 
+  /**
+   * Return true if this StringChangedFieldWithDiffsViewModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,9 +163,9 @@ public class StringChangedFieldWithDiffsViewModel {
       return false;
     }
     StringChangedFieldWithDiffsViewModel stringChangedFieldWithDiffsViewModel = (StringChangedFieldWithDiffsViewModel) o;
-    return Objects.equals(this.diffValue, stringChangedFieldWithDiffsViewModel.diffValue) &&
-        Objects.equals(this.oldValue, stringChangedFieldWithDiffsViewModel.oldValue) &&
-        Objects.equals(this.newValue, stringChangedFieldWithDiffsViewModel.newValue);
+    return equalsNullable(this.diffValue, stringChangedFieldWithDiffsViewModel.diffValue) &&
+        equalsNullable(this.oldValue, stringChangedFieldWithDiffsViewModel.oldValue) &&
+        equalsNullable(this.newValue, stringChangedFieldWithDiffsViewModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -144,7 +174,7 @@ public class StringChangedFieldWithDiffsViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(diffValue, oldValue, newValue);
+    return Objects.hash(hashCodeNullable(diffValue), hashCodeNullable(oldValue), hashCodeNullable(newValue));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -176,100 +206,5 @@ public class StringChangedFieldWithDiffsViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("diffValue");
-    openapiFields.add("oldValue");
-    openapiFields.add("newValue");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to StringChangedFieldWithDiffsViewModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!StringChangedFieldWithDiffsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StringChangedFieldWithDiffsViewModel is not found in the empty JSON string", StringChangedFieldWithDiffsViewModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!StringChangedFieldWithDiffsViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringChangedFieldWithDiffsViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("diffValue") != null && !jsonObj.get("diffValue").isJsonNull()) && !jsonObj.get("diffValue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `diffValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("diffValue").toString()));
-      }
-      if ((jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) && !jsonObj.get("oldValue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `oldValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldValue").toString()));
-      }
-      if ((jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonNull()) && !jsonObj.get("newValue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `newValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newValue").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StringChangedFieldWithDiffsViewModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StringChangedFieldWithDiffsViewModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StringChangedFieldWithDiffsViewModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StringChangedFieldWithDiffsViewModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<StringChangedFieldWithDiffsViewModel>() {
-           @Override
-           public void write(JsonWriter out, StringChangedFieldWithDiffsViewModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public StringChangedFieldWithDiffsViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of StringChangedFieldWithDiffsViewModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of StringChangedFieldWithDiffsViewModel
-   * @throws IOException if the JSON string is invalid with respect to StringChangedFieldWithDiffsViewModel
-   */
-  public static StringChangedFieldWithDiffsViewModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StringChangedFieldWithDiffsViewModel.class);
-  }
-
-  /**
-   * Convert an instance of StringChangedFieldWithDiffsViewModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -28,88 +29,73 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemStates;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * SharedStepReferencesQueryFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_NAME,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_GLOBAL_IDS,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_SECTION_IDS,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_CREATED_BY_IDS,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_MODIFIED_BY_IDS,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_STATES,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_PRIORITIES,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_ENTITY_TYPES,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_CREATED_DATE,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_MODIFIED_DATE,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_IS_AUTOMATED,
+  SharedStepReferencesQueryFilterModel.JSON_PROPERTY_TAGS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SharedStepReferencesQueryFilterModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds;
+  public static final String JSON_PROPERTY_GLOBAL_IDS = "globalIds";
+  private JsonNullable<Set<Long>> globalIds = JsonNullable.<Set<Long>>undefined();
 
-  public static final String SERIALIZED_NAME_SECTION_IDS = "sectionIds";
-  @SerializedName(SERIALIZED_NAME_SECTION_IDS)
-  private Set<UUID> sectionIds;
+  public static final String JSON_PROPERTY_SECTION_IDS = "sectionIds";
+  private JsonNullable<Set<UUID>> sectionIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds;
+  public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
+  private JsonNullable<Set<UUID>> createdByIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY_IDS = "modifiedByIds";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_IDS)
-  private Set<UUID> modifiedByIds;
+  public static final String JSON_PROPERTY_MODIFIED_BY_IDS = "modifiedByIds";
+  private JsonNullable<Set<UUID>> modifiedByIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_STATES = "states";
-  @SerializedName(SERIALIZED_NAME_STATES)
-  private Set<WorkItemStates> states;
+  public static final String JSON_PROPERTY_STATES = "states";
+  private JsonNullable<Set<WorkItemStates>> states = JsonNullable.<Set<WorkItemStates>>undefined();
 
-  public static final String SERIALIZED_NAME_PRIORITIES = "priorities";
-  @SerializedName(SERIALIZED_NAME_PRIORITIES)
-  private Set<WorkItemPriorityModel> priorities;
+  public static final String JSON_PROPERTY_PRIORITIES = "priorities";
+  private JsonNullable<Set<WorkItemPriorityModel>> priorities = JsonNullable.<Set<WorkItemPriorityModel>>undefined();
 
-  public static final String SERIALIZED_NAME_ENTITY_TYPES = "entityTypes";
-  @SerializedName(SERIALIZED_NAME_ENTITY_TYPES)
-  private Set<String> entityTypes;
+  public static final String JSON_PROPERTY_ENTITY_TYPES = "entityTypes";
+  private JsonNullable<Set<String>> entityTypes = JsonNullable.<Set<String>>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private DateTimeRangeSelectorModel modifiedDate;
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private JsonNullable<DateTimeRangeSelectorModel> modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
-  @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
-  private Boolean isAutomated;
+  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  private JsonNullable<Boolean> isAutomated = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  private Set<String> tags;
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<Set<String>> tags = JsonNullable.<Set<String>>undefined();
 
-  public SharedStepReferencesQueryFilterModel() {
+  public SharedStepReferencesQueryFilterModel() { 
   }
 
   public SharedStepReferencesQueryFilterModel name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -117,26 +103,44 @@ public class SharedStepReferencesQueryFilterModel {
    * Name of work item
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
     return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
   }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public SharedStepReferencesQueryFilterModel globalIds(Set<Long> globalIds) {
-    this.globalIds = globalIds;
+    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
 
   public SharedStepReferencesQueryFilterModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
+    if (this.globalIds == null || !this.globalIds.isPresent()) {
+      this.globalIds = JsonNullable.<Set<Long>>of(new LinkedHashSet<>());
     }
-    this.globalIds.add(globalIdsItem);
+    try {
+      this.globalIds.get().add(globalIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -144,26 +148,44 @@ public class SharedStepReferencesQueryFilterModel {
    * Collection of global (integer) identifiers
    * @return globalIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<Long> getGlobalIds() {
+        return globalIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<Long>> getGlobalIds_JsonNullable() {
     return globalIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
+  public void setGlobalIds_JsonNullable(JsonNullable<Set<Long>> globalIds) {
+    this.globalIds = globalIds;
   }
 
   public void setGlobalIds(Set<Long> globalIds) {
-    this.globalIds = globalIds;
+    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
   public SharedStepReferencesQueryFilterModel sectionIds(Set<UUID> sectionIds) {
-    this.sectionIds = sectionIds;
+    this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
     return this;
   }
 
   public SharedStepReferencesQueryFilterModel addSectionIdsItem(UUID sectionIdsItem) {
-    if (this.sectionIds == null) {
-      this.sectionIds = new LinkedHashSet<>();
+    if (this.sectionIds == null || !this.sectionIds.isPresent()) {
+      this.sectionIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.sectionIds.add(sectionIdsItem);
+    try {
+      this.sectionIds.get().add(sectionIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -171,26 +193,44 @@ public class SharedStepReferencesQueryFilterModel {
    * Collection of section identifiers
    * @return sectionIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getSectionIds() {
+        return sectionIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getSectionIds_JsonNullable() {
     return sectionIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECTION_IDS)
+  public void setSectionIds_JsonNullable(JsonNullable<Set<UUID>> sectionIds) {
+    this.sectionIds = sectionIds;
   }
 
   public void setSectionIds(Set<UUID> sectionIds) {
-    this.sectionIds = sectionIds;
+    this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
   }
 
 
   public SharedStepReferencesQueryFilterModel createdByIds(Set<UUID> createdByIds) {
-    this.createdByIds = createdByIds;
+    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
 
   public SharedStepReferencesQueryFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
+    if (this.createdByIds == null || !this.createdByIds.isPresent()) {
+      this.createdByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.createdByIds.add(createdByIdsItem);
+    try {
+      this.createdByIds.get().add(createdByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -198,26 +238,44 @@ public class SharedStepReferencesQueryFilterModel {
    * Collection of identifiers of users who created work item
    * @return createdByIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getCreatedByIds() {
+        return createdByIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getCreatedByIds_JsonNullable() {
     return createdByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  public void setCreatedByIds_JsonNullable(JsonNullable<Set<UUID>> createdByIds) {
+    this.createdByIds = createdByIds;
   }
 
   public void setCreatedByIds(Set<UUID> createdByIds) {
-    this.createdByIds = createdByIds;
+    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
   public SharedStepReferencesQueryFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
-    this.modifiedByIds = modifiedByIds;
+    this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
     return this;
   }
 
   public SharedStepReferencesQueryFilterModel addModifiedByIdsItem(UUID modifiedByIdsItem) {
-    if (this.modifiedByIds == null) {
-      this.modifiedByIds = new LinkedHashSet<>();
+    if (this.modifiedByIds == null || !this.modifiedByIds.isPresent()) {
+      this.modifiedByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.modifiedByIds.add(modifiedByIdsItem);
+    try {
+      this.modifiedByIds.get().add(modifiedByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -225,26 +283,44 @@ public class SharedStepReferencesQueryFilterModel {
    * Collection of identifiers of users who applied last modification to work item
    * @return modifiedByIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getModifiedByIds() {
+        return modifiedByIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getModifiedByIds_JsonNullable() {
     return modifiedByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_IDS)
+  public void setModifiedByIds_JsonNullable(JsonNullable<Set<UUID>> modifiedByIds) {
+    this.modifiedByIds = modifiedByIds;
   }
 
   public void setModifiedByIds(Set<UUID> modifiedByIds) {
-    this.modifiedByIds = modifiedByIds;
+    this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
   }
 
 
   public SharedStepReferencesQueryFilterModel states(Set<WorkItemStates> states) {
-    this.states = states;
+    this.states = JsonNullable.<Set<WorkItemStates>>of(states);
     return this;
   }
 
   public SharedStepReferencesQueryFilterModel addStatesItem(WorkItemStates statesItem) {
-    if (this.states == null) {
-      this.states = new LinkedHashSet<>();
+    if (this.states == null || !this.states.isPresent()) {
+      this.states = JsonNullable.<Set<WorkItemStates>>of(new LinkedHashSet<>());
     }
-    this.states.add(statesItem);
+    try {
+      this.states.get().add(statesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -252,26 +328,44 @@ public class SharedStepReferencesQueryFilterModel {
    * Collection of states of work item
    * @return states
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<WorkItemStates> getStates() {
+        return states.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<WorkItemStates>> getStates_JsonNullable() {
     return states;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATES)
+  public void setStates_JsonNullable(JsonNullable<Set<WorkItemStates>> states) {
+    this.states = states;
   }
 
   public void setStates(Set<WorkItemStates> states) {
-    this.states = states;
+    this.states = JsonNullable.<Set<WorkItemStates>>of(states);
   }
 
 
   public SharedStepReferencesQueryFilterModel priorities(Set<WorkItemPriorityModel> priorities) {
-    this.priorities = priorities;
+    this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
     return this;
   }
 
   public SharedStepReferencesQueryFilterModel addPrioritiesItem(WorkItemPriorityModel prioritiesItem) {
-    if (this.priorities == null) {
-      this.priorities = new LinkedHashSet<>();
+    if (this.priorities == null || !this.priorities.isPresent()) {
+      this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(new LinkedHashSet<>());
     }
-    this.priorities.add(prioritiesItem);
+    try {
+      this.priorities.get().add(prioritiesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -279,26 +373,44 @@ public class SharedStepReferencesQueryFilterModel {
    * Collection of priorities of work item
    * @return priorities
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<WorkItemPriorityModel> getPriorities() {
+        return priorities.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PRIORITIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<WorkItemPriorityModel>> getPriorities_JsonNullable() {
     return priorities;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRIORITIES)
+  public void setPriorities_JsonNullable(JsonNullable<Set<WorkItemPriorityModel>> priorities) {
+    this.priorities = priorities;
   }
 
   public void setPriorities(Set<WorkItemPriorityModel> priorities) {
-    this.priorities = priorities;
+    this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
   }
 
 
   public SharedStepReferencesQueryFilterModel entityTypes(Set<String> entityTypes) {
-    this.entityTypes = entityTypes;
+    this.entityTypes = JsonNullable.<Set<String>>of(entityTypes);
     return this;
   }
 
   public SharedStepReferencesQueryFilterModel addEntityTypesItem(String entityTypesItem) {
-    if (this.entityTypes == null) {
-      this.entityTypes = new LinkedHashSet<>();
+    if (this.entityTypes == null || !this.entityTypes.isPresent()) {
+      this.entityTypes = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
     }
-    this.entityTypes.add(entityTypesItem);
+    try {
+      this.entityTypes.get().add(entityTypesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -306,18 +418,32 @@ public class SharedStepReferencesQueryFilterModel {
    * Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<String> getEntityTypes() {
+        return entityTypes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getEntityTypes_JsonNullable() {
     return entityTypes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
+  public void setEntityTypes_JsonNullable(JsonNullable<Set<String>> entityTypes) {
+    this.entityTypes = entityTypes;
   }
 
   public void setEntityTypes(Set<String> entityTypes) {
-    this.entityTypes = entityTypes;
+    this.entityTypes = JsonNullable.<Set<String>>of(entityTypes);
   }
 
 
   public SharedStepReferencesQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
 
@@ -325,18 +451,32 @@ public class SharedStepReferencesQueryFilterModel {
    * Date and time of work item creation
    * @return createdDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getCreatedDate() {
+        return createdDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DateTimeRangeSelectorModel> getCreatedDate_JsonNullable() {
     return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> createdDate) {
+    this.createdDate = createdDate;
   }
 
   public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
   public SharedStepReferencesQueryFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
-    this.modifiedDate = modifiedDate;
+    this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
     return this;
   }
 
@@ -344,18 +484,32 @@ public class SharedStepReferencesQueryFilterModel {
    * Date and time of work item last modification
    * @return modifiedDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getModifiedDate() {
+        return modifiedDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DateTimeRangeSelectorModel> getModifiedDate_JsonNullable() {
     return modifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  public void setModifiedDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> modifiedDate) {
+    this.modifiedDate = modifiedDate;
   }
 
   public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
-    this.modifiedDate = modifiedDate;
+    this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
   }
 
 
   public SharedStepReferencesQueryFilterModel isAutomated(Boolean isAutomated) {
-    this.isAutomated = isAutomated;
+    this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
     return this;
   }
 
@@ -363,26 +517,44 @@ public class SharedStepReferencesQueryFilterModel {
    * Is result must consist of only manual/automated work items
    * @return isAutomated
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsAutomated() {
+        return isAutomated.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsAutomated_JsonNullable() {
     return isAutomated;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  public void setIsAutomated_JsonNullable(JsonNullable<Boolean> isAutomated) {
+    this.isAutomated = isAutomated;
   }
 
   public void setIsAutomated(Boolean isAutomated) {
-    this.isAutomated = isAutomated;
+    this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
   }
 
 
   public SharedStepReferencesQueryFilterModel tags(Set<String> tags) {
-    this.tags = tags;
+    this.tags = JsonNullable.<Set<String>>of(tags);
     return this;
   }
 
   public SharedStepReferencesQueryFilterModel addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new LinkedHashSet<>();
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
     }
-    this.tags.add(tagsItem);
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -390,17 +562,33 @@ public class SharedStepReferencesQueryFilterModel {
    * Collection of tags
    * @return tags
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<String> getTags() {
-    return tags;
+        return tags.orElse(null);
   }
 
-  public void setTags(Set<String> tags) {
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<Set<String>> tags) {
     this.tags = tags;
   }
 
+  public void setTags(Set<String> tags) {
+    this.tags = JsonNullable.<Set<String>>of(tags);
+  }
 
 
+  /**
+   * Return true if this SharedStepReferencesQueryFilterModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -410,18 +598,18 @@ public class SharedStepReferencesQueryFilterModel {
       return false;
     }
     SharedStepReferencesQueryFilterModel sharedStepReferencesQueryFilterModel = (SharedStepReferencesQueryFilterModel) o;
-    return Objects.equals(this.name, sharedStepReferencesQueryFilterModel.name) &&
-        Objects.equals(this.globalIds, sharedStepReferencesQueryFilterModel.globalIds) &&
-        Objects.equals(this.sectionIds, sharedStepReferencesQueryFilterModel.sectionIds) &&
-        Objects.equals(this.createdByIds, sharedStepReferencesQueryFilterModel.createdByIds) &&
-        Objects.equals(this.modifiedByIds, sharedStepReferencesQueryFilterModel.modifiedByIds) &&
-        Objects.equals(this.states, sharedStepReferencesQueryFilterModel.states) &&
-        Objects.equals(this.priorities, sharedStepReferencesQueryFilterModel.priorities) &&
-        Objects.equals(this.entityTypes, sharedStepReferencesQueryFilterModel.entityTypes) &&
-        Objects.equals(this.createdDate, sharedStepReferencesQueryFilterModel.createdDate) &&
-        Objects.equals(this.modifiedDate, sharedStepReferencesQueryFilterModel.modifiedDate) &&
-        Objects.equals(this.isAutomated, sharedStepReferencesQueryFilterModel.isAutomated) &&
-        Objects.equals(this.tags, sharedStepReferencesQueryFilterModel.tags);
+    return equalsNullable(this.name, sharedStepReferencesQueryFilterModel.name) &&
+        equalsNullable(this.globalIds, sharedStepReferencesQueryFilterModel.globalIds) &&
+        equalsNullable(this.sectionIds, sharedStepReferencesQueryFilterModel.sectionIds) &&
+        equalsNullable(this.createdByIds, sharedStepReferencesQueryFilterModel.createdByIds) &&
+        equalsNullable(this.modifiedByIds, sharedStepReferencesQueryFilterModel.modifiedByIds) &&
+        equalsNullable(this.states, sharedStepReferencesQueryFilterModel.states) &&
+        equalsNullable(this.priorities, sharedStepReferencesQueryFilterModel.priorities) &&
+        equalsNullable(this.entityTypes, sharedStepReferencesQueryFilterModel.entityTypes) &&
+        equalsNullable(this.createdDate, sharedStepReferencesQueryFilterModel.createdDate) &&
+        equalsNullable(this.modifiedDate, sharedStepReferencesQueryFilterModel.modifiedDate) &&
+        equalsNullable(this.isAutomated, sharedStepReferencesQueryFilterModel.isAutomated) &&
+        equalsNullable(this.tags, sharedStepReferencesQueryFilterModel.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -430,7 +618,7 @@ public class SharedStepReferencesQueryFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, globalIds, sectionIds, createdByIds, modifiedByIds, states, priorities, entityTypes, createdDate, modifiedDate, isAutomated, tags);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(globalIds), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(entityTypes), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(isAutomated), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -471,143 +659,5 @@ public class SharedStepReferencesQueryFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("globalIds");
-    openapiFields.add("sectionIds");
-    openapiFields.add("createdByIds");
-    openapiFields.add("modifiedByIds");
-    openapiFields.add("states");
-    openapiFields.add("priorities");
-    openapiFields.add("entityTypes");
-    openapiFields.add("createdDate");
-    openapiFields.add("modifiedDate");
-    openapiFields.add("isAutomated");
-    openapiFields.add("tags");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SharedStepReferencesQueryFilterModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SharedStepReferencesQueryFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SharedStepReferencesQueryFilterModel is not found in the empty JSON string", SharedStepReferencesQueryFilterModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SharedStepReferencesQueryFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharedStepReferencesQueryFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("sectionIds") != null && !jsonObj.get("sectionIds").isJsonNull() && !jsonObj.get("sectionIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sectionIds` to be an array in the JSON string but got `%s`", jsonObj.get("sectionIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("modifiedByIds") != null && !jsonObj.get("modifiedByIds").isJsonNull() && !jsonObj.get("modifiedByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedByIds` to be an array in the JSON string but got `%s`", jsonObj.get("modifiedByIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("states") != null && !jsonObj.get("states").isJsonNull() && !jsonObj.get("states").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `states` to be an array in the JSON string but got `%s`", jsonObj.get("states").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("priorities") != null && !jsonObj.get("priorities").isJsonNull() && !jsonObj.get("priorities").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `priorities` to be an array in the JSON string but got `%s`", jsonObj.get("priorities").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("entityTypes") != null && !jsonObj.get("entityTypes").isJsonNull() && !jsonObj.get("entityTypes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entityTypes` to be an array in the JSON string but got `%s`", jsonObj.get("entityTypes").toString()));
-      }
-      // validate the optional field `createdDate`
-      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
-      }
-      // validate the optional field `modifiedDate`
-      if (jsonObj.get("modifiedDate") != null && !jsonObj.get("modifiedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("modifiedDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SharedStepReferencesQueryFilterModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SharedStepReferencesQueryFilterModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SharedStepReferencesQueryFilterModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SharedStepReferencesQueryFilterModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SharedStepReferencesQueryFilterModel>() {
-           @Override
-           public void write(JsonWriter out, SharedStepReferencesQueryFilterModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SharedStepReferencesQueryFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of SharedStepReferencesQueryFilterModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of SharedStepReferencesQueryFilterModel
-   * @throws IOException if the JSON string is invalid with respect to SharedStepReferencesQueryFilterModel
-   */
-  public static SharedStepReferencesQueryFilterModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SharedStepReferencesQueryFilterModel.class);
-  }
-
-  /**
-   * Convert an instance of SharedStepReferencesQueryFilterModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

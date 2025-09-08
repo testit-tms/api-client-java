@@ -101,21 +101,33 @@ publishing.publications.named<MavenPublication>("maven") {
         from(components["java"])
     }
 }
+
 val junitVersion = "5.10.3"
 val junitLauncherVersion = "1.9.0"
-val jakarta_annotation_version = "1.3.5"
+val swaggerAnnotationsVersion = "1.6.5"
+
+val jacksonVersion = "2.17.1"
+val jacksonDatabindVersion = "2.17.1"
+val jacksonDatabindNullableVersion = "0.2.6"
+
+val jakartaAnnotationVersion = "2.1.0"
+val jerseyVersion = "3.0.4"
 
 dependencies {
-	implementation("io.swagger:swagger-annotations:1.6.8")
-	implementation("com.google.code.findbugs:jsr305:3.0.2")
-	implementation("com.squareup.okhttp3:okhttp:4.12.0")
-	implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
-	implementation("com.google.code.gson:gson:2.9.1")
-	implementation("io.gsonfire:gson-fire:1.9.0")
-	implementation("jakarta.ws.rs:jakarta.ws.rs-api:2.1.6")
-	implementation("org.openapitools:jackson-databind-nullable:0.2.6")
-	implementation("jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version")
-	implementation("org.apache.commons:commons-lang3:3.12.0")
+    implementation("io.swagger:swagger-annotations:$swaggerAnnotationsVersion")
+    implementation("com.google.code.findbugs:jsr305:3.0.2")
+    implementation("org.glassfish.jersey.core:jersey-client:$jerseyVersion")
+    implementation("org.glassfish.jersey.inject:jersey-hk2:$jerseyVersion")
+    implementation("org.glassfish.jersey.media:jersey-media-multipart:$jerseyVersion")
+    implementation("org.glassfish.jersey.media:jersey-media-json-jackson:$jerseyVersion")
+    implementation("org.glassfish.jersey.connectors:jersey-apache-connector:$jerseyVersion")
+    implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion")
+    implementation("org.openapitools:jackson-databind-nullable:$jacksonDatabindNullableVersion")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
+    implementation("jakarta.annotation:jakarta.annotation-api:$jakartaAnnotationVersion")
+
     testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitVersion")
     testImplementation("org.junit.platform:junit-platform-launcher:$junitLauncherVersion")

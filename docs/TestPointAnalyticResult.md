@@ -14,6 +14,7 @@
 |**countGroupByTesterAndStatus** | [**List&lt;TestPlanGroupByTesterAndStatus&gt;**](TestPlanGroupByTesterAndStatus.md) |  |  |
 |**countGroupByStatusCode** | [**List&lt;TestPlanGroupByStatusCode&gt;**](TestPlanGroupByStatusCode.md) |  |  |
 |**countGroupByTesterAndStatusCode** | [**List&lt;TestPlanGroupByTesterAndStatusCode&gt;**](TestPlanGroupByTesterAndStatusCode.md) |  |  |
+|**countGroupByStatusType** | [**List&lt;TestPlanGroupByStatusType&gt;**](TestPlanGroupByStatusType.md) |  |  |
 
 
 

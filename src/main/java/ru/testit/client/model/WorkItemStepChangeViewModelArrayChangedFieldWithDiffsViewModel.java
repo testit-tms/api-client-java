@@ -14,71 +14,61 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.WorkItemStepChangeViewModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.JSON_PROPERTY_DIFF_VALUE,
+  WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.JSON_PROPERTY_OLD_VALUE,
+  WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.JSON_PROPERTY_NEW_VALUE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
-  public static final String SERIALIZED_NAME_DIFF_VALUE = "diffValue";
-  @SerializedName(SERIALIZED_NAME_DIFF_VALUE)
-  private List<WorkItemStepChangeViewModel> diffValue;
+  public static final String JSON_PROPERTY_DIFF_VALUE = "diffValue";
+  private JsonNullable<List<WorkItemStepChangeViewModel>> diffValue = JsonNullable.<List<WorkItemStepChangeViewModel>>undefined();
 
-  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
-  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private List<WorkItemStepChangeViewModel> oldValue;
+  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  private JsonNullable<List<WorkItemStepChangeViewModel>> oldValue = JsonNullable.<List<WorkItemStepChangeViewModel>>undefined();
 
-  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
-  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private List<WorkItemStepChangeViewModel> newValue;
+  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  private JsonNullable<List<WorkItemStepChangeViewModel>> newValue = JsonNullable.<List<WorkItemStepChangeViewModel>>undefined();
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel() {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel() { 
   }
 
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel diffValue(List<WorkItemStepChangeViewModel> diffValue) {
-    this.diffValue = diffValue;
+    this.diffValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(diffValue);
     return this;
   }
 
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel addDiffValueItem(WorkItemStepChangeViewModel diffValueItem) {
-    if (this.diffValue == null) {
-      this.diffValue = new ArrayList<>();
+    if (this.diffValue == null || !this.diffValue.isPresent()) {
+      this.diffValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(new ArrayList<>());
     }
-    this.diffValue.add(diffValueItem);
+    try {
+      this.diffValue.get().add(diffValueItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -86,26 +76,44 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
    * Get diffValue
    * @return diffValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<WorkItemStepChangeViewModel> getDiffValue() {
+        return diffValue.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DIFF_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<WorkItemStepChangeViewModel>> getDiffValue_JsonNullable() {
     return diffValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIFF_VALUE)
+  public void setDiffValue_JsonNullable(JsonNullable<List<WorkItemStepChangeViewModel>> diffValue) {
+    this.diffValue = diffValue;
   }
 
   public void setDiffValue(List<WorkItemStepChangeViewModel> diffValue) {
-    this.diffValue = diffValue;
+    this.diffValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(diffValue);
   }
 
 
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel oldValue(List<WorkItemStepChangeViewModel> oldValue) {
-    this.oldValue = oldValue;
+    this.oldValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(oldValue);
     return this;
   }
 
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel addOldValueItem(WorkItemStepChangeViewModel oldValueItem) {
-    if (this.oldValue == null) {
-      this.oldValue = new ArrayList<>();
+    if (this.oldValue == null || !this.oldValue.isPresent()) {
+      this.oldValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(new ArrayList<>());
     }
-    this.oldValue.add(oldValueItem);
+    try {
+      this.oldValue.get().add(oldValueItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -113,26 +121,44 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
    * Get oldValue
    * @return oldValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<WorkItemStepChangeViewModel> getOldValue() {
+        return oldValue.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<WorkItemStepChangeViewModel>> getOldValue_JsonNullable() {
     return oldValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  public void setOldValue_JsonNullable(JsonNullable<List<WorkItemStepChangeViewModel>> oldValue) {
+    this.oldValue = oldValue;
   }
 
   public void setOldValue(List<WorkItemStepChangeViewModel> oldValue) {
-    this.oldValue = oldValue;
+    this.oldValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(oldValue);
   }
 
 
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel newValue(List<WorkItemStepChangeViewModel> newValue) {
-    this.newValue = newValue;
+    this.newValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(newValue);
     return this;
   }
 
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel addNewValueItem(WorkItemStepChangeViewModel newValueItem) {
-    if (this.newValue == null) {
-      this.newValue = new ArrayList<>();
+    if (this.newValue == null || !this.newValue.isPresent()) {
+      this.newValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(new ArrayList<>());
     }
-    this.newValue.add(newValueItem);
+    try {
+      this.newValue.get().add(newValueItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -140,17 +166,33 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
    * Get newValue
    * @return newValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<WorkItemStepChangeViewModel> getNewValue() {
-    return newValue;
+        return newValue.orElse(null);
   }
 
-  public void setNewValue(List<WorkItemStepChangeViewModel> newValue) {
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<WorkItemStepChangeViewModel>> getNewValue_JsonNullable() {
+    return newValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  public void setNewValue_JsonNullable(JsonNullable<List<WorkItemStepChangeViewModel>> newValue) {
     this.newValue = newValue;
   }
 
+  public void setNewValue(List<WorkItemStepChangeViewModel> newValue) {
+    this.newValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(newValue);
+  }
 
 
+  /**
+   * Return true if this WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,9 +202,9 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
       return false;
     }
     WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel workItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel = (WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel) o;
-    return Objects.equals(this.diffValue, workItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.diffValue) &&
-        Objects.equals(this.oldValue, workItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.oldValue) &&
-        Objects.equals(this.newValue, workItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.newValue);
+    return equalsNullable(this.diffValue, workItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.diffValue) &&
+        equalsNullable(this.oldValue, workItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.oldValue) &&
+        equalsNullable(this.newValue, workItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -171,7 +213,7 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(diffValue, oldValue, newValue);
+    return Objects.hash(hashCodeNullable(diffValue), hashCodeNullable(oldValue), hashCodeNullable(newValue));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -203,133 +245,5 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("diffValue");
-    openapiFields.add("oldValue");
-    openapiFields.add("newValue");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel is not found in the empty JSON string", WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("diffValue") != null && !jsonObj.get("diffValue").isJsonNull()) {
-        JsonArray jsonArraydiffValue = jsonObj.getAsJsonArray("diffValue");
-        if (jsonArraydiffValue != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("diffValue").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `diffValue` to be an array in the JSON string but got `%s`", jsonObj.get("diffValue").toString()));
-          }
-
-          // validate the optional field `diffValue` (array)
-          for (int i = 0; i < jsonArraydiffValue.size(); i++) {
-            WorkItemStepChangeViewModel.validateJsonElement(jsonArraydiffValue.get(i));
-          };
-        }
-      }
-      if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) {
-        JsonArray jsonArrayoldValue = jsonObj.getAsJsonArray("oldValue");
-        if (jsonArrayoldValue != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("oldValue").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `oldValue` to be an array in the JSON string but got `%s`", jsonObj.get("oldValue").toString()));
-          }
-
-          // validate the optional field `oldValue` (array)
-          for (int i = 0; i < jsonArrayoldValue.size(); i++) {
-            WorkItemStepChangeViewModel.validateJsonElement(jsonArrayoldValue.get(i));
-          };
-        }
-      }
-      if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonNull()) {
-        JsonArray jsonArraynewValue = jsonObj.getAsJsonArray("newValue");
-        if (jsonArraynewValue != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("newValue").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `newValue` to be an array in the JSON string but got `%s`", jsonObj.get("newValue").toString()));
-          }
-
-          // validate the optional field `newValue` (array)
-          for (int i = 0; i < jsonArraynewValue.size(); i++) {
-            WorkItemStepChangeViewModel.validateJsonElement(jsonArraynewValue.get(i));
-          };
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel
-   */
-  public static WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.class);
-  }
-
-  /**
-   * Convert an instance of WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

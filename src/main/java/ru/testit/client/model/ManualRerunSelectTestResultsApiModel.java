@@ -14,58 +14,44 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ManualRerunTestResultApiModel;
 import ru.testit.client.model.TestResultsFilterApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ManualRerunSelectTestResultsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ManualRerunSelectTestResultsApiModel.JSON_PROPERTY_FILTER,
+  ManualRerunSelectTestResultsApiModel.JSON_PROPERTY_EXTRACTION_MODEL
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ManualRerunSelectTestResultsApiModel {
-  public static final String SERIALIZED_NAME_FILTER = "filter";
-  @SerializedName(SERIALIZED_NAME_FILTER)
-  private TestResultsFilterApiModel filter;
+  public static final String JSON_PROPERTY_FILTER = "filter";
+  private JsonNullable<TestResultsFilterApiModel> filter = JsonNullable.<TestResultsFilterApiModel>undefined();
 
-  public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
-  @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private ManualRerunTestResultApiModel extractionModel;
+  public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
+  private JsonNullable<ManualRerunTestResultApiModel> extractionModel = JsonNullable.<ManualRerunTestResultApiModel>undefined();
 
-  public ManualRerunSelectTestResultsApiModel() {
+  public ManualRerunSelectTestResultsApiModel() { 
   }
 
   public ManualRerunSelectTestResultsApiModel filter(TestResultsFilterApiModel filter) {
-    this.filter = filter;
+    this.filter = JsonNullable.<TestResultsFilterApiModel>of(filter);
     return this;
   }
 
@@ -73,18 +59,32 @@ public class ManualRerunSelectTestResultsApiModel {
    * Get filter
    * @return filter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TestResultsFilterApiModel getFilter() {
+        return filter.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestResultsFilterApiModel> getFilter_JsonNullable() {
     return filter;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  public void setFilter_JsonNullable(JsonNullable<TestResultsFilterApiModel> filter) {
+    this.filter = filter;
   }
 
   public void setFilter(TestResultsFilterApiModel filter) {
-    this.filter = filter;
+    this.filter = JsonNullable.<TestResultsFilterApiModel>of(filter);
   }
 
 
   public ManualRerunSelectTestResultsApiModel extractionModel(ManualRerunTestResultApiModel extractionModel) {
-    this.extractionModel = extractionModel;
+    this.extractionModel = JsonNullable.<ManualRerunTestResultApiModel>of(extractionModel);
     return this;
   }
 
@@ -92,17 +92,33 @@ public class ManualRerunSelectTestResultsApiModel {
    * Get extractionModel
    * @return extractionModel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public ManualRerunTestResultApiModel getExtractionModel() {
-    return extractionModel;
+        return extractionModel.orElse(null);
   }
 
-  public void setExtractionModel(ManualRerunTestResultApiModel extractionModel) {
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<ManualRerunTestResultApiModel> getExtractionModel_JsonNullable() {
+    return extractionModel;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  public void setExtractionModel_JsonNullable(JsonNullable<ManualRerunTestResultApiModel> extractionModel) {
     this.extractionModel = extractionModel;
   }
 
+  public void setExtractionModel(ManualRerunTestResultApiModel extractionModel) {
+    this.extractionModel = JsonNullable.<ManualRerunTestResultApiModel>of(extractionModel);
+  }
 
 
+  /**
+   * Return true if this ManualRerunSelectTestResultsApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,8 +128,8 @@ public class ManualRerunSelectTestResultsApiModel {
       return false;
     }
     ManualRerunSelectTestResultsApiModel manualRerunSelectTestResultsApiModel = (ManualRerunSelectTestResultsApiModel) o;
-    return Objects.equals(this.filter, manualRerunSelectTestResultsApiModel.filter) &&
-        Objects.equals(this.extractionModel, manualRerunSelectTestResultsApiModel.extractionModel);
+    return equalsNullable(this.filter, manualRerunSelectTestResultsApiModel.filter) &&
+        equalsNullable(this.extractionModel, manualRerunSelectTestResultsApiModel.extractionModel);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -122,7 +138,7 @@ public class ManualRerunSelectTestResultsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, extractionModel);
+    return Objects.hash(hashCodeNullable(filter), hashCodeNullable(extractionModel));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -153,98 +169,5 @@ public class ManualRerunSelectTestResultsApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("filter");
-    openapiFields.add("extractionModel");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ManualRerunSelectTestResultsApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ManualRerunSelectTestResultsApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ManualRerunSelectTestResultsApiModel is not found in the empty JSON string", ManualRerunSelectTestResultsApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ManualRerunSelectTestResultsApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ManualRerunSelectTestResultsApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `filter`
-      if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        TestResultsFilterApiModel.validateJsonElement(jsonObj.get("filter"));
-      }
-      // validate the optional field `extractionModel`
-      if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        ManualRerunTestResultApiModel.validateJsonElement(jsonObj.get("extractionModel"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ManualRerunSelectTestResultsApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ManualRerunSelectTestResultsApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ManualRerunSelectTestResultsApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ManualRerunSelectTestResultsApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ManualRerunSelectTestResultsApiModel>() {
-           @Override
-           public void write(JsonWriter out, ManualRerunSelectTestResultsApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ManualRerunSelectTestResultsApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ManualRerunSelectTestResultsApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ManualRerunSelectTestResultsApiModel
-   * @throws IOException if the JSON string is invalid with respect to ManualRerunSelectTestResultsApiModel
-   */
-  public static ManualRerunSelectTestResultsApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ManualRerunSelectTestResultsApiModel.class);
-  }
-
-  /**
-   * Convert an instance of ManualRerunSelectTestResultsApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

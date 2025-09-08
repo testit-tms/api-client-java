@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -27,64 +28,53 @@ import java.util.List;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.LinkType;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkItemLinkFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkItemLinkFilterModel.JSON_PROPERTY_TYPES,
+  WorkItemLinkFilterModel.JSON_PROPERTY_TITLE,
+  WorkItemLinkFilterModel.JSON_PROPERTY_URLS,
+  WorkItemLinkFilterModel.JSON_PROPERTY_ONLY_WITHOUT_LINKS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemLinkFilterModel {
-  public static final String SERIALIZED_NAME_TYPES = "types";
-  @SerializedName(SERIALIZED_NAME_TYPES)
-  private List<LinkType> types;
+  public static final String JSON_PROPERTY_TYPES = "types";
+  private JsonNullable<List<LinkType>> types = JsonNullable.<List<LinkType>>undefined();
 
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_URLS = "urls";
-  @SerializedName(SERIALIZED_NAME_URLS)
-  private Set<String> urls;
+  public static final String JSON_PROPERTY_URLS = "urls";
+  private JsonNullable<Set<String>> urls = JsonNullable.<Set<String>>undefined();
 
-  public static final String SERIALIZED_NAME_ONLY_WITHOUT_LINKS = "onlyWithoutLinks";
-  @SerializedName(SERIALIZED_NAME_ONLY_WITHOUT_LINKS)
-  private Boolean onlyWithoutLinks;
+  public static final String JSON_PROPERTY_ONLY_WITHOUT_LINKS = "onlyWithoutLinks";
+  private JsonNullable<Boolean> onlyWithoutLinks = JsonNullable.<Boolean>undefined();
 
-  public WorkItemLinkFilterModel() {
+  public WorkItemLinkFilterModel() { 
   }
 
   public WorkItemLinkFilterModel types(List<LinkType> types) {
-    this.types = types;
+    this.types = JsonNullable.<List<LinkType>>of(types);
     return this;
   }
 
   public WorkItemLinkFilterModel addTypesItem(LinkType typesItem) {
-    if (this.types == null) {
-      this.types = new ArrayList<>();
+    if (this.types == null || !this.types.isPresent()) {
+      this.types = JsonNullable.<List<LinkType>>of(new ArrayList<>());
     }
-    this.types.add(typesItem);
+    try {
+      this.types.get().add(typesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -92,18 +82,32 @@ public class WorkItemLinkFilterModel {
    * Get types
    * @return types
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<LinkType> getTypes() {
+        return types.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<LinkType>> getTypes_JsonNullable() {
     return types;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  public void setTypes_JsonNullable(JsonNullable<List<LinkType>> types) {
+    this.types = types;
   }
 
   public void setTypes(List<LinkType> types) {
-    this.types = types;
+    this.types = JsonNullable.<List<LinkType>>of(types);
   }
 
 
   public WorkItemLinkFilterModel title(String title) {
-    this.title = title;
+    this.title = JsonNullable.<String>of(title);
     return this;
   }
 
@@ -111,26 +115,44 @@ public class WorkItemLinkFilterModel {
    * Get title
    * @return title
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getTitle() {
+        return title.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTitle_JsonNullable() {
     return title;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
+    this.title = title;
   }
 
   public void setTitle(String title) {
-    this.title = title;
+    this.title = JsonNullable.<String>of(title);
   }
 
 
   public WorkItemLinkFilterModel urls(Set<String> urls) {
-    this.urls = urls;
+    this.urls = JsonNullable.<Set<String>>of(urls);
     return this;
   }
 
   public WorkItemLinkFilterModel addUrlsItem(String urlsItem) {
-    if (this.urls == null) {
-      this.urls = new LinkedHashSet<>();
+    if (this.urls == null || !this.urls.isPresent()) {
+      this.urls = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
     }
-    this.urls.add(urlsItem);
+    try {
+      this.urls.get().add(urlsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -138,18 +160,32 @@ public class WorkItemLinkFilterModel {
    * Get urls
    * @return urls
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<String> getUrls() {
+        return urls.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_URLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getUrls_JsonNullable() {
     return urls;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_URLS)
+  public void setUrls_JsonNullable(JsonNullable<Set<String>> urls) {
+    this.urls = urls;
   }
 
   public void setUrls(Set<String> urls) {
-    this.urls = urls;
+    this.urls = JsonNullable.<Set<String>>of(urls);
   }
 
 
   public WorkItemLinkFilterModel onlyWithoutLinks(Boolean onlyWithoutLinks) {
-    this.onlyWithoutLinks = onlyWithoutLinks;
+    this.onlyWithoutLinks = JsonNullable.<Boolean>of(onlyWithoutLinks);
     return this;
   }
 
@@ -157,17 +193,33 @@ public class WorkItemLinkFilterModel {
    * Get onlyWithoutLinks
    * @return onlyWithoutLinks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getOnlyWithoutLinks() {
-    return onlyWithoutLinks;
+        return onlyWithoutLinks.orElse(null);
   }
 
-  public void setOnlyWithoutLinks(Boolean onlyWithoutLinks) {
+  @JsonProperty(JSON_PROPERTY_ONLY_WITHOUT_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getOnlyWithoutLinks_JsonNullable() {
+    return onlyWithoutLinks;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ONLY_WITHOUT_LINKS)
+  public void setOnlyWithoutLinks_JsonNullable(JsonNullable<Boolean> onlyWithoutLinks) {
     this.onlyWithoutLinks = onlyWithoutLinks;
   }
 
+  public void setOnlyWithoutLinks(Boolean onlyWithoutLinks) {
+    this.onlyWithoutLinks = JsonNullable.<Boolean>of(onlyWithoutLinks);
+  }
 
 
+  /**
+   * Return true if this WorkItemLinkFilterModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -177,10 +229,10 @@ public class WorkItemLinkFilterModel {
       return false;
     }
     WorkItemLinkFilterModel workItemLinkFilterModel = (WorkItemLinkFilterModel) o;
-    return Objects.equals(this.types, workItemLinkFilterModel.types) &&
-        Objects.equals(this.title, workItemLinkFilterModel.title) &&
-        Objects.equals(this.urls, workItemLinkFilterModel.urls) &&
-        Objects.equals(this.onlyWithoutLinks, workItemLinkFilterModel.onlyWithoutLinks);
+    return equalsNullable(this.types, workItemLinkFilterModel.types) &&
+        equalsNullable(this.title, workItemLinkFilterModel.title) &&
+        equalsNullable(this.urls, workItemLinkFilterModel.urls) &&
+        equalsNullable(this.onlyWithoutLinks, workItemLinkFilterModel.onlyWithoutLinks);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -189,7 +241,7 @@ public class WorkItemLinkFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(types, title, urls, onlyWithoutLinks);
+    return Objects.hash(hashCodeNullable(types), hashCodeNullable(title), hashCodeNullable(urls), hashCodeNullable(onlyWithoutLinks));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -222,103 +274,5 @@ public class WorkItemLinkFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("types");
-    openapiFields.add("title");
-    openapiFields.add("urls");
-    openapiFields.add("onlyWithoutLinks");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemLinkFilterModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemLinkFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemLinkFilterModel is not found in the empty JSON string", WorkItemLinkFilterModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemLinkFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemLinkFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull() && !jsonObj.get("types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
-      }
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("urls") != null && !jsonObj.get("urls").isJsonNull() && !jsonObj.get("urls").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urls` to be an array in the JSON string but got `%s`", jsonObj.get("urls").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemLinkFilterModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemLinkFilterModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemLinkFilterModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemLinkFilterModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemLinkFilterModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemLinkFilterModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemLinkFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkItemLinkFilterModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemLinkFilterModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemLinkFilterModel
-   */
-  public static WorkItemLinkFilterModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemLinkFilterModel.class);
-  }
-
-  /**
-   * Convert an instance of WorkItemLinkFilterModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

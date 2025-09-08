@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,72 +28,57 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AssignAttachmentApiModel;
 import ru.testit.client.model.CreateLinkApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * CreateTestRunAndFillByWorkItemsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_PROJECT_ID,
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_TEST_PLAN_ID,
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_CONFIGURATION_IDS,
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_WORK_ITEM_IDS,
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_NAME,
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_DESCRIPTION,
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_LAUNCH_SOURCE,
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_ATTACHMENTS,
+  CreateTestRunAndFillByWorkItemsApiModel.JSON_PROPERTY_LINKS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateTestRunAndFillByWorkItemsApiModel {
-  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
+  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
   private UUID testPlanId;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
-  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  private String launchSource;
-
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AssignAttachmentApiModel> attachments;
-
-  public static final String SERIALIZED_NAME_LINKS = "links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<CreateLinkApiModel> links;
-
-  public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
+  public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
   private List<UUID> configurationIds = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_IDS = "workItemIds";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS)
+  public static final String JSON_PROPERTY_WORK_ITEM_IDS = "workItemIds";
   private List<UUID> workItemIds = new ArrayList<>();
 
-  public CreateTestRunAndFillByWorkItemsApiModel() {
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_LAUNCH_SOURCE = "launchSource";
+  private JsonNullable<String> launchSource = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  private JsonNullable<List<AssignAttachmentApiModel>> attachments = JsonNullable.<List<AssignAttachmentApiModel>>undefined();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private JsonNullable<List<CreateLinkApiModel>> links = JsonNullable.<List<CreateLinkApiModel>>undefined();
+
+  public CreateTestRunAndFillByWorkItemsApiModel() { 
   }
 
   public CreateTestRunAndFillByWorkItemsApiModel projectId(UUID projectId) {
@@ -104,11 +90,17 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
    * Specifies the GUID of the project, in which a test run will be created.
    * @return projectId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getProjectId() {
     return projectId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
@@ -123,124 +115,19 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
    * Specifies the GUID of the test plan, within which the test run will be created.
    * @return testPlanId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
-  }
-
-
-  public CreateTestRunAndFillByWorkItemsApiModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Specifies the name of the test run.
-   * @return name
-   */
-  @javax.annotation.Nullable
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public CreateTestRunAndFillByWorkItemsApiModel description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Specifies the test run description.
-   * @return description
-   */
-  @javax.annotation.Nullable
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public CreateTestRunAndFillByWorkItemsApiModel launchSource(String launchSource) {
-    this.launchSource = launchSource;
-    return this;
-  }
-
-  /**
-   * Specifies the test run launch source.
-   * @return launchSource
-   */
-  @javax.annotation.Nullable
-  public String getLaunchSource() {
-    return launchSource;
-  }
-
-  public void setLaunchSource(String launchSource) {
-    this.launchSource = launchSource;
-  }
-
-
-  public CreateTestRunAndFillByWorkItemsApiModel attachments(List<AssignAttachmentApiModel> attachments) {
-    this.attachments = attachments;
-    return this;
-  }
-
-  public CreateTestRunAndFillByWorkItemsApiModel addAttachmentsItem(AssignAttachmentApiModel attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
-    }
-    this.attachments.add(attachmentsItem);
-    return this;
-  }
-
-  /**
-   * Collection of attachment ids to relate to the test run
-   * @return attachments
-   */
-  @javax.annotation.Nullable
-  public List<AssignAttachmentApiModel> getAttachments() {
-    return attachments;
-  }
-
-  public void setAttachments(List<AssignAttachmentApiModel> attachments) {
-    this.attachments = attachments;
-  }
-
-
-  public CreateTestRunAndFillByWorkItemsApiModel links(List<CreateLinkApiModel> links) {
-    this.links = links;
-    return this;
-  }
-
-  public CreateTestRunAndFillByWorkItemsApiModel addLinksItem(CreateLinkApiModel linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
-    }
-    this.links.add(linksItem);
-    return this;
-  }
-
-  /**
-   * Collection of links to relate to the test run
-   * @return links
-   */
-  @javax.annotation.Nullable
-  public List<CreateLinkApiModel> getLinks() {
-    return links;
-  }
-
-  public void setLinks(List<CreateLinkApiModel> links) {
-    this.links = links;
   }
 
 
@@ -261,11 +148,17 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
    * Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.
    * @return configurationIds
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<UUID> getConfigurationIds() {
     return configurationIds;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setConfigurationIds(List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
@@ -288,17 +181,214 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
    * Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
    * @return workItemIds
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<UUID> getWorkItemIds() {
     return workItemIds;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemIds(List<UUID> workItemIds) {
     this.workItemIds = workItemIds;
   }
 
 
+  public CreateTestRunAndFillByWorkItemsApiModel name(String name) {
+    this.name = JsonNullable.<String>of(name);
+    return this;
+  }
 
+  /**
+   * Specifies the name of the test run.
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
+  }
+
+
+  public CreateTestRunAndFillByWorkItemsApiModel description(String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
+
+  /**
+   * Specifies the test run description.
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
+  }
+
+
+  public CreateTestRunAndFillByWorkItemsApiModel launchSource(String launchSource) {
+    this.launchSource = JsonNullable.<String>of(launchSource);
+    return this;
+  }
+
+  /**
+   * Specifies the test run launch source.
+   * @return launchSource
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getLaunchSource() {
+        return launchSource.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getLaunchSource_JsonNullable() {
+    return launchSource;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  public void setLaunchSource_JsonNullable(JsonNullable<String> launchSource) {
+    this.launchSource = launchSource;
+  }
+
+  public void setLaunchSource(String launchSource) {
+    this.launchSource = JsonNullable.<String>of(launchSource);
+  }
+
+
+  public CreateTestRunAndFillByWorkItemsApiModel attachments(List<AssignAttachmentApiModel> attachments) {
+    this.attachments = JsonNullable.<List<AssignAttachmentApiModel>>of(attachments);
+    return this;
+  }
+
+  public CreateTestRunAndFillByWorkItemsApiModel addAttachmentsItem(AssignAttachmentApiModel attachmentsItem) {
+    if (this.attachments == null || !this.attachments.isPresent()) {
+      this.attachments = JsonNullable.<List<AssignAttachmentApiModel>>of(new ArrayList<>());
+    }
+    try {
+      this.attachments.get().add(attachmentsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Collection of attachment ids to relate to the test run
+   * @return attachments
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<AssignAttachmentApiModel> getAttachments() {
+        return attachments.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<AssignAttachmentApiModel>> getAttachments_JsonNullable() {
+    return attachments;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  public void setAttachments_JsonNullable(JsonNullable<List<AssignAttachmentApiModel>> attachments) {
+    this.attachments = attachments;
+  }
+
+  public void setAttachments(List<AssignAttachmentApiModel> attachments) {
+    this.attachments = JsonNullable.<List<AssignAttachmentApiModel>>of(attachments);
+  }
+
+
+  public CreateTestRunAndFillByWorkItemsApiModel links(List<CreateLinkApiModel> links) {
+    this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
+    return this;
+  }
+
+  public CreateTestRunAndFillByWorkItemsApiModel addLinksItem(CreateLinkApiModel linksItem) {
+    if (this.links == null || !this.links.isPresent()) {
+      this.links = JsonNullable.<List<CreateLinkApiModel>>of(new ArrayList<>());
+    }
+    try {
+      this.links.get().add(linksItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Collection of links to relate to the test run
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<CreateLinkApiModel> getLinks() {
+        return links.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<CreateLinkApiModel>> getLinks_JsonNullable() {
+    return links;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  public void setLinks_JsonNullable(JsonNullable<List<CreateLinkApiModel>> links) {
+    this.links = links;
+  }
+
+  public void setLinks(List<CreateLinkApiModel> links) {
+    this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
+  }
+
+
+  /**
+   * Return true if this CreateTestRunAndFillByWorkItemsApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -310,13 +400,13 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     CreateTestRunAndFillByWorkItemsApiModel createTestRunAndFillByWorkItemsApiModel = (CreateTestRunAndFillByWorkItemsApiModel) o;
     return Objects.equals(this.projectId, createTestRunAndFillByWorkItemsApiModel.projectId) &&
         Objects.equals(this.testPlanId, createTestRunAndFillByWorkItemsApiModel.testPlanId) &&
-        Objects.equals(this.name, createTestRunAndFillByWorkItemsApiModel.name) &&
-        Objects.equals(this.description, createTestRunAndFillByWorkItemsApiModel.description) &&
-        Objects.equals(this.launchSource, createTestRunAndFillByWorkItemsApiModel.launchSource) &&
-        Objects.equals(this.attachments, createTestRunAndFillByWorkItemsApiModel.attachments) &&
-        Objects.equals(this.links, createTestRunAndFillByWorkItemsApiModel.links) &&
         Objects.equals(this.configurationIds, createTestRunAndFillByWorkItemsApiModel.configurationIds) &&
-        Objects.equals(this.workItemIds, createTestRunAndFillByWorkItemsApiModel.workItemIds);
+        Objects.equals(this.workItemIds, createTestRunAndFillByWorkItemsApiModel.workItemIds) &&
+        equalsNullable(this.name, createTestRunAndFillByWorkItemsApiModel.name) &&
+        equalsNullable(this.description, createTestRunAndFillByWorkItemsApiModel.description) &&
+        equalsNullable(this.launchSource, createTestRunAndFillByWorkItemsApiModel.launchSource) &&
+        equalsNullable(this.attachments, createTestRunAndFillByWorkItemsApiModel.attachments) &&
+        equalsNullable(this.links, createTestRunAndFillByWorkItemsApiModel.links);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -325,7 +415,7 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, testPlanId, name, description, launchSource, attachments, links, configurationIds, workItemIds);
+    return Objects.hash(projectId, testPlanId, configurationIds, workItemIds, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -341,13 +431,13 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     sb.append("class CreateTestRunAndFillByWorkItemsApiModel {\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    testPlanId: ").append(toIndentedString(testPlanId)).append("\n");
+    sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
+    sb.append("    workItemIds: ").append(toIndentedString(workItemIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
-    sb.append("    workItemIds: ").append(toIndentedString(workItemIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -363,163 +453,5 @@ public class CreateTestRunAndFillByWorkItemsApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("projectId");
-    openapiFields.add("testPlanId");
-    openapiFields.add("name");
-    openapiFields.add("description");
-    openapiFields.add("launchSource");
-    openapiFields.add("attachments");
-    openapiFields.add("links");
-    openapiFields.add("configurationIds");
-    openapiFields.add("workItemIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("projectId");
-    openapiRequiredFields.add("testPlanId");
-    openapiRequiredFields.add("configurationIds");
-    openapiRequiredFields.add("workItemIds");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CreateTestRunAndFillByWorkItemsApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CreateTestRunAndFillByWorkItemsApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTestRunAndFillByWorkItemsApiModel is not found in the empty JSON string", CreateTestRunAndFillByWorkItemsApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CreateTestRunAndFillByWorkItemsApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateTestRunAndFillByWorkItemsApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateTestRunAndFillByWorkItemsApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("projectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
-      }
-      if (!jsonObj.get("testPlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
-      }
-      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
-        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
-        if (jsonArrayattachments != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("attachments").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
-          }
-
-          // validate the optional field `attachments` (array)
-          for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AssignAttachmentApiModel.validateJsonElement(jsonArrayattachments.get(i));
-          };
-        }
-      }
-      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
-        JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
-        if (jsonArraylinks != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("links").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
-          }
-
-          // validate the optional field `links` (array)
-          for (int i = 0; i < jsonArraylinks.size(); i++) {
-            CreateLinkApiModel.validateJsonElement(jsonArraylinks.get(i));
-          };
-        }
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("configurationIds") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("configurationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("workItemIds") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("workItemIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateTestRunAndFillByWorkItemsApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateTestRunAndFillByWorkItemsApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateTestRunAndFillByWorkItemsApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTestRunAndFillByWorkItemsApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreateTestRunAndFillByWorkItemsApiModel>() {
-           @Override
-           public void write(JsonWriter out, CreateTestRunAndFillByWorkItemsApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreateTestRunAndFillByWorkItemsApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of CreateTestRunAndFillByWorkItemsApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of CreateTestRunAndFillByWorkItemsApiModel
-   * @throws IOException if the JSON string is invalid with respect to CreateTestRunAndFillByWorkItemsApiModel
-   */
-  public static CreateTestRunAndFillByWorkItemsApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateTestRunAndFillByWorkItemsApiModel.class);
-  }
-
-  /**
-   * Convert an instance of CreateTestRunAndFillByWorkItemsApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

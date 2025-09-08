@@ -14,67 +14,57 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.WorkItemEntityTypes;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkItemLinkUrlFilterApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkItemLinkUrlFilterApiModel.JSON_PROPERTY_TYPES,
+  WorkItemLinkUrlFilterApiModel.JSON_PROPERTY_SEARCH_URL
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemLinkUrlFilterApiModel {
-  public static final String SERIALIZED_NAME_TYPES = "types";
-  @SerializedName(SERIALIZED_NAME_TYPES)
-  private Set<WorkItemEntityTypes> types;
+  public static final String JSON_PROPERTY_TYPES = "types";
+  private JsonNullable<Set<WorkItemEntityTypes>> types = JsonNullable.<Set<WorkItemEntityTypes>>undefined();
 
-  public static final String SERIALIZED_NAME_SEARCH_URL = "searchUrl";
-  @SerializedName(SERIALIZED_NAME_SEARCH_URL)
-  private String searchUrl;
+  public static final String JSON_PROPERTY_SEARCH_URL = "searchUrl";
+  private JsonNullable<String> searchUrl = JsonNullable.<String>undefined();
 
-  public WorkItemLinkUrlFilterApiModel() {
+  public WorkItemLinkUrlFilterApiModel() { 
   }
 
   public WorkItemLinkUrlFilterApiModel types(Set<WorkItemEntityTypes> types) {
-    this.types = types;
+    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
     return this;
   }
 
   public WorkItemLinkUrlFilterApiModel addTypesItem(WorkItemEntityTypes typesItem) {
-    if (this.types == null) {
-      this.types = new LinkedHashSet<>();
+    if (this.types == null || !this.types.isPresent()) {
+      this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(new LinkedHashSet<>());
     }
-    this.types.add(typesItem);
+    try {
+      this.types.get().add(typesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -82,18 +72,32 @@ public class WorkItemLinkUrlFilterApiModel {
    * Get types
    * @return types
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<WorkItemEntityTypes> getTypes() {
+        return types.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<WorkItemEntityTypes>> getTypes_JsonNullable() {
     return types;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemEntityTypes>> types) {
+    this.types = types;
   }
 
   public void setTypes(Set<WorkItemEntityTypes> types) {
-    this.types = types;
+    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
   }
 
 
   public WorkItemLinkUrlFilterApiModel searchUrl(String searchUrl) {
-    this.searchUrl = searchUrl;
+    this.searchUrl = JsonNullable.<String>of(searchUrl);
     return this;
   }
 
@@ -101,17 +105,33 @@ public class WorkItemLinkUrlFilterApiModel {
    * Get searchUrl
    * @return searchUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getSearchUrl() {
-    return searchUrl;
+        return searchUrl.orElse(null);
   }
 
-  public void setSearchUrl(String searchUrl) {
+  @JsonProperty(JSON_PROPERTY_SEARCH_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSearchUrl_JsonNullable() {
+    return searchUrl;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SEARCH_URL)
+  public void setSearchUrl_JsonNullable(JsonNullable<String> searchUrl) {
     this.searchUrl = searchUrl;
   }
 
+  public void setSearchUrl(String searchUrl) {
+    this.searchUrl = JsonNullable.<String>of(searchUrl);
+  }
 
 
+  /**
+   * Return true if this WorkItemLinkUrlFilterApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,8 +141,8 @@ public class WorkItemLinkUrlFilterApiModel {
       return false;
     }
     WorkItemLinkUrlFilterApiModel workItemLinkUrlFilterApiModel = (WorkItemLinkUrlFilterApiModel) o;
-    return Objects.equals(this.types, workItemLinkUrlFilterApiModel.types) &&
-        Objects.equals(this.searchUrl, workItemLinkUrlFilterApiModel.searchUrl);
+    return equalsNullable(this.types, workItemLinkUrlFilterApiModel.types) &&
+        equalsNullable(this.searchUrl, workItemLinkUrlFilterApiModel.searchUrl);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -131,7 +151,7 @@ public class WorkItemLinkUrlFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(types, searchUrl);
+    return Objects.hash(hashCodeNullable(types), hashCodeNullable(searchUrl));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -162,97 +182,5 @@ public class WorkItemLinkUrlFilterApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("types");
-    openapiFields.add("searchUrl");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemLinkUrlFilterApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemLinkUrlFilterApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemLinkUrlFilterApiModel is not found in the empty JSON string", WorkItemLinkUrlFilterApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemLinkUrlFilterApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemLinkUrlFilterApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull() && !jsonObj.get("types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
-      }
-      if ((jsonObj.get("searchUrl") != null && !jsonObj.get("searchUrl").isJsonNull()) && !jsonObj.get("searchUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `searchUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("searchUrl").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemLinkUrlFilterApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemLinkUrlFilterApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemLinkUrlFilterApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemLinkUrlFilterApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemLinkUrlFilterApiModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemLinkUrlFilterApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemLinkUrlFilterApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkItemLinkUrlFilterApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemLinkUrlFilterApiModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemLinkUrlFilterApiModel
-   */
-  public static WorkItemLinkUrlFilterApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemLinkUrlFilterApiModel.class);
-  }
-
-  /**
-   * Convert an instance of WorkItemLinkUrlFilterApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

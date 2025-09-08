@@ -11,5 +11,7 @@
 
 * `VARIABLES_FOR_BODY` (value: `"VariablesForBody"`)
 
+* `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
+
 
 

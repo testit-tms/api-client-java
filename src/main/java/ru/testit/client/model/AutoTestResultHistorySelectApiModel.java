@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -27,82 +28,71 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutotestResultOutcome;
 import ru.testit.client.model.Int64RangeSelectorModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * AutoTestResultHistorySelectApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  AutoTestResultHistorySelectApiModel.JSON_PROPERTY_OUTCOMES,
+  AutoTestResultHistorySelectApiModel.JSON_PROPERTY_STATUS_CODES,
+  AutoTestResultHistorySelectApiModel.JSON_PROPERTY_TEST_PLAN_IDS,
+  AutoTestResultHistorySelectApiModel.JSON_PROPERTY_TEST_RUN_IDS,
+  AutoTestResultHistorySelectApiModel.JSON_PROPERTY_CONFIGURATION_IDS,
+  AutoTestResultHistorySelectApiModel.JSON_PROPERTY_LAUNCH_SOURCE,
+  AutoTestResultHistorySelectApiModel.JSON_PROPERTY_USER_IDS,
+  AutoTestResultHistorySelectApiModel.JSON_PROPERTY_DURATION
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestResultHistorySelectApiModel {
-  public static final String SERIALIZED_NAME_OUTCOMES = "outcomes";
+  public static final String JSON_PROPERTY_OUTCOMES = "outcomes";
   @Deprecated
-  @SerializedName(SERIALIZED_NAME_OUTCOMES)
-  private Set<AutotestResultOutcome> outcomes;
+  private JsonNullable<Set<AutotestResultOutcome>> outcomes = JsonNullable.<Set<AutotestResultOutcome>>undefined();
 
-  public static final String SERIALIZED_NAME_STATUS_CODES = "statusCodes";
-  @SerializedName(SERIALIZED_NAME_STATUS_CODES)
-  private Set<String> statusCodes;
+  public static final String JSON_PROPERTY_STATUS_CODES = "statusCodes";
+  private JsonNullable<Set<String>> statusCodes = JsonNullable.<Set<String>>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_IDS = "testPlanIds";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_IDS)
-  private Set<UUID> testPlanIds;
+  public static final String JSON_PROPERTY_TEST_PLAN_IDS = "testPlanIds";
+  private JsonNullable<Set<UUID>> testPlanIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_RUN_IDS = "testRunIds";
-  @SerializedName(SERIALIZED_NAME_TEST_RUN_IDS)
-  private Set<UUID> testRunIds;
+  public static final String JSON_PROPERTY_TEST_RUN_IDS = "testRunIds";
+  private JsonNullable<Set<UUID>> testRunIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private Set<UUID> configurationIds;
+  public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
+  private JsonNullable<Set<UUID>> configurationIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
-  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  private String launchSource;
+  public static final String JSON_PROPERTY_LAUNCH_SOURCE = "launchSource";
+  private JsonNullable<String> launchSource = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_USER_IDS = "userIds";
-  @SerializedName(SERIALIZED_NAME_USER_IDS)
-  private Set<UUID> userIds;
+  public static final String JSON_PROPERTY_USER_IDS = "userIds";
+  private JsonNullable<Set<UUID>> userIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
-  private Int64RangeSelectorModel duration;
+  public static final String JSON_PROPERTY_DURATION = "duration";
+  private JsonNullable<Int64RangeSelectorModel> duration = JsonNullable.<Int64RangeSelectorModel>undefined();
 
-  public AutoTestResultHistorySelectApiModel() {
+  public AutoTestResultHistorySelectApiModel() { 
   }
 
   @Deprecated
   public AutoTestResultHistorySelectApiModel outcomes(Set<AutotestResultOutcome> outcomes) {
-    this.outcomes = outcomes;
+    this.outcomes = JsonNullable.<Set<AutotestResultOutcome>>of(outcomes);
     return this;
   }
 
   public AutoTestResultHistorySelectApiModel addOutcomesItem(AutotestResultOutcome outcomesItem) {
-    if (this.outcomes == null) {
-      this.outcomes = new LinkedHashSet<>();
+    if (this.outcomes == null || !this.outcomes.isPresent()) {
+      this.outcomes = JsonNullable.<Set<AutotestResultOutcome>>of(new LinkedHashSet<>());
     }
-    this.outcomes.add(outcomesItem);
+    try {
+      this.outcomes.get().add(outcomesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -112,27 +102,45 @@ public class AutoTestResultHistorySelectApiModel {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<AutotestResultOutcome> getOutcomes() {
+        return outcomes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OUTCOMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<AutotestResultOutcome>> getOutcomes_JsonNullable() {
     return outcomes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OUTCOMES)
+  public void setOutcomes_JsonNullable(JsonNullable<Set<AutotestResultOutcome>> outcomes) {
+    this.outcomes = outcomes;
   }
 
   @Deprecated
   public void setOutcomes(Set<AutotestResultOutcome> outcomes) {
-    this.outcomes = outcomes;
+    this.outcomes = JsonNullable.<Set<AutotestResultOutcome>>of(outcomes);
   }
 
 
   public AutoTestResultHistorySelectApiModel statusCodes(Set<String> statusCodes) {
-    this.statusCodes = statusCodes;
+    this.statusCodes = JsonNullable.<Set<String>>of(statusCodes);
     return this;
   }
 
   public AutoTestResultHistorySelectApiModel addStatusCodesItem(String statusCodesItem) {
-    if (this.statusCodes == null) {
-      this.statusCodes = new LinkedHashSet<>();
+    if (this.statusCodes == null || !this.statusCodes.isPresent()) {
+      this.statusCodes = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
     }
-    this.statusCodes.add(statusCodesItem);
+    try {
+      this.statusCodes.get().add(statusCodesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -140,26 +148,44 @@ public class AutoTestResultHistorySelectApiModel {
    * Get statusCodes
    * @return statusCodes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<String> getStatusCodes() {
+        return statusCodes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATUS_CODES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getStatusCodes_JsonNullable() {
     return statusCodes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUS_CODES)
+  public void setStatusCodes_JsonNullable(JsonNullable<Set<String>> statusCodes) {
+    this.statusCodes = statusCodes;
   }
 
   public void setStatusCodes(Set<String> statusCodes) {
-    this.statusCodes = statusCodes;
+    this.statusCodes = JsonNullable.<Set<String>>of(statusCodes);
   }
 
 
   public AutoTestResultHistorySelectApiModel testPlanIds(Set<UUID> testPlanIds) {
-    this.testPlanIds = testPlanIds;
+    this.testPlanIds = JsonNullable.<Set<UUID>>of(testPlanIds);
     return this;
   }
 
   public AutoTestResultHistorySelectApiModel addTestPlanIdsItem(UUID testPlanIdsItem) {
-    if (this.testPlanIds == null) {
-      this.testPlanIds = new LinkedHashSet<>();
+    if (this.testPlanIds == null || !this.testPlanIds.isPresent()) {
+      this.testPlanIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.testPlanIds.add(testPlanIdsItem);
+    try {
+      this.testPlanIds.get().add(testPlanIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -167,26 +193,44 @@ public class AutoTestResultHistorySelectApiModel {
    * Get testPlanIds
    * @return testPlanIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getTestPlanIds() {
+        return testPlanIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getTestPlanIds_JsonNullable() {
     return testPlanIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_IDS)
+  public void setTestPlanIds_JsonNullable(JsonNullable<Set<UUID>> testPlanIds) {
+    this.testPlanIds = testPlanIds;
   }
 
   public void setTestPlanIds(Set<UUID> testPlanIds) {
-    this.testPlanIds = testPlanIds;
+    this.testPlanIds = JsonNullable.<Set<UUID>>of(testPlanIds);
   }
 
 
   public AutoTestResultHistorySelectApiModel testRunIds(Set<UUID> testRunIds) {
-    this.testRunIds = testRunIds;
+    this.testRunIds = JsonNullable.<Set<UUID>>of(testRunIds);
     return this;
   }
 
   public AutoTestResultHistorySelectApiModel addTestRunIdsItem(UUID testRunIdsItem) {
-    if (this.testRunIds == null) {
-      this.testRunIds = new LinkedHashSet<>();
+    if (this.testRunIds == null || !this.testRunIds.isPresent()) {
+      this.testRunIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.testRunIds.add(testRunIdsItem);
+    try {
+      this.testRunIds.get().add(testRunIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -194,26 +238,44 @@ public class AutoTestResultHistorySelectApiModel {
    * Get testRunIds
    * @return testRunIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getTestRunIds() {
+        return testRunIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getTestRunIds_JsonNullable() {
     return testRunIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_IDS)
+  public void setTestRunIds_JsonNullable(JsonNullable<Set<UUID>> testRunIds) {
+    this.testRunIds = testRunIds;
   }
 
   public void setTestRunIds(Set<UUID> testRunIds) {
-    this.testRunIds = testRunIds;
+    this.testRunIds = JsonNullable.<Set<UUID>>of(testRunIds);
   }
 
 
   public AutoTestResultHistorySelectApiModel configurationIds(Set<UUID> configurationIds) {
-    this.configurationIds = configurationIds;
+    this.configurationIds = JsonNullable.<Set<UUID>>of(configurationIds);
     return this;
   }
 
   public AutoTestResultHistorySelectApiModel addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null) {
-      this.configurationIds = new LinkedHashSet<>();
+    if (this.configurationIds == null || !this.configurationIds.isPresent()) {
+      this.configurationIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.configurationIds.add(configurationIdsItem);
+    try {
+      this.configurationIds.get().add(configurationIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -221,18 +283,32 @@ public class AutoTestResultHistorySelectApiModel {
    * Get configurationIds
    * @return configurationIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getConfigurationIds() {
+        return configurationIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getConfigurationIds_JsonNullable() {
     return configurationIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  public void setConfigurationIds_JsonNullable(JsonNullable<Set<UUID>> configurationIds) {
+    this.configurationIds = configurationIds;
   }
 
   public void setConfigurationIds(Set<UUID> configurationIds) {
-    this.configurationIds = configurationIds;
+    this.configurationIds = JsonNullable.<Set<UUID>>of(configurationIds);
   }
 
 
   public AutoTestResultHistorySelectApiModel launchSource(String launchSource) {
-    this.launchSource = launchSource;
+    this.launchSource = JsonNullable.<String>of(launchSource);
     return this;
   }
 
@@ -240,26 +316,44 @@ public class AutoTestResultHistorySelectApiModel {
    * Get launchSource
    * @return launchSource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getLaunchSource() {
+        return launchSource.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getLaunchSource_JsonNullable() {
     return launchSource;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  public void setLaunchSource_JsonNullable(JsonNullable<String> launchSource) {
+    this.launchSource = launchSource;
   }
 
   public void setLaunchSource(String launchSource) {
-    this.launchSource = launchSource;
+    this.launchSource = JsonNullable.<String>of(launchSource);
   }
 
 
   public AutoTestResultHistorySelectApiModel userIds(Set<UUID> userIds) {
-    this.userIds = userIds;
+    this.userIds = JsonNullable.<Set<UUID>>of(userIds);
     return this;
   }
 
   public AutoTestResultHistorySelectApiModel addUserIdsItem(UUID userIdsItem) {
-    if (this.userIds == null) {
-      this.userIds = new LinkedHashSet<>();
+    if (this.userIds == null || !this.userIds.isPresent()) {
+      this.userIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.userIds.add(userIdsItem);
+    try {
+      this.userIds.get().add(userIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -267,18 +361,32 @@ public class AutoTestResultHistorySelectApiModel {
    * Get userIds
    * @return userIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getUserIds() {
+        return userIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_USER_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getUserIds_JsonNullable() {
     return userIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_USER_IDS)
+  public void setUserIds_JsonNullable(JsonNullable<Set<UUID>> userIds) {
+    this.userIds = userIds;
   }
 
   public void setUserIds(Set<UUID> userIds) {
-    this.userIds = userIds;
+    this.userIds = JsonNullable.<Set<UUID>>of(userIds);
   }
 
 
   public AutoTestResultHistorySelectApiModel duration(Int64RangeSelectorModel duration) {
-    this.duration = duration;
+    this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
     return this;
   }
 
@@ -286,17 +394,33 @@ public class AutoTestResultHistorySelectApiModel {
    * Get duration
    * @return duration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Int64RangeSelectorModel getDuration() {
-    return duration;
+        return duration.orElse(null);
   }
 
-  public void setDuration(Int64RangeSelectorModel duration) {
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Int64RangeSelectorModel> getDuration_JsonNullable() {
+    return duration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  public void setDuration_JsonNullable(JsonNullable<Int64RangeSelectorModel> duration) {
     this.duration = duration;
   }
 
+  public void setDuration(Int64RangeSelectorModel duration) {
+    this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
+  }
 
 
+  /**
+   * Return true if this AutoTestResultHistorySelectApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -306,14 +430,14 @@ public class AutoTestResultHistorySelectApiModel {
       return false;
     }
     AutoTestResultHistorySelectApiModel autoTestResultHistorySelectApiModel = (AutoTestResultHistorySelectApiModel) o;
-    return Objects.equals(this.outcomes, autoTestResultHistorySelectApiModel.outcomes) &&
-        Objects.equals(this.statusCodes, autoTestResultHistorySelectApiModel.statusCodes) &&
-        Objects.equals(this.testPlanIds, autoTestResultHistorySelectApiModel.testPlanIds) &&
-        Objects.equals(this.testRunIds, autoTestResultHistorySelectApiModel.testRunIds) &&
-        Objects.equals(this.configurationIds, autoTestResultHistorySelectApiModel.configurationIds) &&
-        Objects.equals(this.launchSource, autoTestResultHistorySelectApiModel.launchSource) &&
-        Objects.equals(this.userIds, autoTestResultHistorySelectApiModel.userIds) &&
-        Objects.equals(this.duration, autoTestResultHistorySelectApiModel.duration);
+    return equalsNullable(this.outcomes, autoTestResultHistorySelectApiModel.outcomes) &&
+        equalsNullable(this.statusCodes, autoTestResultHistorySelectApiModel.statusCodes) &&
+        equalsNullable(this.testPlanIds, autoTestResultHistorySelectApiModel.testPlanIds) &&
+        equalsNullable(this.testRunIds, autoTestResultHistorySelectApiModel.testRunIds) &&
+        equalsNullable(this.configurationIds, autoTestResultHistorySelectApiModel.configurationIds) &&
+        equalsNullable(this.launchSource, autoTestResultHistorySelectApiModel.launchSource) &&
+        equalsNullable(this.userIds, autoTestResultHistorySelectApiModel.userIds) &&
+        equalsNullable(this.duration, autoTestResultHistorySelectApiModel.duration);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -322,7 +446,7 @@ public class AutoTestResultHistorySelectApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(outcomes, statusCodes, testPlanIds, testRunIds, configurationIds, launchSource, userIds, duration);
+    return Objects.hash(hashCodeNullable(outcomes), hashCodeNullable(statusCodes), hashCodeNullable(testPlanIds), hashCodeNullable(testRunIds), hashCodeNullable(configurationIds), hashCodeNullable(launchSource), hashCodeNullable(userIds), hashCodeNullable(duration));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -359,127 +483,5 @@ public class AutoTestResultHistorySelectApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("outcomes");
-    openapiFields.add("statusCodes");
-    openapiFields.add("testPlanIds");
-    openapiFields.add("testRunIds");
-    openapiFields.add("configurationIds");
-    openapiFields.add("launchSource");
-    openapiFields.add("userIds");
-    openapiFields.add("duration");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AutoTestResultHistorySelectApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutoTestResultHistorySelectApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestResultHistorySelectApiModel is not found in the empty JSON string", AutoTestResultHistorySelectApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!AutoTestResultHistorySelectApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestResultHistorySelectApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("outcomes") != null && !jsonObj.get("outcomes").isJsonNull() && !jsonObj.get("outcomes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `outcomes` to be an array in the JSON string but got `%s`", jsonObj.get("outcomes").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("statusCodes") != null && !jsonObj.get("statusCodes").isJsonNull() && !jsonObj.get("statusCodes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `statusCodes` to be an array in the JSON string but got `%s`", jsonObj.get("statusCodes").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("testPlanIds") != null && !jsonObj.get("testPlanIds").isJsonNull() && !jsonObj.get("testPlanIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanIds` to be an array in the JSON string but got `%s`", jsonObj.get("testPlanIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("testRunIds") != null && !jsonObj.get("testRunIds").isJsonNull() && !jsonObj.get("testRunIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testRunIds` to be an array in the JSON string but got `%s`", jsonObj.get("testRunIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonNull() && !jsonObj.get("configurationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
-      }
-      if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("userIds") != null && !jsonObj.get("userIds").isJsonNull() && !jsonObj.get("userIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userIds` to be an array in the JSON string but got `%s`", jsonObj.get("userIds").toString()));
-      }
-      // validate the optional field `duration`
-      if (jsonObj.get("duration") != null && !jsonObj.get("duration").isJsonNull()) {
-        Int64RangeSelectorModel.validateJsonElement(jsonObj.get("duration"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AutoTestResultHistorySelectApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AutoTestResultHistorySelectApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AutoTestResultHistorySelectApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestResultHistorySelectApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AutoTestResultHistorySelectApiModel>() {
-           @Override
-           public void write(JsonWriter out, AutoTestResultHistorySelectApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AutoTestResultHistorySelectApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of AutoTestResultHistorySelectApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AutoTestResultHistorySelectApiModel
-   * @throws IOException if the JSON string is invalid with respect to AutoTestResultHistorySelectApiModel
-   */
-  public static AutoTestResultHistorySelectApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AutoTestResultHistorySelectApiModel.class);
-  }
-
-  /**
-   * Convert an instance of AutoTestResultHistorySelectApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

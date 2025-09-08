@@ -14,60 +14,46 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * AutoTestSearchIncludeApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  AutoTestSearchIncludeApiModel.JSON_PROPERTY_INCLUDE_STEPS,
+  AutoTestSearchIncludeApiModel.JSON_PROPERTY_INCLUDE_LINKS,
+  AutoTestSearchIncludeApiModel.JSON_PROPERTY_INCLUDE_LABELS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestSearchIncludeApiModel {
-  public static final String SERIALIZED_NAME_INCLUDE_STEPS = "includeSteps";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_STEPS)
-  private Boolean includeSteps;
+  public static final String JSON_PROPERTY_INCLUDE_STEPS = "includeSteps";
+  private JsonNullable<Boolean> includeSteps = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_INCLUDE_LINKS = "includeLinks";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_LINKS)
-  private Boolean includeLinks;
+  public static final String JSON_PROPERTY_INCLUDE_LINKS = "includeLinks";
+  private JsonNullable<Boolean> includeLinks = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_INCLUDE_LABELS = "includeLabels";
-  @SerializedName(SERIALIZED_NAME_INCLUDE_LABELS)
-  private Boolean includeLabels;
+  public static final String JSON_PROPERTY_INCLUDE_LABELS = "includeLabels";
+  private JsonNullable<Boolean> includeLabels = JsonNullable.<Boolean>undefined();
 
-  public AutoTestSearchIncludeApiModel() {
+  public AutoTestSearchIncludeApiModel() { 
   }
 
   public AutoTestSearchIncludeApiModel includeSteps(Boolean includeSteps) {
-    this.includeSteps = includeSteps;
+    this.includeSteps = JsonNullable.<Boolean>of(includeSteps);
     return this;
   }
 
@@ -75,18 +61,32 @@ public class AutoTestSearchIncludeApiModel {
    * If autotest steps will be included
    * @return includeSteps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIncludeSteps() {
+        return includeSteps.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INCLUDE_STEPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIncludeSteps_JsonNullable() {
     return includeSteps;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INCLUDE_STEPS)
+  public void setIncludeSteps_JsonNullable(JsonNullable<Boolean> includeSteps) {
+    this.includeSteps = includeSteps;
   }
 
   public void setIncludeSteps(Boolean includeSteps) {
-    this.includeSteps = includeSteps;
+    this.includeSteps = JsonNullable.<Boolean>of(includeSteps);
   }
 
 
   public AutoTestSearchIncludeApiModel includeLinks(Boolean includeLinks) {
-    this.includeLinks = includeLinks;
+    this.includeLinks = JsonNullable.<Boolean>of(includeLinks);
     return this;
   }
 
@@ -94,18 +94,32 @@ public class AutoTestSearchIncludeApiModel {
    * If autotest links will be included
    * @return includeLinks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIncludeLinks() {
+        return includeLinks.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INCLUDE_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIncludeLinks_JsonNullable() {
     return includeLinks;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INCLUDE_LINKS)
+  public void setIncludeLinks_JsonNullable(JsonNullable<Boolean> includeLinks) {
+    this.includeLinks = includeLinks;
   }
 
   public void setIncludeLinks(Boolean includeLinks) {
-    this.includeLinks = includeLinks;
+    this.includeLinks = JsonNullable.<Boolean>of(includeLinks);
   }
 
 
   public AutoTestSearchIncludeApiModel includeLabels(Boolean includeLabels) {
-    this.includeLabels = includeLabels;
+    this.includeLabels = JsonNullable.<Boolean>of(includeLabels);
     return this;
   }
 
@@ -113,17 +127,33 @@ public class AutoTestSearchIncludeApiModel {
    * If autotest labels will be included
    * @return includeLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIncludeLabels() {
-    return includeLabels;
+        return includeLabels.orElse(null);
   }
 
-  public void setIncludeLabels(Boolean includeLabels) {
+  @JsonProperty(JSON_PROPERTY_INCLUDE_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIncludeLabels_JsonNullable() {
+    return includeLabels;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INCLUDE_LABELS)
+  public void setIncludeLabels_JsonNullable(JsonNullable<Boolean> includeLabels) {
     this.includeLabels = includeLabels;
   }
 
+  public void setIncludeLabels(Boolean includeLabels) {
+    this.includeLabels = JsonNullable.<Boolean>of(includeLabels);
+  }
 
 
+  /**
+   * Return true if this AutoTestSearchIncludeApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,9 +163,9 @@ public class AutoTestSearchIncludeApiModel {
       return false;
     }
     AutoTestSearchIncludeApiModel autoTestSearchIncludeApiModel = (AutoTestSearchIncludeApiModel) o;
-    return Objects.equals(this.includeSteps, autoTestSearchIncludeApiModel.includeSteps) &&
-        Objects.equals(this.includeLinks, autoTestSearchIncludeApiModel.includeLinks) &&
-        Objects.equals(this.includeLabels, autoTestSearchIncludeApiModel.includeLabels);
+    return equalsNullable(this.includeSteps, autoTestSearchIncludeApiModel.includeSteps) &&
+        equalsNullable(this.includeLinks, autoTestSearchIncludeApiModel.includeLinks) &&
+        equalsNullable(this.includeLabels, autoTestSearchIncludeApiModel.includeLabels);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -144,7 +174,7 @@ public class AutoTestSearchIncludeApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeSteps, includeLinks, includeLabels);
+    return Objects.hash(hashCodeNullable(includeSteps), hashCodeNullable(includeLinks), hashCodeNullable(includeLabels));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -176,91 +206,5 @@ public class AutoTestSearchIncludeApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("includeSteps");
-    openapiFields.add("includeLinks");
-    openapiFields.add("includeLabels");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AutoTestSearchIncludeApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutoTestSearchIncludeApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestSearchIncludeApiModel is not found in the empty JSON string", AutoTestSearchIncludeApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!AutoTestSearchIncludeApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestSearchIncludeApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AutoTestSearchIncludeApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AutoTestSearchIncludeApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AutoTestSearchIncludeApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestSearchIncludeApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AutoTestSearchIncludeApiModel>() {
-           @Override
-           public void write(JsonWriter out, AutoTestSearchIncludeApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AutoTestSearchIncludeApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of AutoTestSearchIncludeApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AutoTestSearchIncludeApiModel
-   * @throws IOException if the JSON string is invalid with respect to AutoTestSearchIncludeApiModel
-   */
-  public static AutoTestSearchIncludeApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AutoTestSearchIncludeApiModel.class);
-  }
-
-  /**
-   * Convert an instance of AutoTestSearchIncludeApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

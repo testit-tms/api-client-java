@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,76 +31,61 @@ import ru.testit.client.model.AttachmentApiResult;
 import ru.testit.client.model.AutoTestShortApiResult;
 import ru.testit.client.model.TestPointShortApiResult;
 import ru.testit.client.model.TestStatusApiResult;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestResultShortApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestResultShortApiResult.JSON_PROPERTY_ID,
+  TestResultShortApiResult.JSON_PROPERTY_OUTCOME,
+  TestResultShortApiResult.JSON_PROPERTY_STATUS,
+  TestResultShortApiResult.JSON_PROPERTY_CREATED_DATE,
+  TestResultShortApiResult.JSON_PROPERTY_ATTACHMENTS,
+  TestResultShortApiResult.JSON_PROPERTY_TRACES,
+  TestResultShortApiResult.JSON_PROPERTY_FAILURE_TYPE,
+  TestResultShortApiResult.JSON_PROPERTY_MESSAGE,
+  TestResultShortApiResult.JSON_PROPERTY_TEST_POINT,
+  TestResultShortApiResult.JSON_PROPERTY_AUTO_TEST
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultShortApiResult {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
-  @SerializedName(SERIALIZED_NAME_OUTCOME)
+  public static final String JSON_PROPERTY_OUTCOME = "outcome";
   private String outcome;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private TestStatusApiResult status;
 
-  public static final String SERIALIZED_NAME_TRACES = "traces";
-  @SerializedName(SERIALIZED_NAME_TRACES)
-  private String traces;
-
-  public static final String SERIALIZED_NAME_FAILURE_TYPE = "failureType";
-  @SerializedName(SERIALIZED_NAME_FAILURE_TYPE)
-  private String failureType;
-
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
-
-  public static final String SERIALIZED_NAME_TEST_POINT = "testPoint";
-  @SerializedName(SERIALIZED_NAME_TEST_POINT)
-  private TestPointShortApiResult testPoint;
-
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private OffsetDateTime createdDate;
 
-  public static final String SERIALIZED_NAME_AUTO_TEST = "autoTest";
-  @SerializedName(SERIALIZED_NAME_AUTO_TEST)
-  private AutoTestShortApiResult autoTest;
-
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private List<AttachmentApiResult> attachments = new ArrayList<>();
 
-  public TestResultShortApiResult() {
+  public static final String JSON_PROPERTY_TRACES = "traces";
+  private JsonNullable<String> traces = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_FAILURE_TYPE = "failureType";
+  private JsonNullable<String> failureType = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private JsonNullable<String> message = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TEST_POINT = "testPoint";
+  private JsonNullable<TestPointShortApiResult> testPoint = JsonNullable.<TestPointShortApiResult>undefined();
+
+  public static final String JSON_PROPERTY_AUTO_TEST = "autoTest";
+  private JsonNullable<AutoTestShortApiResult> autoTest = JsonNullable.<AutoTestShortApiResult>undefined();
+
+  public TestResultShortApiResult() { 
   }
 
   public TestResultShortApiResult id(UUID id) {
@@ -111,11 +97,17 @@ public class TestResultShortApiResult {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -130,11 +122,17 @@ public class TestResultShortApiResult {
    * Get outcome
    * @return outcome
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_OUTCOME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getOutcome() {
     return outcome;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_OUTCOME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOutcome(String outcome) {
     this.outcome = outcome;
   }
@@ -149,89 +147,19 @@ public class TestResultShortApiResult {
    * Get status
    * @return status
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestStatusApiResult getStatus() {
     return status;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(TestStatusApiResult status) {
     this.status = status;
-  }
-
-
-  public TestResultShortApiResult traces(String traces) {
-    this.traces = traces;
-    return this;
-  }
-
-  /**
-   * Get traces
-   * @return traces
-   */
-  @javax.annotation.Nullable
-  public String getTraces() {
-    return traces;
-  }
-
-  public void setTraces(String traces) {
-    this.traces = traces;
-  }
-
-
-  public TestResultShortApiResult failureType(String failureType) {
-    this.failureType = failureType;
-    return this;
-  }
-
-  /**
-   * Get failureType
-   * @return failureType
-   */
-  @javax.annotation.Nullable
-  public String getFailureType() {
-    return failureType;
-  }
-
-  public void setFailureType(String failureType) {
-    this.failureType = failureType;
-  }
-
-
-  public TestResultShortApiResult message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Get message
-   * @return message
-   */
-  @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public TestResultShortApiResult testPoint(TestPointShortApiResult testPoint) {
-    this.testPoint = testPoint;
-    return this;
-  }
-
-  /**
-   * Get testPoint
-   * @return testPoint
-   */
-  @javax.annotation.Nullable
-  public TestPointShortApiResult getTestPoint() {
-    return testPoint;
-  }
-
-  public void setTestPoint(TestPointShortApiResult testPoint) {
-    this.testPoint = testPoint;
   }
 
 
@@ -244,32 +172,19 @@ public class TestResultShortApiResult {
    * Get createdDate
    * @return createdDate
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
-  }
-
-
-  public TestResultShortApiResult autoTest(AutoTestShortApiResult autoTest) {
-    this.autoTest = autoTest;
-    return this;
-  }
-
-  /**
-   * Get autoTest
-   * @return autoTest
-   */
-  @javax.annotation.Nullable
-  public AutoTestShortApiResult getAutoTest() {
-    return autoTest;
-  }
-
-  public void setAutoTest(AutoTestShortApiResult autoTest) {
-    this.autoTest = autoTest;
   }
 
 
@@ -290,17 +205,190 @@ public class TestResultShortApiResult {
    * Get attachments
    * @return attachments
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<AttachmentApiResult> getAttachments() {
     return attachments;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
 
+  public TestResultShortApiResult traces(String traces) {
+    this.traces = JsonNullable.<String>of(traces);
+    return this;
+  }
 
+  /**
+   * Get traces
+   * @return traces
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getTraces() {
+        return traces.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TRACES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTraces_JsonNullable() {
+    return traces;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TRACES)
+  public void setTraces_JsonNullable(JsonNullable<String> traces) {
+    this.traces = traces;
+  }
+
+  public void setTraces(String traces) {
+    this.traces = JsonNullable.<String>of(traces);
+  }
+
+
+  public TestResultShortApiResult failureType(String failureType) {
+    this.failureType = JsonNullable.<String>of(failureType);
+    return this;
+  }
+
+  /**
+   * Get failureType
+   * @return failureType
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getFailureType() {
+        return failureType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FAILURE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getFailureType_JsonNullable() {
+    return failureType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FAILURE_TYPE)
+  public void setFailureType_JsonNullable(JsonNullable<String> failureType) {
+    this.failureType = failureType;
+  }
+
+  public void setFailureType(String failureType) {
+    this.failureType = JsonNullable.<String>of(failureType);
+  }
+
+
+  public TestResultShortApiResult message(String message) {
+    this.message = JsonNullable.<String>of(message);
+    return this;
+  }
+
+  /**
+   * Get message
+   * @return message
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getMessage() {
+        return message.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getMessage_JsonNullable() {
+    return message;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  public void setMessage_JsonNullable(JsonNullable<String> message) {
+    this.message = message;
+  }
+
+  public void setMessage(String message) {
+    this.message = JsonNullable.<String>of(message);
+  }
+
+
+  public TestResultShortApiResult testPoint(TestPointShortApiResult testPoint) {
+    this.testPoint = JsonNullable.<TestPointShortApiResult>of(testPoint);
+    return this;
+  }
+
+  /**
+   * Get testPoint
+   * @return testPoint
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestPointShortApiResult getTestPoint() {
+        return testPoint.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_POINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestPointShortApiResult> getTestPoint_JsonNullable() {
+    return testPoint;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_POINT)
+  public void setTestPoint_JsonNullable(JsonNullable<TestPointShortApiResult> testPoint) {
+    this.testPoint = testPoint;
+  }
+
+  public void setTestPoint(TestPointShortApiResult testPoint) {
+    this.testPoint = JsonNullable.<TestPointShortApiResult>of(testPoint);
+  }
+
+
+  public TestResultShortApiResult autoTest(AutoTestShortApiResult autoTest) {
+    this.autoTest = JsonNullable.<AutoTestShortApiResult>of(autoTest);
+    return this;
+  }
+
+  /**
+   * Get autoTest
+   * @return autoTest
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public AutoTestShortApiResult getAutoTest() {
+        return autoTest.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<AutoTestShortApiResult> getAutoTest_JsonNullable() {
+    return autoTest;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST)
+  public void setAutoTest_JsonNullable(JsonNullable<AutoTestShortApiResult> autoTest) {
+    this.autoTest = autoTest;
+  }
+
+  public void setAutoTest(AutoTestShortApiResult autoTest) {
+    this.autoTest = JsonNullable.<AutoTestShortApiResult>of(autoTest);
+  }
+
+
+  /**
+   * Return true if this TestResultShortApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -313,13 +401,13 @@ public class TestResultShortApiResult {
     return Objects.equals(this.id, testResultShortApiResult.id) &&
         Objects.equals(this.outcome, testResultShortApiResult.outcome) &&
         Objects.equals(this.status, testResultShortApiResult.status) &&
-        Objects.equals(this.traces, testResultShortApiResult.traces) &&
-        Objects.equals(this.failureType, testResultShortApiResult.failureType) &&
-        Objects.equals(this.message, testResultShortApiResult.message) &&
-        Objects.equals(this.testPoint, testResultShortApiResult.testPoint) &&
         Objects.equals(this.createdDate, testResultShortApiResult.createdDate) &&
-        Objects.equals(this.autoTest, testResultShortApiResult.autoTest) &&
-        Objects.equals(this.attachments, testResultShortApiResult.attachments);
+        Objects.equals(this.attachments, testResultShortApiResult.attachments) &&
+        equalsNullable(this.traces, testResultShortApiResult.traces) &&
+        equalsNullable(this.failureType, testResultShortApiResult.failureType) &&
+        equalsNullable(this.message, testResultShortApiResult.message) &&
+        equalsNullable(this.testPoint, testResultShortApiResult.testPoint) &&
+        equalsNullable(this.autoTest, testResultShortApiResult.autoTest);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -328,7 +416,7 @@ public class TestResultShortApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, outcome, status, traces, failureType, message, testPoint, createdDate, autoTest, attachments);
+    return Objects.hash(id, outcome, status, createdDate, attachments, hashCodeNullable(traces), hashCodeNullable(failureType), hashCodeNullable(message), hashCodeNullable(testPoint), hashCodeNullable(autoTest));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -345,13 +433,13 @@ public class TestResultShortApiResult {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    traces: ").append(toIndentedString(traces)).append("\n");
     sb.append("    failureType: ").append(toIndentedString(failureType)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    testPoint: ").append(toIndentedString(testPoint)).append("\n");
-    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    autoTest: ").append(toIndentedString(autoTest)).append("\n");
-    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -367,145 +455,5 @@ public class TestResultShortApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("outcome");
-    openapiFields.add("status");
-    openapiFields.add("traces");
-    openapiFields.add("failureType");
-    openapiFields.add("message");
-    openapiFields.add("testPoint");
-    openapiFields.add("createdDate");
-    openapiFields.add("autoTest");
-    openapiFields.add("attachments");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("outcome");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("createdDate");
-    openapiRequiredFields.add("attachments");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestResultShortApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultShortApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultShortApiResult is not found in the empty JSON string", TestResultShortApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestResultShortApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultShortApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestResultShortApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("outcome").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `outcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outcome").toString()));
-      }
-      // validate the required field `status`
-      TestStatusApiResult.validateJsonElement(jsonObj.get("status"));
-      if ((jsonObj.get("traces") != null && !jsonObj.get("traces").isJsonNull()) && !jsonObj.get("traces").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `traces` to be a primitive type in the JSON string but got `%s`", jsonObj.get("traces").toString()));
-      }
-      if ((jsonObj.get("failureType") != null && !jsonObj.get("failureType").isJsonNull()) && !jsonObj.get("failureType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `failureType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failureType").toString()));
-      }
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
-      // validate the optional field `testPoint`
-      if (jsonObj.get("testPoint") != null && !jsonObj.get("testPoint").isJsonNull()) {
-        TestPointShortApiResult.validateJsonElement(jsonObj.get("testPoint"));
-      }
-      // validate the optional field `autoTest`
-      if (jsonObj.get("autoTest") != null && !jsonObj.get("autoTest").isJsonNull()) {
-        AutoTestShortApiResult.validateJsonElement(jsonObj.get("autoTest"));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("attachments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
-      }
-
-      JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
-      // validate the required field `attachments` (array)
-      for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentApiResult.validateJsonElement(jsonArrayattachments.get(i));
-      };
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestResultShortApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestResultShortApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestResultShortApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultShortApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestResultShortApiResult>() {
-           @Override
-           public void write(JsonWriter out, TestResultShortApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestResultShortApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestResultShortApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestResultShortApiResult
-   * @throws IOException if the JSON string is invalid with respect to TestResultShortApiResult
-   */
-  public static TestResultShortApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestResultShortApiResult.class);
-  }
-
-  /**
-   * Convert an instance of TestResultShortApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

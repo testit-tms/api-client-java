@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,80 +30,65 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.BackgroundJobAttachmentModel;
 import ru.testit.client.model.BackgroundJobState;
 import ru.testit.client.model.BackgroundJobType;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * BackgroundJobGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  BackgroundJobGetModel.JSON_PROPERTY_ID,
+  BackgroundJobGetModel.JSON_PROPERTY_JOB_ID,
+  BackgroundJobGetModel.JSON_PROPERTY_JOB_TYPE,
+  BackgroundJobGetModel.JSON_PROPERTY_STATE,
+  BackgroundJobGetModel.JSON_PROPERTY_IS_DELETED,
+  BackgroundJobGetModel.JSON_PROPERTY_PROGRESS,
+  BackgroundJobGetModel.JSON_PROPERTY_CREATED_DATE,
+  BackgroundJobGetModel.JSON_PROPERTY_ATTACHMENTS,
+  BackgroundJobGetModel.JSON_PROPERTY_START_DATE,
+  BackgroundJobGetModel.JSON_PROPERTY_END_DATE,
+  BackgroundJobGetModel.JSON_PROPERTY_ERROR
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BackgroundJobGetModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_JOB_ID = "jobId";
-  @SerializedName(SERIALIZED_NAME_JOB_ID)
+  public static final String JSON_PROPERTY_JOB_ID = "jobId";
   private String jobId;
 
-  public static final String SERIALIZED_NAME_JOB_TYPE = "jobType";
-  @SerializedName(SERIALIZED_NAME_JOB_TYPE)
+  public static final String JSON_PROPERTY_JOB_TYPE = "jobType";
   private BackgroundJobType jobType;
 
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
+  public static final String JSON_PROPERTY_STATE = "state";
   private BackgroundJobState state;
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public static final String SERIALIZED_NAME_PROGRESS = "progress";
-  @SerializedName(SERIALIZED_NAME_PROGRESS)
+  public static final String JSON_PROPERTY_PROGRESS = "progress";
   private Long progress;
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private OffsetDateTime createdDate;
 
-  public static final String SERIALIZED_NAME_START_DATE = "startDate";
-  @SerializedName(SERIALIZED_NAME_START_DATE)
-  private OffsetDateTime startDate;
-
-  public static final String SERIALIZED_NAME_END_DATE = "endDate";
-  @SerializedName(SERIALIZED_NAME_END_DATE)
-  private OffsetDateTime endDate;
-
-  public static final String SERIALIZED_NAME_ERROR = "error";
-  @SerializedName(SERIALIZED_NAME_ERROR)
-  private String error;
-
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private List<BackgroundJobAttachmentModel> attachments = new ArrayList<>();
 
-  public BackgroundJobGetModel() {
+  public static final String JSON_PROPERTY_START_DATE = "startDate";
+  private JsonNullable<OffsetDateTime> startDate = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_END_DATE = "endDate";
+  private JsonNullable<OffsetDateTime> endDate = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_ERROR = "error";
+  private JsonNullable<String> error = JsonNullable.<String>undefined();
+
+  public BackgroundJobGetModel() { 
   }
 
   public BackgroundJobGetModel id(UUID id) {
@@ -114,11 +100,17 @@ public class BackgroundJobGetModel {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -133,11 +125,17 @@ public class BackgroundJobGetModel {
    * Get jobId
    * @return jobId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_JOB_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getJobId() {
     return jobId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_JOB_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setJobId(String jobId) {
     this.jobId = jobId;
   }
@@ -152,11 +150,17 @@ public class BackgroundJobGetModel {
    * Get jobType
    * @return jobType
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_JOB_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public BackgroundJobType getJobType() {
     return jobType;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_JOB_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setJobType(BackgroundJobType jobType) {
     this.jobType = jobType;
   }
@@ -171,11 +175,17 @@ public class BackgroundJobGetModel {
    * Get state
    * @return state
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public BackgroundJobState getState() {
     return state;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setState(BackgroundJobState state) {
     this.state = state;
   }
@@ -190,11 +200,17 @@ public class BackgroundJobGetModel {
    * Get isDeleted
    * @return isDeleted
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
@@ -209,11 +225,17 @@ public class BackgroundJobGetModel {
    * Get progress
    * @return progress
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getProgress() {
     return progress;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PROGRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProgress(Long progress) {
     this.progress = progress;
   }
@@ -228,70 +250,19 @@ public class BackgroundJobGetModel {
    * Get createdDate
    * @return createdDate
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
-  }
-
-
-  public BackgroundJobGetModel startDate(OffsetDateTime startDate) {
-    this.startDate = startDate;
-    return this;
-  }
-
-  /**
-   * Get startDate
-   * @return startDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getStartDate() {
-    return startDate;
-  }
-
-  public void setStartDate(OffsetDateTime startDate) {
-    this.startDate = startDate;
-  }
-
-
-  public BackgroundJobGetModel endDate(OffsetDateTime endDate) {
-    this.endDate = endDate;
-    return this;
-  }
-
-  /**
-   * Get endDate
-   * @return endDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getEndDate() {
-    return endDate;
-  }
-
-  public void setEndDate(OffsetDateTime endDate) {
-    this.endDate = endDate;
-  }
-
-
-  public BackgroundJobGetModel error(String error) {
-    this.error = error;
-    return this;
-  }
-
-  /**
-   * Get error
-   * @return error
-   */
-  @javax.annotation.Nullable
-  public String getError() {
-    return error;
-  }
-
-  public void setError(String error) {
-    this.error = error;
   }
 
 
@@ -312,17 +283,124 @@ public class BackgroundJobGetModel {
    * Get attachments
    * @return attachments
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<BackgroundJobAttachmentModel> getAttachments() {
     return attachments;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAttachments(List<BackgroundJobAttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
+  public BackgroundJobGetModel startDate(OffsetDateTime startDate) {
+    this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
+    return this;
+  }
 
+  /**
+   * Get startDate
+   * @return startDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getStartDate() {
+        return startDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getStartDate_JsonNullable() {
+    return startDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  public void setStartDate_JsonNullable(JsonNullable<OffsetDateTime> startDate) {
+    this.startDate = startDate;
+  }
+
+  public void setStartDate(OffsetDateTime startDate) {
+    this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
+  }
+
+
+  public BackgroundJobGetModel endDate(OffsetDateTime endDate) {
+    this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
+    return this;
+  }
+
+  /**
+   * Get endDate
+   * @return endDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getEndDate() {
+        return endDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getEndDate_JsonNullable() {
+    return endDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  public void setEndDate_JsonNullable(JsonNullable<OffsetDateTime> endDate) {
+    this.endDate = endDate;
+  }
+
+  public void setEndDate(OffsetDateTime endDate) {
+    this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
+  }
+
+
+  public BackgroundJobGetModel error(String error) {
+    this.error = JsonNullable.<String>of(error);
+    return this;
+  }
+
+  /**
+   * Get error
+   * @return error
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getError() {
+        return error.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getError_JsonNullable() {
+    return error;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  public void setError_JsonNullable(JsonNullable<String> error) {
+    this.error = error;
+  }
+
+  public void setError(String error) {
+    this.error = JsonNullable.<String>of(error);
+  }
+
+
+  /**
+   * Return true if this BackgroundJobGetModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -339,10 +417,10 @@ public class BackgroundJobGetModel {
         Objects.equals(this.isDeleted, backgroundJobGetModel.isDeleted) &&
         Objects.equals(this.progress, backgroundJobGetModel.progress) &&
         Objects.equals(this.createdDate, backgroundJobGetModel.createdDate) &&
-        Objects.equals(this.startDate, backgroundJobGetModel.startDate) &&
-        Objects.equals(this.endDate, backgroundJobGetModel.endDate) &&
-        Objects.equals(this.error, backgroundJobGetModel.error) &&
-        Objects.equals(this.attachments, backgroundJobGetModel.attachments);
+        Objects.equals(this.attachments, backgroundJobGetModel.attachments) &&
+        equalsNullable(this.startDate, backgroundJobGetModel.startDate) &&
+        equalsNullable(this.endDate, backgroundJobGetModel.endDate) &&
+        equalsNullable(this.error, backgroundJobGetModel.error);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -351,7 +429,7 @@ public class BackgroundJobGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, jobId, jobType, state, isDeleted, progress, createdDate, startDate, endDate, error, attachments);
+    return Objects.hash(id, jobId, jobType, state, isDeleted, progress, createdDate, attachments, hashCodeNullable(startDate), hashCodeNullable(endDate), hashCodeNullable(error));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -372,10 +450,10 @@ public class BackgroundJobGetModel {
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -391,137 +469,5 @@ public class BackgroundJobGetModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("jobId");
-    openapiFields.add("jobType");
-    openapiFields.add("state");
-    openapiFields.add("isDeleted");
-    openapiFields.add("progress");
-    openapiFields.add("createdDate");
-    openapiFields.add("startDate");
-    openapiFields.add("endDate");
-    openapiFields.add("error");
-    openapiFields.add("attachments");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("jobId");
-    openapiRequiredFields.add("jobType");
-    openapiRequiredFields.add("state");
-    openapiRequiredFields.add("isDeleted");
-    openapiRequiredFields.add("progress");
-    openapiRequiredFields.add("createdDate");
-    openapiRequiredFields.add("attachments");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to BackgroundJobGetModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!BackgroundJobGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BackgroundJobGetModel is not found in the empty JSON string", BackgroundJobGetModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!BackgroundJobGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BackgroundJobGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BackgroundJobGetModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("jobId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jobId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jobId").toString()));
-      }
-      // validate the required field `jobType`
-      BackgroundJobType.validateJsonElement(jsonObj.get("jobType"));
-      // validate the required field `state`
-      BackgroundJobState.validateJsonElement(jsonObj.get("state"));
-      if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) && !jsonObj.get("error").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("attachments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
-      }
-
-      JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
-      // validate the required field `attachments` (array)
-      for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        BackgroundJobAttachmentModel.validateJsonElement(jsonArrayattachments.get(i));
-      };
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BackgroundJobGetModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BackgroundJobGetModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BackgroundJobGetModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BackgroundJobGetModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<BackgroundJobGetModel>() {
-           @Override
-           public void write(JsonWriter out, BackgroundJobGetModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public BackgroundJobGetModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of BackgroundJobGetModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of BackgroundJobGetModel
-   * @throws IOException if the JSON string is invalid with respect to BackgroundJobGetModel
-   */
-  public static BackgroundJobGetModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BackgroundJobGetModel.class);
-  }
-
-  /**
-   * Convert an instance of BackgroundJobGetModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

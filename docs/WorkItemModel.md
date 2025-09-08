@@ -13,20 +13,12 @@
 |**projectId** | **UUID** |  |  |
 |**entityTypeName** | **WorkItemEntityTypes** |  |  |
 |**isAutomated** | **Boolean** |  |  |
-|**autoTests** | [**List&lt;AutoTestModel&gt;**](AutoTestModel.md) |  |  [optional] |
-|**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) |  |  [optional] |
-|**sectionPreconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  [optional] |
-|**sectionPostconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  [optional] |
 |**versionNumber** | **Integer** | used for define chronology of workitem state in each version |  |
-|**iterations** | [**List&lt;IterationModel&gt;**](IterationModel.md) |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  |
-|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**createdById** | **UUID** |  |  |
-|**modifiedById** | **UUID** |  |  [optional] |
 |**globalId** | **Long** |  |  |
 |**id** | **UUID** |  |  |
 |**sectionId** | **UUID** |  |  |
-|**description** | **String** |  |  [optional] |
 |**state** | **WorkItemStates** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
 |**sourceType** | **WorkItemSourceTypeModel** |  |  |
@@ -38,6 +30,14 @@
 |**tags** | [**List&lt;TagModel&gt;**](TagModel.md) |  |  |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  |
 |**name** | **String** |  |  |
+|**autoTests** | [**List&lt;AutoTestModel&gt;**](AutoTestModel.md) |  |  [optional] |
+|**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) |  |  [optional] |
+|**sectionPreconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  [optional] |
+|**sectionPostconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  [optional] |
+|**iterations** | [**List&lt;IterationModel&gt;**](IterationModel.md) |  |  [optional] |
+|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
+|**modifiedById** | **UUID** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
 
 
 

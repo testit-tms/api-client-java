@@ -14,85 +14,52 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.LinkType;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * CreateLinkApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  CreateLinkApiModel.JSON_PROPERTY_URL,
+  CreateLinkApiModel.JSON_PROPERTY_HAS_INFO,
+  CreateLinkApiModel.JSON_PROPERTY_TITLE,
+  CreateLinkApiModel.JSON_PROPERTY_DESCRIPTION,
+  CreateLinkApiModel.JSON_PROPERTY_TYPE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateLinkApiModel {
-  public static final String SERIALIZED_NAME_TITLE = "title";
-  @SerializedName(SERIALIZED_NAME_TITLE)
-  private String title;
-
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private LinkType type;
-
-  public static final String SERIALIZED_NAME_HAS_INFO = "hasInfo";
-  @SerializedName(SERIALIZED_NAME_HAS_INFO)
+  public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
   private Boolean hasInfo;
 
-  public CreateLinkApiModel() {
-  }
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public CreateLinkApiModel title(String title) {
-    this.title = title;
-    return this;
-  }
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  /**
-   * Link name.
-   * @return title
-   */
-  @javax.annotation.Nullable
-  public String getTitle() {
-    return title;
-  }
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<LinkType> type = JsonNullable.<LinkType>undefined();
 
-  public void setTitle(String title) {
-    this.title = title;
+  public CreateLinkApiModel() { 
   }
-
 
   public CreateLinkApiModel url(String url) {
     this.url = url;
@@ -103,51 +70,19 @@ public class CreateLinkApiModel {
    * Address can be specified without protocol, but necessarily with the domain.
    * @return url
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getUrl() {
     return url;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(String url) {
     this.url = url;
-  }
-
-
-  public CreateLinkApiModel description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Link description.
-   * @return description
-   */
-  @javax.annotation.Nullable
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public CreateLinkApiModel type(LinkType type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Specifies the type of the link.
-   * @return type
-   */
-  @javax.annotation.Nullable
-  public LinkType getType() {
-    return type;
-  }
-
-  public void setType(LinkType type) {
-    this.type = type;
   }
 
 
@@ -160,17 +95,124 @@ public class CreateLinkApiModel {
    * Flag defines if link relates to integrated jira service
    * @return hasInfo
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_HAS_INFO)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getHasInfo() {
     return hasInfo;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HAS_INFO)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHasInfo(Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 
 
+  public CreateLinkApiModel title(String title) {
+    this.title = JsonNullable.<String>of(title);
+    return this;
+  }
 
+  /**
+   * Link name.
+   * @return title
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getTitle() {
+        return title.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
+    this.title = title;
+  }
+
+  public void setTitle(String title) {
+    this.title = JsonNullable.<String>of(title);
+  }
+
+
+  public CreateLinkApiModel description(String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
+
+  /**
+   * Link description.
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
+  }
+
+
+  public CreateLinkApiModel type(LinkType type) {
+    this.type = JsonNullable.<LinkType>of(type);
+    return this;
+  }
+
+  /**
+   * Specifies the type of the link.
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public LinkType getType() {
+        return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<LinkType> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<LinkType> type) {
+    this.type = type;
+  }
+
+  public void setType(LinkType type) {
+    this.type = JsonNullable.<LinkType>of(type);
+  }
+
+
+  /**
+   * Return true if this CreateLinkApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -180,11 +222,11 @@ public class CreateLinkApiModel {
       return false;
     }
     CreateLinkApiModel createLinkApiModel = (CreateLinkApiModel) o;
-    return Objects.equals(this.title, createLinkApiModel.title) &&
-        Objects.equals(this.url, createLinkApiModel.url) &&
-        Objects.equals(this.description, createLinkApiModel.description) &&
-        Objects.equals(this.type, createLinkApiModel.type) &&
-        Objects.equals(this.hasInfo, createLinkApiModel.hasInfo);
+    return Objects.equals(this.url, createLinkApiModel.url) &&
+        Objects.equals(this.hasInfo, createLinkApiModel.hasInfo) &&
+        equalsNullable(this.title, createLinkApiModel.title) &&
+        equalsNullable(this.description, createLinkApiModel.description) &&
+        equalsNullable(this.type, createLinkApiModel.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -193,7 +235,7 @@ public class CreateLinkApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, url, description, type, hasInfo);
+    return Objects.hash(url, hasInfo, hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(type));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -207,11 +249,11 @@ public class CreateLinkApiModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLinkApiModel {\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    hasInfo: ").append(toIndentedString(hasInfo)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    hasInfo: ").append(toIndentedString(hasInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -227,115 +269,5 @@ public class CreateLinkApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("title");
-    openapiFields.add("url");
-    openapiFields.add("description");
-    openapiFields.add("type");
-    openapiFields.add("hasInfo");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("url");
-    openapiRequiredFields.add("hasInfo");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CreateLinkApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CreateLinkApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateLinkApiModel is not found in the empty JSON string", CreateLinkApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CreateLinkApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateLinkApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateLinkApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
-      }
-      if (!jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        LinkType.validateJsonElement(jsonObj.get("type"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateLinkApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateLinkApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateLinkApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateLinkApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreateLinkApiModel>() {
-           @Override
-           public void write(JsonWriter out, CreateLinkApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreateLinkApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of CreateLinkApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of CreateLinkApiModel
-   * @throws IOException if the JSON string is invalid with respect to CreateLinkApiModel
-   */
-  public static CreateLinkApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateLinkApiModel.class);
-  }
-
-  /**
-   * Convert an instance of CreateLinkApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

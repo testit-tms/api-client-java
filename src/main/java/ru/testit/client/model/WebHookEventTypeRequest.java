@@ -14,19 +14,18 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import ru.testit.client.invoker.JSON;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets WebHookEventTypeRequest
  */
-@JsonAdapter(WebHookEventTypeRequest.Adapter.class)
 public enum WebHookEventTypeRequest {
   
   AUTOMATED_TEST_RUN_CREATED("AutomatedTestRunCreated"),
@@ -61,7 +60,9 @@ public enum WebHookEventTypeRequest {
   
   PROJECT_CHANGED("ProjectChanged"),
   
-  TEST_PLAN_CHANGED("TestPlanChanged");
+  TEST_PLAN_CHANGED("TestPlanChanged"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -69,6 +70,7 @@ public enum WebHookEventTypeRequest {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -78,31 +80,14 @@ public enum WebHookEventTypeRequest {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static WebHookEventTypeRequest fromValue(String value) {
     for (WebHookEventTypeRequest b : WebHookEventTypeRequest.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-
-  public static class Adapter extends TypeAdapter<WebHookEventTypeRequest> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final WebHookEventTypeRequest enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public WebHookEventTypeRequest read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return WebHookEventTypeRequest.fromValue(value);
-    }
-  }
-
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    WebHookEventTypeRequest.fromValue(value);
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 }
 

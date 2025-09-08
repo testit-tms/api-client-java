@@ -14,61 +14,47 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkItemMovePostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkItemMovePostModel.JSON_PROPERTY_ID,
+  WorkItemMovePostModel.JSON_PROPERTY_NEW_SECTION_ID,
+  WorkItemMovePostModel.JSON_PROPERTY_OLD_SECTION_ID,
+  WorkItemMovePostModel.JSON_PROPERTY_NEXT_WORK_ITEM_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemMovePostModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_NEW_SECTION_ID = "newSectionId";
-  @SerializedName(SERIALIZED_NAME_NEW_SECTION_ID)
+  public static final String JSON_PROPERTY_NEW_SECTION_ID = "newSectionId";
   private UUID newSectionId;
 
-  public static final String SERIALIZED_NAME_OLD_SECTION_ID = "oldSectionId";
-  @SerializedName(SERIALIZED_NAME_OLD_SECTION_ID)
-  private UUID oldSectionId;
+  public static final String JSON_PROPERTY_OLD_SECTION_ID = "oldSectionId";
+  private JsonNullable<UUID> oldSectionId = JsonNullable.<UUID>undefined();
 
-  public static final String SERIALIZED_NAME_NEXT_WORK_ITEM_ID = "nextWorkItemId";
-  @SerializedName(SERIALIZED_NAME_NEXT_WORK_ITEM_ID)
-  private UUID nextWorkItemId;
+  public static final String JSON_PROPERTY_NEXT_WORK_ITEM_ID = "nextWorkItemId";
+  private JsonNullable<UUID> nextWorkItemId = JsonNullable.<UUID>undefined();
 
-  public WorkItemMovePostModel() {
+  public WorkItemMovePostModel() { 
   }
 
   public WorkItemMovePostModel id(UUID id) {
@@ -80,11 +66,17 @@ public class WorkItemMovePostModel {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -99,18 +91,24 @@ public class WorkItemMovePostModel {
    * Get newSectionId
    * @return newSectionId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NEW_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getNewSectionId() {
     return newSectionId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NEW_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNewSectionId(UUID newSectionId) {
     this.newSectionId = newSectionId;
   }
 
 
   public WorkItemMovePostModel oldSectionId(UUID oldSectionId) {
-    this.oldSectionId = oldSectionId;
+    this.oldSectionId = JsonNullable.<UUID>of(oldSectionId);
     return this;
   }
 
@@ -118,18 +116,32 @@ public class WorkItemMovePostModel {
    * Get oldSectionId
    * @return oldSectionId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getOldSectionId() {
+        return oldSectionId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OLD_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getOldSectionId_JsonNullable() {
     return oldSectionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OLD_SECTION_ID)
+  public void setOldSectionId_JsonNullable(JsonNullable<UUID> oldSectionId) {
+    this.oldSectionId = oldSectionId;
   }
 
   public void setOldSectionId(UUID oldSectionId) {
-    this.oldSectionId = oldSectionId;
+    this.oldSectionId = JsonNullable.<UUID>of(oldSectionId);
   }
 
 
   public WorkItemMovePostModel nextWorkItemId(UUID nextWorkItemId) {
-    this.nextWorkItemId = nextWorkItemId;
+    this.nextWorkItemId = JsonNullable.<UUID>of(nextWorkItemId);
     return this;
   }
 
@@ -137,17 +149,33 @@ public class WorkItemMovePostModel {
    * Get nextWorkItemId
    * @return nextWorkItemId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getNextWorkItemId() {
-    return nextWorkItemId;
+        return nextWorkItemId.orElse(null);
   }
 
-  public void setNextWorkItemId(UUID nextWorkItemId) {
+  @JsonProperty(JSON_PROPERTY_NEXT_WORK_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getNextWorkItemId_JsonNullable() {
+    return nextWorkItemId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEXT_WORK_ITEM_ID)
+  public void setNextWorkItemId_JsonNullable(JsonNullable<UUID> nextWorkItemId) {
     this.nextWorkItemId = nextWorkItemId;
   }
 
+  public void setNextWorkItemId(UUID nextWorkItemId) {
+    this.nextWorkItemId = JsonNullable.<UUID>of(nextWorkItemId);
+  }
 
 
+  /**
+   * Return true if this WorkItemMovePostModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -159,8 +187,8 @@ public class WorkItemMovePostModel {
     WorkItemMovePostModel workItemMovePostModel = (WorkItemMovePostModel) o;
     return Objects.equals(this.id, workItemMovePostModel.id) &&
         Objects.equals(this.newSectionId, workItemMovePostModel.newSectionId) &&
-        Objects.equals(this.oldSectionId, workItemMovePostModel.oldSectionId) &&
-        Objects.equals(this.nextWorkItemId, workItemMovePostModel.nextWorkItemId);
+        equalsNullable(this.oldSectionId, workItemMovePostModel.oldSectionId) &&
+        equalsNullable(this.nextWorkItemId, workItemMovePostModel.nextWorkItemId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -169,7 +197,7 @@ public class WorkItemMovePostModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, newSectionId, oldSectionId, nextWorkItemId);
+    return Objects.hash(id, newSectionId, hashCodeNullable(oldSectionId), hashCodeNullable(nextWorkItemId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -202,113 +230,5 @@ public class WorkItemMovePostModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("newSectionId");
-    openapiFields.add("oldSectionId");
-    openapiFields.add("nextWorkItemId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("newSectionId");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemMovePostModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemMovePostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemMovePostModel is not found in the empty JSON string", WorkItemMovePostModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemMovePostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemMovePostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WorkItemMovePostModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("newSectionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `newSectionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("newSectionId").toString()));
-      }
-      if ((jsonObj.get("oldSectionId") != null && !jsonObj.get("oldSectionId").isJsonNull()) && !jsonObj.get("oldSectionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `oldSectionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oldSectionId").toString()));
-      }
-      if ((jsonObj.get("nextWorkItemId") != null && !jsonObj.get("nextWorkItemId").isJsonNull()) && !jsonObj.get("nextWorkItemId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nextWorkItemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nextWorkItemId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemMovePostModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemMovePostModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemMovePostModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemMovePostModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemMovePostModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemMovePostModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemMovePostModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkItemMovePostModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemMovePostModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemMovePostModel
-   */
-  public static WorkItemMovePostModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemMovePostModel.class);
-  }
-
-  /**
-   * Convert an instance of WorkItemMovePostModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

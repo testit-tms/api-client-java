@@ -14,68 +14,54 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentUpdateRequest;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestResultStepCommentUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestResultStepCommentUpdateRequest.JSON_PROPERTY_ID,
+  TestResultStepCommentUpdateRequest.JSON_PROPERTY_TEXT,
+  TestResultStepCommentUpdateRequest.JSON_PROPERTY_STEP_ID,
+  TestResultStepCommentUpdateRequest.JSON_PROPERTY_ATTACHMENTS,
+  TestResultStepCommentUpdateRequest.JSON_PROPERTY_PARENT_STEP_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultStepCommentUpdateRequest {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
+  public static final String JSON_PROPERTY_TEXT = "text";
   private String text;
 
-  public static final String SERIALIZED_NAME_STEP_ID = "stepId";
-  @SerializedName(SERIALIZED_NAME_STEP_ID)
+  public static final String JSON_PROPERTY_STEP_ID = "stepId";
   private UUID stepId;
 
-  public static final String SERIALIZED_NAME_PARENT_STEP_ID = "parentStepId";
-  @SerializedName(SERIALIZED_NAME_PARENT_STEP_ID)
-  private UUID parentStepId;
-
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private List<AttachmentUpdateRequest> attachments = new ArrayList<>();
 
-  public TestResultStepCommentUpdateRequest() {
+  public static final String JSON_PROPERTY_PARENT_STEP_ID = "parentStepId";
+  private JsonNullable<UUID> parentStepId = JsonNullable.<UUID>undefined();
+
+  public TestResultStepCommentUpdateRequest() { 
   }
 
   public TestResultStepCommentUpdateRequest id(UUID id) {
@@ -87,11 +73,17 @@ public class TestResultStepCommentUpdateRequest {
    * Entity unique identifier
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -106,11 +98,17 @@ public class TestResultStepCommentUpdateRequest {
    * Get text
    * @return text
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEXT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getText() {
     return text;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEXT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setText(String text) {
     this.text = text;
   }
@@ -125,32 +123,19 @@ public class TestResultStepCommentUpdateRequest {
    * Get stepId
    * @return stepId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STEP_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getStepId() {
     return stepId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STEP_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStepId(UUID stepId) {
     this.stepId = stepId;
-  }
-
-
-  public TestResultStepCommentUpdateRequest parentStepId(UUID parentStepId) {
-    this.parentStepId = parentStepId;
-    return this;
-  }
-
-  /**
-   * Get parentStepId
-   * @return parentStepId
-   */
-  @javax.annotation.Nullable
-  public UUID getParentStepId() {
-    return parentStepId;
-  }
-
-  public void setParentStepId(UUID parentStepId) {
-    this.parentStepId = parentStepId;
   }
 
 
@@ -171,17 +156,58 @@ public class TestResultStepCommentUpdateRequest {
    * Get attachments
    * @return attachments
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<AttachmentUpdateRequest> getAttachments() {
     return attachments;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAttachments(List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
   }
 
 
+  public TestResultStepCommentUpdateRequest parentStepId(UUID parentStepId) {
+    this.parentStepId = JsonNullable.<UUID>of(parentStepId);
+    return this;
+  }
 
+  /**
+   * Get parentStepId
+   * @return parentStepId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getParentStepId() {
+        return parentStepId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PARENT_STEP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getParentStepId_JsonNullable() {
+    return parentStepId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_STEP_ID)
+  public void setParentStepId_JsonNullable(JsonNullable<UUID> parentStepId) {
+    this.parentStepId = parentStepId;
+  }
+
+  public void setParentStepId(UUID parentStepId) {
+    this.parentStepId = JsonNullable.<UUID>of(parentStepId);
+  }
+
+
+  /**
+   * Return true if this TestResultStepCommentUpdateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -194,8 +220,8 @@ public class TestResultStepCommentUpdateRequest {
     return Objects.equals(this.id, testResultStepCommentUpdateRequest.id) &&
         Objects.equals(this.text, testResultStepCommentUpdateRequest.text) &&
         Objects.equals(this.stepId, testResultStepCommentUpdateRequest.stepId) &&
-        Objects.equals(this.parentStepId, testResultStepCommentUpdateRequest.parentStepId) &&
-        Objects.equals(this.attachments, testResultStepCommentUpdateRequest.attachments);
+        Objects.equals(this.attachments, testResultStepCommentUpdateRequest.attachments) &&
+        equalsNullable(this.parentStepId, testResultStepCommentUpdateRequest.parentStepId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -204,7 +230,7 @@ public class TestResultStepCommentUpdateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, text, stepId, parentStepId, attachments);
+    return Objects.hash(id, text, stepId, attachments, hashCodeNullable(parentStepId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -221,8 +247,8 @@ public class TestResultStepCommentUpdateRequest {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    stepId: ").append(toIndentedString(stepId)).append("\n");
-    sb.append("    parentStepId: ").append(toIndentedString(parentStepId)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    parentStepId: ").append(toIndentedString(parentStepId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -238,126 +264,5 @@ public class TestResultStepCommentUpdateRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("text");
-    openapiFields.add("stepId");
-    openapiFields.add("parentStepId");
-    openapiFields.add("attachments");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("text");
-    openapiRequiredFields.add("stepId");
-    openapiRequiredFields.add("attachments");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestResultStepCommentUpdateRequest
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultStepCommentUpdateRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultStepCommentUpdateRequest is not found in the empty JSON string", TestResultStepCommentUpdateRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestResultStepCommentUpdateRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultStepCommentUpdateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestResultStepCommentUpdateRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("text").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
-      }
-      if (!jsonObj.get("stepId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stepId").toString()));
-      }
-      if ((jsonObj.get("parentStepId") != null && !jsonObj.get("parentStepId").isJsonNull()) && !jsonObj.get("parentStepId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parentStepId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentStepId").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("attachments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
-      }
-
-      JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
-      // validate the required field `attachments` (array)
-      for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentUpdateRequest.validateJsonElement(jsonArrayattachments.get(i));
-      };
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestResultStepCommentUpdateRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestResultStepCommentUpdateRequest' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestResultStepCommentUpdateRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultStepCommentUpdateRequest.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestResultStepCommentUpdateRequest>() {
-           @Override
-           public void write(JsonWriter out, TestResultStepCommentUpdateRequest value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestResultStepCommentUpdateRequest read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestResultStepCommentUpdateRequest given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestResultStepCommentUpdateRequest
-   * @throws IOException if the JSON string is invalid with respect to TestResultStepCommentUpdateRequest
-   */
-  public static TestResultStepCommentUpdateRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestResultStepCommentUpdateRequest.class);
-  }
-
-  /**
-   * Convert an instance of TestResultStepCommentUpdateRequest to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

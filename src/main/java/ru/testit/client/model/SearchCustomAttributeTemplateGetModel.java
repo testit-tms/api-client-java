@@ -14,68 +14,51 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import ru.testit.client.model.CustomAttributeModel;
 import ru.testit.client.model.ProjectShortestModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * SearchCustomAttributeTemplateGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  SearchCustomAttributeTemplateGetModel.JSON_PROPERTY_ID,
+  SearchCustomAttributeTemplateGetModel.JSON_PROPERTY_IS_DELETED,
+  SearchCustomAttributeTemplateGetModel.JSON_PROPERTY_NAME,
+  SearchCustomAttributeTemplateGetModel.JSON_PROPERTY_PROJECT_SHORTEST_MODELS,
+  SearchCustomAttributeTemplateGetModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_MODELS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SearchCustomAttributeTemplateGetModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_PROJECT_SHORTEST_MODELS = "projectShortestModels";
-  @SerializedName(SERIALIZED_NAME_PROJECT_SHORTEST_MODELS)
+  public static final String JSON_PROPERTY_PROJECT_SHORTEST_MODELS = "projectShortestModels";
   private List<ProjectShortestModel> projectShortestModels = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS = "customAttributeModels";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_MODELS)
+  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_MODELS = "customAttributeModels";
   private List<CustomAttributeModel> customAttributeModels = new ArrayList<>();
 
-  public SearchCustomAttributeTemplateGetModel() {
+  public SearchCustomAttributeTemplateGetModel() { 
   }
 
   public SearchCustomAttributeTemplateGetModel id(UUID id) {
@@ -87,11 +70,17 @@ public class SearchCustomAttributeTemplateGetModel {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -106,11 +95,17 @@ public class SearchCustomAttributeTemplateGetModel {
    * Get isDeleted
    * @return isDeleted
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
@@ -125,11 +120,17 @@ public class SearchCustomAttributeTemplateGetModel {
    * Get name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -152,11 +153,17 @@ public class SearchCustomAttributeTemplateGetModel {
    * Get projectShortestModels
    * @return projectShortestModels
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_SHORTEST_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ProjectShortestModel> getProjectShortestModels() {
     return projectShortestModels;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PROJECT_SHORTEST_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectShortestModels(List<ProjectShortestModel> projectShortestModels) {
     this.projectShortestModels = projectShortestModels;
   }
@@ -179,17 +186,25 @@ public class SearchCustomAttributeTemplateGetModel {
    * Get customAttributeModels
    * @return customAttributeModels
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<CustomAttributeModel> getCustomAttributeModels() {
     return customAttributeModels;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCustomAttributeModels(List<CustomAttributeModel> customAttributeModels) {
     this.customAttributeModels = customAttributeModels;
   }
 
 
-
+  /**
+   * Return true if this SearchCustomAttributeTemplateGetModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -235,131 +250,5 @@ public class SearchCustomAttributeTemplateGetModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("isDeleted");
-    openapiFields.add("name");
-    openapiFields.add("projectShortestModels");
-    openapiFields.add("customAttributeModels");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("isDeleted");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("projectShortestModels");
-    openapiRequiredFields.add("customAttributeModels");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SearchCustomAttributeTemplateGetModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SearchCustomAttributeTemplateGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SearchCustomAttributeTemplateGetModel is not found in the empty JSON string", SearchCustomAttributeTemplateGetModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SearchCustomAttributeTemplateGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchCustomAttributeTemplateGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SearchCustomAttributeTemplateGetModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("projectShortestModels").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectShortestModels` to be an array in the JSON string but got `%s`", jsonObj.get("projectShortestModels").toString()));
-      }
-
-      JsonArray jsonArrayprojectShortestModels = jsonObj.getAsJsonArray("projectShortestModels");
-      // validate the required field `projectShortestModels` (array)
-      for (int i = 0; i < jsonArrayprojectShortestModels.size(); i++) {
-        ProjectShortestModel.validateJsonElement(jsonArrayprojectShortestModels.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("customAttributeModels").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customAttributeModels` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeModels").toString()));
-      }
-
-      JsonArray jsonArraycustomAttributeModels = jsonObj.getAsJsonArray("customAttributeModels");
-      // validate the required field `customAttributeModels` (array)
-      for (int i = 0; i < jsonArraycustomAttributeModels.size(); i++) {
-        CustomAttributeModel.validateJsonElement(jsonArraycustomAttributeModels.get(i));
-      };
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SearchCustomAttributeTemplateGetModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SearchCustomAttributeTemplateGetModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SearchCustomAttributeTemplateGetModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SearchCustomAttributeTemplateGetModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SearchCustomAttributeTemplateGetModel>() {
-           @Override
-           public void write(JsonWriter out, SearchCustomAttributeTemplateGetModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SearchCustomAttributeTemplateGetModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of SearchCustomAttributeTemplateGetModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of SearchCustomAttributeTemplateGetModel
-   * @throws IOException if the JSON string is invalid with respect to SearchCustomAttributeTemplateGetModel
-   */
-  public static SearchCustomAttributeTemplateGetModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SearchCustomAttributeTemplateGetModel.class);
-  }
-
-  /**
-   * Convert an instance of SearchCustomAttributeTemplateGetModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

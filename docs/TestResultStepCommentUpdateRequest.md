@@ -10,8 +10,8 @@
 |**id** | **UUID** | Entity unique identifier |  |
 |**text** | **String** |  |  |
 |**stepId** | **UUID** |  |  |
-|**parentStepId** | **UUID** |  |  [optional] |
 |**attachments** | [**List&lt;AttachmentUpdateRequest&gt;**](AttachmentUpdateRequest.md) |  |  |
+|**parentStepId** | **UUID** |  |  [optional] |
 
 
 

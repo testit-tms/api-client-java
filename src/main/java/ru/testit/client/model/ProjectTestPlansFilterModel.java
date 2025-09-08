@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -29,104 +30,89 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.TestPlanStatusModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ProjectTestPlansFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ProjectTestPlansFilterModel.JSON_PROPERTY_NAME,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_DESCRIPTION,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_BUILD,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_PRODUCT_NAME,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_STATUS,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_GLOBAL_IDS,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_IS_LOCKED,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_LOCKED_DATE,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_AUTOMATIC_DURATION_TIMER,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_CREATED_BY_IDS,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_CREATED_DATE,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_START_DATE,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_END_DATE,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_TAG_NAMES,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_ATTRIBUTES,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_IS_DELETED
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectTestPlansFilterModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_BUILD = "build";
-  @SerializedName(SERIALIZED_NAME_BUILD)
-  private String build;
+  public static final String JSON_PROPERTY_BUILD = "build";
+  private JsonNullable<String> build = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_PRODUCT_NAME = "productName";
-  @SerializedName(SERIALIZED_NAME_PRODUCT_NAME)
-  private String productName;
+  public static final String JSON_PROPERTY_PRODUCT_NAME = "productName";
+  private JsonNullable<String> productName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private Set<TestPlanStatusModel> status;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private JsonNullable<Set<TestPlanStatusModel>> status = JsonNullable.<Set<TestPlanStatusModel>>undefined();
 
-  public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds;
+  public static final String JSON_PROPERTY_GLOBAL_IDS = "globalIds";
+  private JsonNullable<Set<Long>> globalIds = JsonNullable.<Set<Long>>undefined();
 
-  public static final String SERIALIZED_NAME_IS_LOCKED = "isLocked";
-  @SerializedName(SERIALIZED_NAME_IS_LOCKED)
-  private Boolean isLocked;
+  public static final String JSON_PROPERTY_IS_LOCKED = "isLocked";
+  private JsonNullable<Boolean> isLocked = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_LOCKED_DATE = "lockedDate";
-  @SerializedName(SERIALIZED_NAME_LOCKED_DATE)
-  private DateTimeRangeSelectorModel lockedDate;
+  public static final String JSON_PROPERTY_LOCKED_DATE = "lockedDate";
+  private JsonNullable<DateTimeRangeSelectorModel> lockedDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER = "automaticDurationTimer";
-  @SerializedName(SERIALIZED_NAME_AUTOMATIC_DURATION_TIMER)
-  private Set<Boolean> automaticDurationTimer;
+  public static final String JSON_PROPERTY_AUTOMATIC_DURATION_TIMER = "automaticDurationTimer";
+  private JsonNullable<Set<Boolean>> automaticDurationTimer = JsonNullable.<Set<Boolean>>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds;
+  public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
+  private JsonNullable<Set<UUID>> createdByIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_START_DATE = "startDate";
-  @SerializedName(SERIALIZED_NAME_START_DATE)
-  private DateTimeRangeSelectorModel startDate;
+  public static final String JSON_PROPERTY_START_DATE = "startDate";
+  private JsonNullable<DateTimeRangeSelectorModel> startDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_END_DATE = "endDate";
-  @SerializedName(SERIALIZED_NAME_END_DATE)
-  private DateTimeRangeSelectorModel endDate;
+  public static final String JSON_PROPERTY_END_DATE = "endDate";
+  private JsonNullable<DateTimeRangeSelectorModel> endDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_TAG_NAMES = "tagNames";
-  @SerializedName(SERIALIZED_NAME_TAG_NAMES)
-  private Set<String> tagNames;
+  public static final String JSON_PROPERTY_TAG_NAMES = "tagNames";
+  private JsonNullable<Set<String>> tagNames = JsonNullable.<Set<String>>undefined();
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Set<String>> attributes;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private JsonNullable<Map<String, Set<String>>> attributes = JsonNullable.<Map<String, Set<String>>>undefined();
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  private Boolean isDeleted;
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
 
-  public ProjectTestPlansFilterModel() {
+  public ProjectTestPlansFilterModel() { 
   }
 
   public ProjectTestPlansFilterModel name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -134,18 +120,32 @@ public class ProjectTestPlansFilterModel {
    * Get name
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
     return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
   }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public ProjectTestPlansFilterModel description(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -153,18 +153,32 @@ public class ProjectTestPlansFilterModel {
    * Get description
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
   }
 
   public void setDescription(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   public ProjectTestPlansFilterModel build(String build) {
-    this.build = build;
+    this.build = JsonNullable.<String>of(build);
     return this;
   }
 
@@ -172,18 +186,32 @@ public class ProjectTestPlansFilterModel {
    * Get build
    * @return build
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getBuild() {
+        return build.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_BUILD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getBuild_JsonNullable() {
     return build;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_BUILD)
+  public void setBuild_JsonNullable(JsonNullable<String> build) {
+    this.build = build;
   }
 
   public void setBuild(String build) {
-    this.build = build;
+    this.build = JsonNullable.<String>of(build);
   }
 
 
   public ProjectTestPlansFilterModel productName(String productName) {
-    this.productName = productName;
+    this.productName = JsonNullable.<String>of(productName);
     return this;
   }
 
@@ -191,26 +219,44 @@ public class ProjectTestPlansFilterModel {
    * Get productName
    * @return productName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getProductName() {
+        return productName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getProductName_JsonNullable() {
     return productName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  public void setProductName_JsonNullable(JsonNullable<String> productName) {
+    this.productName = productName;
   }
 
   public void setProductName(String productName) {
-    this.productName = productName;
+    this.productName = JsonNullable.<String>of(productName);
   }
 
 
   public ProjectTestPlansFilterModel status(Set<TestPlanStatusModel> status) {
-    this.status = status;
+    this.status = JsonNullable.<Set<TestPlanStatusModel>>of(status);
     return this;
   }
 
   public ProjectTestPlansFilterModel addStatusItem(TestPlanStatusModel statusItem) {
-    if (this.status == null) {
-      this.status = new LinkedHashSet<>();
+    if (this.status == null || !this.status.isPresent()) {
+      this.status = JsonNullable.<Set<TestPlanStatusModel>>of(new LinkedHashSet<>());
     }
-    this.status.add(statusItem);
+    try {
+      this.status.get().add(statusItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -218,26 +264,44 @@ public class ProjectTestPlansFilterModel {
    * Get status
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<TestPlanStatusModel> getStatus() {
+        return status.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<TestPlanStatusModel>> getStatus_JsonNullable() {
     return status;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  public void setStatus_JsonNullable(JsonNullable<Set<TestPlanStatusModel>> status) {
+    this.status = status;
   }
 
   public void setStatus(Set<TestPlanStatusModel> status) {
-    this.status = status;
+    this.status = JsonNullable.<Set<TestPlanStatusModel>>of(status);
   }
 
 
   public ProjectTestPlansFilterModel globalIds(Set<Long> globalIds) {
-    this.globalIds = globalIds;
+    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
 
   public ProjectTestPlansFilterModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
+    if (this.globalIds == null || !this.globalIds.isPresent()) {
+      this.globalIds = JsonNullable.<Set<Long>>of(new LinkedHashSet<>());
     }
-    this.globalIds.add(globalIdsItem);
+    try {
+      this.globalIds.get().add(globalIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -245,18 +309,32 @@ public class ProjectTestPlansFilterModel {
    * Get globalIds
    * @return globalIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<Long> getGlobalIds() {
+        return globalIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<Long>> getGlobalIds_JsonNullable() {
     return globalIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
+  public void setGlobalIds_JsonNullable(JsonNullable<Set<Long>> globalIds) {
+    this.globalIds = globalIds;
   }
 
   public void setGlobalIds(Set<Long> globalIds) {
-    this.globalIds = globalIds;
+    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
   public ProjectTestPlansFilterModel isLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
+    this.isLocked = JsonNullable.<Boolean>of(isLocked);
     return this;
   }
 
@@ -264,18 +342,32 @@ public class ProjectTestPlansFilterModel {
    * Get isLocked
    * @return isLocked
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsLocked() {
+        return isLocked.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsLocked_JsonNullable() {
     return isLocked;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  public void setIsLocked_JsonNullable(JsonNullable<Boolean> isLocked) {
+    this.isLocked = isLocked;
   }
 
   public void setIsLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
+    this.isLocked = JsonNullable.<Boolean>of(isLocked);
   }
 
 
   public ProjectTestPlansFilterModel lockedDate(DateTimeRangeSelectorModel lockedDate) {
-    this.lockedDate = lockedDate;
+    this.lockedDate = JsonNullable.<DateTimeRangeSelectorModel>of(lockedDate);
     return this;
   }
 
@@ -283,26 +375,44 @@ public class ProjectTestPlansFilterModel {
    * Get lockedDate
    * @return lockedDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getLockedDate() {
+        return lockedDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LOCKED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DateTimeRangeSelectorModel> getLockedDate_JsonNullable() {
     return lockedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOCKED_DATE)
+  public void setLockedDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> lockedDate) {
+    this.lockedDate = lockedDate;
   }
 
   public void setLockedDate(DateTimeRangeSelectorModel lockedDate) {
-    this.lockedDate = lockedDate;
+    this.lockedDate = JsonNullable.<DateTimeRangeSelectorModel>of(lockedDate);
   }
 
 
   public ProjectTestPlansFilterModel automaticDurationTimer(Set<Boolean> automaticDurationTimer) {
-    this.automaticDurationTimer = automaticDurationTimer;
+    this.automaticDurationTimer = JsonNullable.<Set<Boolean>>of(automaticDurationTimer);
     return this;
   }
 
   public ProjectTestPlansFilterModel addAutomaticDurationTimerItem(Boolean automaticDurationTimerItem) {
-    if (this.automaticDurationTimer == null) {
-      this.automaticDurationTimer = new LinkedHashSet<>();
+    if (this.automaticDurationTimer == null || !this.automaticDurationTimer.isPresent()) {
+      this.automaticDurationTimer = JsonNullable.<Set<Boolean>>of(new LinkedHashSet<>());
     }
-    this.automaticDurationTimer.add(automaticDurationTimerItem);
+    try {
+      this.automaticDurationTimer.get().add(automaticDurationTimerItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -310,26 +420,44 @@ public class ProjectTestPlansFilterModel {
    * Get automaticDurationTimer
    * @return automaticDurationTimer
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<Boolean> getAutomaticDurationTimer() {
+        return automaticDurationTimer.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC_DURATION_TIMER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<Boolean>> getAutomaticDurationTimer_JsonNullable() {
     return automaticDurationTimer;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC_DURATION_TIMER)
+  public void setAutomaticDurationTimer_JsonNullable(JsonNullable<Set<Boolean>> automaticDurationTimer) {
+    this.automaticDurationTimer = automaticDurationTimer;
   }
 
   public void setAutomaticDurationTimer(Set<Boolean> automaticDurationTimer) {
-    this.automaticDurationTimer = automaticDurationTimer;
+    this.automaticDurationTimer = JsonNullable.<Set<Boolean>>of(automaticDurationTimer);
   }
 
 
   public ProjectTestPlansFilterModel createdByIds(Set<UUID> createdByIds) {
-    this.createdByIds = createdByIds;
+    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
 
   public ProjectTestPlansFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
+    if (this.createdByIds == null || !this.createdByIds.isPresent()) {
+      this.createdByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.createdByIds.add(createdByIdsItem);
+    try {
+      this.createdByIds.get().add(createdByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -337,18 +465,32 @@ public class ProjectTestPlansFilterModel {
    * Get createdByIds
    * @return createdByIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getCreatedByIds() {
+        return createdByIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getCreatedByIds_JsonNullable() {
     return createdByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  public void setCreatedByIds_JsonNullable(JsonNullable<Set<UUID>> createdByIds) {
+    this.createdByIds = createdByIds;
   }
 
   public void setCreatedByIds(Set<UUID> createdByIds) {
-    this.createdByIds = createdByIds;
+    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
   public ProjectTestPlansFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
 
@@ -356,18 +498,32 @@ public class ProjectTestPlansFilterModel {
    * Get createdDate
    * @return createdDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getCreatedDate() {
+        return createdDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DateTimeRangeSelectorModel> getCreatedDate_JsonNullable() {
     return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> createdDate) {
+    this.createdDate = createdDate;
   }
 
   public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
   public ProjectTestPlansFilterModel startDate(DateTimeRangeSelectorModel startDate) {
-    this.startDate = startDate;
+    this.startDate = JsonNullable.<DateTimeRangeSelectorModel>of(startDate);
     return this;
   }
 
@@ -375,18 +531,32 @@ public class ProjectTestPlansFilterModel {
    * Get startDate
    * @return startDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getStartDate() {
+        return startDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DateTimeRangeSelectorModel> getStartDate_JsonNullable() {
     return startDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  public void setStartDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> startDate) {
+    this.startDate = startDate;
   }
 
   public void setStartDate(DateTimeRangeSelectorModel startDate) {
-    this.startDate = startDate;
+    this.startDate = JsonNullable.<DateTimeRangeSelectorModel>of(startDate);
   }
 
 
   public ProjectTestPlansFilterModel endDate(DateTimeRangeSelectorModel endDate) {
-    this.endDate = endDate;
+    this.endDate = JsonNullable.<DateTimeRangeSelectorModel>of(endDate);
     return this;
   }
 
@@ -394,26 +564,44 @@ public class ProjectTestPlansFilterModel {
    * Get endDate
    * @return endDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getEndDate() {
+        return endDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DateTimeRangeSelectorModel> getEndDate_JsonNullable() {
     return endDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  public void setEndDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> endDate) {
+    this.endDate = endDate;
   }
 
   public void setEndDate(DateTimeRangeSelectorModel endDate) {
-    this.endDate = endDate;
+    this.endDate = JsonNullable.<DateTimeRangeSelectorModel>of(endDate);
   }
 
 
   public ProjectTestPlansFilterModel tagNames(Set<String> tagNames) {
-    this.tagNames = tagNames;
+    this.tagNames = JsonNullable.<Set<String>>of(tagNames);
     return this;
   }
 
   public ProjectTestPlansFilterModel addTagNamesItem(String tagNamesItem) {
-    if (this.tagNames == null) {
-      this.tagNames = new LinkedHashSet<>();
+    if (this.tagNames == null || !this.tagNames.isPresent()) {
+      this.tagNames = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
     }
-    this.tagNames.add(tagNamesItem);
+    try {
+      this.tagNames.get().add(tagNamesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -421,26 +609,44 @@ public class ProjectTestPlansFilterModel {
    * Get tagNames
    * @return tagNames
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<String> getTagNames() {
+        return tagNames.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAG_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getTagNames_JsonNullable() {
     return tagNames;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAG_NAMES)
+  public void setTagNames_JsonNullable(JsonNullable<Set<String>> tagNames) {
+    this.tagNames = tagNames;
   }
 
   public void setTagNames(Set<String> tagNames) {
-    this.tagNames = tagNames;
+    this.tagNames = JsonNullable.<Set<String>>of(tagNames);
   }
 
 
   public ProjectTestPlansFilterModel attributes(Map<String, Set<String>> attributes) {
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
     return this;
   }
 
   public ProjectTestPlansFilterModel putAttributesItem(String key, Set<String> attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
+    if (this.attributes == null || !this.attributes.isPresent()) {
+      this.attributes = JsonNullable.<Map<String, Set<String>>>of(new HashMap<>());
     }
-    this.attributes.put(key, attributesItem);
+    try {
+      this.attributes.get().put(key, attributesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -448,18 +654,32 @@ public class ProjectTestPlansFilterModel {
    * Get attributes
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, Set<String>> getAttributes() {
+        return attributes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, Set<String>>> getAttributes_JsonNullable() {
     return attributes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  public void setAttributes_JsonNullable(JsonNullable<Map<String, Set<String>>> attributes) {
+    this.attributes = attributes;
   }
 
   public void setAttributes(Map<String, Set<String>> attributes) {
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
   }
 
 
   public ProjectTestPlansFilterModel isDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
+    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
 
@@ -467,17 +687,33 @@ public class ProjectTestPlansFilterModel {
    * Get isDeleted
    * @return isDeleted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsDeleted() {
-    return isDeleted;
+        return isDeleted.orElse(null);
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsDeleted_JsonNullable() {
+    return isDeleted;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  public void setIsDeleted_JsonNullable(JsonNullable<Boolean> isDeleted) {
     this.isDeleted = isDeleted;
   }
 
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+  }
 
 
+  /**
+   * Return true if this ProjectTestPlansFilterModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -487,22 +723,22 @@ public class ProjectTestPlansFilterModel {
       return false;
     }
     ProjectTestPlansFilterModel projectTestPlansFilterModel = (ProjectTestPlansFilterModel) o;
-    return Objects.equals(this.name, projectTestPlansFilterModel.name) &&
-        Objects.equals(this.description, projectTestPlansFilterModel.description) &&
-        Objects.equals(this.build, projectTestPlansFilterModel.build) &&
-        Objects.equals(this.productName, projectTestPlansFilterModel.productName) &&
-        Objects.equals(this.status, projectTestPlansFilterModel.status) &&
-        Objects.equals(this.globalIds, projectTestPlansFilterModel.globalIds) &&
-        Objects.equals(this.isLocked, projectTestPlansFilterModel.isLocked) &&
-        Objects.equals(this.lockedDate, projectTestPlansFilterModel.lockedDate) &&
-        Objects.equals(this.automaticDurationTimer, projectTestPlansFilterModel.automaticDurationTimer) &&
-        Objects.equals(this.createdByIds, projectTestPlansFilterModel.createdByIds) &&
-        Objects.equals(this.createdDate, projectTestPlansFilterModel.createdDate) &&
-        Objects.equals(this.startDate, projectTestPlansFilterModel.startDate) &&
-        Objects.equals(this.endDate, projectTestPlansFilterModel.endDate) &&
-        Objects.equals(this.tagNames, projectTestPlansFilterModel.tagNames) &&
-        Objects.equals(this.attributes, projectTestPlansFilterModel.attributes) &&
-        Objects.equals(this.isDeleted, projectTestPlansFilterModel.isDeleted);
+    return equalsNullable(this.name, projectTestPlansFilterModel.name) &&
+        equalsNullable(this.description, projectTestPlansFilterModel.description) &&
+        equalsNullable(this.build, projectTestPlansFilterModel.build) &&
+        equalsNullable(this.productName, projectTestPlansFilterModel.productName) &&
+        equalsNullable(this.status, projectTestPlansFilterModel.status) &&
+        equalsNullable(this.globalIds, projectTestPlansFilterModel.globalIds) &&
+        equalsNullable(this.isLocked, projectTestPlansFilterModel.isLocked) &&
+        equalsNullable(this.lockedDate, projectTestPlansFilterModel.lockedDate) &&
+        equalsNullable(this.automaticDurationTimer, projectTestPlansFilterModel.automaticDurationTimer) &&
+        equalsNullable(this.createdByIds, projectTestPlansFilterModel.createdByIds) &&
+        equalsNullable(this.createdDate, projectTestPlansFilterModel.createdDate) &&
+        equalsNullable(this.startDate, projectTestPlansFilterModel.startDate) &&
+        equalsNullable(this.endDate, projectTestPlansFilterModel.endDate) &&
+        equalsNullable(this.tagNames, projectTestPlansFilterModel.tagNames) &&
+        equalsNullable(this.attributes, projectTestPlansFilterModel.attributes) &&
+        equalsNullable(this.isDeleted, projectTestPlansFilterModel.isDeleted);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -511,7 +747,7 @@ public class ProjectTestPlansFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, build, productName, status, globalIds, isLocked, lockedDate, automaticDurationTimer, createdByIds, createdDate, startDate, endDate, tagNames, attributes, isDeleted);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(build), hashCodeNullable(productName), hashCodeNullable(status), hashCodeNullable(globalIds), hashCodeNullable(isLocked), hashCodeNullable(lockedDate), hashCodeNullable(automaticDurationTimer), hashCodeNullable(createdByIds), hashCodeNullable(createdDate), hashCodeNullable(startDate), hashCodeNullable(endDate), hashCodeNullable(tagNames), hashCodeNullable(attributes), hashCodeNullable(isDeleted));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -556,152 +792,5 @@ public class ProjectTestPlansFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("description");
-    openapiFields.add("build");
-    openapiFields.add("productName");
-    openapiFields.add("status");
-    openapiFields.add("globalIds");
-    openapiFields.add("isLocked");
-    openapiFields.add("lockedDate");
-    openapiFields.add("automaticDurationTimer");
-    openapiFields.add("createdByIds");
-    openapiFields.add("createdDate");
-    openapiFields.add("startDate");
-    openapiFields.add("endDate");
-    openapiFields.add("tagNames");
-    openapiFields.add("attributes");
-    openapiFields.add("isDeleted");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProjectTestPlansFilterModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ProjectTestPlansFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectTestPlansFilterModel is not found in the empty JSON string", ProjectTestPlansFilterModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ProjectTestPlansFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectTestPlansFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) && !jsonObj.get("build").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `build` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build").toString()));
-      }
-      if ((jsonObj.get("productName") != null && !jsonObj.get("productName").isJsonNull()) && !jsonObj.get("productName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `productName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("productName").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull() && !jsonObj.get("status").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be an array in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
-      }
-      // validate the optional field `lockedDate`
-      if (jsonObj.get("lockedDate") != null && !jsonObj.get("lockedDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("lockedDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("automaticDurationTimer") != null && !jsonObj.get("automaticDurationTimer").isJsonNull() && !jsonObj.get("automaticDurationTimer").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `automaticDurationTimer` to be an array in the JSON string but got `%s`", jsonObj.get("automaticDurationTimer").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
-      }
-      // validate the optional field `createdDate`
-      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
-      }
-      // validate the optional field `startDate`
-      if (jsonObj.get("startDate") != null && !jsonObj.get("startDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("startDate"));
-      }
-      // validate the optional field `endDate`
-      if (jsonObj.get("endDate") != null && !jsonObj.get("endDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("endDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("tagNames") != null && !jsonObj.get("tagNames").isJsonNull() && !jsonObj.get("tagNames").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tagNames` to be an array in the JSON string but got `%s`", jsonObj.get("tagNames").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectTestPlansFilterModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectTestPlansFilterModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectTestPlansFilterModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectTestPlansFilterModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ProjectTestPlansFilterModel>() {
-           @Override
-           public void write(JsonWriter out, ProjectTestPlansFilterModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ProjectTestPlansFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ProjectTestPlansFilterModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ProjectTestPlansFilterModel
-   * @throws IOException if the JSON string is invalid with respect to ProjectTestPlansFilterModel
-   */
-  public static ProjectTestPlansFilterModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectTestPlansFilterModel.class);
-  }
-
-  /**
-   * Convert an instance of ProjectTestPlansFilterModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

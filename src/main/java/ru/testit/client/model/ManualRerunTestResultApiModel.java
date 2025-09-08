@@ -14,53 +14,39 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.GuidExtractionModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ManualRerunTestResultApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ManualRerunTestResultApiModel.JSON_PROPERTY_TEST_RESULT_IDS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ManualRerunTestResultApiModel {
-  public static final String SERIALIZED_NAME_TEST_RESULT_IDS = "testResultIds";
-  @SerializedName(SERIALIZED_NAME_TEST_RESULT_IDS)
-  private GuidExtractionModel testResultIds;
+  public static final String JSON_PROPERTY_TEST_RESULT_IDS = "testResultIds";
+  private JsonNullable<GuidExtractionModel> testResultIds = JsonNullable.<GuidExtractionModel>undefined();
 
-  public ManualRerunTestResultApiModel() {
+  public ManualRerunTestResultApiModel() { 
   }
 
   public ManualRerunTestResultApiModel testResultIds(GuidExtractionModel testResultIds) {
-    this.testResultIds = testResultIds;
+    this.testResultIds = JsonNullable.<GuidExtractionModel>of(testResultIds);
     return this;
   }
 
@@ -68,17 +54,33 @@ public class ManualRerunTestResultApiModel {
    * Set of extracted test result IDs
    * @return testResultIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public GuidExtractionModel getTestResultIds() {
-    return testResultIds;
+        return testResultIds.orElse(null);
   }
 
-  public void setTestResultIds(GuidExtractionModel testResultIds) {
+  @JsonProperty(JSON_PROPERTY_TEST_RESULT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<GuidExtractionModel> getTestResultIds_JsonNullable() {
+    return testResultIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_RESULT_IDS)
+  public void setTestResultIds_JsonNullable(JsonNullable<GuidExtractionModel> testResultIds) {
     this.testResultIds = testResultIds;
   }
 
+  public void setTestResultIds(GuidExtractionModel testResultIds) {
+    this.testResultIds = JsonNullable.<GuidExtractionModel>of(testResultIds);
+  }
 
 
+  /**
+   * Return true if this ManualRerunTestResultApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,7 +90,7 @@ public class ManualRerunTestResultApiModel {
       return false;
     }
     ManualRerunTestResultApiModel manualRerunTestResultApiModel = (ManualRerunTestResultApiModel) o;
-    return Objects.equals(this.testResultIds, manualRerunTestResultApiModel.testResultIds);
+    return equalsNullable(this.testResultIds, manualRerunTestResultApiModel.testResultIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -97,7 +99,7 @@ public class ManualRerunTestResultApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testResultIds);
+    return Objects.hash(hashCodeNullable(testResultIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -127,93 +129,5 @@ public class ManualRerunTestResultApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("testResultIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ManualRerunTestResultApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ManualRerunTestResultApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ManualRerunTestResultApiModel is not found in the empty JSON string", ManualRerunTestResultApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ManualRerunTestResultApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ManualRerunTestResultApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `testResultIds`
-      if (jsonObj.get("testResultIds") != null && !jsonObj.get("testResultIds").isJsonNull()) {
-        GuidExtractionModel.validateJsonElement(jsonObj.get("testResultIds"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ManualRerunTestResultApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ManualRerunTestResultApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ManualRerunTestResultApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ManualRerunTestResultApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ManualRerunTestResultApiModel>() {
-           @Override
-           public void write(JsonWriter out, ManualRerunTestResultApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ManualRerunTestResultApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ManualRerunTestResultApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ManualRerunTestResultApiModel
-   * @throws IOException if the JSON string is invalid with respect to ManualRerunTestResultApiModel
-   */
-  public static ManualRerunTestResultApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ManualRerunTestResultApiModel.class);
-  }
-
-  /**
-   * Convert an instance of ManualRerunTestResultApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

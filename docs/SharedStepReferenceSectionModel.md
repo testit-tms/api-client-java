@@ -12,10 +12,10 @@
 |**hasThisSharedStepAsPrecondition** | **Boolean** |  |  |
 |**hasThisSharedStepAsPostcondition** | **Boolean** |  |  |
 |**createdById** | **UUID** |  |  |
+|**isDeleted** | **Boolean** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  |
 
 
 

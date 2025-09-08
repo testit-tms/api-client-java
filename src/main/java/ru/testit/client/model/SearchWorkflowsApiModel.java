@@ -14,53 +14,39 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.Inquiry;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * SearchWorkflowsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  SearchWorkflowsApiModel.JSON_PROPERTY_INQUIRY
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SearchWorkflowsApiModel {
-  public static final String SERIALIZED_NAME_INQUIRY = "inquiry";
-  @SerializedName(SERIALIZED_NAME_INQUIRY)
-  private Inquiry inquiry;
+  public static final String JSON_PROPERTY_INQUIRY = "inquiry";
+  private JsonNullable<Inquiry> inquiry = JsonNullable.<Inquiry>undefined();
 
-  public SearchWorkflowsApiModel() {
+  public SearchWorkflowsApiModel() { 
   }
 
   public SearchWorkflowsApiModel inquiry(Inquiry inquiry) {
-    this.inquiry = inquiry;
+    this.inquiry = JsonNullable.<Inquiry>of(inquiry);
     return this;
   }
 
@@ -68,17 +54,33 @@ public class SearchWorkflowsApiModel {
    * Get inquiry
    * @return inquiry
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Inquiry getInquiry() {
-    return inquiry;
+        return inquiry.orElse(null);
   }
 
-  public void setInquiry(Inquiry inquiry) {
+  @JsonProperty(JSON_PROPERTY_INQUIRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Inquiry> getInquiry_JsonNullable() {
+    return inquiry;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INQUIRY)
+  public void setInquiry_JsonNullable(JsonNullable<Inquiry> inquiry) {
     this.inquiry = inquiry;
   }
 
+  public void setInquiry(Inquiry inquiry) {
+    this.inquiry = JsonNullable.<Inquiry>of(inquiry);
+  }
 
 
+  /**
+   * Return true if this SearchWorkflowsApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,7 +90,7 @@ public class SearchWorkflowsApiModel {
       return false;
     }
     SearchWorkflowsApiModel searchWorkflowsApiModel = (SearchWorkflowsApiModel) o;
-    return Objects.equals(this.inquiry, searchWorkflowsApiModel.inquiry);
+    return equalsNullable(this.inquiry, searchWorkflowsApiModel.inquiry);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -97,7 +99,7 @@ public class SearchWorkflowsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inquiry);
+    return Objects.hash(hashCodeNullable(inquiry));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -127,93 +129,5 @@ public class SearchWorkflowsApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("inquiry");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SearchWorkflowsApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SearchWorkflowsApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SearchWorkflowsApiModel is not found in the empty JSON string", SearchWorkflowsApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SearchWorkflowsApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchWorkflowsApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `inquiry`
-      if (jsonObj.get("inquiry") != null && !jsonObj.get("inquiry").isJsonNull()) {
-        Inquiry.validateJsonElement(jsonObj.get("inquiry"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SearchWorkflowsApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SearchWorkflowsApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SearchWorkflowsApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SearchWorkflowsApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SearchWorkflowsApiModel>() {
-           @Override
-           public void write(JsonWriter out, SearchWorkflowsApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SearchWorkflowsApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of SearchWorkflowsApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of SearchWorkflowsApiModel
-   * @throws IOException if the JSON string is invalid with respect to SearchWorkflowsApiModel
-   */
-  public static SearchWorkflowsApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SearchWorkflowsApiModel.class);
-  }
-
-  /**
-   * Convert an instance of SearchWorkflowsApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

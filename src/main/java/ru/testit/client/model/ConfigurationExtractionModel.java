@@ -14,57 +14,43 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.GuidExtractionModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ConfigurationExtractionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ConfigurationExtractionModel.JSON_PROPERTY_IDS,
+  ConfigurationExtractionModel.JSON_PROPERTY_PROJECT_IDS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ConfigurationExtractionModel {
-  public static final String SERIALIZED_NAME_IDS = "ids";
-  @SerializedName(SERIALIZED_NAME_IDS)
-  private GuidExtractionModel ids;
+  public static final String JSON_PROPERTY_IDS = "ids";
+  private JsonNullable<GuidExtractionModel> ids = JsonNullable.<GuidExtractionModel>undefined();
 
-  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
-  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private GuidExtractionModel projectIds;
+  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  private JsonNullable<GuidExtractionModel> projectIds = JsonNullable.<GuidExtractionModel>undefined();
 
-  public ConfigurationExtractionModel() {
+  public ConfigurationExtractionModel() { 
   }
 
   public ConfigurationExtractionModel ids(GuidExtractionModel ids) {
-    this.ids = ids;
+    this.ids = JsonNullable.<GuidExtractionModel>of(ids);
     return this;
   }
 
@@ -72,18 +58,32 @@ public class ConfigurationExtractionModel {
    * Extraction parameters for configurations
    * @return ids
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public GuidExtractionModel getIds() {
+        return ids.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<GuidExtractionModel> getIds_JsonNullable() {
     return ids;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IDS)
+  public void setIds_JsonNullable(JsonNullable<GuidExtractionModel> ids) {
+    this.ids = ids;
   }
 
   public void setIds(GuidExtractionModel ids) {
-    this.ids = ids;
+    this.ids = JsonNullable.<GuidExtractionModel>of(ids);
   }
 
 
   public ConfigurationExtractionModel projectIds(GuidExtractionModel projectIds) {
-    this.projectIds = projectIds;
+    this.projectIds = JsonNullable.<GuidExtractionModel>of(projectIds);
     return this;
   }
 
@@ -91,17 +91,33 @@ public class ConfigurationExtractionModel {
    * Extraction parameters for projects
    * @return projectIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public GuidExtractionModel getProjectIds() {
-    return projectIds;
+        return projectIds.orElse(null);
   }
 
-  public void setProjectIds(GuidExtractionModel projectIds) {
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<GuidExtractionModel> getProjectIds_JsonNullable() {
+    return projectIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  public void setProjectIds_JsonNullable(JsonNullable<GuidExtractionModel> projectIds) {
     this.projectIds = projectIds;
   }
 
+  public void setProjectIds(GuidExtractionModel projectIds) {
+    this.projectIds = JsonNullable.<GuidExtractionModel>of(projectIds);
+  }
 
 
+  /**
+   * Return true if this ConfigurationExtractionModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,8 +127,8 @@ public class ConfigurationExtractionModel {
       return false;
     }
     ConfigurationExtractionModel configurationExtractionModel = (ConfigurationExtractionModel) o;
-    return Objects.equals(this.ids, configurationExtractionModel.ids) &&
-        Objects.equals(this.projectIds, configurationExtractionModel.projectIds);
+    return equalsNullable(this.ids, configurationExtractionModel.ids) &&
+        equalsNullable(this.projectIds, configurationExtractionModel.projectIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -121,7 +137,7 @@ public class ConfigurationExtractionModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, projectIds);
+    return Objects.hash(hashCodeNullable(ids), hashCodeNullable(projectIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -152,98 +168,5 @@ public class ConfigurationExtractionModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ids");
-    openapiFields.add("projectIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConfigurationExtractionModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ConfigurationExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigurationExtractionModel is not found in the empty JSON string", ConfigurationExtractionModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ConfigurationExtractionModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigurationExtractionModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `ids`
-      if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) {
-        GuidExtractionModel.validateJsonElement(jsonObj.get("ids"));
-      }
-      // validate the optional field `projectIds`
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull()) {
-        GuidExtractionModel.validateJsonElement(jsonObj.get("projectIds"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ConfigurationExtractionModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ConfigurationExtractionModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ConfigurationExtractionModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ConfigurationExtractionModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ConfigurationExtractionModel>() {
-           @Override
-           public void write(JsonWriter out, ConfigurationExtractionModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ConfigurationExtractionModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ConfigurationExtractionModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ConfigurationExtractionModel
-   * @throws IOException if the JSON string is invalid with respect to ConfigurationExtractionModel
-   */
-  public static ConfigurationExtractionModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ConfigurationExtractionModel.class);
-  }
-
-  /**
-   * Convert an instance of ConfigurationExtractionModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -14,76 +14,62 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CustomAttributeTypesEnum;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * CustomAttributeSearchQueryModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  CustomAttributeSearchQueryModel.JSON_PROPERTY_NAME,
+  CustomAttributeSearchQueryModel.JSON_PROPERTY_PROJECT_IDS,
+  CustomAttributeSearchQueryModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS,
+  CustomAttributeSearchQueryModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES,
+  CustomAttributeSearchQueryModel.JSON_PROPERTY_IS_GLOBAL,
+  CustomAttributeSearchQueryModel.JSON_PROPERTY_IS_DELETED
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeSearchQueryModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
-  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private Set<UUID> projectIds;
+  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  private JsonNullable<Set<UUID>> projectIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_IDS)
-  private Set<UUID> customAttributeIds;
+  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
+  private JsonNullable<Set<UUID>> customAttributeIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
-  private Set<CustomAttributeTypesEnum> customAttributeTypes;
+  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
+  private JsonNullable<Set<CustomAttributeTypesEnum>> customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>undefined();
 
-  public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
-  @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
-  private Boolean isGlobal;
+  public static final String JSON_PROPERTY_IS_GLOBAL = "isGlobal";
+  private JsonNullable<Boolean> isGlobal = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  private Boolean isDeleted;
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
 
-  public CustomAttributeSearchQueryModel() {
+  public CustomAttributeSearchQueryModel() { 
   }
 
   public CustomAttributeSearchQueryModel name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -91,26 +77,44 @@ public class CustomAttributeSearchQueryModel {
    * Name of attribute
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
     return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
   }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public CustomAttributeSearchQueryModel projectIds(Set<UUID> projectIds) {
-    this.projectIds = projectIds;
+    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
     return this;
   }
 
   public CustomAttributeSearchQueryModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new LinkedHashSet<>();
+    if (this.projectIds == null || !this.projectIds.isPresent()) {
+      this.projectIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.projectIds.add(projectIdsItem);
+    try {
+      this.projectIds.get().add(projectIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -118,26 +122,44 @@ public class CustomAttributeSearchQueryModel {
    * Unique IDs of projects where attribute is in use
    * @return projectIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getProjectIds() {
+        return projectIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getProjectIds_JsonNullable() {
     return projectIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  public void setProjectIds_JsonNullable(JsonNullable<Set<UUID>> projectIds) {
+    this.projectIds = projectIds;
   }
 
   public void setProjectIds(Set<UUID> projectIds) {
-    this.projectIds = projectIds;
+    this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
   }
 
 
   public CustomAttributeSearchQueryModel customAttributeIds(Set<UUID> customAttributeIds) {
-    this.customAttributeIds = customAttributeIds;
+    this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
     return this;
   }
 
   public CustomAttributeSearchQueryModel addCustomAttributeIdsItem(UUID customAttributeIdsItem) {
-    if (this.customAttributeIds == null) {
-      this.customAttributeIds = new LinkedHashSet<>();
+    if (this.customAttributeIds == null || !this.customAttributeIds.isPresent()) {
+      this.customAttributeIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.customAttributeIds.add(customAttributeIdsItem);
+    try {
+      this.customAttributeIds.get().add(customAttributeIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -145,26 +167,44 @@ public class CustomAttributeSearchQueryModel {
    * Unique IDs of attributes for search restriction
    * @return customAttributeIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getCustomAttributeIds() {
+        return customAttributeIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getCustomAttributeIds_JsonNullable() {
     return customAttributeIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS)
+  public void setCustomAttributeIds_JsonNullable(JsonNullable<Set<UUID>> customAttributeIds) {
+    this.customAttributeIds = customAttributeIds;
   }
 
   public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
-    this.customAttributeIds = customAttributeIds;
+    this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
   }
 
 
   public CustomAttributeSearchQueryModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
-    this.customAttributeTypes = customAttributeTypes;
+    this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
     return this;
   }
 
   public CustomAttributeSearchQueryModel addCustomAttributeTypesItem(CustomAttributeTypesEnum customAttributeTypesItem) {
-    if (this.customAttributeTypes == null) {
-      this.customAttributeTypes = new LinkedHashSet<>();
+    if (this.customAttributeTypes == null || !this.customAttributeTypes.isPresent()) {
+      this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(new LinkedHashSet<>());
     }
-    this.customAttributeTypes.add(customAttributeTypesItem);
+    try {
+      this.customAttributeTypes.get().add(customAttributeTypesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -172,18 +212,32 @@ public class CustomAttributeSearchQueryModel {
    * Collection of attribute types
    * @return customAttributeTypes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<CustomAttributeTypesEnum> getCustomAttributeTypes() {
+        return customAttributeTypes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<CustomAttributeTypesEnum>> getCustomAttributeTypes_JsonNullable() {
     return customAttributeTypes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES)
+  public void setCustomAttributeTypes_JsonNullable(JsonNullable<Set<CustomAttributeTypesEnum>> customAttributeTypes) {
+    this.customAttributeTypes = customAttributeTypes;
   }
 
   public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
-    this.customAttributeTypes = customAttributeTypes;
+    this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
   }
 
 
   public CustomAttributeSearchQueryModel isGlobal(Boolean isGlobal) {
-    this.isGlobal = isGlobal;
+    this.isGlobal = JsonNullable.<Boolean>of(isGlobal);
     return this;
   }
 
@@ -191,18 +245,32 @@ public class CustomAttributeSearchQueryModel {
    * Indicates whether the attribute is available across all projects
    * @return isGlobal
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsGlobal() {
+        return isGlobal.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsGlobal_JsonNullable() {
     return isGlobal;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
+  public void setIsGlobal_JsonNullable(JsonNullable<Boolean> isGlobal) {
+    this.isGlobal = isGlobal;
   }
 
   public void setIsGlobal(Boolean isGlobal) {
-    this.isGlobal = isGlobal;
+    this.isGlobal = JsonNullable.<Boolean>of(isGlobal);
   }
 
 
   public CustomAttributeSearchQueryModel isDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
+    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
 
@@ -210,17 +278,33 @@ public class CustomAttributeSearchQueryModel {
    * Indicates whether the attribute is deleted
    * @return isDeleted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsDeleted() {
-    return isDeleted;
+        return isDeleted.orElse(null);
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsDeleted_JsonNullable() {
+    return isDeleted;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  public void setIsDeleted_JsonNullable(JsonNullable<Boolean> isDeleted) {
     this.isDeleted = isDeleted;
   }
 
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+  }
 
 
+  /**
+   * Return true if this CustomAttributeSearchQueryModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -230,12 +314,12 @@ public class CustomAttributeSearchQueryModel {
       return false;
     }
     CustomAttributeSearchQueryModel customAttributeSearchQueryModel = (CustomAttributeSearchQueryModel) o;
-    return Objects.equals(this.name, customAttributeSearchQueryModel.name) &&
-        Objects.equals(this.projectIds, customAttributeSearchQueryModel.projectIds) &&
-        Objects.equals(this.customAttributeIds, customAttributeSearchQueryModel.customAttributeIds) &&
-        Objects.equals(this.customAttributeTypes, customAttributeSearchQueryModel.customAttributeTypes) &&
-        Objects.equals(this.isGlobal, customAttributeSearchQueryModel.isGlobal) &&
-        Objects.equals(this.isDeleted, customAttributeSearchQueryModel.isDeleted);
+    return equalsNullable(this.name, customAttributeSearchQueryModel.name) &&
+        equalsNullable(this.projectIds, customAttributeSearchQueryModel.projectIds) &&
+        equalsNullable(this.customAttributeIds, customAttributeSearchQueryModel.customAttributeIds) &&
+        equalsNullable(this.customAttributeTypes, customAttributeSearchQueryModel.customAttributeTypes) &&
+        equalsNullable(this.isGlobal, customAttributeSearchQueryModel.isGlobal) &&
+        equalsNullable(this.isDeleted, customAttributeSearchQueryModel.isDeleted);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -244,7 +328,7 @@ public class CustomAttributeSearchQueryModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, projectIds, customAttributeIds, customAttributeTypes, isGlobal, isDeleted);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(projectIds), hashCodeNullable(customAttributeIds), hashCodeNullable(customAttributeTypes), hashCodeNullable(isGlobal), hashCodeNullable(isDeleted));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -279,109 +363,5 @@ public class CustomAttributeSearchQueryModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("projectIds");
-    openapiFields.add("customAttributeIds");
-    openapiFields.add("customAttributeTypes");
-    openapiFields.add("isGlobal");
-    openapiFields.add("isDeleted");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CustomAttributeSearchQueryModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CustomAttributeSearchQueryModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeSearchQueryModel is not found in the empty JSON string", CustomAttributeSearchQueryModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CustomAttributeSearchQueryModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeSearchQueryModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributeIds") != null && !jsonObj.get("customAttributeIds").isJsonNull() && !jsonObj.get("customAttributeIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customAttributeIds` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributeTypes") != null && !jsonObj.get("customAttributeTypes").isJsonNull() && !jsonObj.get("customAttributeTypes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customAttributeTypes` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeTypes").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CustomAttributeSearchQueryModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CustomAttributeSearchQueryModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CustomAttributeSearchQueryModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CustomAttributeSearchQueryModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CustomAttributeSearchQueryModel>() {
-           @Override
-           public void write(JsonWriter out, CustomAttributeSearchQueryModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CustomAttributeSearchQueryModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of CustomAttributeSearchQueryModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of CustomAttributeSearchQueryModel
-   * @throws IOException if the JSON string is invalid with respect to CustomAttributeSearchQueryModel
-   */
-  public static CustomAttributeSearchQueryModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CustomAttributeSearchQueryModel.class);
-  }
-
-  /**
-   * Convert an instance of CustomAttributeSearchQueryModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

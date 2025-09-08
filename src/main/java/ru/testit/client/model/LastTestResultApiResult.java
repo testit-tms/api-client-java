@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,64 +28,49 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentApiResult;
 import ru.testit.client.model.LinkApiResult;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * LastTestResultApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  LastTestResultApiResult.JSON_PROPERTY_ID,
+  LastTestResultApiResult.JSON_PROPERTY_TEST_RUN_ID,
+  LastTestResultApiResult.JSON_PROPERTY_LINKS,
+  LastTestResultApiResult.JSON_PROPERTY_ATTACHMENTS,
+  LastTestResultApiResult.JSON_PROPERTY_AUTO_TEST_ID,
+  LastTestResultApiResult.JSON_PROPERTY_COMMENT,
+  LastTestResultApiResult.JSON_PROPERTY_WORK_ITEM_VERSION_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LastTestResultApiResult {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
-  @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
+  public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
   private UUID testRunId;
 
-  public static final String SERIALIZED_NAME_AUTO_TEST_ID = "autoTestId";
-  @SerializedName(SERIALIZED_NAME_AUTO_TEST_ID)
-  private UUID autoTestId;
-
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  private String comment;
-
-  public static final String SERIALIZED_NAME_LINKS = "links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
+  public static final String JSON_PROPERTY_LINKS = "links";
   private List<LinkApiResult> links = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
-  private UUID workItemVersionId;
-
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private List<AttachmentApiResult> attachments = new ArrayList<>();
 
-  public LastTestResultApiResult() {
+  public static final String JSON_PROPERTY_AUTO_TEST_ID = "autoTestId";
+  private JsonNullable<UUID> autoTestId = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_COMMENT = "comment";
+  private JsonNullable<String> comment = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_WORK_ITEM_VERSION_ID = "workItemVersionId";
+  private JsonNullable<UUID> workItemVersionId = JsonNullable.<UUID>undefined();
+
+  public LastTestResultApiResult() { 
   }
 
   public LastTestResultApiResult id(UUID id) {
@@ -96,11 +82,17 @@ public class LastTestResultApiResult {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -115,51 +107,19 @@ public class LastTestResultApiResult {
    * Get testRunId
    * @return testRunId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getTestRunId() {
     return testRunId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestRunId(UUID testRunId) {
     this.testRunId = testRunId;
-  }
-
-
-  public LastTestResultApiResult autoTestId(UUID autoTestId) {
-    this.autoTestId = autoTestId;
-    return this;
-  }
-
-  /**
-   * Get autoTestId
-   * @return autoTestId
-   */
-  @javax.annotation.Nullable
-  public UUID getAutoTestId() {
-    return autoTestId;
-  }
-
-  public void setAutoTestId(UUID autoTestId) {
-    this.autoTestId = autoTestId;
-  }
-
-
-  public LastTestResultApiResult comment(String comment) {
-    this.comment = comment;
-    return this;
-  }
-
-  /**
-   * Get comment
-   * @return comment
-   */
-  @javax.annotation.Nullable
-  public String getComment() {
-    return comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
   }
 
 
@@ -180,32 +140,19 @@ public class LastTestResultApiResult {
    * Get links
    * @return links
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<LinkApiResult> getLinks() {
     return links;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLinks(List<LinkApiResult> links) {
     this.links = links;
-  }
-
-
-  public LastTestResultApiResult workItemVersionId(UUID workItemVersionId) {
-    this.workItemVersionId = workItemVersionId;
-    return this;
-  }
-
-  /**
-   * Get workItemVersionId
-   * @return workItemVersionId
-   */
-  @javax.annotation.Nullable
-  public UUID getWorkItemVersionId() {
-    return workItemVersionId;
-  }
-
-  public void setWorkItemVersionId(UUID workItemVersionId) {
-    this.workItemVersionId = workItemVersionId;
   }
 
 
@@ -226,17 +173,124 @@ public class LastTestResultApiResult {
    * Get attachments
    * @return attachments
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<AttachmentApiResult> getAttachments() {
     return attachments;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
 
+  public LastTestResultApiResult autoTestId(UUID autoTestId) {
+    this.autoTestId = JsonNullable.<UUID>of(autoTestId);
+    return this;
+  }
 
+  /**
+   * Get autoTestId
+   * @return autoTestId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getAutoTestId() {
+        return autoTestId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getAutoTestId_JsonNullable() {
+    return autoTestId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST_ID)
+  public void setAutoTestId_JsonNullable(JsonNullable<UUID> autoTestId) {
+    this.autoTestId = autoTestId;
+  }
+
+  public void setAutoTestId(UUID autoTestId) {
+    this.autoTestId = JsonNullable.<UUID>of(autoTestId);
+  }
+
+
+  public LastTestResultApiResult comment(String comment) {
+    this.comment = JsonNullable.<String>of(comment);
+    return this;
+  }
+
+  /**
+   * Get comment
+   * @return comment
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getComment() {
+        return comment.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getComment_JsonNullable() {
+    return comment;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  public void setComment_JsonNullable(JsonNullable<String> comment) {
+    this.comment = comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = JsonNullable.<String>of(comment);
+  }
+
+
+  public LastTestResultApiResult workItemVersionId(UUID workItemVersionId) {
+    this.workItemVersionId = JsonNullable.<UUID>of(workItemVersionId);
+    return this;
+  }
+
+  /**
+   * Get workItemVersionId
+   * @return workItemVersionId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getWorkItemVersionId() {
+        return workItemVersionId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getWorkItemVersionId_JsonNullable() {
+    return workItemVersionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
+  public void setWorkItemVersionId_JsonNullable(JsonNullable<UUID> workItemVersionId) {
+    this.workItemVersionId = workItemVersionId;
+  }
+
+  public void setWorkItemVersionId(UUID workItemVersionId) {
+    this.workItemVersionId = JsonNullable.<UUID>of(workItemVersionId);
+  }
+
+
+  /**
+   * Return true if this LastTestResultApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -248,11 +302,11 @@ public class LastTestResultApiResult {
     LastTestResultApiResult lastTestResultApiResult = (LastTestResultApiResult) o;
     return Objects.equals(this.id, lastTestResultApiResult.id) &&
         Objects.equals(this.testRunId, lastTestResultApiResult.testRunId) &&
-        Objects.equals(this.autoTestId, lastTestResultApiResult.autoTestId) &&
-        Objects.equals(this.comment, lastTestResultApiResult.comment) &&
         Objects.equals(this.links, lastTestResultApiResult.links) &&
-        Objects.equals(this.workItemVersionId, lastTestResultApiResult.workItemVersionId) &&
-        Objects.equals(this.attachments, lastTestResultApiResult.attachments);
+        Objects.equals(this.attachments, lastTestResultApiResult.attachments) &&
+        equalsNullable(this.autoTestId, lastTestResultApiResult.autoTestId) &&
+        equalsNullable(this.comment, lastTestResultApiResult.comment) &&
+        equalsNullable(this.workItemVersionId, lastTestResultApiResult.workItemVersionId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -261,7 +315,7 @@ public class LastTestResultApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, testRunId, autoTestId, comment, links, workItemVersionId, attachments);
+    return Objects.hash(id, testRunId, links, attachments, hashCodeNullable(autoTestId), hashCodeNullable(comment), hashCodeNullable(workItemVersionId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -277,11 +331,11 @@ public class LastTestResultApiResult {
     sb.append("class LastTestResultApiResult {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    testRunId: ").append(toIndentedString(testRunId)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    autoTestId: ").append(toIndentedString(autoTestId)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    workItemVersionId: ").append(toIndentedString(workItemVersionId)).append("\n");
-    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -297,141 +351,5 @@ public class LastTestResultApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("testRunId");
-    openapiFields.add("autoTestId");
-    openapiFields.add("comment");
-    openapiFields.add("links");
-    openapiFields.add("workItemVersionId");
-    openapiFields.add("attachments");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("testRunId");
-    openapiRequiredFields.add("links");
-    openapiRequiredFields.add("attachments");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to LastTestResultApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!LastTestResultApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LastTestResultApiResult is not found in the empty JSON string", LastTestResultApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!LastTestResultApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LastTestResultApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : LastTestResultApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("testRunId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testRunId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunId").toString()));
-      }
-      if ((jsonObj.get("autoTestId") != null && !jsonObj.get("autoTestId").isJsonNull()) && !jsonObj.get("autoTestId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `autoTestId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("autoTestId").toString()));
-      }
-      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("links").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
-      }
-
-      JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
-      // validate the required field `links` (array)
-      for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkApiResult.validateJsonElement(jsonArraylinks.get(i));
-      };
-      if ((jsonObj.get("workItemVersionId") != null && !jsonObj.get("workItemVersionId").isJsonNull()) && !jsonObj.get("workItemVersionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemVersionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemVersionId").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("attachments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
-      }
-
-      JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
-      // validate the required field `attachments` (array)
-      for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentApiResult.validateJsonElement(jsonArrayattachments.get(i));
-      };
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!LastTestResultApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LastTestResultApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<LastTestResultApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(LastTestResultApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<LastTestResultApiResult>() {
-           @Override
-           public void write(JsonWriter out, LastTestResultApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public LastTestResultApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of LastTestResultApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of LastTestResultApiResult
-   * @throws IOException if the JSON string is invalid with respect to LastTestResultApiResult
-   */
-  public static LastTestResultApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, LastTestResultApiResult.class);
-  }
-
-  /**
-   * Convert an instance of LastTestResultApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

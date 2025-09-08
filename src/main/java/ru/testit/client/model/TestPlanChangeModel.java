@@ -14,67 +14,53 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestPlanChangedFieldsViewModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanChangeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPlanChangeModel.JSON_PROPERTY_ID,
+  TestPlanChangeModel.JSON_PROPERTY_TEST_PLAN_ID,
+  TestPlanChangeModel.JSON_PROPERTY_TEST_PLAN_CHANGED_FIELDS,
+  TestPlanChangeModel.JSON_PROPERTY_CREATED_BY_ID,
+  TestPlanChangeModel.JSON_PROPERTY_CREATED_DATE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanChangeModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
+  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
   private UUID testPlanId;
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_CHANGED_FIELDS = "testPlanChangedFields";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_CHANGED_FIELDS)
+  public static final String JSON_PROPERTY_TEST_PLAN_CHANGED_FIELDS = "testPlanChangedFields";
   private TestPlanChangedFieldsViewModel testPlanChangedFields;
 
-  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private OffsetDateTime createdDate;
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
 
-  public TestPlanChangeModel() {
+  public TestPlanChangeModel() { 
   }
 
   public TestPlanChangeModel id(UUID id) {
@@ -86,11 +72,17 @@ public class TestPlanChangeModel {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -105,11 +97,17 @@ public class TestPlanChangeModel {
    * Get testPlanId
    * @return testPlanId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getTestPlanId() {
     return testPlanId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanId(UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
@@ -124,11 +122,17 @@ public class TestPlanChangeModel {
    * Get testPlanChangedFields
    * @return testPlanChangedFields
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_CHANGED_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestPlanChangedFieldsViewModel getTestPlanChangedFields() {
     return testPlanChangedFields;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_CHANGED_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanChangedFields(TestPlanChangedFieldsViewModel testPlanChangedFields) {
     this.testPlanChangedFields = testPlanChangedFields;
   }
@@ -143,18 +147,24 @@ public class TestPlanChangeModel {
    * Get createdById
    * @return createdById
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getCreatedById() {
     return createdById;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
   }
 
 
   public TestPlanChangeModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
 
@@ -162,17 +172,33 @@ public class TestPlanChangeModel {
    * Get createdDate
    * @return createdDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public OffsetDateTime getCreatedDate() {
-    return createdDate;
+        return createdDate.orElse(null);
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+    return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
     this.createdDate = createdDate;
   }
 
+  public void setCreatedDate(OffsetDateTime createdDate) {
+    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+  }
 
 
+  /**
+   * Return true if this TestPlanChangeModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -186,7 +212,7 @@ public class TestPlanChangeModel {
         Objects.equals(this.testPlanId, testPlanChangeModel.testPlanId) &&
         Objects.equals(this.testPlanChangedFields, testPlanChangeModel.testPlanChangedFields) &&
         Objects.equals(this.createdById, testPlanChangeModel.createdById) &&
-        Objects.equals(this.createdDate, testPlanChangeModel.createdDate);
+        equalsNullable(this.createdDate, testPlanChangeModel.createdDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -195,7 +221,7 @@ public class TestPlanChangeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, testPlanId, testPlanChangedFields, createdById, createdDate);
+    return Objects.hash(id, testPlanId, testPlanChangedFields, createdById, hashCodeNullable(createdDate));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -229,115 +255,5 @@ public class TestPlanChangeModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("testPlanId");
-    openapiFields.add("testPlanChangedFields");
-    openapiFields.add("createdById");
-    openapiFields.add("createdDate");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("testPlanId");
-    openapiRequiredFields.add("testPlanChangedFields");
-    openapiRequiredFields.add("createdById");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanChangeModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanChangeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanChangeModel is not found in the empty JSON string", TestPlanChangeModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanChangeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanChangeModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanChangeModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("testPlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
-      }
-      // validate the required field `testPlanChangedFields`
-      TestPlanChangedFieldsViewModel.validateJsonElement(jsonObj.get("testPlanChangedFields"));
-      if (!jsonObj.get("createdById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanChangeModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanChangeModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanChangeModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanChangeModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanChangeModel>() {
-           @Override
-           public void write(JsonWriter out, TestPlanChangeModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanChangeModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPlanChangeModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanChangeModel
-   * @throws IOException if the JSON string is invalid with respect to TestPlanChangeModel
-   */
-  public static TestPlanChangeModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanChangeModel.class);
-  }
-
-  /**
-   * Convert an instance of TestPlanChangeModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

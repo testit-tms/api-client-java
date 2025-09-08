@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,56 +28,41 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestSuiteType;
 import ru.testit.client.model.WorkItemSelectModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestSuiteTestPlanApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestSuiteTestPlanApiModel.JSON_PROPERTY_NAME,
+  TestSuiteTestPlanApiModel.JSON_PROPERTY_WORK_ITEMS_SELECTOR,
+  TestSuiteTestPlanApiModel.JSON_PROPERTY_CONFIGURATION_IDS,
+  TestSuiteTestPlanApiModel.JSON_PROPERTY_TYPE,
+  TestSuiteTestPlanApiModel.JSON_PROPERTY_SAVE_STRUCTURE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteTestPlanApiModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_CONFIGURATION_IDS = "configurationIds";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_IDS)
-  private List<UUID> configurationIds;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private TestSuiteType type;
-
-  public static final String SERIALIZED_NAME_SAVE_STRUCTURE = "saveStructure";
-  @SerializedName(SERIALIZED_NAME_SAVE_STRUCTURE)
-  private Boolean saveStructure;
-
-  public static final String SERIALIZED_NAME_WORK_ITEMS_SELECTOR = "workItemsSelector";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEMS_SELECTOR)
+  public static final String JSON_PROPERTY_WORK_ITEMS_SELECTOR = "workItemsSelector";
   private WorkItemSelectModel workItemsSelector;
 
-  public TestSuiteTestPlanApiModel() {
+  public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
+  private JsonNullable<List<UUID>> configurationIds = JsonNullable.<List<UUID>>undefined();
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<TestSuiteType> type = JsonNullable.<TestSuiteType>undefined();
+
+  public static final String JSON_PROPERTY_SAVE_STRUCTURE = "saveStructure";
+  private JsonNullable<Boolean> saveStructure = JsonNullable.<Boolean>undefined();
+
+  public TestSuiteTestPlanApiModel() { 
   }
 
   public TestSuiteTestPlanApiModel name(String name) {
@@ -88,78 +74,19 @@ public class TestSuiteTestPlanApiModel {
    * Test suite nane
    * @return name
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public TestSuiteTestPlanApiModel configurationIds(List<UUID> configurationIds) {
-    this.configurationIds = configurationIds;
-    return this;
-  }
-
-  public TestSuiteTestPlanApiModel addConfigurationIdsItem(UUID configurationIdsItem) {
-    if (this.configurationIds == null) {
-      this.configurationIds = new ArrayList<>();
-    }
-    this.configurationIds.add(configurationIdsItem);
-    return this;
-  }
-
-  /**
-   * Configuration identifiers. Empty configurations means using default configurations
-   * @return configurationIds
-   */
-  @javax.annotation.Nullable
-  public List<UUID> getConfigurationIds() {
-    return configurationIds;
-  }
-
-  public void setConfigurationIds(List<UUID> configurationIds) {
-    this.configurationIds = configurationIds;
-  }
-
-
-  public TestSuiteTestPlanApiModel type(TestSuiteType type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Type of the test suite
-   * @return type
-   */
-  @javax.annotation.Nullable
-  public TestSuiteType getType() {
-    return type;
-  }
-
-  public void setType(TestSuiteType type) {
-    this.type = type;
-  }
-
-
-  public TestSuiteTestPlanApiModel saveStructure(Boolean saveStructure) {
-    this.saveStructure = saveStructure;
-    return this;
-  }
-
-  /**
-   * Indicates if the test suite retains section tree structure
-   * @return saveStructure
-   */
-  @javax.annotation.Nullable
-  public Boolean getSaveStructure() {
-    return saveStructure;
-  }
-
-  public void setSaveStructure(Boolean saveStructure) {
-    this.saveStructure = saveStructure;
   }
 
 
@@ -172,17 +99,136 @@ public class TestSuiteTestPlanApiModel {
    * Model containing options to filter work items
    * @return workItemsSelector
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEMS_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WorkItemSelectModel getWorkItemsSelector() {
     return workItemsSelector;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEMS_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemsSelector(WorkItemSelectModel workItemsSelector) {
     this.workItemsSelector = workItemsSelector;
   }
 
 
+  public TestSuiteTestPlanApiModel configurationIds(List<UUID> configurationIds) {
+    this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
+    return this;
+  }
 
+  public TestSuiteTestPlanApiModel addConfigurationIdsItem(UUID configurationIdsItem) {
+    if (this.configurationIds == null || !this.configurationIds.isPresent()) {
+      this.configurationIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.configurationIds.get().add(configurationIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Configuration identifiers. Empty configurations means using default configurations
+   * @return configurationIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getConfigurationIds() {
+        return configurationIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<UUID>> getConfigurationIds_JsonNullable() {
+    return configurationIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
+  public void setConfigurationIds_JsonNullable(JsonNullable<List<UUID>> configurationIds) {
+    this.configurationIds = configurationIds;
+  }
+
+  public void setConfigurationIds(List<UUID> configurationIds) {
+    this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
+  }
+
+
+  public TestSuiteTestPlanApiModel type(TestSuiteType type) {
+    this.type = JsonNullable.<TestSuiteType>of(type);
+    return this;
+  }
+
+  /**
+   * Type of the test suite
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestSuiteType getType() {
+        return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestSuiteType> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<TestSuiteType> type) {
+    this.type = type;
+  }
+
+  public void setType(TestSuiteType type) {
+    this.type = JsonNullable.<TestSuiteType>of(type);
+  }
+
+
+  public TestSuiteTestPlanApiModel saveStructure(Boolean saveStructure) {
+    this.saveStructure = JsonNullable.<Boolean>of(saveStructure);
+    return this;
+  }
+
+  /**
+   * Indicates if the test suite retains section tree structure
+   * @return saveStructure
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Boolean getSaveStructure() {
+        return saveStructure.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SAVE_STRUCTURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getSaveStructure_JsonNullable() {
+    return saveStructure;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SAVE_STRUCTURE)
+  public void setSaveStructure_JsonNullable(JsonNullable<Boolean> saveStructure) {
+    this.saveStructure = saveStructure;
+  }
+
+  public void setSaveStructure(Boolean saveStructure) {
+    this.saveStructure = JsonNullable.<Boolean>of(saveStructure);
+  }
+
+
+  /**
+   * Return true if this TestSuiteTestPlanApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -193,10 +239,10 @@ public class TestSuiteTestPlanApiModel {
     }
     TestSuiteTestPlanApiModel testSuiteTestPlanApiModel = (TestSuiteTestPlanApiModel) o;
     return Objects.equals(this.name, testSuiteTestPlanApiModel.name) &&
-        Objects.equals(this.configurationIds, testSuiteTestPlanApiModel.configurationIds) &&
-        Objects.equals(this.type, testSuiteTestPlanApiModel.type) &&
-        Objects.equals(this.saveStructure, testSuiteTestPlanApiModel.saveStructure) &&
-        Objects.equals(this.workItemsSelector, testSuiteTestPlanApiModel.workItemsSelector);
+        Objects.equals(this.workItemsSelector, testSuiteTestPlanApiModel.workItemsSelector) &&
+        equalsNullable(this.configurationIds, testSuiteTestPlanApiModel.configurationIds) &&
+        equalsNullable(this.type, testSuiteTestPlanApiModel.type) &&
+        equalsNullable(this.saveStructure, testSuiteTestPlanApiModel.saveStructure);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -205,7 +251,7 @@ public class TestSuiteTestPlanApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, configurationIds, type, saveStructure, workItemsSelector);
+    return Objects.hash(name, workItemsSelector, hashCodeNullable(configurationIds), hashCodeNullable(type), hashCodeNullable(saveStructure));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -220,10 +266,10 @@ public class TestSuiteTestPlanApiModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestSuiteTestPlanApiModel {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    workItemsSelector: ").append(toIndentedString(workItemsSelector)).append("\n");
     sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    saveStructure: ").append(toIndentedString(saveStructure)).append("\n");
-    sb.append("    workItemsSelector: ").append(toIndentedString(workItemsSelector)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -239,115 +285,5 @@ public class TestSuiteTestPlanApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("configurationIds");
-    openapiFields.add("type");
-    openapiFields.add("saveStructure");
-    openapiFields.add("workItemsSelector");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("workItemsSelector");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestSuiteTestPlanApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestSuiteTestPlanApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestSuiteTestPlanApiModel is not found in the empty JSON string", TestSuiteTestPlanApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestSuiteTestPlanApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestSuiteTestPlanApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestSuiteTestPlanApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("configurationIds") != null && !jsonObj.get("configurationIds").isJsonNull() && !jsonObj.get("configurationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationIds` to be an array in the JSON string but got `%s`", jsonObj.get("configurationIds").toString()));
-      }
-      // validate the optional field `type`
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
-        TestSuiteType.validateJsonElement(jsonObj.get("type"));
-      }
-      // validate the required field `workItemsSelector`
-      WorkItemSelectModel.validateJsonElement(jsonObj.get("workItemsSelector"));
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestSuiteTestPlanApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestSuiteTestPlanApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestSuiteTestPlanApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestSuiteTestPlanApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestSuiteTestPlanApiModel>() {
-           @Override
-           public void write(JsonWriter out, TestSuiteTestPlanApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestSuiteTestPlanApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestSuiteTestPlanApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestSuiteTestPlanApiModel
-   * @throws IOException if the JSON string is invalid with respect to TestSuiteTestPlanApiModel
-   */
-  public static TestSuiteTestPlanApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestSuiteTestPlanApiModel.class);
-  }
-
-  /**
-   * Convert an instance of TestSuiteTestPlanApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

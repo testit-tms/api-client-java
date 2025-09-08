@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,121 +35,106 @@ import ru.testit.client.model.NamedEntityApiModel;
 import ru.testit.client.model.TestResultV2GetModel;
 import ru.testit.client.model.TestRunState;
 import ru.testit.client.model.TestStatusApiResult;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestRunV2ApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestRunV2ApiResult.JSON_PROPERTY_ID,
+  TestRunV2ApiResult.JSON_PROPERTY_NAME,
+  TestRunV2ApiResult.JSON_PROPERTY_STATE_NAME,
+  TestRunV2ApiResult.JSON_PROPERTY_STATUS,
+  TestRunV2ApiResult.JSON_PROPERTY_PROJECT_ID,
+  TestRunV2ApiResult.JSON_PROPERTY_CREATED_DATE,
+  TestRunV2ApiResult.JSON_PROPERTY_CREATED_BY_ID,
+  TestRunV2ApiResult.JSON_PROPERTY_ATTACHMENTS,
+  TestRunV2ApiResult.JSON_PROPERTY_LINKS,
+  TestRunV2ApiResult.JSON_PROPERTY_WEBHOOKS,
+  TestRunV2ApiResult.JSON_PROPERTY_RUN_COUNT,
+  TestRunV2ApiResult.JSON_PROPERTY_DESCRIPTION,
+  TestRunV2ApiResult.JSON_PROPERTY_LAUNCH_SOURCE,
+  TestRunV2ApiResult.JSON_PROPERTY_STARTED_ON,
+  TestRunV2ApiResult.JSON_PROPERTY_COMPLETED_ON,
+  TestRunV2ApiResult.JSON_PROPERTY_TEST_PLAN_ID,
+  TestRunV2ApiResult.JSON_PROPERTY_TEST_RESULTS,
+  TestRunV2ApiResult.JSON_PROPERTY_MODIFIED_DATE,
+  TestRunV2ApiResult.JSON_PROPERTY_MODIFIED_BY_ID,
+  TestRunV2ApiResult.JSON_PROPERTY_CREATED_BY_USER_NAME,
+  TestRunV2ApiResult.JSON_PROPERTY_CUSTOM_PARAMETERS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunV2ApiResult {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
-  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  private String launchSource;
-
-  public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
-  @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  private OffsetDateTime startedOn;
-
-  public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
-  @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  private OffsetDateTime completedOn;
-
-  public static final String SERIALIZED_NAME_STATE_NAME = "stateName";
+  public static final String JSON_PROPERTY_STATE_NAME = "stateName";
   @Deprecated
-  @SerializedName(SERIALIZED_NAME_STATE_NAME)
   private TestRunState stateName;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private TestStatusApiResult status;
 
-  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  private UUID testPlanId;
-
-  public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
-  @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
-  private List<TestResultV2GetModel> testResults;
-
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private OffsetDateTime createdDate;
 
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private OffsetDateTime modifiedDate;
-
-  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  private UUID modifiedById;
-
-  public static final String SERIALIZED_NAME_CREATED_BY_USER_NAME = "createdByUserName";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_USER_NAME)
-  private String createdByUserName;
-
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private List<AttachmentApiResult> attachments = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_LINKS = "links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
+  public static final String JSON_PROPERTY_LINKS = "links";
   private List<LinkApiResult> links = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_CUSTOM_PARAMETERS = "customParameters";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_PARAMETERS)
-  private Map<String, String> customParameters;
-
-  public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
-  @SerializedName(SERIALIZED_NAME_WEBHOOKS)
+  public static final String JSON_PROPERTY_WEBHOOKS = "webhooks";
   private List<NamedEntityApiModel> webhooks = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_RUN_COUNT = "runCount";
-  @SerializedName(SERIALIZED_NAME_RUN_COUNT)
+  public static final String JSON_PROPERTY_RUN_COUNT = "runCount";
   private Integer runCount;
 
-  public TestRunV2ApiResult() {
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_LAUNCH_SOURCE = "launchSource";
+  private JsonNullable<String> launchSource = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_STARTED_ON = "startedOn";
+  private JsonNullable<OffsetDateTime> startedOn = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_COMPLETED_ON = "completedOn";
+  private JsonNullable<OffsetDateTime> completedOn = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  private JsonNullable<UUID> testPlanId = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_TEST_RESULTS = "testResults";
+  private JsonNullable<List<TestResultV2GetModel>> testResults = JsonNullable.<List<TestResultV2GetModel>>undefined();
+
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_CREATED_BY_USER_NAME = "createdByUserName";
+  private JsonNullable<String> createdByUserName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CUSTOM_PARAMETERS = "customParameters";
+  private JsonNullable<Map<String, String>> customParameters = JsonNullable.<Map<String, String>>undefined();
+
+  public TestRunV2ApiResult() { 
   }
 
   public TestRunV2ApiResult id(UUID id) {
@@ -160,11 +146,17 @@ public class TestRunV2ApiResult {
    * Test run unique identifier
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -179,89 +171,19 @@ public class TestRunV2ApiResult {
    * Test run name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public TestRunV2ApiResult description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Test run description
-   * @return description
-   */
-  @javax.annotation.Nullable
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public TestRunV2ApiResult launchSource(String launchSource) {
-    this.launchSource = launchSource;
-    return this;
-  }
-
-  /**
-   * Test run launch source              Once launch source is specified it cannot be updated.
-   * @return launchSource
-   */
-  @javax.annotation.Nullable
-  public String getLaunchSource() {
-    return launchSource;
-  }
-
-  public void setLaunchSource(String launchSource) {
-    this.launchSource = launchSource;
-  }
-
-
-  public TestRunV2ApiResult startedOn(OffsetDateTime startedOn) {
-    this.startedOn = startedOn;
-    return this;
-  }
-
-  /**
-   * Date and time of test run start
-   * @return startedOn
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getStartedOn() {
-    return startedOn;
-  }
-
-  public void setStartedOn(OffsetDateTime startedOn) {
-    this.startedOn = startedOn;
-  }
-
-
-  public TestRunV2ApiResult completedOn(OffsetDateTime completedOn) {
-    this.completedOn = completedOn;
-    return this;
-  }
-
-  /**
-   * Date and time of test run end
-   * @return completedOn
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getCompletedOn() {
-    return completedOn;
-  }
-
-  public void setCompletedOn(OffsetDateTime completedOn) {
-    this.completedOn = completedOn;
   }
 
 
@@ -277,12 +199,18 @@ public class TestRunV2ApiResult {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestRunState getStateName() {
     return stateName;
   }
 
+
   @Deprecated
+  @JsonProperty(JSON_PROPERTY_STATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStateName(TestRunState stateName) {
     this.stateName = stateName;
   }
@@ -297,11 +225,17 @@ public class TestRunV2ApiResult {
    * Test run status
    * @return status
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestStatusApiResult getStatus() {
     return status;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(TestStatusApiResult status) {
     this.status = status;
   }
@@ -316,59 +250,19 @@ public class TestRunV2ApiResult {
    * Project unique identifier              This property is used to link test run with project.
    * @return projectId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getProjectId() {
     return projectId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
-  }
-
-
-  public TestRunV2ApiResult testPlanId(UUID testPlanId) {
-    this.testPlanId = testPlanId;
-    return this;
-  }
-
-  /**
-   * Test plan unique identifier              This property is used to link test run with test plan.
-   * @return testPlanId
-   */
-  @javax.annotation.Nullable
-  public UUID getTestPlanId() {
-    return testPlanId;
-  }
-
-  public void setTestPlanId(UUID testPlanId) {
-    this.testPlanId = testPlanId;
-  }
-
-
-  public TestRunV2ApiResult testResults(List<TestResultV2GetModel> testResults) {
-    this.testResults = testResults;
-    return this;
-  }
-
-  public TestRunV2ApiResult addTestResultsItem(TestResultV2GetModel testResultsItem) {
-    if (this.testResults == null) {
-      this.testResults = new ArrayList<>();
-    }
-    this.testResults.add(testResultsItem);
-    return this;
-  }
-
-  /**
-   * Enumeration of test results related to test run
-   * @return testResults
-   */
-  @javax.annotation.Nullable
-  public List<TestResultV2GetModel> getTestResults() {
-    return testResults;
-  }
-
-  public void setTestResults(List<TestResultV2GetModel> testResults) {
-    this.testResults = testResults;
   }
 
 
@@ -381,32 +275,19 @@ public class TestRunV2ApiResult {
    * Date and time of test run creation
    * @return createdDate
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
-  }
-
-
-  public TestRunV2ApiResult modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
-    return this;
-  }
-
-  /**
-   * Date and time of last test run  modification
-   * @return modifiedDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getModifiedDate() {
-    return modifiedDate;
-  }
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
   }
 
 
@@ -419,51 +300,19 @@ public class TestRunV2ApiResult {
    * Unique identifier of user who created test run
    * @return createdById
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getCreatedById() {
     return createdById;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
-  }
-
-
-  public TestRunV2ApiResult modifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
-    return this;
-  }
-
-  /**
-   * Unique identifier of user who applied last test run  modification
-   * @return modifiedById
-   */
-  @javax.annotation.Nullable
-  public UUID getModifiedById() {
-    return modifiedById;
-  }
-
-  public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
-  }
-
-
-  public TestRunV2ApiResult createdByUserName(String createdByUserName) {
-    this.createdByUserName = createdByUserName;
-    return this;
-  }
-
-  /**
-   * Username of user who created test run
-   * @return createdByUserName
-   */
-  @javax.annotation.Nullable
-  public String getCreatedByUserName() {
-    return createdByUserName;
-  }
-
-  public void setCreatedByUserName(String createdByUserName) {
-    this.createdByUserName = createdByUserName;
   }
 
 
@@ -484,11 +333,17 @@ public class TestRunV2ApiResult {
    * Collection of attachments related to the test run
    * @return attachments
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<AttachmentApiResult> getAttachments() {
     return attachments;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAttachments(List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
@@ -511,40 +366,19 @@ public class TestRunV2ApiResult {
    * Collection of links related to the test run
    * @return links
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<LinkApiResult> getLinks() {
     return links;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLinks(List<LinkApiResult> links) {
     this.links = links;
-  }
-
-
-  public TestRunV2ApiResult customParameters(Map<String, String> customParameters) {
-    this.customParameters = customParameters;
-    return this;
-  }
-
-  public TestRunV2ApiResult putCustomParametersItem(String key, String customParametersItem) {
-    if (this.customParameters == null) {
-      this.customParameters = new HashMap<>();
-    }
-    this.customParameters.put(key, customParametersItem);
-    return this;
-  }
-
-  /**
-   * Customers test run parameters
-   * @return customParameters
-   */
-  @javax.annotation.Nullable
-  public Map<String, String> getCustomParameters() {
-    return customParameters;
-  }
-
-  public void setCustomParameters(Map<String, String> customParameters) {
-    this.customParameters = customParameters;
   }
 
 
@@ -565,11 +399,17 @@ public class TestRunV2ApiResult {
    * Enabled webhooks
    * @return webhooks
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WEBHOOKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<NamedEntityApiModel> getWebhooks() {
     return webhooks;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WEBHOOKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWebhooks(List<NamedEntityApiModel> webhooks) {
     this.webhooks = webhooks;
   }
@@ -584,17 +424,379 @@ public class TestRunV2ApiResult {
    * Run count
    * @return runCount
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_RUN_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getRunCount() {
     return runCount;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_RUN_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRunCount(Integer runCount) {
     this.runCount = runCount;
   }
 
 
+  public TestRunV2ApiResult description(String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
 
+  /**
+   * Test run description
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
+  }
+
+
+  public TestRunV2ApiResult launchSource(String launchSource) {
+    this.launchSource = JsonNullable.<String>of(launchSource);
+    return this;
+  }
+
+  /**
+   * Test run launch source              Once launch source is specified it cannot be updated.
+   * @return launchSource
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getLaunchSource() {
+        return launchSource.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getLaunchSource_JsonNullable() {
+    return launchSource;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  public void setLaunchSource_JsonNullable(JsonNullable<String> launchSource) {
+    this.launchSource = launchSource;
+  }
+
+  public void setLaunchSource(String launchSource) {
+    this.launchSource = JsonNullable.<String>of(launchSource);
+  }
+
+
+  public TestRunV2ApiResult startedOn(OffsetDateTime startedOn) {
+    this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
+    return this;
+  }
+
+  /**
+   * Date and time of test run start
+   * @return startedOn
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getStartedOn() {
+        return startedOn.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STARTED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getStartedOn_JsonNullable() {
+    return startedOn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STARTED_ON)
+  public void setStartedOn_JsonNullable(JsonNullable<OffsetDateTime> startedOn) {
+    this.startedOn = startedOn;
+  }
+
+  public void setStartedOn(OffsetDateTime startedOn) {
+    this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
+  }
+
+
+  public TestRunV2ApiResult completedOn(OffsetDateTime completedOn) {
+    this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
+    return this;
+  }
+
+  /**
+   * Date and time of test run end
+   * @return completedOn
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getCompletedOn() {
+        return completedOn.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLETED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getCompletedOn_JsonNullable() {
+    return completedOn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COMPLETED_ON)
+  public void setCompletedOn_JsonNullable(JsonNullable<OffsetDateTime> completedOn) {
+    this.completedOn = completedOn;
+  }
+
+  public void setCompletedOn(OffsetDateTime completedOn) {
+    this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
+  }
+
+
+  public TestRunV2ApiResult testPlanId(UUID testPlanId) {
+    this.testPlanId = JsonNullable.<UUID>of(testPlanId);
+    return this;
+  }
+
+  /**
+   * Test plan unique identifier              This property is used to link test run with test plan.
+   * @return testPlanId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getTestPlanId() {
+        return testPlanId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getTestPlanId_JsonNullable() {
+    return testPlanId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  public void setTestPlanId_JsonNullable(JsonNullable<UUID> testPlanId) {
+    this.testPlanId = testPlanId;
+  }
+
+  public void setTestPlanId(UUID testPlanId) {
+    this.testPlanId = JsonNullable.<UUID>of(testPlanId);
+  }
+
+
+  public TestRunV2ApiResult testResults(List<TestResultV2GetModel> testResults) {
+    this.testResults = JsonNullable.<List<TestResultV2GetModel>>of(testResults);
+    return this;
+  }
+
+  public TestRunV2ApiResult addTestResultsItem(TestResultV2GetModel testResultsItem) {
+    if (this.testResults == null || !this.testResults.isPresent()) {
+      this.testResults = JsonNullable.<List<TestResultV2GetModel>>of(new ArrayList<>());
+    }
+    try {
+      this.testResults.get().add(testResultsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Enumeration of test results related to test run
+   * @return testResults
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<TestResultV2GetModel> getTestResults() {
+        return testResults.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_RESULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<TestResultV2GetModel>> getTestResults_JsonNullable() {
+    return testResults;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_RESULTS)
+  public void setTestResults_JsonNullable(JsonNullable<List<TestResultV2GetModel>> testResults) {
+    this.testResults = testResults;
+  }
+
+  public void setTestResults(List<TestResultV2GetModel> testResults) {
+    this.testResults = JsonNullable.<List<TestResultV2GetModel>>of(testResults);
+  }
+
+
+  public TestRunV2ApiResult modifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    return this;
+  }
+
+  /**
+   * Date and time of last test run  modification
+   * @return modifiedDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getModifiedDate() {
+        return modifiedDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
+    return modifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+  }
+
+
+  public TestRunV2ApiResult modifiedById(UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    return this;
+  }
+
+  /**
+   * Unique identifier of user who applied last test run  modification
+   * @return modifiedById
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getModifiedById() {
+        return modifiedById.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getModifiedById_JsonNullable() {
+    return modifiedById;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
+    this.modifiedById = modifiedById;
+  }
+
+  public void setModifiedById(UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+  }
+
+
+  public TestRunV2ApiResult createdByUserName(String createdByUserName) {
+    this.createdByUserName = JsonNullable.<String>of(createdByUserName);
+    return this;
+  }
+
+  /**
+   * Username of user who created test run
+   * @return createdByUserName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getCreatedByUserName() {
+        return createdByUserName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_USER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCreatedByUserName_JsonNullable() {
+    return createdByUserName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_USER_NAME)
+  public void setCreatedByUserName_JsonNullable(JsonNullable<String> createdByUserName) {
+    this.createdByUserName = createdByUserName;
+  }
+
+  public void setCreatedByUserName(String createdByUserName) {
+    this.createdByUserName = JsonNullable.<String>of(createdByUserName);
+  }
+
+
+  public TestRunV2ApiResult customParameters(Map<String, String> customParameters) {
+    this.customParameters = JsonNullable.<Map<String, String>>of(customParameters);
+    return this;
+  }
+
+  public TestRunV2ApiResult putCustomParametersItem(String key, String customParametersItem) {
+    if (this.customParameters == null || !this.customParameters.isPresent()) {
+      this.customParameters = JsonNullable.<Map<String, String>>of(new HashMap<>());
+    }
+    try {
+      this.customParameters.get().put(key, customParametersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Customers test run parameters
+   * @return customParameters
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Map<String, String> getCustomParameters() {
+        return customParameters.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, String>> getCustomParameters_JsonNullable() {
+    return customParameters;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_PARAMETERS)
+  public void setCustomParameters_JsonNullable(JsonNullable<Map<String, String>> customParameters) {
+    this.customParameters = customParameters;
+  }
+
+  public void setCustomParameters(Map<String, String> customParameters) {
+    this.customParameters = JsonNullable.<Map<String, String>>of(customParameters);
+  }
+
+
+  /**
+   * Return true if this TestRunV2ApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -606,25 +808,25 @@ public class TestRunV2ApiResult {
     TestRunV2ApiResult testRunV2ApiResult = (TestRunV2ApiResult) o;
     return Objects.equals(this.id, testRunV2ApiResult.id) &&
         Objects.equals(this.name, testRunV2ApiResult.name) &&
-        Objects.equals(this.description, testRunV2ApiResult.description) &&
-        Objects.equals(this.launchSource, testRunV2ApiResult.launchSource) &&
-        Objects.equals(this.startedOn, testRunV2ApiResult.startedOn) &&
-        Objects.equals(this.completedOn, testRunV2ApiResult.completedOn) &&
         Objects.equals(this.stateName, testRunV2ApiResult.stateName) &&
         Objects.equals(this.status, testRunV2ApiResult.status) &&
         Objects.equals(this.projectId, testRunV2ApiResult.projectId) &&
-        Objects.equals(this.testPlanId, testRunV2ApiResult.testPlanId) &&
-        Objects.equals(this.testResults, testRunV2ApiResult.testResults) &&
         Objects.equals(this.createdDate, testRunV2ApiResult.createdDate) &&
-        Objects.equals(this.modifiedDate, testRunV2ApiResult.modifiedDate) &&
         Objects.equals(this.createdById, testRunV2ApiResult.createdById) &&
-        Objects.equals(this.modifiedById, testRunV2ApiResult.modifiedById) &&
-        Objects.equals(this.createdByUserName, testRunV2ApiResult.createdByUserName) &&
         Objects.equals(this.attachments, testRunV2ApiResult.attachments) &&
         Objects.equals(this.links, testRunV2ApiResult.links) &&
-        Objects.equals(this.customParameters, testRunV2ApiResult.customParameters) &&
         Objects.equals(this.webhooks, testRunV2ApiResult.webhooks) &&
-        Objects.equals(this.runCount, testRunV2ApiResult.runCount);
+        Objects.equals(this.runCount, testRunV2ApiResult.runCount) &&
+        equalsNullable(this.description, testRunV2ApiResult.description) &&
+        equalsNullable(this.launchSource, testRunV2ApiResult.launchSource) &&
+        equalsNullable(this.startedOn, testRunV2ApiResult.startedOn) &&
+        equalsNullable(this.completedOn, testRunV2ApiResult.completedOn) &&
+        equalsNullable(this.testPlanId, testRunV2ApiResult.testPlanId) &&
+        equalsNullable(this.testResults, testRunV2ApiResult.testResults) &&
+        equalsNullable(this.modifiedDate, testRunV2ApiResult.modifiedDate) &&
+        equalsNullable(this.modifiedById, testRunV2ApiResult.modifiedById) &&
+        equalsNullable(this.createdByUserName, testRunV2ApiResult.createdByUserName) &&
+        equalsNullable(this.customParameters, testRunV2ApiResult.customParameters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -633,7 +835,7 @@ public class TestRunV2ApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, launchSource, startedOn, completedOn, stateName, status, projectId, testPlanId, testResults, createdDate, modifiedDate, createdById, modifiedById, createdByUserName, attachments, links, customParameters, webhooks, runCount);
+    return Objects.hash(id, name, stateName, status, projectId, createdDate, createdById, attachments, links, webhooks, runCount, hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(testPlanId), hashCodeNullable(testResults), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName), hashCodeNullable(customParameters));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -649,25 +851,25 @@ public class TestRunV2ApiResult {
     sb.append("class TestRunV2ApiResult {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    stateName: ").append(toIndentedString(stateName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
+    sb.append("    runCount: ").append(toIndentedString(runCount)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
     sb.append("    completedOn: ").append(toIndentedString(completedOn)).append("\n");
-    sb.append("    stateName: ").append(toIndentedString(stateName)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    testPlanId: ").append(toIndentedString(testPlanId)).append("\n");
     sb.append("    testResults: ").append(toIndentedString(testResults)).append("\n");
-    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
-    sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    createdByUserName: ").append(toIndentedString(createdByUserName)).append("\n");
-    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    customParameters: ").append(toIndentedString(customParameters)).append("\n");
-    sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
-    sb.append("    runCount: ").append(toIndentedString(runCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -683,202 +885,5 @@ public class TestRunV2ApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("description");
-    openapiFields.add("launchSource");
-    openapiFields.add("startedOn");
-    openapiFields.add("completedOn");
-    openapiFields.add("stateName");
-    openapiFields.add("status");
-    openapiFields.add("projectId");
-    openapiFields.add("testPlanId");
-    openapiFields.add("testResults");
-    openapiFields.add("createdDate");
-    openapiFields.add("modifiedDate");
-    openapiFields.add("createdById");
-    openapiFields.add("modifiedById");
-    openapiFields.add("createdByUserName");
-    openapiFields.add("attachments");
-    openapiFields.add("links");
-    openapiFields.add("customParameters");
-    openapiFields.add("webhooks");
-    openapiFields.add("runCount");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("stateName");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("projectId");
-    openapiRequiredFields.add("createdDate");
-    openapiRequiredFields.add("createdById");
-    openapiRequiredFields.add("attachments");
-    openapiRequiredFields.add("links");
-    openapiRequiredFields.add("webhooks");
-    openapiRequiredFields.add("runCount");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestRunV2ApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestRunV2ApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunV2ApiResult is not found in the empty JSON string", TestRunV2ApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestRunV2ApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunV2ApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestRunV2ApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
-      }
-      // validate the required field `stateName`
-      TestRunState.validateJsonElement(jsonObj.get("stateName"));
-      // validate the required field `status`
-      TestStatusApiResult.validateJsonElement(jsonObj.get("status"));
-      if (!jsonObj.get("projectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
-      }
-      if ((jsonObj.get("testPlanId") != null && !jsonObj.get("testPlanId").isJsonNull()) && !jsonObj.get("testPlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
-      }
-      if (jsonObj.get("testResults") != null && !jsonObj.get("testResults").isJsonNull()) {
-        JsonArray jsonArraytestResults = jsonObj.getAsJsonArray("testResults");
-        if (jsonArraytestResults != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("testResults").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `testResults` to be an array in the JSON string but got `%s`", jsonObj.get("testResults").toString()));
-          }
-
-          // validate the optional field `testResults` (array)
-          for (int i = 0; i < jsonArraytestResults.size(); i++) {
-            TestResultV2GetModel.validateJsonElement(jsonArraytestResults.get(i));
-          };
-        }
-      }
-      if (!jsonObj.get("createdById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
-      }
-      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
-      }
-      if ((jsonObj.get("createdByUserName") != null && !jsonObj.get("createdByUserName").isJsonNull()) && !jsonObj.get("createdByUserName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdByUserName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdByUserName").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("attachments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
-      }
-
-      JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
-      // validate the required field `attachments` (array)
-      for (int i = 0; i < jsonArrayattachments.size(); i++) {
-        AttachmentApiResult.validateJsonElement(jsonArrayattachments.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("links").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
-      }
-
-      JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
-      // validate the required field `links` (array)
-      for (int i = 0; i < jsonArraylinks.size(); i++) {
-        LinkApiResult.validateJsonElement(jsonArraylinks.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("webhooks").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `webhooks` to be an array in the JSON string but got `%s`", jsonObj.get("webhooks").toString()));
-      }
-
-      JsonArray jsonArraywebhooks = jsonObj.getAsJsonArray("webhooks");
-      // validate the required field `webhooks` (array)
-      for (int i = 0; i < jsonArraywebhooks.size(); i++) {
-        NamedEntityApiModel.validateJsonElement(jsonArraywebhooks.get(i));
-      };
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestRunV2ApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestRunV2ApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestRunV2ApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunV2ApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestRunV2ApiResult>() {
-           @Override
-           public void write(JsonWriter out, TestRunV2ApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestRunV2ApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestRunV2ApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestRunV2ApiResult
-   * @throws IOException if the JSON string is invalid with respect to TestRunV2ApiResult
-   */
-  public static TestRunV2ApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestRunV2ApiResult.class);
-  }
-
-  /**
-   * Convert an instance of TestRunV2ApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

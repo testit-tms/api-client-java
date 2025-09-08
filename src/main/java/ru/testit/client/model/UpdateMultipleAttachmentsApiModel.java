@@ -14,56 +14,42 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ActionUpdate;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * UpdateMultipleAttachmentsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  UpdateMultipleAttachmentsApiModel.JSON_PROPERTY_ACTION,
+  UpdateMultipleAttachmentsApiModel.JSON_PROPERTY_ATTACHMENT_IDS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateMultipleAttachmentsApiModel {
-  public static final String SERIALIZED_NAME_ACTION = "action";
-  @SerializedName(SERIALIZED_NAME_ACTION)
+  public static final String JSON_PROPERTY_ACTION = "action";
   private ActionUpdate action;
 
-  public static final String SERIALIZED_NAME_ATTACHMENT_IDS = "attachmentIds";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENT_IDS)
-  private List<UUID> attachmentIds;
+  public static final String JSON_PROPERTY_ATTACHMENT_IDS = "attachmentIds";
+  private JsonNullable<List<UUID>> attachmentIds = JsonNullable.<List<UUID>>undefined();
 
-  public UpdateMultipleAttachmentsApiModel() {
+  public UpdateMultipleAttachmentsApiModel() { 
   }
 
   public UpdateMultipleAttachmentsApiModel action(ActionUpdate action) {
@@ -75,26 +61,36 @@ public class UpdateMultipleAttachmentsApiModel {
    * Get action
    * @return action
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ActionUpdate getAction() {
     return action;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAction(ActionUpdate action) {
     this.action = action;
   }
 
 
   public UpdateMultipleAttachmentsApiModel attachmentIds(List<UUID> attachmentIds) {
-    this.attachmentIds = attachmentIds;
+    this.attachmentIds = JsonNullable.<List<UUID>>of(attachmentIds);
     return this;
   }
 
   public UpdateMultipleAttachmentsApiModel addAttachmentIdsItem(UUID attachmentIdsItem) {
-    if (this.attachmentIds == null) {
-      this.attachmentIds = new ArrayList<>();
+    if (this.attachmentIds == null || !this.attachmentIds.isPresent()) {
+      this.attachmentIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.attachmentIds.add(attachmentIdsItem);
+    try {
+      this.attachmentIds.get().add(attachmentIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -102,17 +98,33 @@ public class UpdateMultipleAttachmentsApiModel {
    * Get attachmentIds
    * @return attachmentIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<UUID> getAttachmentIds() {
-    return attachmentIds;
+        return attachmentIds.orElse(null);
   }
 
-  public void setAttachmentIds(List<UUID> attachmentIds) {
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<UUID>> getAttachmentIds_JsonNullable() {
+    return attachmentIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT_IDS)
+  public void setAttachmentIds_JsonNullable(JsonNullable<List<UUID>> attachmentIds) {
     this.attachmentIds = attachmentIds;
   }
 
+  public void setAttachmentIds(List<UUID> attachmentIds) {
+    this.attachmentIds = JsonNullable.<List<UUID>>of(attachmentIds);
+  }
 
 
+  /**
+   * Return true if this UpdateMultipleAttachmentsApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,7 +135,7 @@ public class UpdateMultipleAttachmentsApiModel {
     }
     UpdateMultipleAttachmentsApiModel updateMultipleAttachmentsApiModel = (UpdateMultipleAttachmentsApiModel) o;
     return Objects.equals(this.action, updateMultipleAttachmentsApiModel.action) &&
-        Objects.equals(this.attachmentIds, updateMultipleAttachmentsApiModel.attachmentIds);
+        equalsNullable(this.attachmentIds, updateMultipleAttachmentsApiModel.attachmentIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -132,7 +144,7 @@ public class UpdateMultipleAttachmentsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, attachmentIds);
+    return Objects.hash(action, hashCodeNullable(attachmentIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -163,104 +175,5 @@ public class UpdateMultipleAttachmentsApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("action");
-    openapiFields.add("attachmentIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("action");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UpdateMultipleAttachmentsApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!UpdateMultipleAttachmentsApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateMultipleAttachmentsApiModel is not found in the empty JSON string", UpdateMultipleAttachmentsApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UpdateMultipleAttachmentsApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateMultipleAttachmentsApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateMultipleAttachmentsApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `action`
-      ActionUpdate.validateJsonElement(jsonObj.get("action"));
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("attachmentIds") != null && !jsonObj.get("attachmentIds").isJsonNull() && !jsonObj.get("attachmentIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `attachmentIds` to be an array in the JSON string but got `%s`", jsonObj.get("attachmentIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateMultipleAttachmentsApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateMultipleAttachmentsApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateMultipleAttachmentsApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateMultipleAttachmentsApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UpdateMultipleAttachmentsApiModel>() {
-           @Override
-           public void write(JsonWriter out, UpdateMultipleAttachmentsApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UpdateMultipleAttachmentsApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of UpdateMultipleAttachmentsApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of UpdateMultipleAttachmentsApiModel
-   * @throws IOException if the JSON string is invalid with respect to UpdateMultipleAttachmentsApiModel
-   */
-  public static UpdateMultipleAttachmentsApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateMultipleAttachmentsApiModel.class);
-  }
-
-  /**
-   * Convert an instance of UpdateMultipleAttachmentsApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

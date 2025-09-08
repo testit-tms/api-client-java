@@ -13,11 +13,11 @@
 
 package ru.testit.client.invoker;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Configuration {
-    public static final String VERSION = "2.2.1-TMS-5.4";
+    public static final String VERSION = "2.2.1";
 
-    private static ApiClient defaultApiClient = new ApiClient();
+    private static ApiClient defaultApiClient = new ApiClient(true);
 
     /**
      * Get the default API client, which would be used when creating API

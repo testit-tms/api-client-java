@@ -14,10 +14,10 @@
 |**isDeleted** | **Boolean** |  |  |
 |**progress** | **Long** |  |  |
 |**createdDate** | **OffsetDateTime** |  |  |
+|**attachments** | [**List&lt;BackgroundJobAttachmentModel&gt;**](BackgroundJobAttachmentModel.md) |  |  |
 |**startDate** | **OffsetDateTime** |  |  [optional] |
 |**endDate** | **OffsetDateTime** |  |  [optional] |
 |**error** | **String** |  |  [optional] |
-|**attachments** | [**List&lt;BackgroundJobAttachmentModel&gt;**](BackgroundJobAttachmentModel.md) |  |  |
 
 
 

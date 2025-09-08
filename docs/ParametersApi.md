@@ -21,52 +21,64 @@ All URIs are relative to *http://localhost*
 | [**updateParameter**](ParametersApi.md#updateParameter) | **PUT** /api/v2/parameters | Update parameter |
 
 
-<a id="apiV2ParametersBulkPost"></a>
-# **apiV2ParametersBulkPost**
+
+## apiV2ParametersBulkPost
+
 > List&lt;ParameterApiResult&gt; apiV2ParametersBulkPost(createParameterApiModel)
 
 Create multiple parameters
 
- Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System creates parameters  System returns list of parameter model (listed in the response example)
+
+Use case
+
+User sets list of parameter model (listed in the request example)
+
+User runs method execution
+
+System creates parameters
+
+System returns list of parameter model (listed in the response example)
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    List<CreateParameterApiModel> createParameterApiModel = Arrays.asList(); // List<CreateParameterApiModel> | 
-    try {
-      List<ParameterApiResult> result = apiInstance.apiV2ParametersBulkPost(createParameterApiModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#apiV2ParametersBulkPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        List<CreateParameterApiModel> createParameterApiModel = Arrays.asList(); // List<CreateParameterApiModel> | 
+        try {
+            List<ParameterApiResult> result = apiInstance.apiV2ParametersBulkPost(createParameterApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#apiV2ParametersBulkPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -82,8 +94,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -96,51 +108,61 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ParametersBulkPut"></a>
-# **apiV2ParametersBulkPut**
+
+## apiV2ParametersBulkPut
+
 > apiV2ParametersBulkPut(updateParameterApiModel)
 
 Update multiple parameters
 
- Use case  User sets list of parameter model (listed in the request example)  User runs method execution  System updates parameters
+
+Use case
+
+User sets list of parameter model (listed in the request example)
+
+User runs method execution
+
+System updates parameters
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    List<UpdateParameterApiModel> updateParameterApiModel = Arrays.asList(); // List<UpdateParameterApiModel> | 
-    try {
-      apiInstance.apiV2ParametersBulkPut(updateParameterApiModel);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#apiV2ParametersBulkPut");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        List<UpdateParameterApiModel> updateParameterApiModel = Arrays.asList(); // List<UpdateParameterApiModel> | 
+        try {
+            apiInstance.apiV2ParametersBulkPut(updateParameterApiModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#apiV2ParametersBulkPut");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -156,8 +178,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -170,67 +192,77 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ParametersGroupsGet"></a>
-# **apiV2ParametersGroupsGet**
+
+## apiV2ParametersGroupsGet
+
 > List&lt;ParameterGroupApiResult&gt; apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue)
 
 Get parameters as group
 
- Use case  User runs method execution  System search parameters  System returns parameters models as groups (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System search parameters
+
+System returns parameters models as groups (listed in the response example)
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    Set<UUID> parameterKeyIds = Arrays.asList(); // Set<UUID> | 
-    String name = "name_example"; // String | 
-    Boolean isDeleted = true; // Boolean | 
-    List<UUID> projectIds = Arrays.asList(); // List<UUID> | 
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    try {
-      List<ParameterGroupApiResult> result = apiInstance.apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#apiV2ParametersGroupsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        Set<UUID> parameterKeyIds = Arrays.asList(); // Set<UUID> | 
+        String name = "name_example"; // String | 
+        Boolean isDeleted = true; // Boolean | 
+        List<UUID> projectIds = Arrays.asList(); // List<UUID> | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<ParameterGroupApiResult> result = apiInstance.apiV2ParametersGroupsGet(parameterKeyIds, name, isDeleted, projectIds, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#apiV2ParametersGroupsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
 
+
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **parameterKeyIds** | [**Set&lt;UUID&gt;**](UUID.md)|  | [optional] |
+| **parameterKeyIds** | **List&lt;UUID&gt;**|  | [optional] |
 | **name** | **String**|  | [optional] |
 | **isDeleted** | **Boolean**|  | [optional] |
-| **projectIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional] |
+| **projectIds** | **List&lt;UUID&gt;**|  | [optional] |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
@@ -247,8 +279,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -261,52 +293,64 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ParametersKeyNameNameExistsGet"></a>
-# **apiV2ParametersKeyNameNameExistsGet**
+
+## apiV2ParametersKeyNameNameExistsGet
+
 > Boolean apiV2ParametersKeyNameNameExistsGet(name)
 
 Check existence parameter key in system
 
- Use case  User sets name of parameter key  User runs method execution  System search parameter key  System returns the flag for the existence of the parameter key in the system
+
+Use case
+
+User sets name of parameter key
+
+User runs method execution
+
+System search parameter key
+
+System returns the flag for the existence of the parameter key in the system
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    String name = "name_example"; // String | 
-    try {
-      Boolean result = apiInstance.apiV2ParametersKeyNameNameExistsGet(name);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#apiV2ParametersKeyNameNameExistsGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        String name = "name_example"; // String | 
+        try {
+            Boolean result = apiInstance.apiV2ParametersKeyNameNameExistsGet(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#apiV2ParametersKeyNameNameExistsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -322,8 +366,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -336,52 +380,64 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ParametersKeyValuesGet"></a>
-# **apiV2ParametersKeyValuesGet**
+
+## apiV2ParametersKeyValuesGet
+
 > List&lt;String&gt; apiV2ParametersKeyValuesGet(key)
 
 Get all parameter key values
 
- Use case  User sets parameter key (string format)  User runs method execution  System search parameter values using the key  System returns parameter
+
+Use case
+
+User sets parameter key (string format)
+
+User runs method execution
+
+System search parameter values using the key
+
+System returns parameter
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    String key = "SomeKey"; // String | Parameter key (string format)
-    try {
-      List<String> result = apiInstance.apiV2ParametersKeyValuesGet(key);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#apiV2ParametersKeyValuesGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        String key = "SomeKey"; // String | Parameter key (string format)
+        try {
+            List<String> result = apiInstance.apiV2ParametersKeyValuesGet(key);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#apiV2ParametersKeyValuesGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -397,8 +453,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -411,56 +467,76 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ParametersKeysGet"></a>
-# **apiV2ParametersKeysGet**
-> List&lt;String&gt; apiV2ParametersKeysGet(projectIds)
+
+## apiV2ParametersKeysGet
+
+> List&lt;String&gt; apiV2ParametersKeysGet(projectIds, skip, take, orderBy, searchField, searchValue)
 
 Get all parameter keys
 
- Use case  User runs method execution  System search all parameter keys  System returns parameter keys
+
+Use case
+
+User runs method execution
+
+System search all parameter keys
+
+System returns parameter keys
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    List<UUID> projectIds = Arrays.asList(); // List<UUID> | 
-    try {
-      List<String> result = apiInstance.apiV2ParametersKeysGet(projectIds);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#apiV2ParametersKeysGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        List<UUID> projectIds = Arrays.asList(); // List<UUID> | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<String> result = apiInstance.apiV2ParametersKeysGet(projectIds, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#apiV2ParametersKeysGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
 
+
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectIds** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional] |
+| **projectIds** | **List&lt;UUID&gt;**|  | [optional] |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
 
 ### Return type
 
@@ -472,13 +548,13 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
+| **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
@@ -486,55 +562,58 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ParametersSearchGroupsPost"></a>
-# **apiV2ParametersSearchGroupsPost**
+
+## apiV2ParametersSearchGroupsPost
+
 > List&lt;ParameterGroupApiResult&gt; apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel)
 
 Search for parameters as group
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    ParameterGroupsFilterApiModel parameterGroupsFilterApiModel = new ParameterGroupsFilterApiModel(); // ParameterGroupsFilterApiModel | 
-    try {
-      List<ParameterGroupApiResult> result = apiInstance.apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchGroupsPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        ParameterGroupsFilterApiModel parameterGroupsFilterApiModel = new ParameterGroupsFilterApiModel(); // ParameterGroupsFilterApiModel | 
+        try {
+            List<ParameterGroupApiResult> result = apiInstance.apiV2ParametersSearchGroupsPost(skip, take, orderBy, searchField, searchValue, parameterGroupsFilterApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchGroupsPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -555,8 +634,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -569,55 +648,58 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ParametersSearchPost"></a>
-# **apiV2ParametersSearchPost**
+
+## apiV2ParametersSearchPost
+
 > List&lt;ParameterApiResult&gt; apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel)
 
 Search for parameters
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    ParametersFilterApiModel parametersFilterApiModel = new ParametersFilterApiModel(); // ParametersFilterApiModel | 
-    try {
-      List<ParameterApiResult> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        ParametersFilterApiModel parametersFilterApiModel = new ParametersFilterApiModel(); // ParametersFilterApiModel | 
+        try {
+            List<ParameterApiResult> result = apiInstance.apiV2ParametersSearchPost(skip, take, orderBy, searchField, searchValue, parametersFilterApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#apiV2ParametersSearchPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -638,8 +720,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -652,52 +734,64 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="createParameter"></a>
-# **createParameter**
+
+## createParameter
+
 > ParameterApiResult createParameter(createParameterApiModel)
 
 Create parameter
 
- Use case  User sets parameter model (listed in the request example)  User runs method execution  System creates parameter  System returns parameter model
+
+Use case
+
+User sets parameter model (listed in the request example)
+
+User runs method execution
+
+System creates parameter
+
+System returns parameter model
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    CreateParameterApiModel createParameterApiModel = new CreateParameterApiModel(); // CreateParameterApiModel | 
-    try {
-      ParameterApiResult result = apiInstance.createParameter(createParameterApiModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#createParameter");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        CreateParameterApiModel createParameterApiModel = new CreateParameterApiModel(); // CreateParameterApiModel | 
+        try {
+            ParameterApiResult result = apiInstance.createParameter(createParameterApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#createParameter");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -713,8 +807,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -727,51 +821,54 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="deleteByName"></a>
-# **deleteByName**
+
+## deleteByName
+
 > deleteByName(name)
 
 Delete parameter by name
 
-Deletes parameter and all it&#39;s values
+Deletes parameter and all it's values
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    String name = "name_example"; // String | Name of the parameter
-    try {
-      apiInstance.deleteByName(name);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#deleteByName");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        String name = "name_example"; // String | Name of the parameter
+        try {
+            apiInstance.deleteByName(name);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#deleteByName");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -787,8 +884,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -801,51 +898,55 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Parameter is in use in iterations |  -  |
 
-<a id="deleteByParameterKeyId"></a>
-# **deleteByParameterKeyId**
+
+## deleteByParameterKeyId
+
 > deleteByParameterKeyId(keyId)
 
 Delete parameters by parameter key identifier
 
-Deletes parameter and all it&#39;s values by parameter key identifier
+Deletes parameter and all it's values by parameter key identifier
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    UUID keyId = UUID.randomUUID(); // UUID | Identifier of the parameter key
-    try {
-      apiInstance.deleteByParameterKeyId(keyId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#deleteByParameterKeyId");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        UUID keyId = UUID.randomUUID(); // UUID | Identifier of the parameter key
+        try {
+            apiInstance.deleteByParameterKeyId(keyId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#deleteByParameterKeyId");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -861,8 +962,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -875,51 +976,62 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Parameter is in use in iterations |  -  |
 
-<a id="deleteParameter"></a>
-# **deleteParameter**
+
+## deleteParameter
+
 > deleteParameter(id)
 
 Delete parameter
 
- Use case  User sets parameter internal (guid format) identifier  System search and delete parameter  System returns deleted parameter
+
+Use case
+
+User sets parameter internal (guid format) identifier
+
+System search and delete parameter
+
+System returns deleted parameter
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Parameter internal (UUID) identifier
-    try {
-      apiInstance.deleteParameter(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#deleteParameter");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Parameter internal (UUID) identifier
+        try {
+            apiInstance.deleteParameter(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#deleteParameter");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -935,8 +1047,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -949,57 +1061,71 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Parameter is in use in iterations |  -  |
 
-<a id="getAllParameters"></a>
-# **getAllParameters**
+
+## getAllParameters
+
 > List&lt;ParameterApiResult&gt; getAllParameters(isDeleted, skip, take, orderBy, searchField, searchValue)
 
 Get all parameters
 
- Use case  [Optional] User sets isDeleted field value  [Optional] If User sets isDeleted field value as true, System search all deleted parameters  [Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted  If User did not set isDeleted field value, System search all parameters  System returns array of all found parameters(listed in response model)
+
+Use case
+
+[Optional] User sets isDeleted field value
+
+[Optional] If User sets isDeleted field value as true, System search all deleted parameters
+
+[Optional] If User sets isDeleted field value as false, System search all parameters which are not deleted
+
+If User did not set isDeleted field value, System search all parameters
+
+System returns array of all found parameters(listed in response model)
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    Boolean isDeleted = true; // Boolean | If result must consist of only actual/deleted parameters
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    try {
-      List<ParameterApiResult> result = apiInstance.getAllParameters(isDeleted, skip, take, orderBy, searchField, searchValue);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#getAllParameters");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        Boolean isDeleted = true; // Boolean | If result must consist of only actual/deleted parameters
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<ParameterApiResult> result = apiInstance.getAllParameters(isDeleted, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#getAllParameters");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1020,8 +1146,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1034,52 +1160,65 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="getParameterById"></a>
-# **getParameterById**
+
+## getParameterById
+
 > ParameterApiResult getParameterById(id)
 
 Get parameter by ID
 
- Use case  User sets parameter internal (guid format) identifier  User runs method execution  System search parameter using the identifier  System returns parameter
+
+Use case
+
+User sets parameter internal (guid format) identifier
+
+User runs method execution
+
+System search parameter using the identifier
+
+System returns parameter
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Parameter internal (UUID) identifier
-    try {
-      ParameterApiResult result = apiInstance.getParameterById(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#getParameterById");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Parameter internal (UUID) identifier
+        try {
+            ParameterApiResult result = apiInstance.getParameterById(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#getParameterById");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1095,8 +1234,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1109,51 +1248,63 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="updateParameter"></a>
-# **updateParameter**
+
+## updateParameter
+
 > updateParameter(updateParameterApiModel)
 
 Update parameter
 
- Use case  User sets parameter updated properties(listed in the request example)  User runs method execution  System updated parameter using updated properties  System returns no content response
+
+Use case
+
+User sets parameter updated properties(listed in the request example)
+
+User runs method execution
+
+System updated parameter using updated properties
+
+System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ParametersApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ParametersApi apiInstance = new ParametersApi(defaultClient);
-    UpdateParameterApiModel updateParameterApiModel = new UpdateParameterApiModel(); // UpdateParameterApiModel | 
-    try {
-      apiInstance.updateParameter(updateParameterApiModel);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ParametersApi#updateParameter");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ParametersApi apiInstance = new ParametersApi(defaultClient);
+        UpdateParameterApiModel updateParameterApiModel = new UpdateParameterApiModel(); // UpdateParameterApiModel | 
+        try {
+            apiInstance.updateParameter(updateParameterApiModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ParametersApi#updateParameter");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -1169,8 +1320,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

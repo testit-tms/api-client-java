@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,144 +32,129 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentApiResult;
 import ru.testit.client.model.LinkApiResult;
 import ru.testit.client.model.TestStatusApiResult;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestResultHistoryReportApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestResultHistoryReportApiResult.JSON_PROPERTY_ID,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_CREATED_DATE,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_USER_ID,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_IS_AUTOMATED,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_STATUS,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_CREATED_BY_ID,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_FAILURE_CLASS_IDS,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_MODIFIED_DATE,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_TEST_RUN_ID,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_TEST_RUN_NAME,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_CREATED_BY_USER_NAME,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_TEST_PLAN_ID,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_TEST_PLAN_GLOBAL_ID,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_TEST_PLAN_NAME,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_CONFIGURATION_NAME,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_OUTCOME,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_COMMENT,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_LINKS,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_STARTED_ON,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_COMPLETED_ON,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_DURATION,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_MODIFIED_BY_ID,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_ATTACHMENTS,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_WORK_ITEM_VERSION_ID,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_WORK_ITEM_VERSION_NUMBER,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_LAUNCH_SOURCE,
+  TestResultHistoryReportApiResult.JSON_PROPERTY_PARAMETERS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestResultHistoryReportApiResult {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private OffsetDateTime createdDate;
 
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private OffsetDateTime modifiedDate;
-
-  public static final String SERIALIZED_NAME_USER_ID = "userId";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
+  public static final String JSON_PROPERTY_USER_ID = "userId";
   private UUID userId;
 
-  public static final String SERIALIZED_NAME_TEST_RUN_ID = "testRunId";
-  @SerializedName(SERIALIZED_NAME_TEST_RUN_ID)
-  private UUID testRunId;
-
-  public static final String SERIALIZED_NAME_TEST_RUN_NAME = "testRunName";
-  @SerializedName(SERIALIZED_NAME_TEST_RUN_NAME)
-  private String testRunName;
-
-  public static final String SERIALIZED_NAME_CREATED_BY_USER_NAME = "createdByUserName";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_USER_NAME)
-  private String createdByUserName;
-
-  public static final String SERIALIZED_NAME_TEST_PLAN_ID = "testPlanId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_ID)
-  private UUID testPlanId;
-
-  public static final String SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_GLOBAL_ID)
-  private Long testPlanGlobalId;
-
-  public static final String SERIALIZED_NAME_TEST_PLAN_NAME = "testPlanName";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_NAME)
-  private String testPlanName;
-
-  public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
-  private String configurationName;
-
-  public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
-  @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
+  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
   private Boolean isAutomated;
 
-  public static final String SERIALIZED_NAME_OUTCOME = "outcome";
-  @SerializedName(SERIALIZED_NAME_OUTCOME)
-  private String outcome;
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private TestStatusApiResult status;
 
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  private String comment;
-
-  public static final String SERIALIZED_NAME_LINKS = "links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<LinkApiResult> links;
-
-  public static final String SERIALIZED_NAME_STARTED_ON = "startedOn";
-  @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  private OffsetDateTime startedOn;
-
-  public static final String SERIALIZED_NAME_COMPLETED_ON = "completedOn";
-  @SerializedName(SERIALIZED_NAME_COMPLETED_ON)
-  private OffsetDateTime completedOn;
-
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
-  private Long duration;
-
-  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  private UUID modifiedById;
-
-  public static final String SERIALIZED_NAME_ATTACHMENTS = "attachments";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENTS)
-  private List<AttachmentApiResult> attachments;
-
-  public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_ID = "workItemVersionId";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_ID)
-  private UUID workItemVersionId;
-
-  public static final String SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER = "workItemVersionNumber";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_VERSION_NUMBER)
-  private Integer workItemVersionNumber;
-
-  public static final String SERIALIZED_NAME_LAUNCH_SOURCE = "launchSource";
-  @SerializedName(SERIALIZED_NAME_LAUNCH_SOURCE)
-  private String launchSource;
-
-  public static final String SERIALIZED_NAME_FAILURE_CLASS_IDS = "failureClassIds";
-  @SerializedName(SERIALIZED_NAME_FAILURE_CLASS_IDS)
+  public static final String JSON_PROPERTY_FAILURE_CLASS_IDS = "failureClassIds";
   private List<UUID> failureClassIds = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
-  @SerializedName(SERIALIZED_NAME_PARAMETERS)
-  private Map<String, String> parameters;
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
 
-  public TestResultHistoryReportApiResult() {
+  public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
+  private JsonNullable<UUID> testRunId = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_TEST_RUN_NAME = "testRunName";
+  private JsonNullable<String> testRunName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CREATED_BY_USER_NAME = "createdByUserName";
+  private JsonNullable<String> createdByUserName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  private JsonNullable<UUID> testPlanId = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
+  private JsonNullable<Long> testPlanGlobalId = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_TEST_PLAN_NAME = "testPlanName";
+  private JsonNullable<String> testPlanName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CONFIGURATION_NAME = "configurationName";
+  private JsonNullable<String> configurationName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_OUTCOME = "outcome";
+  private JsonNullable<String> outcome = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_COMMENT = "comment";
+  private JsonNullable<String> comment = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private JsonNullable<List<LinkApiResult>> links = JsonNullable.<List<LinkApiResult>>undefined();
+
+  public static final String JSON_PROPERTY_STARTED_ON = "startedOn";
+  private JsonNullable<OffsetDateTime> startedOn = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_COMPLETED_ON = "completedOn";
+  private JsonNullable<OffsetDateTime> completedOn = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_DURATION = "duration";
+  private JsonNullable<Long> duration = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  private JsonNullable<List<AttachmentApiResult>> attachments = JsonNullable.<List<AttachmentApiResult>>undefined();
+
+  public static final String JSON_PROPERTY_WORK_ITEM_VERSION_ID = "workItemVersionId";
+  private JsonNullable<UUID> workItemVersionId = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_WORK_ITEM_VERSION_NUMBER = "workItemVersionNumber";
+  private JsonNullable<Integer> workItemVersionNumber = JsonNullable.<Integer>undefined();
+
+  public static final String JSON_PROPERTY_LAUNCH_SOURCE = "launchSource";
+  private JsonNullable<String> launchSource = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  private JsonNullable<Map<String, String>> parameters = JsonNullable.<Map<String, String>>undefined();
+
+  public TestResultHistoryReportApiResult() { 
   }
 
   public TestResultHistoryReportApiResult id(UUID id) {
@@ -180,11 +166,17 @@ public class TestResultHistoryReportApiResult {
    * Internal test result identifier
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -199,32 +191,19 @@ public class TestResultHistoryReportApiResult {
    * Test result creation date
    * @return createdDate
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
-  }
-
-
-  public TestResultHistoryReportApiResult modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
-    return this;
-  }
-
-  /**
-   * Test result last modification date
-   * @return modifiedDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getModifiedDate() {
-    return modifiedDate;
-  }
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
   }
 
 
@@ -237,146 +216,19 @@ public class TestResultHistoryReportApiResult {
    * Internal identifier of user who stopped test run related to the test result or user who created the test result              If test run was stopped, this property equals identifier of user who stopped it. Otherwise, the property equals identifier of user who created the test result
    * @return userId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getUserId() {
     return userId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_USER_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserId(UUID userId) {
     this.userId = userId;
-  }
-
-
-  public TestResultHistoryReportApiResult testRunId(UUID testRunId) {
-    this.testRunId = testRunId;
-    return this;
-  }
-
-  /**
-   * Identifier of test run related to the test result
-   * @return testRunId
-   */
-  @javax.annotation.Nullable
-  public UUID getTestRunId() {
-    return testRunId;
-  }
-
-  public void setTestRunId(UUID testRunId) {
-    this.testRunId = testRunId;
-  }
-
-
-  public TestResultHistoryReportApiResult testRunName(String testRunName) {
-    this.testRunName = testRunName;
-    return this;
-  }
-
-  /**
-   * Name of test run related to the test result
-   * @return testRunName
-   */
-  @javax.annotation.Nullable
-  public String getTestRunName() {
-    return testRunName;
-  }
-
-  public void setTestRunName(String testRunName) {
-    this.testRunName = testRunName;
-  }
-
-
-  public TestResultHistoryReportApiResult createdByUserName(String createdByUserName) {
-    this.createdByUserName = createdByUserName;
-    return this;
-  }
-
-  /**
-   * Username of user who created test run
-   * @return createdByUserName
-   */
-  @javax.annotation.Nullable
-  public String getCreatedByUserName() {
-    return createdByUserName;
-  }
-
-  public void setCreatedByUserName(String createdByUserName) {
-    this.createdByUserName = createdByUserName;
-  }
-
-
-  public TestResultHistoryReportApiResult testPlanId(UUID testPlanId) {
-    this.testPlanId = testPlanId;
-    return this;
-  }
-
-  /**
-   * Internal identifier of test plan related to the test result&#39;s test run
-   * @return testPlanId
-   */
-  @javax.annotation.Nullable
-  public UUID getTestPlanId() {
-    return testPlanId;
-  }
-
-  public void setTestPlanId(UUID testPlanId) {
-    this.testPlanId = testPlanId;
-  }
-
-
-  public TestResultHistoryReportApiResult testPlanGlobalId(Long testPlanGlobalId) {
-    this.testPlanGlobalId = testPlanGlobalId;
-    return this;
-  }
-
-  /**
-   * Global identifier of test plan related to the test result&#39;s test run
-   * @return testPlanGlobalId
-   */
-  @javax.annotation.Nullable
-  public Long getTestPlanGlobalId() {
-    return testPlanGlobalId;
-  }
-
-  public void setTestPlanGlobalId(Long testPlanGlobalId) {
-    this.testPlanGlobalId = testPlanGlobalId;
-  }
-
-
-  public TestResultHistoryReportApiResult testPlanName(String testPlanName) {
-    this.testPlanName = testPlanName;
-    return this;
-  }
-
-  /**
-   * Name of test plan related to the test result&#39;s test run
-   * @return testPlanName
-   */
-  @javax.annotation.Nullable
-  public String getTestPlanName() {
-    return testPlanName;
-  }
-
-  public void setTestPlanName(String testPlanName) {
-    this.testPlanName = testPlanName;
-  }
-
-
-  public TestResultHistoryReportApiResult configurationName(String configurationName) {
-    this.configurationName = configurationName;
-    return this;
-  }
-
-  /**
-   * Configuration name of test point related to the test result or from test result itself              If test point related to the test result has configuration, this property will be equal to the test point configuration name. Otherwise, this property will be equal to the test result configuration name
-   * @return configurationName
-   */
-  @javax.annotation.Nullable
-  public String getConfigurationName() {
-    return configurationName;
-  }
-
-  public void setConfigurationName(String configurationName) {
-    this.configurationName = configurationName;
   }
 
 
@@ -389,32 +241,19 @@ public class TestResultHistoryReportApiResult {
    * Boolean flag defines if test point related to the test result is automated or not
    * @return isAutomated
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsAutomated() {
     return isAutomated;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
-  }
-
-
-  public TestResultHistoryReportApiResult outcome(String outcome) {
-    this.outcome = outcome;
-    return this;
-  }
-
-  /**
-   * Outcome from test result with max modified date or from first created test result              Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped.              If any test result related to the test run is linked with autotest and the run has an outcome, the outcome value equals to the worst outcome of the last modified test result. Otherwise, the outcome equals to the outcome of first created test result in the test run.
-   * @return outcome
-   */
-  @javax.annotation.Nullable
-  public String getOutcome() {
-    return outcome;
-  }
-
-  public void setOutcome(String outcome) {
-    this.outcome = outcome;
   }
 
 
@@ -427,116 +266,19 @@ public class TestResultHistoryReportApiResult {
    * Status from test result with max modified date or from first created test result
    * @return status
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestStatusApiResult getStatus() {
     return status;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(TestStatusApiResult status) {
     this.status = status;
-  }
-
-
-  public TestResultHistoryReportApiResult comment(String comment) {
-    this.comment = comment;
-    return this;
-  }
-
-  /**
-   * Test result comment              If any test result related to the test run is linked with autotest, comment will have default value. Otherwise, the comment equals to the comment of first created test result in the test run
-   * @return comment
-   */
-  @javax.annotation.Nullable
-  public String getComment() {
-    return comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
-
-  public TestResultHistoryReportApiResult links(List<LinkApiResult> links) {
-    this.links = links;
-    return this;
-  }
-
-  public TestResultHistoryReportApiResult addLinksItem(LinkApiResult linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
-    }
-    this.links.add(linksItem);
-    return this;
-  }
-
-  /**
-   * Test result links              If any test result related to the test run is linked with autotest, link will be equal to the links of last modified test result. Otherwise, the links equals to the links of first created test result in the test run.
-   * @return links
-   */
-  @javax.annotation.Nullable
-  public List<LinkApiResult> getLinks() {
-    return links;
-  }
-
-  public void setLinks(List<LinkApiResult> links) {
-    this.links = links;
-  }
-
-
-  public TestResultHistoryReportApiResult startedOn(OffsetDateTime startedOn) {
-    this.startedOn = startedOn;
-    return this;
-  }
-
-  /**
-   * Start date time from test result or from test run (if test run new state is Running or Completed state)
-   * @return startedOn
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getStartedOn() {
-    return startedOn;
-  }
-
-  public void setStartedOn(OffsetDateTime startedOn) {
-    this.startedOn = startedOn;
-  }
-
-
-  public TestResultHistoryReportApiResult completedOn(OffsetDateTime completedOn) {
-    this.completedOn = completedOn;
-    return this;
-  }
-
-  /**
-   * End date time from test result or from test run (if test run new state is In progress, Stopped or Completed)
-   * @return completedOn
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getCompletedOn() {
-    return completedOn;
-  }
-
-  public void setCompletedOn(OffsetDateTime completedOn) {
-    this.completedOn = completedOn;
-  }
-
-
-  public TestResultHistoryReportApiResult duration(Long duration) {
-    this.duration = duration;
-    return this;
-  }
-
-  /**
-   * Duration of first created test result in the test run
-   * @return duration
-   */
-  @javax.annotation.Nullable
-  public Long getDuration() {
-    return duration;
-  }
-
-  public void setDuration(Long duration) {
-    this.duration = duration;
   }
 
 
@@ -549,116 +291,19 @@ public class TestResultHistoryReportApiResult {
    * Unique identifier of user who created first test result in the test run
    * @return createdById
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getCreatedById() {
     return createdById;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
-  }
-
-
-  public TestResultHistoryReportApiResult modifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
-    return this;
-  }
-
-  /**
-   * Unique identifier of user who applied last modification of first test result in the test run
-   * @return modifiedById
-   */
-  @javax.annotation.Nullable
-  public UUID getModifiedById() {
-    return modifiedById;
-  }
-
-  public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
-  }
-
-
-  public TestResultHistoryReportApiResult attachments(List<AttachmentApiResult> attachments) {
-    this.attachments = attachments;
-    return this;
-  }
-
-  public TestResultHistoryReportApiResult addAttachmentsItem(AttachmentApiResult attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
-    }
-    this.attachments.add(attachmentsItem);
-    return this;
-  }
-
-  /**
-   * Attachments related to the test result              If any test result related to the test run is linked with autotest, attachments will be equal to the attachments of last modified test result. Otherwise, the attachments equals to the attachments of first created test result in the test run.
-   * @return attachments
-   */
-  @javax.annotation.Nullable
-  public List<AttachmentApiResult> getAttachments() {
-    return attachments;
-  }
-
-  public void setAttachments(List<AttachmentApiResult> attachments) {
-    this.attachments = attachments;
-  }
-
-
-  public TestResultHistoryReportApiResult workItemVersionId(UUID workItemVersionId) {
-    this.workItemVersionId = workItemVersionId;
-    return this;
-  }
-
-  /**
-   * Unique identifier of workitem version related to the first test result in the test run
-   * @return workItemVersionId
-   */
-  @javax.annotation.Nullable
-  public UUID getWorkItemVersionId() {
-    return workItemVersionId;
-  }
-
-  public void setWorkItemVersionId(UUID workItemVersionId) {
-    this.workItemVersionId = workItemVersionId;
-  }
-
-
-  public TestResultHistoryReportApiResult workItemVersionNumber(Integer workItemVersionNumber) {
-    this.workItemVersionNumber = workItemVersionNumber;
-    return this;
-  }
-
-  /**
-   * Number of workitem version related to the first test result in the test run
-   * @return workItemVersionNumber
-   */
-  @javax.annotation.Nullable
-  public Integer getWorkItemVersionNumber() {
-    return workItemVersionNumber;
-  }
-
-  public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
-    this.workItemVersionNumber = workItemVersionNumber;
-  }
-
-
-  public TestResultHistoryReportApiResult launchSource(String launchSource) {
-    this.launchSource = launchSource;
-    return this;
-  }
-
-  /**
-   * Get launchSource
-   * @return launchSource
-   */
-  @javax.annotation.Nullable
-  public String getLaunchSource() {
-    return launchSource;
-  }
-
-  public void setLaunchSource(String launchSource) {
-    this.launchSource = launchSource;
   }
 
 
@@ -679,26 +324,687 @@ public class TestResultHistoryReportApiResult {
    * Unique identifier of failure classes related to the first test result in the test run
    * @return failureClassIds
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<UUID> getFailureClassIds() {
     return failureClassIds;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFailureClassIds(List<UUID> failureClassIds) {
     this.failureClassIds = failureClassIds;
   }
 
 
+  public TestResultHistoryReportApiResult modifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    return this;
+  }
+
+  /**
+   * Test result last modification date
+   * @return modifiedDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getModifiedDate() {
+        return modifiedDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
+    return modifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+  }
+
+
+  public TestResultHistoryReportApiResult testRunId(UUID testRunId) {
+    this.testRunId = JsonNullable.<UUID>of(testRunId);
+    return this;
+  }
+
+  /**
+   * Identifier of test run related to the test result
+   * @return testRunId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getTestRunId() {
+        return testRunId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getTestRunId_JsonNullable() {
+    return testRunId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
+  public void setTestRunId_JsonNullable(JsonNullable<UUID> testRunId) {
+    this.testRunId = testRunId;
+  }
+
+  public void setTestRunId(UUID testRunId) {
+    this.testRunId = JsonNullable.<UUID>of(testRunId);
+  }
+
+
+  public TestResultHistoryReportApiResult testRunName(String testRunName) {
+    this.testRunName = JsonNullable.<String>of(testRunName);
+    return this;
+  }
+
+  /**
+   * Name of test run related to the test result
+   * @return testRunName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getTestRunName() {
+        return testRunName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTestRunName_JsonNullable() {
+    return testRunName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_RUN_NAME)
+  public void setTestRunName_JsonNullable(JsonNullable<String> testRunName) {
+    this.testRunName = testRunName;
+  }
+
+  public void setTestRunName(String testRunName) {
+    this.testRunName = JsonNullable.<String>of(testRunName);
+  }
+
+
+  public TestResultHistoryReportApiResult createdByUserName(String createdByUserName) {
+    this.createdByUserName = JsonNullable.<String>of(createdByUserName);
+    return this;
+  }
+
+  /**
+   * Username of user who created test run
+   * @return createdByUserName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getCreatedByUserName() {
+        return createdByUserName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_USER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCreatedByUserName_JsonNullable() {
+    return createdByUserName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_USER_NAME)
+  public void setCreatedByUserName_JsonNullable(JsonNullable<String> createdByUserName) {
+    this.createdByUserName = createdByUserName;
+  }
+
+  public void setCreatedByUserName(String createdByUserName) {
+    this.createdByUserName = JsonNullable.<String>of(createdByUserName);
+  }
+
+
+  public TestResultHistoryReportApiResult testPlanId(UUID testPlanId) {
+    this.testPlanId = JsonNullable.<UUID>of(testPlanId);
+    return this;
+  }
+
+  /**
+   * Internal identifier of test plan related to the test result&#39;s test run
+   * @return testPlanId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getTestPlanId() {
+        return testPlanId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getTestPlanId_JsonNullable() {
+    return testPlanId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
+  public void setTestPlanId_JsonNullable(JsonNullable<UUID> testPlanId) {
+    this.testPlanId = testPlanId;
+  }
+
+  public void setTestPlanId(UUID testPlanId) {
+    this.testPlanId = JsonNullable.<UUID>of(testPlanId);
+  }
+
+
+  public TestResultHistoryReportApiResult testPlanGlobalId(Long testPlanGlobalId) {
+    this.testPlanGlobalId = JsonNullable.<Long>of(testPlanGlobalId);
+    return this;
+  }
+
+  /**
+   * Global identifier of test plan related to the test result&#39;s test run
+   * @return testPlanGlobalId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Long getTestPlanGlobalId() {
+        return testPlanGlobalId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getTestPlanGlobalId_JsonNullable() {
+    return testPlanGlobalId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_GLOBAL_ID)
+  public void setTestPlanGlobalId_JsonNullable(JsonNullable<Long> testPlanGlobalId) {
+    this.testPlanGlobalId = testPlanGlobalId;
+  }
+
+  public void setTestPlanGlobalId(Long testPlanGlobalId) {
+    this.testPlanGlobalId = JsonNullable.<Long>of(testPlanGlobalId);
+  }
+
+
+  public TestResultHistoryReportApiResult testPlanName(String testPlanName) {
+    this.testPlanName = JsonNullable.<String>of(testPlanName);
+    return this;
+  }
+
+  /**
+   * Name of test plan related to the test result&#39;s test run
+   * @return testPlanName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getTestPlanName() {
+        return testPlanName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTestPlanName_JsonNullable() {
+    return testPlanName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_NAME)
+  public void setTestPlanName_JsonNullable(JsonNullable<String> testPlanName) {
+    this.testPlanName = testPlanName;
+  }
+
+  public void setTestPlanName(String testPlanName) {
+    this.testPlanName = JsonNullable.<String>of(testPlanName);
+  }
+
+
+  public TestResultHistoryReportApiResult configurationName(String configurationName) {
+    this.configurationName = JsonNullable.<String>of(configurationName);
+    return this;
+  }
+
+  /**
+   * Configuration name of test point related to the test result or from test result itself              If test point related to the test result has configuration, this property will be equal to the test point configuration name. Otherwise, this property will be equal to the test result configuration name
+   * @return configurationName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getConfigurationName() {
+        return configurationName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getConfigurationName_JsonNullable() {
+    return configurationName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
+  public void setConfigurationName_JsonNullable(JsonNullable<String> configurationName) {
+    this.configurationName = configurationName;
+  }
+
+  public void setConfigurationName(String configurationName) {
+    this.configurationName = JsonNullable.<String>of(configurationName);
+  }
+
+
+  public TestResultHistoryReportApiResult outcome(String outcome) {
+    this.outcome = JsonNullable.<String>of(outcome);
+    return this;
+  }
+
+  /**
+   * Outcome from test result with max modified date or from first created test result              Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped.              If any test result related to the test run is linked with autotest and the run has an outcome, the outcome value equals to the worst outcome of the last modified test result. Otherwise, the outcome equals to the outcome of first created test result in the test run.
+   * @return outcome
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getOutcome() {
+        return outcome.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OUTCOME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getOutcome_JsonNullable() {
+    return outcome;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OUTCOME)
+  public void setOutcome_JsonNullable(JsonNullable<String> outcome) {
+    this.outcome = outcome;
+  }
+
+  public void setOutcome(String outcome) {
+    this.outcome = JsonNullable.<String>of(outcome);
+  }
+
+
+  public TestResultHistoryReportApiResult comment(String comment) {
+    this.comment = JsonNullable.<String>of(comment);
+    return this;
+  }
+
+  /**
+   * Test result comment              If any test result related to the test run is linked with autotest, comment will have default value. Otherwise, the comment equals to the comment of first created test result in the test run
+   * @return comment
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getComment() {
+        return comment.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getComment_JsonNullable() {
+    return comment;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  public void setComment_JsonNullable(JsonNullable<String> comment) {
+    this.comment = comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = JsonNullable.<String>of(comment);
+  }
+
+
+  public TestResultHistoryReportApiResult links(List<LinkApiResult> links) {
+    this.links = JsonNullable.<List<LinkApiResult>>of(links);
+    return this;
+  }
+
+  public TestResultHistoryReportApiResult addLinksItem(LinkApiResult linksItem) {
+    if (this.links == null || !this.links.isPresent()) {
+      this.links = JsonNullable.<List<LinkApiResult>>of(new ArrayList<>());
+    }
+    try {
+      this.links.get().add(linksItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Test result links              If any test result related to the test run is linked with autotest, link will be equal to the links of last modified test result. Otherwise, the links equals to the links of first created test result in the test run.
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<LinkApiResult> getLinks() {
+        return links.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<LinkApiResult>> getLinks_JsonNullable() {
+    return links;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  public void setLinks_JsonNullable(JsonNullable<List<LinkApiResult>> links) {
+    this.links = links;
+  }
+
+  public void setLinks(List<LinkApiResult> links) {
+    this.links = JsonNullable.<List<LinkApiResult>>of(links);
+  }
+
+
+  public TestResultHistoryReportApiResult startedOn(OffsetDateTime startedOn) {
+    this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
+    return this;
+  }
+
+  /**
+   * Start date time from test result or from test run (if test run new state is Running or Completed state)
+   * @return startedOn
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getStartedOn() {
+        return startedOn.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STARTED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getStartedOn_JsonNullable() {
+    return startedOn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STARTED_ON)
+  public void setStartedOn_JsonNullable(JsonNullable<OffsetDateTime> startedOn) {
+    this.startedOn = startedOn;
+  }
+
+  public void setStartedOn(OffsetDateTime startedOn) {
+    this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
+  }
+
+
+  public TestResultHistoryReportApiResult completedOn(OffsetDateTime completedOn) {
+    this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
+    return this;
+  }
+
+  /**
+   * End date time from test result or from test run (if test run new state is In progress, Stopped or Completed)
+   * @return completedOn
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getCompletedOn() {
+        return completedOn.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLETED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getCompletedOn_JsonNullable() {
+    return completedOn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COMPLETED_ON)
+  public void setCompletedOn_JsonNullable(JsonNullable<OffsetDateTime> completedOn) {
+    this.completedOn = completedOn;
+  }
+
+  public void setCompletedOn(OffsetDateTime completedOn) {
+    this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
+  }
+
+
+  public TestResultHistoryReportApiResult duration(Long duration) {
+    this.duration = JsonNullable.<Long>of(duration);
+    return this;
+  }
+
+  /**
+   * Duration of first created test result in the test run
+   * @return duration
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Long getDuration() {
+        return duration.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getDuration_JsonNullable() {
+    return duration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  public void setDuration_JsonNullable(JsonNullable<Long> duration) {
+    this.duration = duration;
+  }
+
+  public void setDuration(Long duration) {
+    this.duration = JsonNullable.<Long>of(duration);
+  }
+
+
+  public TestResultHistoryReportApiResult modifiedById(UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    return this;
+  }
+
+  /**
+   * Unique identifier of user who applied last modification of first test result in the test run
+   * @return modifiedById
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getModifiedById() {
+        return modifiedById.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getModifiedById_JsonNullable() {
+    return modifiedById;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
+    this.modifiedById = modifiedById;
+  }
+
+  public void setModifiedById(UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+  }
+
+
+  public TestResultHistoryReportApiResult attachments(List<AttachmentApiResult> attachments) {
+    this.attachments = JsonNullable.<List<AttachmentApiResult>>of(attachments);
+    return this;
+  }
+
+  public TestResultHistoryReportApiResult addAttachmentsItem(AttachmentApiResult attachmentsItem) {
+    if (this.attachments == null || !this.attachments.isPresent()) {
+      this.attachments = JsonNullable.<List<AttachmentApiResult>>of(new ArrayList<>());
+    }
+    try {
+      this.attachments.get().add(attachmentsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Attachments related to the test result              If any test result related to the test run is linked with autotest, attachments will be equal to the attachments of last modified test result. Otherwise, the attachments equals to the attachments of first created test result in the test run.
+   * @return attachments
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<AttachmentApiResult> getAttachments() {
+        return attachments.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<AttachmentApiResult>> getAttachments_JsonNullable() {
+    return attachments;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  public void setAttachments_JsonNullable(JsonNullable<List<AttachmentApiResult>> attachments) {
+    this.attachments = attachments;
+  }
+
+  public void setAttachments(List<AttachmentApiResult> attachments) {
+    this.attachments = JsonNullable.<List<AttachmentApiResult>>of(attachments);
+  }
+
+
+  public TestResultHistoryReportApiResult workItemVersionId(UUID workItemVersionId) {
+    this.workItemVersionId = JsonNullable.<UUID>of(workItemVersionId);
+    return this;
+  }
+
+  /**
+   * Unique identifier of workitem version related to the first test result in the test run
+   * @return workItemVersionId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getWorkItemVersionId() {
+        return workItemVersionId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getWorkItemVersionId_JsonNullable() {
+    return workItemVersionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
+  public void setWorkItemVersionId_JsonNullable(JsonNullable<UUID> workItemVersionId) {
+    this.workItemVersionId = workItemVersionId;
+  }
+
+  public void setWorkItemVersionId(UUID workItemVersionId) {
+    this.workItemVersionId = JsonNullable.<UUID>of(workItemVersionId);
+  }
+
+
+  public TestResultHistoryReportApiResult workItemVersionNumber(Integer workItemVersionNumber) {
+    this.workItemVersionNumber = JsonNullable.<Integer>of(workItemVersionNumber);
+    return this;
+  }
+
+  /**
+   * Number of workitem version related to the first test result in the test run
+   * @return workItemVersionNumber
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Integer getWorkItemVersionNumber() {
+        return workItemVersionNumber.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getWorkItemVersionNumber_JsonNullable() {
+    return workItemVersionNumber;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_NUMBER)
+  public void setWorkItemVersionNumber_JsonNullable(JsonNullable<Integer> workItemVersionNumber) {
+    this.workItemVersionNumber = workItemVersionNumber;
+  }
+
+  public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
+    this.workItemVersionNumber = JsonNullable.<Integer>of(workItemVersionNumber);
+  }
+
+
+  public TestResultHistoryReportApiResult launchSource(String launchSource) {
+    this.launchSource = JsonNullable.<String>of(launchSource);
+    return this;
+  }
+
+  /**
+   * Get launchSource
+   * @return launchSource
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getLaunchSource() {
+        return launchSource.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getLaunchSource_JsonNullable() {
+    return launchSource;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAUNCH_SOURCE)
+  public void setLaunchSource_JsonNullable(JsonNullable<String> launchSource) {
+    this.launchSource = launchSource;
+  }
+
+  public void setLaunchSource(String launchSource) {
+    this.launchSource = JsonNullable.<String>of(launchSource);
+  }
+
+
   public TestResultHistoryReportApiResult parameters(Map<String, String> parameters) {
-    this.parameters = parameters;
+    this.parameters = JsonNullable.<Map<String, String>>of(parameters);
     return this;
   }
 
   public TestResultHistoryReportApiResult putParametersItem(String key, String parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new HashMap<>();
+    if (this.parameters == null || !this.parameters.isPresent()) {
+      this.parameters = JsonNullable.<Map<String, String>>of(new HashMap<>());
     }
-    this.parameters.put(key, parametersItem);
+    try {
+      this.parameters.get().put(key, parametersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -706,17 +1012,33 @@ public class TestResultHistoryReportApiResult {
    * Parameters of test result
    * @return parameters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, String> getParameters() {
-    return parameters;
+        return parameters.orElse(null);
   }
 
-  public void setParameters(Map<String, String> parameters) {
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, String>> getParameters_JsonNullable() {
+    return parameters;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  public void setParameters_JsonNullable(JsonNullable<Map<String, String>> parameters) {
     this.parameters = parameters;
   }
 
+  public void setParameters(Map<String, String> parameters) {
+    this.parameters = JsonNullable.<Map<String, String>>of(parameters);
+  }
 
 
+  /**
+   * Return true if this TestResultHistoryReportApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -728,31 +1050,31 @@ public class TestResultHistoryReportApiResult {
     TestResultHistoryReportApiResult testResultHistoryReportApiResult = (TestResultHistoryReportApiResult) o;
     return Objects.equals(this.id, testResultHistoryReportApiResult.id) &&
         Objects.equals(this.createdDate, testResultHistoryReportApiResult.createdDate) &&
-        Objects.equals(this.modifiedDate, testResultHistoryReportApiResult.modifiedDate) &&
         Objects.equals(this.userId, testResultHistoryReportApiResult.userId) &&
-        Objects.equals(this.testRunId, testResultHistoryReportApiResult.testRunId) &&
-        Objects.equals(this.testRunName, testResultHistoryReportApiResult.testRunName) &&
-        Objects.equals(this.createdByUserName, testResultHistoryReportApiResult.createdByUserName) &&
-        Objects.equals(this.testPlanId, testResultHistoryReportApiResult.testPlanId) &&
-        Objects.equals(this.testPlanGlobalId, testResultHistoryReportApiResult.testPlanGlobalId) &&
-        Objects.equals(this.testPlanName, testResultHistoryReportApiResult.testPlanName) &&
-        Objects.equals(this.configurationName, testResultHistoryReportApiResult.configurationName) &&
         Objects.equals(this.isAutomated, testResultHistoryReportApiResult.isAutomated) &&
-        Objects.equals(this.outcome, testResultHistoryReportApiResult.outcome) &&
         Objects.equals(this.status, testResultHistoryReportApiResult.status) &&
-        Objects.equals(this.comment, testResultHistoryReportApiResult.comment) &&
-        Objects.equals(this.links, testResultHistoryReportApiResult.links) &&
-        Objects.equals(this.startedOn, testResultHistoryReportApiResult.startedOn) &&
-        Objects.equals(this.completedOn, testResultHistoryReportApiResult.completedOn) &&
-        Objects.equals(this.duration, testResultHistoryReportApiResult.duration) &&
         Objects.equals(this.createdById, testResultHistoryReportApiResult.createdById) &&
-        Objects.equals(this.modifiedById, testResultHistoryReportApiResult.modifiedById) &&
-        Objects.equals(this.attachments, testResultHistoryReportApiResult.attachments) &&
-        Objects.equals(this.workItemVersionId, testResultHistoryReportApiResult.workItemVersionId) &&
-        Objects.equals(this.workItemVersionNumber, testResultHistoryReportApiResult.workItemVersionNumber) &&
-        Objects.equals(this.launchSource, testResultHistoryReportApiResult.launchSource) &&
         Objects.equals(this.failureClassIds, testResultHistoryReportApiResult.failureClassIds) &&
-        Objects.equals(this.parameters, testResultHistoryReportApiResult.parameters);
+        equalsNullable(this.modifiedDate, testResultHistoryReportApiResult.modifiedDate) &&
+        equalsNullable(this.testRunId, testResultHistoryReportApiResult.testRunId) &&
+        equalsNullable(this.testRunName, testResultHistoryReportApiResult.testRunName) &&
+        equalsNullable(this.createdByUserName, testResultHistoryReportApiResult.createdByUserName) &&
+        equalsNullable(this.testPlanId, testResultHistoryReportApiResult.testPlanId) &&
+        equalsNullable(this.testPlanGlobalId, testResultHistoryReportApiResult.testPlanGlobalId) &&
+        equalsNullable(this.testPlanName, testResultHistoryReportApiResult.testPlanName) &&
+        equalsNullable(this.configurationName, testResultHistoryReportApiResult.configurationName) &&
+        equalsNullable(this.outcome, testResultHistoryReportApiResult.outcome) &&
+        equalsNullable(this.comment, testResultHistoryReportApiResult.comment) &&
+        equalsNullable(this.links, testResultHistoryReportApiResult.links) &&
+        equalsNullable(this.startedOn, testResultHistoryReportApiResult.startedOn) &&
+        equalsNullable(this.completedOn, testResultHistoryReportApiResult.completedOn) &&
+        equalsNullable(this.duration, testResultHistoryReportApiResult.duration) &&
+        equalsNullable(this.modifiedById, testResultHistoryReportApiResult.modifiedById) &&
+        equalsNullable(this.attachments, testResultHistoryReportApiResult.attachments) &&
+        equalsNullable(this.workItemVersionId, testResultHistoryReportApiResult.workItemVersionId) &&
+        equalsNullable(this.workItemVersionNumber, testResultHistoryReportApiResult.workItemVersionNumber) &&
+        equalsNullable(this.launchSource, testResultHistoryReportApiResult.launchSource) &&
+        equalsNullable(this.parameters, testResultHistoryReportApiResult.parameters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -761,7 +1083,7 @@ public class TestResultHistoryReportApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdDate, modifiedDate, userId, testRunId, testRunName, createdByUserName, testPlanId, testPlanGlobalId, testPlanName, configurationName, isAutomated, outcome, status, comment, links, startedOn, completedOn, duration, createdById, modifiedById, attachments, workItemVersionId, workItemVersionNumber, launchSource, failureClassIds, parameters);
+    return Objects.hash(id, createdDate, userId, isAutomated, status, createdById, failureClassIds, hashCodeNullable(modifiedDate), hashCodeNullable(testRunId), hashCodeNullable(testRunName), hashCodeNullable(createdByUserName), hashCodeNullable(testPlanId), hashCodeNullable(testPlanGlobalId), hashCodeNullable(testPlanName), hashCodeNullable(configurationName), hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(links), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration), hashCodeNullable(modifiedById), hashCodeNullable(attachments), hashCodeNullable(workItemVersionId), hashCodeNullable(workItemVersionNumber), hashCodeNullable(launchSource), hashCodeNullable(parameters));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -777,8 +1099,12 @@ public class TestResultHistoryReportApiResult {
     sb.append("class TestResultHistoryReportApiResult {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
-    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
+    sb.append("    failureClassIds: ").append(toIndentedString(failureClassIds)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    testRunId: ").append(toIndentedString(testRunId)).append("\n");
     sb.append("    testRunName: ").append(toIndentedString(testRunName)).append("\n");
     sb.append("    createdByUserName: ").append(toIndentedString(createdByUserName)).append("\n");
@@ -786,21 +1112,17 @@ public class TestResultHistoryReportApiResult {
     sb.append("    testPlanGlobalId: ").append(toIndentedString(testPlanGlobalId)).append("\n");
     sb.append("    testPlanName: ").append(toIndentedString(testPlanName)).append("\n");
     sb.append("    configurationName: ").append(toIndentedString(configurationName)).append("\n");
-    sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
     sb.append("    completedOn: ").append(toIndentedString(completedOn)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    workItemVersionId: ").append(toIndentedString(workItemVersionId)).append("\n");
     sb.append("    workItemVersionNumber: ").append(toIndentedString(workItemVersionNumber)).append("\n");
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
-    sb.append("    failureClassIds: ").append(toIndentedString(failureClassIds)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -817,207 +1139,5 @@ public class TestResultHistoryReportApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("createdDate");
-    openapiFields.add("modifiedDate");
-    openapiFields.add("userId");
-    openapiFields.add("testRunId");
-    openapiFields.add("testRunName");
-    openapiFields.add("createdByUserName");
-    openapiFields.add("testPlanId");
-    openapiFields.add("testPlanGlobalId");
-    openapiFields.add("testPlanName");
-    openapiFields.add("configurationName");
-    openapiFields.add("isAutomated");
-    openapiFields.add("outcome");
-    openapiFields.add("status");
-    openapiFields.add("comment");
-    openapiFields.add("links");
-    openapiFields.add("startedOn");
-    openapiFields.add("completedOn");
-    openapiFields.add("duration");
-    openapiFields.add("createdById");
-    openapiFields.add("modifiedById");
-    openapiFields.add("attachments");
-    openapiFields.add("workItemVersionId");
-    openapiFields.add("workItemVersionNumber");
-    openapiFields.add("launchSource");
-    openapiFields.add("failureClassIds");
-    openapiFields.add("parameters");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("createdDate");
-    openapiRequiredFields.add("userId");
-    openapiRequiredFields.add("isAutomated");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("createdById");
-    openapiRequiredFields.add("failureClassIds");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestResultHistoryReportApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestResultHistoryReportApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestResultHistoryReportApiResult is not found in the empty JSON string", TestResultHistoryReportApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestResultHistoryReportApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestResultHistoryReportApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestResultHistoryReportApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("userId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
-      }
-      if ((jsonObj.get("testRunId") != null && !jsonObj.get("testRunId").isJsonNull()) && !jsonObj.get("testRunId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testRunId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunId").toString()));
-      }
-      if ((jsonObj.get("testRunName") != null && !jsonObj.get("testRunName").isJsonNull()) && !jsonObj.get("testRunName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testRunName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testRunName").toString()));
-      }
-      if ((jsonObj.get("createdByUserName") != null && !jsonObj.get("createdByUserName").isJsonNull()) && !jsonObj.get("createdByUserName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdByUserName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdByUserName").toString()));
-      }
-      if ((jsonObj.get("testPlanId") != null && !jsonObj.get("testPlanId").isJsonNull()) && !jsonObj.get("testPlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanId").toString()));
-      }
-      if ((jsonObj.get("testPlanName") != null && !jsonObj.get("testPlanName").isJsonNull()) && !jsonObj.get("testPlanName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPlanName").toString()));
-      }
-      if ((jsonObj.get("configurationName") != null && !jsonObj.get("configurationName").isJsonNull()) && !jsonObj.get("configurationName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationName").toString()));
-      }
-      if ((jsonObj.get("outcome") != null && !jsonObj.get("outcome").isJsonNull()) && !jsonObj.get("outcome").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `outcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("outcome").toString()));
-      }
-      // validate the required field `status`
-      TestStatusApiResult.validateJsonElement(jsonObj.get("status"));
-      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
-      }
-      if (jsonObj.get("links") != null && !jsonObj.get("links").isJsonNull()) {
-        JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
-        if (jsonArraylinks != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("links").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
-          }
-
-          // validate the optional field `links` (array)
-          for (int i = 0; i < jsonArraylinks.size(); i++) {
-            LinkApiResult.validateJsonElement(jsonArraylinks.get(i));
-          };
-        }
-      }
-      if (!jsonObj.get("createdById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
-      }
-      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
-      }
-      if (jsonObj.get("attachments") != null && !jsonObj.get("attachments").isJsonNull()) {
-        JsonArray jsonArrayattachments = jsonObj.getAsJsonArray("attachments");
-        if (jsonArrayattachments != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("attachments").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `attachments` to be an array in the JSON string but got `%s`", jsonObj.get("attachments").toString()));
-          }
-
-          // validate the optional field `attachments` (array)
-          for (int i = 0; i < jsonArrayattachments.size(); i++) {
-            AttachmentApiResult.validateJsonElement(jsonArrayattachments.get(i));
-          };
-        }
-      }
-      if ((jsonObj.get("workItemVersionId") != null && !jsonObj.get("workItemVersionId").isJsonNull()) && !jsonObj.get("workItemVersionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemVersionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemVersionId").toString()));
-      }
-      if ((jsonObj.get("launchSource") != null && !jsonObj.get("launchSource").isJsonNull()) && !jsonObj.get("launchSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `launchSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("launchSource").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("failureClassIds") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("failureClassIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `failureClassIds` to be an array in the JSON string but got `%s`", jsonObj.get("failureClassIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestResultHistoryReportApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestResultHistoryReportApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestResultHistoryReportApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestResultHistoryReportApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestResultHistoryReportApiResult>() {
-           @Override
-           public void write(JsonWriter out, TestResultHistoryReportApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestResultHistoryReportApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestResultHistoryReportApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestResultHistoryReportApiResult
-   * @throws IOException if the JSON string is invalid with respect to TestResultHistoryReportApiResult
-   */
-  public static TestResultHistoryReportApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestResultHistoryReportApiResult.class);
-  }
-
-  /**
-   * Convert an instance of TestResultHistoryReportApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -10,20 +10,20 @@
 |**webHookName** | **String** |  |  |
 |**eventType** | **WebHookEventTypeModel** |  |  |
 |**webHookId** | **UUID** |  |  |
-|**requestBody** | **String** |  |  [optional] |
-|**requestMeta** | **String** |  |  [optional] |
 |**responseStatusCode** | **Integer** |  |  |
-|**responseBody** | **String** |  |  [optional] |
-|**responseMeta** | **String** |  |  [optional] |
 |**projectId** | **UUID** |  |  |
 |**url** | **String** |  |  |
 |**requestType** | **RequestTypeModel** |  |  |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
-|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**createdById** | **UUID** |  |  |
-|**modifiedById** | **UUID** |  |  [optional] |
 |**id** | **UUID** | Unique ID of the entity |  |
 |**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |
+|**requestBody** | **String** |  |  [optional] |
+|**requestMeta** | **String** |  |  [optional] |
+|**responseBody** | **String** |  |  [optional] |
+|**responseMeta** | **String** |  |  [optional] |
+|**createdDate** | **OffsetDateTime** |  |  [optional] |
+|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
+|**modifiedById** | **UUID** |  |  [optional] |
 
 
 

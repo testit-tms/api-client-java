@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**uri** | **String** |  |  [optional] |
 |**statusCode** | **Integer** |  |  |
-|**requestBody** | **String** |  |  [optional] |
 |**requestMeta** | **String** |  |  |
 |**responseBody** | **String** |  |  |
 |**responseMeta** | **String** |  |  |
+|**uri** | **String** |  |  [optional] |
+|**requestBody** | **String** |  |  [optional] |
 
 
 

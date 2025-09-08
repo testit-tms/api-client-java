@@ -14,26 +14,27 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import ru.testit.client.invoker.JSON;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets RequestTypeApiModel
  */
-@JsonAdapter(RequestTypeApiModel.Adapter.class)
 public enum RequestTypeApiModel {
   
   POST("Post"),
   
   PUT("Put"),
   
-  DELETE("Delete");
+  DELETE("Delete"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -41,6 +42,7 @@ public enum RequestTypeApiModel {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -50,31 +52,14 @@ public enum RequestTypeApiModel {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static RequestTypeApiModel fromValue(String value) {
     for (RequestTypeApiModel b : RequestTypeApiModel.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-
-  public static class Adapter extends TypeAdapter<RequestTypeApiModel> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final RequestTypeApiModel enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public RequestTypeApiModel read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return RequestTypeApiModel.fromValue(value);
-    }
-  }
-
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    RequestTypeApiModel.fromValue(value);
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 }
 

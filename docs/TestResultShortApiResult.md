@@ -10,13 +10,13 @@
 |**id** | **UUID** |  |  |
 |**outcome** | **String** |  |  |
 |**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  |  |
+|**createdDate** | **OffsetDateTime** |  |  |
+|**attachments** | [**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md) |  |  |
 |**traces** | **String** |  |  [optional] |
 |**failureType** | **String** |  |  [optional] |
 |**message** | **String** |  |  [optional] |
 |**testPoint** | [**TestPointShortApiResult**](TestPointShortApiResult.md) |  |  [optional] |
-|**createdDate** | **OffsetDateTime** |  |  |
 |**autoTest** | [**AutoTestShortApiResult**](AutoTestShortApiResult.md) |  |  [optional] |
-|**attachments** | [**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md) |  |  |
 
 
 
