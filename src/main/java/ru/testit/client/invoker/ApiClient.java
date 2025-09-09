@@ -119,6 +119,10 @@ public class ApiClient extends JavaTimeFormatter {
 
   protected DateFormat dateFormat;
 
+  
+  // KEEP disableCertificateValidation logic
+  // revert changes on ApiClient.java
+
   /**
    * Constructs a new ApiClient with default parameters.
    */
