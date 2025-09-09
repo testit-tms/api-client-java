@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -28,52 +29,34 @@ import java.util.Map;
 import ru.testit.client.model.ExternalFormAllowedValueModel;
 import ru.testit.client.model.ExternalFormFieldModel;
 import ru.testit.client.model.ExternalFormLinkModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ExternalFormCreateModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ExternalFormCreateModel.JSON_PROPERTY_POSSIBLE_VALUES,
+  ExternalFormCreateModel.JSON_PROPERTY_FIELDS,
+  ExternalFormCreateModel.JSON_PROPERTY_LINKS,
+  ExternalFormCreateModel.JSON_PROPERTY_VALUES
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalFormCreateModel {
-  public static final String SERIALIZED_NAME_POSSIBLE_VALUES = "possibleValues";
-  @SerializedName(SERIALIZED_NAME_POSSIBLE_VALUES)
+  public static final String JSON_PROPERTY_POSSIBLE_VALUES = "possibleValues";
   private Map<String, List<ExternalFormAllowedValueModel>> possibleValues = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_FIELDS = "fields";
-  @SerializedName(SERIALIZED_NAME_FIELDS)
+  public static final String JSON_PROPERTY_FIELDS = "fields";
   private List<ExternalFormFieldModel> fields = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_LINKS = "links";
-  @SerializedName(SERIALIZED_NAME_LINKS)
+  public static final String JSON_PROPERTY_LINKS = "links";
   private List<ExternalFormLinkModel> links = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_VALUES = "values";
-  @SerializedName(SERIALIZED_NAME_VALUES)
+  public static final String JSON_PROPERTY_VALUES = "values";
   private Map<String, Object> values = new HashMap<>();
 
-  public ExternalFormCreateModel() {
+  public ExternalFormCreateModel() { 
   }
 
   public ExternalFormCreateModel possibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
@@ -93,11 +76,17 @@ public class ExternalFormCreateModel {
    * Get possibleValues
    * @return possibleValues
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_POSSIBLE_VALUES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Map<String, List<ExternalFormAllowedValueModel>> getPossibleValues() {
     return possibleValues;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_POSSIBLE_VALUES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPossibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
   }
@@ -120,11 +109,17 @@ public class ExternalFormCreateModel {
    * Get fields
    * @return fields
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ExternalFormFieldModel> getFields() {
     return fields;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFields(List<ExternalFormFieldModel> fields) {
     this.fields = fields;
   }
@@ -147,11 +142,17 @@ public class ExternalFormCreateModel {
    * Get links
    * @return links
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ExternalFormLinkModel> getLinks() {
     return links;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLinks(List<ExternalFormLinkModel> links) {
     this.links = links;
   }
@@ -174,17 +175,25 @@ public class ExternalFormCreateModel {
    * Get values
    * @return values
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
+
   public Map<String, Object> getValues() {
     return values;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
   public void setValues(Map<String, Object> values) {
     this.values = values;
   }
 
 
-
+  /**
+   * Return true if this ExternalFormCreateModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -228,123 +237,5 @@ public class ExternalFormCreateModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("possibleValues");
-    openapiFields.add("fields");
-    openapiFields.add("links");
-    openapiFields.add("values");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("possibleValues");
-    openapiRequiredFields.add("fields");
-    openapiRequiredFields.add("links");
-    openapiRequiredFields.add("values");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ExternalFormCreateModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ExternalFormCreateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalFormCreateModel is not found in the empty JSON string", ExternalFormCreateModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ExternalFormCreateModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalFormCreateModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ExternalFormCreateModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("fields").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fields` to be an array in the JSON string but got `%s`", jsonObj.get("fields").toString()));
-      }
-
-      JsonArray jsonArrayfields = jsonObj.getAsJsonArray("fields");
-      // validate the required field `fields` (array)
-      for (int i = 0; i < jsonArrayfields.size(); i++) {
-        ExternalFormFieldModel.validateJsonElement(jsonArrayfields.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("links").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
-      }
-
-      JsonArray jsonArraylinks = jsonObj.getAsJsonArray("links");
-      // validate the required field `links` (array)
-      for (int i = 0; i < jsonArraylinks.size(); i++) {
-        ExternalFormLinkModel.validateJsonElement(jsonArraylinks.get(i));
-      };
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ExternalFormCreateModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ExternalFormCreateModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ExternalFormCreateModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ExternalFormCreateModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ExternalFormCreateModel>() {
-           @Override
-           public void write(JsonWriter out, ExternalFormCreateModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ExternalFormCreateModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ExternalFormCreateModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ExternalFormCreateModel
-   * @throws IOException if the JSON string is invalid with respect to ExternalFormCreateModel
-   */
-  public static ExternalFormCreateModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ExternalFormCreateModel.class);
-  }
-
-  /**
-   * Convert an instance of ExternalFormCreateModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

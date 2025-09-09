@@ -14,66 +14,56 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * StringExtractionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  StringExtractionModel.JSON_PROPERTY_INCLUDE,
+  StringExtractionModel.JSON_PROPERTY_EXCLUDE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StringExtractionModel {
-  public static final String SERIALIZED_NAME_INCLUDE = "include";
-  @SerializedName(SERIALIZED_NAME_INCLUDE)
-  private List<String> include;
+  public static final String JSON_PROPERTY_INCLUDE = "include";
+  private JsonNullable<List<String>> include = JsonNullable.<List<String>>undefined();
 
-  public static final String SERIALIZED_NAME_EXCLUDE = "exclude";
-  @SerializedName(SERIALIZED_NAME_EXCLUDE)
-  private List<String> exclude;
+  public static final String JSON_PROPERTY_EXCLUDE = "exclude";
+  private JsonNullable<List<String>> exclude = JsonNullable.<List<String>>undefined();
 
-  public StringExtractionModel() {
+  public StringExtractionModel() { 
   }
 
   public StringExtractionModel include(List<String> include) {
-    this.include = include;
+    this.include = JsonNullable.<List<String>>of(include);
     return this;
   }
 
   public StringExtractionModel addIncludeItem(String includeItem) {
-    if (this.include == null) {
-      this.include = new ArrayList<>();
+    if (this.include == null || !this.include.isPresent()) {
+      this.include = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.include.add(includeItem);
+    try {
+      this.include.get().add(includeItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -81,26 +71,44 @@ public class StringExtractionModel {
    * Get include
    * @return include
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<String> getInclude() {
+        return include.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INCLUDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getInclude_JsonNullable() {
     return include;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INCLUDE)
+  public void setInclude_JsonNullable(JsonNullable<List<String>> include) {
+    this.include = include;
   }
 
   public void setInclude(List<String> include) {
-    this.include = include;
+    this.include = JsonNullable.<List<String>>of(include);
   }
 
 
   public StringExtractionModel exclude(List<String> exclude) {
-    this.exclude = exclude;
+    this.exclude = JsonNullable.<List<String>>of(exclude);
     return this;
   }
 
   public StringExtractionModel addExcludeItem(String excludeItem) {
-    if (this.exclude == null) {
-      this.exclude = new ArrayList<>();
+    if (this.exclude == null || !this.exclude.isPresent()) {
+      this.exclude = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.exclude.add(excludeItem);
+    try {
+      this.exclude.get().add(excludeItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -108,17 +116,33 @@ public class StringExtractionModel {
    * Get exclude
    * @return exclude
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<String> getExclude() {
-    return exclude;
+        return exclude.orElse(null);
   }
 
-  public void setExclude(List<String> exclude) {
+  @JsonProperty(JSON_PROPERTY_EXCLUDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getExclude_JsonNullable() {
+    return exclude;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCLUDE)
+  public void setExclude_JsonNullable(JsonNullable<List<String>> exclude) {
     this.exclude = exclude;
   }
 
+  public void setExclude(List<String> exclude) {
+    this.exclude = JsonNullable.<List<String>>of(exclude);
+  }
 
 
+  /**
+   * Return true if this StringExtractionModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,8 +152,8 @@ public class StringExtractionModel {
       return false;
     }
     StringExtractionModel stringExtractionModel = (StringExtractionModel) o;
-    return Objects.equals(this.include, stringExtractionModel.include) &&
-        Objects.equals(this.exclude, stringExtractionModel.exclude);
+    return equalsNullable(this.include, stringExtractionModel.include) &&
+        equalsNullable(this.exclude, stringExtractionModel.exclude);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -138,7 +162,7 @@ public class StringExtractionModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(include, exclude);
+    return Objects.hash(hashCodeNullable(include), hashCodeNullable(exclude));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -169,98 +193,5 @@ public class StringExtractionModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("include");
-    openapiFields.add("exclude");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to StringExtractionModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!StringExtractionModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StringExtractionModel is not found in the empty JSON string", StringExtractionModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!StringExtractionModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StringExtractionModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("include") != null && !jsonObj.get("include").isJsonNull() && !jsonObj.get("include").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `include` to be an array in the JSON string but got `%s`", jsonObj.get("include").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("exclude") != null && !jsonObj.get("exclude").isJsonNull() && !jsonObj.get("exclude").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `exclude` to be an array in the JSON string but got `%s`", jsonObj.get("exclude").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StringExtractionModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StringExtractionModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StringExtractionModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StringExtractionModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<StringExtractionModel>() {
-           @Override
-           public void write(JsonWriter out, StringExtractionModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public StringExtractionModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of StringExtractionModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of StringExtractionModel
-   * @throws IOException if the JSON string is invalid with respect to StringExtractionModel
-   */
-  public static StringExtractionModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StringExtractionModel.class);
-  }
-
-  /**
-   * Convert an instance of StringExtractionModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

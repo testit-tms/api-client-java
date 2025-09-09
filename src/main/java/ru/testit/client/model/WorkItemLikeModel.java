@@ -14,74 +14,60 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkItemLikeModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkItemLikeModel.JSON_PROPERTY_WORK_ITEM_ID,
+  WorkItemLikeModel.JSON_PROPERTY_CREATED_DATE,
+  WorkItemLikeModel.JSON_PROPERTY_CREATED_BY_ID,
+  WorkItemLikeModel.JSON_PROPERTY_ID,
+  WorkItemLikeModel.JSON_PROPERTY_IS_DELETED,
+  WorkItemLikeModel.JSON_PROPERTY_MODIFIED_DATE,
+  WorkItemLikeModel.JSON_PROPERTY_MODIFIED_BY_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemLikeModel {
-  public static final String SERIALIZED_NAME_WORK_ITEM_ID = "workItemId";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_ID)
+  public static final String JSON_PROPERTY_WORK_ITEM_ID = "workItemId";
   private UUID workItemId;
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private OffsetDateTime createdDate;
 
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private OffsetDateTime modifiedDate;
-
-  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  private UUID modifiedById;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public WorkItemLikeModel() {
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+
+  public WorkItemLikeModel() { 
   }
 
   public WorkItemLikeModel workItemId(UUID workItemId) {
@@ -93,11 +79,17 @@ public class WorkItemLikeModel {
    * Get workItemId
    * @return workItemId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getWorkItemId() {
     return workItemId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemId(UUID workItemId) {
     this.workItemId = workItemId;
   }
@@ -112,32 +104,19 @@ public class WorkItemLikeModel {
    * Get createdDate
    * @return createdDate
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
-  }
-
-
-  public WorkItemLikeModel modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
-    return this;
-  }
-
-  /**
-   * Get modifiedDate
-   * @return modifiedDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getModifiedDate() {
-    return modifiedDate;
-  }
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
   }
 
 
@@ -150,32 +129,19 @@ public class WorkItemLikeModel {
    * Get createdById
    * @return createdById
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getCreatedById() {
     return createdById;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
-  }
-
-
-  public WorkItemLikeModel modifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
-    return this;
-  }
-
-  /**
-   * Get modifiedById
-   * @return modifiedById
-   */
-  @javax.annotation.Nullable
-  public UUID getModifiedById() {
-    return modifiedById;
-  }
-
-  public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
   }
 
 
@@ -188,11 +154,17 @@ public class WorkItemLikeModel {
    * Unique ID of the entity
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -207,17 +179,91 @@ public class WorkItemLikeModel {
    * Indicates if the entity is deleted
    * @return isDeleted
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
+  public WorkItemLikeModel modifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    return this;
+  }
 
+  /**
+   * Get modifiedDate
+   * @return modifiedDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getModifiedDate() {
+        return modifiedDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
+    return modifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+  }
+
+
+  public WorkItemLikeModel modifiedById(UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    return this;
+  }
+
+  /**
+   * Get modifiedById
+   * @return modifiedById
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getModifiedById() {
+        return modifiedById.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getModifiedById_JsonNullable() {
+    return modifiedById;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
+    this.modifiedById = modifiedById;
+  }
+
+  public void setModifiedById(UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+  }
+
+
+  /**
+   * Return true if this WorkItemLikeModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -229,11 +275,11 @@ public class WorkItemLikeModel {
     WorkItemLikeModel workItemLikeModel = (WorkItemLikeModel) o;
     return Objects.equals(this.workItemId, workItemLikeModel.workItemId) &&
         Objects.equals(this.createdDate, workItemLikeModel.createdDate) &&
-        Objects.equals(this.modifiedDate, workItemLikeModel.modifiedDate) &&
         Objects.equals(this.createdById, workItemLikeModel.createdById) &&
-        Objects.equals(this.modifiedById, workItemLikeModel.modifiedById) &&
         Objects.equals(this.id, workItemLikeModel.id) &&
-        Objects.equals(this.isDeleted, workItemLikeModel.isDeleted);
+        Objects.equals(this.isDeleted, workItemLikeModel.isDeleted) &&
+        equalsNullable(this.modifiedDate, workItemLikeModel.modifiedDate) &&
+        equalsNullable(this.modifiedById, workItemLikeModel.modifiedById);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +288,7 @@ public class WorkItemLikeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(workItemId, createdDate, modifiedDate, createdById, modifiedById, id, isDeleted);
+    return Objects.hash(workItemId, createdDate, createdById, id, isDeleted, hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -258,11 +304,11 @@ public class WorkItemLikeModel {
     sb.append("class WorkItemLikeModel {\n");
     sb.append("    workItemId: ").append(toIndentedString(workItemId)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
-    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
-    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
+    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -278,119 +324,5 @@ public class WorkItemLikeModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("workItemId");
-    openapiFields.add("createdDate");
-    openapiFields.add("modifiedDate");
-    openapiFields.add("createdById");
-    openapiFields.add("modifiedById");
-    openapiFields.add("id");
-    openapiFields.add("isDeleted");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("workItemId");
-    openapiRequiredFields.add("createdDate");
-    openapiRequiredFields.add("createdById");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("isDeleted");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemLikeModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemLikeModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemLikeModel is not found in the empty JSON string", WorkItemLikeModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemLikeModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemLikeModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WorkItemLikeModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("workItemId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemId").toString()));
-      }
-      if (!jsonObj.get("createdById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
-      }
-      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
-      }
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemLikeModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemLikeModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemLikeModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemLikeModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemLikeModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemLikeModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemLikeModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkItemLikeModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemLikeModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemLikeModel
-   */
-  public static WorkItemLikeModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemLikeModel.class);
-  }
-
-  /**
-   * Convert an instance of WorkItemLikeModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

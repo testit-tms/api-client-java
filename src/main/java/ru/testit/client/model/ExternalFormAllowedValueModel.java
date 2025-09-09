@@ -14,118 +14,47 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ExternalFormAllowedValueModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ExternalFormAllowedValueModel.JSON_PROPERTY_HAS_CHILDREN,
+  ExternalFormAllowedValueModel.JSON_PROPERTY_ID,
+  ExternalFormAllowedValueModel.JSON_PROPERTY_NAME,
+  ExternalFormAllowedValueModel.JSON_PROPERTY_PARENT_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalFormAllowedValueModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
-  @SerializedName(SERIALIZED_NAME_PARENT_ID)
-  private String parentId;
-
-  public static final String SERIALIZED_NAME_HAS_CHILDREN = "hasChildren";
-  @SerializedName(SERIALIZED_NAME_HAS_CHILDREN)
+  public static final String JSON_PROPERTY_HAS_CHILDREN = "hasChildren";
   private Boolean hasChildren;
 
-  public ExternalFormAllowedValueModel() {
+  public static final String JSON_PROPERTY_ID = "id";
+  private JsonNullable<String> id = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_PARENT_ID = "parentId";
+  private JsonNullable<String> parentId = JsonNullable.<String>undefined();
+
+  public ExternalFormAllowedValueModel() { 
   }
-
-  public ExternalFormAllowedValueModel id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-   */
-  @javax.annotation.Nullable
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public ExternalFormAllowedValueModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Get name
-   * @return name
-   */
-  @javax.annotation.Nullable
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public ExternalFormAllowedValueModel parentId(String parentId) {
-    this.parentId = parentId;
-    return this;
-  }
-
-  /**
-   * Get parentId
-   * @return parentId
-   */
-  @javax.annotation.Nullable
-  public String getParentId() {
-    return parentId;
-  }
-
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
-  }
-
 
   public ExternalFormAllowedValueModel hasChildren(Boolean hasChildren) {
     this.hasChildren = hasChildren;
@@ -136,17 +65,124 @@ public class ExternalFormAllowedValueModel {
    * Get hasChildren
    * @return hasChildren
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_HAS_CHILDREN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getHasChildren() {
     return hasChildren;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_HAS_CHILDREN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHasChildren(Boolean hasChildren) {
     this.hasChildren = hasChildren;
   }
 
 
+  public ExternalFormAllowedValueModel id(String id) {
+    this.id = JsonNullable.<String>of(id);
+    return this;
+  }
 
+  /**
+   * Get id
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getId() {
+        return id.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getId_JsonNullable() {
+    return id;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID)
+  public void setId_JsonNullable(JsonNullable<String> id) {
+    this.id = id;
+  }
+
+  public void setId(String id) {
+    this.id = JsonNullable.<String>of(id);
+  }
+
+
+  public ExternalFormAllowedValueModel name(String name) {
+    this.name = JsonNullable.<String>of(name);
+    return this;
+  }
+
+  /**
+   * Get name
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
+  }
+
+
+  public ExternalFormAllowedValueModel parentId(String parentId) {
+    this.parentId = JsonNullable.<String>of(parentId);
+    return this;
+  }
+
+  /**
+   * Get parentId
+   * @return parentId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getParentId() {
+        return parentId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getParentId_JsonNullable() {
+    return parentId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  public void setParentId_JsonNullable(JsonNullable<String> parentId) {
+    this.parentId = parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = JsonNullable.<String>of(parentId);
+  }
+
+
+  /**
+   * Return true if this ExternalFormAllowedValueModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -156,10 +192,10 @@ public class ExternalFormAllowedValueModel {
       return false;
     }
     ExternalFormAllowedValueModel externalFormAllowedValueModel = (ExternalFormAllowedValueModel) o;
-    return Objects.equals(this.id, externalFormAllowedValueModel.id) &&
-        Objects.equals(this.name, externalFormAllowedValueModel.name) &&
-        Objects.equals(this.parentId, externalFormAllowedValueModel.parentId) &&
-        Objects.equals(this.hasChildren, externalFormAllowedValueModel.hasChildren);
+    return Objects.equals(this.hasChildren, externalFormAllowedValueModel.hasChildren) &&
+        equalsNullable(this.id, externalFormAllowedValueModel.id) &&
+        equalsNullable(this.name, externalFormAllowedValueModel.name) &&
+        equalsNullable(this.parentId, externalFormAllowedValueModel.parentId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -168,7 +204,7 @@ public class ExternalFormAllowedValueModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, parentId, hasChildren);
+    return Objects.hash(hasChildren, hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(parentId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -182,10 +218,10 @@ public class ExternalFormAllowedValueModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalFormAllowedValueModel {\n");
+    sb.append("    hasChildren: ").append(toIndentedString(hasChildren)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
-    sb.append("    hasChildren: ").append(toIndentedString(hasChildren)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -201,109 +237,5 @@ public class ExternalFormAllowedValueModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("parentId");
-    openapiFields.add("hasChildren");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("hasChildren");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ExternalFormAllowedValueModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ExternalFormAllowedValueModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalFormAllowedValueModel is not found in the empty JSON string", ExternalFormAllowedValueModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ExternalFormAllowedValueModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalFormAllowedValueModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ExternalFormAllowedValueModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ExternalFormAllowedValueModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ExternalFormAllowedValueModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ExternalFormAllowedValueModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ExternalFormAllowedValueModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ExternalFormAllowedValueModel>() {
-           @Override
-           public void write(JsonWriter out, ExternalFormAllowedValueModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ExternalFormAllowedValueModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ExternalFormAllowedValueModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ExternalFormAllowedValueModel
-   * @throws IOException if the JSON string is invalid with respect to ExternalFormAllowedValueModel
-   */
-  public static ExternalFormAllowedValueModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ExternalFormAllowedValueModel.class);
-  }
-
-  /**
-   * Convert an instance of ExternalFormAllowedValueModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

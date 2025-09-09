@@ -14,55 +14,38 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.Arrays;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkItemPreviewApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkItemPreviewApiModel.JSON_PROPERTY_NAME,
+  WorkItemPreviewApiModel.JSON_PROPERTY_ACTION,
+  WorkItemPreviewApiModel.JSON_PROPERTY_EXPECTED
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemPreviewApiModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_ACTION = "action";
-  @SerializedName(SERIALIZED_NAME_ACTION)
+  public static final String JSON_PROPERTY_ACTION = "action";
   private String action;
 
-  public static final String SERIALIZED_NAME_EXPECTED = "expected";
-  @SerializedName(SERIALIZED_NAME_EXPECTED)
+  public static final String JSON_PROPERTY_EXPECTED = "expected";
   private String expected;
 
-  public WorkItemPreviewApiModel() {
+  public WorkItemPreviewApiModel() { 
   }
 
   public WorkItemPreviewApiModel name(String name) {
@@ -74,11 +57,17 @@ public class WorkItemPreviewApiModel {
    * Get name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -93,11 +82,17 @@ public class WorkItemPreviewApiModel {
    * Get action
    * @return action
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getAction() {
     return action;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAction(String action) {
     this.action = action;
   }
@@ -112,17 +107,25 @@ public class WorkItemPreviewApiModel {
    * Get expected
    * @return expected
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EXPECTED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getExpected() {
     return expected;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_EXPECTED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpected(String expected) {
     this.expected = expected;
   }
 
 
-
+  /**
+   * Return true if this WorkItemPreviewApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -164,110 +167,5 @@ public class WorkItemPreviewApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("action");
-    openapiFields.add("expected");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("action");
-    openapiRequiredFields.add("expected");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemPreviewApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemPreviewApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemPreviewApiModel is not found in the empty JSON string", WorkItemPreviewApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemPreviewApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemPreviewApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WorkItemPreviewApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (!jsonObj.get("action").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
-      }
-      if (!jsonObj.get("expected").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expected` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expected").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemPreviewApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemPreviewApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemPreviewApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemPreviewApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemPreviewApiModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemPreviewApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemPreviewApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkItemPreviewApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemPreviewApiModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemPreviewApiModel
-   */
-  public static WorkItemPreviewApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemPreviewApiModel.class);
-  }
-
-  /**
-   * Convert an instance of WorkItemPreviewApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

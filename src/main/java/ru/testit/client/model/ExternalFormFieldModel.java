@@ -14,215 +14,87 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ExternalFormFieldModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ExternalFormFieldModel.JSON_PROPERTY_IS_CUSTOM_VALUE_ALLOWED,
+  ExternalFormFieldModel.JSON_PROPERTY_FIELD_ID,
+  ExternalFormFieldModel.JSON_PROPERTY_FIELD_NAME,
+  ExternalFormFieldModel.JSON_PROPERTY_HELP_TEXT,
+  ExternalFormFieldModel.JSON_PROPERTY_TYPE,
+  ExternalFormFieldModel.JSON_PROPERTY_ARRAY_VALUES_TYPE,
+  ExternalFormFieldModel.JSON_PROPERTY_DEFAULT_VALUE,
+  ExternalFormFieldModel.JSON_PROPERTY_AUTO_COMPLETE_URL,
+  ExternalFormFieldModel.JSON_PROPERTY_CONTROL_TYPE,
+  ExternalFormFieldModel.JSON_PROPERTY_MIN_LENGTH,
+  ExternalFormFieldModel.JSON_PROPERTY_MAX_LENGTH,
+  ExternalFormFieldModel.JSON_PROPERTY_IS_REQUIRED,
+  ExternalFormFieldModel.JSON_PROPERTY_MIN,
+  ExternalFormFieldModel.JSON_PROPERTY_MAX
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalFormFieldModel {
-  public static final String SERIALIZED_NAME_FIELD_ID = "fieldId";
-  @SerializedName(SERIALIZED_NAME_FIELD_ID)
-  private String fieldId;
-
-  public static final String SERIALIZED_NAME_FIELD_NAME = "fieldName";
-  @SerializedName(SERIALIZED_NAME_FIELD_NAME)
-  private String fieldName;
-
-  public static final String SERIALIZED_NAME_HELP_TEXT = "helpText";
-  @SerializedName(SERIALIZED_NAME_HELP_TEXT)
-  private String helpText;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
-
-  public static final String SERIALIZED_NAME_ARRAY_VALUES_TYPE = "arrayValuesType";
-  @SerializedName(SERIALIZED_NAME_ARRAY_VALUES_TYPE)
-  private String arrayValuesType;
-
-  public static final String SERIALIZED_NAME_DEFAULT_VALUE = "defaultValue";
-  @SerializedName(SERIALIZED_NAME_DEFAULT_VALUE)
-  private Object defaultValue = null;
-
-  public static final String SERIALIZED_NAME_IS_CUSTOM_VALUE_ALLOWED = "isCustomValueAllowed";
-  @SerializedName(SERIALIZED_NAME_IS_CUSTOM_VALUE_ALLOWED)
+  public static final String JSON_PROPERTY_IS_CUSTOM_VALUE_ALLOWED = "isCustomValueAllowed";
   private Boolean isCustomValueAllowed;
 
-  public static final String SERIALIZED_NAME_AUTO_COMPLETE_URL = "autoCompleteUrl";
-  @SerializedName(SERIALIZED_NAME_AUTO_COMPLETE_URL)
-  private String autoCompleteUrl;
+  public static final String JSON_PROPERTY_FIELD_ID = "fieldId";
+  private JsonNullable<String> fieldId = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_CONTROL_TYPE = "controlType";
-  @SerializedName(SERIALIZED_NAME_CONTROL_TYPE)
-  private String controlType;
+  public static final String JSON_PROPERTY_FIELD_NAME = "fieldName";
+  private JsonNullable<String> fieldName = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_MIN_LENGTH = "minLength";
-  @SerializedName(SERIALIZED_NAME_MIN_LENGTH)
-  private Integer minLength;
+  public static final String JSON_PROPERTY_HELP_TEXT = "helpText";
+  private JsonNullable<String> helpText = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_MAX_LENGTH = "maxLength";
-  @SerializedName(SERIALIZED_NAME_MAX_LENGTH)
-  private Integer maxLength;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
-  @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
-  private Boolean isRequired;
+  public static final String JSON_PROPERTY_ARRAY_VALUES_TYPE = "arrayValuesType";
+  private JsonNullable<String> arrayValuesType = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_MIN = "min";
-  @SerializedName(SERIALIZED_NAME_MIN)
-  private Object min = null;
+  public static final String JSON_PROPERTY_DEFAULT_VALUE = "defaultValue";
+  private JsonNullable<Object> defaultValue = JsonNullable.<Object>of(null);
 
-  public static final String SERIALIZED_NAME_MAX = "max";
-  @SerializedName(SERIALIZED_NAME_MAX)
-  private Object max = null;
+  public static final String JSON_PROPERTY_AUTO_COMPLETE_URL = "autoCompleteUrl";
+  private JsonNullable<String> autoCompleteUrl = JsonNullable.<String>undefined();
 
-  public ExternalFormFieldModel() {
+  public static final String JSON_PROPERTY_CONTROL_TYPE = "controlType";
+  private JsonNullable<String> controlType = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_MIN_LENGTH = "minLength";
+  private JsonNullable<Double> minLength = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_MAX_LENGTH = "maxLength";
+  private JsonNullable<Double> maxLength = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_IS_REQUIRED = "isRequired";
+  private JsonNullable<Boolean> isRequired = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_MIN = "min";
+  private JsonNullable<Object> min = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_MAX = "max";
+  private JsonNullable<Object> max = JsonNullable.<Object>of(null);
+
+  public ExternalFormFieldModel() { 
   }
-
-  public ExternalFormFieldModel fieldId(String fieldId) {
-    this.fieldId = fieldId;
-    return this;
-  }
-
-  /**
-   * Get fieldId
-   * @return fieldId
-   */
-  @javax.annotation.Nullable
-  public String getFieldId() {
-    return fieldId;
-  }
-
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
-
-
-  public ExternalFormFieldModel fieldName(String fieldName) {
-    this.fieldName = fieldName;
-    return this;
-  }
-
-  /**
-   * Get fieldName
-   * @return fieldName
-   */
-  @javax.annotation.Nullable
-  public String getFieldName() {
-    return fieldName;
-  }
-
-  public void setFieldName(String fieldName) {
-    this.fieldName = fieldName;
-  }
-
-
-  public ExternalFormFieldModel helpText(String helpText) {
-    this.helpText = helpText;
-    return this;
-  }
-
-  /**
-   * Get helpText
-   * @return helpText
-   */
-  @javax.annotation.Nullable
-  public String getHelpText() {
-    return helpText;
-  }
-
-  public void setHelpText(String helpText) {
-    this.helpText = helpText;
-  }
-
-
-  public ExternalFormFieldModel type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nullable
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public ExternalFormFieldModel arrayValuesType(String arrayValuesType) {
-    this.arrayValuesType = arrayValuesType;
-    return this;
-  }
-
-  /**
-   * Get arrayValuesType
-   * @return arrayValuesType
-   */
-  @javax.annotation.Nullable
-  public String getArrayValuesType() {
-    return arrayValuesType;
-  }
-
-  public void setArrayValuesType(String arrayValuesType) {
-    this.arrayValuesType = arrayValuesType;
-  }
-
-
-  public ExternalFormFieldModel defaultValue(Object defaultValue) {
-    this.defaultValue = defaultValue;
-    return this;
-  }
-
-  /**
-   * Get defaultValue
-   * @return defaultValue
-   */
-  @javax.annotation.Nullable
-  public Object getDefaultValue() {
-    return defaultValue;
-  }
-
-  public void setDefaultValue(Object defaultValue) {
-    this.defaultValue = defaultValue;
-  }
-
 
   public ExternalFormFieldModel isCustomValueAllowed(Boolean isCustomValueAllowed) {
     this.isCustomValueAllowed = isCustomValueAllowed;
@@ -233,18 +105,222 @@ public class ExternalFormFieldModel {
    * Get isCustomValueAllowed
    * @return isCustomValueAllowed
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_CUSTOM_VALUE_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsCustomValueAllowed() {
     return isCustomValueAllowed;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_CUSTOM_VALUE_ALLOWED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsCustomValueAllowed(Boolean isCustomValueAllowed) {
     this.isCustomValueAllowed = isCustomValueAllowed;
   }
 
 
+  public ExternalFormFieldModel fieldId(String fieldId) {
+    this.fieldId = JsonNullable.<String>of(fieldId);
+    return this;
+  }
+
+  /**
+   * Get fieldId
+   * @return fieldId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getFieldId() {
+        return fieldId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FIELD_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getFieldId_JsonNullable() {
+    return fieldId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIELD_ID)
+  public void setFieldId_JsonNullable(JsonNullable<String> fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = JsonNullable.<String>of(fieldId);
+  }
+
+
+  public ExternalFormFieldModel fieldName(String fieldName) {
+    this.fieldName = JsonNullable.<String>of(fieldName);
+    return this;
+  }
+
+  /**
+   * Get fieldName
+   * @return fieldName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getFieldName() {
+        return fieldName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FIELD_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getFieldName_JsonNullable() {
+    return fieldName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIELD_NAME)
+  public void setFieldName_JsonNullable(JsonNullable<String> fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public void setFieldName(String fieldName) {
+    this.fieldName = JsonNullable.<String>of(fieldName);
+  }
+
+
+  public ExternalFormFieldModel helpText(String helpText) {
+    this.helpText = JsonNullable.<String>of(helpText);
+    return this;
+  }
+
+  /**
+   * Get helpText
+   * @return helpText
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getHelpText() {
+        return helpText.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_HELP_TEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getHelpText_JsonNullable() {
+    return helpText;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HELP_TEXT)
+  public void setHelpText_JsonNullable(JsonNullable<String> helpText) {
+    this.helpText = helpText;
+  }
+
+  public void setHelpText(String helpText) {
+    this.helpText = JsonNullable.<String>of(helpText);
+  }
+
+
+  public ExternalFormFieldModel type(String type) {
+    this.type = JsonNullable.<String>of(type);
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getType() {
+        return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
+    this.type = type;
+  }
+
+  public void setType(String type) {
+    this.type = JsonNullable.<String>of(type);
+  }
+
+
+  public ExternalFormFieldModel arrayValuesType(String arrayValuesType) {
+    this.arrayValuesType = JsonNullable.<String>of(arrayValuesType);
+    return this;
+  }
+
+  /**
+   * Get arrayValuesType
+   * @return arrayValuesType
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getArrayValuesType() {
+        return arrayValuesType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ARRAY_VALUES_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getArrayValuesType_JsonNullable() {
+    return arrayValuesType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ARRAY_VALUES_TYPE)
+  public void setArrayValuesType_JsonNullable(JsonNullable<String> arrayValuesType) {
+    this.arrayValuesType = arrayValuesType;
+  }
+
+  public void setArrayValuesType(String arrayValuesType) {
+    this.arrayValuesType = JsonNullable.<String>of(arrayValuesType);
+  }
+
+
+  public ExternalFormFieldModel defaultValue(Object defaultValue) {
+    this.defaultValue = JsonNullable.<Object>of(defaultValue);
+    return this;
+  }
+
+  /**
+   * Get defaultValue
+   * @return defaultValue
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Object getDefaultValue() {
+        return defaultValue.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getDefaultValue_JsonNullable() {
+    return defaultValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DEFAULT_VALUE)
+  public void setDefaultValue_JsonNullable(JsonNullable<Object> defaultValue) {
+    this.defaultValue = defaultValue;
+  }
+
+  public void setDefaultValue(Object defaultValue) {
+    this.defaultValue = JsonNullable.<Object>of(defaultValue);
+  }
+
+
   public ExternalFormFieldModel autoCompleteUrl(String autoCompleteUrl) {
-    this.autoCompleteUrl = autoCompleteUrl;
+    this.autoCompleteUrl = JsonNullable.<String>of(autoCompleteUrl);
     return this;
   }
 
@@ -252,18 +328,32 @@ public class ExternalFormFieldModel {
    * Get autoCompleteUrl
    * @return autoCompleteUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getAutoCompleteUrl() {
+        return autoCompleteUrl.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTO_COMPLETE_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getAutoCompleteUrl_JsonNullable() {
     return autoCompleteUrl;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTO_COMPLETE_URL)
+  public void setAutoCompleteUrl_JsonNullable(JsonNullable<String> autoCompleteUrl) {
+    this.autoCompleteUrl = autoCompleteUrl;
   }
 
   public void setAutoCompleteUrl(String autoCompleteUrl) {
-    this.autoCompleteUrl = autoCompleteUrl;
+    this.autoCompleteUrl = JsonNullable.<String>of(autoCompleteUrl);
   }
 
 
   public ExternalFormFieldModel controlType(String controlType) {
-    this.controlType = controlType;
+    this.controlType = JsonNullable.<String>of(controlType);
     return this;
   }
 
@@ -271,18 +361,32 @@ public class ExternalFormFieldModel {
    * Get controlType
    * @return controlType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getControlType() {
-    return controlType;
+        return controlType.orElse(null);
   }
 
-  public void setControlType(String controlType) {
+  @JsonProperty(JSON_PROPERTY_CONTROL_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getControlType_JsonNullable() {
+    return controlType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONTROL_TYPE)
+  public void setControlType_JsonNullable(JsonNullable<String> controlType) {
     this.controlType = controlType;
   }
 
+  public void setControlType(String controlType) {
+    this.controlType = JsonNullable.<String>of(controlType);
+  }
 
-  public ExternalFormFieldModel minLength(Integer minLength) {
-    this.minLength = minLength;
+
+  public ExternalFormFieldModel minLength(Double minLength) {
+    this.minLength = JsonNullable.<Double>of(minLength);
     return this;
   }
 
@@ -290,18 +394,32 @@ public class ExternalFormFieldModel {
    * Get minLength
    * @return minLength
    */
-  @javax.annotation.Nullable
-  public Integer getMinLength() {
-    return minLength;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Double getMinLength() {
+        return minLength.orElse(null);
   }
 
-  public void setMinLength(Integer minLength) {
+  @JsonProperty(JSON_PROPERTY_MIN_LENGTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Double> getMinLength_JsonNullable() {
+    return minLength;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MIN_LENGTH)
+  public void setMinLength_JsonNullable(JsonNullable<Double> minLength) {
     this.minLength = minLength;
   }
 
+  public void setMinLength(Double minLength) {
+    this.minLength = JsonNullable.<Double>of(minLength);
+  }
 
-  public ExternalFormFieldModel maxLength(Integer maxLength) {
-    this.maxLength = maxLength;
+
+  public ExternalFormFieldModel maxLength(Double maxLength) {
+    this.maxLength = JsonNullable.<Double>of(maxLength);
     return this;
   }
 
@@ -309,18 +427,32 @@ public class ExternalFormFieldModel {
    * Get maxLength
    * @return maxLength
    */
-  @javax.annotation.Nullable
-  public Integer getMaxLength() {
-    return maxLength;
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Double getMaxLength() {
+        return maxLength.orElse(null);
   }
 
-  public void setMaxLength(Integer maxLength) {
+  @JsonProperty(JSON_PROPERTY_MAX_LENGTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Double> getMaxLength_JsonNullable() {
+    return maxLength;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAX_LENGTH)
+  public void setMaxLength_JsonNullable(JsonNullable<Double> maxLength) {
     this.maxLength = maxLength;
+  }
+
+  public void setMaxLength(Double maxLength) {
+    this.maxLength = JsonNullable.<Double>of(maxLength);
   }
 
 
   public ExternalFormFieldModel isRequired(Boolean isRequired) {
-    this.isRequired = isRequired;
+    this.isRequired = JsonNullable.<Boolean>of(isRequired);
     return this;
   }
 
@@ -328,18 +460,32 @@ public class ExternalFormFieldModel {
    * Get isRequired
    * @return isRequired
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsRequired() {
+        return isRequired.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsRequired_JsonNullable() {
     return isRequired;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
+  public void setIsRequired_JsonNullable(JsonNullable<Boolean> isRequired) {
+    this.isRequired = isRequired;
   }
 
   public void setIsRequired(Boolean isRequired) {
-    this.isRequired = isRequired;
+    this.isRequired = JsonNullable.<Boolean>of(isRequired);
   }
 
 
   public ExternalFormFieldModel min(Object min) {
-    this.min = min;
+    this.min = JsonNullable.<Object>of(min);
     return this;
   }
 
@@ -347,18 +493,32 @@ public class ExternalFormFieldModel {
    * Get min
    * @return min
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Object getMin() {
+        return min.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getMin_JsonNullable() {
     return min;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MIN)
+  public void setMin_JsonNullable(JsonNullable<Object> min) {
+    this.min = min;
   }
 
   public void setMin(Object min) {
-    this.min = min;
+    this.min = JsonNullable.<Object>of(min);
   }
 
 
   public ExternalFormFieldModel max(Object max) {
-    this.max = max;
+    this.max = JsonNullable.<Object>of(max);
     return this;
   }
 
@@ -366,17 +526,33 @@ public class ExternalFormFieldModel {
    * Get max
    * @return max
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Object getMax() {
-    return max;
+        return max.orElse(null);
   }
 
-  public void setMax(Object max) {
+  @JsonProperty(JSON_PROPERTY_MAX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getMax_JsonNullable() {
+    return max;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAX)
+  public void setMax_JsonNullable(JsonNullable<Object> max) {
     this.max = max;
   }
 
+  public void setMax(Object max) {
+    this.max = JsonNullable.<Object>of(max);
+  }
 
 
+  /**
+   * Return true if this ExternalFormFieldModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -386,20 +562,20 @@ public class ExternalFormFieldModel {
       return false;
     }
     ExternalFormFieldModel externalFormFieldModel = (ExternalFormFieldModel) o;
-    return Objects.equals(this.fieldId, externalFormFieldModel.fieldId) &&
-        Objects.equals(this.fieldName, externalFormFieldModel.fieldName) &&
-        Objects.equals(this.helpText, externalFormFieldModel.helpText) &&
-        Objects.equals(this.type, externalFormFieldModel.type) &&
-        Objects.equals(this.arrayValuesType, externalFormFieldModel.arrayValuesType) &&
-        Objects.equals(this.defaultValue, externalFormFieldModel.defaultValue) &&
-        Objects.equals(this.isCustomValueAllowed, externalFormFieldModel.isCustomValueAllowed) &&
-        Objects.equals(this.autoCompleteUrl, externalFormFieldModel.autoCompleteUrl) &&
-        Objects.equals(this.controlType, externalFormFieldModel.controlType) &&
-        Objects.equals(this.minLength, externalFormFieldModel.minLength) &&
-        Objects.equals(this.maxLength, externalFormFieldModel.maxLength) &&
-        Objects.equals(this.isRequired, externalFormFieldModel.isRequired) &&
-        Objects.equals(this.min, externalFormFieldModel.min) &&
-        Objects.equals(this.max, externalFormFieldModel.max);
+    return Objects.equals(this.isCustomValueAllowed, externalFormFieldModel.isCustomValueAllowed) &&
+        equalsNullable(this.fieldId, externalFormFieldModel.fieldId) &&
+        equalsNullable(this.fieldName, externalFormFieldModel.fieldName) &&
+        equalsNullable(this.helpText, externalFormFieldModel.helpText) &&
+        equalsNullable(this.type, externalFormFieldModel.type) &&
+        equalsNullable(this.arrayValuesType, externalFormFieldModel.arrayValuesType) &&
+        equalsNullable(this.defaultValue, externalFormFieldModel.defaultValue) &&
+        equalsNullable(this.autoCompleteUrl, externalFormFieldModel.autoCompleteUrl) &&
+        equalsNullable(this.controlType, externalFormFieldModel.controlType) &&
+        equalsNullable(this.minLength, externalFormFieldModel.minLength) &&
+        equalsNullable(this.maxLength, externalFormFieldModel.maxLength) &&
+        equalsNullable(this.isRequired, externalFormFieldModel.isRequired) &&
+        equalsNullable(this.min, externalFormFieldModel.min) &&
+        equalsNullable(this.max, externalFormFieldModel.max);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -408,7 +584,7 @@ public class ExternalFormFieldModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldId, fieldName, helpText, type, arrayValuesType, defaultValue, isCustomValueAllowed, autoCompleteUrl, controlType, minLength, maxLength, isRequired, min, max);
+    return Objects.hash(isCustomValueAllowed, hashCodeNullable(fieldId), hashCodeNullable(fieldName), hashCodeNullable(helpText), hashCodeNullable(type), hashCodeNullable(arrayValuesType), hashCodeNullable(defaultValue), hashCodeNullable(autoCompleteUrl), hashCodeNullable(controlType), hashCodeNullable(minLength), hashCodeNullable(maxLength), hashCodeNullable(isRequired), hashCodeNullable(min), hashCodeNullable(max));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -422,13 +598,13 @@ public class ExternalFormFieldModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalFormFieldModel {\n");
+    sb.append("    isCustomValueAllowed: ").append(toIndentedString(isCustomValueAllowed)).append("\n");
     sb.append("    fieldId: ").append(toIndentedString(fieldId)).append("\n");
     sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
     sb.append("    helpText: ").append(toIndentedString(helpText)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    arrayValuesType: ").append(toIndentedString(arrayValuesType)).append("\n");
     sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
-    sb.append("    isCustomValueAllowed: ").append(toIndentedString(isCustomValueAllowed)).append("\n");
     sb.append("    autoCompleteUrl: ").append(toIndentedString(autoCompleteUrl)).append("\n");
     sb.append("    controlType: ").append(toIndentedString(controlType)).append("\n");
     sb.append("    minLength: ").append(toIndentedString(minLength)).append("\n");
@@ -451,131 +627,5 @@ public class ExternalFormFieldModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("fieldId");
-    openapiFields.add("fieldName");
-    openapiFields.add("helpText");
-    openapiFields.add("type");
-    openapiFields.add("arrayValuesType");
-    openapiFields.add("defaultValue");
-    openapiFields.add("isCustomValueAllowed");
-    openapiFields.add("autoCompleteUrl");
-    openapiFields.add("controlType");
-    openapiFields.add("minLength");
-    openapiFields.add("maxLength");
-    openapiFields.add("isRequired");
-    openapiFields.add("min");
-    openapiFields.add("max");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("isCustomValueAllowed");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ExternalFormFieldModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ExternalFormFieldModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalFormFieldModel is not found in the empty JSON string", ExternalFormFieldModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ExternalFormFieldModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalFormFieldModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ExternalFormFieldModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("fieldId") != null && !jsonObj.get("fieldId").isJsonNull()) && !jsonObj.get("fieldId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fieldId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fieldId").toString()));
-      }
-      if ((jsonObj.get("fieldName") != null && !jsonObj.get("fieldName").isJsonNull()) && !jsonObj.get("fieldName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fieldName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fieldName").toString()));
-      }
-      if ((jsonObj.get("helpText") != null && !jsonObj.get("helpText").isJsonNull()) && !jsonObj.get("helpText").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `helpText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("helpText").toString()));
-      }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("arrayValuesType") != null && !jsonObj.get("arrayValuesType").isJsonNull()) && !jsonObj.get("arrayValuesType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `arrayValuesType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arrayValuesType").toString()));
-      }
-      if ((jsonObj.get("autoCompleteUrl") != null && !jsonObj.get("autoCompleteUrl").isJsonNull()) && !jsonObj.get("autoCompleteUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `autoCompleteUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("autoCompleteUrl").toString()));
-      }
-      if ((jsonObj.get("controlType") != null && !jsonObj.get("controlType").isJsonNull()) && !jsonObj.get("controlType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `controlType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("controlType").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ExternalFormFieldModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ExternalFormFieldModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ExternalFormFieldModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ExternalFormFieldModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ExternalFormFieldModel>() {
-           @Override
-           public void write(JsonWriter out, ExternalFormFieldModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ExternalFormFieldModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ExternalFormFieldModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ExternalFormFieldModel
-   * @throws IOException if the JSON string is invalid with respect to ExternalFormFieldModel
-   */
-  public static ExternalFormFieldModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ExternalFormFieldModel.class);
-  }
-
-  /**
-   * Convert an instance of ExternalFormFieldModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -14,52 +14,35 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import ru.testit.client.model.ListSortDirection;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Order
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  Order.JSON_PROPERTY_FIELD,
+  Order.JSON_PROPERTY_DIRECTION
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Order {
-  public static final String SERIALIZED_NAME_FIELD = "field";
-  @SerializedName(SERIALIZED_NAME_FIELD)
+  public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
-  public static final String SERIALIZED_NAME_DIRECTION = "direction";
-  @SerializedName(SERIALIZED_NAME_DIRECTION)
+  public static final String JSON_PROPERTY_DIRECTION = "direction";
   private ListSortDirection direction;
 
-  public Order() {
+  public Order() { 
   }
 
   public Order field(String field) {
@@ -71,11 +54,17 @@ public class Order {
    * Get field
    * @return field
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getField() {
     return field;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setField(String field) {
     this.field = field;
   }
@@ -90,17 +79,25 @@ public class Order {
    * Get direction
    * @return direction
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DIRECTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ListSortDirection getDirection() {
     return direction;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_DIRECTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDirection(ListSortDirection direction) {
     this.direction = direction;
   }
 
 
-
+  /**
+   * Return true if this Order object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,104 +137,5 @@ public class Order {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("field");
-    openapiFields.add("direction");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("field");
-    openapiRequiredFields.add("direction");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Order
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Order.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Order is not found in the empty JSON string", Order.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Order.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Order` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Order.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("field").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `field` to be a primitive type in the JSON string but got `%s`", jsonObj.get("field").toString()));
-      }
-      // validate the required field `direction`
-      ListSortDirection.validateJsonElement(jsonObj.get("direction"));
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Order.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Order' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Order> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Order.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<Order>() {
-           @Override
-           public void write(JsonWriter out, Order value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public Order read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of Order given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Order
-   * @throws IOException if the JSON string is invalid with respect to Order
-   */
-  public static Order fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Order.class);
-  }
-
-  /**
-   * Convert an instance of Order to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

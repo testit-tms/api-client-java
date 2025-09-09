@@ -14,63 +14,49 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * UpdateParameterApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  UpdateParameterApiModel.JSON_PROPERTY_ID,
+  UpdateParameterApiModel.JSON_PROPERTY_NAME,
+  UpdateParameterApiModel.JSON_PROPERTY_VALUE,
+  UpdateParameterApiModel.JSON_PROPERTY_PROJECT_IDS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateParameterApiModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+  public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
-  public static final String SERIALIZED_NAME_PROJECT_IDS = "projectIds";
-  @SerializedName(SERIALIZED_NAME_PROJECT_IDS)
-  private List<UUID> projectIds;
+  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  private JsonNullable<List<UUID>> projectIds = JsonNullable.<List<UUID>>undefined();
 
-  public UpdateParameterApiModel() {
+  public UpdateParameterApiModel() { 
   }
 
   public UpdateParameterApiModel id(UUID id) {
@@ -82,11 +68,17 @@ public class UpdateParameterApiModel {
    * ID&#39;s of the parameter
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -101,11 +93,17 @@ public class UpdateParameterApiModel {
    * Key of the parameter
    * @return name
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -120,26 +118,36 @@ public class UpdateParameterApiModel {
    * Value of the parameter
    * @return value
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getValue() {
     return value;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setValue(String value) {
     this.value = value;
   }
 
 
   public UpdateParameterApiModel projectIds(List<UUID> projectIds) {
-    this.projectIds = projectIds;
+    this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
 
   public UpdateParameterApiModel addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new ArrayList<>();
+    if (this.projectIds == null || !this.projectIds.isPresent()) {
+      this.projectIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
-    this.projectIds.add(projectIdsItem);
+    try {
+      this.projectIds.get().add(projectIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -147,17 +155,33 @@ public class UpdateParameterApiModel {
    * List of projects where parameter should be available
    * @return projectIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<UUID> getProjectIds() {
-    return projectIds;
+        return projectIds.orElse(null);
   }
 
-  public void setProjectIds(List<UUID> projectIds) {
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<UUID>> getProjectIds_JsonNullable() {
+    return projectIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  public void setProjectIds_JsonNullable(JsonNullable<List<UUID>> projectIds) {
     this.projectIds = projectIds;
   }
 
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
+  }
 
 
+  /**
+   * Return true if this UpdateParameterApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -170,7 +194,7 @@ public class UpdateParameterApiModel {
     return Objects.equals(this.id, updateParameterApiModel.id) &&
         Objects.equals(this.name, updateParameterApiModel.name) &&
         Objects.equals(this.value, updateParameterApiModel.value) &&
-        Objects.equals(this.projectIds, updateParameterApiModel.projectIds);
+        equalsNullable(this.projectIds, updateParameterApiModel.projectIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -179,7 +203,7 @@ public class UpdateParameterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, value, projectIds);
+    return Objects.hash(id, name, value, hashCodeNullable(projectIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,115 +236,5 @@ public class UpdateParameterApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("value");
-    openapiFields.add("projectIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("value");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UpdateParameterApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!UpdateParameterApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateParameterApiModel is not found in the empty JSON string", UpdateParameterApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UpdateParameterApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateParameterApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateParameterApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("projectIds") != null && !jsonObj.get("projectIds").isJsonNull() && !jsonObj.get("projectIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectIds` to be an array in the JSON string but got `%s`", jsonObj.get("projectIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateParameterApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateParameterApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateParameterApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateParameterApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UpdateParameterApiModel>() {
-           @Override
-           public void write(JsonWriter out, UpdateParameterApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UpdateParameterApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of UpdateParameterApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of UpdateParameterApiModel
-   * @throws IOException if the JSON string is invalid with respect to UpdateParameterApiModel
-   */
-  public static UpdateParameterApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateParameterApiModel.class);
-  }
-
-  /**
-   * Convert an instance of UpdateParameterApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

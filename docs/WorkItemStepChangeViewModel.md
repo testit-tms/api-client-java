@@ -12,8 +12,8 @@
 |**comments** | **String** |  |  |
 |**testData** | **String** |  |  |
 |**index** | **Integer** |  |  |
-|**workItemId** | **UUID** |  |  [optional] |
 |**workItem** | [**SharedStepChangeViewModel**](SharedStepChangeViewModel.md) |  |  |
+|**workItemId** | **UUID** |  |  [optional] |
 
 
 

@@ -9,8 +9,14 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**projectId** | **UUID** |  |  |
-|**externalId** | **String** |  |  [optional] |
 |**name** | **String** |  |  |
+|**isFlaky** | **Boolean** |  |  |
+|**globalId** | **Long** |  |  |
+|**isDeleted** | **Boolean** |  |  |
+|**mustBeApproved** | **Boolean** |  |  |
+|**createdDate** | **OffsetDateTime** |  |  |
+|**createdById** | **UUID** |  |  |
+|**externalId** | **String** |  |  [optional] |
 |**namespace** | **String** |  |  [optional] |
 |**classname** | **String** |  |  [optional] |
 |**steps** | [**List&lt;AutoTestStepApiResult&gt;**](AutoTestStepApiResult.md) |  |  [optional] |
@@ -18,14 +24,8 @@
 |**teardown** | [**List&lt;AutoTestStepApiResult&gt;**](AutoTestStepApiResult.md) |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
-|**isFlaky** | **Boolean** |  |  |
 |**externalKey** | **String** |  |  [optional] |
-|**globalId** | **Long** |  |  |
-|**isDeleted** | **Boolean** |  |  |
-|**mustBeApproved** | **Boolean** |  |  |
-|**createdDate** | **OffsetDateTime** |  |  |
 |**modifiedDate** | **OffsetDateTime** |  |  [optional] |
-|**createdById** | **UUID** |  |  |
 |**modifiedById** | **UUID** |  |  [optional] |
 |**lastTestRunId** | **UUID** |  |  [optional] |
 |**lastTestRunName** | **String** |  |  [optional] |

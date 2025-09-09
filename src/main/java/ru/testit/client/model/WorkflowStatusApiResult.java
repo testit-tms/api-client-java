@@ -14,74 +14,60 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestStatusApiType;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkflowStatusApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkflowStatusApiResult.JSON_PROPERTY_ID,
+  WorkflowStatusApiResult.JSON_PROPERTY_NAME,
+  WorkflowStatusApiResult.JSON_PROPERTY_CODE,
+  WorkflowStatusApiResult.JSON_PROPERTY_TYPE,
+  WorkflowStatusApiResult.JSON_PROPERTY_IS_SYSTEM,
+  WorkflowStatusApiResult.JSON_PROPERTY_PRIORITY,
+  WorkflowStatusApiResult.JSON_PROPERTY_DESCRIPTION
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkflowStatusApiResult {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
+  public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private TestStatusApiType type;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
-
-  public static final String SERIALIZED_NAME_IS_SYSTEM = "isSystem";
-  @SerializedName(SERIALIZED_NAME_IS_SYSTEM)
+  public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
   private Boolean isSystem;
 
-  public static final String SERIALIZED_NAME_PRIORITY = "priority";
-  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
   private Integer priority;
 
-  public WorkflowStatusApiResult() {
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
+
+  public WorkflowStatusApiResult() { 
   }
 
   public WorkflowStatusApiResult id(UUID id) {
@@ -93,11 +79,17 @@ public class WorkflowStatusApiResult {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -112,11 +104,17 @@ public class WorkflowStatusApiResult {
    * Get name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -131,11 +129,17 @@ public class WorkflowStatusApiResult {
    * Get code
    * @return code
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getCode() {
     return code;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCode(String code) {
     this.code = code;
   }
@@ -150,32 +154,19 @@ public class WorkflowStatusApiResult {
    * Collection of possible status types
    * @return type
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestStatusApiType getType() {
     return type;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TestStatusApiType type) {
     this.type = type;
-  }
-
-
-  public WorkflowStatusApiResult description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Get description
-   * @return description
-   */
-  @javax.annotation.Nullable
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
 
@@ -188,11 +179,17 @@ public class WorkflowStatusApiResult {
    * Get isSystem
    * @return isSystem
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsSystem() {
     return isSystem;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsSystem(Boolean isSystem) {
     this.isSystem = isSystem;
   }
@@ -207,17 +204,58 @@ public class WorkflowStatusApiResult {
    * Get priority
    * @return priority
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getPriority() {
     return priority;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPriority(Integer priority) {
     this.priority = priority;
   }
 
 
+  public WorkflowStatusApiResult description(String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
 
+  /**
+   * Get description
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
+  }
+
+
+  /**
+   * Return true if this WorkflowStatusApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -231,9 +269,9 @@ public class WorkflowStatusApiResult {
         Objects.equals(this.name, workflowStatusApiResult.name) &&
         Objects.equals(this.code, workflowStatusApiResult.code) &&
         Objects.equals(this.type, workflowStatusApiResult.type) &&
-        Objects.equals(this.description, workflowStatusApiResult.description) &&
         Objects.equals(this.isSystem, workflowStatusApiResult.isSystem) &&
-        Objects.equals(this.priority, workflowStatusApiResult.priority);
+        Objects.equals(this.priority, workflowStatusApiResult.priority) &&
+        equalsNullable(this.description, workflowStatusApiResult.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +280,7 @@ public class WorkflowStatusApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, code, type, description, isSystem, priority);
+    return Objects.hash(id, name, code, type, isSystem, priority, hashCodeNullable(description));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -260,9 +298,9 @@ public class WorkflowStatusApiResult {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -278,122 +316,5 @@ public class WorkflowStatusApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("code");
-    openapiFields.add("type");
-    openapiFields.add("description");
-    openapiFields.add("isSystem");
-    openapiFields.add("priority");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("code");
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("isSystem");
-    openapiRequiredFields.add("priority");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkflowStatusApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkflowStatusApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkflowStatusApiResult is not found in the empty JSON string", WorkflowStatusApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkflowStatusApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkflowStatusApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WorkflowStatusApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if (!jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
-      }
-      // validate the required field `type`
-      TestStatusApiType.validateJsonElement(jsonObj.get("type"));
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkflowStatusApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkflowStatusApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkflowStatusApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkflowStatusApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkflowStatusApiResult>() {
-           @Override
-           public void write(JsonWriter out, WorkflowStatusApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkflowStatusApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkflowStatusApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkflowStatusApiResult
-   * @throws IOException if the JSON string is invalid with respect to WorkflowStatusApiResult
-   */
-  public static WorkflowStatusApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkflowStatusApiResult.class);
-  }
-
-  /**
-   * Convert an instance of WorkflowStatusApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

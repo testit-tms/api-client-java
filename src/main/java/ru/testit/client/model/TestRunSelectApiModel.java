@@ -14,53 +14,36 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import ru.testit.client.model.TestRunExtractionApiModel;
 import ru.testit.client.model.TestRunFilterApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Model containing options to filter test runs
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestRunSelectApiModel.JSON_PROPERTY_FILTER,
+  TestRunSelectApiModel.JSON_PROPERTY_EXTRACTION_MODEL
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestRunSelectApiModel {
-  public static final String SERIALIZED_NAME_FILTER = "filter";
-  @SerializedName(SERIALIZED_NAME_FILTER)
+  public static final String JSON_PROPERTY_FILTER = "filter";
   private TestRunFilterApiModel filter;
 
-  public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
-  @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
+  public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
   private TestRunExtractionApiModel extractionModel;
 
-  public TestRunSelectApiModel() {
+  public TestRunSelectApiModel() { 
   }
 
   public TestRunSelectApiModel filter(TestRunFilterApiModel filter) {
@@ -72,11 +55,17 @@ public class TestRunSelectApiModel {
    * Get filter
    * @return filter
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestRunFilterApiModel getFilter() {
     return filter;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFilter(TestRunFilterApiModel filter) {
     this.filter = filter;
   }
@@ -91,17 +80,25 @@ public class TestRunSelectApiModel {
    * Rules for different level entities inclusion/exclusion
    * @return extractionModel
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestRunExtractionApiModel getExtractionModel() {
     return extractionModel;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExtractionModel(TestRunExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
 
-
+  /**
+   * Return true if this TestRunSelectApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,103 +138,5 @@ public class TestRunSelectApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("filter");
-    openapiFields.add("extractionModel");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("filter");
-    openapiRequiredFields.add("extractionModel");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestRunSelectApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestRunSelectApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestRunSelectApiModel is not found in the empty JSON string", TestRunSelectApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestRunSelectApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestRunSelectApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestRunSelectApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `filter`
-      TestRunFilterApiModel.validateJsonElement(jsonObj.get("filter"));
-      // validate the required field `extractionModel`
-      TestRunExtractionApiModel.validateJsonElement(jsonObj.get("extractionModel"));
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestRunSelectApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestRunSelectApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestRunSelectApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestRunSelectApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestRunSelectApiModel>() {
-           @Override
-           public void write(JsonWriter out, TestRunSelectApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestRunSelectApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestRunSelectApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestRunSelectApiModel
-   * @throws IOException if the JSON string is invalid with respect to TestRunSelectApiModel
-   */
-  public static TestRunSelectApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestRunSelectApiModel.class);
-  }
-
-  /**
-   * Convert an instance of TestRunSelectApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,85 +34,70 @@ import ru.testit.client.model.TestPlanTestPointsTestSuiteSearchApiResult;
 import ru.testit.client.model.TestPlanTestPointsWorkItemSearchApiResult;
 import ru.testit.client.model.TestStatusShortApiResult;
 import ru.testit.client.model.UserNameApiResult;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanTestPointsSearchApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_ID,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_CREATED,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_STATUS,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_STATUS_MODEL,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_IN_PROGRESS,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_CONFIGURATION,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_TEST_SUITE,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_WORK_ITEM,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_PARAMETERS,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_MODIFIED,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_TESTER,
+  TestPlanTestPointsSearchApiResult.JSON_PROPERTY_LAST_TEST_RESULT
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanTestPointsSearchApiResult {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_CREATED = "created";
-  @SerializedName(SERIALIZED_NAME_CREATED)
+  public static final String JSON_PROPERTY_CREATED = "created";
   private AuditApiResult created;
 
-  public static final String SERIALIZED_NAME_MODIFIED = "modified";
-  @SerializedName(SERIALIZED_NAME_MODIFIED)
-  private AuditApiResult modified;
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
+  public static final String JSON_PROPERTY_STATUS = "status";
   @Deprecated
-  @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
-  public static final String SERIALIZED_NAME_STATUS_MODEL = "statusModel";
-  @SerializedName(SERIALIZED_NAME_STATUS_MODEL)
+  public static final String JSON_PROPERTY_STATUS_MODEL = "statusModel";
   private TestStatusShortApiResult statusModel;
 
-  public static final String SERIALIZED_NAME_IN_PROGRESS = "inProgress";
-  @SerializedName(SERIALIZED_NAME_IN_PROGRESS)
+  public static final String JSON_PROPERTY_IN_PROGRESS = "inProgress";
   private Boolean inProgress;
 
-  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION)
+  public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
   private ConfigurationShortApiResult _configuration;
 
-  public static final String SERIALIZED_NAME_TESTER = "tester";
-  @SerializedName(SERIALIZED_NAME_TESTER)
-  private UserNameApiResult tester;
-
-  public static final String SERIALIZED_NAME_TEST_SUITE = "testSuite";
-  @SerializedName(SERIALIZED_NAME_TEST_SUITE)
+  public static final String JSON_PROPERTY_TEST_SUITE = "testSuite";
   private TestPlanTestPointsTestSuiteSearchApiResult testSuite;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM = "workItem";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM)
+  public static final String JSON_PROPERTY_WORK_ITEM = "workItem";
   private TestPlanTestPointsWorkItemSearchApiResult workItem;
 
-  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
-  @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
   private List<ParameterShortApiResult> parameters = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_LAST_TEST_RESULT = "lastTestResult";
-  @SerializedName(SERIALIZED_NAME_LAST_TEST_RESULT)
-  private LastTestResultApiResult lastTestResult;
+  public static final String JSON_PROPERTY_MODIFIED = "modified";
+  private JsonNullable<AuditApiResult> modified = JsonNullable.<AuditApiResult>undefined();
 
-  public TestPlanTestPointsSearchApiResult() {
+  public static final String JSON_PROPERTY_TESTER = "tester";
+  private JsonNullable<UserNameApiResult> tester = JsonNullable.<UserNameApiResult>undefined();
+
+  public static final String JSON_PROPERTY_LAST_TEST_RESULT = "lastTestResult";
+  private JsonNullable<LastTestResultApiResult> lastTestResult = JsonNullable.<LastTestResultApiResult>undefined();
+
+  public TestPlanTestPointsSearchApiResult() { 
   }
 
   public TestPlanTestPointsSearchApiResult id(UUID id) {
@@ -123,11 +109,17 @@ public class TestPlanTestPointsSearchApiResult {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -142,32 +134,19 @@ public class TestPlanTestPointsSearchApiResult {
    * Get created
    * @return created
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public AuditApiResult getCreated() {
     return created;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreated(AuditApiResult created) {
     this.created = created;
-  }
-
-
-  public TestPlanTestPointsSearchApiResult modified(AuditApiResult modified) {
-    this.modified = modified;
-    return this;
-  }
-
-  /**
-   * Get modified
-   * @return modified
-   */
-  @javax.annotation.Nullable
-  public AuditApiResult getModified() {
-    return modified;
-  }
-
-  public void setModified(AuditApiResult modified) {
-    this.modified = modified;
   }
 
 
@@ -183,12 +162,18 @@ public class TestPlanTestPointsSearchApiResult {
    * @deprecated
    */
   @Deprecated
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getStatus() {
     return status;
   }
 
+
   @Deprecated
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(String status) {
     this.status = status;
   }
@@ -203,11 +188,17 @@ public class TestPlanTestPointsSearchApiResult {
    * Get statusModel
    * @return statusModel
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS_MODEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestStatusShortApiResult getStatusModel() {
     return statusModel;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATUS_MODEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatusModel(TestStatusShortApiResult statusModel) {
     this.statusModel = statusModel;
   }
@@ -222,11 +213,17 @@ public class TestPlanTestPointsSearchApiResult {
    * Get inProgress
    * @return inProgress
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IN_PROGRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getInProgress() {
     return inProgress;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IN_PROGRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInProgress(Boolean inProgress) {
     this.inProgress = inProgress;
   }
@@ -241,32 +238,19 @@ public class TestPlanTestPointsSearchApiResult {
    * Get _configuration
    * @return _configuration
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ConfigurationShortApiResult getConfiguration() {
     return _configuration;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setConfiguration(ConfigurationShortApiResult _configuration) {
     this._configuration = _configuration;
-  }
-
-
-  public TestPlanTestPointsSearchApiResult tester(UserNameApiResult tester) {
-    this.tester = tester;
-    return this;
-  }
-
-  /**
-   * Get tester
-   * @return tester
-   */
-  @javax.annotation.Nullable
-  public UserNameApiResult getTester() {
-    return tester;
-  }
-
-  public void setTester(UserNameApiResult tester) {
-    this.tester = tester;
   }
 
 
@@ -279,11 +263,17 @@ public class TestPlanTestPointsSearchApiResult {
    * Get testSuite
    * @return testSuite
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestPlanTestPointsTestSuiteSearchApiResult getTestSuite() {
     return testSuite;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_SUITE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestSuite(TestPlanTestPointsTestSuiteSearchApiResult testSuite) {
     this.testSuite = testSuite;
   }
@@ -298,11 +288,17 @@ public class TestPlanTestPointsSearchApiResult {
    * Get workItem
    * @return workItem
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestPlanTestPointsWorkItemSearchApiResult getWorkItem() {
     return workItem;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItem(TestPlanTestPointsWorkItemSearchApiResult workItem) {
     this.workItem = workItem;
   }
@@ -325,18 +321,90 @@ public class TestPlanTestPointsSearchApiResult {
    * Get parameters
    * @return parameters
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ParameterShortApiResult> getParameters() {
     return parameters;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setParameters(List<ParameterShortApiResult> parameters) {
     this.parameters = parameters;
   }
 
 
+  public TestPlanTestPointsSearchApiResult modified(AuditApiResult modified) {
+    this.modified = JsonNullable.<AuditApiResult>of(modified);
+    return this;
+  }
+
+  /**
+   * Get modified
+   * @return modified
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public AuditApiResult getModified() {
+        return modified.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<AuditApiResult> getModified_JsonNullable() {
+    return modified;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  public void setModified_JsonNullable(JsonNullable<AuditApiResult> modified) {
+    this.modified = modified;
+  }
+
+  public void setModified(AuditApiResult modified) {
+    this.modified = JsonNullable.<AuditApiResult>of(modified);
+  }
+
+
+  public TestPlanTestPointsSearchApiResult tester(UserNameApiResult tester) {
+    this.tester = JsonNullable.<UserNameApiResult>of(tester);
+    return this;
+  }
+
+  /**
+   * Get tester
+   * @return tester
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UserNameApiResult getTester() {
+        return tester.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TESTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UserNameApiResult> getTester_JsonNullable() {
+    return tester;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TESTER)
+  public void setTester_JsonNullable(JsonNullable<UserNameApiResult> tester) {
+    this.tester = tester;
+  }
+
+  public void setTester(UserNameApiResult tester) {
+    this.tester = JsonNullable.<UserNameApiResult>of(tester);
+  }
+
+
   public TestPlanTestPointsSearchApiResult lastTestResult(LastTestResultApiResult lastTestResult) {
-    this.lastTestResult = lastTestResult;
+    this.lastTestResult = JsonNullable.<LastTestResultApiResult>of(lastTestResult);
     return this;
   }
 
@@ -344,17 +412,33 @@ public class TestPlanTestPointsSearchApiResult {
    * Get lastTestResult
    * @return lastTestResult
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public LastTestResultApiResult getLastTestResult() {
-    return lastTestResult;
+        return lastTestResult.orElse(null);
   }
 
-  public void setLastTestResult(LastTestResultApiResult lastTestResult) {
+  @JsonProperty(JSON_PROPERTY_LAST_TEST_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<LastTestResultApiResult> getLastTestResult_JsonNullable() {
+    return lastTestResult;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_TEST_RESULT)
+  public void setLastTestResult_JsonNullable(JsonNullable<LastTestResultApiResult> lastTestResult) {
     this.lastTestResult = lastTestResult;
   }
 
+  public void setLastTestResult(LastTestResultApiResult lastTestResult) {
+    this.lastTestResult = JsonNullable.<LastTestResultApiResult>of(lastTestResult);
+  }
 
 
+  /**
+   * Return true if this TestPlanTestPointsSearchApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -366,16 +450,16 @@ public class TestPlanTestPointsSearchApiResult {
     TestPlanTestPointsSearchApiResult testPlanTestPointsSearchApiResult = (TestPlanTestPointsSearchApiResult) o;
     return Objects.equals(this.id, testPlanTestPointsSearchApiResult.id) &&
         Objects.equals(this.created, testPlanTestPointsSearchApiResult.created) &&
-        Objects.equals(this.modified, testPlanTestPointsSearchApiResult.modified) &&
         Objects.equals(this.status, testPlanTestPointsSearchApiResult.status) &&
         Objects.equals(this.statusModel, testPlanTestPointsSearchApiResult.statusModel) &&
         Objects.equals(this.inProgress, testPlanTestPointsSearchApiResult.inProgress) &&
         Objects.equals(this._configuration, testPlanTestPointsSearchApiResult._configuration) &&
-        Objects.equals(this.tester, testPlanTestPointsSearchApiResult.tester) &&
         Objects.equals(this.testSuite, testPlanTestPointsSearchApiResult.testSuite) &&
         Objects.equals(this.workItem, testPlanTestPointsSearchApiResult.workItem) &&
         Objects.equals(this.parameters, testPlanTestPointsSearchApiResult.parameters) &&
-        Objects.equals(this.lastTestResult, testPlanTestPointsSearchApiResult.lastTestResult);
+        equalsNullable(this.modified, testPlanTestPointsSearchApiResult.modified) &&
+        equalsNullable(this.tester, testPlanTestPointsSearchApiResult.tester) &&
+        equalsNullable(this.lastTestResult, testPlanTestPointsSearchApiResult.lastTestResult);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -384,7 +468,7 @@ public class TestPlanTestPointsSearchApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, created, modified, status, statusModel, inProgress, _configuration, tester, testSuite, workItem, parameters, lastTestResult);
+    return Objects.hash(id, created, status, statusModel, inProgress, _configuration, testSuite, workItem, parameters, hashCodeNullable(modified), hashCodeNullable(tester), hashCodeNullable(lastTestResult));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -400,15 +484,15 @@ public class TestPlanTestPointsSearchApiResult {
     sb.append("class TestPlanTestPointsSearchApiResult {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
-    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusModel: ").append(toIndentedString(statusModel)).append("\n");
     sb.append("    inProgress: ").append(toIndentedString(inProgress)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
-    sb.append("    tester: ").append(toIndentedString(tester)).append("\n");
     sb.append("    testSuite: ").append(toIndentedString(testSuite)).append("\n");
     sb.append("    workItem: ").append(toIndentedString(workItem)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
+    sb.append("    tester: ").append(toIndentedString(tester)).append("\n");
     sb.append("    lastTestResult: ").append(toIndentedString(lastTestResult)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -425,154 +509,5 @@ public class TestPlanTestPointsSearchApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("created");
-    openapiFields.add("modified");
-    openapiFields.add("status");
-    openapiFields.add("statusModel");
-    openapiFields.add("inProgress");
-    openapiFields.add("configuration");
-    openapiFields.add("tester");
-    openapiFields.add("testSuite");
-    openapiFields.add("workItem");
-    openapiFields.add("parameters");
-    openapiFields.add("lastTestResult");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("created");
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("statusModel");
-    openapiRequiredFields.add("inProgress");
-    openapiRequiredFields.add("configuration");
-    openapiRequiredFields.add("testSuite");
-    openapiRequiredFields.add("workItem");
-    openapiRequiredFields.add("parameters");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanTestPointsSearchApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanTestPointsSearchApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanTestPointsSearchApiResult is not found in the empty JSON string", TestPlanTestPointsSearchApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanTestPointsSearchApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanTestPointsSearchApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanTestPointsSearchApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the required field `created`
-      AuditApiResult.validateJsonElement(jsonObj.get("created"));
-      // validate the optional field `modified`
-      if (jsonObj.get("modified") != null && !jsonObj.get("modified").isJsonNull()) {
-        AuditApiResult.validateJsonElement(jsonObj.get("modified"));
-      }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      // validate the required field `statusModel`
-      TestStatusShortApiResult.validateJsonElement(jsonObj.get("statusModel"));
-      // validate the required field `configuration`
-      ConfigurationShortApiResult.validateJsonElement(jsonObj.get("configuration"));
-      // validate the optional field `tester`
-      if (jsonObj.get("tester") != null && !jsonObj.get("tester").isJsonNull()) {
-        UserNameApiResult.validateJsonElement(jsonObj.get("tester"));
-      }
-      // validate the required field `testSuite`
-      TestPlanTestPointsTestSuiteSearchApiResult.validateJsonElement(jsonObj.get("testSuite"));
-      // validate the required field `workItem`
-      TestPlanTestPointsWorkItemSearchApiResult.validateJsonElement(jsonObj.get("workItem"));
-      // ensure the json data is an array
-      if (!jsonObj.get("parameters").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `parameters` to be an array in the JSON string but got `%s`", jsonObj.get("parameters").toString()));
-      }
-
-      JsonArray jsonArrayparameters = jsonObj.getAsJsonArray("parameters");
-      // validate the required field `parameters` (array)
-      for (int i = 0; i < jsonArrayparameters.size(); i++) {
-        ParameterShortApiResult.validateJsonElement(jsonArrayparameters.get(i));
-      };
-      // validate the optional field `lastTestResult`
-      if (jsonObj.get("lastTestResult") != null && !jsonObj.get("lastTestResult").isJsonNull()) {
-        LastTestResultApiResult.validateJsonElement(jsonObj.get("lastTestResult"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanTestPointsSearchApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanTestPointsSearchApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanTestPointsSearchApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanTestPointsSearchApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanTestPointsSearchApiResult>() {
-           @Override
-           public void write(JsonWriter out, TestPlanTestPointsSearchApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanTestPointsSearchApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPlanTestPointsSearchApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanTestPointsSearchApiResult
-   * @throws IOException if the JSON string is invalid with respect to TestPlanTestPointsSearchApiResult
-   */
-  public static TestPlanTestPointsSearchApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanTestPointsSearchApiResult.class);
-  }
-
-  /**
-   * Convert an instance of TestPlanTestPointsSearchApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

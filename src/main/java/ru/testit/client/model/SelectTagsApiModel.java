@@ -14,58 +14,44 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TagsExtractionApiModel;
 import ru.testit.client.model.TagsFilterApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * SelectTagsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  SelectTagsApiModel.JSON_PROPERTY_FILTER,
+  SelectTagsApiModel.JSON_PROPERTY_EXTRACTION_MODEL
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SelectTagsApiModel {
-  public static final String SERIALIZED_NAME_FILTER = "filter";
-  @SerializedName(SERIALIZED_NAME_FILTER)
-  private TagsFilterApiModel filter;
+  public static final String JSON_PROPERTY_FILTER = "filter";
+  private JsonNullable<TagsFilterApiModel> filter = JsonNullable.<TagsFilterApiModel>undefined();
 
-  public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
-  @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private TagsExtractionApiModel extractionModel;
+  public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
+  private JsonNullable<TagsExtractionApiModel> extractionModel = JsonNullable.<TagsExtractionApiModel>undefined();
 
-  public SelectTagsApiModel() {
+  public SelectTagsApiModel() { 
   }
 
   public SelectTagsApiModel filter(TagsFilterApiModel filter) {
-    this.filter = filter;
+    this.filter = JsonNullable.<TagsFilterApiModel>of(filter);
     return this;
   }
 
@@ -73,18 +59,32 @@ public class SelectTagsApiModel {
    * Filters to select tags
    * @return filter
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TagsFilterApiModel getFilter() {
+        return filter.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TagsFilterApiModel> getFilter_JsonNullable() {
     return filter;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  public void setFilter_JsonNullable(JsonNullable<TagsFilterApiModel> filter) {
+    this.filter = filter;
   }
 
   public void setFilter(TagsFilterApiModel filter) {
-    this.filter = filter;
+    this.filter = JsonNullable.<TagsFilterApiModel>of(filter);
   }
 
 
   public SelectTagsApiModel extractionModel(TagsExtractionApiModel extractionModel) {
-    this.extractionModel = extractionModel;
+    this.extractionModel = JsonNullable.<TagsExtractionApiModel>of(extractionModel);
     return this;
   }
 
@@ -92,17 +92,33 @@ public class SelectTagsApiModel {
    * Filters to extract tags
    * @return extractionModel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public TagsExtractionApiModel getExtractionModel() {
-    return extractionModel;
+        return extractionModel.orElse(null);
   }
 
-  public void setExtractionModel(TagsExtractionApiModel extractionModel) {
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TagsExtractionApiModel> getExtractionModel_JsonNullable() {
+    return extractionModel;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  public void setExtractionModel_JsonNullable(JsonNullable<TagsExtractionApiModel> extractionModel) {
     this.extractionModel = extractionModel;
   }
 
+  public void setExtractionModel(TagsExtractionApiModel extractionModel) {
+    this.extractionModel = JsonNullable.<TagsExtractionApiModel>of(extractionModel);
+  }
 
 
+  /**
+   * Return true if this SelectTagsApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,8 +128,8 @@ public class SelectTagsApiModel {
       return false;
     }
     SelectTagsApiModel selectTagsApiModel = (SelectTagsApiModel) o;
-    return Objects.equals(this.filter, selectTagsApiModel.filter) &&
-        Objects.equals(this.extractionModel, selectTagsApiModel.extractionModel);
+    return equalsNullable(this.filter, selectTagsApiModel.filter) &&
+        equalsNullable(this.extractionModel, selectTagsApiModel.extractionModel);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -122,7 +138,7 @@ public class SelectTagsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, extractionModel);
+    return Objects.hash(hashCodeNullable(filter), hashCodeNullable(extractionModel));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -153,98 +169,5 @@ public class SelectTagsApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("filter");
-    openapiFields.add("extractionModel");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SelectTagsApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!SelectTagsApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SelectTagsApiModel is not found in the empty JSON string", SelectTagsApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SelectTagsApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SelectTagsApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `filter`
-      if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        TagsFilterApiModel.validateJsonElement(jsonObj.get("filter"));
-      }
-      // validate the optional field `extractionModel`
-      if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        TagsExtractionApiModel.validateJsonElement(jsonObj.get("extractionModel"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SelectTagsApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SelectTagsApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SelectTagsApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SelectTagsApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<SelectTagsApiModel>() {
-           @Override
-           public void write(JsonWriter out, SelectTagsApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public SelectTagsApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of SelectTagsApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of SelectTagsApiModel
-   * @throws IOException if the JSON string is invalid with respect to SelectTagsApiModel
-   */
-  public static SelectTagsApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SelectTagsApiModel.class);
-  }
-
-  /**
-   * Convert an instance of SelectTagsApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

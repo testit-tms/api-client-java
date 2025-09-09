@@ -14,47 +14,30 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.Arrays;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WebhookBulkUpdateApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WebhookBulkUpdateApiModel.JSON_PROPERTY_IS_ENABLED
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhookBulkUpdateApiModel {
-  public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
-  @SerializedName(SERIALIZED_NAME_IS_ENABLED)
+  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
 
-  public WebhookBulkUpdateApiModel() {
+  public WebhookBulkUpdateApiModel() { 
   }
 
   public WebhookBulkUpdateApiModel isEnabled(Boolean isEnabled) {
@@ -66,17 +49,25 @@ public class WebhookBulkUpdateApiModel {
    * Get isEnabled
    * @return isEnabled
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-
+  /**
+   * Return true if this WebhookBulkUpdateApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,97 +105,5 @@ public class WebhookBulkUpdateApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("isEnabled");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("isEnabled");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WebhookBulkUpdateApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WebhookBulkUpdateApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebhookBulkUpdateApiModel is not found in the empty JSON string", WebhookBulkUpdateApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WebhookBulkUpdateApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebhookBulkUpdateApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WebhookBulkUpdateApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WebhookBulkUpdateApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WebhookBulkUpdateApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WebhookBulkUpdateApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WebhookBulkUpdateApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WebhookBulkUpdateApiModel>() {
-           @Override
-           public void write(JsonWriter out, WebhookBulkUpdateApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WebhookBulkUpdateApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WebhookBulkUpdateApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WebhookBulkUpdateApiModel
-   * @throws IOException if the JSON string is invalid with respect to WebhookBulkUpdateApiModel
-   */
-  public static WebhookBulkUpdateApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WebhookBulkUpdateApiModel.class);
-  }
-
-  /**
-   * Convert an instance of WebhookBulkUpdateApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

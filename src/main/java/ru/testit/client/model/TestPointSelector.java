@@ -14,54 +14,37 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPointSelector
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPointSelector.JSON_PROPERTY_CONFIGURATION_ID,
+  TestPointSelector.JSON_PROPERTY_WORK_ITEM_IDS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointSelector {
-  public static final String SERIALIZED_NAME_CONFIGURATION_ID = "configurationId";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_ID)
+  public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
   private UUID configurationId;
 
-  public static final String SERIALIZED_NAME_WORK_ITEM_IDS = "workItemIds";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_IDS)
+  public static final String JSON_PROPERTY_WORK_ITEM_IDS = "workItemIds";
   private List<UUID> workItemIds = new ArrayList<>();
 
-  public TestPointSelector() {
+  public TestPointSelector() { 
   }
 
   public TestPointSelector configurationId(UUID configurationId) {
@@ -73,11 +56,17 @@ public class TestPointSelector {
    * Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.
    * @return configurationId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getConfigurationId() {
     return configurationId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setConfigurationId(UUID configurationId) {
     this.configurationId = configurationId;
   }
@@ -100,17 +89,25 @@ public class TestPointSelector {
    * Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
    * @return workItemIds
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<UUID> getWorkItemIds() {
     return workItemIds;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemIds(List<UUID> workItemIds) {
     this.workItemIds = workItemIds;
   }
 
 
-
+  /**
+   * Return true if this TestPointSelector object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -150,108 +147,5 @@ public class TestPointSelector {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("configurationId");
-    openapiFields.add("workItemIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("configurationId");
-    openapiRequiredFields.add("workItemIds");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPointSelector
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPointSelector.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointSelector is not found in the empty JSON string", TestPointSelector.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPointSelector.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointSelector` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPointSelector.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("configurationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationId").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("workItemIds") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("workItemIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemIds` to be an array in the JSON string but got `%s`", jsonObj.get("workItemIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPointSelector.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPointSelector' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPointSelector> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPointSelector.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPointSelector>() {
-           @Override
-           public void write(JsonWriter out, TestPointSelector value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPointSelector read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPointSelector given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPointSelector
-   * @throws IOException if the JSON string is invalid with respect to TestPointSelector
-   */
-  public static TestPointSelector fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPointSelector.class);
-  }
-
-  /**
-   * Convert an instance of TestPointSelector to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

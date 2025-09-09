@@ -1,16 +1,16 @@
 
 
-# FailureClassRegexModel
+# FailureClassRegexApiResult
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**regexText** | **String** |  |  |
-|**failureClassId** | **UUID** |  |  [optional] |
-|**id** | **UUID** | Unique ID of the entity |  |
+|**id** | **UUID** | Regex unique identifier |  |
 |**isDeleted** | **Boolean** | Indicates if the entity is deleted |  |
+|**regexText** | **String** | Regex value |  |
+|**failureClassId** | **UUID** | Failure category identifier |  |
 
 
 

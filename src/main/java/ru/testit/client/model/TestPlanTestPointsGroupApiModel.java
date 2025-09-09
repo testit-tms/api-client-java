@@ -14,52 +14,38 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanTestPointsGroupApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPlanTestPointsGroupApiModel.JSON_PROPERTY_FIELD,
+  TestPlanTestPointsGroupApiModel.JSON_PROPERTY_DISPLAY_FIELD
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanTestPointsGroupApiModel {
-  public static final String SERIALIZED_NAME_FIELD = "field";
-  @SerializedName(SERIALIZED_NAME_FIELD)
+  public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
-  public static final String SERIALIZED_NAME_DISPLAY_FIELD = "displayField";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_FIELD)
-  private String displayField;
+  public static final String JSON_PROPERTY_DISPLAY_FIELD = "displayField";
+  private JsonNullable<String> displayField = JsonNullable.<String>undefined();
 
-  public TestPlanTestPointsGroupApiModel() {
+  public TestPlanTestPointsGroupApiModel() { 
   }
 
   public TestPlanTestPointsGroupApiModel field(String field) {
@@ -71,18 +57,24 @@ public class TestPlanTestPointsGroupApiModel {
    * Get field
    * @return field
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getField() {
     return field;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setField(String field) {
     this.field = field;
   }
 
 
   public TestPlanTestPointsGroupApiModel displayField(String displayField) {
-    this.displayField = displayField;
+    this.displayField = JsonNullable.<String>of(displayField);
     return this;
   }
 
@@ -90,17 +82,33 @@ public class TestPlanTestPointsGroupApiModel {
    * Get displayField
    * @return displayField
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getDisplayField() {
-    return displayField;
+        return displayField.orElse(null);
   }
 
-  public void setDisplayField(String displayField) {
+  @JsonProperty(JSON_PROPERTY_DISPLAY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDisplayField_JsonNullable() {
+    return displayField;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DISPLAY_FIELD)
+  public void setDisplayField_JsonNullable(JsonNullable<String> displayField) {
     this.displayField = displayField;
   }
 
+  public void setDisplayField(String displayField) {
+    this.displayField = JsonNullable.<String>of(displayField);
+  }
 
 
+  /**
+   * Return true if this TestPlanTestPointsGroupApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,7 +119,7 @@ public class TestPlanTestPointsGroupApiModel {
     }
     TestPlanTestPointsGroupApiModel testPlanTestPointsGroupApiModel = (TestPlanTestPointsGroupApiModel) o;
     return Objects.equals(this.field, testPlanTestPointsGroupApiModel.field) &&
-        Objects.equals(this.displayField, testPlanTestPointsGroupApiModel.displayField);
+        equalsNullable(this.displayField, testPlanTestPointsGroupApiModel.displayField);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -120,7 +128,7 @@ public class TestPlanTestPointsGroupApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, displayField);
+    return Objects.hash(field, hashCodeNullable(displayField));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -151,104 +159,5 @@ public class TestPlanTestPointsGroupApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("field");
-    openapiFields.add("displayField");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("field");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanTestPointsGroupApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanTestPointsGroupApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanTestPointsGroupApiModel is not found in the empty JSON string", TestPlanTestPointsGroupApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanTestPointsGroupApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanTestPointsGroupApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanTestPointsGroupApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("field").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `field` to be a primitive type in the JSON string but got `%s`", jsonObj.get("field").toString()));
-      }
-      if ((jsonObj.get("displayField") != null && !jsonObj.get("displayField").isJsonNull()) && !jsonObj.get("displayField").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `displayField` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayField").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanTestPointsGroupApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanTestPointsGroupApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanTestPointsGroupApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanTestPointsGroupApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanTestPointsGroupApiModel>() {
-           @Override
-           public void write(JsonWriter out, TestPlanTestPointsGroupApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanTestPointsGroupApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPlanTestPointsGroupApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanTestPointsGroupApiModel
-   * @throws IOException if the JSON string is invalid with respect to TestPlanTestPointsGroupApiModel
-   */
-  public static TestPlanTestPointsGroupApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanTestPointsGroupApiModel.class);
-  }
-
-  /**
-   * Convert an instance of TestPlanTestPointsGroupApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

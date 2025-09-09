@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,104 +32,89 @@ import ru.testit.client.model.AuditApiResult;
 import ru.testit.client.model.TestPlanTestPointsSectionSearchApiResult;
 import ru.testit.client.model.WorkItemPriority;
 import ru.testit.client.model.WorkItemState;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanTestPointsWorkItemSearchApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_ID,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_GLOBAL_ID,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_VERSION_ID,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_VERSION_NUMBER,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_DURATION,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_STATE,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_TAGS,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_ATTRIBUTES,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_IS_AUTOMATED,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_NAME,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_PRIORITY,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_SECTION,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_CREATED,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_MEDIAN_DURATION,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_IS_DELETED,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_ORDER_RANK,
+  TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_MODIFIED
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanTestPointsWorkItemSearchApiResult {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_GLOBAL_ID = "globalId";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_ID)
+  public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
   private Long globalId;
 
-  public static final String SERIALIZED_NAME_VERSION_ID = "versionId";
-  @SerializedName(SERIALIZED_NAME_VERSION_ID)
+  public static final String JSON_PROPERTY_VERSION_ID = "versionId";
   private UUID versionId;
 
-  public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
-  @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
+  public static final String JSON_PROPERTY_VERSION_NUMBER = "versionNumber";
   private Integer versionNumber;
 
-  public static final String SERIALIZED_NAME_MEDIAN_DURATION = "medianDuration";
-  @SerializedName(SERIALIZED_NAME_MEDIAN_DURATION)
-  private Long medianDuration;
-
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  private Boolean isDeleted;
-
-  public static final String SERIALIZED_NAME_DURATION = "duration";
-  @SerializedName(SERIALIZED_NAME_DURATION)
+  public static final String JSON_PROPERTY_DURATION = "duration";
   private Integer duration;
 
-  public static final String SERIALIZED_NAME_STATE = "state";
-  @SerializedName(SERIALIZED_NAME_STATE)
+  public static final String JSON_PROPERTY_STATE = "state";
   private WorkItemState state;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
+  public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, Object> attributes = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_ORDER_RANK = "orderRank";
-  @SerializedName(SERIALIZED_NAME_ORDER_RANK)
-  private String orderRank;
-
-  public static final String SERIALIZED_NAME_IS_AUTOMATED = "isAutomated";
-  @SerializedName(SERIALIZED_NAME_IS_AUTOMATED)
+  public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
   private Boolean isAutomated;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_PRIORITY = "priority";
-  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
   private WorkItemPriority priority;
 
-  public static final String SERIALIZED_NAME_SECTION = "section";
-  @SerializedName(SERIALIZED_NAME_SECTION)
+  public static final String JSON_PROPERTY_SECTION = "section";
   private TestPlanTestPointsSectionSearchApiResult section;
 
-  public static final String SERIALIZED_NAME_CREATED = "created";
-  @SerializedName(SERIALIZED_NAME_CREATED)
+  public static final String JSON_PROPERTY_CREATED = "created";
   private AuditApiResult created;
 
-  public static final String SERIALIZED_NAME_MODIFIED = "modified";
-  @SerializedName(SERIALIZED_NAME_MODIFIED)
-  private AuditApiResult modified;
+  public static final String JSON_PROPERTY_MEDIAN_DURATION = "medianDuration";
+  private JsonNullable<Long> medianDuration = JsonNullable.<Long>undefined();
 
-  public TestPlanTestPointsWorkItemSearchApiResult() {
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_ORDER_RANK = "orderRank";
+  private JsonNullable<String> orderRank = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_MODIFIED = "modified";
+  private JsonNullable<AuditApiResult> modified = JsonNullable.<AuditApiResult>undefined();
+
+  public TestPlanTestPointsWorkItemSearchApiResult() { 
   }
 
   public TestPlanTestPointsWorkItemSearchApiResult id(UUID id) {
@@ -140,11 +126,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -159,11 +151,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get globalId
    * @return globalId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Long getGlobalId() {
     return globalId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGlobalId(Long globalId) {
     this.globalId = globalId;
   }
@@ -178,11 +176,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get versionId
    * @return versionId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getVersionId() {
     return versionId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VERSION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersionId(UUID versionId) {
     this.versionId = versionId;
   }
@@ -197,51 +201,19 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get versionNumber
    * @return versionNumber
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VERSION_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getVersionNumber() {
     return versionNumber;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_VERSION_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersionNumber(Integer versionNumber) {
     this.versionNumber = versionNumber;
-  }
-
-
-  public TestPlanTestPointsWorkItemSearchApiResult medianDuration(Long medianDuration) {
-    this.medianDuration = medianDuration;
-    return this;
-  }
-
-  /**
-   * Get medianDuration
-   * @return medianDuration
-   */
-  @javax.annotation.Nullable
-  public Long getMedianDuration() {
-    return medianDuration;
-  }
-
-  public void setMedianDuration(Long medianDuration) {
-    this.medianDuration = medianDuration;
-  }
-
-
-  public TestPlanTestPointsWorkItemSearchApiResult isDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-    return this;
-  }
-
-  /**
-   * Get isDeleted
-   * @return isDeleted
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsDeleted() {
-    return isDeleted;
-  }
-
-  public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
   }
 
 
@@ -254,11 +226,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get duration
    * @return duration
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getDuration() {
     return duration;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDuration(Integer duration) {
     this.duration = duration;
   }
@@ -273,11 +251,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get state
    * @return state
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WorkItemState getState() {
     return state;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setState(WorkItemState state) {
     this.state = state;
   }
@@ -300,11 +284,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get tags
    * @return tags
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<String> getTags() {
     return tags;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
@@ -327,32 +317,19 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get attributes
    * @return attributes
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
+
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
-  }
-
-
-  public TestPlanTestPointsWorkItemSearchApiResult orderRank(String orderRank) {
-    this.orderRank = orderRank;
-    return this;
-  }
-
-  /**
-   * Get orderRank
-   * @return orderRank
-   */
-  @javax.annotation.Nullable
-  public String getOrderRank() {
-    return orderRank;
-  }
-
-  public void setOrderRank(String orderRank) {
-    this.orderRank = orderRank;
   }
 
 
@@ -365,11 +342,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get isAutomated
    * @return isAutomated
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsAutomated() {
     return isAutomated;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsAutomated(Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
@@ -384,11 +367,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get name
    * @return name
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -403,11 +392,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get priority
    * @return priority
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WorkItemPriority getPriority() {
     return priority;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPriority(WorkItemPriority priority) {
     this.priority = priority;
   }
@@ -422,11 +417,17 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get section
    * @return section
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SECTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestPlanTestPointsSectionSearchApiResult getSection() {
     return section;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SECTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSection(TestPlanTestPointsSectionSearchApiResult section) {
     this.section = section;
   }
@@ -441,18 +442,123 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get created
    * @return created
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public AuditApiResult getCreated() {
     return created;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreated(AuditApiResult created) {
     this.created = created;
   }
 
 
+  public TestPlanTestPointsWorkItemSearchApiResult medianDuration(Long medianDuration) {
+    this.medianDuration = JsonNullable.<Long>of(medianDuration);
+    return this;
+  }
+
+  /**
+   * Get medianDuration
+   * @return medianDuration
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Long getMedianDuration() {
+        return medianDuration.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MEDIAN_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getMedianDuration_JsonNullable() {
+    return medianDuration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MEDIAN_DURATION)
+  public void setMedianDuration_JsonNullable(JsonNullable<Long> medianDuration) {
+    this.medianDuration = medianDuration;
+  }
+
+  public void setMedianDuration(Long medianDuration) {
+    this.medianDuration = JsonNullable.<Long>of(medianDuration);
+  }
+
+
+  public TestPlanTestPointsWorkItemSearchApiResult isDeleted(Boolean isDeleted) {
+    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+    return this;
+  }
+
+  /**
+   * Get isDeleted
+   * @return isDeleted
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Boolean getIsDeleted() {
+        return isDeleted.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsDeleted_JsonNullable() {
+    return isDeleted;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  public void setIsDeleted_JsonNullable(JsonNullable<Boolean> isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
+  }
+
+
+  public TestPlanTestPointsWorkItemSearchApiResult orderRank(String orderRank) {
+    this.orderRank = JsonNullable.<String>of(orderRank);
+    return this;
+  }
+
+  /**
+   * Get orderRank
+   * @return orderRank
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getOrderRank() {
+        return orderRank.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ORDER_RANK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getOrderRank_JsonNullable() {
+    return orderRank;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ORDER_RANK)
+  public void setOrderRank_JsonNullable(JsonNullable<String> orderRank) {
+    this.orderRank = orderRank;
+  }
+
+  public void setOrderRank(String orderRank) {
+    this.orderRank = JsonNullable.<String>of(orderRank);
+  }
+
+
   public TestPlanTestPointsWorkItemSearchApiResult modified(AuditApiResult modified) {
-    this.modified = modified;
+    this.modified = JsonNullable.<AuditApiResult>of(modified);
     return this;
   }
 
@@ -460,17 +566,33 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
    * Get modified
    * @return modified
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public AuditApiResult getModified() {
-    return modified;
+        return modified.orElse(null);
   }
 
-  public void setModified(AuditApiResult modified) {
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<AuditApiResult> getModified_JsonNullable() {
+    return modified;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  public void setModified_JsonNullable(JsonNullable<AuditApiResult> modified) {
     this.modified = modified;
   }
 
+  public void setModified(AuditApiResult modified) {
+    this.modified = JsonNullable.<AuditApiResult>of(modified);
+  }
 
 
+  /**
+   * Return true if this TestPlanTestPointsWorkItemSearchApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -484,19 +606,19 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
         Objects.equals(this.globalId, testPlanTestPointsWorkItemSearchApiResult.globalId) &&
         Objects.equals(this.versionId, testPlanTestPointsWorkItemSearchApiResult.versionId) &&
         Objects.equals(this.versionNumber, testPlanTestPointsWorkItemSearchApiResult.versionNumber) &&
-        Objects.equals(this.medianDuration, testPlanTestPointsWorkItemSearchApiResult.medianDuration) &&
-        Objects.equals(this.isDeleted, testPlanTestPointsWorkItemSearchApiResult.isDeleted) &&
         Objects.equals(this.duration, testPlanTestPointsWorkItemSearchApiResult.duration) &&
         Objects.equals(this.state, testPlanTestPointsWorkItemSearchApiResult.state) &&
         Objects.equals(this.tags, testPlanTestPointsWorkItemSearchApiResult.tags) &&
         Objects.equals(this.attributes, testPlanTestPointsWorkItemSearchApiResult.attributes) &&
-        Objects.equals(this.orderRank, testPlanTestPointsWorkItemSearchApiResult.orderRank) &&
         Objects.equals(this.isAutomated, testPlanTestPointsWorkItemSearchApiResult.isAutomated) &&
         Objects.equals(this.name, testPlanTestPointsWorkItemSearchApiResult.name) &&
         Objects.equals(this.priority, testPlanTestPointsWorkItemSearchApiResult.priority) &&
         Objects.equals(this.section, testPlanTestPointsWorkItemSearchApiResult.section) &&
         Objects.equals(this.created, testPlanTestPointsWorkItemSearchApiResult.created) &&
-        Objects.equals(this.modified, testPlanTestPointsWorkItemSearchApiResult.modified);
+        equalsNullable(this.medianDuration, testPlanTestPointsWorkItemSearchApiResult.medianDuration) &&
+        equalsNullable(this.isDeleted, testPlanTestPointsWorkItemSearchApiResult.isDeleted) &&
+        equalsNullable(this.orderRank, testPlanTestPointsWorkItemSearchApiResult.orderRank) &&
+        equalsNullable(this.modified, testPlanTestPointsWorkItemSearchApiResult.modified);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -505,7 +627,7 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, globalId, versionId, versionNumber, medianDuration, isDeleted, duration, state, tags, attributes, orderRank, isAutomated, name, priority, section, created, modified);
+    return Objects.hash(id, globalId, versionId, versionNumber, duration, state, tags, attributes, isAutomated, name, priority, section, created, hashCodeNullable(medianDuration), hashCodeNullable(isDeleted), hashCodeNullable(orderRank), hashCodeNullable(modified));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -523,18 +645,18 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
     sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
     sb.append("    versionNumber: ").append(toIndentedString(versionNumber)).append("\n");
-    sb.append("    medianDuration: ").append(toIndentedString(medianDuration)).append("\n");
-    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    orderRank: ").append(toIndentedString(orderRank)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    section: ").append(toIndentedString(section)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    medianDuration: ").append(toIndentedString(medianDuration)).append("\n");
+    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    orderRank: ").append(toIndentedString(orderRank)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -551,155 +673,5 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("globalId");
-    openapiFields.add("versionId");
-    openapiFields.add("versionNumber");
-    openapiFields.add("medianDuration");
-    openapiFields.add("isDeleted");
-    openapiFields.add("duration");
-    openapiFields.add("state");
-    openapiFields.add("tags");
-    openapiFields.add("attributes");
-    openapiFields.add("orderRank");
-    openapiFields.add("isAutomated");
-    openapiFields.add("name");
-    openapiFields.add("priority");
-    openapiFields.add("section");
-    openapiFields.add("created");
-    openapiFields.add("modified");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("globalId");
-    openapiRequiredFields.add("versionId");
-    openapiRequiredFields.add("versionNumber");
-    openapiRequiredFields.add("duration");
-    openapiRequiredFields.add("state");
-    openapiRequiredFields.add("tags");
-    openapiRequiredFields.add("attributes");
-    openapiRequiredFields.add("isAutomated");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("priority");
-    openapiRequiredFields.add("section");
-    openapiRequiredFields.add("created");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanTestPointsWorkItemSearchApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanTestPointsWorkItemSearchApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanTestPointsWorkItemSearchApiResult is not found in the empty JSON string", TestPlanTestPointsWorkItemSearchApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanTestPointsWorkItemSearchApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanTestPointsWorkItemSearchApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanTestPointsWorkItemSearchApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("versionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `versionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("versionId").toString()));
-      }
-      // validate the required field `state`
-      WorkItemState.validateJsonElement(jsonObj.get("state"));
-      // ensure the required json array is present
-      if (jsonObj.get("tags") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      if ((jsonObj.get("orderRank") != null && !jsonObj.get("orderRank").isJsonNull()) && !jsonObj.get("orderRank").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `orderRank` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orderRank").toString()));
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the required field `priority`
-      WorkItemPriority.validateJsonElement(jsonObj.get("priority"));
-      // validate the required field `section`
-      TestPlanTestPointsSectionSearchApiResult.validateJsonElement(jsonObj.get("section"));
-      // validate the required field `created`
-      AuditApiResult.validateJsonElement(jsonObj.get("created"));
-      // validate the optional field `modified`
-      if (jsonObj.get("modified") != null && !jsonObj.get("modified").isJsonNull()) {
-        AuditApiResult.validateJsonElement(jsonObj.get("modified"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanTestPointsWorkItemSearchApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanTestPointsWorkItemSearchApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanTestPointsWorkItemSearchApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanTestPointsWorkItemSearchApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanTestPointsWorkItemSearchApiResult>() {
-           @Override
-           public void write(JsonWriter out, TestPlanTestPointsWorkItemSearchApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanTestPointsWorkItemSearchApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPlanTestPointsWorkItemSearchApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanTestPointsWorkItemSearchApiResult
-   * @throws IOException if the JSON string is invalid with respect to TestPlanTestPointsWorkItemSearchApiResult
-   */
-  public static TestPlanTestPointsWorkItemSearchApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanTestPointsWorkItemSearchApiResult.class);
-  }
-
-  /**
-   * Convert an instance of TestPlanTestPointsWorkItemSearchApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

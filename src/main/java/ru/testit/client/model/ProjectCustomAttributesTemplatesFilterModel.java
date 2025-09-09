@@ -14,59 +14,45 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CustomAttributeTypesEnum;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * Collection of filters to apply to search
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ProjectCustomAttributesTemplatesFilterModel.JSON_PROPERTY_NAME,
+  ProjectCustomAttributesTemplatesFilterModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectCustomAttributesTemplatesFilterModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_TYPES)
-  private Set<CustomAttributeTypesEnum> customAttributeTypes;
+  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES = "customAttributeTypes";
+  private JsonNullable<Set<CustomAttributeTypesEnum>> customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>undefined();
 
-  public ProjectCustomAttributesTemplatesFilterModel() {
+  public ProjectCustomAttributesTemplatesFilterModel() { 
   }
 
   public ProjectCustomAttributesTemplatesFilterModel name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -74,26 +60,44 @@ public class ProjectCustomAttributesTemplatesFilterModel {
    * Name of custom attribute template
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
     return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
   }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public ProjectCustomAttributesTemplatesFilterModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
-    this.customAttributeTypes = customAttributeTypes;
+    this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
     return this;
   }
 
   public ProjectCustomAttributesTemplatesFilterModel addCustomAttributeTypesItem(CustomAttributeTypesEnum customAttributeTypesItem) {
-    if (this.customAttributeTypes == null) {
-      this.customAttributeTypes = new LinkedHashSet<>();
+    if (this.customAttributeTypes == null || !this.customAttributeTypes.isPresent()) {
+      this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(new LinkedHashSet<>());
     }
-    this.customAttributeTypes.add(customAttributeTypesItem);
+    try {
+      this.customAttributeTypes.get().add(customAttributeTypesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -101,17 +105,33 @@ public class ProjectCustomAttributesTemplatesFilterModel {
    * Collection of custom attributes types
    * @return customAttributeTypes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<CustomAttributeTypesEnum> getCustomAttributeTypes() {
-    return customAttributeTypes;
+        return customAttributeTypes.orElse(null);
   }
 
-  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<CustomAttributeTypesEnum>> getCustomAttributeTypes_JsonNullable() {
+    return customAttributeTypes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES)
+  public void setCustomAttributeTypes_JsonNullable(JsonNullable<Set<CustomAttributeTypesEnum>> customAttributeTypes) {
     this.customAttributeTypes = customAttributeTypes;
   }
 
+  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+    this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
+  }
 
 
+  /**
+   * Return true if this ProjectCustomAttributesTemplatesFilterModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,8 +141,8 @@ public class ProjectCustomAttributesTemplatesFilterModel {
       return false;
     }
     ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel = (ProjectCustomAttributesTemplatesFilterModel) o;
-    return Objects.equals(this.name, projectCustomAttributesTemplatesFilterModel.name) &&
-        Objects.equals(this.customAttributeTypes, projectCustomAttributesTemplatesFilterModel.customAttributeTypes);
+    return equalsNullable(this.name, projectCustomAttributesTemplatesFilterModel.name) &&
+        equalsNullable(this.customAttributeTypes, projectCustomAttributesTemplatesFilterModel.customAttributeTypes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -131,7 +151,7 @@ public class ProjectCustomAttributesTemplatesFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, customAttributeTypes);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(customAttributeTypes));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -162,97 +182,5 @@ public class ProjectCustomAttributesTemplatesFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("customAttributeTypes");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProjectCustomAttributesTemplatesFilterModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ProjectCustomAttributesTemplatesFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectCustomAttributesTemplatesFilterModel is not found in the empty JSON string", ProjectCustomAttributesTemplatesFilterModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ProjectCustomAttributesTemplatesFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectCustomAttributesTemplatesFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("customAttributeTypes") != null && !jsonObj.get("customAttributeTypes").isJsonNull() && !jsonObj.get("customAttributeTypes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customAttributeTypes` to be an array in the JSON string but got `%s`", jsonObj.get("customAttributeTypes").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectCustomAttributesTemplatesFilterModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectCustomAttributesTemplatesFilterModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectCustomAttributesTemplatesFilterModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectCustomAttributesTemplatesFilterModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ProjectCustomAttributesTemplatesFilterModel>() {
-           @Override
-           public void write(JsonWriter out, ProjectCustomAttributesTemplatesFilterModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ProjectCustomAttributesTemplatesFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ProjectCustomAttributesTemplatesFilterModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ProjectCustomAttributesTemplatesFilterModel
-   * @throws IOException if the JSON string is invalid with respect to ProjectCustomAttributesTemplatesFilterModel
-   */
-  public static ProjectCustomAttributesTemplatesFilterModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectCustomAttributesTemplatesFilterModel.class);
-  }
-
-  /**
-   * Convert an instance of ProjectCustomAttributesTemplatesFilterModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

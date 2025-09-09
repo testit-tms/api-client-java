@@ -14,116 +14,102 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.RequestTypeModel;
 import ru.testit.client.model.WebHookEventTypeModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WebHookLogModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WebHookLogModel.JSON_PROPERTY_WEB_HOOK_NAME,
+  WebHookLogModel.JSON_PROPERTY_EVENT_TYPE,
+  WebHookLogModel.JSON_PROPERTY_WEB_HOOK_ID,
+  WebHookLogModel.JSON_PROPERTY_RESPONSE_STATUS_CODE,
+  WebHookLogModel.JSON_PROPERTY_PROJECT_ID,
+  WebHookLogModel.JSON_PROPERTY_URL,
+  WebHookLogModel.JSON_PROPERTY_REQUEST_TYPE,
+  WebHookLogModel.JSON_PROPERTY_CREATED_BY_ID,
+  WebHookLogModel.JSON_PROPERTY_ID,
+  WebHookLogModel.JSON_PROPERTY_IS_DELETED,
+  WebHookLogModel.JSON_PROPERTY_REQUEST_BODY,
+  WebHookLogModel.JSON_PROPERTY_REQUEST_META,
+  WebHookLogModel.JSON_PROPERTY_RESPONSE_BODY,
+  WebHookLogModel.JSON_PROPERTY_RESPONSE_META,
+  WebHookLogModel.JSON_PROPERTY_CREATED_DATE,
+  WebHookLogModel.JSON_PROPERTY_MODIFIED_DATE,
+  WebHookLogModel.JSON_PROPERTY_MODIFIED_BY_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebHookLogModel {
-  public static final String SERIALIZED_NAME_WEB_HOOK_NAME = "webHookName";
-  @SerializedName(SERIALIZED_NAME_WEB_HOOK_NAME)
+  public static final String JSON_PROPERTY_WEB_HOOK_NAME = "webHookName";
   private String webHookName;
 
-  public static final String SERIALIZED_NAME_EVENT_TYPE = "eventType";
-  @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
+  public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
   private WebHookEventTypeModel eventType;
 
-  public static final String SERIALIZED_NAME_WEB_HOOK_ID = "webHookId";
-  @SerializedName(SERIALIZED_NAME_WEB_HOOK_ID)
+  public static final String JSON_PROPERTY_WEB_HOOK_ID = "webHookId";
   private UUID webHookId;
 
-  public static final String SERIALIZED_NAME_REQUEST_BODY = "requestBody";
-  @SerializedName(SERIALIZED_NAME_REQUEST_BODY)
-  private String requestBody;
-
-  public static final String SERIALIZED_NAME_REQUEST_META = "requestMeta";
-  @SerializedName(SERIALIZED_NAME_REQUEST_META)
-  private String requestMeta;
-
-  public static final String SERIALIZED_NAME_RESPONSE_STATUS_CODE = "responseStatusCode";
-  @SerializedName(SERIALIZED_NAME_RESPONSE_STATUS_CODE)
+  public static final String JSON_PROPERTY_RESPONSE_STATUS_CODE = "responseStatusCode";
   private Integer responseStatusCode;
 
-  public static final String SERIALIZED_NAME_RESPONSE_BODY = "responseBody";
-  @SerializedName(SERIALIZED_NAME_RESPONSE_BODY)
-  private String responseBody;
-
-  public static final String SERIALIZED_NAME_RESPONSE_META = "responseMeta";
-  @SerializedName(SERIALIZED_NAME_RESPONSE_META)
-  private String responseMeta;
-
-  public static final String SERIALIZED_NAME_PROJECT_ID = "projectId";
-  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   private UUID projectId;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-  public static final String SERIALIZED_NAME_REQUEST_TYPE = "requestType";
-  @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
+  public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
   private RequestTypeModel requestType;
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private OffsetDateTime createdDate;
-
-  public static final String SERIALIZED_NAME_MODIFIED_DATE = "modifiedDate";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_DATE)
-  private OffsetDateTime modifiedDate;
-
-  public static final String SERIALIZED_NAME_CREATED_BY_ID = "createdById";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_ID)
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
 
-  public static final String SERIALIZED_NAME_MODIFIED_BY_ID = "modifiedById";
-  @SerializedName(SERIALIZED_NAME_MODIFIED_BY_ID)
-  private UUID modifiedById;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public WebHookLogModel() {
+  public static final String JSON_PROPERTY_REQUEST_BODY = "requestBody";
+  private JsonNullable<String> requestBody = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_REQUEST_META = "requestMeta";
+  private JsonNullable<String> requestMeta = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_RESPONSE_BODY = "responseBody";
+  private JsonNullable<String> responseBody = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_RESPONSE_META = "responseMeta";
+  private JsonNullable<String> responseMeta = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+
+  public WebHookLogModel() { 
   }
 
   public WebHookLogModel webHookName(String webHookName) {
@@ -135,11 +121,17 @@ public class WebHookLogModel {
    * Get webHookName
    * @return webHookName
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WEB_HOOK_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getWebHookName() {
     return webHookName;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WEB_HOOK_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWebHookName(String webHookName) {
     this.webHookName = webHookName;
   }
@@ -154,11 +146,17 @@ public class WebHookLogModel {
    * Get eventType
    * @return eventType
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WebHookEventTypeModel getEventType() {
     return eventType;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEventType(WebHookEventTypeModel eventType) {
     this.eventType = eventType;
   }
@@ -173,51 +171,19 @@ public class WebHookLogModel {
    * Get webHookId
    * @return webHookId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WEB_HOOK_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getWebHookId() {
     return webHookId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WEB_HOOK_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWebHookId(UUID webHookId) {
     this.webHookId = webHookId;
-  }
-
-
-  public WebHookLogModel requestBody(String requestBody) {
-    this.requestBody = requestBody;
-    return this;
-  }
-
-  /**
-   * Get requestBody
-   * @return requestBody
-   */
-  @javax.annotation.Nullable
-  public String getRequestBody() {
-    return requestBody;
-  }
-
-  public void setRequestBody(String requestBody) {
-    this.requestBody = requestBody;
-  }
-
-
-  public WebHookLogModel requestMeta(String requestMeta) {
-    this.requestMeta = requestMeta;
-    return this;
-  }
-
-  /**
-   * Get requestMeta
-   * @return requestMeta
-   */
-  @javax.annotation.Nullable
-  public String getRequestMeta() {
-    return requestMeta;
-  }
-
-  public void setRequestMeta(String requestMeta) {
-    this.requestMeta = requestMeta;
   }
 
 
@@ -230,51 +196,19 @@ public class WebHookLogModel {
    * Get responseStatusCode
    * @return responseStatusCode
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_RESPONSE_STATUS_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getResponseStatusCode() {
     return responseStatusCode;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_RESPONSE_STATUS_CODE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setResponseStatusCode(Integer responseStatusCode) {
     this.responseStatusCode = responseStatusCode;
-  }
-
-
-  public WebHookLogModel responseBody(String responseBody) {
-    this.responseBody = responseBody;
-    return this;
-  }
-
-  /**
-   * Get responseBody
-   * @return responseBody
-   */
-  @javax.annotation.Nullable
-  public String getResponseBody() {
-    return responseBody;
-  }
-
-  public void setResponseBody(String responseBody) {
-    this.responseBody = responseBody;
-  }
-
-
-  public WebHookLogModel responseMeta(String responseMeta) {
-    this.responseMeta = responseMeta;
-    return this;
-  }
-
-  /**
-   * Get responseMeta
-   * @return responseMeta
-   */
-  @javax.annotation.Nullable
-  public String getResponseMeta() {
-    return responseMeta;
-  }
-
-  public void setResponseMeta(String responseMeta) {
-    this.responseMeta = responseMeta;
   }
 
 
@@ -287,11 +221,17 @@ public class WebHookLogModel {
    * Get projectId
    * @return projectId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getProjectId() {
     return projectId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(UUID projectId) {
     this.projectId = projectId;
   }
@@ -306,11 +246,17 @@ public class WebHookLogModel {
    * Get url
    * @return url
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getUrl() {
     return url;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(String url) {
     this.url = url;
   }
@@ -325,51 +271,19 @@ public class WebHookLogModel {
    * Get requestType
    * @return requestType
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public RequestTypeModel getRequestType() {
     return requestType;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequestType(RequestTypeModel requestType) {
     this.requestType = requestType;
-  }
-
-
-  public WebHookLogModel createdDate(OffsetDateTime createdDate) {
-    this.createdDate = createdDate;
-    return this;
-  }
-
-  /**
-   * Get createdDate
-   * @return createdDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getCreatedDate() {
-    return createdDate;
-  }
-
-  public void setCreatedDate(OffsetDateTime createdDate) {
-    this.createdDate = createdDate;
-  }
-
-
-  public WebHookLogModel modifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
-    return this;
-  }
-
-  /**
-   * Get modifiedDate
-   * @return modifiedDate
-   */
-  @javax.annotation.Nullable
-  public OffsetDateTime getModifiedDate() {
-    return modifiedDate;
-  }
-
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
-    this.modifiedDate = modifiedDate;
   }
 
 
@@ -382,32 +296,19 @@ public class WebHookLogModel {
    * Get createdById
    * @return createdById
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getCreatedById() {
     return createdById;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(UUID createdById) {
     this.createdById = createdById;
-  }
-
-
-  public WebHookLogModel modifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
-    return this;
-  }
-
-  /**
-   * Get modifiedById
-   * @return modifiedById
-   */
-  @javax.annotation.Nullable
-  public UUID getModifiedById() {
-    return modifiedById;
-  }
-
-  public void setModifiedById(UUID modifiedById) {
-    this.modifiedById = modifiedById;
   }
 
 
@@ -420,11 +321,17 @@ public class WebHookLogModel {
    * Unique ID of the entity
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -439,17 +346,256 @@ public class WebHookLogModel {
    * Indicates if the entity is deleted
    * @return isDeleted
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
+  public WebHookLogModel requestBody(String requestBody) {
+    this.requestBody = JsonNullable.<String>of(requestBody);
+    return this;
+  }
 
+  /**
+   * Get requestBody
+   * @return requestBody
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getRequestBody() {
+        return requestBody.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_REQUEST_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getRequestBody_JsonNullable() {
+    return requestBody;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REQUEST_BODY)
+  public void setRequestBody_JsonNullable(JsonNullable<String> requestBody) {
+    this.requestBody = requestBody;
+  }
+
+  public void setRequestBody(String requestBody) {
+    this.requestBody = JsonNullable.<String>of(requestBody);
+  }
+
+
+  public WebHookLogModel requestMeta(String requestMeta) {
+    this.requestMeta = JsonNullable.<String>of(requestMeta);
+    return this;
+  }
+
+  /**
+   * Get requestMeta
+   * @return requestMeta
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getRequestMeta() {
+        return requestMeta.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_REQUEST_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getRequestMeta_JsonNullable() {
+    return requestMeta;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REQUEST_META)
+  public void setRequestMeta_JsonNullable(JsonNullable<String> requestMeta) {
+    this.requestMeta = requestMeta;
+  }
+
+  public void setRequestMeta(String requestMeta) {
+    this.requestMeta = JsonNullable.<String>of(requestMeta);
+  }
+
+
+  public WebHookLogModel responseBody(String responseBody) {
+    this.responseBody = JsonNullable.<String>of(responseBody);
+    return this;
+  }
+
+  /**
+   * Get responseBody
+   * @return responseBody
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getResponseBody() {
+        return responseBody.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getResponseBody_JsonNullable() {
+    return responseBody;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
+  public void setResponseBody_JsonNullable(JsonNullable<String> responseBody) {
+    this.responseBody = responseBody;
+  }
+
+  public void setResponseBody(String responseBody) {
+    this.responseBody = JsonNullable.<String>of(responseBody);
+  }
+
+
+  public WebHookLogModel responseMeta(String responseMeta) {
+    this.responseMeta = JsonNullable.<String>of(responseMeta);
+    return this;
+  }
+
+  /**
+   * Get responseMeta
+   * @return responseMeta
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getResponseMeta() {
+        return responseMeta.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RESPONSE_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getResponseMeta_JsonNullable() {
+    return responseMeta;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RESPONSE_META)
+  public void setResponseMeta_JsonNullable(JsonNullable<String> responseMeta) {
+    this.responseMeta = responseMeta;
+  }
+
+  public void setResponseMeta(String responseMeta) {
+    this.responseMeta = JsonNullable.<String>of(responseMeta);
+  }
+
+
+  public WebHookLogModel createdDate(OffsetDateTime createdDate) {
+    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+    return this;
+  }
+
+  /**
+   * Get createdDate
+   * @return createdDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getCreatedDate() {
+        return createdDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
+    return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
+    this.createdDate = createdDate;
+  }
+
+  public void setCreatedDate(OffsetDateTime createdDate) {
+    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+  }
+
+
+  public WebHookLogModel modifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    return this;
+  }
+
+  /**
+   * Get modifiedDate
+   * @return modifiedDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getModifiedDate() {
+        return modifiedDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
+    return modifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+  }
+
+
+  public WebHookLogModel modifiedById(UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    return this;
+  }
+
+  /**
+   * Get modifiedById
+   * @return modifiedById
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getModifiedById() {
+        return modifiedById.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getModifiedById_JsonNullable() {
+    return modifiedById;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
+    this.modifiedById = modifiedById;
+  }
+
+  public void setModifiedById(UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+  }
+
+
+  /**
+   * Return true if this WebHookLogModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -462,20 +608,20 @@ public class WebHookLogModel {
     return Objects.equals(this.webHookName, webHookLogModel.webHookName) &&
         Objects.equals(this.eventType, webHookLogModel.eventType) &&
         Objects.equals(this.webHookId, webHookLogModel.webHookId) &&
-        Objects.equals(this.requestBody, webHookLogModel.requestBody) &&
-        Objects.equals(this.requestMeta, webHookLogModel.requestMeta) &&
         Objects.equals(this.responseStatusCode, webHookLogModel.responseStatusCode) &&
-        Objects.equals(this.responseBody, webHookLogModel.responseBody) &&
-        Objects.equals(this.responseMeta, webHookLogModel.responseMeta) &&
         Objects.equals(this.projectId, webHookLogModel.projectId) &&
         Objects.equals(this.url, webHookLogModel.url) &&
         Objects.equals(this.requestType, webHookLogModel.requestType) &&
-        Objects.equals(this.createdDate, webHookLogModel.createdDate) &&
-        Objects.equals(this.modifiedDate, webHookLogModel.modifiedDate) &&
         Objects.equals(this.createdById, webHookLogModel.createdById) &&
-        Objects.equals(this.modifiedById, webHookLogModel.modifiedById) &&
         Objects.equals(this.id, webHookLogModel.id) &&
-        Objects.equals(this.isDeleted, webHookLogModel.isDeleted);
+        Objects.equals(this.isDeleted, webHookLogModel.isDeleted) &&
+        equalsNullable(this.requestBody, webHookLogModel.requestBody) &&
+        equalsNullable(this.requestMeta, webHookLogModel.requestMeta) &&
+        equalsNullable(this.responseBody, webHookLogModel.responseBody) &&
+        equalsNullable(this.responseMeta, webHookLogModel.responseMeta) &&
+        equalsNullable(this.createdDate, webHookLogModel.createdDate) &&
+        equalsNullable(this.modifiedDate, webHookLogModel.modifiedDate) &&
+        equalsNullable(this.modifiedById, webHookLogModel.modifiedById);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -484,7 +630,7 @@ public class WebHookLogModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(webHookName, eventType, webHookId, requestBody, requestMeta, responseStatusCode, responseBody, responseMeta, projectId, url, requestType, createdDate, modifiedDate, createdById, modifiedById, id, isDeleted);
+    return Objects.hash(webHookName, eventType, webHookId, responseStatusCode, projectId, url, requestType, createdById, id, isDeleted, hashCodeNullable(requestBody), hashCodeNullable(requestMeta), hashCodeNullable(responseBody), hashCodeNullable(responseMeta), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -501,20 +647,20 @@ public class WebHookLogModel {
     sb.append("    webHookName: ").append(toIndentedString(webHookName)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    webHookId: ").append(toIndentedString(webHookId)).append("\n");
-    sb.append("    requestBody: ").append(toIndentedString(requestBody)).append("\n");
-    sb.append("    requestMeta: ").append(toIndentedString(requestMeta)).append("\n");
     sb.append("    responseStatusCode: ").append(toIndentedString(responseStatusCode)).append("\n");
-    sb.append("    responseBody: ").append(toIndentedString(responseBody)).append("\n");
-    sb.append("    responseMeta: ").append(toIndentedString(responseMeta)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
-    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
-    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
-    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    requestBody: ").append(toIndentedString(requestBody)).append("\n");
+    sb.append("    requestMeta: ").append(toIndentedString(requestMeta)).append("\n");
+    sb.append("    responseBody: ").append(toIndentedString(responseBody)).append("\n");
+    sb.append("    responseMeta: ").append(toIndentedString(responseMeta)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
+    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -530,159 +676,5 @@ public class WebHookLogModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("webHookName");
-    openapiFields.add("eventType");
-    openapiFields.add("webHookId");
-    openapiFields.add("requestBody");
-    openapiFields.add("requestMeta");
-    openapiFields.add("responseStatusCode");
-    openapiFields.add("responseBody");
-    openapiFields.add("responseMeta");
-    openapiFields.add("projectId");
-    openapiFields.add("url");
-    openapiFields.add("requestType");
-    openapiFields.add("createdDate");
-    openapiFields.add("modifiedDate");
-    openapiFields.add("createdById");
-    openapiFields.add("modifiedById");
-    openapiFields.add("id");
-    openapiFields.add("isDeleted");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("webHookName");
-    openapiRequiredFields.add("eventType");
-    openapiRequiredFields.add("webHookId");
-    openapiRequiredFields.add("responseStatusCode");
-    openapiRequiredFields.add("projectId");
-    openapiRequiredFields.add("url");
-    openapiRequiredFields.add("requestType");
-    openapiRequiredFields.add("createdById");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("isDeleted");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WebHookLogModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WebHookLogModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebHookLogModel is not found in the empty JSON string", WebHookLogModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WebHookLogModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebHookLogModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WebHookLogModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("webHookName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `webHookName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webHookName").toString()));
-      }
-      // validate the required field `eventType`
-      WebHookEventTypeModel.validateJsonElement(jsonObj.get("eventType"));
-      if (!jsonObj.get("webHookId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `webHookId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webHookId").toString()));
-      }
-      if ((jsonObj.get("requestBody") != null && !jsonObj.get("requestBody").isJsonNull()) && !jsonObj.get("requestBody").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `requestBody` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestBody").toString()));
-      }
-      if ((jsonObj.get("requestMeta") != null && !jsonObj.get("requestMeta").isJsonNull()) && !jsonObj.get("requestMeta").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `requestMeta` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestMeta").toString()));
-      }
-      if ((jsonObj.get("responseBody") != null && !jsonObj.get("responseBody").isJsonNull()) && !jsonObj.get("responseBody").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `responseBody` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseBody").toString()));
-      }
-      if ((jsonObj.get("responseMeta") != null && !jsonObj.get("responseMeta").isJsonNull()) && !jsonObj.get("responseMeta").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `responseMeta` to be a primitive type in the JSON string but got `%s`", jsonObj.get("responseMeta").toString()));
-      }
-      if (!jsonObj.get("projectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `projectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("projectId").toString()));
-      }
-      if (!jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-      // validate the required field `requestType`
-      RequestTypeModel.validateJsonElement(jsonObj.get("requestType"));
-      if (!jsonObj.get("createdById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdById").toString()));
-      }
-      if ((jsonObj.get("modifiedById") != null && !jsonObj.get("modifiedById").isJsonNull()) && !jsonObj.get("modifiedById").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedById` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedById").toString()));
-      }
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WebHookLogModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WebHookLogModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WebHookLogModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WebHookLogModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WebHookLogModel>() {
-           @Override
-           public void write(JsonWriter out, WebHookLogModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WebHookLogModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WebHookLogModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WebHookLogModel
-   * @throws IOException if the JSON string is invalid with respect to WebHookLogModel
-   */
-  public static WebHookLogModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WebHookLogModel.class);
-  }
-
-  /**
-   * Convert an instance of WebHookLogModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

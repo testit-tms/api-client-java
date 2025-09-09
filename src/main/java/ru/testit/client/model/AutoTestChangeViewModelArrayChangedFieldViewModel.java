@@ -14,67 +14,57 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutoTestChangeViewModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * AutoTestChangeViewModelArrayChangedFieldViewModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  AutoTestChangeViewModelArrayChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
+  AutoTestChangeViewModelArrayChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestChangeViewModelArrayChangedFieldViewModel {
-  public static final String SERIALIZED_NAME_OLD_VALUE = "oldValue";
-  @SerializedName(SERIALIZED_NAME_OLD_VALUE)
-  private List<AutoTestChangeViewModel> oldValue;
+  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  private JsonNullable<List<AutoTestChangeViewModel>> oldValue = JsonNullable.<List<AutoTestChangeViewModel>>undefined();
 
-  public static final String SERIALIZED_NAME_NEW_VALUE = "newValue";
-  @SerializedName(SERIALIZED_NAME_NEW_VALUE)
-  private List<AutoTestChangeViewModel> newValue;
+  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  private JsonNullable<List<AutoTestChangeViewModel>> newValue = JsonNullable.<List<AutoTestChangeViewModel>>undefined();
 
-  public AutoTestChangeViewModelArrayChangedFieldViewModel() {
+  public AutoTestChangeViewModelArrayChangedFieldViewModel() { 
   }
 
   public AutoTestChangeViewModelArrayChangedFieldViewModel oldValue(List<AutoTestChangeViewModel> oldValue) {
-    this.oldValue = oldValue;
+    this.oldValue = JsonNullable.<List<AutoTestChangeViewModel>>of(oldValue);
     return this;
   }
 
   public AutoTestChangeViewModelArrayChangedFieldViewModel addOldValueItem(AutoTestChangeViewModel oldValueItem) {
-    if (this.oldValue == null) {
-      this.oldValue = new ArrayList<>();
+    if (this.oldValue == null || !this.oldValue.isPresent()) {
+      this.oldValue = JsonNullable.<List<AutoTestChangeViewModel>>of(new ArrayList<>());
     }
-    this.oldValue.add(oldValueItem);
+    try {
+      this.oldValue.get().add(oldValueItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -82,26 +72,44 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
    * Get oldValue
    * @return oldValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<AutoTestChangeViewModel> getOldValue() {
+        return oldValue.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<AutoTestChangeViewModel>> getOldValue_JsonNullable() {
     return oldValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OLD_VALUE)
+  public void setOldValue_JsonNullable(JsonNullable<List<AutoTestChangeViewModel>> oldValue) {
+    this.oldValue = oldValue;
   }
 
   public void setOldValue(List<AutoTestChangeViewModel> oldValue) {
-    this.oldValue = oldValue;
+    this.oldValue = JsonNullable.<List<AutoTestChangeViewModel>>of(oldValue);
   }
 
 
   public AutoTestChangeViewModelArrayChangedFieldViewModel newValue(List<AutoTestChangeViewModel> newValue) {
-    this.newValue = newValue;
+    this.newValue = JsonNullable.<List<AutoTestChangeViewModel>>of(newValue);
     return this;
   }
 
   public AutoTestChangeViewModelArrayChangedFieldViewModel addNewValueItem(AutoTestChangeViewModel newValueItem) {
-    if (this.newValue == null) {
-      this.newValue = new ArrayList<>();
+    if (this.newValue == null || !this.newValue.isPresent()) {
+      this.newValue = JsonNullable.<List<AutoTestChangeViewModel>>of(new ArrayList<>());
     }
-    this.newValue.add(newValueItem);
+    try {
+      this.newValue.get().add(newValueItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -109,17 +117,33 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
    * Get newValue
    * @return newValue
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public List<AutoTestChangeViewModel> getNewValue() {
-    return newValue;
+        return newValue.orElse(null);
   }
 
-  public void setNewValue(List<AutoTestChangeViewModel> newValue) {
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<AutoTestChangeViewModel>> getNewValue_JsonNullable() {
+    return newValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE)
+  public void setNewValue_JsonNullable(JsonNullable<List<AutoTestChangeViewModel>> newValue) {
     this.newValue = newValue;
   }
 
+  public void setNewValue(List<AutoTestChangeViewModel> newValue) {
+    this.newValue = JsonNullable.<List<AutoTestChangeViewModel>>of(newValue);
+  }
 
 
+  /**
+   * Return true if this AutoTestChangeViewModelArrayChangedFieldViewModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,8 +153,8 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
       return false;
     }
     AutoTestChangeViewModelArrayChangedFieldViewModel autoTestChangeViewModelArrayChangedFieldViewModel = (AutoTestChangeViewModelArrayChangedFieldViewModel) o;
-    return Objects.equals(this.oldValue, autoTestChangeViewModelArrayChangedFieldViewModel.oldValue) &&
-        Objects.equals(this.newValue, autoTestChangeViewModelArrayChangedFieldViewModel.newValue);
+    return equalsNullable(this.oldValue, autoTestChangeViewModelArrayChangedFieldViewModel.oldValue) &&
+        equalsNullable(this.newValue, autoTestChangeViewModelArrayChangedFieldViewModel.newValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -139,7 +163,7 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(oldValue, newValue);
+    return Objects.hash(hashCodeNullable(oldValue), hashCodeNullable(newValue));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -170,118 +194,5 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("oldValue");
-    openapiFields.add("newValue");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AutoTestChangeViewModelArrayChangedFieldViewModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutoTestChangeViewModelArrayChangedFieldViewModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestChangeViewModelArrayChangedFieldViewModel is not found in the empty JSON string", AutoTestChangeViewModelArrayChangedFieldViewModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!AutoTestChangeViewModelArrayChangedFieldViewModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestChangeViewModelArrayChangedFieldViewModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("oldValue") != null && !jsonObj.get("oldValue").isJsonNull()) {
-        JsonArray jsonArrayoldValue = jsonObj.getAsJsonArray("oldValue");
-        if (jsonArrayoldValue != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("oldValue").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `oldValue` to be an array in the JSON string but got `%s`", jsonObj.get("oldValue").toString()));
-          }
-
-          // validate the optional field `oldValue` (array)
-          for (int i = 0; i < jsonArrayoldValue.size(); i++) {
-            AutoTestChangeViewModel.validateJsonElement(jsonArrayoldValue.get(i));
-          };
-        }
-      }
-      if (jsonObj.get("newValue") != null && !jsonObj.get("newValue").isJsonNull()) {
-        JsonArray jsonArraynewValue = jsonObj.getAsJsonArray("newValue");
-        if (jsonArraynewValue != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("newValue").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `newValue` to be an array in the JSON string but got `%s`", jsonObj.get("newValue").toString()));
-          }
-
-          // validate the optional field `newValue` (array)
-          for (int i = 0; i < jsonArraynewValue.size(); i++) {
-            AutoTestChangeViewModel.validateJsonElement(jsonArraynewValue.get(i));
-          };
-        }
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AutoTestChangeViewModelArrayChangedFieldViewModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AutoTestChangeViewModelArrayChangedFieldViewModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AutoTestChangeViewModelArrayChangedFieldViewModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestChangeViewModelArrayChangedFieldViewModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AutoTestChangeViewModelArrayChangedFieldViewModel>() {
-           @Override
-           public void write(JsonWriter out, AutoTestChangeViewModelArrayChangedFieldViewModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AutoTestChangeViewModelArrayChangedFieldViewModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of AutoTestChangeViewModelArrayChangedFieldViewModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AutoTestChangeViewModelArrayChangedFieldViewModel
-   * @throws IOException if the JSON string is invalid with respect to AutoTestChangeViewModelArrayChangedFieldViewModel
-   */
-  public static AutoTestChangeViewModelArrayChangedFieldViewModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AutoTestChangeViewModelArrayChangedFieldViewModel.class);
-  }
-
-  /**
-   * Convert an instance of AutoTestChangeViewModelArrayChangedFieldViewModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

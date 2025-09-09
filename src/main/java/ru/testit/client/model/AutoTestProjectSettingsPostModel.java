@@ -14,125 +14,47 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-import java.util.Arrays;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * AutoTestProjectSettingsPostModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  AutoTestProjectSettingsPostModel.JSON_PROPERTY_RERUN_ENABLED,
+  AutoTestProjectSettingsPostModel.JSON_PROPERTY_RERUN_ATTEMPTS_COUNT,
+  AutoTestProjectSettingsPostModel.JSON_PROPERTY_IS_FLAKY_AUTO,
+  AutoTestProjectSettingsPostModel.JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE,
+  AutoTestProjectSettingsPostModel.JSON_PROPERTY_FLAKY_TEST_RUN_COUNT
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AutoTestProjectSettingsPostModel {
-  public static final String SERIALIZED_NAME_IS_FLAKY_AUTO = "isFlakyAuto";
-  @SerializedName(SERIALIZED_NAME_IS_FLAKY_AUTO)
-  private Boolean isFlakyAuto = false;
-
-  public static final String SERIALIZED_NAME_FLAKY_STABILITY_PERCENTAGE = "flakyStabilityPercentage";
-  @SerializedName(SERIALIZED_NAME_FLAKY_STABILITY_PERCENTAGE)
-  private Integer flakyStabilityPercentage = 100;
-
-  public static final String SERIALIZED_NAME_FLAKY_TEST_RUN_COUNT = "flakyTestRunCount";
-  @SerializedName(SERIALIZED_NAME_FLAKY_TEST_RUN_COUNT)
-  private Integer flakyTestRunCount = 100;
-
-  public static final String SERIALIZED_NAME_RERUN_ENABLED = "rerunEnabled";
-  @SerializedName(SERIALIZED_NAME_RERUN_ENABLED)
+  public static final String JSON_PROPERTY_RERUN_ENABLED = "rerunEnabled";
   private Boolean rerunEnabled;
 
-  public static final String SERIALIZED_NAME_RERUN_ATTEMPTS_COUNT = "rerunAttemptsCount";
-  @SerializedName(SERIALIZED_NAME_RERUN_ATTEMPTS_COUNT)
+  public static final String JSON_PROPERTY_RERUN_ATTEMPTS_COUNT = "rerunAttemptsCount";
   private Integer rerunAttemptsCount;
 
-  public AutoTestProjectSettingsPostModel() {
+  public static final String JSON_PROPERTY_IS_FLAKY_AUTO = "isFlakyAuto";
+  private Boolean isFlakyAuto = false;
+
+  public static final String JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE = "flakyStabilityPercentage";
+  private Integer flakyStabilityPercentage = 100;
+
+  public static final String JSON_PROPERTY_FLAKY_TEST_RUN_COUNT = "flakyTestRunCount";
+  private Integer flakyTestRunCount = 100;
+
+  public AutoTestProjectSettingsPostModel() { 
   }
-
-  public AutoTestProjectSettingsPostModel isFlakyAuto(Boolean isFlakyAuto) {
-    this.isFlakyAuto = isFlakyAuto;
-    return this;
-  }
-
-  /**
-   * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
-   * @return isFlakyAuto
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsFlakyAuto() {
-    return isFlakyAuto;
-  }
-
-  public void setIsFlakyAuto(Boolean isFlakyAuto) {
-    this.isFlakyAuto = isFlakyAuto;
-  }
-
-
-  public AutoTestProjectSettingsPostModel flakyStabilityPercentage(Integer flakyStabilityPercentage) {
-    this.flakyStabilityPercentage = flakyStabilityPercentage;
-    return this;
-  }
-
-  /**
-   * Stability percentage for autotest flaky computing
-   * minimum: 0
-   * maximum: 100
-   * @return flakyStabilityPercentage
-   */
-  @javax.annotation.Nullable
-  public Integer getFlakyStabilityPercentage() {
-    return flakyStabilityPercentage;
-  }
-
-  public void setFlakyStabilityPercentage(Integer flakyStabilityPercentage) {
-    this.flakyStabilityPercentage = flakyStabilityPercentage;
-  }
-
-
-  public AutoTestProjectSettingsPostModel flakyTestRunCount(Integer flakyTestRunCount) {
-    this.flakyTestRunCount = flakyTestRunCount;
-    return this;
-  }
-
-  /**
-   * Last test run count for autotest flaky computing
-   * minimum: 1
-   * maximum: 1000
-   * @return flakyTestRunCount
-   */
-  @javax.annotation.Nullable
-  public Integer getFlakyTestRunCount() {
-    return flakyTestRunCount;
-  }
-
-  public void setFlakyTestRunCount(Integer flakyTestRunCount) {
-    this.flakyTestRunCount = flakyTestRunCount;
-  }
-
 
   public AutoTestProjectSettingsPostModel rerunEnabled(Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
@@ -143,11 +65,17 @@ public class AutoTestProjectSettingsPostModel {
    * Auto rerun enabled
    * @return rerunEnabled
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_RERUN_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getRerunEnabled() {
     return rerunEnabled;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_RERUN_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRerunEnabled(Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
   }
@@ -164,17 +92,104 @@ public class AutoTestProjectSettingsPostModel {
    * maximum: 10
    * @return rerunAttemptsCount
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_RERUN_ATTEMPTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getRerunAttemptsCount() {
     return rerunAttemptsCount;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_RERUN_ATTEMPTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRerunAttemptsCount(Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
   }
 
 
+  public AutoTestProjectSettingsPostModel isFlakyAuto(Boolean isFlakyAuto) {
+    this.isFlakyAuto = isFlakyAuto;
+    return this;
+  }
 
+  /**
+   * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
+   * @return isFlakyAuto
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsFlakyAuto() {
+    return isFlakyAuto;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsFlakyAuto(Boolean isFlakyAuto) {
+    this.isFlakyAuto = isFlakyAuto;
+  }
+
+
+  public AutoTestProjectSettingsPostModel flakyStabilityPercentage(Integer flakyStabilityPercentage) {
+    this.flakyStabilityPercentage = flakyStabilityPercentage;
+    return this;
+  }
+
+  /**
+   * Stability percentage for autotest flaky computing
+   * minimum: 0
+   * maximum: 100
+   * @return flakyStabilityPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getFlakyStabilityPercentage() {
+    return flakyStabilityPercentage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFlakyStabilityPercentage(Integer flakyStabilityPercentage) {
+    this.flakyStabilityPercentage = flakyStabilityPercentage;
+  }
+
+
+  public AutoTestProjectSettingsPostModel flakyTestRunCount(Integer flakyTestRunCount) {
+    this.flakyTestRunCount = flakyTestRunCount;
+    return this;
+  }
+
+  /**
+   * Last test run count for autotest flaky computing
+   * minimum: 1
+   * maximum: 1000
+   * @return flakyTestRunCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLAKY_TEST_RUN_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getFlakyTestRunCount() {
+    return flakyTestRunCount;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FLAKY_TEST_RUN_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFlakyTestRunCount(Integer flakyTestRunCount) {
+    this.flakyTestRunCount = flakyTestRunCount;
+  }
+
+
+  /**
+   * Return true if this AutoTestProjectSettingsPostModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,27 +199,27 @@ public class AutoTestProjectSettingsPostModel {
       return false;
     }
     AutoTestProjectSettingsPostModel autoTestProjectSettingsPostModel = (AutoTestProjectSettingsPostModel) o;
-    return Objects.equals(this.isFlakyAuto, autoTestProjectSettingsPostModel.isFlakyAuto) &&
+    return Objects.equals(this.rerunEnabled, autoTestProjectSettingsPostModel.rerunEnabled) &&
+        Objects.equals(this.rerunAttemptsCount, autoTestProjectSettingsPostModel.rerunAttemptsCount) &&
+        Objects.equals(this.isFlakyAuto, autoTestProjectSettingsPostModel.isFlakyAuto) &&
         Objects.equals(this.flakyStabilityPercentage, autoTestProjectSettingsPostModel.flakyStabilityPercentage) &&
-        Objects.equals(this.flakyTestRunCount, autoTestProjectSettingsPostModel.flakyTestRunCount) &&
-        Objects.equals(this.rerunEnabled, autoTestProjectSettingsPostModel.rerunEnabled) &&
-        Objects.equals(this.rerunAttemptsCount, autoTestProjectSettingsPostModel.rerunAttemptsCount);
+        Objects.equals(this.flakyTestRunCount, autoTestProjectSettingsPostModel.flakyTestRunCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount, rerunEnabled, rerunAttemptsCount);
+    return Objects.hash(rerunEnabled, rerunAttemptsCount, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoTestProjectSettingsPostModel {\n");
+    sb.append("    rerunEnabled: ").append(toIndentedString(rerunEnabled)).append("\n");
+    sb.append("    rerunAttemptsCount: ").append(toIndentedString(rerunAttemptsCount)).append("\n");
     sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("    flakyStabilityPercentage: ").append(toIndentedString(flakyStabilityPercentage)).append("\n");
     sb.append("    flakyTestRunCount: ").append(toIndentedString(flakyTestRunCount)).append("\n");
-    sb.append("    rerunEnabled: ").append(toIndentedString(rerunEnabled)).append("\n");
-    sb.append("    rerunAttemptsCount: ").append(toIndentedString(rerunAttemptsCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -220,102 +235,5 @@ public class AutoTestProjectSettingsPostModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("isFlakyAuto");
-    openapiFields.add("flakyStabilityPercentage");
-    openapiFields.add("flakyTestRunCount");
-    openapiFields.add("rerunEnabled");
-    openapiFields.add("rerunAttemptsCount");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("rerunEnabled");
-    openapiRequiredFields.add("rerunAttemptsCount");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AutoTestProjectSettingsPostModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AutoTestProjectSettingsPostModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AutoTestProjectSettingsPostModel is not found in the empty JSON string", AutoTestProjectSettingsPostModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!AutoTestProjectSettingsPostModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoTestProjectSettingsPostModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AutoTestProjectSettingsPostModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AutoTestProjectSettingsPostModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AutoTestProjectSettingsPostModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AutoTestProjectSettingsPostModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AutoTestProjectSettingsPostModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<AutoTestProjectSettingsPostModel>() {
-           @Override
-           public void write(JsonWriter out, AutoTestProjectSettingsPostModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public AutoTestProjectSettingsPostModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of AutoTestProjectSettingsPostModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AutoTestProjectSettingsPostModel
-   * @throws IOException if the JSON string is invalid with respect to AutoTestProjectSettingsPostModel
-   */
-  public static AutoTestProjectSettingsPostModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AutoTestProjectSettingsPostModel.class);
-  }
-
-  /**
-   * Convert an instance of AutoTestProjectSettingsPostModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

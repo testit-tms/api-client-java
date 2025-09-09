@@ -13,5 +13,7 @@
 
 * `TEST_PLAN_UNLOCK_REQUEST` (value: `"TestPlanUnlockRequest"`)
 
+* `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
+
 
 

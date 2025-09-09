@@ -14,52 +14,56 @@ All URIs are relative to *http://localhost*
 | [**updateSection**](SectionsApi.md#updateSection) | **PUT** /api/v2/sections | Update section |
 
 
-<a id="apiV2SectionsIdPatch"></a>
-# **apiV2SectionsIdPatch**
+
+## apiV2SectionsIdPatch
+
 > apiV2SectionsIdPatch(id, operation)
 
 Patch section
 
-See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.SectionsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    SectionsApi apiInstance = new SectionsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
-    List<Operation> operation = Arrays.asList(); // List<Operation> | 
-    try {
-      apiInstance.apiV2SectionsIdPatch(id, operation);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SectionsApi#apiV2SectionsIdPatch");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SectionsApi apiInstance = new SectionsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
+        List<Operation> operation = Arrays.asList(); // List<Operation> | 
+        try {
+            apiInstance.apiV2SectionsIdPatch(id, operation);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SectionsApi#apiV2SectionsIdPatch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -76,8 +80,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -90,52 +94,64 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="createSection"></a>
-# **createSection**
+
+## createSection
+
 > SectionWithStepsModel createSection(sectionPostModel)
 
 Create section
 
- Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)
+
+Use case
+
+User sets section properties (listed in request example)
+
+User runs method execution
+
+System creates section property values
+
+System returns section (listed in response example)
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.SectionsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionPostModel sectionPostModel = new SectionPostModel(); // SectionPostModel | 
-    try {
-      SectionWithStepsModel result = apiInstance.createSection(sectionPostModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SectionsApi#createSection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SectionsApi apiInstance = new SectionsApi(defaultClient);
+        SectionPostModel sectionPostModel = new SectionPostModel(); // SectionPostModel | 
+        try {
+            SectionWithStepsModel result = apiInstance.createSection(sectionPostModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SectionsApi#createSection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -151,8 +167,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -165,51 +181,70 @@ public class Example {
 | **409** | Section with the same name already exists in the parent section |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="deleteSection"></a>
-# **deleteSection**
+
+## deleteSection
+
 > deleteSection(id)
 
 Delete section
 
- Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response
+
+Use case
+
+User sets section identifier
+
+User runs method execution
+
+System search section by the identifier
+
+System search and delete nested sections of the found section
+
+System search and delete workitems related to the found nested sections
+
+System deletes initial section and related workitem
+
+System returns no content response
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.SectionsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    SectionsApi apiInstance = new SectionsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
-    try {
-      apiInstance.deleteSection(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SectionsApi#deleteSection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SectionsApi apiInstance = new SectionsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
+        try {
+            apiInstance.deleteSection(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SectionsApi#deleteSection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -225,8 +260,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -239,58 +274,74 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Cannot delete root section |  -  |
 
-<a id="getSectionById"></a>
-# **getSectionById**
+
+## getSectionById
+
 > SectionWithStepsModel getSectionById(id, isDeleted)
 
 Get section
 
- Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section
+
+Use case
+
+User sets section internal (guid format) identifier
+
+User runs method execution
+
+System search section by the section identifier
+
+[Optional] If isDeleted flag equals false, deleted work items are not being searched.
+            If true, deleted work items are also being searched, null for all work items.
+
+System returns section
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.SectionsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    SectionsApi apiInstance = new SectionsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
-    DeletionState isDeleted = DeletionState.fromValue("Any"); // DeletionState | 
-    try {
-      SectionWithStepsModel result = apiInstance.getSectionById(id, isDeleted);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SectionsApi#getSectionById");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SectionsApi apiInstance = new SectionsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
+        DeletionState isDeleted = DeletionState.fromValue("Any"); // DeletionState | 
+        try {
+            SectionWithStepsModel result = apiInstance.getSectionById(id, isDeleted);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SectionsApi#getSectionById");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
 
+
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Section internal (UUID) identifier | |
-| **isDeleted** | [**DeletionState**](.md)|  | [optional] [default to NotDeleted] [enum: Any, Deleted, NotDeleted] |
+| **isDeleted** | **DeletionState**|  | [optional] [default to NotDeleted] [enum: Any, Deleted, NotDeleted] |
 
 ### Return type
 
@@ -302,8 +353,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -316,66 +367,84 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="getWorkItemsBySectionId"></a>
-# **getWorkItemsBySectionId**
+
+## getWorkItemsBySectionId
+
 > List&lt;WorkItemShortModel&gt; getWorkItemsBySectionId(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue)
 
 Get section work items
 
- Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection
+
+Use case
+
+User sets section identifier
+
+User runs method execution
+
+System search section by the identifier
+
+System search work items related to the section
+
+[Optional] If isDeleted flag equals false, deleted work items are not being searched.
+            If true, deleted work items are also being searched, null for all work items.
+
+System returns work item collection
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.SectionsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    SectionsApi apiInstance = new SectionsApi(defaultClient);
-    UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
-    Boolean isDeleted = false; // Boolean | Requested section is deleted
-    List<String> tagNames = Arrays.asList(); // List<String> | List of work item tags
-    Boolean includeIterations = true; // Boolean | 
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    try {
-      List<WorkItemShortModel> result = apiInstance.getWorkItemsBySectionId(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SectionsApi#getWorkItemsBySectionId");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SectionsApi apiInstance = new SectionsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | Section internal (UUID) identifier
+        Boolean isDeleted = false; // Boolean | Requested section is deleted
+        List<String> tagNames = Arrays.asList(); // List<String> | List of work item tags
+        Boolean includeIterations = true; // Boolean | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        try {
+            List<WorkItemShortModel> result = apiInstance.getWorkItemsBySectionId(id, isDeleted, tagNames, includeIterations, skip, take, orderBy, searchField, searchValue);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SectionsApi#getWorkItemsBySectionId");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
 
+
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**| Section internal (UUID) identifier | |
 | **isDeleted** | **Boolean**| Requested section is deleted | [optional] [default to false] |
-| **tagNames** | [**List&lt;String&gt;**](String.md)| List of work item tags | [optional] |
+| **tagNames** | **List&lt;String&gt;**| List of work item tags | [optional] |
 | **includeIterations** | **Boolean**|  | [optional] [default to true] |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
@@ -393,8 +462,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -407,49 +476,52 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="move"></a>
-# **move**
+
+## move
+
 > move(sectionMoveModel)
 
 Move section with all work items into another section
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.SectionsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionMoveModel sectionMoveModel = new SectionMoveModel(); // SectionMoveModel | 
-    try {
-      apiInstance.move(sectionMoveModel);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SectionsApi#move");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SectionsApi apiInstance = new SectionsApi(defaultClient);
+        SectionMoveModel sectionMoveModel = new SectionMoveModel(); // SectionMoveModel | 
+        try {
+            apiInstance.move(sectionMoveModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SectionsApi#move");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -465,8 +537,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -479,51 +551,65 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="rename"></a>
-# **rename**
+
+## rename
+
 > rename(sectionRenameModel)
 
 Rename section
 
- Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response
+
+Use case
+
+User sets section identifier and new name (listed in request example)
+
+User runs method execution
+
+System search section by the identifier
+
+System updates section name using the new name
+
+System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.SectionsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionRenameModel sectionRenameModel = new SectionRenameModel(); // SectionRenameModel | 
-    try {
-      apiInstance.rename(sectionRenameModel);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SectionsApi#rename");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SectionsApi apiInstance = new SectionsApi(defaultClient);
+        SectionRenameModel sectionRenameModel = new SectionRenameModel(); // SectionRenameModel | 
+        try {
+            apiInstance.rename(sectionRenameModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SectionsApi#rename");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -539,8 +625,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -553,51 +639,65 @@ null (empty response body)
 | **409** | Section with the same name already exists in the parent section |  -  |
 | **422** | Root section cannot be renamed |  -  |
 
-<a id="updateSection"></a>
-# **updateSection**
+
+## updateSection
+
 > updateSection(sectionPutModel)
 
 Update section
 
- Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response
+
+Use case
+
+User sets section properties (listed in request example)
+
+User runs method execution
+
+System search section by the identifier
+
+System updates section using the property values
+
+System returns no content response
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.SectionsApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    SectionsApi apiInstance = new SectionsApi(defaultClient);
-    SectionPutModel sectionPutModel = new SectionPutModel(); // SectionPutModel | 
-    try {
-      apiInstance.updateSection(sectionPutModel);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling SectionsApi#updateSection");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        SectionsApi apiInstance = new SectionsApi(defaultClient);
+        SectionPutModel sectionPutModel = new SectionPutModel(); // SectionPutModel | 
+        try {
+            apiInstance.updateSection(sectionPutModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SectionsApi#updateSection");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -613,8 +713,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

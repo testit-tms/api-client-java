@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -28,84 +29,69 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.ProjectTypeModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * ProjectsFilterModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  ProjectsFilterModel.JSON_PROPERTY_NAME,
+  ProjectsFilterModel.JSON_PROPERTY_IS_FAVORITE,
+  ProjectsFilterModel.JSON_PROPERTY_IS_DELETED,
+  ProjectsFilterModel.JSON_PROPERTY_TEST_CASES_COUNT,
+  ProjectsFilterModel.JSON_PROPERTY_CHECKLISTS_COUNT,
+  ProjectsFilterModel.JSON_PROPERTY_SHARED_STEPS_COUNT,
+  ProjectsFilterModel.JSON_PROPERTY_AUTOTESTS_COUNT,
+  ProjectsFilterModel.JSON_PROPERTY_GLOBAL_IDS,
+  ProjectsFilterModel.JSON_PROPERTY_CREATED_DATE,
+  ProjectsFilterModel.JSON_PROPERTY_CREATED_BY_IDS,
+  ProjectsFilterModel.JSON_PROPERTY_TYPES
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectsFilterModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_IS_FAVORITE = "isFavorite";
-  @SerializedName(SERIALIZED_NAME_IS_FAVORITE)
-  private Boolean isFavorite;
+  public static final String JSON_PROPERTY_IS_FAVORITE = "isFavorite";
+  private JsonNullable<Boolean> isFavorite = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  private Boolean isDeleted;
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  private JsonNullable<Boolean> isDeleted = JsonNullable.<Boolean>undefined();
 
-  public static final String SERIALIZED_NAME_TEST_CASES_COUNT = "testCasesCount";
-  @SerializedName(SERIALIZED_NAME_TEST_CASES_COUNT)
-  private Int32RangeSelectorModel testCasesCount;
+  public static final String JSON_PROPERTY_TEST_CASES_COUNT = "testCasesCount";
+  private JsonNullable<Int32RangeSelectorModel> testCasesCount = JsonNullable.<Int32RangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_CHECKLISTS_COUNT = "checklistsCount";
-  @SerializedName(SERIALIZED_NAME_CHECKLISTS_COUNT)
-  private Int32RangeSelectorModel checklistsCount;
+  public static final String JSON_PROPERTY_CHECKLISTS_COUNT = "checklistsCount";
+  private JsonNullable<Int32RangeSelectorModel> checklistsCount = JsonNullable.<Int32RangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_SHARED_STEPS_COUNT = "sharedStepsCount";
-  @SerializedName(SERIALIZED_NAME_SHARED_STEPS_COUNT)
-  private Int32RangeSelectorModel sharedStepsCount;
+  public static final String JSON_PROPERTY_SHARED_STEPS_COUNT = "sharedStepsCount";
+  private JsonNullable<Int32RangeSelectorModel> sharedStepsCount = JsonNullable.<Int32RangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_AUTOTESTS_COUNT = "autotestsCount";
-  @SerializedName(SERIALIZED_NAME_AUTOTESTS_COUNT)
-  private Int32RangeSelectorModel autotestsCount;
+  public static final String JSON_PROPERTY_AUTOTESTS_COUNT = "autotestsCount";
+  private JsonNullable<Int32RangeSelectorModel> autotestsCount = JsonNullable.<Int32RangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_GLOBAL_IDS = "globalIds";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_IDS)
-  private Set<Long> globalIds;
+  public static final String JSON_PROPERTY_GLOBAL_IDS = "globalIds";
+  private JsonNullable<Set<Long>> globalIds = JsonNullable.<Set<Long>>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds;
+  public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
+  private JsonNullable<Set<UUID>> createdByIds = JsonNullable.<Set<UUID>>undefined();
 
-  public static final String SERIALIZED_NAME_TYPES = "types";
-  @SerializedName(SERIALIZED_NAME_TYPES)
-  private Set<ProjectTypeModel> types;
+  public static final String JSON_PROPERTY_TYPES = "types";
+  private JsonNullable<Set<ProjectTypeModel>> types = JsonNullable.<Set<ProjectTypeModel>>undefined();
 
-  public ProjectsFilterModel() {
+  public ProjectsFilterModel() { 
   }
 
   public ProjectsFilterModel name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -113,18 +99,32 @@ public class ProjectsFilterModel {
    * Specifies a project name to search for
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
     return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
   }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public ProjectsFilterModel isFavorite(Boolean isFavorite) {
-    this.isFavorite = isFavorite;
+    this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
     return this;
   }
 
@@ -132,18 +132,32 @@ public class ProjectsFilterModel {
    * Specifies a project favorite status to search for
    * @return isFavorite
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsFavorite() {
+        return isFavorite.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsFavorite_JsonNullable() {
     return isFavorite;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
+  public void setIsFavorite_JsonNullable(JsonNullable<Boolean> isFavorite) {
+    this.isFavorite = isFavorite;
   }
 
   public void setIsFavorite(Boolean isFavorite) {
-    this.isFavorite = isFavorite;
+    this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
   }
 
 
   public ProjectsFilterModel isDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
+    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
 
@@ -151,18 +165,32 @@ public class ProjectsFilterModel {
    * Specifies a project deleted status to search for
    * @return isDeleted
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Boolean getIsDeleted() {
+        return isDeleted.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsDeleted_JsonNullable() {
     return isDeleted;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  public void setIsDeleted_JsonNullable(JsonNullable<Boolean> isDeleted) {
+    this.isDeleted = isDeleted;
   }
 
   public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
+    this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
   public ProjectsFilterModel testCasesCount(Int32RangeSelectorModel testCasesCount) {
-    this.testCasesCount = testCasesCount;
+    this.testCasesCount = JsonNullable.<Int32RangeSelectorModel>of(testCasesCount);
     return this;
   }
 
@@ -170,18 +198,32 @@ public class ProjectsFilterModel {
    * Specifies a project range of test cases count to search for
    * @return testCasesCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Int32RangeSelectorModel getTestCasesCount() {
+        return testCasesCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_CASES_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Int32RangeSelectorModel> getTestCasesCount_JsonNullable() {
     return testCasesCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_CASES_COUNT)
+  public void setTestCasesCount_JsonNullable(JsonNullable<Int32RangeSelectorModel> testCasesCount) {
+    this.testCasesCount = testCasesCount;
   }
 
   public void setTestCasesCount(Int32RangeSelectorModel testCasesCount) {
-    this.testCasesCount = testCasesCount;
+    this.testCasesCount = JsonNullable.<Int32RangeSelectorModel>of(testCasesCount);
   }
 
 
   public ProjectsFilterModel checklistsCount(Int32RangeSelectorModel checklistsCount) {
-    this.checklistsCount = checklistsCount;
+    this.checklistsCount = JsonNullable.<Int32RangeSelectorModel>of(checklistsCount);
     return this;
   }
 
@@ -189,18 +231,32 @@ public class ProjectsFilterModel {
    * Specifies a project range of checklists count to search for
    * @return checklistsCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Int32RangeSelectorModel getChecklistsCount() {
+        return checklistsCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CHECKLISTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Int32RangeSelectorModel> getChecklistsCount_JsonNullable() {
     return checklistsCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CHECKLISTS_COUNT)
+  public void setChecklistsCount_JsonNullable(JsonNullable<Int32RangeSelectorModel> checklistsCount) {
+    this.checklistsCount = checklistsCount;
   }
 
   public void setChecklistsCount(Int32RangeSelectorModel checklistsCount) {
-    this.checklistsCount = checklistsCount;
+    this.checklistsCount = JsonNullable.<Int32RangeSelectorModel>of(checklistsCount);
   }
 
 
   public ProjectsFilterModel sharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
-    this.sharedStepsCount = sharedStepsCount;
+    this.sharedStepsCount = JsonNullable.<Int32RangeSelectorModel>of(sharedStepsCount);
     return this;
   }
 
@@ -208,18 +264,32 @@ public class ProjectsFilterModel {
    * Specifies a project range of shared steps count to search for
    * @return sharedStepsCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Int32RangeSelectorModel getSharedStepsCount() {
+        return sharedStepsCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SHARED_STEPS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Int32RangeSelectorModel> getSharedStepsCount_JsonNullable() {
     return sharedStepsCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHARED_STEPS_COUNT)
+  public void setSharedStepsCount_JsonNullable(JsonNullable<Int32RangeSelectorModel> sharedStepsCount) {
+    this.sharedStepsCount = sharedStepsCount;
   }
 
   public void setSharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
-    this.sharedStepsCount = sharedStepsCount;
+    this.sharedStepsCount = JsonNullable.<Int32RangeSelectorModel>of(sharedStepsCount);
   }
 
 
   public ProjectsFilterModel autotestsCount(Int32RangeSelectorModel autotestsCount) {
-    this.autotestsCount = autotestsCount;
+    this.autotestsCount = JsonNullable.<Int32RangeSelectorModel>of(autotestsCount);
     return this;
   }
 
@@ -227,26 +297,44 @@ public class ProjectsFilterModel {
    * Specifies a project range of autotests count to search for
    * @return autotestsCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Int32RangeSelectorModel getAutotestsCount() {
+        return autotestsCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTOTESTS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Int32RangeSelectorModel> getAutotestsCount_JsonNullable() {
     return autotestsCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTOTESTS_COUNT)
+  public void setAutotestsCount_JsonNullable(JsonNullable<Int32RangeSelectorModel> autotestsCount) {
+    this.autotestsCount = autotestsCount;
   }
 
   public void setAutotestsCount(Int32RangeSelectorModel autotestsCount) {
-    this.autotestsCount = autotestsCount;
+    this.autotestsCount = JsonNullable.<Int32RangeSelectorModel>of(autotestsCount);
   }
 
 
   public ProjectsFilterModel globalIds(Set<Long> globalIds) {
-    this.globalIds = globalIds;
+    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
 
   public ProjectsFilterModel addGlobalIdsItem(Long globalIdsItem) {
-    if (this.globalIds == null) {
-      this.globalIds = new LinkedHashSet<>();
+    if (this.globalIds == null || !this.globalIds.isPresent()) {
+      this.globalIds = JsonNullable.<Set<Long>>of(new LinkedHashSet<>());
     }
-    this.globalIds.add(globalIdsItem);
+    try {
+      this.globalIds.get().add(globalIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -254,18 +342,32 @@ public class ProjectsFilterModel {
    * Specifies a project global IDs to search for
    * @return globalIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<Long> getGlobalIds() {
+        return globalIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<Long>> getGlobalIds_JsonNullable() {
     return globalIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GLOBAL_IDS)
+  public void setGlobalIds_JsonNullable(JsonNullable<Set<Long>> globalIds) {
+    this.globalIds = globalIds;
   }
 
   public void setGlobalIds(Set<Long> globalIds) {
-    this.globalIds = globalIds;
+    this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
   public ProjectsFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
 
@@ -273,26 +375,44 @@ public class ProjectsFilterModel {
    * Specifies a project range of creation date to search for
    * @return createdDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getCreatedDate() {
+        return createdDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DateTimeRangeSelectorModel> getCreatedDate_JsonNullable() {
     return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> createdDate) {
+    this.createdDate = createdDate;
   }
 
   public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
   public ProjectsFilterModel createdByIds(Set<UUID> createdByIds) {
-    this.createdByIds = createdByIds;
+    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
 
   public ProjectsFilterModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
+    if (this.createdByIds == null || !this.createdByIds.isPresent()) {
+      this.createdByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.createdByIds.add(createdByIdsItem);
+    try {
+      this.createdByIds.get().add(createdByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -300,26 +420,44 @@ public class ProjectsFilterModel {
    * Specifies an autotest creator IDs to search for
    * @return createdByIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getCreatedByIds() {
+        return createdByIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getCreatedByIds_JsonNullable() {
     return createdByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  public void setCreatedByIds_JsonNullable(JsonNullable<Set<UUID>> createdByIds) {
+    this.createdByIds = createdByIds;
   }
 
   public void setCreatedByIds(Set<UUID> createdByIds) {
-    this.createdByIds = createdByIds;
+    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
   public ProjectsFilterModel types(Set<ProjectTypeModel> types) {
-    this.types = types;
+    this.types = JsonNullable.<Set<ProjectTypeModel>>of(types);
     return this;
   }
 
   public ProjectsFilterModel addTypesItem(ProjectTypeModel typesItem) {
-    if (this.types == null) {
-      this.types = new LinkedHashSet<>();
+    if (this.types == null || !this.types.isPresent()) {
+      this.types = JsonNullable.<Set<ProjectTypeModel>>of(new LinkedHashSet<>());
     }
-    this.types.add(typesItem);
+    try {
+      this.types.get().add(typesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -327,17 +465,33 @@ public class ProjectsFilterModel {
    * Collection of project types to search for
    * @return types
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<ProjectTypeModel> getTypes() {
-    return types;
+        return types.orElse(null);
   }
 
-  public void setTypes(Set<ProjectTypeModel> types) {
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<ProjectTypeModel>> getTypes_JsonNullable() {
+    return types;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPES)
+  public void setTypes_JsonNullable(JsonNullable<Set<ProjectTypeModel>> types) {
     this.types = types;
   }
 
+  public void setTypes(Set<ProjectTypeModel> types) {
+    this.types = JsonNullable.<Set<ProjectTypeModel>>of(types);
+  }
 
 
+  /**
+   * Return true if this ProjectsFilterModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -347,17 +501,17 @@ public class ProjectsFilterModel {
       return false;
     }
     ProjectsFilterModel projectsFilterModel = (ProjectsFilterModel) o;
-    return Objects.equals(this.name, projectsFilterModel.name) &&
-        Objects.equals(this.isFavorite, projectsFilterModel.isFavorite) &&
-        Objects.equals(this.isDeleted, projectsFilterModel.isDeleted) &&
-        Objects.equals(this.testCasesCount, projectsFilterModel.testCasesCount) &&
-        Objects.equals(this.checklistsCount, projectsFilterModel.checklistsCount) &&
-        Objects.equals(this.sharedStepsCount, projectsFilterModel.sharedStepsCount) &&
-        Objects.equals(this.autotestsCount, projectsFilterModel.autotestsCount) &&
-        Objects.equals(this.globalIds, projectsFilterModel.globalIds) &&
-        Objects.equals(this.createdDate, projectsFilterModel.createdDate) &&
-        Objects.equals(this.createdByIds, projectsFilterModel.createdByIds) &&
-        Objects.equals(this.types, projectsFilterModel.types);
+    return equalsNullable(this.name, projectsFilterModel.name) &&
+        equalsNullable(this.isFavorite, projectsFilterModel.isFavorite) &&
+        equalsNullable(this.isDeleted, projectsFilterModel.isDeleted) &&
+        equalsNullable(this.testCasesCount, projectsFilterModel.testCasesCount) &&
+        equalsNullable(this.checklistsCount, projectsFilterModel.checklistsCount) &&
+        equalsNullable(this.sharedStepsCount, projectsFilterModel.sharedStepsCount) &&
+        equalsNullable(this.autotestsCount, projectsFilterModel.autotestsCount) &&
+        equalsNullable(this.globalIds, projectsFilterModel.globalIds) &&
+        equalsNullable(this.createdDate, projectsFilterModel.createdDate) &&
+        equalsNullable(this.createdByIds, projectsFilterModel.createdByIds) &&
+        equalsNullable(this.types, projectsFilterModel.types);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -366,7 +520,7 @@ public class ProjectsFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, isFavorite, isDeleted, testCasesCount, checklistsCount, sharedStepsCount, autotestsCount, globalIds, createdDate, createdByIds, types);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(isFavorite), hashCodeNullable(isDeleted), hashCodeNullable(testCasesCount), hashCodeNullable(checklistsCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(autotestsCount), hashCodeNullable(globalIds), hashCodeNullable(createdDate), hashCodeNullable(createdByIds), hashCodeNullable(types));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -406,134 +560,5 @@ public class ProjectsFilterModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("isFavorite");
-    openapiFields.add("isDeleted");
-    openapiFields.add("testCasesCount");
-    openapiFields.add("checklistsCount");
-    openapiFields.add("sharedStepsCount");
-    openapiFields.add("autotestsCount");
-    openapiFields.add("globalIds");
-    openapiFields.add("createdDate");
-    openapiFields.add("createdByIds");
-    openapiFields.add("types");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ProjectsFilterModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ProjectsFilterModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProjectsFilterModel is not found in the empty JSON string", ProjectsFilterModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ProjectsFilterModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProjectsFilterModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the optional field `testCasesCount`
-      if (jsonObj.get("testCasesCount") != null && !jsonObj.get("testCasesCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("testCasesCount"));
-      }
-      // validate the optional field `checklistsCount`
-      if (jsonObj.get("checklistsCount") != null && !jsonObj.get("checklistsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("checklistsCount"));
-      }
-      // validate the optional field `sharedStepsCount`
-      if (jsonObj.get("sharedStepsCount") != null && !jsonObj.get("sharedStepsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("sharedStepsCount"));
-      }
-      // validate the optional field `autotestsCount`
-      if (jsonObj.get("autotestsCount") != null && !jsonObj.get("autotestsCount").isJsonNull()) {
-        Int32RangeSelectorModel.validateJsonElement(jsonObj.get("autotestsCount"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("globalIds") != null && !jsonObj.get("globalIds").isJsonNull() && !jsonObj.get("globalIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `globalIds` to be an array in the JSON string but got `%s`", jsonObj.get("globalIds").toString()));
-      }
-      // validate the optional field `createdDate`
-      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull() && !jsonObj.get("types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ProjectsFilterModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ProjectsFilterModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ProjectsFilterModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ProjectsFilterModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<ProjectsFilterModel>() {
-           @Override
-           public void write(JsonWriter out, ProjectsFilterModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public ProjectsFilterModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of ProjectsFilterModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ProjectsFilterModel
-   * @throws IOException if the JSON string is invalid with respect to ProjectsFilterModel
-   */
-  public static ProjectsFilterModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ProjectsFilterModel.class);
-  }
-
-  /**
-   * Convert an instance of ProjectsFilterModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

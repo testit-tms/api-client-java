@@ -14,64 +14,50 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TagsFilterApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TagsFilterApiModel.JSON_PROPERTY_NAME,
+  TagsFilterApiModel.JSON_PROPERTY_CREATED_DATE,
+  TagsFilterApiModel.JSON_PROPERTY_CREATED_BY_IDS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TagsFilterApiModel {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_DATE = "createdDate";
-  @SerializedName(SERIALIZED_NAME_CREATED_DATE)
-  private DateTimeRangeSelectorModel createdDate;
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
-  public static final String SERIALIZED_NAME_CREATED_BY_IDS = "createdByIds";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY_IDS)
-  private Set<UUID> createdByIds;
+  public static final String JSON_PROPERTY_CREATED_BY_IDS = "createdByIds";
+  private JsonNullable<Set<UUID>> createdByIds = JsonNullable.<Set<UUID>>undefined();
 
-  public TagsFilterApiModel() {
+  public TagsFilterApiModel() { 
   }
 
   public TagsFilterApiModel name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -79,18 +65,32 @@ public class TagsFilterApiModel {
    * Specifies a tag name to search for
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getName_JsonNullable() {
     return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
   }
 
   public void setName(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public TagsFilterApiModel createdDate(DateTimeRangeSelectorModel createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
 
@@ -98,26 +98,44 @@ public class TagsFilterApiModel {
    * Specifies a tag range of creation date to search for
    * @return createdDate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public DateTimeRangeSelectorModel getCreatedDate() {
+        return createdDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<DateTimeRangeSelectorModel> getCreatedDate_JsonNullable() {
     return createdDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  public void setCreatedDate_JsonNullable(JsonNullable<DateTimeRangeSelectorModel> createdDate) {
+    this.createdDate = createdDate;
   }
 
   public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
-    this.createdDate = createdDate;
+    this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
   public TagsFilterApiModel createdByIds(Set<UUID> createdByIds) {
-    this.createdByIds = createdByIds;
+    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
 
   public TagsFilterApiModel addCreatedByIdsItem(UUID createdByIdsItem) {
-    if (this.createdByIds == null) {
-      this.createdByIds = new LinkedHashSet<>();
+    if (this.createdByIds == null || !this.createdByIds.isPresent()) {
+      this.createdByIds = JsonNullable.<Set<UUID>>of(new LinkedHashSet<>());
     }
-    this.createdByIds.add(createdByIdsItem);
+    try {
+      this.createdByIds.get().add(createdByIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -125,17 +143,33 @@ public class TagsFilterApiModel {
    * Specifies a tag creator IDs to search for
    * @return createdByIds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Set<UUID> getCreatedByIds() {
-    return createdByIds;
+        return createdByIds.orElse(null);
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<UUID>> getCreatedByIds_JsonNullable() {
+    return createdByIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_IDS)
+  public void setCreatedByIds_JsonNullable(JsonNullable<Set<UUID>> createdByIds) {
     this.createdByIds = createdByIds;
   }
 
+  public void setCreatedByIds(Set<UUID> createdByIds) {
+    this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
+  }
 
 
+  /**
+   * Return true if this TagsFilterApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,9 +179,9 @@ public class TagsFilterApiModel {
       return false;
     }
     TagsFilterApiModel tagsFilterApiModel = (TagsFilterApiModel) o;
-    return Objects.equals(this.name, tagsFilterApiModel.name) &&
-        Objects.equals(this.createdDate, tagsFilterApiModel.createdDate) &&
-        Objects.equals(this.createdByIds, tagsFilterApiModel.createdByIds);
+    return equalsNullable(this.name, tagsFilterApiModel.name) &&
+        equalsNullable(this.createdDate, tagsFilterApiModel.createdDate) &&
+        equalsNullable(this.createdByIds, tagsFilterApiModel.createdByIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -156,7 +190,7 @@ public class TagsFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, createdDate, createdByIds);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(createdDate), hashCodeNullable(createdByIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -188,102 +222,5 @@ public class TagsFilterApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("createdDate");
-    openapiFields.add("createdByIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TagsFilterApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TagsFilterApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TagsFilterApiModel is not found in the empty JSON string", TagsFilterApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TagsFilterApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagsFilterApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      // validate the optional field `createdDate`
-      if (jsonObj.get("createdDate") != null && !jsonObj.get("createdDate").isJsonNull()) {
-        DateTimeRangeSelectorModel.validateJsonElement(jsonObj.get("createdDate"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("createdByIds") != null && !jsonObj.get("createdByIds").isJsonNull() && !jsonObj.get("createdByIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdByIds` to be an array in the JSON string but got `%s`", jsonObj.get("createdByIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TagsFilterApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TagsFilterApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TagsFilterApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TagsFilterApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TagsFilterApiModel>() {
-           @Override
-           public void write(JsonWriter out, TagsFilterApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TagsFilterApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TagsFilterApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TagsFilterApiModel
-   * @throws IOException if the JSON string is invalid with respect to TagsFilterApiModel
-   */
-  public static TagsFilterApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TagsFilterApiModel.class);
-  }
-
-  /**
-   * Convert an instance of TagsFilterApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

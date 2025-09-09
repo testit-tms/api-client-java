@@ -9,10 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | Workitem internal identifier |  |
 |**sectionId** | **UUID** | Internal identifier of section where workitem is located |  |
-|**description** | **String** | Workitem description |  [optional] |
 |**state** | **WorkItemStates** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
-|**sourceType** | **WorkItemSourceTypeModel** |  |  [optional] |
 |**steps** | [**List&lt;UpdateStepApiModel&gt;**](UpdateStepApiModel.md) | Collection of workitem steps |  |
 |**preconditionSteps** | [**List&lt;UpdateStepApiModel&gt;**](UpdateStepApiModel.md) | Collection of workitem precondtion steps |  |
 |**postconditionSteps** | [**List&lt;UpdateStepApiModel&gt;**](UpdateStepApiModel.md) | Collection of workitem postcondition steps |  |
@@ -22,6 +20,8 @@
 |**links** | [**List&lt;UpdateLinkApiModel&gt;**](UpdateLinkApiModel.md) | Collection of workitem links |  |
 |**name** | **String** | Workitem name |  |
 |**attachments** | [**List&lt;AssignAttachmentApiModel&gt;**](AssignAttachmentApiModel.md) |  |  |
+|**description** | **String** | Workitem description |  [optional] |
+|**sourceType** | **WorkItemSourceTypeModel** |  |  [optional] |
 |**iterations** | [**List&lt;AssignIterationApiModel&gt;**](AssignIterationApiModel.md) | Collection of parameter id sets |  [optional] |
 |**autoTests** | [**List&lt;AutoTestIdModel&gt;**](AutoTestIdModel.md) | Collection of autotest internal ids |  [optional] |
 

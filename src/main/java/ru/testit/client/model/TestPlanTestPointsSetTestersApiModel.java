@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,87 +28,34 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestPlanTestPointsExtractionApiModel;
 import ru.testit.client.model.TestPlanTestPointsSearchApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanTestPointsSetTestersApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPlanTestPointsSetTestersApiModel.JSON_PROPERTY_TESTER_IDS,
+  TestPlanTestPointsSetTestersApiModel.JSON_PROPERTY_FILTER,
+  TestPlanTestPointsSetTestersApiModel.JSON_PROPERTY_EXTRACTION_MODEL
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanTestPointsSetTestersApiModel {
-  public static final String SERIALIZED_NAME_FILTER = "filter";
-  @SerializedName(SERIALIZED_NAME_FILTER)
-  private TestPlanTestPointsSearchApiModel filter;
-
-  public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
-  @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
-  private TestPlanTestPointsExtractionApiModel extractionModel;
-
-  public static final String SERIALIZED_NAME_TESTER_IDS = "testerIds";
-  @SerializedName(SERIALIZED_NAME_TESTER_IDS)
+  public static final String JSON_PROPERTY_TESTER_IDS = "testerIds";
   private List<UUID> testerIds = new ArrayList<>();
 
-  public TestPlanTestPointsSetTestersApiModel() {
+  public static final String JSON_PROPERTY_FILTER = "filter";
+  private JsonNullable<TestPlanTestPointsSearchApiModel> filter = JsonNullable.<TestPlanTestPointsSearchApiModel>undefined();
+
+  public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
+  private JsonNullable<TestPlanTestPointsExtractionApiModel> extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>undefined();
+
+  public TestPlanTestPointsSetTestersApiModel() { 
   }
-
-  public TestPlanTestPointsSetTestersApiModel filter(TestPlanTestPointsSearchApiModel filter) {
-    this.filter = filter;
-    return this;
-  }
-
-  /**
-   * Get filter
-   * @return filter
-   */
-  @javax.annotation.Nullable
-  public TestPlanTestPointsSearchApiModel getFilter() {
-    return filter;
-  }
-
-  public void setFilter(TestPlanTestPointsSearchApiModel filter) {
-    this.filter = filter;
-  }
-
-
-  public TestPlanTestPointsSetTestersApiModel extractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
-    this.extractionModel = extractionModel;
-    return this;
-  }
-
-  /**
-   * Get extractionModel
-   * @return extractionModel
-   */
-  @javax.annotation.Nullable
-  public TestPlanTestPointsExtractionApiModel getExtractionModel() {
-    return extractionModel;
-  }
-
-  public void setExtractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
-    this.extractionModel = extractionModel;
-  }
-
 
   public TestPlanTestPointsSetTestersApiModel testerIds(List<UUID> testerIds) {
     this.testerIds = testerIds;
@@ -126,17 +74,91 @@ public class TestPlanTestPointsSetTestersApiModel {
    * Get testerIds
    * @return testerIds
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TESTER_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<UUID> getTesterIds() {
     return testerIds;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TESTER_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTesterIds(List<UUID> testerIds) {
     this.testerIds = testerIds;
   }
 
 
+  public TestPlanTestPointsSetTestersApiModel filter(TestPlanTestPointsSearchApiModel filter) {
+    this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
+    return this;
+  }
 
+  /**
+   * Get filter
+   * @return filter
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestPlanTestPointsSearchApiModel getFilter() {
+        return filter.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestPlanTestPointsSearchApiModel> getFilter_JsonNullable() {
+    return filter;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  public void setFilter_JsonNullable(JsonNullable<TestPlanTestPointsSearchApiModel> filter) {
+    this.filter = filter;
+  }
+
+  public void setFilter(TestPlanTestPointsSearchApiModel filter) {
+    this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
+  }
+
+
+  public TestPlanTestPointsSetTestersApiModel extractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+    this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
+    return this;
+  }
+
+  /**
+   * Get extractionModel
+   * @return extractionModel
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestPlanTestPointsExtractionApiModel getExtractionModel() {
+        return extractionModel.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestPlanTestPointsExtractionApiModel> getExtractionModel_JsonNullable() {
+    return extractionModel;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  public void setExtractionModel_JsonNullable(JsonNullable<TestPlanTestPointsExtractionApiModel> extractionModel) {
+    this.extractionModel = extractionModel;
+  }
+
+  public void setExtractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+    this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
+  }
+
+
+  /**
+   * Return true if this TestPlanTestPointsSetTestersApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,9 +168,9 @@ public class TestPlanTestPointsSetTestersApiModel {
       return false;
     }
     TestPlanTestPointsSetTestersApiModel testPlanTestPointsSetTestersApiModel = (TestPlanTestPointsSetTestersApiModel) o;
-    return Objects.equals(this.filter, testPlanTestPointsSetTestersApiModel.filter) &&
-        Objects.equals(this.extractionModel, testPlanTestPointsSetTestersApiModel.extractionModel) &&
-        Objects.equals(this.testerIds, testPlanTestPointsSetTestersApiModel.testerIds);
+    return Objects.equals(this.testerIds, testPlanTestPointsSetTestersApiModel.testerIds) &&
+        equalsNullable(this.filter, testPlanTestPointsSetTestersApiModel.filter) &&
+        equalsNullable(this.extractionModel, testPlanTestPointsSetTestersApiModel.extractionModel);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -157,7 +179,7 @@ public class TestPlanTestPointsSetTestersApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, extractionModel, testerIds);
+    return Objects.hash(testerIds, hashCodeNullable(filter), hashCodeNullable(extractionModel));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -171,9 +193,9 @@ public class TestPlanTestPointsSetTestersApiModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestPlanTestPointsSetTestersApiModel {\n");
+    sb.append("    testerIds: ").append(toIndentedString(testerIds)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    extractionModel: ").append(toIndentedString(extractionModel)).append("\n");
-    sb.append("    testerIds: ").append(toIndentedString(testerIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -189,113 +211,5 @@ public class TestPlanTestPointsSetTestersApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("filter");
-    openapiFields.add("extractionModel");
-    openapiFields.add("testerIds");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("testerIds");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanTestPointsSetTestersApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanTestPointsSetTestersApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanTestPointsSetTestersApiModel is not found in the empty JSON string", TestPlanTestPointsSetTestersApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanTestPointsSetTestersApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanTestPointsSetTestersApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanTestPointsSetTestersApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `filter`
-      if (jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) {
-        TestPlanTestPointsSearchApiModel.validateJsonElement(jsonObj.get("filter"));
-      }
-      // validate the optional field `extractionModel`
-      if (jsonObj.get("extractionModel") != null && !jsonObj.get("extractionModel").isJsonNull()) {
-        TestPlanTestPointsExtractionApiModel.validateJsonElement(jsonObj.get("extractionModel"));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("testerIds") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("testerIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testerIds` to be an array in the JSON string but got `%s`", jsonObj.get("testerIds").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanTestPointsSetTestersApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanTestPointsSetTestersApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanTestPointsSetTestersApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanTestPointsSetTestersApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanTestPointsSetTestersApiModel>() {
-           @Override
-           public void write(JsonWriter out, TestPlanTestPointsSetTestersApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanTestPointsSetTestersApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPlanTestPointsSetTestersApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanTestPointsSetTestersApiModel
-   * @throws IOException if the JSON string is invalid with respect to TestPlanTestPointsSetTestersApiModel
-   */
-  public static TestPlanTestPointsSetTestersApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanTestPointsSetTestersApiModel.class);
-  }
-
-  /**
-   * Convert an instance of TestPlanTestPointsSetTestersApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

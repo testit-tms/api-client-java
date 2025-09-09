@@ -14,102 +14,88 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.UserRankModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * UserWithRankModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  UserWithRankModel.JSON_PROPERTY_ID,
+  UserWithRankModel.JSON_PROPERTY_FIRST_NAME,
+  UserWithRankModel.JSON_PROPERTY_LAST_NAME,
+  UserWithRankModel.JSON_PROPERTY_MIDDLE_NAME,
+  UserWithRankModel.JSON_PROPERTY_USER_NAME,
+  UserWithRankModel.JSON_PROPERTY_DISPLAY_NAME,
+  UserWithRankModel.JSON_PROPERTY_USER_TYPE,
+  UserWithRankModel.JSON_PROPERTY_AVATAR_URL,
+  UserWithRankModel.JSON_PROPERTY_AVATAR_METADATA,
+  UserWithRankModel.JSON_PROPERTY_IS_DELETED,
+  UserWithRankModel.JSON_PROPERTY_IS_DISABLED,
+  UserWithRankModel.JSON_PROPERTY_IS_ACTIVE_STATUS_BY_ENTITY,
+  UserWithRankModel.JSON_PROPERTY_USER_RANK,
+  UserWithRankModel.JSON_PROPERTY_PROVIDER_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UserWithRankModel {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
-  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
   private String firstName;
 
-  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
-  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  public static final String JSON_PROPERTY_LAST_NAME = "lastName";
   private String lastName;
 
-  public static final String SERIALIZED_NAME_MIDDLE_NAME = "middleName";
-  @SerializedName(SERIALIZED_NAME_MIDDLE_NAME)
+  public static final String JSON_PROPERTY_MIDDLE_NAME = "middleName";
   private String middleName;
 
-  public static final String SERIALIZED_NAME_USER_NAME = "userName";
-  @SerializedName(SERIALIZED_NAME_USER_NAME)
+  public static final String JSON_PROPERTY_USER_NAME = "userName";
   private String userName;
 
-  public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+  public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
   private String displayName;
 
-  public static final String SERIALIZED_NAME_USER_TYPE = "userType";
-  @SerializedName(SERIALIZED_NAME_USER_TYPE)
+  public static final String JSON_PROPERTY_USER_TYPE = "userType";
   private String userType;
 
-  public static final String SERIALIZED_NAME_AVATAR_URL = "avatarUrl";
-  @SerializedName(SERIALIZED_NAME_AVATAR_URL)
+  public static final String JSON_PROPERTY_AVATAR_URL = "avatarUrl";
   private String avatarUrl;
 
-  public static final String SERIALIZED_NAME_AVATAR_METADATA = "avatarMetadata";
-  @SerializedName(SERIALIZED_NAME_AVATAR_METADATA)
+  public static final String JSON_PROPERTY_AVATAR_METADATA = "avatarMetadata";
   private String avatarMetadata;
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public static final String SERIALIZED_NAME_IS_DISABLED = "isDisabled";
-  @SerializedName(SERIALIZED_NAME_IS_DISABLED)
+  public static final String JSON_PROPERTY_IS_DISABLED = "isDisabled";
   private Boolean isDisabled;
 
-  public static final String SERIALIZED_NAME_PROVIDER_ID = "providerId";
-  @SerializedName(SERIALIZED_NAME_PROVIDER_ID)
-  private UUID providerId;
-
-  public static final String SERIALIZED_NAME_IS_ACTIVE_STATUS_BY_ENTITY = "isActiveStatusByEntity";
-  @SerializedName(SERIALIZED_NAME_IS_ACTIVE_STATUS_BY_ENTITY)
+  public static final String JSON_PROPERTY_IS_ACTIVE_STATUS_BY_ENTITY = "isActiveStatusByEntity";
   private Boolean isActiveStatusByEntity;
 
-  public static final String SERIALIZED_NAME_USER_RANK = "userRank";
-  @SerializedName(SERIALIZED_NAME_USER_RANK)
+  public static final String JSON_PROPERTY_USER_RANK = "userRank";
   private UserRankModel userRank;
 
-  public UserWithRankModel() {
+  public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
+  private JsonNullable<UUID> providerId = JsonNullable.<UUID>undefined();
+
+  public UserWithRankModel() { 
   }
 
   public UserWithRankModel id(UUID id) {
@@ -121,11 +107,17 @@ public class UserWithRankModel {
    * Get id
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -140,11 +132,17 @@ public class UserWithRankModel {
    * Get firstName
    * @return firstName
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getFirstName() {
     return firstName;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_FIRST_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
@@ -159,11 +157,17 @@ public class UserWithRankModel {
    * Get lastName
    * @return lastName
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_LAST_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getLastName() {
     return lastName;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_LAST_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
@@ -178,11 +182,17 @@ public class UserWithRankModel {
    * Get middleName
    * @return middleName
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MIDDLE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getMiddleName() {
     return middleName;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_MIDDLE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMiddleName(String middleName) {
     this.middleName = middleName;
   }
@@ -197,11 +207,17 @@ public class UserWithRankModel {
    * Get userName
    * @return userName
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_USER_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getUserName() {
     return userName;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_USER_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserName(String userName) {
     this.userName = userName;
   }
@@ -216,11 +232,17 @@ public class UserWithRankModel {
    * Get displayName
    * @return displayName
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getDisplayName() {
     return displayName;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
@@ -235,11 +257,17 @@ public class UserWithRankModel {
    * Get userType
    * @return userType
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_USER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getUserType() {
     return userType;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_USER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserType(String userType) {
     this.userType = userType;
   }
@@ -254,11 +282,17 @@ public class UserWithRankModel {
    * Get avatarUrl
    * @return avatarUrl
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_AVATAR_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getAvatarUrl() {
     return avatarUrl;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_AVATAR_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAvatarUrl(String avatarUrl) {
     this.avatarUrl = avatarUrl;
   }
@@ -273,11 +307,17 @@ public class UserWithRankModel {
    * Get avatarMetadata
    * @return avatarMetadata
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_AVATAR_METADATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getAvatarMetadata() {
     return avatarMetadata;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_AVATAR_METADATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAvatarMetadata(String avatarMetadata) {
     this.avatarMetadata = avatarMetadata;
   }
@@ -292,11 +332,17 @@ public class UserWithRankModel {
    * Get isDeleted
    * @return isDeleted
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
@@ -311,32 +357,19 @@ public class UserWithRankModel {
    * Get isDisabled
    * @return isDisabled
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDisabled() {
     return isDisabled;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDisabled(Boolean isDisabled) {
     this.isDisabled = isDisabled;
-  }
-
-
-  public UserWithRankModel providerId(UUID providerId) {
-    this.providerId = providerId;
-    return this;
-  }
-
-  /**
-   * Get providerId
-   * @return providerId
-   */
-  @javax.annotation.Nullable
-  public UUID getProviderId() {
-    return providerId;
-  }
-
-  public void setProviderId(UUID providerId) {
-    this.providerId = providerId;
   }
 
 
@@ -349,11 +382,17 @@ public class UserWithRankModel {
    * Get isActiveStatusByEntity
    * @return isActiveStatusByEntity
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_ACTIVE_STATUS_BY_ENTITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsActiveStatusByEntity() {
     return isActiveStatusByEntity;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_ACTIVE_STATUS_BY_ENTITY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsActiveStatusByEntity(Boolean isActiveStatusByEntity) {
     this.isActiveStatusByEntity = isActiveStatusByEntity;
   }
@@ -368,17 +407,58 @@ public class UserWithRankModel {
    * Get userRank
    * @return userRank
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_USER_RANK)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UserRankModel getUserRank() {
     return userRank;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_USER_RANK)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUserRank(UserRankModel userRank) {
     this.userRank = userRank;
   }
 
 
+  public UserWithRankModel providerId(UUID providerId) {
+    this.providerId = JsonNullable.<UUID>of(providerId);
+    return this;
+  }
 
+  /**
+   * Get providerId
+   * @return providerId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getProviderId() {
+        return providerId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PROVIDER_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getProviderId_JsonNullable() {
+    return providerId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROVIDER_ID)
+  public void setProviderId_JsonNullable(JsonNullable<UUID> providerId) {
+    this.providerId = providerId;
+  }
+
+  public void setProviderId(UUID providerId) {
+    this.providerId = JsonNullable.<UUID>of(providerId);
+  }
+
+
+  /**
+   * Return true if this UserWithRankModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -399,9 +479,9 @@ public class UserWithRankModel {
         Objects.equals(this.avatarMetadata, userWithRankModel.avatarMetadata) &&
         Objects.equals(this.isDeleted, userWithRankModel.isDeleted) &&
         Objects.equals(this.isDisabled, userWithRankModel.isDisabled) &&
-        Objects.equals(this.providerId, userWithRankModel.providerId) &&
         Objects.equals(this.isActiveStatusByEntity, userWithRankModel.isActiveStatusByEntity) &&
-        Objects.equals(this.userRank, userWithRankModel.userRank);
+        Objects.equals(this.userRank, userWithRankModel.userRank) &&
+        equalsNullable(this.providerId, userWithRankModel.providerId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -410,7 +490,7 @@ public class UserWithRankModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, firstName, lastName, middleName, userName, displayName, userType, avatarUrl, avatarMetadata, isDeleted, isDisabled, providerId, isActiveStatusByEntity, userRank);
+    return Objects.hash(id, firstName, lastName, middleName, userName, displayName, userType, avatarUrl, avatarMetadata, isDeleted, isDisabled, isActiveStatusByEntity, userRank, hashCodeNullable(providerId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -435,9 +515,9 @@ public class UserWithRankModel {
     sb.append("    avatarMetadata: ").append(toIndentedString(avatarMetadata)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
-    sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("    isActiveStatusByEntity: ").append(toIndentedString(isActiveStatusByEntity)).append("\n");
     sb.append("    userRank: ").append(toIndentedString(userRank)).append("\n");
+    sb.append("    providerId: ").append(toIndentedString(providerId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -453,154 +533,5 @@ public class UserWithRankModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("firstName");
-    openapiFields.add("lastName");
-    openapiFields.add("middleName");
-    openapiFields.add("userName");
-    openapiFields.add("displayName");
-    openapiFields.add("userType");
-    openapiFields.add("avatarUrl");
-    openapiFields.add("avatarMetadata");
-    openapiFields.add("isDeleted");
-    openapiFields.add("isDisabled");
-    openapiFields.add("providerId");
-    openapiFields.add("isActiveStatusByEntity");
-    openapiFields.add("userRank");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("firstName");
-    openapiRequiredFields.add("lastName");
-    openapiRequiredFields.add("middleName");
-    openapiRequiredFields.add("userName");
-    openapiRequiredFields.add("displayName");
-    openapiRequiredFields.add("userType");
-    openapiRequiredFields.add("avatarUrl");
-    openapiRequiredFields.add("avatarMetadata");
-    openapiRequiredFields.add("isDeleted");
-    openapiRequiredFields.add("isDisabled");
-    openapiRequiredFields.add("isActiveStatusByEntity");
-    openapiRequiredFields.add("userRank");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UserWithRankModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!UserWithRankModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UserWithRankModel is not found in the empty JSON string", UserWithRankModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UserWithRankModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserWithRankModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UserWithRankModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("firstName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `firstName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("firstName").toString()));
-      }
-      if (!jsonObj.get("lastName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
-      }
-      if (!jsonObj.get("middleName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `middleName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("middleName").toString()));
-      }
-      if (!jsonObj.get("userName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userName").toString()));
-      }
-      if (!jsonObj.get("displayName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
-      }
-      if (!jsonObj.get("userType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userType").toString()));
-      }
-      if (!jsonObj.get("avatarUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `avatarUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("avatarUrl").toString()));
-      }
-      if (!jsonObj.get("avatarMetadata").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `avatarMetadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("avatarMetadata").toString()));
-      }
-      if ((jsonObj.get("providerId") != null && !jsonObj.get("providerId").isJsonNull()) && !jsonObj.get("providerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `providerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("providerId").toString()));
-      }
-      // validate the required field `userRank`
-      UserRankModel.validateJsonElement(jsonObj.get("userRank"));
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UserWithRankModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UserWithRankModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UserWithRankModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UserWithRankModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UserWithRankModel>() {
-           @Override
-           public void write(JsonWriter out, UserWithRankModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UserWithRankModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of UserWithRankModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of UserWithRankModel
-   * @throws IOException if the JSON string is invalid with respect to UserWithRankModel
-   */
-  public static UserWithRankModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UserWithRankModel.class);
-  }
-
-  /**
-   * Convert an instance of UserWithRankModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

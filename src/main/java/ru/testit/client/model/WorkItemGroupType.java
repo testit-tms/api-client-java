@@ -14,19 +14,18 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import ru.testit.client.invoker.JSON;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets WorkItemGroupType
  */
-@JsonAdapter(WorkItemGroupType.Adapter.class)
 public enum WorkItemGroupType {
   
   TYPE("Type"),
@@ -41,7 +40,9 @@ public enum WorkItemGroupType {
   
   LAST_EDITOR("LastEditor"),
   
-  CUSTOM_ATTRIBUTE("CustomAttribute");
+  CUSTOM_ATTRIBUTE("CustomAttribute"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -49,6 +50,7 @@ public enum WorkItemGroupType {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -58,31 +60,14 @@ public enum WorkItemGroupType {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static WorkItemGroupType fromValue(String value) {
     for (WorkItemGroupType b : WorkItemGroupType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-
-  public static class Adapter extends TypeAdapter<WorkItemGroupType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final WorkItemGroupType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public WorkItemGroupType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return WorkItemGroupType.fromValue(value);
-    }
-  }
-
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    WorkItemGroupType.fromValue(value);
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 }
 

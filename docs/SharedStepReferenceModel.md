@@ -15,9 +15,6 @@
 |**hasThisSharedStepAsPrecondition** | **Boolean** |  |  |
 |**hasThisSharedStepAsPostcondition** | **Boolean** |  |  |
 |**createdById** | **UUID** |  |  |
-|**modifiedById** | **UUID** |  |  [optional] |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
-|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**state** | **String** |  |  |
 |**priority** | **WorkItemPriorityModel** |  |  |
 |**sourceType** | **WorkItemSourceTypeModel** |  |  |
@@ -25,6 +22,9 @@
 |**versionId** | **UUID** | used for versioning changes in workitem |  |
 |**isAutomated** | **Boolean** |  |  |
 |**sectionId** | **UUID** |  |  |
+|**modifiedById** | **UUID** |  |  [optional] |
+|**createdDate** | **OffsetDateTime** |  |  [optional] |
+|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 |**tags** | [**List&lt;TagModel&gt;**](TagModel.md) |  |  [optional] |
 
 

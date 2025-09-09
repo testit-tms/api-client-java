@@ -14,63 +14,49 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestRunSelectApiModel;
 import ru.testit.client.model.UpdateMultipleAttachmentsApiModel;
 import ru.testit.client.model.UpdateMultipleLinksApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * UpdateMultipleTestRunsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  UpdateMultipleTestRunsApiModel.JSON_PROPERTY_SELECT_MODEL,
+  UpdateMultipleTestRunsApiModel.JSON_PROPERTY_DESCRIPTION,
+  UpdateMultipleTestRunsApiModel.JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME,
+  UpdateMultipleTestRunsApiModel.JSON_PROPERTY_LINK_UPDATE_SCHEME
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateMultipleTestRunsApiModel {
-  public static final String SERIALIZED_NAME_SELECT_MODEL = "selectModel";
-  @SerializedName(SERIALIZED_NAME_SELECT_MODEL)
+  public static final String JSON_PROPERTY_SELECT_MODEL = "selectModel";
   private TestRunSelectApiModel selectModel;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  public static final String SERIALIZED_NAME_ATTACHMENT_UPDATE_SCHEME = "attachmentUpdateScheme";
-  @SerializedName(SERIALIZED_NAME_ATTACHMENT_UPDATE_SCHEME)
-  private UpdateMultipleAttachmentsApiModel attachmentUpdateScheme;
+  public static final String JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME = "attachmentUpdateScheme";
+  private JsonNullable<UpdateMultipleAttachmentsApiModel> attachmentUpdateScheme = JsonNullable.<UpdateMultipleAttachmentsApiModel>undefined();
 
-  public static final String SERIALIZED_NAME_LINK_UPDATE_SCHEME = "linkUpdateScheme";
-  @SerializedName(SERIALIZED_NAME_LINK_UPDATE_SCHEME)
-  private UpdateMultipleLinksApiModel linkUpdateScheme;
+  public static final String JSON_PROPERTY_LINK_UPDATE_SCHEME = "linkUpdateScheme";
+  private JsonNullable<UpdateMultipleLinksApiModel> linkUpdateScheme = JsonNullable.<UpdateMultipleLinksApiModel>undefined();
 
-  public UpdateMultipleTestRunsApiModel() {
+  public UpdateMultipleTestRunsApiModel() { 
   }
 
   public UpdateMultipleTestRunsApiModel selectModel(TestRunSelectApiModel selectModel) {
@@ -82,18 +68,24 @@ public class UpdateMultipleTestRunsApiModel {
    * Test run selection model
    * @return selectModel
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SELECT_MODEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestRunSelectApiModel getSelectModel() {
     return selectModel;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SELECT_MODEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSelectModel(TestRunSelectApiModel selectModel) {
     this.selectModel = selectModel;
   }
 
 
   public UpdateMultipleTestRunsApiModel description(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -101,18 +93,32 @@ public class UpdateMultipleTestRunsApiModel {
    * Test run description
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
   }
 
   public void setDescription(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   public UpdateMultipleTestRunsApiModel attachmentUpdateScheme(UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
-    this.attachmentUpdateScheme = attachmentUpdateScheme;
+    this.attachmentUpdateScheme = JsonNullable.<UpdateMultipleAttachmentsApiModel>of(attachmentUpdateScheme);
     return this;
   }
 
@@ -120,18 +126,32 @@ public class UpdateMultipleTestRunsApiModel {
    * Set of attachment ids
    * @return attachmentUpdateScheme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UpdateMultipleAttachmentsApiModel getAttachmentUpdateScheme() {
+        return attachmentUpdateScheme.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UpdateMultipleAttachmentsApiModel> getAttachmentUpdateScheme_JsonNullable() {
     return attachmentUpdateScheme;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME)
+  public void setAttachmentUpdateScheme_JsonNullable(JsonNullable<UpdateMultipleAttachmentsApiModel> attachmentUpdateScheme) {
+    this.attachmentUpdateScheme = attachmentUpdateScheme;
   }
 
   public void setAttachmentUpdateScheme(UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
-    this.attachmentUpdateScheme = attachmentUpdateScheme;
+    this.attachmentUpdateScheme = JsonNullable.<UpdateMultipleAttachmentsApiModel>of(attachmentUpdateScheme);
   }
 
 
   public UpdateMultipleTestRunsApiModel linkUpdateScheme(UpdateMultipleLinksApiModel linkUpdateScheme) {
-    this.linkUpdateScheme = linkUpdateScheme;
+    this.linkUpdateScheme = JsonNullable.<UpdateMultipleLinksApiModel>of(linkUpdateScheme);
     return this;
   }
 
@@ -139,17 +159,33 @@ public class UpdateMultipleTestRunsApiModel {
    * Set of links
    * @return linkUpdateScheme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UpdateMultipleLinksApiModel getLinkUpdateScheme() {
-    return linkUpdateScheme;
+        return linkUpdateScheme.orElse(null);
   }
 
-  public void setLinkUpdateScheme(UpdateMultipleLinksApiModel linkUpdateScheme) {
+  @JsonProperty(JSON_PROPERTY_LINK_UPDATE_SCHEME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UpdateMultipleLinksApiModel> getLinkUpdateScheme_JsonNullable() {
+    return linkUpdateScheme;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINK_UPDATE_SCHEME)
+  public void setLinkUpdateScheme_JsonNullable(JsonNullable<UpdateMultipleLinksApiModel> linkUpdateScheme) {
     this.linkUpdateScheme = linkUpdateScheme;
   }
 
+  public void setLinkUpdateScheme(UpdateMultipleLinksApiModel linkUpdateScheme) {
+    this.linkUpdateScheme = JsonNullable.<UpdateMultipleLinksApiModel>of(linkUpdateScheme);
+  }
 
 
+  /**
+   * Return true if this UpdateMultipleTestRunsApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,9 +196,9 @@ public class UpdateMultipleTestRunsApiModel {
     }
     UpdateMultipleTestRunsApiModel updateMultipleTestRunsApiModel = (UpdateMultipleTestRunsApiModel) o;
     return Objects.equals(this.selectModel, updateMultipleTestRunsApiModel.selectModel) &&
-        Objects.equals(this.description, updateMultipleTestRunsApiModel.description) &&
-        Objects.equals(this.attachmentUpdateScheme, updateMultipleTestRunsApiModel.attachmentUpdateScheme) &&
-        Objects.equals(this.linkUpdateScheme, updateMultipleTestRunsApiModel.linkUpdateScheme);
+        equalsNullable(this.description, updateMultipleTestRunsApiModel.description) &&
+        equalsNullable(this.attachmentUpdateScheme, updateMultipleTestRunsApiModel.attachmentUpdateScheme) &&
+        equalsNullable(this.linkUpdateScheme, updateMultipleTestRunsApiModel.linkUpdateScheme);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -171,7 +207,7 @@ public class UpdateMultipleTestRunsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(selectModel, description, attachmentUpdateScheme, linkUpdateScheme);
+    return Objects.hash(selectModel, hashCodeNullable(description), hashCodeNullable(attachmentUpdateScheme), hashCodeNullable(linkUpdateScheme));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -204,113 +240,5 @@ public class UpdateMultipleTestRunsApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("selectModel");
-    openapiFields.add("description");
-    openapiFields.add("attachmentUpdateScheme");
-    openapiFields.add("linkUpdateScheme");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("selectModel");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to UpdateMultipleTestRunsApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!UpdateMultipleTestRunsApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateMultipleTestRunsApiModel is not found in the empty JSON string", UpdateMultipleTestRunsApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UpdateMultipleTestRunsApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateMultipleTestRunsApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateMultipleTestRunsApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `selectModel`
-      TestRunSelectApiModel.validateJsonElement(jsonObj.get("selectModel"));
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the optional field `attachmentUpdateScheme`
-      if (jsonObj.get("attachmentUpdateScheme") != null && !jsonObj.get("attachmentUpdateScheme").isJsonNull()) {
-        UpdateMultipleAttachmentsApiModel.validateJsonElement(jsonObj.get("attachmentUpdateScheme"));
-      }
-      // validate the optional field `linkUpdateScheme`
-      if (jsonObj.get("linkUpdateScheme") != null && !jsonObj.get("linkUpdateScheme").isJsonNull()) {
-        UpdateMultipleLinksApiModel.validateJsonElement(jsonObj.get("linkUpdateScheme"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateMultipleTestRunsApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateMultipleTestRunsApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateMultipleTestRunsApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateMultipleTestRunsApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<UpdateMultipleTestRunsApiModel>() {
-           @Override
-           public void write(JsonWriter out, UpdateMultipleTestRunsApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public UpdateMultipleTestRunsApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of UpdateMultipleTestRunsApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of UpdateMultipleTestRunsApiModel
-   * @throws IOException if the JSON string is invalid with respect to UpdateMultipleTestRunsApiModel
-   */
-  public static UpdateMultipleTestRunsApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateMultipleTestRunsApiModel.class);
-  }
-
-  /**
-   * Convert an instance of UpdateMultipleTestRunsApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

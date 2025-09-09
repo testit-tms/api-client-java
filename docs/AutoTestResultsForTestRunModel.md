@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**configurationId** | **UUID** | Specifies the GUID of the autotest configuration, which was specified when the test run was created. |  |
+|**autoTestExternalId** | **String** | Specifies the external ID of the autotest, which was specified when the test run was created. |  |
 |**links** | [**List&lt;LinkPostModel&gt;**](LinkPostModel.md) | Specifies the links in the autotest. |  [optional] |
 |**failureReasonNames** | **List&lt;FailureCategoryModel&gt;** | Specifies the cause of autotest failure. |  [optional] |
-|**autoTestExternalId** | **String** | Specifies the external ID of the autotest, which was specified when the test run was created. |  |
 |**outcome** | **AvailableTestResultOutcome** | Specifies the result of the autotest execution. |  [optional] |
 |**statusCode** | **String** | Specifies the result of the autotest execution. |  [optional] |
 |**message** | **String** | A comment for the result. |  [optional] |

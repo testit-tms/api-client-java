@@ -14,19 +14,18 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import ru.testit.client.invoker.JSON;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets FailureCategory
  */
-@JsonAdapter(FailureCategory.Adapter.class)
 public enum FailureCategory {
   
   INFRASTRUCTURE_DEFECT("InfrastructureDefect"),
@@ -37,7 +36,9 @@ public enum FailureCategory {
   
   NO_DEFECT("NoDefect"),
   
-  NO_ANALYTICS("NoAnalytics");
+  NO_ANALYTICS("NoAnalytics"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -45,6 +46,7 @@ public enum FailureCategory {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -54,31 +56,14 @@ public enum FailureCategory {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static FailureCategory fromValue(String value) {
     for (FailureCategory b : FailureCategory.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-
-  public static class Adapter extends TypeAdapter<FailureCategory> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final FailureCategory enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public FailureCategory read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return FailureCategory.fromValue(value);
-    }
-  }
-
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    FailureCategory.fromValue(value);
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 }
 

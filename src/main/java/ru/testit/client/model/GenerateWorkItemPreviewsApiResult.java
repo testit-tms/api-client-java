@@ -14,56 +14,42 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.PreviewsIssueLinkApiResult;
 import ru.testit.client.model.WorkItemPreviewApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * GenerateWorkItemPreviewsApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  GenerateWorkItemPreviewsApiResult.JSON_PROPERTY_PREVIEWS,
+  GenerateWorkItemPreviewsApiResult.JSON_PROPERTY_LINK
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GenerateWorkItemPreviewsApiResult {
-  public static final String SERIALIZED_NAME_PREVIEWS = "previews";
-  @SerializedName(SERIALIZED_NAME_PREVIEWS)
+  public static final String JSON_PROPERTY_PREVIEWS = "previews";
   private List<WorkItemPreviewApiModel> previews = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_LINK = "link";
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private PreviewsIssueLinkApiResult link;
+  public static final String JSON_PROPERTY_LINK = "link";
+  private JsonNullable<PreviewsIssueLinkApiResult> link = JsonNullable.<PreviewsIssueLinkApiResult>undefined();
 
-  public GenerateWorkItemPreviewsApiResult() {
+  public GenerateWorkItemPreviewsApiResult() { 
   }
 
   public GenerateWorkItemPreviewsApiResult previews(List<WorkItemPreviewApiModel> previews) {
@@ -83,18 +69,24 @@ public class GenerateWorkItemPreviewsApiResult {
    * Get previews
    * @return previews
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PREVIEWS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<WorkItemPreviewApiModel> getPreviews() {
     return previews;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PREVIEWS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPreviews(List<WorkItemPreviewApiModel> previews) {
     this.previews = previews;
   }
 
 
   public GenerateWorkItemPreviewsApiResult link(PreviewsIssueLinkApiResult link) {
-    this.link = link;
+    this.link = JsonNullable.<PreviewsIssueLinkApiResult>of(link);
     return this;
   }
 
@@ -102,17 +94,33 @@ public class GenerateWorkItemPreviewsApiResult {
    * Get link
    * @return link
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public PreviewsIssueLinkApiResult getLink() {
-    return link;
+        return link.orElse(null);
   }
 
-  public void setLink(PreviewsIssueLinkApiResult link) {
+  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<PreviewsIssueLinkApiResult> getLink_JsonNullable() {
+    return link;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINK)
+  public void setLink_JsonNullable(JsonNullable<PreviewsIssueLinkApiResult> link) {
     this.link = link;
   }
 
+  public void setLink(PreviewsIssueLinkApiResult link) {
+    this.link = JsonNullable.<PreviewsIssueLinkApiResult>of(link);
+  }
 
 
+  /**
+   * Return true if this GenerateWorkItemPreviewsApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,7 +131,7 @@ public class GenerateWorkItemPreviewsApiResult {
     }
     GenerateWorkItemPreviewsApiResult generateWorkItemPreviewsApiResult = (GenerateWorkItemPreviewsApiResult) o;
     return Objects.equals(this.previews, generateWorkItemPreviewsApiResult.previews) &&
-        Objects.equals(this.link, generateWorkItemPreviewsApiResult.link);
+        equalsNullable(this.link, generateWorkItemPreviewsApiResult.link);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -132,7 +140,7 @@ public class GenerateWorkItemPreviewsApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(previews, link);
+    return Objects.hash(previews, hashCodeNullable(link));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -163,112 +171,5 @@ public class GenerateWorkItemPreviewsApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("previews");
-    openapiFields.add("link");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("previews");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GenerateWorkItemPreviewsApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!GenerateWorkItemPreviewsApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GenerateWorkItemPreviewsApiResult is not found in the empty JSON string", GenerateWorkItemPreviewsApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!GenerateWorkItemPreviewsApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GenerateWorkItemPreviewsApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GenerateWorkItemPreviewsApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("previews").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `previews` to be an array in the JSON string but got `%s`", jsonObj.get("previews").toString()));
-      }
-
-      JsonArray jsonArraypreviews = jsonObj.getAsJsonArray("previews");
-      // validate the required field `previews` (array)
-      for (int i = 0; i < jsonArraypreviews.size(); i++) {
-        WorkItemPreviewApiModel.validateJsonElement(jsonArraypreviews.get(i));
-      };
-      // validate the optional field `link`
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) {
-        PreviewsIssueLinkApiResult.validateJsonElement(jsonObj.get("link"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GenerateWorkItemPreviewsApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GenerateWorkItemPreviewsApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GenerateWorkItemPreviewsApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GenerateWorkItemPreviewsApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<GenerateWorkItemPreviewsApiResult>() {
-           @Override
-           public void write(JsonWriter out, GenerateWorkItemPreviewsApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public GenerateWorkItemPreviewsApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of GenerateWorkItemPreviewsApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of GenerateWorkItemPreviewsApiResult
-   * @throws IOException if the JSON string is invalid with respect to GenerateWorkItemPreviewsApiResult
-   */
-  public static GenerateWorkItemPreviewsApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GenerateWorkItemPreviewsApiResult.class);
-  }
-
-  /**
-   * Convert an instance of GenerateWorkItemPreviewsApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

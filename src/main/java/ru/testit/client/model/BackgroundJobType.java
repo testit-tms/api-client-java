@@ -14,19 +14,18 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import ru.testit.client.invoker.JSON;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.JsonElement;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Gets or Sets BackgroundJobType
  */
-@JsonAdapter(BackgroundJobType.Adapter.class)
 public enum BackgroundJobType {
   
   EXPORT_XLSX_TEST_RESULTS_BY_TEST_PLAN("ExportXlsxTestResultsByTestPlan"),
@@ -59,7 +58,9 @@ public enum BackgroundJobType {
   
   PURGE_ENTITIES("PurgeEntities"),
   
-  DELETE_COMPLETED_JOBS("DeleteCompletedJobs");
+  DELETE_COMPLETED_JOBS("DeleteCompletedJobs"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -67,6 +68,7 @@ public enum BackgroundJobType {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -76,31 +78,14 @@ public enum BackgroundJobType {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static BackgroundJobType fromValue(String value) {
     for (BackgroundJobType b : BackgroundJobType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-
-  public static class Adapter extends TypeAdapter<BackgroundJobType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final BackgroundJobType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public BackgroundJobType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return BackgroundJobType.fromValue(value);
-    }
-  }
-
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    BackgroundJobType.fromValue(value);
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 }
 

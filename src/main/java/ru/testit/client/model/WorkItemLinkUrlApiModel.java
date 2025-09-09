@@ -14,53 +14,36 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import ru.testit.client.model.WorkItemLinkExtractionApiModel;
 import ru.testit.client.model.WorkItemLinkUrlFilterApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkItemLinkUrlApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkItemLinkUrlApiModel.JSON_PROPERTY_FILTER,
+  WorkItemLinkUrlApiModel.JSON_PROPERTY_EXTRACTION_MODEL
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemLinkUrlApiModel {
-  public static final String SERIALIZED_NAME_FILTER = "filter";
-  @SerializedName(SERIALIZED_NAME_FILTER)
+  public static final String JSON_PROPERTY_FILTER = "filter";
   private WorkItemLinkUrlFilterApiModel filter;
 
-  public static final String SERIALIZED_NAME_EXTRACTION_MODEL = "extractionModel";
-  @SerializedName(SERIALIZED_NAME_EXTRACTION_MODEL)
+  public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
   private WorkItemLinkExtractionApiModel extractionModel;
 
-  public WorkItemLinkUrlApiModel() {
+  public WorkItemLinkUrlApiModel() { 
   }
 
   public WorkItemLinkUrlApiModel filter(WorkItemLinkUrlFilterApiModel filter) {
@@ -72,11 +55,17 @@ public class WorkItemLinkUrlApiModel {
    * Get filter
    * @return filter
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WorkItemLinkUrlFilterApiModel getFilter() {
     return filter;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFilter(WorkItemLinkUrlFilterApiModel filter) {
     this.filter = filter;
   }
@@ -91,17 +80,25 @@ public class WorkItemLinkUrlApiModel {
    * Get extractionModel
    * @return extractionModel
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WorkItemLinkExtractionApiModel getExtractionModel() {
     return extractionModel;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExtractionModel(WorkItemLinkExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 
 
-
+  /**
+   * Return true if this WorkItemLinkUrlApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,103 +138,5 @@ public class WorkItemLinkUrlApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("filter");
-    openapiFields.add("extractionModel");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("filter");
-    openapiRequiredFields.add("extractionModel");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemLinkUrlApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemLinkUrlApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemLinkUrlApiModel is not found in the empty JSON string", WorkItemLinkUrlApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemLinkUrlApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemLinkUrlApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WorkItemLinkUrlApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `filter`
-      WorkItemLinkUrlFilterApiModel.validateJsonElement(jsonObj.get("filter"));
-      // validate the required field `extractionModel`
-      WorkItemLinkExtractionApiModel.validateJsonElement(jsonObj.get("extractionModel"));
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemLinkUrlApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemLinkUrlApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemLinkUrlApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemLinkUrlApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemLinkUrlApiModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemLinkUrlApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemLinkUrlApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkItemLinkUrlApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemLinkUrlApiModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemLinkUrlApiModel
-   */
-  public static WorkItemLinkUrlApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemLinkUrlApiModel.class);
-  }
-
-  /**
-   * Convert an instance of WorkItemLinkUrlApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

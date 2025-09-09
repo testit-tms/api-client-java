@@ -9,56 +9,59 @@ All URIs are relative to *http://localhost*
 | [**apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost**](ProjectAttributeTemplatesApi.md#apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost) | **POST** /api/v2/projects/{projectId}/attributes/templates/{templateId} | Add CustomAttributeTemplate to Project |
 
 
-<a id="apiV2ProjectsProjectIdAttributesTemplatesSearchPost"></a>
-# **apiV2ProjectsProjectIdAttributesTemplatesSearchPost**
+
+## apiV2ProjectsProjectIdAttributesTemplatesSearchPost
+
 > List&lt;ProjectCustomAttributeTemplateGetModel&gt; apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel)
 
 Search for custom attributes templates
 
 ### Example
+
 ```java
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ProjectAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ProjectAttributeTemplatesApi apiInstance = new ProjectAttributeTemplatesApi(defaultClient);
-    String projectId = "projectId_example"; // String | 
-    Integer skip = 56; // Integer | Amount of items to be skipped (offset)
-    Integer take = 56; // Integer | Amount of items to be taken (limit)
-    String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-    String searchField = "searchField_example"; // String | Property name for searching
-    String searchValue = "searchValue_example"; // String | Value for searching
-    ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel = new ProjectCustomAttributesTemplatesFilterModel(); // ProjectCustomAttributesTemplatesFilterModel | 
-    try {
-      List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectAttributeTemplatesApi#apiV2ProjectsProjectIdAttributesTemplatesSearchPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ProjectAttributeTemplatesApi apiInstance = new ProjectAttributeTemplatesApi(defaultClient);
+        String projectId = "projectId_example"; // String | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        ProjectCustomAttributesTemplatesFilterModel projectCustomAttributesTemplatesFilterModel = new ProjectCustomAttributesTemplatesFilterModel(); // ProjectCustomAttributesTemplatesFilterModel | 
+        try {
+            List<ProjectCustomAttributeTemplateGetModel> result = apiInstance.apiV2ProjectsProjectIdAttributesTemplatesSearchPost(projectId, skip, take, orderBy, searchField, searchValue, projectCustomAttributesTemplatesFilterModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProjectAttributeTemplatesApi#apiV2ProjectsProjectIdAttributesTemplatesSearchPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -80,8 +83,8 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -94,52 +97,65 @@ public class Example {
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete"></a>
-# **apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete**
+
+## apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete
+
 > apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete(projectId, templateId)
 
 Delete CustomAttributeTemplate from Project
 
- Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
+
+Use case
+
+User sets project internal or global identifier
+
+User sets attribute template internal identifier
+
+User runs method execution
+
+System delete attribute template from project
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ProjectAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ProjectAttributeTemplatesApi apiInstance = new ProjectAttributeTemplatesApi(defaultClient);
-    String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
-    UUID templateId = UUID.randomUUID(); // UUID | CustomAttributeTemplate internal (UUID) identifier
-    try {
-      apiInstance.apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete(projectId, templateId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectAttributeTemplatesApi#apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ProjectAttributeTemplatesApi apiInstance = new ProjectAttributeTemplatesApi(defaultClient);
+        String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
+        UUID templateId = UUID.randomUUID(); // UUID | CustomAttributeTemplate internal (UUID) identifier
+        try {
+            apiInstance.apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete(projectId, templateId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProjectAttributeTemplatesApi#apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -156,8 +172,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -170,52 +186,65 @@ null (empty response body)
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
-<a id="apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost"></a>
-# **apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost**
+
+## apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost
+
 > apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost(projectId, templateId)
 
 Add CustomAttributeTemplate to Project
 
- Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
+
+Use case
+
+User sets project internal or global identifier
+
+User sets attribute template internal identifier
+
+User runs method execution
+
+System add attribute template to project
 
 ### Example
+
 ```java
+import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.models.*;
+import ru.testit.client.invoker.model.*;
 import ru.testit.client.api.ProjectAttributeTemplatesApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-    
-    // Configure API key authorization: Bearer or PrivateToken
-    ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-    Bearer or PrivateToken.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer or PrivateToken.setApiKeyPrefix("Token");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-    ProjectAttributeTemplatesApi apiInstance = new ProjectAttributeTemplatesApi(defaultClient);
-    String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
-    UUID templateId = UUID.randomUUID(); // UUID | CustomAttributeTemplate internal (UUID) identifier
-    try {
-      apiInstance.apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost(projectId, templateId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling ProjectAttributeTemplatesApi#apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        ProjectAttributeTemplatesApi apiInstance = new ProjectAttributeTemplatesApi(defaultClient);
+        String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
+        UUID templateId = UUID.randomUUID(); // UUID | CustomAttributeTemplate internal (UUID) identifier
+        try {
+            apiInstance.apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost(projectId, templateId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProjectAttributeTemplatesApi#apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
@@ -232,8 +261,8 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

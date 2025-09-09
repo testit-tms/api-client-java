@@ -14,59 +14,42 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import ru.testit.client.model.TestPlanTestPointsGroupSearchItemApiResult;
 import ru.testit.client.model.TestPlanTestPointsSearchStatusCountersApiResult;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPlanTestPointsGroupSearchApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPlanTestPointsGroupSearchApiResult.JSON_PROPERTY_DATA,
+  TestPlanTestPointsGroupSearchApiResult.JSON_PROPERTY_TOTAL_COUNT,
+  TestPlanTestPointsGroupSearchApiResult.JSON_PROPERTY_STATUS_COUNTERS
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanTestPointsGroupSearchApiResult {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
+  public static final String JSON_PROPERTY_DATA = "data";
   private List<TestPlanTestPointsGroupSearchItemApiResult> data = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_TOTAL_COUNT = "totalCount";
-  @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
+  public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
   private Integer totalCount;
 
-  public static final String SERIALIZED_NAME_STATUS_COUNTERS = "statusCounters";
-  @SerializedName(SERIALIZED_NAME_STATUS_COUNTERS)
+  public static final String JSON_PROPERTY_STATUS_COUNTERS = "statusCounters";
   private TestPlanTestPointsSearchStatusCountersApiResult statusCounters;
 
-  public TestPlanTestPointsGroupSearchApiResult() {
+  public TestPlanTestPointsGroupSearchApiResult() { 
   }
 
   public TestPlanTestPointsGroupSearchApiResult data(List<TestPlanTestPointsGroupSearchItemApiResult> data) {
@@ -86,11 +69,17 @@ public class TestPlanTestPointsGroupSearchApiResult {
    * Get data
    * @return data
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<TestPlanTestPointsGroupSearchItemApiResult> getData() {
     return data;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setData(List<TestPlanTestPointsGroupSearchItemApiResult> data) {
     this.data = data;
   }
@@ -105,11 +94,17 @@ public class TestPlanTestPointsGroupSearchApiResult {
    * Get totalCount
    * @return totalCount
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Integer getTotalCount() {
     return totalCount;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTotalCount(Integer totalCount) {
     this.totalCount = totalCount;
   }
@@ -124,17 +119,25 @@ public class TestPlanTestPointsGroupSearchApiResult {
    * Get statusCounters
    * @return statusCounters
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS_COUNTERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public TestPlanTestPointsSearchStatusCountersApiResult getStatusCounters() {
     return statusCounters;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATUS_COUNTERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatusCounters(TestPlanTestPointsSearchStatusCountersApiResult statusCounters) {
     this.statusCounters = statusCounters;
   }
 
 
-
+  /**
+   * Return true if this TestPlanTestPointsGroupSearchApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -176,113 +179,5 @@ public class TestPlanTestPointsGroupSearchApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("data");
-    openapiFields.add("totalCount");
-    openapiFields.add("statusCounters");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
-    openapiRequiredFields.add("totalCount");
-    openapiRequiredFields.add("statusCounters");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPlanTestPointsGroupSearchApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPlanTestPointsGroupSearchApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPlanTestPointsGroupSearchApiResult is not found in the empty JSON string", TestPlanTestPointsGroupSearchApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPlanTestPointsGroupSearchApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPlanTestPointsGroupSearchApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPlanTestPointsGroupSearchApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("data").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
-      }
-
-      JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-      // validate the required field `data` (array)
-      for (int i = 0; i < jsonArraydata.size(); i++) {
-        TestPlanTestPointsGroupSearchItemApiResult.validateJsonElement(jsonArraydata.get(i));
-      };
-      // validate the required field `statusCounters`
-      TestPlanTestPointsSearchStatusCountersApiResult.validateJsonElement(jsonObj.get("statusCounters"));
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPlanTestPointsGroupSearchApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPlanTestPointsGroupSearchApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPlanTestPointsGroupSearchApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPlanTestPointsGroupSearchApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPlanTestPointsGroupSearchApiResult>() {
-           @Override
-           public void write(JsonWriter out, TestPlanTestPointsGroupSearchApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPlanTestPointsGroupSearchApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPlanTestPointsGroupSearchApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPlanTestPointsGroupSearchApiResult
-   * @throws IOException if the JSON string is invalid with respect to TestPlanTestPointsGroupSearchApiResult
-   */
-  public static TestPlanTestPointsGroupSearchApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPlanTestPointsGroupSearchApiResult.class);
-  }
-
-  /**
-   * Convert an instance of TestPlanTestPointsGroupSearchApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

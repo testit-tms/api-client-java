@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -29,52 +30,37 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.PreviewsIssueLinkApiModel;
 import ru.testit.client.model.WorkItemPreviewApiModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * CreateWorkItemPreviewsApiModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  CreateWorkItemPreviewsApiModel.JSON_PROPERTY_SECTION_ID,
+  CreateWorkItemPreviewsApiModel.JSON_PROPERTY_PREVIEWS,
+  CreateWorkItemPreviewsApiModel.JSON_PROPERTY_ATTRIBUTES,
+  CreateWorkItemPreviewsApiModel.JSON_PROPERTY_LINK
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateWorkItemPreviewsApiModel {
-  public static final String SERIALIZED_NAME_SECTION_ID = "sectionId";
-  @SerializedName(SERIALIZED_NAME_SECTION_ID)
+  public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
   private UUID sectionId;
 
-  public static final String SERIALIZED_NAME_PREVIEWS = "previews";
-  @SerializedName(SERIALIZED_NAME_PREVIEWS)
+  public static final String JSON_PROPERTY_PREVIEWS = "previews";
   private List<WorkItemPreviewApiModel> previews = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private JsonNullable<Map<String, Object>> attributes = JsonNullable.<Map<String, Object>>undefined();
 
-  public static final String SERIALIZED_NAME_LINK = "link";
-  @SerializedName(SERIALIZED_NAME_LINK)
-  private PreviewsIssueLinkApiModel link;
+  public static final String JSON_PROPERTY_LINK = "link";
+  private JsonNullable<PreviewsIssueLinkApiModel> link = JsonNullable.<PreviewsIssueLinkApiModel>undefined();
 
-  public CreateWorkItemPreviewsApiModel() {
+  public CreateWorkItemPreviewsApiModel() { 
   }
 
   public CreateWorkItemPreviewsApiModel sectionId(UUID sectionId) {
@@ -86,11 +72,17 @@ public class CreateWorkItemPreviewsApiModel {
    * Get sectionId
    * @return sectionId
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getSectionId() {
     return sectionId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SECTION_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSectionId(UUID sectionId) {
     this.sectionId = sectionId;
   }
@@ -113,26 +105,36 @@ public class CreateWorkItemPreviewsApiModel {
    * Get previews
    * @return previews
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PREVIEWS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<WorkItemPreviewApiModel> getPreviews() {
     return previews;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PREVIEWS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPreviews(List<WorkItemPreviewApiModel> previews) {
     this.previews = previews;
   }
 
 
   public CreateWorkItemPreviewsApiModel attributes(Map<String, Object> attributes) {
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
     return this;
   }
 
   public CreateWorkItemPreviewsApiModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
+    if (this.attributes == null || !this.attributes.isPresent()) {
+      this.attributes = JsonNullable.<Map<String, Object>>of(new HashMap<>());
     }
-    this.attributes.put(key, attributesItem);
+    try {
+      this.attributes.get().put(key, attributesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -140,18 +142,32 @@ public class CreateWorkItemPreviewsApiModel {
    * Get attributes
    * @return attributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public Map<String, Object> getAttributes() {
+        return attributes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, Object>> getAttributes_JsonNullable() {
     return attributes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  public void setAttributes_JsonNullable(JsonNullable<Map<String, Object>> attributes) {
+    this.attributes = attributes;
   }
 
   public void setAttributes(Map<String, Object> attributes) {
-    this.attributes = attributes;
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
   }
 
 
   public CreateWorkItemPreviewsApiModel link(PreviewsIssueLinkApiModel link) {
-    this.link = link;
+    this.link = JsonNullable.<PreviewsIssueLinkApiModel>of(link);
     return this;
   }
 
@@ -159,17 +175,33 @@ public class CreateWorkItemPreviewsApiModel {
    * Get link
    * @return link
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public PreviewsIssueLinkApiModel getLink() {
-    return link;
+        return link.orElse(null);
   }
 
-  public void setLink(PreviewsIssueLinkApiModel link) {
+  @JsonProperty(JSON_PROPERTY_LINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<PreviewsIssueLinkApiModel> getLink_JsonNullable() {
+    return link;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINK)
+  public void setLink_JsonNullable(JsonNullable<PreviewsIssueLinkApiModel> link) {
     this.link = link;
   }
 
+  public void setLink(PreviewsIssueLinkApiModel link) {
+    this.link = JsonNullable.<PreviewsIssueLinkApiModel>of(link);
+  }
 
 
+  /**
+   * Return true if this CreateWorkItemPreviewsApiModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -181,8 +213,8 @@ public class CreateWorkItemPreviewsApiModel {
     CreateWorkItemPreviewsApiModel createWorkItemPreviewsApiModel = (CreateWorkItemPreviewsApiModel) o;
     return Objects.equals(this.sectionId, createWorkItemPreviewsApiModel.sectionId) &&
         Objects.equals(this.previews, createWorkItemPreviewsApiModel.previews) &&
-        Objects.equals(this.attributes, createWorkItemPreviewsApiModel.attributes) &&
-        Objects.equals(this.link, createWorkItemPreviewsApiModel.link);
+        equalsNullable(this.attributes, createWorkItemPreviewsApiModel.attributes) &&
+        equalsNullable(this.link, createWorkItemPreviewsApiModel.link);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -191,7 +223,7 @@ public class CreateWorkItemPreviewsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sectionId, previews, attributes, link);
+    return Objects.hash(sectionId, previews, hashCodeNullable(attributes), hashCodeNullable(link));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -224,118 +256,5 @@ public class CreateWorkItemPreviewsApiModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("sectionId");
-    openapiFields.add("previews");
-    openapiFields.add("attributes");
-    openapiFields.add("link");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("sectionId");
-    openapiRequiredFields.add("previews");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CreateWorkItemPreviewsApiModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CreateWorkItemPreviewsApiModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateWorkItemPreviewsApiModel is not found in the empty JSON string", CreateWorkItemPreviewsApiModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CreateWorkItemPreviewsApiModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateWorkItemPreviewsApiModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateWorkItemPreviewsApiModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("sectionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sectionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sectionId").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("previews").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `previews` to be an array in the JSON string but got `%s`", jsonObj.get("previews").toString()));
-      }
-
-      JsonArray jsonArraypreviews = jsonObj.getAsJsonArray("previews");
-      // validate the required field `previews` (array)
-      for (int i = 0; i < jsonArraypreviews.size(); i++) {
-        WorkItemPreviewApiModel.validateJsonElement(jsonArraypreviews.get(i));
-      };
-      // validate the optional field `link`
-      if (jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) {
-        PreviewsIssueLinkApiModel.validateJsonElement(jsonObj.get("link"));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateWorkItemPreviewsApiModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateWorkItemPreviewsApiModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateWorkItemPreviewsApiModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateWorkItemPreviewsApiModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CreateWorkItemPreviewsApiModel>() {
-           @Override
-           public void write(JsonWriter out, CreateWorkItemPreviewsApiModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CreateWorkItemPreviewsApiModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of CreateWorkItemPreviewsApiModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of CreateWorkItemPreviewsApiModel
-   * @throws IOException if the JSON string is invalid with respect to CreateWorkItemPreviewsApiModel
-   */
-  public static CreateWorkItemPreviewsApiModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateWorkItemPreviewsApiModel.class);
-  }
-
-  /**
-   * Convert an instance of CreateWorkItemPreviewsApiModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

@@ -1,0 +1,21 @@
+name: Check ApiClient Constructor
+
+on:
+  pull_request:
+    paths:
+      - 'src/main/java/ru/testit/client/invoker/ApiClient.java'
+
+jobs:
+  check-constructor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check for constructor definition
+        run: |
+          if ! grep -q "public ApiClient(boolean disableCertificateValidation) {" "src/main/java/ru/testit/client/invoker/ApiClient.java"; then
+            echo "ERROR: Required constructor not found in ApiClient.java"
+            echo "Expected: public ApiClient(boolean disableCertificateValidation) {"
+            exit 1
+          fi
+          echo "✅ Required constructor found in ApiClient.java"

@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,184 +28,51 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestResultShortApiResult;
 import ru.testit.client.model.TestStatusApiResult;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * TestPointResultApiResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  TestPointResultApiResult.JSON_PROPERTY_TEST_RESULTS,
+  TestPointResultApiResult.JSON_PROPERTY_TEST_POINT_ID,
+  TestPointResultApiResult.JSON_PROPERTY_AGGREGATED_OUTCOME,
+  TestPointResultApiResult.JSON_PROPERTY_AGGREGATED_STATUS,
+  TestPointResultApiResult.JSON_PROPERTY_WORK_ITEM_GLOBAL_ID,
+  TestPointResultApiResult.JSON_PROPERTY_WORK_ITEM_NAME,
+  TestPointResultApiResult.JSON_PROPERTY_CONFIGURATION_NAME
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPointResultApiResult {
-  public static final String SERIALIZED_NAME_TEST_POINT_ID = "testPointId";
-  @SerializedName(SERIALIZED_NAME_TEST_POINT_ID)
-  private UUID testPointId;
-
-  public static final String SERIALIZED_NAME_AGGREGATED_OUTCOME = "aggregatedOutcome";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_AGGREGATED_OUTCOME)
-  private String aggregatedOutcome;
-
-  public static final String SERIALIZED_NAME_AGGREGATED_STATUS = "aggregatedStatus";
-  @SerializedName(SERIALIZED_NAME_AGGREGATED_STATUS)
-  private TestStatusApiResult aggregatedStatus;
-
-  public static final String SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_GLOBAL_ID)
-  private Long workItemGlobalId;
-
-  public static final String SERIALIZED_NAME_WORK_ITEM_NAME = "workItemName";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_NAME)
-  private String workItemName;
-
-  public static final String SERIALIZED_NAME_CONFIGURATION_NAME = "configurationName";
-  @SerializedName(SERIALIZED_NAME_CONFIGURATION_NAME)
-  private String configurationName;
-
-  public static final String SERIALIZED_NAME_TEST_RESULTS = "testResults";
-  @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
+  public static final String JSON_PROPERTY_TEST_RESULTS = "testResults";
   private List<TestResultShortApiResult> testResults = new ArrayList<>();
 
-  public TestPointResultApiResult() {
-  }
+  public static final String JSON_PROPERTY_TEST_POINT_ID = "testPointId";
+  private JsonNullable<UUID> testPointId = JsonNullable.<UUID>undefined();
 
-  public TestPointResultApiResult testPointId(UUID testPointId) {
-    this.testPointId = testPointId;
-    return this;
-  }
-
-  /**
-   * Get testPointId
-   * @return testPointId
-   */
-  @javax.annotation.Nullable
-  public UUID getTestPointId() {
-    return testPointId;
-  }
-
-  public void setTestPointId(UUID testPointId) {
-    this.testPointId = testPointId;
-  }
-
-
+  public static final String JSON_PROPERTY_AGGREGATED_OUTCOME = "aggregatedOutcome";
   @Deprecated
-  public TestPointResultApiResult aggregatedOutcome(String aggregatedOutcome) {
-    this.aggregatedOutcome = aggregatedOutcome;
-    return this;
+  private JsonNullable<String> aggregatedOutcome = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_AGGREGATED_STATUS = "aggregatedStatus";
+  private JsonNullable<TestStatusApiResult> aggregatedStatus = JsonNullable.<TestStatusApiResult>undefined();
+
+  public static final String JSON_PROPERTY_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
+  private JsonNullable<Long> workItemGlobalId = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_WORK_ITEM_NAME = "workItemName";
+  private JsonNullable<String> workItemName = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CONFIGURATION_NAME = "configurationName";
+  private JsonNullable<String> configurationName = JsonNullable.<String>undefined();
+
+  public TestPointResultApiResult() { 
   }
-
-  /**
-   * Get aggregatedOutcome
-   * @return aggregatedOutcome
-   * @deprecated
-   */
-  @Deprecated
-  @javax.annotation.Nullable
-  public String getAggregatedOutcome() {
-    return aggregatedOutcome;
-  }
-
-  @Deprecated
-  public void setAggregatedOutcome(String aggregatedOutcome) {
-    this.aggregatedOutcome = aggregatedOutcome;
-  }
-
-
-  public TestPointResultApiResult aggregatedStatus(TestStatusApiResult aggregatedStatus) {
-    this.aggregatedStatus = aggregatedStatus;
-    return this;
-  }
-
-  /**
-   * Get aggregatedStatus
-   * @return aggregatedStatus
-   */
-  @javax.annotation.Nullable
-  public TestStatusApiResult getAggregatedStatus() {
-    return aggregatedStatus;
-  }
-
-  public void setAggregatedStatus(TestStatusApiResult aggregatedStatus) {
-    this.aggregatedStatus = aggregatedStatus;
-  }
-
-
-  public TestPointResultApiResult workItemGlobalId(Long workItemGlobalId) {
-    this.workItemGlobalId = workItemGlobalId;
-    return this;
-  }
-
-  /**
-   * Get workItemGlobalId
-   * @return workItemGlobalId
-   */
-  @javax.annotation.Nullable
-  public Long getWorkItemGlobalId() {
-    return workItemGlobalId;
-  }
-
-  public void setWorkItemGlobalId(Long workItemGlobalId) {
-    this.workItemGlobalId = workItemGlobalId;
-  }
-
-
-  public TestPointResultApiResult workItemName(String workItemName) {
-    this.workItemName = workItemName;
-    return this;
-  }
-
-  /**
-   * Get workItemName
-   * @return workItemName
-   */
-  @javax.annotation.Nullable
-  public String getWorkItemName() {
-    return workItemName;
-  }
-
-  public void setWorkItemName(String workItemName) {
-    this.workItemName = workItemName;
-  }
-
-
-  public TestPointResultApiResult configurationName(String configurationName) {
-    this.configurationName = configurationName;
-    return this;
-  }
-
-  /**
-   * Get configurationName
-   * @return configurationName
-   */
-  @javax.annotation.Nullable
-  public String getConfigurationName() {
-    return configurationName;
-  }
-
-  public void setConfigurationName(String configurationName) {
-    this.configurationName = configurationName;
-  }
-
 
   public TestPointResultApiResult testResults(List<TestResultShortApiResult> testResults) {
     this.testResults = testResults;
@@ -223,17 +91,227 @@ public class TestPointResultApiResult {
    * Get testResults
    * @return testResults
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_RESULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<TestResultShortApiResult> getTestResults() {
     return testResults;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_RESULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestResults(List<TestResultShortApiResult> testResults) {
     this.testResults = testResults;
   }
 
 
+  public TestPointResultApiResult testPointId(UUID testPointId) {
+    this.testPointId = JsonNullable.<UUID>of(testPointId);
+    return this;
+  }
 
+  /**
+   * Get testPointId
+   * @return testPointId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getTestPointId() {
+        return testPointId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TEST_POINT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getTestPointId_JsonNullable() {
+    return testPointId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEST_POINT_ID)
+  public void setTestPointId_JsonNullable(JsonNullable<UUID> testPointId) {
+    this.testPointId = testPointId;
+  }
+
+  public void setTestPointId(UUID testPointId) {
+    this.testPointId = JsonNullable.<UUID>of(testPointId);
+  }
+
+
+  @Deprecated
+  public TestPointResultApiResult aggregatedOutcome(String aggregatedOutcome) {
+    this.aggregatedOutcome = JsonNullable.<String>of(aggregatedOutcome);
+    return this;
+  }
+
+  /**
+   * Get aggregatedOutcome
+   * @return aggregatedOutcome
+   * @deprecated
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getAggregatedOutcome() {
+        return aggregatedOutcome.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AGGREGATED_OUTCOME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getAggregatedOutcome_JsonNullable() {
+    return aggregatedOutcome;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AGGREGATED_OUTCOME)
+  public void setAggregatedOutcome_JsonNullable(JsonNullable<String> aggregatedOutcome) {
+    this.aggregatedOutcome = aggregatedOutcome;
+  }
+
+  @Deprecated
+  public void setAggregatedOutcome(String aggregatedOutcome) {
+    this.aggregatedOutcome = JsonNullable.<String>of(aggregatedOutcome);
+  }
+
+
+  public TestPointResultApiResult aggregatedStatus(TestStatusApiResult aggregatedStatus) {
+    this.aggregatedStatus = JsonNullable.<TestStatusApiResult>of(aggregatedStatus);
+    return this;
+  }
+
+  /**
+   * Get aggregatedStatus
+   * @return aggregatedStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestStatusApiResult getAggregatedStatus() {
+        return aggregatedStatus.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AGGREGATED_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestStatusApiResult> getAggregatedStatus_JsonNullable() {
+    return aggregatedStatus;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AGGREGATED_STATUS)
+  public void setAggregatedStatus_JsonNullable(JsonNullable<TestStatusApiResult> aggregatedStatus) {
+    this.aggregatedStatus = aggregatedStatus;
+  }
+
+  public void setAggregatedStatus(TestStatusApiResult aggregatedStatus) {
+    this.aggregatedStatus = JsonNullable.<TestStatusApiResult>of(aggregatedStatus);
+  }
+
+
+  public TestPointResultApiResult workItemGlobalId(Long workItemGlobalId) {
+    this.workItemGlobalId = JsonNullable.<Long>of(workItemGlobalId);
+    return this;
+  }
+
+  /**
+   * Get workItemGlobalId
+   * @return workItemGlobalId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Long getWorkItemGlobalId() {
+        return workItemGlobalId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getWorkItemGlobalId_JsonNullable() {
+    return workItemGlobalId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_ID)
+  public void setWorkItemGlobalId_JsonNullable(JsonNullable<Long> workItemGlobalId) {
+    this.workItemGlobalId = workItemGlobalId;
+  }
+
+  public void setWorkItemGlobalId(Long workItemGlobalId) {
+    this.workItemGlobalId = JsonNullable.<Long>of(workItemGlobalId);
+  }
+
+
+  public TestPointResultApiResult workItemName(String workItemName) {
+    this.workItemName = JsonNullable.<String>of(workItemName);
+    return this;
+  }
+
+  /**
+   * Get workItemName
+   * @return workItemName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getWorkItemName() {
+        return workItemName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getWorkItemName_JsonNullable() {
+    return workItemName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_NAME)
+  public void setWorkItemName_JsonNullable(JsonNullable<String> workItemName) {
+    this.workItemName = workItemName;
+  }
+
+  public void setWorkItemName(String workItemName) {
+    this.workItemName = JsonNullable.<String>of(workItemName);
+  }
+
+
+  public TestPointResultApiResult configurationName(String configurationName) {
+    this.configurationName = JsonNullable.<String>of(configurationName);
+    return this;
+  }
+
+  /**
+   * Get configurationName
+   * @return configurationName
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getConfigurationName() {
+        return configurationName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getConfigurationName_JsonNullable() {
+    return configurationName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
+  public void setConfigurationName_JsonNullable(JsonNullable<String> configurationName) {
+    this.configurationName = configurationName;
+  }
+
+  public void setConfigurationName(String configurationName) {
+    this.configurationName = JsonNullable.<String>of(configurationName);
+  }
+
+
+  /**
+   * Return true if this TestPointResultApiResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -243,13 +321,13 @@ public class TestPointResultApiResult {
       return false;
     }
     TestPointResultApiResult testPointResultApiResult = (TestPointResultApiResult) o;
-    return Objects.equals(this.testPointId, testPointResultApiResult.testPointId) &&
-        Objects.equals(this.aggregatedOutcome, testPointResultApiResult.aggregatedOutcome) &&
-        Objects.equals(this.aggregatedStatus, testPointResultApiResult.aggregatedStatus) &&
-        Objects.equals(this.workItemGlobalId, testPointResultApiResult.workItemGlobalId) &&
-        Objects.equals(this.workItemName, testPointResultApiResult.workItemName) &&
-        Objects.equals(this.configurationName, testPointResultApiResult.configurationName) &&
-        Objects.equals(this.testResults, testPointResultApiResult.testResults);
+    return Objects.equals(this.testResults, testPointResultApiResult.testResults) &&
+        equalsNullable(this.testPointId, testPointResultApiResult.testPointId) &&
+        equalsNullable(this.aggregatedOutcome, testPointResultApiResult.aggregatedOutcome) &&
+        equalsNullable(this.aggregatedStatus, testPointResultApiResult.aggregatedStatus) &&
+        equalsNullable(this.workItemGlobalId, testPointResultApiResult.workItemGlobalId) &&
+        equalsNullable(this.workItemName, testPointResultApiResult.workItemName) &&
+        equalsNullable(this.configurationName, testPointResultApiResult.configurationName);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -258,7 +336,7 @@ public class TestPointResultApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(testPointId, aggregatedOutcome, aggregatedStatus, workItemGlobalId, workItemName, configurationName, testResults);
+    return Objects.hash(testResults, hashCodeNullable(testPointId), hashCodeNullable(aggregatedOutcome), hashCodeNullable(aggregatedStatus), hashCodeNullable(workItemGlobalId), hashCodeNullable(workItemName), hashCodeNullable(configurationName));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -272,13 +350,13 @@ public class TestPointResultApiResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestPointResultApiResult {\n");
+    sb.append("    testResults: ").append(toIndentedString(testResults)).append("\n");
     sb.append("    testPointId: ").append(toIndentedString(testPointId)).append("\n");
     sb.append("    aggregatedOutcome: ").append(toIndentedString(aggregatedOutcome)).append("\n");
     sb.append("    aggregatedStatus: ").append(toIndentedString(aggregatedStatus)).append("\n");
     sb.append("    workItemGlobalId: ").append(toIndentedString(workItemGlobalId)).append("\n");
     sb.append("    workItemName: ").append(toIndentedString(workItemName)).append("\n");
     sb.append("    configurationName: ").append(toIndentedString(configurationName)).append("\n");
-    sb.append("    testResults: ").append(toIndentedString(testResults)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -294,129 +372,5 @@ public class TestPointResultApiResult {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("testPointId");
-    openapiFields.add("aggregatedOutcome");
-    openapiFields.add("aggregatedStatus");
-    openapiFields.add("workItemGlobalId");
-    openapiFields.add("workItemName");
-    openapiFields.add("configurationName");
-    openapiFields.add("testResults");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("testResults");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TestPointResultApiResult
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TestPointResultApiResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TestPointResultApiResult is not found in the empty JSON string", TestPointResultApiResult.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TestPointResultApiResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TestPointResultApiResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TestPointResultApiResult.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("testPointId") != null && !jsonObj.get("testPointId").isJsonNull()) && !jsonObj.get("testPointId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPointId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("testPointId").toString()));
-      }
-      if ((jsonObj.get("aggregatedOutcome") != null && !jsonObj.get("aggregatedOutcome").isJsonNull()) && !jsonObj.get("aggregatedOutcome").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aggregatedOutcome` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggregatedOutcome").toString()));
-      }
-      // validate the optional field `aggregatedStatus`
-      if (jsonObj.get("aggregatedStatus") != null && !jsonObj.get("aggregatedStatus").isJsonNull()) {
-        TestStatusApiResult.validateJsonElement(jsonObj.get("aggregatedStatus"));
-      }
-      if ((jsonObj.get("workItemName") != null && !jsonObj.get("workItemName").isJsonNull()) && !jsonObj.get("workItemName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workItemName").toString()));
-      }
-      if ((jsonObj.get("configurationName") != null && !jsonObj.get("configurationName").isJsonNull()) && !jsonObj.get("configurationName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `configurationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("configurationName").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("testResults").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testResults` to be an array in the JSON string but got `%s`", jsonObj.get("testResults").toString()));
-      }
-
-      JsonArray jsonArraytestResults = jsonObj.getAsJsonArray("testResults");
-      // validate the required field `testResults` (array)
-      for (int i = 0; i < jsonArraytestResults.size(); i++) {
-        TestResultShortApiResult.validateJsonElement(jsonArraytestResults.get(i));
-      };
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TestPointResultApiResult.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TestPointResultApiResult' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TestPointResultApiResult> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TestPointResultApiResult.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<TestPointResultApiResult>() {
-           @Override
-           public void write(JsonWriter out, TestPointResultApiResult value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public TestPointResultApiResult read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of TestPointResultApiResult given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of TestPointResultApiResult
-   * @throws IOException if the JSON string is invalid with respect to TestPointResultApiResult
-   */
-  public static TestPointResultApiResult fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TestPointResultApiResult.class);
-  }
-
-  /**
-   * Convert an instance of TestPointResultApiResult to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

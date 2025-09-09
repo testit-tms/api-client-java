@@ -14,79 +14,46 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.WorkItemGroupType;
 import ru.testit.client.model.WorkItemLocalSelectModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * WorkItemGroupGetModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  WorkItemGroupGetModel.JSON_PROPERTY_GROUP_TYPE,
+  WorkItemGroupGetModel.JSON_PROPERTY_SELECT_MODEL,
+  WorkItemGroupGetModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_ID
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemGroupGetModel {
-  public static final String SERIALIZED_NAME_SELECT_MODEL = "selectModel";
-  @SerializedName(SERIALIZED_NAME_SELECT_MODEL)
-  private WorkItemLocalSelectModel selectModel;
-
-  public static final String SERIALIZED_NAME_GROUP_TYPE = "groupType";
-  @SerializedName(SERIALIZED_NAME_GROUP_TYPE)
+  public static final String JSON_PROPERTY_GROUP_TYPE = "groupType";
   private WorkItemGroupType groupType;
 
-  public static final String SERIALIZED_NAME_CUSTOM_ATTRIBUTE_ID = "customAttributeId";
-  @SerializedName(SERIALIZED_NAME_CUSTOM_ATTRIBUTE_ID)
-  private UUID customAttributeId;
+  public static final String JSON_PROPERTY_SELECT_MODEL = "selectModel";
+  private JsonNullable<WorkItemLocalSelectModel> selectModel = JsonNullable.<WorkItemLocalSelectModel>undefined();
 
-  public WorkItemGroupGetModel() {
+  public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_ID = "customAttributeId";
+  private JsonNullable<UUID> customAttributeId = JsonNullable.<UUID>undefined();
+
+  public WorkItemGroupGetModel() { 
   }
-
-  public WorkItemGroupGetModel selectModel(WorkItemLocalSelectModel selectModel) {
-    this.selectModel = selectModel;
-    return this;
-  }
-
-  /**
-   * Model containing options to filter work items
-   * @return selectModel
-   */
-  @javax.annotation.Nullable
-  public WorkItemLocalSelectModel getSelectModel() {
-    return selectModel;
-  }
-
-  public void setSelectModel(WorkItemLocalSelectModel selectModel) {
-    this.selectModel = selectModel;
-  }
-
 
   public WorkItemGroupGetModel groupType(WorkItemGroupType groupType) {
     this.groupType = groupType;
@@ -97,18 +64,57 @@ public class WorkItemGroupGetModel {
    * Get groupType
    * @return groupType
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_GROUP_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WorkItemGroupType getGroupType() {
     return groupType;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_GROUP_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGroupType(WorkItemGroupType groupType) {
     this.groupType = groupType;
   }
 
 
+  public WorkItemGroupGetModel selectModel(WorkItemLocalSelectModel selectModel) {
+    this.selectModel = JsonNullable.<WorkItemLocalSelectModel>of(selectModel);
+    return this;
+  }
+
+  /**
+   * Model containing options to filter work items
+   * @return selectModel
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public WorkItemLocalSelectModel getSelectModel() {
+        return selectModel.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SELECT_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<WorkItemLocalSelectModel> getSelectModel_JsonNullable() {
+    return selectModel;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SELECT_MODEL)
+  public void setSelectModel_JsonNullable(JsonNullable<WorkItemLocalSelectModel> selectModel) {
+    this.selectModel = selectModel;
+  }
+
+  public void setSelectModel(WorkItemLocalSelectModel selectModel) {
+    this.selectModel = JsonNullable.<WorkItemLocalSelectModel>of(selectModel);
+  }
+
+
   public WorkItemGroupGetModel customAttributeId(UUID customAttributeId) {
-    this.customAttributeId = customAttributeId;
+    this.customAttributeId = JsonNullable.<UUID>of(customAttributeId);
     return this;
   }
 
@@ -116,17 +122,33 @@ public class WorkItemGroupGetModel {
    * Get customAttributeId
    * @return customAttributeId
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
   public UUID getCustomAttributeId() {
-    return customAttributeId;
+        return customAttributeId.orElse(null);
   }
 
-  public void setCustomAttributeId(UUID customAttributeId) {
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getCustomAttributeId_JsonNullable() {
+    return customAttributeId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_ID)
+  public void setCustomAttributeId_JsonNullable(JsonNullable<UUID> customAttributeId) {
     this.customAttributeId = customAttributeId;
   }
 
+  public void setCustomAttributeId(UUID customAttributeId) {
+    this.customAttributeId = JsonNullable.<UUID>of(customAttributeId);
+  }
 
 
+  /**
+   * Return true if this WorkItemGroupGetModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,9 +158,9 @@ public class WorkItemGroupGetModel {
       return false;
     }
     WorkItemGroupGetModel workItemGroupGetModel = (WorkItemGroupGetModel) o;
-    return Objects.equals(this.selectModel, workItemGroupGetModel.selectModel) &&
-        Objects.equals(this.groupType, workItemGroupGetModel.groupType) &&
-        Objects.equals(this.customAttributeId, workItemGroupGetModel.customAttributeId);
+    return Objects.equals(this.groupType, workItemGroupGetModel.groupType) &&
+        equalsNullable(this.selectModel, workItemGroupGetModel.selectModel) &&
+        equalsNullable(this.customAttributeId, workItemGroupGetModel.customAttributeId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -147,7 +169,7 @@ public class WorkItemGroupGetModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(selectModel, groupType, customAttributeId);
+    return Objects.hash(groupType, hashCodeNullable(selectModel), hashCodeNullable(customAttributeId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -161,8 +183,8 @@ public class WorkItemGroupGetModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkItemGroupGetModel {\n");
-    sb.append("    selectModel: ").append(toIndentedString(selectModel)).append("\n");
     sb.append("    groupType: ").append(toIndentedString(groupType)).append("\n");
+    sb.append("    selectModel: ").append(toIndentedString(selectModel)).append("\n");
     sb.append("    customAttributeId: ").append(toIndentedString(customAttributeId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -179,108 +201,5 @@ public class WorkItemGroupGetModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("selectModel");
-    openapiFields.add("groupType");
-    openapiFields.add("customAttributeId");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("groupType");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to WorkItemGroupGetModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!WorkItemGroupGetModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WorkItemGroupGetModel is not found in the empty JSON string", WorkItemGroupGetModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!WorkItemGroupGetModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WorkItemGroupGetModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WorkItemGroupGetModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `selectModel`
-      if (jsonObj.get("selectModel") != null && !jsonObj.get("selectModel").isJsonNull()) {
-        WorkItemLocalSelectModel.validateJsonElement(jsonObj.get("selectModel"));
-      }
-      // validate the required field `groupType`
-      WorkItemGroupType.validateJsonElement(jsonObj.get("groupType"));
-      if ((jsonObj.get("customAttributeId") != null && !jsonObj.get("customAttributeId").isJsonNull()) && !jsonObj.get("customAttributeId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customAttributeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customAttributeId").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WorkItemGroupGetModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WorkItemGroupGetModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WorkItemGroupGetModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WorkItemGroupGetModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<WorkItemGroupGetModel>() {
-           @Override
-           public void write(JsonWriter out, WorkItemGroupGetModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public WorkItemGroupGetModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of WorkItemGroupGetModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of WorkItemGroupGetModel
-   * @throws IOException if the JSON string is invalid with respect to WorkItemGroupGetModel
-   */
-  public static WorkItemGroupGetModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WorkItemGroupGetModel.class);
-  }
-
-  /**
-   * Convert an instance of WorkItemGroupGetModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 

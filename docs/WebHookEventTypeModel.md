@@ -39,5 +39,7 @@
 
 * `TEST_PLAN_CHANGED` (value: `"TestPlanChanged"`)
 
+* `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
+
 
 

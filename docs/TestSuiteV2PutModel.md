@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**parentId** | **UUID** |  |  [optional] |
 |**name** | **String** |  |  |
 |**isDeleted** | **Boolean** |  |  |
+|**parentId** | **UUID** |  |  [optional] |
 |**autoRefresh** | **Boolean** |  |  [optional] |
 
 

@@ -14,12 +14,13 @@
 package ru.testit.client.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,76 +28,58 @@ import java.util.UUID;
 import ru.testit.client.model.CustomAttributeOptionModel;
 import ru.testit.client.model.CustomAttributeTypesEnum;
 import ru.testit.client.model.ProjectShortestModel;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
+
 
 /**
  * CustomAttributeSearchResponseModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@JsonPropertyOrder({
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_WORK_ITEM_USAGE,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_TEST_PLAN_USAGE,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_ID,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_OPTIONS,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_TYPE,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_DELETED,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_NAME,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_ENABLED,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_REQUIRED,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_GLOBAL
+})
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomAttributeSearchResponseModel {
-  public static final String SERIALIZED_NAME_WORK_ITEM_USAGE = "workItemUsage";
-  @SerializedName(SERIALIZED_NAME_WORK_ITEM_USAGE)
+  public static final String JSON_PROPERTY_WORK_ITEM_USAGE = "workItemUsage";
   private List<ProjectShortestModel> workItemUsage = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_TEST_PLAN_USAGE = "testPlanUsage";
-  @SerializedName(SERIALIZED_NAME_TEST_PLAN_USAGE)
+  public static final String JSON_PROPERTY_TEST_PLAN_USAGE = "testPlanUsage";
   private List<ProjectShortestModel> testPlanUsage = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String SERIALIZED_NAME_OPTIONS = "options";
-  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  public static final String JSON_PROPERTY_OPTIONS = "options";
   private List<CustomAttributeOptionModel> options = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String JSON_PROPERTY_TYPE = "type";
   private CustomAttributeTypesEnum type;
 
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   private Boolean isDeleted;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String SERIALIZED_NAME_IS_ENABLED = "isEnabled";
-  @SerializedName(SERIALIZED_NAME_IS_ENABLED)
+  public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
 
-  public static final String SERIALIZED_NAME_IS_REQUIRED = "isRequired";
-  @SerializedName(SERIALIZED_NAME_IS_REQUIRED)
+  public static final String JSON_PROPERTY_IS_REQUIRED = "isRequired";
   private Boolean isRequired;
 
-  public static final String SERIALIZED_NAME_IS_GLOBAL = "isGlobal";
-  @SerializedName(SERIALIZED_NAME_IS_GLOBAL)
+  public static final String JSON_PROPERTY_IS_GLOBAL = "isGlobal";
   private Boolean isGlobal;
 
-  public CustomAttributeSearchResponseModel() {
+  public CustomAttributeSearchResponseModel() { 
   }
 
   public CustomAttributeSearchResponseModel workItemUsage(List<ProjectShortestModel> workItemUsage) {
@@ -116,11 +99,17 @@ public class CustomAttributeSearchResponseModel {
    * Get workItemUsage
    * @return workItemUsage
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_USAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ProjectShortestModel> getWorkItemUsage() {
     return workItemUsage;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_USAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemUsage(List<ProjectShortestModel> workItemUsage) {
     this.workItemUsage = workItemUsage;
   }
@@ -143,11 +132,17 @@ public class CustomAttributeSearchResponseModel {
    * Get testPlanUsage
    * @return testPlanUsage
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_USAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ProjectShortestModel> getTestPlanUsage() {
     return testPlanUsage;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TEST_PLAN_USAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestPlanUsage(List<ProjectShortestModel> testPlanUsage) {
     this.testPlanUsage = testPlanUsage;
   }
@@ -162,11 +157,17 @@ public class CustomAttributeSearchResponseModel {
    * Unique ID of the attribute
    * @return id
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UUID getId() {
     return id;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(UUID id) {
     this.id = id;
   }
@@ -189,11 +190,17 @@ public class CustomAttributeSearchResponseModel {
    * Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<CustomAttributeOptionModel> getOptions() {
     return options;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOptions(List<CustomAttributeOptionModel> options) {
     this.options = options;
   }
@@ -208,11 +215,17 @@ public class CustomAttributeSearchResponseModel {
    * Type of the attribute
    * @return type
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public CustomAttributeTypesEnum getType() {
     return type;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(CustomAttributeTypesEnum type) {
     this.type = type;
   }
@@ -227,11 +240,17 @@ public class CustomAttributeSearchResponseModel {
    * Indicates if the attribute is deleted
    * @return isDeleted
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
@@ -246,11 +265,17 @@ public class CustomAttributeSearchResponseModel {
    * Name of the attribute
    * @return name
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -265,11 +290,17 @@ public class CustomAttributeSearchResponseModel {
    * Indicates if the attribute is enabled
    * @return isEnabled
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
@@ -284,11 +315,17 @@ public class CustomAttributeSearchResponseModel {
    * Indicates if the attribute value is mandatory to specify
    * @return isRequired
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsRequired() {
     return isRequired;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsRequired(Boolean isRequired) {
     this.isRequired = isRequired;
   }
@@ -303,17 +340,25 @@ public class CustomAttributeSearchResponseModel {
    * Indicates if the attribute is available across all projects
    * @return isGlobal
    */
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getIsGlobal() {
     return isGlobal;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsGlobal(Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 
 
-
+  /**
+   * Return true if this CustomAttributeSearchResponseModel object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -369,153 +414,5 @@ public class CustomAttributeSearchResponseModel {
     return o.toString().replace("\n", "\n    ");
   }
 
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("workItemUsage");
-    openapiFields.add("testPlanUsage");
-    openapiFields.add("id");
-    openapiFields.add("options");
-    openapiFields.add("type");
-    openapiFields.add("isDeleted");
-    openapiFields.add("name");
-    openapiFields.add("isEnabled");
-    openapiFields.add("isRequired");
-    openapiFields.add("isGlobal");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("workItemUsage");
-    openapiRequiredFields.add("testPlanUsage");
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("options");
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("isDeleted");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("isEnabled");
-    openapiRequiredFields.add("isRequired");
-    openapiRequiredFields.add("isGlobal");
-  }
-
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CustomAttributeSearchResponseModel
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CustomAttributeSearchResponseModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomAttributeSearchResponseModel is not found in the empty JSON string", CustomAttributeSearchResponseModel.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CustomAttributeSearchResponseModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomAttributeSearchResponseModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CustomAttributeSearchResponseModel.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("workItemUsage").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workItemUsage` to be an array in the JSON string but got `%s`", jsonObj.get("workItemUsage").toString()));
-      }
-
-      JsonArray jsonArrayworkItemUsage = jsonObj.getAsJsonArray("workItemUsage");
-      // validate the required field `workItemUsage` (array)
-      for (int i = 0; i < jsonArrayworkItemUsage.size(); i++) {
-        ProjectShortestModel.validateJsonElement(jsonArrayworkItemUsage.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("testPlanUsage").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `testPlanUsage` to be an array in the JSON string but got `%s`", jsonObj.get("testPlanUsage").toString()));
-      }
-
-      JsonArray jsonArraytestPlanUsage = jsonObj.getAsJsonArray("testPlanUsage");
-      // validate the required field `testPlanUsage` (array)
-      for (int i = 0; i < jsonArraytestPlanUsage.size(); i++) {
-        ProjectShortestModel.validateJsonElement(jsonArraytestPlanUsage.get(i));
-      };
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("options").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
-      }
-
-      JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
-      // validate the required field `options` (array)
-      for (int i = 0; i < jsonArrayoptions.size(); i++) {
-        CustomAttributeOptionModel.validateJsonElement(jsonArrayoptions.get(i));
-      };
-      // validate the required field `type`
-      CustomAttributeTypesEnum.validateJsonElement(jsonObj.get("type"));
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-  }
-
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-    @SuppressWarnings("unchecked")
-    @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CustomAttributeSearchResponseModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CustomAttributeSearchResponseModel' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CustomAttributeSearchResponseModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CustomAttributeSearchResponseModel.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<CustomAttributeSearchResponseModel>() {
-           @Override
-           public void write(JsonWriter out, CustomAttributeSearchResponseModel value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public CustomAttributeSearchResponseModel read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
-
-       }.nullSafe();
-    }
-  }
-
-  /**
-   * Create an instance of CustomAttributeSearchResponseModel given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of CustomAttributeSearchResponseModel
-   * @throws IOException if the JSON string is invalid with respect to CustomAttributeSearchResponseModel
-   */
-  public static CustomAttributeSearchResponseModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CustomAttributeSearchResponseModel.class);
-  }
-
-  /**
-   * Convert an instance of CustomAttributeSearchResponseModel to an JSON string
-   *
-   * @return JSON string
-   */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
 }
 
