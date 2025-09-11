@@ -21,7 +21,7 @@
 | 5.3     | 2.0.1-TMS-5.3   |
 | 5.4     | 2.2.1-TMS-5.4   |
 | 5.4.1   | 2.2.2-TMS-5.4.1 |
-| Cloud   | 2.2.0-TMS-CLOUD |
+| Cloud   | 2.2.3           |
 
 ### Installation
 
