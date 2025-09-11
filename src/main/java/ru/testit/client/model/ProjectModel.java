@@ -120,7 +120,7 @@ public class ProjectModel {
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
   private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
 
-  public ProjectModel() {
+  public ProjectModel() { 
   }
 
   public ProjectModel id(UUID id) {
@@ -399,7 +399,7 @@ public class ProjectModel {
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
@@ -444,7 +444,7 @@ public class ProjectModel {
   public JsonNullable<List<CustomAttributeModel>> getAttributesScheme_JsonNullable() {
     return attributesScheme;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES_SCHEME)
   public void setAttributesScheme_JsonNullable(JsonNullable<List<CustomAttributeModel>> attributesScheme) {
     this.attributesScheme = attributesScheme;
@@ -489,7 +489,7 @@ public class ProjectModel {
   public JsonNullable<List<CustomAttributeModel>> getTestPlansAttributesScheme_JsonNullable() {
     return testPlansAttributesScheme;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_TEST_PLANS_ATTRIBUTES_SCHEME)
   public void setTestPlansAttributesScheme_JsonNullable(JsonNullable<List<CustomAttributeModel>> testPlansAttributesScheme) {
     this.testPlansAttributesScheme = testPlansAttributesScheme;
@@ -522,7 +522,7 @@ public class ProjectModel {
   public JsonNullable<Integer> getTestCasesCount_JsonNullable() {
     return testCasesCount;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_TEST_CASES_COUNT)
   public void setTestCasesCount_JsonNullable(JsonNullable<Integer> testCasesCount) {
     this.testCasesCount = testCasesCount;
@@ -555,7 +555,7 @@ public class ProjectModel {
   public JsonNullable<Integer> getSharedStepsCount_JsonNullable() {
     return sharedStepsCount;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_SHARED_STEPS_COUNT)
   public void setSharedStepsCount_JsonNullable(JsonNullable<Integer> sharedStepsCount) {
     this.sharedStepsCount = sharedStepsCount;
@@ -588,7 +588,7 @@ public class ProjectModel {
   public JsonNullable<Integer> getCheckListsCount_JsonNullable() {
     return checkListsCount;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_CHECK_LISTS_COUNT)
   public void setCheckListsCount_JsonNullable(JsonNullable<Integer> checkListsCount) {
     this.checkListsCount = checkListsCount;
@@ -621,7 +621,7 @@ public class ProjectModel {
   public JsonNullable<Integer> getAutoTestsCount_JsonNullable() {
     return autoTestsCount;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_AUTO_TESTS_COUNT)
   public void setAutoTestsCount_JsonNullable(JsonNullable<Integer> autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
@@ -654,7 +654,7 @@ public class ProjectModel {
   public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
     return modifiedDate;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
   public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
     this.modifiedDate = modifiedDate;
@@ -687,7 +687,7 @@ public class ProjectModel {
   public JsonNullable<UUID> getModifiedById_JsonNullable() {
     return modifiedById;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
   public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
     this.modifiedById = modifiedById;
