@@ -10,6 +10,7 @@
 |**id** | **UUID** |  |  |
 |**title** | **String** |  |  |
 |**url** | **String** |  |  |
+|**type** | **String** |  |  [optional] |
 
 
 

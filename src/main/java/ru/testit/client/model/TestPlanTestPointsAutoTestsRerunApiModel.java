@@ -21,7 +21,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestPlanTestPointsExtractionApiModel;
 import ru.testit.client.model.TestPlanTestPointsSearchApiModel;
@@ -37,7 +40,8 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   TestPlanTestPointsAutoTestsRerunApiModel.JSON_PROPERTY_FILTER,
-  TestPlanTestPointsAutoTestsRerunApiModel.JSON_PROPERTY_EXTRACTION_MODEL
+  TestPlanTestPointsAutoTestsRerunApiModel.JSON_PROPERTY_EXTRACTION_MODEL,
+  TestPlanTestPointsAutoTestsRerunApiModel.JSON_PROPERTY_WEBHOOK_IDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanTestPointsAutoTestsRerunApiModel {
@@ -46,6 +50,9 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
 
   public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
   private JsonNullable<TestPlanTestPointsExtractionApiModel> extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>undefined();
+
+  public static final String JSON_PROPERTY_WEBHOOK_IDS = "webhookIds";
+  private JsonNullable<List<UUID>> webhookIds = JsonNullable.<List<UUID>>undefined();
 
   public TestPlanTestPointsAutoTestsRerunApiModel() { 
   }
@@ -56,7 +63,7 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
   }
 
   /**
-   * Get filter
+   * Test points filters.
    * @return filter
    */
   @jakarta.annotation.Nullable
@@ -89,7 +96,7 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
   }
 
   /**
-   * Get extractionModel
+   * Test points extraction model.
    * @return extractionModel
    */
   @jakarta.annotation.Nullable
@@ -116,6 +123,51 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
   }
 
 
+  public TestPlanTestPointsAutoTestsRerunApiModel webhookIds(List<UUID> webhookIds) {
+    this.webhookIds = JsonNullable.<List<UUID>>of(webhookIds);
+    return this;
+  }
+
+  public TestPlanTestPointsAutoTestsRerunApiModel addWebhookIdsItem(UUID webhookIdsItem) {
+    if (this.webhookIds == null || !this.webhookIds.isPresent()) {
+      this.webhookIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.webhookIds.get().add(webhookIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Webhook ids to rerun.
+   * @return webhookIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getWebhookIds() {
+        return webhookIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WEBHOOK_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<UUID>> getWebhookIds_JsonNullable() {
+    return webhookIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WEBHOOK_IDS)
+  public void setWebhookIds_JsonNullable(JsonNullable<List<UUID>> webhookIds) {
+    this.webhookIds = webhookIds;
+  }
+
+  public void setWebhookIds(List<UUID> webhookIds) {
+    this.webhookIds = JsonNullable.<List<UUID>>of(webhookIds);
+  }
+
+
   /**
    * Return true if this TestPlanTestPointsAutoTestsRerunApiModel object is equal to o.
    */
@@ -129,7 +181,8 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
     }
     TestPlanTestPointsAutoTestsRerunApiModel testPlanTestPointsAutoTestsRerunApiModel = (TestPlanTestPointsAutoTestsRerunApiModel) o;
     return equalsNullable(this.filter, testPlanTestPointsAutoTestsRerunApiModel.filter) &&
-        equalsNullable(this.extractionModel, testPlanTestPointsAutoTestsRerunApiModel.extractionModel);
+        equalsNullable(this.extractionModel, testPlanTestPointsAutoTestsRerunApiModel.extractionModel) &&
+        equalsNullable(this.webhookIds, testPlanTestPointsAutoTestsRerunApiModel.webhookIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -138,7 +191,7 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(filter), hashCodeNullable(extractionModel));
+    return Objects.hash(hashCodeNullable(filter), hashCodeNullable(extractionModel), hashCodeNullable(webhookIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -154,6 +207,7 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
     sb.append("class TestPlanTestPointsAutoTestsRerunApiModel {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    extractionModel: ").append(toIndentedString(extractionModel)).append("\n");
+    sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

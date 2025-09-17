@@ -198,7 +198,7 @@ public class GlobalCustomAttributePostModel {
   }
 
   /**
-   * Collection of attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
   @jakarta.annotation.Nullable

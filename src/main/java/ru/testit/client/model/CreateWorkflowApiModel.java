@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.WorkflowStatusApiModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -39,7 +40,8 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   CreateWorkflowApiModel.JSON_PROPERTY_NAME,
   CreateWorkflowApiModel.JSON_PROPERTY_STATUSES,
-  CreateWorkflowApiModel.JSON_PROPERTY_IS_DEFAULT
+  CreateWorkflowApiModel.JSON_PROPERTY_IS_DEFAULT,
+  CreateWorkflowApiModel.JSON_PROPERTY_PROJECT_IDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateWorkflowApiModel {
@@ -51,6 +53,9 @@ public class CreateWorkflowApiModel {
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
   private JsonNullable<Boolean> isDefault = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  private JsonNullable<List<UUID>> projectIds = JsonNullable.<List<UUID>>undefined();
 
   public CreateWorkflowApiModel() { 
   }
@@ -146,6 +151,51 @@ public class CreateWorkflowApiModel {
   }
 
 
+  public CreateWorkflowApiModel projectIds(List<UUID> projectIds) {
+    this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
+    return this;
+  }
+
+  public CreateWorkflowApiModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null || !this.projectIds.isPresent()) {
+      this.projectIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.projectIds.get().add(projectIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Get projectIds
+   * @return projectIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getProjectIds() {
+        return projectIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<UUID>> getProjectIds_JsonNullable() {
+    return projectIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  public void setProjectIds_JsonNullable(JsonNullable<List<UUID>> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
+  }
+
+
   /**
    * Return true if this CreateWorkflowApiModel object is equal to o.
    */
@@ -160,7 +210,8 @@ public class CreateWorkflowApiModel {
     CreateWorkflowApiModel createWorkflowApiModel = (CreateWorkflowApiModel) o;
     return Objects.equals(this.name, createWorkflowApiModel.name) &&
         Objects.equals(this.statuses, createWorkflowApiModel.statuses) &&
-        equalsNullable(this.isDefault, createWorkflowApiModel.isDefault);
+        equalsNullable(this.isDefault, createWorkflowApiModel.isDefault) &&
+        equalsNullable(this.projectIds, createWorkflowApiModel.projectIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -169,7 +220,7 @@ public class CreateWorkflowApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, statuses, hashCodeNullable(isDefault));
+    return Objects.hash(name, statuses, hashCodeNullable(isDefault), hashCodeNullable(projectIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -186,6 +237,7 @@ public class CreateWorkflowApiModel {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

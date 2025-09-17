@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  |
-|**action** | **String** |  |  |
-|**expected** | **String** |  |  |
+|**description** | **String** |  |  |
+|**steps** | [**List&lt;WorkItemPreviewStepApiModel&gt;**](WorkItemPreviewStepApiModel.md) |  |  |
 
 
 

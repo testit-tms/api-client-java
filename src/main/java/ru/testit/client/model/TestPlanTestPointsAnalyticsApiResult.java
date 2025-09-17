@@ -25,7 +25,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import ru.testit.client.model.TestPlanTestPointsStatusGroupApiResult;
+import ru.testit.client.model.TestPlanTestPointsStatusTypeGroupApiResult;
 import ru.testit.client.model.TestPlanTestPointsTesterAndStatusGroupApiResult;
+import ru.testit.client.model.TestPlanTestPointsTesterAndStatusTypeGroupApiResult;
 import ru.testit.client.model.TestPlanTestPointsTesterGroupApiResult;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
@@ -36,14 +38,21 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   TestPlanTestPointsAnalyticsApiResult.JSON_PROPERTY_COUNT_GROUP_BY_STATUS,
+  TestPlanTestPointsAnalyticsApiResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS,
   TestPlanTestPointsAnalyticsApiResult.JSON_PROPERTY_SUM_GROUP_BY_TESTER,
   TestPlanTestPointsAnalyticsApiResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER,
-  TestPlanTestPointsAnalyticsApiResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS
+  TestPlanTestPointsAnalyticsApiResult.JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE,
+  TestPlanTestPointsAnalyticsApiResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS_TYPE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestPlanTestPointsAnalyticsApiResult {
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
+  @Deprecated
   private List<TestPlanTestPointsStatusGroupApiResult> countGroupByStatus = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
+  @Deprecated
+  private List<TestPlanTestPointsTesterAndStatusGroupApiResult> countGroupByTesterAndStatus = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SUM_GROUP_BY_TESTER = "sumGroupByTester";
   private List<TestPlanTestPointsTesterGroupApiResult> sumGroupByTester = new ArrayList<>();
@@ -51,12 +60,16 @@ public class TestPlanTestPointsAnalyticsApiResult {
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER = "countGroupByTester";
   private List<TestPlanTestPointsTesterGroupApiResult> countGroupByTester = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
-  private List<TestPlanTestPointsTesterAndStatusGroupApiResult> countGroupByTesterAndStatus = new ArrayList<>();
+  public static final String JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE = "countGroupByStatusType";
+  private List<TestPlanTestPointsStatusTypeGroupApiResult> countGroupByStatusType = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS_TYPE = "countGroupByTesterAndStatusType";
+  private List<TestPlanTestPointsTesterAndStatusTypeGroupApiResult> countGroupByTesterAndStatusType = new ArrayList<>();
 
   public TestPlanTestPointsAnalyticsApiResult() { 
   }
 
+  @Deprecated
   public TestPlanTestPointsAnalyticsApiResult countGroupByStatus(List<TestPlanTestPointsStatusGroupApiResult> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
     return this;
@@ -73,7 +86,9 @@ public class TestPlanTestPointsAnalyticsApiResult {
   /**
    * Get countGroupByStatus
    * @return countGroupByStatus
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -83,10 +98,48 @@ public class TestPlanTestPointsAnalyticsApiResult {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCountGroupByStatus(List<TestPlanTestPointsStatusGroupApiResult> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
+  }
+
+
+  @Deprecated
+  public TestPlanTestPointsAnalyticsApiResult countGroupByTesterAndStatus(List<TestPlanTestPointsTesterAndStatusGroupApiResult> countGroupByTesterAndStatus) {
+    this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
+    return this;
+  }
+
+  public TestPlanTestPointsAnalyticsApiResult addCountGroupByTesterAndStatusItem(TestPlanTestPointsTesterAndStatusGroupApiResult countGroupByTesterAndStatusItem) {
+    if (this.countGroupByTesterAndStatus == null) {
+      this.countGroupByTesterAndStatus = new ArrayList<>();
+    }
+    this.countGroupByTesterAndStatus.add(countGroupByTesterAndStatusItem);
+    return this;
+  }
+
+  /**
+   * Get countGroupByTesterAndStatus
+   * @return countGroupByTesterAndStatus
+   * @deprecated
+   */
+  @Deprecated
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TestPlanTestPointsTesterAndStatusGroupApiResult> getCountGroupByTesterAndStatus() {
+    return countGroupByTesterAndStatus;
+  }
+
+
+  @Deprecated
+  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCountGroupByTesterAndStatus(List<TestPlanTestPointsTesterAndStatusGroupApiResult> countGroupByTesterAndStatus) {
+    this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
   }
 
 
@@ -156,36 +209,69 @@ public class TestPlanTestPointsAnalyticsApiResult {
   }
 
 
-  public TestPlanTestPointsAnalyticsApiResult countGroupByTesterAndStatus(List<TestPlanTestPointsTesterAndStatusGroupApiResult> countGroupByTesterAndStatus) {
-    this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
+  public TestPlanTestPointsAnalyticsApiResult countGroupByStatusType(List<TestPlanTestPointsStatusTypeGroupApiResult> countGroupByStatusType) {
+    this.countGroupByStatusType = countGroupByStatusType;
     return this;
   }
 
-  public TestPlanTestPointsAnalyticsApiResult addCountGroupByTesterAndStatusItem(TestPlanTestPointsTesterAndStatusGroupApiResult countGroupByTesterAndStatusItem) {
-    if (this.countGroupByTesterAndStatus == null) {
-      this.countGroupByTesterAndStatus = new ArrayList<>();
+  public TestPlanTestPointsAnalyticsApiResult addCountGroupByStatusTypeItem(TestPlanTestPointsStatusTypeGroupApiResult countGroupByStatusTypeItem) {
+    if (this.countGroupByStatusType == null) {
+      this.countGroupByStatusType = new ArrayList<>();
     }
-    this.countGroupByTesterAndStatus.add(countGroupByTesterAndStatusItem);
+    this.countGroupByStatusType.add(countGroupByStatusTypeItem);
     return this;
   }
 
   /**
-   * Get countGroupByTesterAndStatus
-   * @return countGroupByTesterAndStatus
+   * Get countGroupByStatusType
+   * @return countGroupByStatusType
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS)
+  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<TestPlanTestPointsTesterAndStatusGroupApiResult> getCountGroupByTesterAndStatus() {
-    return countGroupByTesterAndStatus;
+  public List<TestPlanTestPointsStatusTypeGroupApiResult> getCountGroupByStatusType() {
+    return countGroupByStatusType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS)
+  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByTesterAndStatus(List<TestPlanTestPointsTesterAndStatusGroupApiResult> countGroupByTesterAndStatus) {
-    this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
+  public void setCountGroupByStatusType(List<TestPlanTestPointsStatusTypeGroupApiResult> countGroupByStatusType) {
+    this.countGroupByStatusType = countGroupByStatusType;
+  }
+
+
+  public TestPlanTestPointsAnalyticsApiResult countGroupByTesterAndStatusType(List<TestPlanTestPointsTesterAndStatusTypeGroupApiResult> countGroupByTesterAndStatusType) {
+    this.countGroupByTesterAndStatusType = countGroupByTesterAndStatusType;
+    return this;
+  }
+
+  public TestPlanTestPointsAnalyticsApiResult addCountGroupByTesterAndStatusTypeItem(TestPlanTestPointsTesterAndStatusTypeGroupApiResult countGroupByTesterAndStatusTypeItem) {
+    if (this.countGroupByTesterAndStatusType == null) {
+      this.countGroupByTesterAndStatusType = new ArrayList<>();
+    }
+    this.countGroupByTesterAndStatusType.add(countGroupByTesterAndStatusTypeItem);
+    return this;
+  }
+
+  /**
+   * Get countGroupByTesterAndStatusType
+   * @return countGroupByTesterAndStatusType
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TestPlanTestPointsTesterAndStatusTypeGroupApiResult> getCountGroupByTesterAndStatusType() {
+    return countGroupByTesterAndStatusType;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCountGroupByTesterAndStatusType(List<TestPlanTestPointsTesterAndStatusTypeGroupApiResult> countGroupByTesterAndStatusType) {
+    this.countGroupByTesterAndStatusType = countGroupByTesterAndStatusType;
   }
 
 
@@ -202,14 +288,16 @@ public class TestPlanTestPointsAnalyticsApiResult {
     }
     TestPlanTestPointsAnalyticsApiResult testPlanTestPointsAnalyticsApiResult = (TestPlanTestPointsAnalyticsApiResult) o;
     return Objects.equals(this.countGroupByStatus, testPlanTestPointsAnalyticsApiResult.countGroupByStatus) &&
+        Objects.equals(this.countGroupByTesterAndStatus, testPlanTestPointsAnalyticsApiResult.countGroupByTesterAndStatus) &&
         Objects.equals(this.sumGroupByTester, testPlanTestPointsAnalyticsApiResult.sumGroupByTester) &&
         Objects.equals(this.countGroupByTester, testPlanTestPointsAnalyticsApiResult.countGroupByTester) &&
-        Objects.equals(this.countGroupByTesterAndStatus, testPlanTestPointsAnalyticsApiResult.countGroupByTesterAndStatus);
+        Objects.equals(this.countGroupByStatusType, testPlanTestPointsAnalyticsApiResult.countGroupByStatusType) &&
+        Objects.equals(this.countGroupByTesterAndStatusType, testPlanTestPointsAnalyticsApiResult.countGroupByTesterAndStatusType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countGroupByStatus, sumGroupByTester, countGroupByTester, countGroupByTesterAndStatus);
+    return Objects.hash(countGroupByStatus, countGroupByTesterAndStatus, sumGroupByTester, countGroupByTester, countGroupByStatusType, countGroupByTesterAndStatusType);
   }
 
   @Override
@@ -217,9 +305,11 @@ public class TestPlanTestPointsAnalyticsApiResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestPlanTestPointsAnalyticsApiResult {\n");
     sb.append("    countGroupByStatus: ").append(toIndentedString(countGroupByStatus)).append("\n");
+    sb.append("    countGroupByTesterAndStatus: ").append(toIndentedString(countGroupByTesterAndStatus)).append("\n");
     sb.append("    sumGroupByTester: ").append(toIndentedString(sumGroupByTester)).append("\n");
     sb.append("    countGroupByTester: ").append(toIndentedString(countGroupByTester)).append("\n");
-    sb.append("    countGroupByTesterAndStatus: ").append(toIndentedString(countGroupByTesterAndStatus)).append("\n");
+    sb.append("    countGroupByStatusType: ").append(toIndentedString(countGroupByStatusType)).append("\n");
+    sb.append("    countGroupByTesterAndStatusType: ").append(toIndentedString(countGroupByTesterAndStatusType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

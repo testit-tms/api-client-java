@@ -53,7 +53,7 @@ public class ProjectTestPlansApi {
 
   /**
    * Get TestPlans analytics
-   *  Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics
+   *   Use case    User sets project internal identifier    User sets query params    User runs method execution    System return analytics
    * @param projectId Project internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @param mustUpdateCache  (optional, default to false)
@@ -82,7 +82,7 @@ public class ProjectTestPlansApi {
 
   /**
    * Get TestPlans analytics
-   *  Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics
+   *   Use case    User sets project internal identifier    User sets query params    User runs method execution    System return analytics
    * @param projectId Project internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @param mustUpdateCache  (optional, default to false)
@@ -147,7 +147,7 @@ public class ProjectTestPlansApi {
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> - Read permission for the project is required - Delete permission for test plans is required </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> - Read permission for the project is required  - Delete permission for test plans is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
@@ -170,7 +170,7 @@ public class ProjectTestPlansApi {
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> - Read permission for the project is required - Delete permission for test plans is required </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> - Read permission for the project is required  - Delete permission for test plans is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
@@ -196,7 +196,7 @@ public class ProjectTestPlansApi {
   }
   /**
    * Checks if TestPlan exists with the specified name exists for the project
-   *  Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems
+   *   Use case    User sets project internal or global identifier    User runs method execution    System purge delete project workitems
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param name TestPlan name to check (required)
    * @return Boolean
@@ -219,7 +219,7 @@ public class ProjectTestPlansApi {
 
   /**
    * Checks if TestPlan exists with the specified name exists for the project
-   *  Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems
+   *   Use case    User sets project internal or global identifier    User runs method execution    System purge delete project workitems
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param name TestPlan name to check (required)
    * @return ApiResponse&lt;Boolean&gt;
@@ -378,7 +378,7 @@ public class ProjectTestPlansApi {
   }
   /**
    * Get Project TestPlans with analytics
-   *  Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics
+   *   Use case    User sets project internal or global identifier    User sets request body    User runs method execution    System returns project testplans with analytics
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param mustUpdateCache  (optional, default to false)
    * @param skip Amount of items to be skipped (offset) (optional)
@@ -407,7 +407,7 @@ public class ProjectTestPlansApi {
 
   /**
    * Get Project TestPlans with analytics
-   *  Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics
+   *   Use case    User sets project internal or global identifier    User sets request body    User runs method execution    System returns project testplans with analytics
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param mustUpdateCache  (optional, default to false)
    * @param skip Amount of items to be skipped (offset) (optional)

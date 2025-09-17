@@ -92,7 +92,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |  Attributes must be global |  -  |
+| **400** |   Attributes must be global |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for project settings is required |  -  |
 | **404** | Not Found |  -  |

@@ -567,7 +567,7 @@ null (empty response body)
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Delete permission for test plan required |  -  |
-| **404** |  Can&#39;t find a TestSuite with id |  -  |
+| **404** |   Can&#39;t find a TestSuite with id |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -659,7 +659,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** |  Can&#39;t find a TestSuite with id! |  -  |
+| **404** |   Can&#39;t find a TestSuite with id! |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -749,7 +749,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** |  Can&#39;t find a TestSuite with id! |  -  |
+| **404** |   Can&#39;t find a TestSuite with id! |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -841,7 +841,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** |  Can&#39;t find a TestSuite with id! |  -  |
+| **404** |   Can&#39;t find a TestSuite with id! |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -929,7 +929,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test plan required |  -  |
-| **404** |  Can&#39;t find a TestSuite with id! |  -  |
+| **404** |   Can&#39;t find a TestSuite with id! |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -1131,10 +1131,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Some of Configurations do not exist in the project, or they are not active |  -  |
+| **400** |   Some of Configurations do not exist in the project, or they are not active |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
-| **404** |  Can&#39;t find a TestSuite with id |  -  |
+| **404** |   Can&#39;t find a TestSuite with id |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 

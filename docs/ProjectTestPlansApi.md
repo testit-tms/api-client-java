@@ -187,7 +187,7 @@ public class Example {
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | - Read permission for the project is required - Delete permission for test plans is required |  -  |
+| **403** | - Read permission for the project is required  - Delete permission for test plans is required |  -  |
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |

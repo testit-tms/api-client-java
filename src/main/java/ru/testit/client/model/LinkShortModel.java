@@ -23,6 +23,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -33,7 +37,8 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   LinkShortModel.JSON_PROPERTY_ID,
   LinkShortModel.JSON_PROPERTY_TITLE,
-  LinkShortModel.JSON_PROPERTY_URL
+  LinkShortModel.JSON_PROPERTY_URL,
+  LinkShortModel.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LinkShortModel {
@@ -45,6 +50,9 @@ public class LinkShortModel {
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<String> type = JsonNullable.<String>undefined();
 
   public LinkShortModel() { 
   }
@@ -124,6 +132,39 @@ public class LinkShortModel {
   }
 
 
+  public LinkShortModel type(String type) {
+    this.type = JsonNullable.<String>of(type);
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getType() {
+        return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
+    this.type = type;
+  }
+
+  public void setType(String type) {
+    this.type = JsonNullable.<String>of(type);
+  }
+
+
   /**
    * Return true if this LinkShortModel object is equal to o.
    */
@@ -138,12 +179,24 @@ public class LinkShortModel {
     LinkShortModel linkShortModel = (LinkShortModel) o;
     return Objects.equals(this.id, linkShortModel.id) &&
         Objects.equals(this.title, linkShortModel.title) &&
-        Objects.equals(this.url, linkShortModel.url);
+        Objects.equals(this.url, linkShortModel.url) &&
+        equalsNullable(this.type, linkShortModel.type);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, url);
+    return Objects.hash(id, title, url, hashCodeNullable(type));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -153,6 +206,7 @@ public class LinkShortModel {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

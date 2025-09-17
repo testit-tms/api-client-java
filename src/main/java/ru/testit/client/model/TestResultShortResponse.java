@@ -54,6 +54,7 @@ import ru.testit.client.invoker.JSON;
   TestResultShortResponse.JSON_PROPERTY_LINKS,
   TestResultShortResponse.JSON_PROPERTY_ATTACHMENTS,
   TestResultShortResponse.JSON_PROPERTY_RERUN_COMPLETED_COUNT,
+  TestResultShortResponse.JSON_PROPERTY_AUTOTEST_EXTERNAL_ID,
   TestResultShortResponse.JSON_PROPERTY_OUTCOME,
   TestResultShortResponse.JSON_PROPERTY_STATUS,
   TestResultShortResponse.JSON_PROPERTY_COMMENT,
@@ -100,6 +101,9 @@ public class TestResultShortResponse {
 
   public static final String JSON_PROPERTY_RERUN_COMPLETED_COUNT = "rerunCompletedCount";
   private Integer rerunCompletedCount;
+
+  public static final String JSON_PROPERTY_AUTOTEST_EXTERNAL_ID = "autotestExternalId";
+  private JsonNullable<String> autotestExternalId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
   @Deprecated
@@ -454,6 +458,39 @@ public class TestResultShortResponse {
   }
 
 
+  public TestResultShortResponse autotestExternalId(String autotestExternalId) {
+    this.autotestExternalId = JsonNullable.<String>of(autotestExternalId);
+    return this;
+  }
+
+  /**
+   * External ID of autotest represented by the test result
+   * @return autotestExternalId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getAutotestExternalId() {
+        return autotestExternalId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTOTEST_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getAutotestExternalId_JsonNullable() {
+    return autotestExternalId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AUTOTEST_EXTERNAL_ID)
+  public void setAutotestExternalId_JsonNullable(JsonNullable<String> autotestExternalId) {
+    this.autotestExternalId = autotestExternalId;
+  }
+
+  public void setAutotestExternalId(String autotestExternalId) {
+    this.autotestExternalId = JsonNullable.<String>of(autotestExternalId);
+  }
+
+
   @Deprecated
   public TestResultShortResponse outcome(String outcome) {
     this.outcome = JsonNullable.<String>of(outcome);
@@ -713,6 +750,7 @@ public class TestResultShortResponse {
         Objects.equals(this.links, testResultShortResponse.links) &&
         Objects.equals(this.attachments, testResultShortResponse.attachments) &&
         Objects.equals(this.rerunCompletedCount, testResultShortResponse.rerunCompletedCount) &&
+        equalsNullable(this.autotestExternalId, testResultShortResponse.autotestExternalId) &&
         equalsNullable(this.outcome, testResultShortResponse.outcome) &&
         equalsNullable(this.status, testResultShortResponse.status) &&
         equalsNullable(this.comment, testResultShortResponse.comment) &&
@@ -728,7 +766,7 @@ public class TestResultShortResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, autotestGlobalId, testRunId, configurationId, configurationName, resultReasons, date, createdDate, links, attachments, rerunCompletedCount, hashCodeNullable(outcome), hashCodeNullable(status), hashCodeNullable(comment), hashCodeNullable(modifiedDate), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration));
+    return Objects.hash(id, name, autotestGlobalId, testRunId, configurationId, configurationName, resultReasons, date, createdDate, links, attachments, rerunCompletedCount, hashCodeNullable(autotestExternalId), hashCodeNullable(outcome), hashCodeNullable(status), hashCodeNullable(comment), hashCodeNullable(modifiedDate), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -754,6 +792,7 @@ public class TestResultShortResponse {
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    rerunCompletedCount: ").append(toIndentedString(rerunCompletedCount)).append("\n");
+    sb.append("    autotestExternalId: ").append(toIndentedString(autotestExternalId)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");

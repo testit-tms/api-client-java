@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**tagNames** | **Set&lt;String&gt;** | Collection of tags |  [optional] |
-|**entityTypes** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; |  [optional] |
+|**entityTypes** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; |  [optional] |
 |**nameOrId** | **String** | Name or identifier (UUID) of work item |  [optional] |
 |**includeIds** | **Set&lt;UUID&gt;** | Collection of identifiers of work items which need to be included in result regardless of filtering |  [optional] |
 |**excludeIds** | **Set&lt;UUID&gt;** | Collection of identifiers of work items which need to be excluded from result regardless of filtering |  [optional] |

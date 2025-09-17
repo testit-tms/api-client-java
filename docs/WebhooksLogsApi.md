@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2WebhooksLogsGet**](WebhooksLogsApi.md#apiV2WebhooksLogsGet) | **GET** /api/v2/webhooks/logs | Get all webhook logs |
+| [**apiV2WebhooksLogsGet**](WebhooksLogsApi.md#apiV2WebhooksLogsGet) | **GET** /api/v2/webhooks/logs | Get last webhook logs |
 | [**apiV2WebhooksLogsIdDelete**](WebhooksLogsApi.md#apiV2WebhooksLogsIdDelete) | **DELETE** /api/v2/webhooks/logs/{id} | Delete webhook log by ID |
 | [**apiV2WebhooksLogsIdGet**](WebhooksLogsApi.md#apiV2WebhooksLogsIdGet) | **GET** /api/v2/webhooks/logs/{id} | Get webhook log by ID |
 
@@ -12,9 +12,9 @@ All URIs are relative to *http://localhost*
 
 ## apiV2WebhooksLogsGet
 
-> List&lt;WebHookLogModel&gt; apiV2WebhooksLogsGet(projectId, skip, take, orderBy, searchField, searchValue)
+> List&lt;WebhookLogApiResult&gt; apiV2WebhooksLogsGet(projectId, skip, take, orderBy, searchField, searchValue)
 
-Get all webhook logs
+Get last webhook logs
 
 ### Example
 
@@ -47,7 +47,7 @@ public class Example {
         String searchField = "searchField_example"; // String | Property name for searching
         String searchValue = "searchValue_example"; // String | Value for searching
         try {
-            List<WebHookLogModel> result = apiInstance.apiV2WebhooksLogsGet(projectId, skip, take, orderBy, searchField, searchValue);
+            List<WebhookLogApiResult> result = apiInstance.apiV2WebhooksLogsGet(projectId, skip, take, orderBy, searchField, searchValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WebhooksLogsApi#apiV2WebhooksLogsGet");
@@ -74,7 +74,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;WebHookLogModel&gt;**](WebHookLogModel.md)
+[**List&lt;WebhookLogApiResult&gt;**](WebhookLogApiResult.md)
 
 ### Authorization
 
@@ -89,13 +89,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **404** | Not Found |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
-| **0** | Error |  -  |
 
 
 ## apiV2WebhooksLogsIdDelete
@@ -168,7 +167,7 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | System administrator permissions are required |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
@@ -176,7 +175,7 @@ null (empty response body)
 
 ## apiV2WebhooksLogsIdGet
 
-> WebHookLogModel apiV2WebhooksLogsIdGet(id)
+> WebhookLogApiResult apiV2WebhooksLogsIdGet(id)
 
 Get webhook log by ID
 
@@ -206,7 +205,7 @@ public class Example {
         WebhooksLogsApi apiInstance = new WebhooksLogsApi(defaultClient);
         UUID id = UUID.randomUUID(); // UUID | Webhook log unique ID
         try {
-            WebHookLogModel result = apiInstance.apiV2WebhooksLogsIdGet(id);
+            WebhookLogApiResult result = apiInstance.apiV2WebhooksLogsIdGet(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WebhooksLogsApi#apiV2WebhooksLogsIdGet");
@@ -228,7 +227,7 @@ public class Example {
 
 ### Return type
 
-[**WebHookLogModel**](WebHookLogModel.md)
+[**WebhookLogApiResult**](WebhookLogApiResult.md)
 
 ### Authorization
 
@@ -243,11 +242,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **404** | Not Found |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
-| **0** | Error |  -  |
 

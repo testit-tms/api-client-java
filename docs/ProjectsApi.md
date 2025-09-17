@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**addGlobaAttributesToProject**](ProjectsApi.md#addGlobaAttributesToProject) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project |
-| [**apiV2ProjectsDemoPost**](ProjectsApi.md#apiV2ProjectsDemoPost) | **POST** /api/v2/projects/demo |  |
 | [**apiV2ProjectsIdDelete**](ProjectsApi.md#apiV2ProjectsIdDelete) | **DELETE** /api/v2/projects/{id} | Archive project |
 | [**apiV2ProjectsIdFailureClassesGet**](ProjectsApi.md#apiV2ProjectsIdFailureClassesGet) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes |
 | [**apiV2ProjectsIdFavoritePut**](ProjectsApi.md#apiV2ProjectsIdFavoritePut) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite |
@@ -113,82 +112,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** |  Attributes must be global |  -  |
+| **400** |   Attributes must be global |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Project admin permission for project settings is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-
-
-## apiV2ProjectsDemoPost
-
-> DemoProjectApiResult apiV2ProjectsDemoPost()
-
-
-
-### Example
-
-```java
-// Import classes:
-import ru.testit.client.invoker.ApiClient;
-import ru.testit.client.invoker.ApiException;
-import ru.testit.client.invoker.Configuration;
-import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
-import ru.testit.client.api.ProjectsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-        ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-        try {
-            DemoProjectApiResult result = apiInstance.apiV2ProjectsDemoPost();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ProjectsApi#apiV2ProjectsDemoPost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**DemoProjectApiResult**](DemoProjectApiResult.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -1516,7 +1443,7 @@ public class Example {
 
 ## createProject
 
-> ProjectApiResult createProject(createProjectApiModel)
+> ProjectModel createProject(createProjectApiModel)
 
 Create project
 
@@ -1554,7 +1481,7 @@ public class Example {
         ProjectsApi apiInstance = new ProjectsApi(defaultClient);
         CreateProjectApiModel createProjectApiModel = new CreateProjectApiModel(); // CreateProjectApiModel | 
         try {
-            ProjectApiResult result = apiInstance.createProject(createProjectApiModel);
+            ProjectModel result = apiInstance.createProject(createProjectApiModel);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProjectsApi#createProject");
@@ -1576,7 +1503,7 @@ public class Example {
 
 ### Return type
 
-[**ProjectApiResult**](ProjectApiResult.md)
+[**ProjectModel**](ProjectModel.md)
 
 ### Authorization
 
@@ -2235,7 +2162,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |  - ID is invalid  - Field is required |  -  |
+| **400** |   - ID is invalid    - Field is required |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for projects is required |  -  |
 | **404** | Project with provided ID was not found |  -  |

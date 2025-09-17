@@ -25,8 +25,8 @@ import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.RequestTypeModel;
-import ru.testit.client.model.WebHookEventTypeModel;
+import ru.testit.client.model.RequestType;
+import ru.testit.client.model.WebHookEventType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -35,34 +35,40 @@ import ru.testit.client.invoker.JSON;
 
 
 /**
- * WebHookLogModel
+ * WebhookLogApiResult
  */
 @JsonPropertyOrder({
-  WebHookLogModel.JSON_PROPERTY_WEB_HOOK_NAME,
-  WebHookLogModel.JSON_PROPERTY_EVENT_TYPE,
-  WebHookLogModel.JSON_PROPERTY_WEB_HOOK_ID,
-  WebHookLogModel.JSON_PROPERTY_RESPONSE_STATUS_CODE,
-  WebHookLogModel.JSON_PROPERTY_PROJECT_ID,
-  WebHookLogModel.JSON_PROPERTY_URL,
-  WebHookLogModel.JSON_PROPERTY_REQUEST_TYPE,
-  WebHookLogModel.JSON_PROPERTY_CREATED_BY_ID,
-  WebHookLogModel.JSON_PROPERTY_ID,
-  WebHookLogModel.JSON_PROPERTY_IS_DELETED,
-  WebHookLogModel.JSON_PROPERTY_REQUEST_BODY,
-  WebHookLogModel.JSON_PROPERTY_REQUEST_META,
-  WebHookLogModel.JSON_PROPERTY_RESPONSE_BODY,
-  WebHookLogModel.JSON_PROPERTY_RESPONSE_META,
-  WebHookLogModel.JSON_PROPERTY_CREATED_DATE,
-  WebHookLogModel.JSON_PROPERTY_MODIFIED_DATE,
-  WebHookLogModel.JSON_PROPERTY_MODIFIED_BY_ID
+  WebhookLogApiResult.JSON_PROPERTY_ID,
+  WebhookLogApiResult.JSON_PROPERTY_IS_DELETED,
+  WebhookLogApiResult.JSON_PROPERTY_WEB_HOOK_NAME,
+  WebhookLogApiResult.JSON_PROPERTY_EVENT_TYPE,
+  WebhookLogApiResult.JSON_PROPERTY_WEB_HOOK_ID,
+  WebhookLogApiResult.JSON_PROPERTY_RESPONSE_STATUS_CODE,
+  WebhookLogApiResult.JSON_PROPERTY_PROJECT_ID,
+  WebhookLogApiResult.JSON_PROPERTY_URL,
+  WebhookLogApiResult.JSON_PROPERTY_REQUEST_TYPE,
+  WebhookLogApiResult.JSON_PROPERTY_CREATED_BY_ID,
+  WebhookLogApiResult.JSON_PROPERTY_REQUEST_BODY,
+  WebhookLogApiResult.JSON_PROPERTY_REQUEST_META,
+  WebhookLogApiResult.JSON_PROPERTY_RESPONSE_BODY,
+  WebhookLogApiResult.JSON_PROPERTY_RESPONSE_META,
+  WebhookLogApiResult.JSON_PROPERTY_CREATED_DATE,
+  WebhookLogApiResult.JSON_PROPERTY_MODIFIED_DATE,
+  WebhookLogApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class WebHookLogModel {
+public class WebhookLogApiResult {
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
+
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  private Boolean isDeleted;
+
   public static final String JSON_PROPERTY_WEB_HOOK_NAME = "webHookName";
   private String webHookName;
 
   public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
-  private WebHookEventTypeModel eventType;
+  private WebHookEventType eventType;
 
   public static final String JSON_PROPERTY_WEB_HOOK_ID = "webHookId";
   private UUID webHookId;
@@ -77,16 +83,10 @@ public class WebHookLogModel {
   private String url;
 
   public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
-  private RequestTypeModel requestType;
+  private RequestType requestType;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
-
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
-  private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_REQUEST_BODY = "requestBody";
   private JsonNullable<String> requestBody = JsonNullable.<String>undefined();
@@ -109,10 +109,60 @@ public class WebHookLogModel {
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
   private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
 
-  public WebHookLogModel() { 
+  public WebhookLogApiResult() { 
   }
 
-  public WebHookLogModel webHookName(String webHookName) {
+  public WebhookLogApiResult id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public WebhookLogApiResult isDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+    return this;
+  }
+
+  /**
+   * Get isDeleted
+   * @return isDeleted
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsDeleted() {
+    return isDeleted;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+
+  public WebhookLogApiResult webHookName(String webHookName) {
     this.webHookName = webHookName;
     return this;
   }
@@ -137,7 +187,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel eventType(WebHookEventTypeModel eventType) {
+  public WebhookLogApiResult eventType(WebHookEventType eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -150,19 +200,19 @@ public class WebHookLogModel {
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public WebHookEventTypeModel getEventType() {
+  public WebHookEventType getEventType() {
     return eventType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEventType(WebHookEventTypeModel eventType) {
+  public void setEventType(WebHookEventType eventType) {
     this.eventType = eventType;
   }
 
 
-  public WebHookLogModel webHookId(UUID webHookId) {
+  public WebhookLogApiResult webHookId(UUID webHookId) {
     this.webHookId = webHookId;
     return this;
   }
@@ -187,7 +237,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel responseStatusCode(Integer responseStatusCode) {
+  public WebhookLogApiResult responseStatusCode(Integer responseStatusCode) {
     this.responseStatusCode = responseStatusCode;
     return this;
   }
@@ -212,7 +262,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel projectId(UUID projectId) {
+  public WebhookLogApiResult projectId(UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -237,7 +287,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel url(String url) {
+  public WebhookLogApiResult url(String url) {
     this.url = url;
     return this;
   }
@@ -262,7 +312,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel requestType(RequestTypeModel requestType) {
+  public WebhookLogApiResult requestType(RequestType requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -275,19 +325,19 @@ public class WebHookLogModel {
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public RequestTypeModel getRequestType() {
+  public RequestType getRequestType() {
     return requestType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequestType(RequestTypeModel requestType) {
+  public void setRequestType(RequestType requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookLogModel createdById(UUID createdById) {
+  public WebhookLogApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -312,57 +362,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel id(UUID id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Unique ID of the entity
-   * @return id
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-
-  public WebHookLogModel isDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-    return this;
-  }
-
-  /**
-   * Indicates if the entity is deleted
-   * @return isDeleted
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getIsDeleted() {
-    return isDeleted;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_DELETED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-  }
-
-
-  public WebHookLogModel requestBody(String requestBody) {
+  public WebhookLogApiResult requestBody(String requestBody) {
     this.requestBody = JsonNullable.<String>of(requestBody);
     return this;
   }
@@ -395,7 +395,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel requestMeta(String requestMeta) {
+  public WebhookLogApiResult requestMeta(String requestMeta) {
     this.requestMeta = JsonNullable.<String>of(requestMeta);
     return this;
   }
@@ -428,7 +428,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel responseBody(String responseBody) {
+  public WebhookLogApiResult responseBody(String responseBody) {
     this.responseBody = JsonNullable.<String>of(responseBody);
     return this;
   }
@@ -461,7 +461,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel responseMeta(String responseMeta) {
+  public WebhookLogApiResult responseMeta(String responseMeta) {
     this.responseMeta = JsonNullable.<String>of(responseMeta);
     return this;
   }
@@ -494,7 +494,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel createdDate(OffsetDateTime createdDate) {
+  public WebhookLogApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -527,7 +527,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel modifiedDate(OffsetDateTime modifiedDate) {
+  public WebhookLogApiResult modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -560,7 +560,7 @@ public class WebHookLogModel {
   }
 
 
-  public WebHookLogModel modifiedById(UUID modifiedById) {
+  public WebhookLogApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -594,7 +594,7 @@ public class WebHookLogModel {
 
 
   /**
-   * Return true if this WebHookLogModel object is equal to o.
+   * Return true if this WebhookLogApiResult object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -604,24 +604,24 @@ public class WebHookLogModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebHookLogModel webHookLogModel = (WebHookLogModel) o;
-    return Objects.equals(this.webHookName, webHookLogModel.webHookName) &&
-        Objects.equals(this.eventType, webHookLogModel.eventType) &&
-        Objects.equals(this.webHookId, webHookLogModel.webHookId) &&
-        Objects.equals(this.responseStatusCode, webHookLogModel.responseStatusCode) &&
-        Objects.equals(this.projectId, webHookLogModel.projectId) &&
-        Objects.equals(this.url, webHookLogModel.url) &&
-        Objects.equals(this.requestType, webHookLogModel.requestType) &&
-        Objects.equals(this.createdById, webHookLogModel.createdById) &&
-        Objects.equals(this.id, webHookLogModel.id) &&
-        Objects.equals(this.isDeleted, webHookLogModel.isDeleted) &&
-        equalsNullable(this.requestBody, webHookLogModel.requestBody) &&
-        equalsNullable(this.requestMeta, webHookLogModel.requestMeta) &&
-        equalsNullable(this.responseBody, webHookLogModel.responseBody) &&
-        equalsNullable(this.responseMeta, webHookLogModel.responseMeta) &&
-        equalsNullable(this.createdDate, webHookLogModel.createdDate) &&
-        equalsNullable(this.modifiedDate, webHookLogModel.modifiedDate) &&
-        equalsNullable(this.modifiedById, webHookLogModel.modifiedById);
+    WebhookLogApiResult webhookLogApiResult = (WebhookLogApiResult) o;
+    return Objects.equals(this.id, webhookLogApiResult.id) &&
+        Objects.equals(this.isDeleted, webhookLogApiResult.isDeleted) &&
+        Objects.equals(this.webHookName, webhookLogApiResult.webHookName) &&
+        Objects.equals(this.eventType, webhookLogApiResult.eventType) &&
+        Objects.equals(this.webHookId, webhookLogApiResult.webHookId) &&
+        Objects.equals(this.responseStatusCode, webhookLogApiResult.responseStatusCode) &&
+        Objects.equals(this.projectId, webhookLogApiResult.projectId) &&
+        Objects.equals(this.url, webhookLogApiResult.url) &&
+        Objects.equals(this.requestType, webhookLogApiResult.requestType) &&
+        Objects.equals(this.createdById, webhookLogApiResult.createdById) &&
+        equalsNullable(this.requestBody, webhookLogApiResult.requestBody) &&
+        equalsNullable(this.requestMeta, webhookLogApiResult.requestMeta) &&
+        equalsNullable(this.responseBody, webhookLogApiResult.responseBody) &&
+        equalsNullable(this.responseMeta, webhookLogApiResult.responseMeta) &&
+        equalsNullable(this.createdDate, webhookLogApiResult.createdDate) &&
+        equalsNullable(this.modifiedDate, webhookLogApiResult.modifiedDate) &&
+        equalsNullable(this.modifiedById, webhookLogApiResult.modifiedById);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -630,7 +630,7 @@ public class WebHookLogModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(webHookName, eventType, webHookId, responseStatusCode, projectId, url, requestType, createdById, id, isDeleted, hashCodeNullable(requestBody), hashCodeNullable(requestMeta), hashCodeNullable(responseBody), hashCodeNullable(responseMeta), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
+    return Objects.hash(id, isDeleted, webHookName, eventType, webHookId, responseStatusCode, projectId, url, requestType, createdById, hashCodeNullable(requestBody), hashCodeNullable(requestMeta), hashCodeNullable(responseBody), hashCodeNullable(responseMeta), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -643,7 +643,9 @@ public class WebHookLogModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WebHookLogModel {\n");
+    sb.append("class WebhookLogApiResult {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    webHookName: ").append(toIndentedString(webHookName)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    webHookId: ").append(toIndentedString(webHookId)).append("\n");
@@ -652,8 +654,6 @@ public class WebHookLogModel {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    requestBody: ").append(toIndentedString(requestBody)).append("\n");
     sb.append("    requestMeta: ").append(toIndentedString(requestMeta)).append("\n");
     sb.append("    responseBody: ").append(toIndentedString(responseBody)).append("\n");

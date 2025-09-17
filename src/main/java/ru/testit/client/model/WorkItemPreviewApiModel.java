@@ -21,7 +21,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import ru.testit.client.model.WorkItemPreviewStepApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -31,19 +34,19 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   WorkItemPreviewApiModel.JSON_PROPERTY_NAME,
-  WorkItemPreviewApiModel.JSON_PROPERTY_ACTION,
-  WorkItemPreviewApiModel.JSON_PROPERTY_EXPECTED
+  WorkItemPreviewApiModel.JSON_PROPERTY_DESCRIPTION,
+  WorkItemPreviewApiModel.JSON_PROPERTY_STEPS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemPreviewApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_ACTION = "action";
-  private String action;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
-  public static final String JSON_PROPERTY_EXPECTED = "expected";
-  private String expected;
+  public static final String JSON_PROPERTY_STEPS = "steps";
+  private List<WorkItemPreviewStepApiModel> steps = new ArrayList<>();
 
   public WorkItemPreviewApiModel() { 
   }
@@ -73,53 +76,61 @@ public class WorkItemPreviewApiModel {
   }
 
 
-  public WorkItemPreviewApiModel action(String action) {
-    this.action = action;
+  public WorkItemPreviewApiModel description(String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * Get action
-   * @return action
+   * Get description
+   * @return description
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getAction() {
-    return action;
+  public String getDescription() {
+    return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAction(String action) {
-    this.action = action;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
-  public WorkItemPreviewApiModel expected(String expected) {
-    this.expected = expected;
+  public WorkItemPreviewApiModel steps(List<WorkItemPreviewStepApiModel> steps) {
+    this.steps = steps;
+    return this;
+  }
+
+  public WorkItemPreviewApiModel addStepsItem(WorkItemPreviewStepApiModel stepsItem) {
+    if (this.steps == null) {
+      this.steps = new ArrayList<>();
+    }
+    this.steps.add(stepsItem);
     return this;
   }
 
   /**
-   * Get expected
-   * @return expected
+   * Get steps
+   * @return steps
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EXPECTED)
+  @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getExpected() {
-    return expected;
+  public List<WorkItemPreviewStepApiModel> getSteps() {
+    return steps;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPECTED)
+  @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExpected(String expected) {
-    this.expected = expected;
+  public void setSteps(List<WorkItemPreviewStepApiModel> steps) {
+    this.steps = steps;
   }
 
 
@@ -136,13 +147,13 @@ public class WorkItemPreviewApiModel {
     }
     WorkItemPreviewApiModel workItemPreviewApiModel = (WorkItemPreviewApiModel) o;
     return Objects.equals(this.name, workItemPreviewApiModel.name) &&
-        Objects.equals(this.action, workItemPreviewApiModel.action) &&
-        Objects.equals(this.expected, workItemPreviewApiModel.expected);
+        Objects.equals(this.description, workItemPreviewApiModel.description) &&
+        Objects.equals(this.steps, workItemPreviewApiModel.steps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, action, expected);
+    return Objects.hash(name, description, steps);
   }
 
   @Override
@@ -150,8 +161,8 @@ public class WorkItemPreviewApiModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkItemPreviewApiModel {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    expected: ").append(toIndentedString(expected)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("}");
     return sb.toString();
   }

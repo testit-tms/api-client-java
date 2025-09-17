@@ -399,6 +399,7 @@ public class TestResultUpdateV2Request {
   /**
    * Get durationInMs
    * minimum: 0
+   * maximum: -9223372036854775616
    * @return durationInMs
    * @deprecated
    */
@@ -436,6 +437,7 @@ public class TestResultUpdateV2Request {
   /**
    * Get duration
    * minimum: 0
+   * maximum: -9223372036854775616
    * @return duration
    */
   @jakarta.annotation.Nullable

@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
+import ru.testit.client.model.TestStatusApiType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -33,7 +34,8 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   TestStatusShortApiResult.JSON_PROPERTY_ID,
   TestStatusShortApiResult.JSON_PROPERTY_NAME,
-  TestStatusShortApiResult.JSON_PROPERTY_CODE
+  TestStatusShortApiResult.JSON_PROPERTY_CODE,
+  TestStatusShortApiResult.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestStatusShortApiResult {
@@ -45,6 +47,9 @@ public class TestStatusShortApiResult {
 
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TestStatusApiType type;
 
   public TestStatusShortApiResult() { 
   }
@@ -124,6 +129,31 @@ public class TestStatusShortApiResult {
   }
 
 
+  public TestStatusShortApiResult type(TestStatusApiType type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Collection of possible status types
+   * @return type
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public TestStatusApiType getType() {
+    return type;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(TestStatusApiType type) {
+    this.type = type;
+  }
+
+
   /**
    * Return true if this TestStatusShortApiResult object is equal to o.
    */
@@ -138,12 +168,13 @@ public class TestStatusShortApiResult {
     TestStatusShortApiResult testStatusShortApiResult = (TestStatusShortApiResult) o;
     return Objects.equals(this.id, testStatusShortApiResult.id) &&
         Objects.equals(this.name, testStatusShortApiResult.name) &&
-        Objects.equals(this.code, testStatusShortApiResult.code);
+        Objects.equals(this.code, testStatusShortApiResult.code) &&
+        Objects.equals(this.type, testStatusShortApiResult.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, code);
+    return Objects.hash(id, name, code, type);
   }
 
   @Override
@@ -153,6 +184,7 @@ public class TestStatusShortApiResult {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

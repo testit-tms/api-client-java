@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 | [**apiV2ProjectsProjectIdWorkItemsSearchGroupedPost**](ProjectWorkItemsApi.md#apiV2ProjectsProjectIdWorkItemsSearchGroupedPost) | **POST** /api/v2/projects/{projectId}/workItems/search/grouped | Search for work items and group results by attribute |
 | [**apiV2ProjectsProjectIdWorkItemsSearchIdPost**](ProjectWorkItemsApi.md#apiV2ProjectsProjectIdWorkItemsSearchIdPost) | **POST** /api/v2/projects/{projectId}/workItems/search/id | Search for work items and extract IDs only |
 | [**apiV2ProjectsProjectIdWorkItemsSearchPost**](ProjectWorkItemsApi.md#apiV2ProjectsProjectIdWorkItemsSearchPost) | **POST** /api/v2/projects/{projectId}/workItems/search | Search for work items |
+| [**apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost**](ProjectWorkItemsApi.md#apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost) | **POST** /api/v2/projects/{projectId}/workItems/search/{workItemId}/index | Get work item index (position) in a collection by its id. |
 | [**apiV2ProjectsProjectIdWorkItemsTagsGet**](ProjectWorkItemsApi.md#apiV2ProjectsProjectIdWorkItemsTagsGet) | **GET** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags |
 | [**getWorkItemsByProjectId**](ProjectWorkItemsApi.md#getWorkItemsByProjectId) | **GET** /api/v2/projects/{projectId}/workItems | Get project work items |
 
@@ -276,6 +277,97 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 
 
+## apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost
+
+> WorkItemIndexApiResult apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost(projectId, workItemId, skip, take, orderBy, searchField, searchValue, workItemSelectApiModel)
+
+Get work item index (position) in a collection by its id.
+
+### Example
+
+```java
+import java.util.UUID;
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.ProjectWorkItemsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        ProjectWorkItemsApi apiInstance = new ProjectWorkItemsApi(defaultClient);
+        String projectId = "projectId_example"; // String | 
+        UUID workItemId = UUID.randomUUID(); // UUID | 
+        Integer skip = 56; // Integer | Amount of items to be skipped (offset)
+        Integer take = 56; // Integer | Amount of items to be taken (limit)
+        String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+        String searchField = "searchField_example"; // String | Property name for searching
+        String searchValue = "searchValue_example"; // String | Value for searching
+        WorkItemSelectApiModel workItemSelectApiModel = new WorkItemSelectApiModel(); // WorkItemSelectApiModel | 
+        try {
+            WorkItemIndexApiResult result = apiInstance.apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost(projectId, workItemId, skip, take, orderBy, searchField, searchValue, workItemSelectApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProjectWorkItemsApi#apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **projectId** | **String**|  | |
+| **workItemId** | **UUID**|  | |
+| **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
+| **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
+| **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
+| **searchField** | **String**| Property name for searching | [optional] |
+| **searchValue** | **String**| Value for searching | [optional] |
+| **workItemSelectApiModel** | [**WorkItemSelectApiModel**](WorkItemSelectApiModel.md)|  | [optional] |
+
+### Return type
+
+[**WorkItemIndexApiResult**](WorkItemIndexApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+
 ## apiV2ProjectsProjectIdWorkItemsTagsGet
 
 > List&lt;TagShortApiResult&gt; apiV2ProjectsProjectIdWorkItemsTagsGet(projectId, isDeleted)
@@ -467,7 +559,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** |  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found |  -  |
+| **400** |   - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters    - &#x60;orderBy&#x60; statement has invalid length    - &#x60;orderBy&#x60; statement must have UUID as attribute key    - Search field was not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
