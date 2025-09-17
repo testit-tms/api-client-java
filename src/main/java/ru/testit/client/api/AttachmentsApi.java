@@ -289,7 +289,7 @@ public class AttachmentsApi {
   }
   /**
    * Upload new attachment file
-   * File size is restricted to 50 MB (52 428 800 bytes)
+   * File size is restricted to 1 GB (1 073 741 824 bytes)
    * @param _file  (optional)
    * @return AttachmentModel
    * @throws ApiException if fails to make API call
@@ -297,7 +297,7 @@ public class AttachmentsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Invalid file contents  - Invalid HTTP headers </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Invalid file contents    - Invalid HTTP headers </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -311,7 +311,7 @@ public class AttachmentsApi {
 
   /**
    * Upload new attachment file
-   * File size is restricted to 50 MB (52 428 800 bytes)
+   * File size is restricted to 1 GB (1 073 741 824 bytes)
    * @param _file  (optional)
    * @return ApiResponse&lt;AttachmentModel&gt;
    * @throws ApiException if fails to make API call
@@ -319,7 +319,7 @@ public class AttachmentsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Invalid file contents  - Invalid HTTP headers </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Invalid file contents    - Invalid HTTP headers </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>

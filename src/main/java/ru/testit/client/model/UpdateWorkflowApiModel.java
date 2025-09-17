@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import ru.testit.client.model.WorkflowStatusApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
@@ -35,7 +36,8 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   UpdateWorkflowApiModel.JSON_PROPERTY_NAME,
   UpdateWorkflowApiModel.JSON_PROPERTY_IS_DEFAULT,
-  UpdateWorkflowApiModel.JSON_PROPERTY_STATUSES
+  UpdateWorkflowApiModel.JSON_PROPERTY_STATUSES,
+  UpdateWorkflowApiModel.JSON_PROPERTY_PROJECT_IDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateWorkflowApiModel {
@@ -47,6 +49,9 @@ public class UpdateWorkflowApiModel {
 
   public static final String JSON_PROPERTY_STATUSES = "statuses";
   private List<WorkflowStatusApiModel> statuses = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  private List<UUID> projectIds = new ArrayList<>();
 
   public UpdateWorkflowApiModel() { 
   }
@@ -134,6 +139,39 @@ public class UpdateWorkflowApiModel {
   }
 
 
+  public UpdateWorkflowApiModel projectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+    return this;
+  }
+
+  public UpdateWorkflowApiModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new ArrayList<>();
+    }
+    this.projectIds.add(projectIdsItem);
+    return this;
+  }
+
+  /**
+   * Get projectIds
+   * @return projectIds
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<UUID> getProjectIds() {
+    return projectIds;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+
   /**
    * Return true if this UpdateWorkflowApiModel object is equal to o.
    */
@@ -148,12 +186,13 @@ public class UpdateWorkflowApiModel {
     UpdateWorkflowApiModel updateWorkflowApiModel = (UpdateWorkflowApiModel) o;
     return Objects.equals(this.name, updateWorkflowApiModel.name) &&
         Objects.equals(this.isDefault, updateWorkflowApiModel.isDefault) &&
-        Objects.equals(this.statuses, updateWorkflowApiModel.statuses);
+        Objects.equals(this.statuses, updateWorkflowApiModel.statuses) &&
+        Objects.equals(this.projectIds, updateWorkflowApiModel.projectIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, isDefault, statuses);
+    return Objects.hash(name, isDefault, statuses, projectIds);
   }
 
   @Override
@@ -163,6 +202,7 @@ public class UpdateWorkflowApiModel {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

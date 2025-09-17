@@ -23,11 +23,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestStatusApiType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -40,9 +36,9 @@ import ru.testit.client.invoker.JSON;
   WorkflowStatusApiResult.JSON_PROPERTY_NAME,
   WorkflowStatusApiResult.JSON_PROPERTY_CODE,
   WorkflowStatusApiResult.JSON_PROPERTY_TYPE,
+  WorkflowStatusApiResult.JSON_PROPERTY_DESCRIPTION,
   WorkflowStatusApiResult.JSON_PROPERTY_IS_SYSTEM,
-  WorkflowStatusApiResult.JSON_PROPERTY_PRIORITY,
-  WorkflowStatusApiResult.JSON_PROPERTY_DESCRIPTION
+  WorkflowStatusApiResult.JSON_PROPERTY_PRIORITY
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkflowStatusApiResult {
@@ -58,14 +54,14 @@ public class WorkflowStatusApiResult {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TestStatusApiType type;
 
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
   private Boolean isSystem;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private Integer priority;
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public WorkflowStatusApiResult() { 
   }
@@ -170,6 +166,31 @@ public class WorkflowStatusApiResult {
   }
 
 
+  public WorkflowStatusApiResult description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
   public WorkflowStatusApiResult isSystem(Boolean isSystem) {
     this.isSystem = isSystem;
     return this;
@@ -220,39 +241,6 @@ public class WorkflowStatusApiResult {
   }
 
 
-  public WorkflowStatusApiResult description(String description) {
-    this.description = JsonNullable.<String>of(description);
-    return this;
-  }
-
-  /**
-   * Get description
-   * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public String getDescription() {
-        return description.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getDescription_JsonNullable() {
-    return description;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
-
-  public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
-  }
-
-
   /**
    * Return true if this WorkflowStatusApiResult object is equal to o.
    */
@@ -269,25 +257,14 @@ public class WorkflowStatusApiResult {
         Objects.equals(this.name, workflowStatusApiResult.name) &&
         Objects.equals(this.code, workflowStatusApiResult.code) &&
         Objects.equals(this.type, workflowStatusApiResult.type) &&
+        Objects.equals(this.description, workflowStatusApiResult.description) &&
         Objects.equals(this.isSystem, workflowStatusApiResult.isSystem) &&
-        Objects.equals(this.priority, workflowStatusApiResult.priority) &&
-        equalsNullable(this.description, workflowStatusApiResult.description);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.priority, workflowStatusApiResult.priority);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, code, type, isSystem, priority, hashCodeNullable(description));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, name, code, type, description, isSystem, priority);
   }
 
   @Override
@@ -298,9 +275,9 @@ public class WorkflowStatusApiResult {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11,9 +11,9 @@
 |**name** | **String** |  |  |
 |**code** | **String** |  |  |
 |**type** | **TestStatusApiType** | Collection of possible status types |  |
+|**description** | **String** |  |  |
 |**isSystem** | **Boolean** |  |  |
 |**priority** | **Integer** |  |  |
-|**description** | **String** |  |  [optional] |
 
 
 

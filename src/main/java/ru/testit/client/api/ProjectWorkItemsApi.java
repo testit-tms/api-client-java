@@ -14,6 +14,7 @@ import java.util.UUID;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkItemGroupGetModel;
 import ru.testit.client.model.WorkItemGroupModel;
+import ru.testit.client.model.WorkItemIndexApiResult;
 import ru.testit.client.model.WorkItemSelectApiModel;
 import ru.testit.client.model.WorkItemSelectModel;
 import ru.testit.client.model.WorkItemShortApiResult;
@@ -293,8 +294,93 @@ public class ProjectWorkItemsApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get work item index (position) in a collection by its id.
+   * 
+   * @param projectId  (required)
+   * @param workItemId  (required)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param workItemSelectApiModel  (optional)
+   * @return WorkItemIndexApiResult
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public WorkItemIndexApiResult apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost(String projectId, UUID workItemId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectApiModel workItemSelectApiModel) throws ApiException {
+    return apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPostWithHttpInfo(projectId, workItemId, skip, take, orderBy, searchField, searchValue, workItemSelectApiModel).getData();
+  }
+
+  /**
+   * Get work item index (position) in a collection by its id.
+   * 
+   * @param projectId  (required)
+   * @param workItemId  (required)
+   * @param skip Amount of items to be skipped (offset) (optional)
+   * @param take Amount of items to be taken (limit) (optional)
+   * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+   * @param searchField Property name for searching (optional)
+   * @param searchValue Value for searching (optional)
+   * @param workItemSelectApiModel  (optional)
+   * @return ApiResponse&lt;WorkItemIndexApiResult&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<WorkItemIndexApiResult> apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPostWithHttpInfo(String projectId, UUID workItemId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, WorkItemSelectApiModel workItemSelectApiModel) throws ApiException {
+    // Check required parameters
+    if (projectId == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost");
+    }
+    if (workItemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'workItemId' when calling apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost");
+    }
+
+    // Path parameters
+    String localVarPath = "/api/v2/projects/{projectId}/workItems/search/{workItemId}/index"
+            .replaceAll("\\{projectId}", apiClient.escapeString(projectId.toString()))
+            .replaceAll("\\{workItemId}", apiClient.escapeString(workItemId.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "Skip", skip)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "Take", take));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "OrderBy", orderBy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchField", searchField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "SearchValue", searchValue));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    GenericType<WorkItemIndexApiResult> localVarReturnType = new GenericType<WorkItemIndexApiResult>() {};
+    return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost", localVarPath, "POST", localVarQueryParams, workItemSelectApiModel,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get WorkItems Tags
-   *  Use case  User sets project internal identifier  User runs method execution  System returns work items tags
+   *   Use case    User sets project internal identifier    User runs method execution    System returns work items tags
    * @param projectId Project internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @return List&lt;TagShortApiResult&gt;
@@ -317,7 +403,7 @@ public class ProjectWorkItemsApi {
 
   /**
    * Get WorkItems Tags
-   *  Use case  User sets project internal identifier  User runs method execution  System returns work items tags
+   *   Use case    User sets project internal identifier    User runs method execution    System returns work items tags
    * @param projectId Project internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @return ApiResponse&lt;List&lt;TagShortApiResult&gt;&gt;
@@ -359,7 +445,7 @@ public class ProjectWorkItemsApi {
   }
   /**
    * Get project work items
-   *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
+   *   Use case    User sets project internal or global identifier    [Optional] User sets isDeleted field value    User runs method execution    System search project    [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project    [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted    If User did not set isDeleted field value, System search all  workitems related to project    System returns array of found workitems (listed in response model)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
    * @param tagNames List of tags to filter by (optional)
@@ -375,7 +461,7 @@ public class ProjectWorkItemsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters    - &#x60;orderBy&#x60; statement has invalid length    - &#x60;orderBy&#x60; statement must have UUID as attribute key    - Search field was not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -391,7 +477,7 @@ public class ProjectWorkItemsApi {
 
   /**
    * Get project work items
-   *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
+   *   Use case    User sets project internal or global identifier    [Optional] User sets isDeleted field value    User runs method execution    System search project    [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project    [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted    If User did not set isDeleted field value, System search all  workitems related to project    System returns array of found workitems (listed in response model)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
    * @param tagNames List of tags to filter by (optional)
@@ -407,7 +493,7 @@ public class ProjectWorkItemsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters    - &#x60;orderBy&#x60; statement has invalid length    - &#x60;orderBy&#x60; statement must have UUID as attribute key    - Search field was not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>

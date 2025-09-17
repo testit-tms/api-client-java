@@ -115,7 +115,7 @@ public class AutoTestsApi {
   }
   /**
    * Set \&quot;Flaky\&quot; status for multiple autotests
-   * User permissions for project: - Read only - Execute - Write - Full control
+   * User permissions for project:  - Read only  - Execute  - Write  - Full control
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -141,7 +141,7 @@ public class AutoTestsApi {
 
   /**
    * Set \&quot;Flaky\&quot; status for multiple autotests
-   * User permissions for project: - Read only - Execute - Write - Full control
+   * User permissions for project:  - Read only  - Execute  - Write  - Full control
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -239,7 +239,7 @@ public class AutoTestsApi {
   }
   /**
    * Get test results history for autotest
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets getTestResultHistoryReportQuery (listed in the example)  User runs method execution  System search for test results using filters set by user in getTestResultHistoryReportQuery and id  System returns the enumeration of test results
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User sets getTestResultHistoryReportQuery (listed in the example)    User runs method execution    System search for test results using filters set by user in getTestResultHistoryReportQuery and id    System returns the enumeration of test results
    * @param id Autotest identifier (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -267,7 +267,7 @@ public class AutoTestsApi {
 
   /**
    * Get test results history for autotest
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets getTestResultHistoryReportQuery (listed in the example)  User runs method execution  System search for test results using filters set by user in getTestResultHistoryReportQuery and id  System returns the enumeration of test results
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User sets getTestResultHistoryReportQuery (listed in the example)    User runs method execution    System search for test results using filters set by user in getTestResultHistoryReportQuery and id    System returns the enumeration of test results
    * @param id Autotest identifier (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -318,7 +318,7 @@ public class AutoTestsApi {
   }
   /**
    * Get identifiers of changed linked work items
-   * User permissions for project: - Read only - Execute - Write - Full control
+   * User permissions for project:  - Read only  - Execute  - Write  - Full control
    * @param id  (required)
    * @return List&lt;UUID&gt;
    * @throws ApiException if fails to make API call
@@ -340,7 +340,7 @@ public class AutoTestsApi {
 
   /**
    * Get identifiers of changed linked work items
-   * User permissions for project: - Read only - Execute - Write - Full control
+   * User permissions for project:  - Read only  - Execute  - Write  - Full control
    * @param id  (required)
    * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -376,7 +376,7 @@ public class AutoTestsApi {
   }
   /**
    * Approve changes to work items linked to autotest
-   * User permissions for project: - Read only - Execute - Write - Full control
+   * User permissions for project:  - Read only  - Execute  - Write  - Full control
    * @param id  (required)
    * @param workItemId  (required)
    * @throws ApiException if fails to make API call
@@ -398,7 +398,7 @@ public class AutoTestsApi {
 
   /**
    * Approve changes to work items linked to autotest
-   * User permissions for project: - Read only - Execute - Write - Full control
+   * User permissions for project:  - Read only  - Execute  - Write  - Full control
    * @param id  (required)
    * @param workItemId  (required)
    * @return ApiResponse&lt;Void&gt;
@@ -506,7 +506,7 @@ public class AutoTestsApi {
   }
   /**
    * Create autotest
-   *  This method creates a new autotest.  To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.  Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
+   *   This method creates a new autotest.    To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.    Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
    * @param autoTestPostModel  (optional)
    * @return AutoTestModel
    * @throws ApiException if fails to make API call
@@ -514,12 +514,12 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
    */
   public AutoTestModel createAutoTest(AutoTestPostModel autoTestPostModel) throws ApiException {
@@ -528,7 +528,7 @@ public class AutoTestsApi {
 
   /**
    * Create autotest
-   *  This method creates a new autotest.  To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.  Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
+   *   This method creates a new autotest.    To add an autotest to the test plan, link it to a work item using the &#x60;POST /api/v2/autoTests/{autoTestId}/workItems&#x60; method.    Use the &#x60;POST /api/v2/testRuns/byAutoTests&#x60; method to run autotest outside the test plan.
    * @param autoTestPostModel  (optional)
    * @return ApiResponse&lt;AutoTestModel&gt;
    * @throws ApiException if fails to make API call
@@ -536,12 +536,12 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<AutoTestModel> createAutoTestWithHttpInfo(AutoTestPostModel autoTestPostModel) throws ApiException {
@@ -555,7 +555,7 @@ public class AutoTestsApi {
   }
   /**
    * Create multiple autotests
-   *  Use case  User sets autotest parameters (listed in the example) and runs method execution  System creates autotest  [Optional] If steps enumeration is set, system creates step items and relates them to autotest  [Optional] If setup enumeration is set, system creates setup items and relates them to autotest  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  [Optional] If label enumeration is set, system creates labels and relates them to autotest  [Optional] If link enumeration is set, system creates links and relates them to autotest  System returns autotest model (example listed in response parameters)
+   *   Use case    User sets autotest parameters (listed in the example) and runs method execution    System creates autotest    [Optional] If steps enumeration is set, system creates step items and relates them to autotest    [Optional] If setup enumeration is set, system creates setup items and relates them to autotest    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest    [Optional] If label enumeration is set, system creates labels and relates them to autotest    [Optional] If link enumeration is set, system creates links and relates them to autotest    System returns autotest model (example listed in response parameters)
    * @param autoTestPostModel  (optional)
    * @return List&lt;AutoTestModel&gt;
    * @throws ApiException if fails to make API call
@@ -563,12 +563,12 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
    */
   public List<AutoTestModel> createMultiple(List<AutoTestPostModel> autoTestPostModel) throws ApiException {
@@ -577,7 +577,7 @@ public class AutoTestsApi {
 
   /**
    * Create multiple autotests
-   *  Use case  User sets autotest parameters (listed in the example) and runs method execution  System creates autotest  [Optional] If steps enumeration is set, system creates step items and relates them to autotest  [Optional] If setup enumeration is set, system creates setup items and relates them to autotest  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest  [Optional] If label enumeration is set, system creates labels and relates them to autotest  [Optional] If link enumeration is set, system creates links and relates them to autotest  System returns autotest model (example listed in response parameters)
+   *   Use case    User sets autotest parameters (listed in the example) and runs method execution    System creates autotest    [Optional] If steps enumeration is set, system creates step items and relates them to autotest    [Optional] If setup enumeration is set, system creates setup items and relates them to autotest    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest    [Optional] If label enumeration is set, system creates labels and relates them to autotest    [Optional] If link enumeration is set, system creates links and relates them to autotest    System returns autotest model (example listed in response parameters)
    * @param autoTestPostModel  (optional)
    * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -585,12 +585,12 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<AutoTestModel>> createMultipleWithHttpInfo(List<AutoTestPostModel> autoTestPostModel) throws ApiException {
@@ -604,7 +604,7 @@ public class AutoTestsApi {
   }
   /**
    * Delete autotest
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  System finds the autotest by the identifier  System deletes autotest and returns no content response
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier and runs method execution    System finds the autotest by the identifier    System deletes autotest and returns no content response
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -625,7 +625,7 @@ public class AutoTestsApi {
 
   /**
    * Delete autotest
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier and runs method execution  System finds the autotest by the identifier  System deletes autotest and returns no content response
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier and runs method execution    System finds the autotest by the identifier    System deletes autotest and returns no content response
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -660,7 +660,7 @@ public class AutoTestsApi {
   }
   /**
    * Unlink autotest from work item
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  [Optional] User sets workitem internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it             from autotest.  [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  System returns no content response
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    [Optional] User sets workitem internal (guid format) or global (integer format) identifier    User runs method execution    System finds the autotest by the autotest identifier    [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.    [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.    System returns no content response
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @param workItemId Work item internal (UUID) or global (integer) identifier (optional)
    * @throws ApiException if fails to make API call
@@ -671,7 +671,7 @@ public class AutoTestsApi {
        <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -682,7 +682,7 @@ public class AutoTestsApi {
 
   /**
    * Unlink autotest from work item
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  [Optional] User sets workitem internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it             from autotest.  [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.  System returns no content response
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    [Optional] User sets workitem internal (guid format) or global (integer format) identifier    User runs method execution    System finds the autotest by the autotest identifier    [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it              from autotest.    [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.    System returns no content response
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @param workItemId Work item internal (UUID) or global (integer) identifier (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -694,7 +694,7 @@ public class AutoTestsApi {
        <tr><td> 400 </td><td> Work item ID is invalid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -856,7 +856,7 @@ public class AutoTestsApi {
   }
   /**
    * Get average autotest duration
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System calculates pass average duration and fail average duration of autotest from all related test results  System returns pass average duration and fail average duration for autotest
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System calculates pass average duration and fail average duration of autotest from all related test results    System returns pass average duration and fail average duration for autotest
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return AutoTestAverageDurationModel
    * @throws ApiException if fails to make API call
@@ -879,7 +879,7 @@ public class AutoTestsApi {
 
   /**
    * Get average autotest duration
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System calculates pass average duration and fail average duration of autotest from all related test results  System returns pass average duration and fail average duration for autotest
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System calculates pass average duration and fail average duration of autotest from all related test results    System returns pass average duration and fail average duration for autotest
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;AutoTestAverageDurationModel&gt;
    * @throws ApiException if fails to make API call
@@ -916,7 +916,7 @@ public class AutoTestsApi {
   }
   /**
    * Get autotest by internal or global ID
-   *  Use case  User sets autotest internal or global identifier and runs method execution  System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+   *   Use case    User sets autotest internal or global identifier and runs method execution    System returns autotest, which internal or global identifier equals the identifier value set in the previous action
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return AutoTestModel
    * @throws ApiException if fails to make API call
@@ -938,7 +938,7 @@ public class AutoTestsApi {
 
   /**
    * Get autotest by internal or global ID
-   *  Use case  User sets autotest internal or global identifier and runs method execution  System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+   *   Use case    User sets autotest internal or global identifier and runs method execution    System returns autotest, which internal or global identifier equals the identifier value set in the previous action
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;AutoTestModel&gt;
    * @throws ApiException if fails to make API call
@@ -974,7 +974,7 @@ public class AutoTestsApi {
   }
   /**
    * Get autotest chronology
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search all test results related to autotest (with default limit equal 100)  System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  System returns test result chronology for autotest
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System search all test results related to autotest (with default limit equal 100)    System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending    System returns test result chronology for autotest
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return List&lt;TestResultChronologyModel&gt;
    * @throws ApiException if fails to make API call
@@ -998,7 +998,7 @@ public class AutoTestsApi {
 
   /**
    * Get autotest chronology
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search all test results related to autotest (with default limit equal 100)  System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending  System returns test result chronology for autotest
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System search all test results related to autotest (with default limit equal 100)    System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending    System returns test result chronology for autotest
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;List&lt;TestResultChronologyModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -1036,7 +1036,7 @@ public class AutoTestsApi {
   }
   /**
    * Get completed tests runs for autotests
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search for all test runs related to the autotest  System returns the enumeration of test runs
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System search for all test runs related to the autotest    System returns the enumeration of test runs
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return List&lt;TestRunByAutoTestApiResult&gt;
    * @throws ApiException if fails to make API call
@@ -1058,7 +1058,7 @@ public class AutoTestsApi {
 
   /**
    * Get completed tests runs for autotests
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User runs method execution  System search for all test runs related to the autotest  System returns the enumeration of test runs
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User runs method execution    System search for all test runs related to the autotest    System returns the enumeration of test runs
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;List&lt;TestRunByAutoTestApiResult&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -1094,8 +1094,8 @@ public class AutoTestsApi {
   }
   /**
    * Get work items linked to autotest
-   *  This method links an autotest to a test case or a checklist.             A manual test case with a linked automated work item is marked in the test management system as an autotest.             You can run it from graphical user interface (GUI). To do that:  1. Open the project in GUI.              2. Go to &lt;b&gt;Test plans&lt;/b&gt; section and switch to the &lt;b&gt;Execution&lt;/b&gt; tab.              3. Select the autotest(s) you want to run using checkboxes.              4. In the toolbar above the test list, click &lt;b&gt;Run autotests&lt;/b&gt;.
-   * @param id Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. (required)
+   *   This method links an autotest to a test case or a checklist.              A manual test case with a linked automated work item is marked in the test management system as an autotest.              You can run it from graphical user interface (GUI). To do that:    1. Open the project in GUI.                2. Go to &lt;b&gt;Test plans&lt;/b&gt; section and switch to the &lt;b&gt;Execution&lt;/b&gt; tab.                3. Select the autotest(s) you want to run using checkboxes.                4. In the toolbar above the test list, click &lt;b&gt;Run autotests&lt;/b&gt;.
+   * @param id Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID. (required)
    * @param isDeleted Specifies that a test is deleted or still relevant. (optional)
    * @param isWorkItemDeleted OBSOLETE: Use &#x60;isDeleted&#x60; instead (optional, default to false)
    * @return List&lt;WorkItemIdentifierModel&gt;
@@ -1118,8 +1118,8 @@ public class AutoTestsApi {
 
   /**
    * Get work items linked to autotest
-   *  This method links an autotest to a test case or a checklist.             A manual test case with a linked automated work item is marked in the test management system as an autotest.             You can run it from graphical user interface (GUI). To do that:  1. Open the project in GUI.              2. Go to &lt;b&gt;Test plans&lt;/b&gt; section and switch to the &lt;b&gt;Execution&lt;/b&gt; tab.              3. Select the autotest(s) you want to run using checkboxes.              4. In the toolbar above the test list, click &lt;b&gt;Run autotests&lt;/b&gt;.
-   * @param id Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. (required)
+   *   This method links an autotest to a test case or a checklist.              A manual test case with a linked automated work item is marked in the test management system as an autotest.              You can run it from graphical user interface (GUI). To do that:    1. Open the project in GUI.                2. Go to &lt;b&gt;Test plans&lt;/b&gt; section and switch to the &lt;b&gt;Execution&lt;/b&gt; tab.                3. Select the autotest(s) you want to run using checkboxes.                4. In the toolbar above the test list, click &lt;b&gt;Run autotests&lt;/b&gt;.
+   * @param id Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID. (required)
    * @param isDeleted Specifies that a test is deleted or still relevant. (optional)
    * @param isWorkItemDeleted OBSOLETE: Use &#x60;isDeleted&#x60; instead (optional, default to false)
    * @return ApiResponse&lt;List&lt;WorkItemIdentifierModel&gt;&gt;
@@ -1162,7 +1162,7 @@ public class AutoTestsApi {
   }
   /**
    * Link autotest with work items
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets work item internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  System finds the work item by the work item identifier  System relates the work item with the autotest and returns no content response
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User sets work item internal (guid format) or global (integer format) identifier    User runs method execution    System finds the autotest by the autotest identifier    System finds the work item by the work item identifier    System relates the work item with the autotest and returns no content response
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @param workItemIdModel  (optional)
    * @throws ApiException if fails to make API call
@@ -1170,10 +1170,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Autotest cannot be linked to shared steps  - Autotest cannot be linked to work item from other project  - Work item ID is invalid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Autotest cannot be linked to shared steps    - Autotest cannot be linked to work item from other project    - Work item ID is invalid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1184,7 +1184,7 @@ public class AutoTestsApi {
 
   /**
    * Link autotest with work items
-   *  Use case  User sets autotest internal (guid format) or global (integer format) identifier  User sets work item internal (guid format) or global (integer format) identifier  User runs method execution  System finds the autotest by the autotest identifier  System finds the work item by the work item identifier  System relates the work item with the autotest and returns no content response
+   *   Use case    User sets autotest internal (guid format) or global (integer format) identifier    User sets work item internal (guid format) or global (integer format) identifier    User runs method execution    System finds the autotest by the autotest identifier    System finds the work item by the work item identifier    System relates the work item with the autotest and returns no content response
    * @param id Autotest internal (UUID) or global (integer) identifier (required)
    * @param workItemIdModel  (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -1193,10 +1193,10 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Autotest cannot be linked to shared steps  - Autotest cannot be linked to work item from other project  - Work item ID is invalid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Autotest cannot be linked to shared steps    - Autotest cannot be linked to work item from other project    - Work item ID is invalid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1220,19 +1220,19 @@ public class AutoTestsApi {
   }
   /**
    * Update autotest
-   *  Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
+   *   Use case    User sets autotest updated parameters values (listed in the example) and runs method execution    System finds the autotest by the identifier    System updates autotest parameters    [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)    [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)    [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)    [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)    System updates autotest and returns no content response
    * @param autoTestPutModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
@@ -1242,7 +1242,7 @@ public class AutoTestsApi {
 
   /**
    * Update autotest
-   *  Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
+   *   Use case    User sets autotest updated parameters values (listed in the example) and runs method execution    System finds the autotest by the identifier    System updates autotest parameters    [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)    [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)    [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)    [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)    System updates autotest and returns no content response
    * @param autoTestPutModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -1250,12 +1250,12 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values </td><td>  -  </td></tr>
        <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
@@ -1269,19 +1269,19 @@ public class AutoTestsApi {
   }
   /**
    * Update multiple autotests
-   *  Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
+   *   Use case    User sets autotest updated parameters values (listed in the example) and runs method execution    System finds the autotest by the identifier    System updates autotest parameters    [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)    [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)    [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)    [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)    System updates autotest and returns no content response
    * @param autoTestPutModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
    */
   public void updateMultiple(List<AutoTestPutModel> autoTestPutModel) throws ApiException {
@@ -1290,7 +1290,7 @@ public class AutoTestsApi {
 
   /**
    * Update multiple autotests
-   *  Use case  User sets autotest updated parameters values (listed in the example) and runs method execution  System finds the autotest by the identifier  System updates autotest parameters  [Optional] If steps enumeration is set, system creates step items, relates them to autotest             and deletes relations with current steps( if exist)  [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest             and deletes relations with current Setup items (if exist)  [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest             and deletes relations with current teardown items (if exist)  [Optional] If label enumeration is set, system creates labels and relates them to autotest             and deletes relations with current Labels (if exist)  [Optional] If link enumeration is set, system creates links and relates them to autotest             and deletes relations with current Links (if exist)  System updates autotest and returns no content response
+   *   Use case    User sets autotest updated parameters values (listed in the example) and runs method execution    System finds the autotest by the identifier    System updates autotest parameters    [Optional] If steps enumeration is set, system creates step items, relates them to autotest              and deletes relations with current steps( if exist)    [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest              and deletes relations with current Setup items (if exist)    [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest              and deletes relations with current teardown items (if exist)    [Optional] If label enumeration is set, system creates labels and relates them to autotest              and deletes relations with current Labels (if exist)    [Optional] If link enumeration is set, system creates links and relates them to autotest              and deletes relations with current Links (if exist)    System updates autotest and returns no content response
    * @param autoTestPutModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -1298,12 +1298,12 @@ public class AutoTestsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for autotests is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Autotest with the same external ID already exists is the project </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> updateMultipleWithHttpInfo(List<AutoTestPutModel> autoTestPutModel) throws ApiException {

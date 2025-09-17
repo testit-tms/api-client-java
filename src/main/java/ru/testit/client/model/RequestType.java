@@ -24,27 +24,21 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets CustomAttributeType
+ * Gets or Sets RequestType
  */
-public enum CustomAttributeType {
+public enum RequestType {
   
-  STRING("string"),
+  POST("Post"),
   
-  DATETIME("datetime"),
+  PUT("Put"),
   
-  OPTIONS("options"),
-  
-  USER("user"),
-  
-  MULTIPLE_OPTIONS("multipleOptions"),
-  
-  CHECKBOX("checkbox"),
+  DELETE("Delete"),
   
   UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
-  CustomAttributeType(String value) {
+  RequestType(String value) {
     this.value = value;
   }
 
@@ -59,8 +53,8 @@ public enum CustomAttributeType {
   }
 
   @JsonCreator
-  public static CustomAttributeType fromValue(String value) {
-    for (CustomAttributeType b : CustomAttributeType.values()) {
+  public static RequestType fromValue(String value) {
+    for (RequestType b : RequestType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

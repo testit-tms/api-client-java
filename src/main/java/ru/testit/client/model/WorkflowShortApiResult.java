@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
+import ru.testit.client.model.WorkflowProjectApiResultApiCollectionPreview;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -34,7 +35,8 @@ import ru.testit.client.invoker.JSON;
   WorkflowShortApiResult.JSON_PROPERTY_ID,
   WorkflowShortApiResult.JSON_PROPERTY_NAME,
   WorkflowShortApiResult.JSON_PROPERTY_IS_SYSTEM,
-  WorkflowShortApiResult.JSON_PROPERTY_IS_DEFAULT
+  WorkflowShortApiResult.JSON_PROPERTY_IS_DEFAULT,
+  WorkflowShortApiResult.JSON_PROPERTY_PROJECTS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkflowShortApiResult {
@@ -49,6 +51,9 @@ public class WorkflowShortApiResult {
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
   private Boolean isDefault;
+
+  public static final String JSON_PROPERTY_PROJECTS = "projects";
+  private WorkflowProjectApiResultApiCollectionPreview projects;
 
   public WorkflowShortApiResult() { 
   }
@@ -153,6 +158,31 @@ public class WorkflowShortApiResult {
   }
 
 
+  public WorkflowShortApiResult projects(WorkflowProjectApiResultApiCollectionPreview projects) {
+    this.projects = projects;
+    return this;
+  }
+
+  /**
+   * Get projects
+   * @return projects
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public WorkflowProjectApiResultApiCollectionPreview getProjects() {
+    return projects;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROJECTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setProjects(WorkflowProjectApiResultApiCollectionPreview projects) {
+    this.projects = projects;
+  }
+
+
   /**
    * Return true if this WorkflowShortApiResult object is equal to o.
    */
@@ -168,12 +198,13 @@ public class WorkflowShortApiResult {
     return Objects.equals(this.id, workflowShortApiResult.id) &&
         Objects.equals(this.name, workflowShortApiResult.name) &&
         Objects.equals(this.isSystem, workflowShortApiResult.isSystem) &&
-        Objects.equals(this.isDefault, workflowShortApiResult.isDefault);
+        Objects.equals(this.isDefault, workflowShortApiResult.isDefault) &&
+        Objects.equals(this.projects, workflowShortApiResult.projects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isSystem, isDefault);
+    return Objects.hash(id, name, isSystem, isDefault, projects);
   }
 
   @Override
@@ -184,6 +215,7 @@ public class WorkflowShortApiResult {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("}");
     return sb.toString();
   }

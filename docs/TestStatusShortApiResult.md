@@ -10,6 +10,7 @@
 |**id** | **UUID** |  |  |
 |**name** | **String** |  |  |
 |**code** | **String** |  |  |
+|**type** | **TestStatusApiType** | Collection of possible status types |  |
 
 
 

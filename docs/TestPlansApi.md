@@ -67,7 +67,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         WorkItemSelectModel workItemSelectModel = new WorkItemSelectModel(); // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project
         try {
             apiInstance.addTestPointsWithSections(id, workItemSelectModel);
@@ -87,7 +87,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md)| Filter object to retrieve work items for test-suite&#39;s project | [optional] |
 
 ### Return type
@@ -157,7 +157,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
         try {
             apiInstance.addWorkItemsWithSections(id, UUID);
@@ -177,7 +177,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **UUID** | **List&lt;UUID&gt;**|  | [optional] |
 
 ### Return type
@@ -197,10 +197,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  TestPlan is locked  Some of configurations do not exist in the project, or they are not active |  -  |
+| **400** |   TestPlan is locked    Some of configurations do not exist in the project, or they are not active |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for TestPlan required |  -  |
-| **404** |  Can&#39;t find a TestPlan with id  Some of workItems do not exist |  -  |
+| **404** |   Can&#39;t find a TestPlan with id    Some of workItems do not exist |  -  |
 | **409** | Conflict |  -  |
 | **422** | Can&#39;t put a SharedStep in the TestSuite |  -  |
 
@@ -243,7 +243,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             TestPointAnalyticResult result = apiInstance.apiV2TestPlansIdAnalyticsGet(id);
             System.out.println(result);
@@ -263,7 +263,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -406,7 +406,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             List<ConfigurationModel> result = apiInstance.apiV2TestPlansIdConfigurationsGet(id);
             System.out.println(result);
@@ -426,7 +426,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -493,7 +493,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         Long timeZoneOffsetInMinutes = 56L; // Long | 
         GetXlsxTestPointsByTestPlanModel getXlsxTestPointsByTestPlanModel = new GetXlsxTestPointsByTestPlanModel(); // GetXlsxTestPointsByTestPlanModel | 
         try {
@@ -514,7 +514,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **timeZoneOffsetInMinutes** | **Long**|  | [optional] |
 | **getXlsxTestPointsByTestPlanModel** | [**GetXlsxTestPointsByTestPlanModel**](GetXlsxTestPointsByTestPlanModel.md)|  | [optional] |
 
@@ -583,7 +583,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         Boolean mustReturnOnlyLastTestResult = true; // Boolean | 
         Boolean includeSteps = true; // Boolean | 
         Boolean includeDeletedTestSuites = true; // Boolean | 
@@ -606,7 +606,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **mustReturnOnlyLastTestResult** | **Boolean**|  | [optional] |
 | **includeSteps** | **Boolean**|  | [optional] |
 | **includeDeletedTestSuites** | **Boolean**|  | [optional] |
@@ -675,7 +675,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         Integer skip = 56; // Integer | Amount of items to be skipped (offset)
         Integer take = 56; // Integer | Amount of items to be taken (limit)
         String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
@@ -700,7 +700,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
@@ -772,7 +772,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         Integer skip = 56; // Integer | 
         Integer take = 56; // Integer | 
         String orderBy = "orderBy_example"; // String | 
@@ -795,7 +795,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **skip** | **Integer**|  | [optional] |
 | **take** | **Integer**|  | [optional] |
 | **orderBy** | **String**|  | [optional] |
@@ -943,7 +943,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             TestPlanSummaryModel result = apiInstance.apiV2TestPlansIdSummariesGet(id);
             System.out.println(result);
@@ -963,7 +963,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -1031,7 +1031,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         UUID testerId = UUID.randomUUID(); // UUID | 
         Integer skip = 56; // Integer | Amount of items to be skipped (offset)
         Integer take = 56; // Integer | Amount of items to be taken (limit)
@@ -1057,7 +1057,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **testerId** | **UUID**|  | [optional] |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
@@ -1130,7 +1130,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
         try {
             apiInstance.apiV2TestPlansIdTestPointsResetPost(id, UUID);
@@ -1150,7 +1150,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **UUID** | **List&lt;UUID&gt;**|  | [optional] |
 
 ### Return type
@@ -1377,7 +1377,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         Boolean notStarted = true; // Boolean | 
         Boolean inProgress = true; // Boolean | 
         Boolean stopped = true; // Boolean | 
@@ -1406,7 +1406,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **notStarted** | **Boolean**|  | [optional] |
 | **inProgress** | **Boolean**|  | [optional] |
 | **stopped** | **Boolean**|  | [optional] |
@@ -1482,7 +1482,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         Integer skip = 56; // Integer | Amount of items to be skipped (offset)
         Integer take = 56; // Integer | Amount of items to be taken (limit)
         String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
@@ -1508,7 +1508,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |
@@ -1654,7 +1654,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             apiInstance.apiV2TestPlansIdUnlockRequestPost(id);
         } catch (ApiException e) {
@@ -1673,7 +1673,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -1827,7 +1827,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             TestPlanModel result = apiInstance.clone(id);
             System.out.println(result);
@@ -1847,7 +1847,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -1914,7 +1914,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             apiInstance.complete(id);
         } catch (ApiException e) {
@@ -1933,7 +1933,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -1952,7 +1952,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Execute status from New to Completed forbidden  Execute status from Completed to Completed forbidden |  -  |
+| **400** |   Execute status from New to Completed forbidden    Execute status from Completed to Completed forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |
@@ -2039,7 +2039,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful operation |  -  |
-| **400** |  Field is required  Tags must be no more than 10! |  -  |
+| **400** |   Field is required    Tags must be no more than 10! |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Not Found |  -  |
@@ -2087,7 +2087,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             apiInstance.deleteTestPlan(id);
         } catch (ApiException e) {
@@ -2106,7 +2106,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -2173,7 +2173,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             TestPlanModel result = apiInstance.getTestPlanById(id);
             System.out.println(result);
@@ -2193,7 +2193,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -2260,7 +2260,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             List<TestSuiteHierarchyApiResult> result = apiInstance.getTestSuitesById(id);
             System.out.println(result);
@@ -2280,7 +2280,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -2347,7 +2347,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             apiInstance.pause(id);
         } catch (ApiException e) {
@@ -2366,7 +2366,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -2385,7 +2385,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Execute status from New to Paused forbidden  Execute status from Paused to Paused forbidden  Execute status from Completed to Paused forbidden |  -  |
+| **400** |   Execute status from New to Paused forbidden    Execute status from Paused to Paused forbidden    Execute status from Completed to Paused forbidden |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |
@@ -2508,7 +2508,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             apiInstance.restoreTestPlan(id);
         } catch (ApiException e) {
@@ -2527,7 +2527,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -2594,7 +2594,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         TestPlansApi apiInstance = new TestPlansApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int format) identifier
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | Test plan internal (guid format) or global (int  format) identifier
         try {
             apiInstance.start(id);
         } catch (ApiException e) {
@@ -2613,7 +2613,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Test plan internal (guid format) or global (int format) identifier | |
+| **id** | **String**| Test plan internal (guid format) or global (int  format) identifier | |
 
 ### Return type
 
@@ -2718,7 +2718,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Field is required  Tags must be no more than 10!  StartDate can&#39;t be more than EndDate! |  -  |
+| **400** |   Field is required    Tags must be no more than 10!    StartDate can&#39;t be more than EndDate! |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test plan required |  -  |
 | **404** | Can&#39;t find a TestPlan with id! |  -  |

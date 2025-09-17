@@ -11,6 +11,7 @@
 |**name** | **String** |  |  |
 |**isSystem** | **Boolean** |  |  |
 |**isDefault** | **Boolean** |  |  |
+|**projects** | [**WorkflowProjectApiResultApiCollectionPreview**](WorkflowProjectApiResultApiCollectionPreview.md) |  |  |
 
 
 

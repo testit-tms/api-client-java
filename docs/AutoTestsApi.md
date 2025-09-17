@@ -703,12 +703,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
+| **400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
 | **404** | Project with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** |  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
+| **422** |   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
 
 
 ## createMultiple
@@ -798,12 +798,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
+| **400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
 | **404** | Project with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** |  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
+| **422** |   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
 
 
 ## deleteAutoTest
@@ -980,7 +980,7 @@ null (empty response body)
 | **400** | Work item ID is invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **404** |  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found |  -  |
+| **404** |   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -1501,7 +1501,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-        String id = "id_example"; // String | Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
+        String id = "id_example"; // String | Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
         Boolean isDeleted = true; // Boolean | Specifies that a test is deleted or still relevant.
         Boolean isWorkItemDeleted = false; // Boolean | OBSOLETE: Use `isDeleted` instead
         try {
@@ -1523,7 +1523,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. | |
+| **id** | **String**| Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID. | |
 | **isDeleted** | **Boolean**| Specifies that a test is deleted or still relevant. | [optional] |
 | **isWorkItemDeleted** | **Boolean**| OBSOLETE: Use &#x60;isDeleted&#x60; instead | [optional] [default to false] |
 
@@ -1636,10 +1636,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |  - Autotest cannot be linked to shared steps  - Autotest cannot be linked to work item from other project  - Work item ID is invalid |  -  |
+| **400** |   - Autotest cannot be linked to shared steps    - Autotest cannot be linked to work item from other project    - Work item ID is invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **404** |  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found |  -  |
+| **404** |   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -1737,12 +1737,12 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
+| **400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **404** |  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found |  -  |
+| **404** |   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** |  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
+| **422** |   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
 | **204** | Success |  -  |
 
 
@@ -1839,10 +1839,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
+| **400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **404** |  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found |  -  |
+| **404** |   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** |  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
+| **422** |   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
 

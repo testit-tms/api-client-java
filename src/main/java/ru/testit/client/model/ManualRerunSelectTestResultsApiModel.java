@@ -21,7 +21,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ManualRerunTestResultApiModel;
 import ru.testit.client.model.TestResultsFilterApiModel;
@@ -37,7 +40,8 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   ManualRerunSelectTestResultsApiModel.JSON_PROPERTY_FILTER,
-  ManualRerunSelectTestResultsApiModel.JSON_PROPERTY_EXTRACTION_MODEL
+  ManualRerunSelectTestResultsApiModel.JSON_PROPERTY_EXTRACTION_MODEL,
+  ManualRerunSelectTestResultsApiModel.JSON_PROPERTY_WEBHOOK_IDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ManualRerunSelectTestResultsApiModel {
@@ -46,6 +50,9 @@ public class ManualRerunSelectTestResultsApiModel {
 
   public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
   private JsonNullable<ManualRerunTestResultApiModel> extractionModel = JsonNullable.<ManualRerunTestResultApiModel>undefined();
+
+  public static final String JSON_PROPERTY_WEBHOOK_IDS = "webhookIds";
+  private JsonNullable<List<UUID>> webhookIds = JsonNullable.<List<UUID>>undefined();
 
   public ManualRerunSelectTestResultsApiModel() { 
   }
@@ -56,7 +63,7 @@ public class ManualRerunSelectTestResultsApiModel {
   }
 
   /**
-   * Get filter
+   * Test results filter.
    * @return filter
    */
   @jakarta.annotation.Nullable
@@ -89,7 +96,7 @@ public class ManualRerunSelectTestResultsApiModel {
   }
 
   /**
-   * Get extractionModel
+   * Test results extraction model.
    * @return extractionModel
    */
   @jakarta.annotation.Nullable
@@ -116,6 +123,51 @@ public class ManualRerunSelectTestResultsApiModel {
   }
 
 
+  public ManualRerunSelectTestResultsApiModel webhookIds(List<UUID> webhookIds) {
+    this.webhookIds = JsonNullable.<List<UUID>>of(webhookIds);
+    return this;
+  }
+
+  public ManualRerunSelectTestResultsApiModel addWebhookIdsItem(UUID webhookIdsItem) {
+    if (this.webhookIds == null || !this.webhookIds.isPresent()) {
+      this.webhookIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.webhookIds.get().add(webhookIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Webhook ids to rerun.
+   * @return webhookIds
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getWebhookIds() {
+        return webhookIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WEBHOOK_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<UUID>> getWebhookIds_JsonNullable() {
+    return webhookIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WEBHOOK_IDS)
+  public void setWebhookIds_JsonNullable(JsonNullable<List<UUID>> webhookIds) {
+    this.webhookIds = webhookIds;
+  }
+
+  public void setWebhookIds(List<UUID> webhookIds) {
+    this.webhookIds = JsonNullable.<List<UUID>>of(webhookIds);
+  }
+
+
   /**
    * Return true if this ManualRerunSelectTestResultsApiModel object is equal to o.
    */
@@ -129,7 +181,8 @@ public class ManualRerunSelectTestResultsApiModel {
     }
     ManualRerunSelectTestResultsApiModel manualRerunSelectTestResultsApiModel = (ManualRerunSelectTestResultsApiModel) o;
     return equalsNullable(this.filter, manualRerunSelectTestResultsApiModel.filter) &&
-        equalsNullable(this.extractionModel, manualRerunSelectTestResultsApiModel.extractionModel);
+        equalsNullable(this.extractionModel, manualRerunSelectTestResultsApiModel.extractionModel) &&
+        equalsNullable(this.webhookIds, manualRerunSelectTestResultsApiModel.webhookIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -138,7 +191,7 @@ public class ManualRerunSelectTestResultsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(filter), hashCodeNullable(extractionModel));
+    return Objects.hash(hashCodeNullable(filter), hashCodeNullable(extractionModel), hashCodeNullable(webhookIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -154,6 +207,7 @@ public class ManualRerunSelectTestResultsApiModel {
     sb.append("class ManualRerunSelectTestResultsApiModel {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    extractionModel: ").append(toIndentedString(extractionModel)).append("\n");
+    sb.append("    webhookIds: ").append(toIndentedString(webhookIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

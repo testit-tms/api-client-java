@@ -131,7 +131,7 @@ public class ProjectAttributeTemplatesApi {
   }
   /**
    * Delete CustomAttributeTemplate from Project
-   *  Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
+   *   Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System delete attribute template from project
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
@@ -153,7 +153,7 @@ public class ProjectAttributeTemplatesApi {
 
   /**
    * Delete CustomAttributeTemplate from Project
-   *  Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
+   *   Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System delete attribute template from project
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
@@ -193,7 +193,7 @@ public class ProjectAttributeTemplatesApi {
   }
   /**
    * Add CustomAttributeTemplate to Project
-   *  Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
+   *   Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System add attribute template to project
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
@@ -215,7 +215,7 @@ public class ProjectAttributeTemplatesApi {
 
   /**
    * Add CustomAttributeTemplate to Project
-   *  Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
+   *   Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System add attribute template to project
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
