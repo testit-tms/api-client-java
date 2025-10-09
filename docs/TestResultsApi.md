@@ -1089,7 +1089,7 @@ null (empty response body)
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test result required |  -  |
-| **404** |   File not found    Attachment not found |  -  |
+| **404** |  File not found  Attachment not found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 

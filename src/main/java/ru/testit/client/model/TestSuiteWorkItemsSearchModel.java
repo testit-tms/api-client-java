@@ -34,6 +34,7 @@ import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.WorkItemEntityTypes;
+import ru.testit.client.model.WorkItemExternalMetadataFilterModel;
 import ru.testit.client.model.WorkItemLinkFilterModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
@@ -54,6 +55,7 @@ import ru.testit.client.invoker.JSON;
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_NAME_OR_ID,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_INCLUDE_IDS,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_EXCLUDE_IDS,
+  TestSuiteWorkItemsSearchModel.JSON_PROPERTY_EXTERNAL_METADATA,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_PROJECT_IDS,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_LINKS,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_NAME,
@@ -95,6 +97,9 @@ public class TestSuiteWorkItemsSearchModel {
 
   public static final String JSON_PROPERTY_EXCLUDE_IDS = "excludeIds";
   private JsonNullable<Set<UUID>> excludeIds = JsonNullable.<Set<UUID>>undefined();
+
+  public static final String JSON_PROPERTY_EXTERNAL_METADATA = "externalMetadata";
+  private JsonNullable<WorkItemExternalMetadataFilterModel> externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterModel>undefined();
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
   private JsonNullable<Set<UUID>> projectIds = JsonNullable.<Set<UUID>>undefined();
@@ -233,7 +238,7 @@ public class TestSuiteWorkItemsSearchModel {
   }
 
   /**
-   * Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
+   * Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
    * @deprecated
    */
@@ -383,6 +388,39 @@ public class TestSuiteWorkItemsSearchModel {
 
   public void setExcludeIds(Set<UUID> excludeIds) {
     this.excludeIds = JsonNullable.<Set<UUID>>of(excludeIds);
+  }
+
+
+  public TestSuiteWorkItemsSearchModel externalMetadata(WorkItemExternalMetadataFilterModel externalMetadata) {
+    this.externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterModel>of(externalMetadata);
+    return this;
+  }
+
+  /**
+   * Specifies work item filter by its external metadata
+   * @return externalMetadata
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public WorkItemExternalMetadataFilterModel getExternalMetadata() {
+        return externalMetadata.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<WorkItemExternalMetadataFilterModel> getExternalMetadata_JsonNullable() {
+    return externalMetadata;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_METADATA)
+  public void setExternalMetadata_JsonNullable(JsonNullable<WorkItemExternalMetadataFilterModel> externalMetadata) {
+    this.externalMetadata = externalMetadata;
+  }
+
+  public void setExternalMetadata(WorkItemExternalMetadataFilterModel externalMetadata) {
+    this.externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterModel>of(externalMetadata);
   }
 
 
@@ -1297,6 +1335,7 @@ public class TestSuiteWorkItemsSearchModel {
         equalsNullable(this.nameOrId, testSuiteWorkItemsSearchModel.nameOrId) &&
         equalsNullable(this.includeIds, testSuiteWorkItemsSearchModel.includeIds) &&
         equalsNullable(this.excludeIds, testSuiteWorkItemsSearchModel.excludeIds) &&
+        equalsNullable(this.externalMetadata, testSuiteWorkItemsSearchModel.externalMetadata) &&
         equalsNullable(this.projectIds, testSuiteWorkItemsSearchModel.projectIds) &&
         equalsNullable(this.links, testSuiteWorkItemsSearchModel.links) &&
         equalsNullable(this.name, testSuiteWorkItemsSearchModel.name) &&
@@ -1327,7 +1366,7 @@ public class TestSuiteWorkItemsSearchModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(tagNames), hashCodeNullable(entityTypes), hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(projectIds), hashCodeNullable(links), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds));
+    return Objects.hash(hashCodeNullable(tagNames), hashCodeNullable(entityTypes), hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(externalMetadata), hashCodeNullable(projectIds), hashCodeNullable(links), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1346,6 +1385,7 @@ public class TestSuiteWorkItemsSearchModel {
     sb.append("    nameOrId: ").append(toIndentedString(nameOrId)).append("\n");
     sb.append("    includeIds: ").append(toIndentedString(includeIds)).append("\n");
     sb.append("    excludeIds: ").append(toIndentedString(excludeIds)).append("\n");
+    sb.append("    externalMetadata: ").append(toIndentedString(externalMetadata)).append("\n");
     sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

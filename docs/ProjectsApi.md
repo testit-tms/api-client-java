@@ -112,7 +112,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** |   Attributes must be global |  -  |
+| **400** |  Attributes must be global |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Project admin permission for project settings is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
@@ -2162,7 +2162,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - ID is invalid    - Field is required |  -  |
+| **400** |  - ID is invalid  - Field is required |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for projects is required |  -  |
 | **404** | Project with provided ID was not found |  -  |

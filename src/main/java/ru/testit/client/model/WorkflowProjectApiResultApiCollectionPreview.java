@@ -61,7 +61,7 @@ public class WorkflowProjectApiResultApiCollectionPreview {
   }
 
   /**
-   * Get data
+   * Preview items
    * @return data
    */
   @jakarta.annotation.Nonnull
@@ -86,7 +86,7 @@ public class WorkflowProjectApiResultApiCollectionPreview {
   }
 
   /**
-   * Get totalCount
+   * Total count
    * @return totalCount
    */
   @jakarta.annotation.Nonnull

@@ -394,7 +394,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |   - Invalid file contents    - Invalid HTTP headers |  -  |
+| **400** |  - Invalid file contents  - Invalid HTTP headers |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
