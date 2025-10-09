@@ -318,7 +318,7 @@ public class TestPointShortApiResult {
   }
 
   /**
-   * Test point status    Applies one of these values: Blocked, NoResults, Failed, Passed
+   * Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed
    * @return status
    * @deprecated
    */

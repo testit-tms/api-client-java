@@ -388,7 +388,7 @@ public class TestSuitesApi {
   }
   /**
    * Delete TestSuite
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System deletes test suite    System returns no content response
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -398,7 +398,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -409,7 +409,7 @@ public class TestSuitesApi {
 
   /**
    * Delete TestSuite
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System deletes test suite    System returns no content response
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -420,7 +420,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -444,7 +444,7 @@ public class TestSuitesApi {
   }
   /**
    * Get Configurations By Id
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configurations related to the test points    System returns configurations array
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return List&lt;ConfigurationModel&gt;
    * @throws ApiException if fails to make API call
@@ -455,7 +455,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -466,7 +466,7 @@ public class TestSuitesApi {
 
   /**
    * Get Configurations By Id
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configurations related to the test points    System returns configurations array
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -477,7 +477,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -502,7 +502,7 @@ public class TestSuitesApi {
   }
   /**
    * Get TestPoints By Id
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System returns test points array
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return List&lt;TestPointByTestSuiteModel&gt;
    * @throws ApiException if fails to make API call
@@ -513,7 +513,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -524,7 +524,7 @@ public class TestSuitesApi {
 
   /**
    * Get TestPoints By Id
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System returns test points array
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;List&lt;TestPointByTestSuiteModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -535,7 +535,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -560,7 +560,7 @@ public class TestSuitesApi {
   }
   /**
    * Get TestResults By Id
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search test results related to the test points    System returns test results array
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return List&lt;TestResultV2ShortModel&gt;
    * @throws ApiException if fails to make API call
@@ -571,7 +571,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -582,7 +582,7 @@ public class TestSuitesApi {
 
   /**
    * Get TestResults By Id
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search test results related to the test points    System returns test results array
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;List&lt;TestResultV2ShortModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -593,7 +593,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -618,7 +618,7 @@ public class TestSuitesApi {
   }
   /**
    * Get TestSuite by Id
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System returns test suite
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return TestSuiteApiResult
    * @throws ApiException if fails to make API call
@@ -629,7 +629,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -640,7 +640,7 @@ public class TestSuitesApi {
 
   /**
    * Get TestSuite by Id
-   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System returns test suite
+   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;TestSuiteApiResult&gt;
    * @throws ApiException if fails to make API call
@@ -651,7 +651,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -676,7 +676,7 @@ public class TestSuitesApi {
   }
   /**
    * Search WorkItems
-   *   Use case    User sets test suite identifier    [Optional] User sets filter    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search work items related to the test points    [Optional] User sets filter, system applies filter    System returns work items array
+   *  Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -706,7 +706,7 @@ public class TestSuitesApi {
 
   /**
    * Search WorkItems
-   *   Use case    User sets test suite identifier    [Optional] User sets filter    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search work items related to the test points    [Optional] User sets filter, system applies filter    System returns work items array
+   *  Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -759,7 +759,7 @@ public class TestSuitesApi {
   }
   /**
    * Set Configurations By TestSuite Id
-   *   Use case    User sets test suite identifier    User sets collection of configuration identifiers    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configuration    System restores(if exist) or creates test points with listed configuration    System returns no content response
+   *  Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @param UUID Collection of configuration identifiers\&quot; (optional)
    * @throws ApiException if fails to make API call
@@ -767,10 +767,10 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -781,7 +781,7 @@ public class TestSuitesApi {
 
   /**
    * Set Configurations By TestSuite Id
-   *   Use case    User sets test suite identifier    User sets collection of configuration identifiers    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configuration    System restores(if exist) or creates test points with listed configuration    System returns no content response
+   *  Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @param UUID Collection of configuration identifiers\&quot; (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -790,10 +790,10 @@ public class TestSuitesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>

@@ -469,7 +469,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** |   - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols    - &#x60;orderBy&#x60; statement has invalid length    - &#x60;orderBy&#x60; statement must have UUID as attribute key    - Search field was not found |  -  |
+| **400** |  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test library is required |  -  |
 | **404** | Section with provided ID was not found |  -  |
@@ -720,10 +720,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - ID is invalid    - Root section cannot be create |  -  |
+| **400** |  - ID is invalid  - Root section cannot be create |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library is required |  -  |
-| **404** |   - Section cannot be found    - Parent section cannot be found    - Project cannot be found |  -  |
+| **404** |  - Section cannot be found  - Parent section cannot be found  - Project cannot be found |  -  |
 | **409** | Section with the same name already exists in the parent section |  -  |
-| **422** |   - Root section cannot be edited    - Parent ID cannot be changed    - Project ID cannot be changed |  -  |
+| **422** |  - Root section cannot be edited  - Parent ID cannot be changed  - Project ID cannot be changed |  -  |
 

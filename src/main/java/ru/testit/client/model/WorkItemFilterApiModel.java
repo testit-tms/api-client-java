@@ -34,6 +34,7 @@ import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.WorkItemEntityTypes;
+import ru.testit.client.model.WorkItemExternalMetadataFilterApiModel;
 import ru.testit.client.model.WorkItemLinkFilterApiModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
@@ -73,7 +74,8 @@ import ru.testit.client.invoker.JSON;
   WorkItemFilterApiModel.JSON_PROPERTY_TAGS,
   WorkItemFilterApiModel.JSON_PROPERTY_AUTO_TEST_IDS,
   WorkItemFilterApiModel.JSON_PROPERTY_WORK_ITEM_VERSION_IDS,
-  WorkItemFilterApiModel.JSON_PROPERTY_LINKS
+  WorkItemFilterApiModel.JSON_PROPERTY_LINKS,
+  WorkItemFilterApiModel.JSON_PROPERTY_EXTERNAL_METADATA
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkItemFilterApiModel {
@@ -151,6 +153,9 @@ public class WorkItemFilterApiModel {
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private JsonNullable<WorkItemLinkFilterApiModel> links = JsonNullable.<WorkItemLinkFilterApiModel>undefined();
+
+  public static final String JSON_PROPERTY_EXTERNAL_METADATA = "externalMetadata";
+  private JsonNullable<WorkItemExternalMetadataFilterApiModel> externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterApiModel>undefined();
 
   public WorkItemFilterApiModel() { 
   }
@@ -1172,6 +1177,39 @@ public class WorkItemFilterApiModel {
   }
 
 
+  public WorkItemFilterApiModel externalMetadata(WorkItemExternalMetadataFilterApiModel externalMetadata) {
+    this.externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterApiModel>of(externalMetadata);
+    return this;
+  }
+
+  /**
+   * Specifies work item filter by its external metadata
+   * @return externalMetadata
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public WorkItemExternalMetadataFilterApiModel getExternalMetadata() {
+        return externalMetadata.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<WorkItemExternalMetadataFilterApiModel> getExternalMetadata_JsonNullable() {
+    return externalMetadata;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_METADATA)
+  public void setExternalMetadata_JsonNullable(JsonNullable<WorkItemExternalMetadataFilterApiModel> externalMetadata) {
+    this.externalMetadata = externalMetadata;
+  }
+
+  public void setExternalMetadata(WorkItemExternalMetadataFilterApiModel externalMetadata) {
+    this.externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterApiModel>of(externalMetadata);
+  }
+
+
   /**
    * Return true if this WorkItemFilterApiModel object is equal to o.
    */
@@ -1208,7 +1246,8 @@ public class WorkItemFilterApiModel {
         equalsNullable(this.tags, workItemFilterApiModel.tags) &&
         equalsNullable(this.autoTestIds, workItemFilterApiModel.autoTestIds) &&
         equalsNullable(this.workItemVersionIds, workItemFilterApiModel.workItemVersionIds) &&
-        equalsNullable(this.links, workItemFilterApiModel.links);
+        equalsNullable(this.links, workItemFilterApiModel.links) &&
+        equalsNullable(this.externalMetadata, workItemFilterApiModel.externalMetadata);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1217,7 +1256,7 @@ public class WorkItemFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds), hashCodeNullable(links));
+    return Objects.hash(hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds), hashCodeNullable(links), hashCodeNullable(externalMetadata));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1256,6 +1295,7 @@ public class WorkItemFilterApiModel {
     sb.append("    autoTestIds: ").append(toIndentedString(autoTestIds)).append("\n");
     sb.append("    workItemVersionIds: ").append(toIndentedString(workItemVersionIds)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    externalMetadata: ").append(toIndentedString(externalMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

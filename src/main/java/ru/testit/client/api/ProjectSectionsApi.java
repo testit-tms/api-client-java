@@ -50,7 +50,7 @@ public class ProjectSectionsApi {
 
   /**
    * Get project sections
-   *   Use case    User sets project internal or global identifier and runs method execution    System search project    System search all sections related to the project    System returns array of sections (listed in response)
+   *  Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -77,7 +77,7 @@ public class ProjectSectionsApi {
 
   /**
    * Get project sections
-   *   Use case    User sets project internal or global identifier and runs method execution    System search project    System search all sections related to the project    System returns array of sections (listed in response)
+   *  Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)

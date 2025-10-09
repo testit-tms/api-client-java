@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import ru.testit.client.model.ExternalIssueExternalServiceApiResult;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -30,12 +31,16 @@ import ru.testit.client.invoker.JSON;
  * ExternalIssueApiFieldSuggestion
  */
 @JsonPropertyOrder({
-  ExternalIssueApiFieldSuggestion.JSON_PROPERTY_VALUE
+  ExternalIssueApiFieldSuggestion.JSON_PROPERTY_VALUE,
+  ExternalIssueApiFieldSuggestion.JSON_PROPERTY_EXTERNAL_SERVICE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ExternalIssueApiFieldSuggestion {
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
+
+  public static final String JSON_PROPERTY_EXTERNAL_SERVICE = "externalService";
+  private ExternalIssueExternalServiceApiResult externalService;
 
   public ExternalIssueApiFieldSuggestion() { 
   }
@@ -46,7 +51,7 @@ public class ExternalIssueApiFieldSuggestion {
   }
 
   /**
-   * Get value
+   * Value of the external issue field
    * @return value
    */
   @jakarta.annotation.Nonnull
@@ -65,6 +70,31 @@ public class ExternalIssueApiFieldSuggestion {
   }
 
 
+  public ExternalIssueApiFieldSuggestion externalService(ExternalIssueExternalServiceApiResult externalService) {
+    this.externalService = externalService;
+    return this;
+  }
+
+  /**
+   * Associated external service with this value
+   * @return externalService
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public ExternalIssueExternalServiceApiResult getExternalService() {
+    return externalService;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setExternalService(ExternalIssueExternalServiceApiResult externalService) {
+    this.externalService = externalService;
+  }
+
+
   /**
    * Return true if this ExternalIssueApiFieldSuggestion object is equal to o.
    */
@@ -77,12 +107,13 @@ public class ExternalIssueApiFieldSuggestion {
       return false;
     }
     ExternalIssueApiFieldSuggestion externalIssueApiFieldSuggestion = (ExternalIssueApiFieldSuggestion) o;
-    return Objects.equals(this.value, externalIssueApiFieldSuggestion.value);
+    return Objects.equals(this.value, externalIssueApiFieldSuggestion.value) &&
+        Objects.equals(this.externalService, externalIssueApiFieldSuggestion.externalService);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash(value, externalService);
   }
 
   @Override
@@ -90,6 +121,7 @@ public class ExternalIssueApiFieldSuggestion {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalIssueApiFieldSuggestion {\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    externalService: ").append(toIndentedString(externalService)).append("\n");
     sb.append("}");
     return sb.toString();
   }

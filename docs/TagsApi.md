@@ -87,7 +87,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - ID is not valid |  -  |
+| **400** |  - ID is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | System administrator role is required |  -  |
 | **404** | No tags with provided IDs were found |  -  |
@@ -170,7 +170,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - ID is not valid |  -  |
+| **400** |  - ID is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | System administrator role is required |  -  |
 | **404** | Tag with provided ID cannot be found |  -  |
@@ -257,7 +257,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful operation |  -  |
-| **400** |   - Name cannot be empty or contain only white space characters    - Name already in use    - Name must be no more than 30 characters long |  -  |
+| **400** |  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -347,7 +347,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
-| **400** |   - ID is not valid    - Name cannot be empty or contain only white space characters    - Name already in use    - Name must be no more than 30 characters long |  -  |
+| **400** |  - ID is not valid  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Project creator role is required |  -  |
 | **404** | Tag with provided ID cannot be found |  -  |
@@ -438,7 +438,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** |   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found |  -  |
+| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -529,7 +529,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-| **400** |   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found |  -  |
+| **400** |  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |

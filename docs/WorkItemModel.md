@@ -17,6 +17,7 @@
 |**createdDate** | **OffsetDateTime** |  |  |
 |**createdById** | **UUID** |  |  |
 |**globalId** | **Long** |  |  |
+|**externalIssues** | [**List&lt;ExternalIssueModel&gt;**](ExternalIssueModel.md) |  |  |
 |**id** | **UUID** |  |  |
 |**sectionId** | **UUID** |  |  |
 |**state** | **WorkItemStates** |  |  |

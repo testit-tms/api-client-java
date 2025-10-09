@@ -21,9 +21,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.ExternalIssueApiField;
 import ru.testit.client.model.Inquiry;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -33,6 +40,7 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   GetExternalIssueSuggestionsApiModel.JSON_PROPERTY_FIELD,
+  GetExternalIssueSuggestionsApiModel.JSON_PROPERTY_PROJECT_IDS,
   GetExternalIssueSuggestionsApiModel.JSON_PROPERTY_INQUIRY
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
@@ -40,8 +48,11 @@ public class GetExternalIssueSuggestionsApiModel {
   public static final String JSON_PROPERTY_FIELD = "field";
   private ExternalIssueApiField field;
 
+  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  private JsonNullable<List<UUID>> projectIds = JsonNullable.<List<UUID>>undefined();
+
   public static final String JSON_PROPERTY_INQUIRY = "inquiry";
-  private Inquiry inquiry;
+  private JsonNullable<Inquiry> inquiry = JsonNullable.<Inquiry>undefined();
 
   public GetExternalIssueSuggestionsApiModel() { 
   }
@@ -52,7 +63,7 @@ public class GetExternalIssueSuggestionsApiModel {
   }
 
   /**
-   * Get field
+   * Field of external issue metadata to get
    * @return field
    */
   @jakarta.annotation.Nonnull
@@ -71,28 +82,81 @@ public class GetExternalIssueSuggestionsApiModel {
   }
 
 
-  public GetExternalIssueSuggestionsApiModel inquiry(Inquiry inquiry) {
-    this.inquiry = inquiry;
+  public GetExternalIssueSuggestionsApiModel projectIds(List<UUID> projectIds) {
+    this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
+    return this;
+  }
+
+  public GetExternalIssueSuggestionsApiModel addProjectIdsItem(UUID projectIdsItem) {
+    if (this.projectIds == null || !this.projectIds.isPresent()) {
+      this.projectIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.projectIds.get().add(projectIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * Get inquiry
-   * @return inquiry
+   * List of project identifiers where external issue is available
+   * @return projectIds
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INQUIRY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
 
-  public Inquiry getInquiry() {
-    return inquiry;
+  public List<UUID> getProjectIds() {
+        return projectIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<UUID>> getProjectIds_JsonNullable() {
+    return projectIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  public void setProjectIds_JsonNullable(JsonNullable<List<UUID>> projectIds) {
+    this.projectIds = projectIds;
+  }
+
+  public void setProjectIds(List<UUID> projectIds) {
+    this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
   }
 
 
+  public GetExternalIssueSuggestionsApiModel inquiry(Inquiry inquiry) {
+    this.inquiry = JsonNullable.<Inquiry>of(inquiry);
+    return this;
+  }
+
+  /**
+   * Inquiry
+   * @return inquiry
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Inquiry getInquiry() {
+        return inquiry.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INQUIRY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInquiry(Inquiry inquiry) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Inquiry> getInquiry_JsonNullable() {
+    return inquiry;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INQUIRY)
+  public void setInquiry_JsonNullable(JsonNullable<Inquiry> inquiry) {
     this.inquiry = inquiry;
+  }
+
+  public void setInquiry(Inquiry inquiry) {
+    this.inquiry = JsonNullable.<Inquiry>of(inquiry);
   }
 
 
@@ -109,12 +173,24 @@ public class GetExternalIssueSuggestionsApiModel {
     }
     GetExternalIssueSuggestionsApiModel getExternalIssueSuggestionsApiModel = (GetExternalIssueSuggestionsApiModel) o;
     return Objects.equals(this.field, getExternalIssueSuggestionsApiModel.field) &&
-        Objects.equals(this.inquiry, getExternalIssueSuggestionsApiModel.inquiry);
+        equalsNullable(this.projectIds, getExternalIssueSuggestionsApiModel.projectIds) &&
+        equalsNullable(this.inquiry, getExternalIssueSuggestionsApiModel.inquiry);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, inquiry);
+    return Objects.hash(field, hashCodeNullable(projectIds), hashCodeNullable(inquiry));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -122,6 +198,7 @@ public class GetExternalIssueSuggestionsApiModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetExternalIssueSuggestionsApiModel {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("    inquiry: ").append(toIndentedString(inquiry)).append("\n");
     sb.append("}");
     return sb.toString();

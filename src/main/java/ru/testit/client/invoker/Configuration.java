@@ -15,7 +15,7 @@ package ru.testit.client.invoker;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Configuration {
-    public static final String VERSION = "2.2.4";
+    public static final String VERSION = "2.2.5-TMS-5.5";
 
     private static ApiClient defaultApiClient = new ApiClient(true);
 
