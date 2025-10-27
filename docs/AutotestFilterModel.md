@@ -24,7 +24,7 @@
 |**className** | **String** |  |  [optional] |
 |**isEmptyClassName** | **Boolean** |  |  [optional] |
 |**lastTestResultOutcome** | **AutotestResultOutcome** |  |  [optional] |
-|**lastTestResultStatusCode** | **String** |  |  [optional] |
+|**lastTestResultStatusCodes** | **List&lt;String&gt;** |  |  [optional] |
 |**externalKey** | **String** |  |  [optional] |
 |**lastTestResultConfigurationIds** | **List&lt;UUID&gt;** |  |  [optional] |
 

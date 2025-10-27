@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filters** | **List&lt;Object&gt;** |  |  |
+|**filters** | [**List&lt;IFilter&gt;**](IFilter.md) |  |  |
 |**operator** | **LogicalOperator** |  |  |
 
 

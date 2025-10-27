@@ -478,7 +478,7 @@ null (empty response body)
 
 ## apiV2ConfigurationsPurgeBulkPost
 
-> apiV2ConfigurationsPurgeBulkPost(configurationSelectModel)
+> Integer apiV2ConfigurationsPurgeBulkPost(configurationSelectModel)
 
 Permanently delete multiple archived configurations
 
@@ -507,7 +507,8 @@ public class Example {
         ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
         ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | 
         try {
-            apiInstance.apiV2ConfigurationsPurgeBulkPost(configurationSelectModel);
+            Integer result = apiInstance.apiV2ConfigurationsPurgeBulkPost(configurationSelectModel);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsPurgeBulkPost");
             System.err.println("Status code: " + e.getCode());
@@ -528,7 +529,7 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+**Integer**
 
 ### Authorization
 

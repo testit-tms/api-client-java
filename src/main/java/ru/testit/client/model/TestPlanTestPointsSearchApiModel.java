@@ -61,6 +61,7 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsSearchApiModel.JSON_PROPERTY_MODIFIED_DATE,
   TestPlanTestPointsSearchApiModel.JSON_PROPERTY_MODIFIED_BY_IDS,
   TestPlanTestPointsSearchApiModel.JSON_PROPERTY_TAGS,
+  TestPlanTestPointsSearchApiModel.JSON_PROPERTY_EXCLUDE_TAGS,
   TestPlanTestPointsSearchApiModel.JSON_PROPERTY_ATTRIBUTES,
   TestPlanTestPointsSearchApiModel.JSON_PROPERTY_WORK_ITEM_CREATED_DATE,
   TestPlanTestPointsSearchApiModel.JSON_PROPERTY_WORK_ITEM_CREATED_BY_IDS,
@@ -120,6 +121,9 @@ public class TestPlanTestPointsSearchApiModel {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_EXCLUDE_TAGS = "excludeTags";
+  private JsonNullable<List<String>> excludeTags = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private JsonNullable<Map<String, Set<String>>> attributes = JsonNullable.<Map<String, Set<String>>>undefined();
@@ -836,6 +840,51 @@ public class TestPlanTestPointsSearchApiModel {
   }
 
 
+  public TestPlanTestPointsSearchApiModel excludeTags(List<String> excludeTags) {
+    this.excludeTags = JsonNullable.<List<String>>of(excludeTags);
+    return this;
+  }
+
+  public TestPlanTestPointsSearchApiModel addExcludeTagsItem(String excludeTagsItem) {
+    if (this.excludeTags == null || !this.excludeTags.isPresent()) {
+      this.excludeTags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.excludeTags.get().add(excludeTagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Specifies a test point tags to exclude to search for
+   * @return excludeTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getExcludeTags() {
+        return excludeTags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getExcludeTags_JsonNullable() {
+    return excludeTags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  public void setExcludeTags_JsonNullable(JsonNullable<List<String>> excludeTags) {
+    this.excludeTags = excludeTags;
+  }
+
+  public void setExcludeTags(List<String> excludeTags) {
+    this.excludeTags = JsonNullable.<List<String>>of(excludeTags);
+  }
+
+
   public TestPlanTestPointsSearchApiModel attributes(Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
     return this;
@@ -1066,6 +1115,7 @@ public class TestPlanTestPointsSearchApiModel {
         equalsNullable(this.modifiedDate, testPlanTestPointsSearchApiModel.modifiedDate) &&
         equalsNullable(this.modifiedByIds, testPlanTestPointsSearchApiModel.modifiedByIds) &&
         equalsNullable(this.tags, testPlanTestPointsSearchApiModel.tags) &&
+        equalsNullable(this.excludeTags, testPlanTestPointsSearchApiModel.excludeTags) &&
         equalsNullable(this.attributes, testPlanTestPointsSearchApiModel.attributes) &&
         equalsNullable(this.workItemCreatedDate, testPlanTestPointsSearchApiModel.workItemCreatedDate) &&
         equalsNullable(this.workItemCreatedByIds, testPlanTestPointsSearchApiModel.workItemCreatedByIds) &&
@@ -1079,7 +1129,7 @@ public class TestPlanTestPointsSearchApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(testSuiteIds), hashCodeNullable(workItemGlobalIds), hashCodeNullable(workItemMedianDuration), hashCodeNullable(statuses), hashCodeNullable(statusCodes), hashCodeNullable(priorities), hashCodeNullable(isAutomated), hashCodeNullable(name), hashCodeNullable(configurationIds), hashCodeNullable(testerIds), hashCodeNullable(duration), hashCodeNullable(sectionIds), hashCodeNullable(createdDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedByIds), hashCodeNullable(tags), hashCodeNullable(attributes), hashCodeNullable(workItemCreatedDate), hashCodeNullable(workItemCreatedByIds), hashCodeNullable(workItemModifiedDate), hashCodeNullable(workItemModifiedByIds));
+    return Objects.hash(hashCodeNullable(testSuiteIds), hashCodeNullable(workItemGlobalIds), hashCodeNullable(workItemMedianDuration), hashCodeNullable(statuses), hashCodeNullable(statusCodes), hashCodeNullable(priorities), hashCodeNullable(isAutomated), hashCodeNullable(name), hashCodeNullable(configurationIds), hashCodeNullable(testerIds), hashCodeNullable(duration), hashCodeNullable(sectionIds), hashCodeNullable(createdDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedByIds), hashCodeNullable(tags), hashCodeNullable(excludeTags), hashCodeNullable(attributes), hashCodeNullable(workItemCreatedDate), hashCodeNullable(workItemCreatedByIds), hashCodeNullable(workItemModifiedDate), hashCodeNullable(workItemModifiedByIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1110,6 +1160,7 @@ public class TestPlanTestPointsSearchApiModel {
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    modifiedByIds: ").append(toIndentedString(modifiedByIds)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    excludeTags: ").append(toIndentedString(excludeTags)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    workItemCreatedDate: ").append(toIndentedString(workItemCreatedDate)).append("\n");
     sb.append("    workItemCreatedByIds: ").append(toIndentedString(workItemCreatedByIds)).append("\n");

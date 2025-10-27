@@ -32,6 +32,7 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   TestResultsStatisticsStatusesApiResult.JSON_PROPERTY_IN_PROGRESS,
   TestResultsStatisticsStatusesApiResult.JSON_PROPERTY_PASSED,
+  TestResultsStatisticsStatusesApiResult.JSON_PROPERTY_SUCCEEDED,
   TestResultsStatisticsStatusesApiResult.JSON_PROPERTY_FAILED,
   TestResultsStatisticsStatusesApiResult.JSON_PROPERTY_SKIPPED,
   TestResultsStatisticsStatusesApiResult.JSON_PROPERTY_BLOCKED,
@@ -43,7 +44,11 @@ public class TestResultsStatisticsStatusesApiResult {
   private Integer inProgress;
 
   public static final String JSON_PROPERTY_PASSED = "passed";
+  @Deprecated
   private Integer passed;
+
+  public static final String JSON_PROPERTY_SUCCEEDED = "succeeded";
+  private Integer succeeded;
 
   public static final String JSON_PROPERTY_FAILED = "failed";
   private Integer failed;
@@ -87,6 +92,7 @@ public class TestResultsStatisticsStatusesApiResult {
   }
 
 
+  @Deprecated
   public TestResultsStatisticsStatusesApiResult passed(Integer passed) {
     this.passed = passed;
     return this;
@@ -95,7 +101,9 @@ public class TestResultsStatisticsStatusesApiResult {
   /**
    * Number of test results which successfully passed
    * @return passed
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,10 +113,36 @@ public class TestResultsStatisticsStatusesApiResult {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPassed(Integer passed) {
     this.passed = passed;
+  }
+
+
+  public TestResultsStatisticsStatusesApiResult succeeded(Integer succeeded) {
+    this.succeeded = succeeded;
+    return this;
+  }
+
+  /**
+   * Number of successful test results
+   * @return succeeded
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SUCCEEDED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getSucceeded() {
+    return succeeded;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUCCEEDED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSucceeded(Integer succeeded) {
+    this.succeeded = succeeded;
   }
 
 
@@ -234,6 +268,7 @@ public class TestResultsStatisticsStatusesApiResult {
     TestResultsStatisticsStatusesApiResult testResultsStatisticsStatusesApiResult = (TestResultsStatisticsStatusesApiResult) o;
     return Objects.equals(this.inProgress, testResultsStatisticsStatusesApiResult.inProgress) &&
         Objects.equals(this.passed, testResultsStatisticsStatusesApiResult.passed) &&
+        Objects.equals(this.succeeded, testResultsStatisticsStatusesApiResult.succeeded) &&
         Objects.equals(this.failed, testResultsStatisticsStatusesApiResult.failed) &&
         Objects.equals(this.skipped, testResultsStatisticsStatusesApiResult.skipped) &&
         Objects.equals(this.blocked, testResultsStatisticsStatusesApiResult.blocked) &&
@@ -242,7 +277,7 @@ public class TestResultsStatisticsStatusesApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inProgress, passed, failed, skipped, blocked, incomplete);
+    return Objects.hash(inProgress, passed, succeeded, failed, skipped, blocked, incomplete);
   }
 
   @Override
@@ -251,6 +286,7 @@ public class TestResultsStatisticsStatusesApiResult {
     sb.append("class TestResultsStatisticsStatusesApiResult {\n");
     sb.append("    inProgress: ").append(toIndentedString(inProgress)).append("\n");
     sb.append("    passed: ").append(toIndentedString(passed)).append("\n");
+    sb.append("    succeeded: ").append(toIndentedString(succeeded)).append("\n");
     sb.append("    failed: ").append(toIndentedString(failed)).append("\n");
     sb.append("    skipped: ").append(toIndentedString(skipped)).append("\n");
     sb.append("    blocked: ").append(toIndentedString(blocked)).append("\n");

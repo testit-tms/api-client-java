@@ -74,6 +74,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemFilterModel.JSON_PROPERTY_MEDIAN_DURATION,
   WorkItemFilterModel.JSON_PROPERTY_IS_AUTOMATED,
   WorkItemFilterModel.JSON_PROPERTY_TAGS,
+  WorkItemFilterModel.JSON_PROPERTY_EXCLUDE_TAGS,
   WorkItemFilterModel.JSON_PROPERTY_AUTO_TEST_IDS,
   WorkItemFilterModel.JSON_PROPERTY_WORK_ITEM_VERSION_IDS
 })
@@ -150,6 +151,9 @@ public class WorkItemFilterModel {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private JsonNullable<Set<String>> tags = JsonNullable.<Set<String>>undefined();
+
+  public static final String JSON_PROPERTY_EXCLUDE_TAGS = "excludeTags";
+  private JsonNullable<Set<String>> excludeTags = JsonNullable.<Set<String>>undefined();
 
   public static final String JSON_PROPERTY_AUTO_TEST_IDS = "autoTestIds";
   private JsonNullable<Set<UUID>> autoTestIds = JsonNullable.<Set<UUID>>undefined();
@@ -1120,6 +1124,51 @@ public class WorkItemFilterModel {
   }
 
 
+  public WorkItemFilterModel excludeTags(Set<String> excludeTags) {
+    this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
+    return this;
+  }
+
+  public WorkItemFilterModel addExcludeTagsItem(String excludeTagsItem) {
+    if (this.excludeTags == null || !this.excludeTags.isPresent()) {
+      this.excludeTags = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.excludeTags.get().add(excludeTagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Collection of tags to exclude
+   * @return excludeTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getExcludeTags() {
+        return excludeTags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getExcludeTags_JsonNullable() {
+    return excludeTags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  public void setExcludeTags_JsonNullable(JsonNullable<Set<String>> excludeTags) {
+    this.excludeTags = excludeTags;
+  }
+
+  public void setExcludeTags(Set<String> excludeTags) {
+    this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
+  }
+
+
   public WorkItemFilterModel autoTestIds(Set<UUID> autoTestIds) {
     this.autoTestIds = JsonNullable.<Set<UUID>>of(autoTestIds);
     return this;
@@ -1246,6 +1295,7 @@ public class WorkItemFilterModel {
         equalsNullable(this.medianDuration, workItemFilterModel.medianDuration) &&
         equalsNullable(this.isAutomated, workItemFilterModel.isAutomated) &&
         equalsNullable(this.tags, workItemFilterModel.tags) &&
+        equalsNullable(this.excludeTags, workItemFilterModel.excludeTags) &&
         equalsNullable(this.autoTestIds, workItemFilterModel.autoTestIds) &&
         equalsNullable(this.workItemVersionIds, workItemFilterModel.workItemVersionIds);
   }
@@ -1256,7 +1306,7 @@ public class WorkItemFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(externalMetadata), hashCodeNullable(projectIds), hashCodeNullable(links), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds));
+    return Objects.hash(hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(externalMetadata), hashCodeNullable(projectIds), hashCodeNullable(links), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(excludeTags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1294,6 +1344,7 @@ public class WorkItemFilterModel {
     sb.append("    medianDuration: ").append(toIndentedString(medianDuration)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    excludeTags: ").append(toIndentedString(excludeTags)).append("\n");
     sb.append("    autoTestIds: ").append(toIndentedString(autoTestIds)).append("\n");
     sb.append("    workItemVersionIds: ").append(toIndentedString(workItemVersionIds)).append("\n");
     sb.append("}");

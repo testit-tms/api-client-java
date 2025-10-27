@@ -1,6 +1,6 @@
 
 
-# AutoTestResultReasonGroupApiModel
+# FailureCategoryGroupApiModel
 
 
 ## Properties

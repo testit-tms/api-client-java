@@ -39,7 +39,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         ProjectTestPlanTestPointsApi apiInstance = new ProjectTestPlanTestPointsApi(defaultClient);
-        String projectId = "projectId_example"; // String | 
+        String projectId = "projectId_example"; // String | Internal (UUID) or global (integer) identifier
         UUID testPlanId = UUID.randomUUID(); // UUID | 
         TestPlanTestPointsAutoTestsRerunApiModel testPlanTestPointsAutoTestsRerunApiModel = new TestPlanTestPointsAutoTestsRerunApiModel(); // TestPlanTestPointsAutoTestsRerunApiModel | 
         try {
@@ -60,7 +60,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectId** | **String**|  | |
+| **projectId** | **String**| Internal (UUID) or global (integer) identifier | |
 | **testPlanId** | **UUID**|  | |
 | **testPlanTestPointsAutoTestsRerunApiModel** | [**TestPlanTestPointsAutoTestsRerunApiModel**](TestPlanTestPointsAutoTestsRerunApiModel.md)|  | [optional] |
 
@@ -119,7 +119,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         ProjectTestPlanTestPointsApi apiInstance = new ProjectTestPlanTestPointsApi(defaultClient);
-        String projectId = "projectId_example"; // String | 
+        String projectId = "projectId_example"; // String | Internal (UUID) or global (integer) identifier
         UUID testPlanId = UUID.randomUUID(); // UUID | 
         TestPlanTestPointsAutoTestsRunApiModel testPlanTestPointsAutoTestsRunApiModel = new TestPlanTestPointsAutoTestsRunApiModel(); // TestPlanTestPointsAutoTestsRunApiModel | 
         try {
@@ -141,7 +141,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectId** | **String**|  | |
+| **projectId** | **String**| Internal (UUID) or global (integer) identifier | |
 | **testPlanId** | **UUID**|  | |
 | **testPlanTestPointsAutoTestsRunApiModel** | [**TestPlanTestPointsAutoTestsRunApiModel**](TestPlanTestPointsAutoTestsRunApiModel.md)|  | [optional] |
 

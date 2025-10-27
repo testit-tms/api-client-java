@@ -21,10 +21,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AutoTestResultReasonGroupApiModel;
-import ru.testit.client.model.Inquiry;
+import ru.testit.client.model.FailureCategoryGroupApiResult;
+import ru.testit.client.model.FailureCategoryItemApiResult;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -33,50 +35,58 @@ import ru.testit.client.invoker.JSON;
 
 
 /**
- * AutoTestResultReasonGroupSearchApiModel
+ * FailureCategoryGroupItemApiResult
  */
 @JsonPropertyOrder({
-  AutoTestResultReasonGroupSearchApiModel.JSON_PROPERTY_INQUIRY,
-  AutoTestResultReasonGroupSearchApiModel.JSON_PROPERTY_GROUP
+  FailureCategoryGroupItemApiResult.JSON_PROPERTY_ITEMS,
+  FailureCategoryGroupItemApiResult.JSON_PROPERTY_GROUP
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class AutoTestResultReasonGroupSearchApiModel {
-  public static final String JSON_PROPERTY_INQUIRY = "inquiry";
-  private Inquiry inquiry;
+public class FailureCategoryGroupItemApiResult {
+  public static final String JSON_PROPERTY_ITEMS = "items";
+  private List<FailureCategoryItemApiResult> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_GROUP = "group";
-  private JsonNullable<AutoTestResultReasonGroupApiModel> group = JsonNullable.<AutoTestResultReasonGroupApiModel>undefined();
+  private JsonNullable<FailureCategoryGroupApiResult> group = JsonNullable.<FailureCategoryGroupApiResult>undefined();
 
-  public AutoTestResultReasonGroupSearchApiModel() { 
+  public FailureCategoryGroupItemApiResult() { 
   }
 
-  public AutoTestResultReasonGroupSearchApiModel inquiry(Inquiry inquiry) {
-    this.inquiry = inquiry;
+  public FailureCategoryGroupItemApiResult items(List<FailureCategoryItemApiResult> items) {
+    this.items = items;
+    return this;
+  }
+
+  public FailureCategoryGroupItemApiResult addItemsItem(FailureCategoryItemApiResult itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<>();
+    }
+    this.items.add(itemsItem);
     return this;
   }
 
   /**
-   * Inquiry details
-   * @return inquiry
+   * Group data
+   * @return items
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INQUIRY)
+  @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Inquiry getInquiry() {
-    return inquiry;
+  public List<FailureCategoryItemApiResult> getItems() {
+    return items;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INQUIRY)
+  @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInquiry(Inquiry inquiry) {
-    this.inquiry = inquiry;
+  public void setItems(List<FailureCategoryItemApiResult> items) {
+    this.items = items;
   }
 
 
-  public AutoTestResultReasonGroupSearchApiModel group(AutoTestResultReasonGroupApiModel group) {
-    this.group = JsonNullable.<AutoTestResultReasonGroupApiModel>of(group);
+  public FailureCategoryGroupItemApiResult group(FailureCategoryGroupApiResult group) {
+    this.group = JsonNullable.<FailureCategoryGroupApiResult>of(group);
     return this;
   }
 
@@ -87,29 +97,29 @@ public class AutoTestResultReasonGroupSearchApiModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public AutoTestResultReasonGroupApiModel getGroup() {
+  public FailureCategoryGroupApiResult getGroup() {
         return group.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<AutoTestResultReasonGroupApiModel> getGroup_JsonNullable() {
+  public JsonNullable<FailureCategoryGroupApiResult> getGroup_JsonNullable() {
     return group;
   }
   
   @JsonProperty(JSON_PROPERTY_GROUP)
-  public void setGroup_JsonNullable(JsonNullable<AutoTestResultReasonGroupApiModel> group) {
+  public void setGroup_JsonNullable(JsonNullable<FailureCategoryGroupApiResult> group) {
     this.group = group;
   }
 
-  public void setGroup(AutoTestResultReasonGroupApiModel group) {
-    this.group = JsonNullable.<AutoTestResultReasonGroupApiModel>of(group);
+  public void setGroup(FailureCategoryGroupApiResult group) {
+    this.group = JsonNullable.<FailureCategoryGroupApiResult>of(group);
   }
 
 
   /**
-   * Return true if this AutoTestResultReasonGroupSearchApiModel object is equal to o.
+   * Return true if this FailureCategoryGroupItemApiResult object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -119,9 +129,9 @@ public class AutoTestResultReasonGroupSearchApiModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoTestResultReasonGroupSearchApiModel autoTestResultReasonGroupSearchApiModel = (AutoTestResultReasonGroupSearchApiModel) o;
-    return Objects.equals(this.inquiry, autoTestResultReasonGroupSearchApiModel.inquiry) &&
-        equalsNullable(this.group, autoTestResultReasonGroupSearchApiModel.group);
+    FailureCategoryGroupItemApiResult failureCategoryGroupItemApiResult = (FailureCategoryGroupItemApiResult) o;
+    return Objects.equals(this.items, failureCategoryGroupItemApiResult.items) &&
+        equalsNullable(this.group, failureCategoryGroupItemApiResult.group);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -130,7 +140,7 @@ public class AutoTestResultReasonGroupSearchApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inquiry, hashCodeNullable(group));
+    return Objects.hash(items, hashCodeNullable(group));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -143,8 +153,8 @@ public class AutoTestResultReasonGroupSearchApiModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoTestResultReasonGroupSearchApiModel {\n");
-    sb.append("    inquiry: ").append(toIndentedString(inquiry)).append("\n");
+    sb.append("class FailureCategoryGroupItemApiResult {\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();

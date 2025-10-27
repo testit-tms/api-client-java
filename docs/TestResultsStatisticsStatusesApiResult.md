@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**inProgress** | **Integer** | Number of test results which is running currently |  |
 |**passed** | **Integer** | Number of test results which successfully passed |  |
+|**succeeded** | **Integer** | Number of successful test results |  |
 |**failed** | **Integer** | Number of test results which failed with an error |  |
 |**skipped** | **Integer** | Number of test results which did not run and were skipped |  |
 |**blocked** | **Integer** | Number of test results which cannot be launched |  |

@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**tagNames** | **Set&lt;String&gt;** | Collection of tags |  [optional] |
-|**entityTypes** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; |  [optional] |
+|**entityTypes** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; |  [optional] |
 |**nameOrId** | **String** | Name or identifier (UUID) of work item |  [optional] |
 |**includeIds** | **Set&lt;UUID&gt;** | Collection of identifiers of work items which need to be included in result regardless of filtering |  [optional] |
 |**excludeIds** | **Set&lt;UUID&gt;** | Collection of identifiers of work items which need to be excluded from result regardless of filtering |  [optional] |
@@ -33,6 +33,7 @@
 |**medianDuration** | [**Int64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a work item median duration range to search for |  [optional] |
 |**isAutomated** | **Boolean** | Is result must consist of only manual/automated work items |  [optional] |
 |**tags** | **Set&lt;String&gt;** | Collection of tags |  [optional] |
+|**excludeTags** | **Set&lt;String&gt;** | Collection of tags to exclude |  [optional] |
 |**autoTestIds** | **Set&lt;UUID&gt;** | Collection of identifiers of linked autotests |  [optional] |
 |**workItemVersionIds** | **List&lt;UUID&gt;** | Collection of identifiers work items versions. |  [optional] |
 

@@ -21,10 +21,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import ru.testit.client.model.WorkflowProjectApiResult;
 import ru.testit.client.model.WorkflowStatusApiResult;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
@@ -38,7 +40,12 @@ import ru.testit.client.invoker.JSON;
   WorkflowApiResult.JSON_PROPERTY_NAME,
   WorkflowApiResult.JSON_PROPERTY_IS_SYSTEM,
   WorkflowApiResult.JSON_PROPERTY_IS_DEFAULT,
-  WorkflowApiResult.JSON_PROPERTY_STATUSES
+  WorkflowApiResult.JSON_PROPERTY_CREATED_DATE,
+  WorkflowApiResult.JSON_PROPERTY_CREATED_BY_ID,
+  WorkflowApiResult.JSON_PROPERTY_MODIFIED_DATE,
+  WorkflowApiResult.JSON_PROPERTY_MODIFIED_BY_ID,
+  WorkflowApiResult.JSON_PROPERTY_STATUSES,
+  WorkflowApiResult.JSON_PROPERTY_PROJECTS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WorkflowApiResult {
@@ -54,8 +61,23 @@ public class WorkflowApiResult {
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
   private Boolean isDefault;
 
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private OffsetDateTime createdDate;
+
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  private UUID createdById;
+
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private OffsetDateTime modifiedDate;
+
+  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  private UUID modifiedById;
+
   public static final String JSON_PROPERTY_STATUSES = "statuses";
   private List<WorkflowStatusApiResult> statuses = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PROJECTS = "projects";
+  private List<WorkflowProjectApiResult> projects = new ArrayList<>();
 
   public WorkflowApiResult() { 
   }
@@ -160,6 +182,106 @@ public class WorkflowApiResult {
   }
 
 
+  public WorkflowApiResult createdDate(OffsetDateTime createdDate) {
+    this.createdDate = createdDate;
+    return this;
+  }
+
+  /**
+   * Get createdDate
+   * @return createdDate
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getCreatedDate() {
+    return createdDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCreatedDate(OffsetDateTime createdDate) {
+    this.createdDate = createdDate;
+  }
+
+
+  public WorkflowApiResult createdById(UUID createdById) {
+    this.createdById = createdById;
+    return this;
+  }
+
+  /**
+   * Get createdById
+   * @return createdById
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getCreatedById() {
+    return createdById;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCreatedById(UUID createdById) {
+    this.createdById = createdById;
+  }
+
+
+  public WorkflowApiResult modifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = modifiedDate;
+    return this;
+  }
+
+  /**
+   * Get modifiedDate
+   * @return modifiedDate
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getModifiedDate() {
+    return modifiedDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+
+  public WorkflowApiResult modifiedById(UUID modifiedById) {
+    this.modifiedById = modifiedById;
+    return this;
+  }
+
+  /**
+   * Get modifiedById
+   * @return modifiedById
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getModifiedById() {
+    return modifiedById;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setModifiedById(UUID modifiedById) {
+    this.modifiedById = modifiedById;
+  }
+
+
   public WorkflowApiResult statuses(List<WorkflowStatusApiResult> statuses) {
     this.statuses = statuses;
     return this;
@@ -193,6 +315,39 @@ public class WorkflowApiResult {
   }
 
 
+  public WorkflowApiResult projects(List<WorkflowProjectApiResult> projects) {
+    this.projects = projects;
+    return this;
+  }
+
+  public WorkflowApiResult addProjectsItem(WorkflowProjectApiResult projectsItem) {
+    if (this.projects == null) {
+      this.projects = new ArrayList<>();
+    }
+    this.projects.add(projectsItem);
+    return this;
+  }
+
+  /**
+   * Get projects
+   * @return projects
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROJECTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<WorkflowProjectApiResult> getProjects() {
+    return projects;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROJECTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setProjects(List<WorkflowProjectApiResult> projects) {
+    this.projects = projects;
+  }
+
+
   /**
    * Return true if this WorkflowApiResult object is equal to o.
    */
@@ -209,12 +364,17 @@ public class WorkflowApiResult {
         Objects.equals(this.name, workflowApiResult.name) &&
         Objects.equals(this.isSystem, workflowApiResult.isSystem) &&
         Objects.equals(this.isDefault, workflowApiResult.isDefault) &&
-        Objects.equals(this.statuses, workflowApiResult.statuses);
+        Objects.equals(this.createdDate, workflowApiResult.createdDate) &&
+        Objects.equals(this.createdById, workflowApiResult.createdById) &&
+        Objects.equals(this.modifiedDate, workflowApiResult.modifiedDate) &&
+        Objects.equals(this.modifiedById, workflowApiResult.modifiedById) &&
+        Objects.equals(this.statuses, workflowApiResult.statuses) &&
+        Objects.equals(this.projects, workflowApiResult.projects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isSystem, isDefault, statuses);
+    return Objects.hash(id, name, isSystem, isDefault, createdDate, createdById, modifiedDate, modifiedById, statuses, projects);
   }
 
   @Override
@@ -225,7 +385,12 @@ public class WorkflowApiResult {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
+    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
+    sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("}");
     return sb.toString();
   }

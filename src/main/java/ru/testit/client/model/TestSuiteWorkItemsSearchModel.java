@@ -76,17 +76,16 @@ import ru.testit.client.invoker.JSON;
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_MEDIAN_DURATION,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_IS_AUTOMATED,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_TAGS,
+  TestSuiteWorkItemsSearchModel.JSON_PROPERTY_EXCLUDE_TAGS,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_AUTO_TEST_IDS,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_WORK_ITEM_VERSION_IDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TestSuiteWorkItemsSearchModel {
   public static final String JSON_PROPERTY_TAG_NAMES = "tagNames";
-  @Deprecated
   private JsonNullable<Set<String>> tagNames = JsonNullable.<Set<String>>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_TYPES = "entityTypes";
-  @Deprecated
   private JsonNullable<Set<WorkItemEntityTypes>> entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>undefined();
 
   public static final String JSON_PROPERTY_NAME_OR_ID = "nameOrId";
@@ -161,6 +160,9 @@ public class TestSuiteWorkItemsSearchModel {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private JsonNullable<Set<String>> tags = JsonNullable.<Set<String>>undefined();
 
+  public static final String JSON_PROPERTY_EXCLUDE_TAGS = "excludeTags";
+  private JsonNullable<Set<String>> excludeTags = JsonNullable.<Set<String>>undefined();
+
   public static final String JSON_PROPERTY_AUTO_TEST_IDS = "autoTestIds";
   private JsonNullable<Set<UUID>> autoTestIds = JsonNullable.<Set<UUID>>undefined();
 
@@ -170,7 +172,6 @@ public class TestSuiteWorkItemsSearchModel {
   public TestSuiteWorkItemsSearchModel() { 
   }
 
-  @Deprecated
   public TestSuiteWorkItemsSearchModel tagNames(Set<String> tagNames) {
     this.tagNames = JsonNullable.<Set<String>>of(tagNames);
     return this;
@@ -191,9 +192,7 @@ public class TestSuiteWorkItemsSearchModel {
   /**
    * Collection of tags
    * @return tagNames
-   * @deprecated
    */
-  @Deprecated
   @jakarta.annotation.Nullable
   @JsonIgnore
 
@@ -213,13 +212,11 @@ public class TestSuiteWorkItemsSearchModel {
     this.tagNames = tagNames;
   }
 
-  @Deprecated
   public void setTagNames(Set<String> tagNames) {
     this.tagNames = JsonNullable.<Set<String>>of(tagNames);
   }
 
 
-  @Deprecated
   public TestSuiteWorkItemsSearchModel entityTypes(Set<WorkItemEntityTypes> entityTypes) {
     this.entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>of(entityTypes);
     return this;
@@ -238,11 +235,9 @@ public class TestSuiteWorkItemsSearchModel {
   }
 
   /**
-   * Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
+   * Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
-   * @deprecated
    */
-  @Deprecated
   @jakarta.annotation.Nullable
   @JsonIgnore
 
@@ -262,7 +257,6 @@ public class TestSuiteWorkItemsSearchModel {
     this.entityTypes = entityTypes;
   }
 
-  @Deprecated
   public void setEntityTypes(Set<WorkItemEntityTypes> entityTypes) {
     this.entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>of(entityTypes);
   }
@@ -1228,6 +1222,51 @@ public class TestSuiteWorkItemsSearchModel {
   }
 
 
+  public TestSuiteWorkItemsSearchModel excludeTags(Set<String> excludeTags) {
+    this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
+    return this;
+  }
+
+  public TestSuiteWorkItemsSearchModel addExcludeTagsItem(String excludeTagsItem) {
+    if (this.excludeTags == null || !this.excludeTags.isPresent()) {
+      this.excludeTags = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.excludeTags.get().add(excludeTagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Collection of tags to exclude
+   * @return excludeTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getExcludeTags() {
+        return excludeTags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getExcludeTags_JsonNullable() {
+    return excludeTags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  public void setExcludeTags_JsonNullable(JsonNullable<Set<String>> excludeTags) {
+    this.excludeTags = excludeTags;
+  }
+
+  public void setExcludeTags(Set<String> excludeTags) {
+    this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
+  }
+
+
   public TestSuiteWorkItemsSearchModel autoTestIds(Set<UUID> autoTestIds) {
     this.autoTestIds = JsonNullable.<Set<UUID>>of(autoTestIds);
     return this;
@@ -1356,6 +1395,7 @@ public class TestSuiteWorkItemsSearchModel {
         equalsNullable(this.medianDuration, testSuiteWorkItemsSearchModel.medianDuration) &&
         equalsNullable(this.isAutomated, testSuiteWorkItemsSearchModel.isAutomated) &&
         equalsNullable(this.tags, testSuiteWorkItemsSearchModel.tags) &&
+        equalsNullable(this.excludeTags, testSuiteWorkItemsSearchModel.excludeTags) &&
         equalsNullable(this.autoTestIds, testSuiteWorkItemsSearchModel.autoTestIds) &&
         equalsNullable(this.workItemVersionIds, testSuiteWorkItemsSearchModel.workItemVersionIds);
   }
@@ -1366,7 +1406,7 @@ public class TestSuiteWorkItemsSearchModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(tagNames), hashCodeNullable(entityTypes), hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(externalMetadata), hashCodeNullable(projectIds), hashCodeNullable(links), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds));
+    return Objects.hash(hashCodeNullable(tagNames), hashCodeNullable(entityTypes), hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(externalMetadata), hashCodeNullable(projectIds), hashCodeNullable(links), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(excludeTags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1406,6 +1446,7 @@ public class TestSuiteWorkItemsSearchModel {
     sb.append("    medianDuration: ").append(toIndentedString(medianDuration)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    excludeTags: ").append(toIndentedString(excludeTags)).append("\n");
     sb.append("    autoTestIds: ").append(toIndentedString(autoTestIds)).append("\n");
     sb.append("    workItemVersionIds: ").append(toIndentedString(workItemVersionIds)).append("\n");
     sb.append("}");

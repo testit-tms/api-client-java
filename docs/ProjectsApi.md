@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**addGlobaAttributesToProject**](ProjectsApi.md#addGlobaAttributesToProject) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project |
+| [**addGlobalAttributesToProject**](ProjectsApi.md#addGlobalAttributesToProject) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project |
 | [**apiV2ProjectsIdDelete**](ProjectsApi.md#apiV2ProjectsIdDelete) | **DELETE** /api/v2/projects/{id} | Archive project |
 | [**apiV2ProjectsIdFailureClassesGet**](ProjectsApi.md#apiV2ProjectsIdFailureClassesGet) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes |
 | [**apiV2ProjectsIdFavoritePut**](ProjectsApi.md#apiV2ProjectsIdFavoritePut) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite |
@@ -32,9 +32,9 @@ All URIs are relative to *http://localhost*
 
 
 
-## addGlobaAttributesToProject
+## addGlobalAttributesToProject
 
-> addGlobaAttributesToProject(id, UUID)
+> addGlobalAttributesToProject(id, UUID)
 
 Add global attributes to project
 
@@ -75,9 +75,9 @@ public class Example {
         String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
         Set<UUID> UUID = Arrays.asList(); // Set<UUID> | 
         try {
-            apiInstance.addGlobaAttributesToProject(id, UUID);
+            apiInstance.addGlobalAttributesToProject(id, UUID);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ProjectsApi#addGlobaAttributesToProject");
+            System.err.println("Exception when calling ProjectsApi#addGlobalAttributesToProject");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -112,7 +112,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** |  Attributes must be global |  -  |
+| **400** |   Attributes must be global |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Project admin permission for project settings is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
@@ -197,7 +197,7 @@ null (empty response body)
 
 ## apiV2ProjectsIdFailureClassesGet
 
-> List&lt;AutoTestResultReasonProjectApiResult&gt; apiV2ProjectsIdFailureClassesGet(id, isDeleted)
+> List&lt;FailureCategoryApiResult&gt; apiV2ProjectsIdFailureClassesGet(id, isDeleted)
 
 Get failure classes
 
@@ -227,7 +227,7 @@ public class Example {
         String id = "id_example"; // String | Unique or global ID of the project
         Boolean isDeleted = true; // Boolean | 
         try {
-            List<AutoTestResultReasonProjectApiResult> result = apiInstance.apiV2ProjectsIdFailureClassesGet(id, isDeleted);
+            List<FailureCategoryApiResult> result = apiInstance.apiV2ProjectsIdFailureClassesGet(id, isDeleted);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdFailureClassesGet");
@@ -250,7 +250,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;AutoTestResultReasonProjectApiResult&gt;**](AutoTestResultReasonProjectApiResult.md)
+[**List&lt;FailureCategoryApiResult&gt;**](FailureCategoryApiResult.md)
 
 ### Authorization
 
@@ -2162,7 +2162,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |  - ID is invalid  - Field is required |  -  |
+| **400** |   - ID is invalid    - Field is required |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for projects is required |  -  |
 | **404** | Project with provided ID was not found |  -  |

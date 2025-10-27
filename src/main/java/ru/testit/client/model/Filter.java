@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.FilterOperator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -31,30 +32,62 @@ import ru.testit.client.invoker.JSON;
 
 
 /**
- * AutoTestResultReasonGroupApiModel
+ * Filter
  */
 @JsonPropertyOrder({
-  AutoTestResultReasonGroupApiModel.JSON_PROPERTY_FIELD,
-  AutoTestResultReasonGroupApiModel.JSON_PROPERTY_DISPLAY_FIELD
+  Filter.JSON_PROPERTY_OPERATOR,
+  Filter.JSON_PROPERTY_FIELD,
+  Filter.JSON_PROPERTY_VALUE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class AutoTestResultReasonGroupApiModel {
+public class Filter {
+  public static final String JSON_PROPERTY_OPERATOR = "operator";
+  private FilterOperator operator;
+
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
-  public static final String JSON_PROPERTY_DISPLAY_FIELD = "displayField";
-  private JsonNullable<String> displayField = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private JsonNullable<String> value = JsonNullable.<String>undefined();
 
-  public AutoTestResultReasonGroupApiModel() { 
+  public Filter() { 
   }
 
-  public AutoTestResultReasonGroupApiModel field(String field) {
+  @JsonCreator
+  public Filter(
+    @JsonProperty(JSON_PROPERTY_FIELD) String field
+  ) {
+    this();
     this.field = field;
+  }
+
+  public Filter operator(FilterOperator operator) {
+    this.operator = operator;
     return this;
   }
 
   /**
-   * Group field
+   * Get operator
+   * @return operator
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public FilterOperator getOperator() {
+    return operator;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setOperator(FilterOperator operator) {
+    this.operator = operator;
+  }
+
+
+  /**
+   * Get field
    * @return field
    */
   @jakarta.annotation.Nonnull
@@ -66,48 +99,43 @@ public class AutoTestResultReasonGroupApiModel {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setField(String field) {
-    this.field = field;
-  }
 
 
-  public AutoTestResultReasonGroupApiModel displayField(String displayField) {
-    this.displayField = JsonNullable.<String>of(displayField);
+  public Filter value(String value) {
+    this.value = JsonNullable.<String>of(value);
     return this;
   }
 
   /**
-   * Group display field
-   * @return displayField
+   * Get value
+   * @return value
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public String getDisplayField() {
-        return displayField.orElse(null);
+  public String getValue() {
+        return value.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DISPLAY_FIELD)
+  @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getDisplayField_JsonNullable() {
-    return displayField;
+  public JsonNullable<String> getValue_JsonNullable() {
+    return value;
   }
   
-  @JsonProperty(JSON_PROPERTY_DISPLAY_FIELD)
-  public void setDisplayField_JsonNullable(JsonNullable<String> displayField) {
-    this.displayField = displayField;
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<String> value) {
+    this.value = value;
   }
 
-  public void setDisplayField(String displayField) {
-    this.displayField = JsonNullable.<String>of(displayField);
+  public void setValue(String value) {
+    this.value = JsonNullable.<String>of(value);
   }
 
 
   /**
-   * Return true if this AutoTestResultReasonGroupApiModel object is equal to o.
+   * Return true if this Filter object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -117,9 +145,10 @@ public class AutoTestResultReasonGroupApiModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoTestResultReasonGroupApiModel autoTestResultReasonGroupApiModel = (AutoTestResultReasonGroupApiModel) o;
-    return Objects.equals(this.field, autoTestResultReasonGroupApiModel.field) &&
-        equalsNullable(this.displayField, autoTestResultReasonGroupApiModel.displayField);
+    Filter filter = (Filter) o;
+    return Objects.equals(this.operator, filter.operator) &&
+        Objects.equals(this.field, filter.field) &&
+        equalsNullable(this.value, filter.value);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +157,7 @@ public class AutoTestResultReasonGroupApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, hashCodeNullable(displayField));
+    return Objects.hash(operator, field, hashCodeNullable(value));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,9 +170,10 @@ public class AutoTestResultReasonGroupApiModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoTestResultReasonGroupApiModel {\n");
+    sb.append("class Filter {\n");
+    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    displayField: ").append(toIndentedString(displayField)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

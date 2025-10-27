@@ -1510,7 +1510,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or  global(integer format) identifier\"
         try {
             apiInstance.deleteAllWorkItemsFromAutoTest(id);
         } catch (ApiException e) {
@@ -1529,7 +1529,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | |
+| **id** | **String**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | |
 
 ### Return type
 
@@ -1597,7 +1597,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or  global(integer format) identifier\"
         try {
             apiInstance.deleteWorkItem(id);
         } catch (ApiException e) {
@@ -1616,7 +1616,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | |
+| **id** | **String**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | |
 
 ### Return type
 
@@ -1685,7 +1685,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or  global(integer format) identifier\"
         try {
             List<AutoTestModel> result = apiInstance.getAutoTestsForWorkItem(id);
             System.out.println(result);
@@ -1705,7 +1705,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | |
+| **id** | **String**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | |
 
 ### Return type
 
@@ -1762,7 +1762,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or  global(integer format) identifier\"
         UUID versionId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | WorkItem version (guid format) identifier
         Integer versionNumber = 0; // Integer | WorkItem version number (0 is the last version)\"
         try {
@@ -1784,7 +1784,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | |
+| **id** | **String**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | |
 | **versionId** | **UUID**| WorkItem version (guid format) identifier | [optional] |
 | **versionNumber** | **Integer**| WorkItem version number (0 is the last version)\&quot; | [optional] |
 
@@ -1864,7 +1864,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or  global(integer format) identifier\"
         UUID versionId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | WorkItem version (guid format) identifier\"
         Integer versionNumber = 0; // Integer | WorkItem version number (0 is the last version)\"
         try {
@@ -1886,7 +1886,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | |
+| **id** | **String**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | |
 | **versionId** | **UUID**| WorkItem version (guid format) identifier\&quot; | [optional] |
 | **versionNumber** | **Integer**| WorkItem version number (0 is the last version)\&quot; | [optional] |
 
@@ -1959,7 +1959,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-        String id = "id_example"; // String | 
+        String id = "id_example"; // String | Internal (UUID) or global (integer) identifier
         try {
             List<TestResultChronologyModel> result = apiInstance.getWorkItemChronology(id);
             System.out.println(result);
@@ -1979,7 +1979,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**|  | |
+| **id** | **String**| Internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
@@ -2052,9 +2052,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsApi apiInstance = new WorkItemsApi(defaultClient);
-        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or global(integer format) identifier\"
-        UUID workItemVersionId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | WorkItem version (guid format) identifier\"
-        Integer versionNumber = 1; // Integer | WorkItem version (integer format) number\"
+        String id = "3fa85f64-5717-4562-b3fc-2c963f66afa6"; // String | WorkItem internal (guid format) or  global(integer format) identifier\"
+        UUID workItemVersionId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | WorkItem version (guid format)  identifier\"
+        Integer versionNumber = 1; // Integer | WorkItem version (integer format)  number\"
         try {
             List<WorkItemVersionModel> result = apiInstance.getWorkItemVersions(id, workItemVersionId, versionNumber);
             System.out.println(result);
@@ -2074,9 +2074,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| WorkItem internal (guid format) or global(integer format) identifier\&quot; | |
-| **workItemVersionId** | **UUID**| WorkItem version (guid format) identifier\&quot; | [optional] |
-| **versionNumber** | **Integer**| WorkItem version (integer format) number\&quot; | [optional] |
+| **id** | **String**| WorkItem internal (guid format) or  global(integer format) identifier\&quot; | |
+| **workItemVersionId** | **UUID**| WorkItem version (guid format)  identifier\&quot; | [optional] |
+| **versionNumber** | **Integer**| WorkItem version (integer format)  number\&quot; | [optional] |
 
 ### Return type
 
@@ -2331,10 +2331,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successful operation |  -  |
-| **400** |  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme |  -  |
+| **400** |   Field is required    Priority is not a valid    duration should be a positive number    should be empty for CheckList    There is no option in ProjectAttributesScheme with such Id    Attribute value must be a valid guid for options scheme |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for test library required |  -  |
-| **404** |  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project |  -  |
+| **404** |   WorkItem not found    Can&#39;t find section    Can&#39;t attributesScheme    Can&#39;t attribute    AutoTestIds not exist in project |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 

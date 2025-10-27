@@ -22,27 +22,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
 
 /**
- * AutoTestProjectSettingsGetModel
+ * AutoTestProjectSettingsApiModel
  */
 @JsonPropertyOrder({
-  AutoTestProjectSettingsGetModel.JSON_PROPERTY_PROJECT_ID,
-  AutoTestProjectSettingsGetModel.JSON_PROPERTY_RERUN_ENABLED,
-  AutoTestProjectSettingsGetModel.JSON_PROPERTY_RERUN_ATTEMPTS_COUNT,
-  AutoTestProjectSettingsGetModel.JSON_PROPERTY_IS_FLAKY_AUTO,
-  AutoTestProjectSettingsGetModel.JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE,
-  AutoTestProjectSettingsGetModel.JSON_PROPERTY_FLAKY_TEST_RUN_COUNT
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_RERUN_ENABLED,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_RERUN_ATTEMPTS_COUNT,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_IS_FLAKY_AUTO,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_FLAKY_TEST_RUN_COUNT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class AutoTestProjectSettingsGetModel {
-  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
-  private UUID projectId;
-
+public class AutoTestProjectSettingsApiModel {
   public static final String JSON_PROPERTY_RERUN_ENABLED = "rerunEnabled";
   private Boolean rerunEnabled;
 
@@ -58,35 +53,10 @@ public class AutoTestProjectSettingsGetModel {
   public static final String JSON_PROPERTY_FLAKY_TEST_RUN_COUNT = "flakyTestRunCount";
   private Integer flakyTestRunCount = 100;
 
-  public AutoTestProjectSettingsGetModel() { 
+  public AutoTestProjectSettingsApiModel() { 
   }
 
-  public AutoTestProjectSettingsGetModel projectId(UUID projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-  /**
-   * Unique ID of the project.
-   * @return projectId
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UUID getProjectId() {
-    return projectId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
-    this.projectId = projectId;
-  }
-
-
-  public AutoTestProjectSettingsGetModel rerunEnabled(Boolean rerunEnabled) {
+  public AutoTestProjectSettingsApiModel rerunEnabled(Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
     return this;
   }
@@ -111,7 +81,7 @@ public class AutoTestProjectSettingsGetModel {
   }
 
 
-  public AutoTestProjectSettingsGetModel rerunAttemptsCount(Integer rerunAttemptsCount) {
+  public AutoTestProjectSettingsApiModel rerunAttemptsCount(Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
     return this;
   }
@@ -138,7 +108,7 @@ public class AutoTestProjectSettingsGetModel {
   }
 
 
-  public AutoTestProjectSettingsGetModel isFlakyAuto(Boolean isFlakyAuto) {
+  public AutoTestProjectSettingsApiModel isFlakyAuto(Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
     return this;
   }
@@ -163,7 +133,7 @@ public class AutoTestProjectSettingsGetModel {
   }
 
 
-  public AutoTestProjectSettingsGetModel flakyStabilityPercentage(Integer flakyStabilityPercentage) {
+  public AutoTestProjectSettingsApiModel flakyStabilityPercentage(Integer flakyStabilityPercentage) {
     this.flakyStabilityPercentage = flakyStabilityPercentage;
     return this;
   }
@@ -190,7 +160,7 @@ public class AutoTestProjectSettingsGetModel {
   }
 
 
-  public AutoTestProjectSettingsGetModel flakyTestRunCount(Integer flakyTestRunCount) {
+  public AutoTestProjectSettingsApiModel flakyTestRunCount(Integer flakyTestRunCount) {
     this.flakyTestRunCount = flakyTestRunCount;
     return this;
   }
@@ -218,7 +188,7 @@ public class AutoTestProjectSettingsGetModel {
 
 
   /**
-   * Return true if this AutoTestProjectSettingsGetModel object is equal to o.
+   * Return true if this AutoTestProjectSettingsApiModel object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -228,25 +198,23 @@ public class AutoTestProjectSettingsGetModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoTestProjectSettingsGetModel autoTestProjectSettingsGetModel = (AutoTestProjectSettingsGetModel) o;
-    return Objects.equals(this.projectId, autoTestProjectSettingsGetModel.projectId) &&
-        Objects.equals(this.rerunEnabled, autoTestProjectSettingsGetModel.rerunEnabled) &&
-        Objects.equals(this.rerunAttemptsCount, autoTestProjectSettingsGetModel.rerunAttemptsCount) &&
-        Objects.equals(this.isFlakyAuto, autoTestProjectSettingsGetModel.isFlakyAuto) &&
-        Objects.equals(this.flakyStabilityPercentage, autoTestProjectSettingsGetModel.flakyStabilityPercentage) &&
-        Objects.equals(this.flakyTestRunCount, autoTestProjectSettingsGetModel.flakyTestRunCount);
+    AutoTestProjectSettingsApiModel autoTestProjectSettingsApiModel = (AutoTestProjectSettingsApiModel) o;
+    return Objects.equals(this.rerunEnabled, autoTestProjectSettingsApiModel.rerunEnabled) &&
+        Objects.equals(this.rerunAttemptsCount, autoTestProjectSettingsApiModel.rerunAttemptsCount) &&
+        Objects.equals(this.isFlakyAuto, autoTestProjectSettingsApiModel.isFlakyAuto) &&
+        Objects.equals(this.flakyStabilityPercentage, autoTestProjectSettingsApiModel.flakyStabilityPercentage) &&
+        Objects.equals(this.flakyTestRunCount, autoTestProjectSettingsApiModel.flakyTestRunCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, rerunEnabled, rerunAttemptsCount, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount);
+    return Objects.hash(rerunEnabled, rerunAttemptsCount, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoTestProjectSettingsGetModel {\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("class AutoTestProjectSettingsApiModel {\n");
     sb.append("    rerunEnabled: ").append(toIndentedString(rerunEnabled)).append("\n");
     sb.append("    rerunAttemptsCount: ").append(toIndentedString(rerunAttemptsCount)).append("\n");
     sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");

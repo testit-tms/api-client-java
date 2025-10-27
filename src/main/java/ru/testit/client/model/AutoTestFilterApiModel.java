@@ -57,7 +57,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestFilterApiModel.JSON_PROPERTY_CLASS_NAME,
   AutoTestFilterApiModel.JSON_PROPERTY_IS_EMPTY_CLASS_NAME,
   AutoTestFilterApiModel.JSON_PROPERTY_LAST_TEST_RESULT_OUTCOME,
-  AutoTestFilterApiModel.JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODE,
+  AutoTestFilterApiModel.JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODES,
   AutoTestFilterApiModel.JSON_PROPERTY_EXTERNAL_KEY,
   AutoTestFilterApiModel.JSON_PROPERTY_LAST_TEST_RESULT_CONFIGURATION_IDS
 })
@@ -114,8 +114,8 @@ public class AutoTestFilterApiModel {
   public static final String JSON_PROPERTY_LAST_TEST_RESULT_OUTCOME = "lastTestResultOutcome";
   private JsonNullable<AutotestResultOutcome> lastTestResultOutcome = JsonNullable.<AutotestResultOutcome>undefined();
 
-  public static final String JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODE = "lastTestResultStatusCode";
-  private JsonNullable<String> lastTestResultStatusCode = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODES = "lastTestResultStatusCodes";
+  private JsonNullable<Set<String>> lastTestResultStatusCodes = JsonNullable.<Set<String>>undefined();
 
   public static final String JSON_PROPERTY_EXTERNAL_KEY = "externalKey";
   private JsonNullable<String> externalKey = JsonNullable.<String>undefined();
@@ -747,36 +747,48 @@ public class AutoTestFilterApiModel {
   }
 
 
-  public AutoTestFilterApiModel lastTestResultStatusCode(String lastTestResultStatusCode) {
-    this.lastTestResultStatusCode = JsonNullable.<String>of(lastTestResultStatusCode);
+  public AutoTestFilterApiModel lastTestResultStatusCodes(Set<String> lastTestResultStatusCodes) {
+    this.lastTestResultStatusCodes = JsonNullable.<Set<String>>of(lastTestResultStatusCodes);
+    return this;
+  }
+
+  public AutoTestFilterApiModel addLastTestResultStatusCodesItem(String lastTestResultStatusCodesItem) {
+    if (this.lastTestResultStatusCodes == null || !this.lastTestResultStatusCodes.isPresent()) {
+      this.lastTestResultStatusCodes = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.lastTestResultStatusCodes.get().add(lastTestResultStatusCodesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * Specifies an autotest status code of the last test result to search for
-   * @return lastTestResultStatusCode
+   * Specifies an autotest status codes of the last test result to search for
+   * @return lastTestResultStatusCodes
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public String getLastTestResultStatusCode() {
-        return lastTestResultStatusCode.orElse(null);
+  public Set<String> getLastTestResultStatusCodes() {
+        return lastTestResultStatusCodes.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODE)
+  @JsonProperty(JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getLastTestResultStatusCode_JsonNullable() {
-    return lastTestResultStatusCode;
+  public JsonNullable<Set<String>> getLastTestResultStatusCodes_JsonNullable() {
+    return lastTestResultStatusCodes;
   }
   
-  @JsonProperty(JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODE)
-  public void setLastTestResultStatusCode_JsonNullable(JsonNullable<String> lastTestResultStatusCode) {
-    this.lastTestResultStatusCode = lastTestResultStatusCode;
+  @JsonProperty(JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODES)
+  public void setLastTestResultStatusCodes_JsonNullable(JsonNullable<Set<String>> lastTestResultStatusCodes) {
+    this.lastTestResultStatusCodes = lastTestResultStatusCodes;
   }
 
-  public void setLastTestResultStatusCode(String lastTestResultStatusCode) {
-    this.lastTestResultStatusCode = JsonNullable.<String>of(lastTestResultStatusCode);
+  public void setLastTestResultStatusCodes(Set<String> lastTestResultStatusCodes) {
+    this.lastTestResultStatusCodes = JsonNullable.<Set<String>>of(lastTestResultStatusCodes);
   }
 
 
@@ -887,7 +899,7 @@ public class AutoTestFilterApiModel {
         equalsNullable(this.className, autoTestFilterApiModel.className) &&
         equalsNullable(this.isEmptyClassName, autoTestFilterApiModel.isEmptyClassName) &&
         equalsNullable(this.lastTestResultOutcome, autoTestFilterApiModel.lastTestResultOutcome) &&
-        equalsNullable(this.lastTestResultStatusCode, autoTestFilterApiModel.lastTestResultStatusCode) &&
+        equalsNullable(this.lastTestResultStatusCodes, autoTestFilterApiModel.lastTestResultStatusCodes) &&
         equalsNullable(this.externalKey, autoTestFilterApiModel.externalKey) &&
         equalsNullable(this.lastTestResultConfigurationIds, autoTestFilterApiModel.lastTestResultConfigurationIds);
   }
@@ -898,7 +910,7 @@ public class AutoTestFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(externalIds), hashCodeNullable(globalIds), hashCodeNullable(name), hashCodeNullable(isFlaky), hashCodeNullable(mustBeApproved), hashCodeNullable(stabilityPercentage), hashCodeNullable(createdDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedByIds), hashCodeNullable(isDeleted), hashCodeNullable(namespace), hashCodeNullable(isEmptyNamespace), hashCodeNullable(className), hashCodeNullable(isEmptyClassName), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(lastTestResultStatusCode), hashCodeNullable(externalKey), hashCodeNullable(lastTestResultConfigurationIds));
+    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(externalIds), hashCodeNullable(globalIds), hashCodeNullable(name), hashCodeNullable(isFlaky), hashCodeNullable(mustBeApproved), hashCodeNullable(stabilityPercentage), hashCodeNullable(createdDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedByIds), hashCodeNullable(isDeleted), hashCodeNullable(namespace), hashCodeNullable(isEmptyNamespace), hashCodeNullable(className), hashCodeNullable(isEmptyClassName), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(lastTestResultStatusCodes), hashCodeNullable(externalKey), hashCodeNullable(lastTestResultConfigurationIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -929,7 +941,7 @@ public class AutoTestFilterApiModel {
     sb.append("    className: ").append(toIndentedString(className)).append("\n");
     sb.append("    isEmptyClassName: ").append(toIndentedString(isEmptyClassName)).append("\n");
     sb.append("    lastTestResultOutcome: ").append(toIndentedString(lastTestResultOutcome)).append("\n");
-    sb.append("    lastTestResultStatusCode: ").append(toIndentedString(lastTestResultStatusCode)).append("\n");
+    sb.append("    lastTestResultStatusCodes: ").append(toIndentedString(lastTestResultStatusCodes)).append("\n");
     sb.append("    externalKey: ").append(toIndentedString(externalKey)).append("\n");
     sb.append("    lastTestResultConfigurationIds: ").append(toIndentedString(lastTestResultConfigurationIds)).append("\n");
     sb.append("}");
