@@ -11,7 +11,7 @@ All URIs are relative to *http://localhost*
 
 ## apiV2ProjectsProjectIdSettingsAutotestsPost
 
-> apiV2ProjectsProjectIdSettingsAutotestsPost(projectId, autoTestProjectSettingsPostModel)
+> apiV2ProjectsProjectIdSettingsAutotestsPost(projectId, autoTestProjectSettingsApiModel)
 
 Set autotest project settings.
 
@@ -38,10 +38,10 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         ProjectSettingsApi apiInstance = new ProjectSettingsApi(defaultClient);
-        String projectId = "projectId_example"; // String | 
-        AutoTestProjectSettingsPostModel autoTestProjectSettingsPostModel = new AutoTestProjectSettingsPostModel(); // AutoTestProjectSettingsPostModel | 
+        String projectId = "projectId_example"; // String | Internal (UUID) or global (integer) identifier
+        AutoTestProjectSettingsApiModel autoTestProjectSettingsApiModel = new AutoTestProjectSettingsApiModel(); // AutoTestProjectSettingsApiModel | 
         try {
-            apiInstance.apiV2ProjectsProjectIdSettingsAutotestsPost(projectId, autoTestProjectSettingsPostModel);
+            apiInstance.apiV2ProjectsProjectIdSettingsAutotestsPost(projectId, autoTestProjectSettingsApiModel);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProjectSettingsApi#apiV2ProjectsProjectIdSettingsAutotestsPost");
             System.err.println("Status code: " + e.getCode());
@@ -58,8 +58,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectId** | **String**|  | |
-| **autoTestProjectSettingsPostModel** | [**AutoTestProjectSettingsPostModel**](AutoTestProjectSettingsPostModel.md)|  | [optional] |
+| **projectId** | **String**| Internal (UUID) or global (integer) identifier | |
+| **autoTestProjectSettingsApiModel** | [**AutoTestProjectSettingsApiModel**](AutoTestProjectSettingsApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -88,7 +88,7 @@ null (empty response body)
 
 ## getAutotestProjectSettings
 
-> AutoTestProjectSettingsGetModel getAutotestProjectSettings(projectId)
+> AutoTestProjectSettingsApiResult getAutotestProjectSettings(projectId)
 
 Get autotest project settings.
 
@@ -115,9 +115,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         ProjectSettingsApi apiInstance = new ProjectSettingsApi(defaultClient);
-        String projectId = "projectId_example"; // String | 
+        String projectId = "projectId_example"; // String | Internal (UUID) or global (integer) identifier
         try {
-            AutoTestProjectSettingsGetModel result = apiInstance.getAutotestProjectSettings(projectId);
+            AutoTestProjectSettingsApiResult result = apiInstance.getAutotestProjectSettings(projectId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProjectSettingsApi#getAutotestProjectSettings");
@@ -135,11 +135,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectId** | **String**|  | |
+| **projectId** | **String**| Internal (UUID) or global (integer) identifier | |
 
 ### Return type
 
-[**AutoTestProjectSettingsGetModel**](AutoTestProjectSettingsGetModel.md)
+[**AutoTestProjectSettingsApiResult**](AutoTestProjectSettingsApiResult.md)
 
 ### Authorization
 

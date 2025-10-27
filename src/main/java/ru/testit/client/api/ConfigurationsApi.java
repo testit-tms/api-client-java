@@ -383,6 +383,7 @@ public class ConfigurationsApi {
    * Permanently delete multiple archived configurations
    * 
    * @param configurationSelectModel  (optional)
+   * @return Integer
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -396,15 +397,15 @@ public class ConfigurationsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public void apiV2ConfigurationsPurgeBulkPost(ConfigurationSelectModel configurationSelectModel) throws ApiException {
-    apiV2ConfigurationsPurgeBulkPostWithHttpInfo(configurationSelectModel);
+  public Integer apiV2ConfigurationsPurgeBulkPost(ConfigurationSelectModel configurationSelectModel) throws ApiException {
+    return apiV2ConfigurationsPurgeBulkPostWithHttpInfo(configurationSelectModel).getData();
   }
 
   /**
    * Permanently delete multiple archived configurations
    * 
    * @param configurationSelectModel  (optional)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Integer&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -418,13 +419,14 @@ public class ConfigurationsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> apiV2ConfigurationsPurgeBulkPostWithHttpInfo(ConfigurationSelectModel configurationSelectModel) throws ApiException {
+  public ApiResponse<Integer> apiV2ConfigurationsPurgeBulkPostWithHttpInfo(ConfigurationSelectModel configurationSelectModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsPurgeBulkPost", "/api/v2/configurations/purge/bulk", "POST", new ArrayList<>(), configurationSelectModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Edit configuration
@@ -592,7 +594,7 @@ public class ConfigurationsApi {
   }
   /**
    * Create Configuration
-   *  Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
+   *   Use case    User sets configuration model (listed in the request example)    User runs method execution    System creates configuration    System returns created configuration (listed in the response example)
    * @param configurationPostModel  (optional)
    * @return ConfigurationModel
    * @throws ApiException if fails to make API call
@@ -614,7 +616,7 @@ public class ConfigurationsApi {
 
   /**
    * Create Configuration
-   *  Use case  User sets configuration model (listed in the request example)  User runs method execution  System creates configuration  System returns created configuration (listed in the response example)
+   *   Use case    User sets configuration model (listed in the request example)    User runs method execution    System creates configuration    System returns created configuration (listed in the response example)
    * @param configurationPostModel  (optional)
    * @return ApiResponse&lt;ConfigurationModel&gt;
    * @throws ApiException if fails to make API call
@@ -641,7 +643,7 @@ public class ConfigurationsApi {
   }
   /**
    * Get configuration by internal or global ID
-   *  Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
+   *   Use case    User sets configuration internal (guid format) or global (integer format) identifier    User runs method execution    System search configuration using the identifier    System returns configuration
    * @param id Configuration internal (guid format) or global (integer format) identifier (required)
    * @return ConfigurationModel
    * @throws ApiException if fails to make API call
@@ -663,7 +665,7 @@ public class ConfigurationsApi {
 
   /**
    * Get configuration by internal or global ID
-   *  Use case  User sets configuration internal (guid format) or global (integer format) identifier  User runs method execution  System search configuration using the identifier  System returns configuration
+   *   Use case    User sets configuration internal (guid format) or global (integer format) identifier    User runs method execution    System search configuration using the identifier    System returns configuration
    * @param id Configuration internal (guid format) or global (integer format) identifier (required)
    * @return ApiResponse&lt;ConfigurationModel&gt;
    * @throws ApiException if fails to make API call

@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 import ru.testit.client.model.WorkflowProjectApiResultApiCollectionPreview;
@@ -36,6 +37,10 @@ import ru.testit.client.invoker.JSON;
   WorkflowShortApiResult.JSON_PROPERTY_NAME,
   WorkflowShortApiResult.JSON_PROPERTY_IS_SYSTEM,
   WorkflowShortApiResult.JSON_PROPERTY_IS_DEFAULT,
+  WorkflowShortApiResult.JSON_PROPERTY_CREATED_DATE,
+  WorkflowShortApiResult.JSON_PROPERTY_CREATED_BY_ID,
+  WorkflowShortApiResult.JSON_PROPERTY_MODIFIED_DATE,
+  WorkflowShortApiResult.JSON_PROPERTY_MODIFIED_BY_ID,
   WorkflowShortApiResult.JSON_PROPERTY_PROJECTS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
@@ -51,6 +56,18 @@ public class WorkflowShortApiResult {
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
   private Boolean isDefault;
+
+  public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  private OffsetDateTime createdDate;
+
+  public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  private UUID createdById;
+
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private OffsetDateTime modifiedDate;
+
+  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  private UUID modifiedById;
 
   public static final String JSON_PROPERTY_PROJECTS = "projects";
   private WorkflowProjectApiResultApiCollectionPreview projects;
@@ -158,6 +175,106 @@ public class WorkflowShortApiResult {
   }
 
 
+  public WorkflowShortApiResult createdDate(OffsetDateTime createdDate) {
+    this.createdDate = createdDate;
+    return this;
+  }
+
+  /**
+   * Get createdDate
+   * @return createdDate
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getCreatedDate() {
+    return createdDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCreatedDate(OffsetDateTime createdDate) {
+    this.createdDate = createdDate;
+  }
+
+
+  public WorkflowShortApiResult createdById(UUID createdById) {
+    this.createdById = createdById;
+    return this;
+  }
+
+  /**
+   * Get createdById
+   * @return createdById
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getCreatedById() {
+    return createdById;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCreatedById(UUID createdById) {
+    this.createdById = createdById;
+  }
+
+
+  public WorkflowShortApiResult modifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = modifiedDate;
+    return this;
+  }
+
+  /**
+   * Get modifiedDate
+   * @return modifiedDate
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getModifiedDate() {
+    return modifiedDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setModifiedDate(OffsetDateTime modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+
+  public WorkflowShortApiResult modifiedById(UUID modifiedById) {
+    this.modifiedById = modifiedById;
+    return this;
+  }
+
+  /**
+   * Get modifiedById
+   * @return modifiedById
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getModifiedById() {
+    return modifiedById;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setModifiedById(UUID modifiedById) {
+    this.modifiedById = modifiedById;
+  }
+
+
   public WorkflowShortApiResult projects(WorkflowProjectApiResultApiCollectionPreview projects) {
     this.projects = projects;
     return this;
@@ -199,12 +316,16 @@ public class WorkflowShortApiResult {
         Objects.equals(this.name, workflowShortApiResult.name) &&
         Objects.equals(this.isSystem, workflowShortApiResult.isSystem) &&
         Objects.equals(this.isDefault, workflowShortApiResult.isDefault) &&
+        Objects.equals(this.createdDate, workflowShortApiResult.createdDate) &&
+        Objects.equals(this.createdById, workflowShortApiResult.createdById) &&
+        Objects.equals(this.modifiedDate, workflowShortApiResult.modifiedDate) &&
+        Objects.equals(this.modifiedById, workflowShortApiResult.modifiedById) &&
         Objects.equals(this.projects, workflowShortApiResult.projects);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isSystem, isDefault, projects);
+    return Objects.hash(id, name, isSystem, isDefault, createdDate, createdById, modifiedDate, modifiedById, projects);
   }
 
   @Override
@@ -215,6 +336,10 @@ public class WorkflowShortApiResult {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
+    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import ru.testit.client.model.IFilter;
 import ru.testit.client.model.LogicalOperator;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
@@ -39,7 +40,7 @@ import ru.testit.client.invoker.JSON;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CompositeFilter {
   public static final String JSON_PROPERTY_FILTERS = "filters";
-  private List<Object> filters = new ArrayList<>();
+  private List<IFilter> filters = new ArrayList<>();
 
   public static final String JSON_PROPERTY_OPERATOR = "operator";
   private LogicalOperator operator;
@@ -47,12 +48,12 @@ public class CompositeFilter {
   public CompositeFilter() { 
   }
 
-  public CompositeFilter filters(List<Object> filters) {
+  public CompositeFilter filters(List<IFilter> filters) {
     this.filters = filters;
     return this;
   }
 
-  public CompositeFilter addFiltersItem(Object filtersItem) {
+  public CompositeFilter addFiltersItem(IFilter filtersItem) {
     if (this.filters == null) {
       this.filters = new ArrayList<>();
     }
@@ -68,14 +69,14 @@ public class CompositeFilter {
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<Object> getFilters() {
+  public List<IFilter> getFilters() {
     return filters;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilters(List<Object> filters) {
+  public void setFilters(List<IFilter> filters) {
     this.filters = filters;
   }
 

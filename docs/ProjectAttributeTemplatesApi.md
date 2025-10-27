@@ -39,7 +39,7 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         ProjectAttributeTemplatesApi apiInstance = new ProjectAttributeTemplatesApi(defaultClient);
-        String projectId = "projectId_example"; // String | 
+        String projectId = "projectId_example"; // String | Internal (UUID) or global (integer) identifier
         Integer skip = 56; // Integer | Amount of items to be skipped (offset)
         Integer take = 56; // Integer | Amount of items to be taken (limit)
         String orderBy = "orderBy_example"; // String | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
@@ -65,7 +65,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **projectId** | **String**|  | |
+| **projectId** | **String**| Internal (UUID) or global (integer) identifier | |
 | **skip** | **Integer**| Amount of items to be skipped (offset) | [optional] |
 | **take** | **Integer**| Amount of items to be taken (limit) | [optional] |
 | **orderBy** | **String**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional] |

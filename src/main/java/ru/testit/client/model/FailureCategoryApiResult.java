@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.FailureCategory;
+import ru.testit.client.model.FailureClassRegexApiResult;
 import ru.testit.client.model.ProjectNameApiResult;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -37,25 +38,27 @@ import ru.testit.client.invoker.JSON;
 
 
 /**
- * AutoTestResultReasonsProjectApiResult
+ * FailureCategoryApiResult
  */
 @JsonPropertyOrder({
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_ID,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_FAILURE_CATEGORY,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_CREATED_DATE,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_CREATED_BY_ID,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_FAILURE_CATEGORY_ID,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_REGEX_COUNT,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_PROJECTS,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_PROJECT_IDS,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_NAME,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_MODIFIED_DATE,
-  AutoTestResultReasonsProjectApiResult.JSON_PROPERTY_MODIFIED_BY_ID
+  FailureCategoryApiResult.JSON_PROPERTY_ID,
+  FailureCategoryApiResult.JSON_PROPERTY_IS_DELETED,
+  FailureCategoryApiResult.JSON_PROPERTY_FAILURE_CATEGORY,
+  FailureCategoryApiResult.JSON_PROPERTY_CREATED_DATE,
+  FailureCategoryApiResult.JSON_PROPERTY_CREATED_BY_ID,
+  FailureCategoryApiResult.JSON_PROPERTY_PROJECTS,
+  FailureCategoryApiResult.JSON_PROPERTY_FAILURE_CLASS_REGEXES,
+  FailureCategoryApiResult.JSON_PROPERTY_NAME,
+  FailureCategoryApiResult.JSON_PROPERTY_MODIFIED_DATE,
+  FailureCategoryApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class AutoTestResultReasonsProjectApiResult {
+public class FailureCategoryApiResult {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
+
+  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
   private FailureCategory failureCategory;
@@ -66,17 +69,11 @@ public class AutoTestResultReasonsProjectApiResult {
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   private UUID createdById;
 
-  public static final String JSON_PROPERTY_FAILURE_CATEGORY_ID = "failureCategoryId";
-  private Integer failureCategoryId;
-
-  public static final String JSON_PROPERTY_REGEX_COUNT = "regexCount";
-  private Integer regexCount;
-
   public static final String JSON_PROPERTY_PROJECTS = "projects";
   private List<ProjectNameApiResult> projects = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
-  private List<UUID> projectIds = new ArrayList<>();
+  public static final String JSON_PROPERTY_FAILURE_CLASS_REGEXES = "failureClassRegexes";
+  private List<FailureClassRegexApiResult> failureClassRegexes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -87,10 +84,10 @@ public class AutoTestResultReasonsProjectApiResult {
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
   private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
 
-  public AutoTestResultReasonsProjectApiResult() { 
+  public FailureCategoryApiResult() { 
   }
 
-  public AutoTestResultReasonsProjectApiResult id(UUID id) {
+  public FailureCategoryApiResult id(UUID id) {
     this.id = id;
     return this;
   }
@@ -115,7 +112,32 @@ public class AutoTestResultReasonsProjectApiResult {
   }
 
 
-  public AutoTestResultReasonsProjectApiResult failureCategory(FailureCategory failureCategory) {
+  public FailureCategoryApiResult isDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+    return this;
+  }
+
+  /**
+   * Indicates if the entity is deleted
+   * @return isDeleted
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsDeleted() {
+    return isDeleted;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+
+  public FailureCategoryApiResult failureCategory(FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -140,7 +162,7 @@ public class AutoTestResultReasonsProjectApiResult {
   }
 
 
-  public AutoTestResultReasonsProjectApiResult createdDate(OffsetDateTime createdDate) {
+  public FailureCategoryApiResult createdDate(OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -165,7 +187,7 @@ public class AutoTestResultReasonsProjectApiResult {
   }
 
 
-  public AutoTestResultReasonsProjectApiResult createdById(UUID createdById) {
+  public FailureCategoryApiResult createdById(UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -190,62 +212,12 @@ public class AutoTestResultReasonsProjectApiResult {
   }
 
 
-  public AutoTestResultReasonsProjectApiResult failureCategoryId(Integer failureCategoryId) {
-    this.failureCategoryId = failureCategoryId;
-    return this;
-  }
-
-  /**
-   * Category type index
-   * @return failureCategoryId
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getFailureCategoryId() {
-    return failureCategoryId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategoryId(Integer failureCategoryId) {
-    this.failureCategoryId = failureCategoryId;
-  }
-
-
-  public AutoTestResultReasonsProjectApiResult regexCount(Integer regexCount) {
-    this.regexCount = regexCount;
-    return this;
-  }
-
-  /**
-   * Regexes count
-   * @return regexCount
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REGEX_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getRegexCount() {
-    return regexCount;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REGEX_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRegexCount(Integer regexCount) {
-    this.regexCount = regexCount;
-  }
-
-
-  public AutoTestResultReasonsProjectApiResult projects(List<ProjectNameApiResult> projects) {
+  public FailureCategoryApiResult projects(List<ProjectNameApiResult> projects) {
     this.projects = projects;
     return this;
   }
 
-  public AutoTestResultReasonsProjectApiResult addProjectsItem(ProjectNameApiResult projectsItem) {
+  public FailureCategoryApiResult addProjectsItem(ProjectNameApiResult projectsItem) {
     if (this.projects == null) {
       this.projects = new ArrayList<>();
     }
@@ -273,40 +245,40 @@ public class AutoTestResultReasonsProjectApiResult {
   }
 
 
-  public AutoTestResultReasonsProjectApiResult projectIds(List<UUID> projectIds) {
-    this.projectIds = projectIds;
+  public FailureCategoryApiResult failureClassRegexes(List<FailureClassRegexApiResult> failureClassRegexes) {
+    this.failureClassRegexes = failureClassRegexes;
     return this;
   }
 
-  public AutoTestResultReasonsProjectApiResult addProjectIdsItem(UUID projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new ArrayList<>();
+  public FailureCategoryApiResult addFailureClassRegexesItem(FailureClassRegexApiResult failureClassRegexesItem) {
+    if (this.failureClassRegexes == null) {
+      this.failureClassRegexes = new ArrayList<>();
     }
-    this.projectIds.add(projectIdsItem);
+    this.failureClassRegexes.add(failureClassRegexesItem);
     return this;
   }
 
   /**
-   * Projects identifiers
-   * @return projectIds
+   * Failure category regexes
+   * @return failureClassRegexes
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_REGEXES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<UUID> getProjectIds() {
-    return projectIds;
+  public List<FailureClassRegexApiResult> getFailureClassRegexes() {
+    return failureClassRegexes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
+  @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_REGEXES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectIds(List<UUID> projectIds) {
-    this.projectIds = projectIds;
+  public void setFailureClassRegexes(List<FailureClassRegexApiResult> failureClassRegexes) {
+    this.failureClassRegexes = failureClassRegexes;
   }
 
 
-  public AutoTestResultReasonsProjectApiResult name(String name) {
+  public FailureCategoryApiResult name(String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -339,7 +311,7 @@ public class AutoTestResultReasonsProjectApiResult {
   }
 
 
-  public AutoTestResultReasonsProjectApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public FailureCategoryApiResult modifiedDate(OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -372,7 +344,7 @@ public class AutoTestResultReasonsProjectApiResult {
   }
 
 
-  public AutoTestResultReasonsProjectApiResult modifiedById(UUID modifiedById) {
+  public FailureCategoryApiResult modifiedById(UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -406,7 +378,7 @@ public class AutoTestResultReasonsProjectApiResult {
 
 
   /**
-   * Return true if this AutoTestResultReasonsProjectApiResult object is equal to o.
+   * Return true if this FailureCategoryApiResult object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -416,18 +388,17 @@ public class AutoTestResultReasonsProjectApiResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoTestResultReasonsProjectApiResult autoTestResultReasonsProjectApiResult = (AutoTestResultReasonsProjectApiResult) o;
-    return Objects.equals(this.id, autoTestResultReasonsProjectApiResult.id) &&
-        Objects.equals(this.failureCategory, autoTestResultReasonsProjectApiResult.failureCategory) &&
-        Objects.equals(this.createdDate, autoTestResultReasonsProjectApiResult.createdDate) &&
-        Objects.equals(this.createdById, autoTestResultReasonsProjectApiResult.createdById) &&
-        Objects.equals(this.failureCategoryId, autoTestResultReasonsProjectApiResult.failureCategoryId) &&
-        Objects.equals(this.regexCount, autoTestResultReasonsProjectApiResult.regexCount) &&
-        Objects.equals(this.projects, autoTestResultReasonsProjectApiResult.projects) &&
-        Objects.equals(this.projectIds, autoTestResultReasonsProjectApiResult.projectIds) &&
-        equalsNullable(this.name, autoTestResultReasonsProjectApiResult.name) &&
-        equalsNullable(this.modifiedDate, autoTestResultReasonsProjectApiResult.modifiedDate) &&
-        equalsNullable(this.modifiedById, autoTestResultReasonsProjectApiResult.modifiedById);
+    FailureCategoryApiResult failureCategoryApiResult = (FailureCategoryApiResult) o;
+    return Objects.equals(this.id, failureCategoryApiResult.id) &&
+        Objects.equals(this.isDeleted, failureCategoryApiResult.isDeleted) &&
+        Objects.equals(this.failureCategory, failureCategoryApiResult.failureCategory) &&
+        Objects.equals(this.createdDate, failureCategoryApiResult.createdDate) &&
+        Objects.equals(this.createdById, failureCategoryApiResult.createdById) &&
+        Objects.equals(this.projects, failureCategoryApiResult.projects) &&
+        Objects.equals(this.failureClassRegexes, failureCategoryApiResult.failureClassRegexes) &&
+        equalsNullable(this.name, failureCategoryApiResult.name) &&
+        equalsNullable(this.modifiedDate, failureCategoryApiResult.modifiedDate) &&
+        equalsNullable(this.modifiedById, failureCategoryApiResult.modifiedById);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -436,7 +407,7 @@ public class AutoTestResultReasonsProjectApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, failureCategory, createdDate, createdById, failureCategoryId, regexCount, projects, projectIds, hashCodeNullable(name), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
+    return Objects.hash(id, isDeleted, failureCategory, createdDate, createdById, projects, failureClassRegexes, hashCodeNullable(name), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -449,15 +420,14 @@ public class AutoTestResultReasonsProjectApiResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoTestResultReasonsProjectApiResult {\n");
+    sb.append("class FailureCategoryApiResult {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    failureCategory: ").append(toIndentedString(failureCategory)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
-    sb.append("    failureCategoryId: ").append(toIndentedString(failureCategoryId)).append("\n");
-    sb.append("    regexCount: ").append(toIndentedString(regexCount)).append("\n");
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
-    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
+    sb.append("    failureClassRegexes: ").append(toIndentedString(failureClassRegexes)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");

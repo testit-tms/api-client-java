@@ -14,6 +14,8 @@
 |**skippedTestPoints** | **Integer** |  |  |
 |**blockedTestPoints** | **Integer** |  |  |
 |**levelAvatarEnabled** | **Boolean** |  |  |
+|**succeededTestPoints** | **Integer** |  |  |
+|**incompleteTestPoints** | **Integer** |  |  |
 
 
 

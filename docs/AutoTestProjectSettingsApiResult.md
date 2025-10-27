@@ -1,0 +1,18 @@
+
+
+# AutoTestProjectSettingsApiResult
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**projectId** | **UUID** | Unique ID of the project. |  |
+|**isFlakyAuto** | **Boolean** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically |  |
+|**flakyStabilityPercentage** | **Integer** | Stability percentage for autotest flaky computing |  |
+|**flakyTestRunCount** | **Integer** | Last test run count for autotest flaky computing |  |
+|**rerunEnabled** | **Boolean** | Auto rerun enabled |  |
+|**rerunAttemptsCount** | **Integer** | Auto rerun attempt count |  |
+
+
+

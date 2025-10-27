@@ -15,7 +15,6 @@
 |**createdById** | **UUID** | Unique ID of the project creator |  |
 |**globalId** | **Long** | Global ID of the project |  |
 |**type** | **ProjectTypeModel** | Type of the project |  |
-|**isFlakyAuto** | **Boolean** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically |  |
 |**workflowId** | **UUID** |  |  |
 |**description** | **String** | Description of the project |  [optional] |
 |**attributesScheme** | [**List&lt;CustomAttributeModel&gt;**](CustomAttributeModel.md) | Collection of the project attributes |  [optional] |
@@ -26,6 +25,7 @@
 |**autoTestsCount** | **Integer** | Number of autotests in the project |  [optional] |
 |**modifiedDate** | **OffsetDateTime** | Last modification date of the project |  [optional] |
 |**modifiedById** | **UUID** | Unique ID of the project last editor |  [optional] |
+|**isFlakyAuto** | **Boolean** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically |  [optional] |
 
 
 

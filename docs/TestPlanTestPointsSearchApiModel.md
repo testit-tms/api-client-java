@@ -24,6 +24,7 @@
 |**modifiedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test point range of last modification date to search for |  [optional] |
 |**modifiedByIds** | **List&lt;UUID&gt;** | Specifies a test point last editor IDs to search for |  [optional] |
 |**tags** | **List&lt;String&gt;** | Specifies a test point tags to search for |  [optional] |
+|**excludeTags** | **List&lt;String&gt;** | Specifies a test point tags to exclude to search for |  [optional] |
 |**attributes** | **Map&lt;String, Set&lt;String&gt;&gt;** | Specifies a test point attributes to search for |  [optional] |
 |**workItemCreatedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for |  [optional] |
 |**workItemCreatedByIds** | **List&lt;UUID&gt;** | Specifies a work item creator IDs to search for |  [optional] |

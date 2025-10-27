@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.AutoTestResultReasonGroupApiResult;
+import ru.testit.client.model.FailureCategoryGroupApiResult;
 import ru.testit.client.model.ProjectFailureCategoryApiResult;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -47,7 +47,7 @@ public class ProjectFailureCategoryGroupItemApiResult {
   private List<ProjectFailureCategoryApiResult> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_GROUP = "group";
-  private JsonNullable<AutoTestResultReasonGroupApiResult> group = JsonNullable.<AutoTestResultReasonGroupApiResult>undefined();
+  private JsonNullable<FailureCategoryGroupApiResult> group = JsonNullable.<FailureCategoryGroupApiResult>undefined();
 
   public ProjectFailureCategoryGroupItemApiResult() { 
   }
@@ -85,8 +85,8 @@ public class ProjectFailureCategoryGroupItemApiResult {
   }
 
 
-  public ProjectFailureCategoryGroupItemApiResult group(AutoTestResultReasonGroupApiResult group) {
-    this.group = JsonNullable.<AutoTestResultReasonGroupApiResult>of(group);
+  public ProjectFailureCategoryGroupItemApiResult group(FailureCategoryGroupApiResult group) {
+    this.group = JsonNullable.<FailureCategoryGroupApiResult>of(group);
     return this;
   }
 
@@ -97,24 +97,24 @@ public class ProjectFailureCategoryGroupItemApiResult {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public AutoTestResultReasonGroupApiResult getGroup() {
+  public FailureCategoryGroupApiResult getGroup() {
         return group.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<AutoTestResultReasonGroupApiResult> getGroup_JsonNullable() {
+  public JsonNullable<FailureCategoryGroupApiResult> getGroup_JsonNullable() {
     return group;
   }
   
   @JsonProperty(JSON_PROPERTY_GROUP)
-  public void setGroup_JsonNullable(JsonNullable<AutoTestResultReasonGroupApiResult> group) {
+  public void setGroup_JsonNullable(JsonNullable<FailureCategoryGroupApiResult> group) {
     this.group = group;
   }
 
-  public void setGroup(AutoTestResultReasonGroupApiResult group) {
-    this.group = JsonNullable.<AutoTestResultReasonGroupApiResult>of(group);
+  public void setGroup(FailureCategoryGroupApiResult group) {
+    this.group = JsonNullable.<FailureCategoryGroupApiResult>of(group);
   }
 
 

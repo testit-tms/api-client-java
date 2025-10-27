@@ -24,35 +24,35 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import ru.testit.client.model.AutoTestResultReasonGroupItemApiResult;
+import ru.testit.client.model.FailureCategoryGroupItemApiResult;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
 
 /**
- * AutoTestResultReasonGroupItemApiResultReply
+ * FailureCategoryGroupItemApiResultReply
  */
 @JsonPropertyOrder({
-  AutoTestResultReasonGroupItemApiResultReply.JSON_PROPERTY_DATA,
-  AutoTestResultReasonGroupItemApiResultReply.JSON_PROPERTY_TOTAL_COUNT
+  FailureCategoryGroupItemApiResultReply.JSON_PROPERTY_DATA,
+  FailureCategoryGroupItemApiResultReply.JSON_PROPERTY_TOTAL_COUNT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class AutoTestResultReasonGroupItemApiResultReply {
+public class FailureCategoryGroupItemApiResultReply {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<AutoTestResultReasonGroupItemApiResult> data = new ArrayList<>();
+  private List<FailureCategoryGroupItemApiResult> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
   private Integer totalCount;
 
-  public AutoTestResultReasonGroupItemApiResultReply() { 
+  public FailureCategoryGroupItemApiResultReply() { 
   }
 
-  public AutoTestResultReasonGroupItemApiResultReply data(List<AutoTestResultReasonGroupItemApiResult> data) {
+  public FailureCategoryGroupItemApiResultReply data(List<FailureCategoryGroupItemApiResult> data) {
     this.data = data;
     return this;
   }
 
-  public AutoTestResultReasonGroupItemApiResultReply addDataItem(AutoTestResultReasonGroupItemApiResult dataItem) {
+  public FailureCategoryGroupItemApiResultReply addDataItem(FailureCategoryGroupItemApiResult dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -68,19 +68,19 @@ public class AutoTestResultReasonGroupItemApiResultReply {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<AutoTestResultReasonGroupItemApiResult> getData() {
+  public List<FailureCategoryGroupItemApiResult> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<AutoTestResultReasonGroupItemApiResult> data) {
+  public void setData(List<FailureCategoryGroupItemApiResult> data) {
     this.data = data;
   }
 
 
-  public AutoTestResultReasonGroupItemApiResultReply totalCount(Integer totalCount) {
+  public FailureCategoryGroupItemApiResultReply totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -106,7 +106,7 @@ public class AutoTestResultReasonGroupItemApiResultReply {
 
 
   /**
-   * Return true if this AutoTestResultReasonGroupItemApiResultReply object is equal to o.
+   * Return true if this FailureCategoryGroupItemApiResultReply object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -116,9 +116,9 @@ public class AutoTestResultReasonGroupItemApiResultReply {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoTestResultReasonGroupItemApiResultReply autoTestResultReasonGroupItemApiResultReply = (AutoTestResultReasonGroupItemApiResultReply) o;
-    return Objects.equals(this.data, autoTestResultReasonGroupItemApiResultReply.data) &&
-        Objects.equals(this.totalCount, autoTestResultReasonGroupItemApiResultReply.totalCount);
+    FailureCategoryGroupItemApiResultReply failureCategoryGroupItemApiResultReply = (FailureCategoryGroupItemApiResultReply) o;
+    return Objects.equals(this.data, failureCategoryGroupItemApiResultReply.data) &&
+        Objects.equals(this.totalCount, failureCategoryGroupItemApiResultReply.totalCount);
   }
 
   @Override
@@ -129,7 +129,7 @@ public class AutoTestResultReasonGroupItemApiResultReply {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoTestResultReasonGroupItemApiResultReply {\n");
+    sb.append("class FailureCategoryGroupItemApiResultReply {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");

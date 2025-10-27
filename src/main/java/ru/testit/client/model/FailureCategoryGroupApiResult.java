@@ -31,15 +31,15 @@ import ru.testit.client.invoker.JSON;
 
 
 /**
- * AutoTestResultReasonGroupApiResult
+ * FailureCategoryGroupApiResult
  */
 @JsonPropertyOrder({
-  AutoTestResultReasonGroupApiResult.JSON_PROPERTY_COUNT,
-  AutoTestResultReasonGroupApiResult.JSON_PROPERTY_FIELD_VALUE,
-  AutoTestResultReasonGroupApiResult.JSON_PROPERTY_DISPLAY_FIELD_VALUE
+  FailureCategoryGroupApiResult.JSON_PROPERTY_COUNT,
+  FailureCategoryGroupApiResult.JSON_PROPERTY_FIELD_VALUE,
+  FailureCategoryGroupApiResult.JSON_PROPERTY_DISPLAY_FIELD_VALUE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class AutoTestResultReasonGroupApiResult {
+public class FailureCategoryGroupApiResult {
   public static final String JSON_PROPERTY_COUNT = "count";
   private Integer count;
 
@@ -49,10 +49,10 @@ public class AutoTestResultReasonGroupApiResult {
   public static final String JSON_PROPERTY_DISPLAY_FIELD_VALUE = "displayFieldValue";
   private JsonNullable<Object> displayFieldValue = JsonNullable.<Object>of(null);
 
-  public AutoTestResultReasonGroupApiResult() { 
+  public FailureCategoryGroupApiResult() { 
   }
 
-  public AutoTestResultReasonGroupApiResult count(Integer count) {
+  public FailureCategoryGroupApiResult count(Integer count) {
     this.count = count;
     return this;
   }
@@ -77,7 +77,7 @@ public class AutoTestResultReasonGroupApiResult {
   }
 
 
-  public AutoTestResultReasonGroupApiResult fieldValue(Object fieldValue) {
+  public FailureCategoryGroupApiResult fieldValue(Object fieldValue) {
     this.fieldValue = JsonNullable.<Object>of(fieldValue);
     return this;
   }
@@ -110,7 +110,7 @@ public class AutoTestResultReasonGroupApiResult {
   }
 
 
-  public AutoTestResultReasonGroupApiResult displayFieldValue(Object displayFieldValue) {
+  public FailureCategoryGroupApiResult displayFieldValue(Object displayFieldValue) {
     this.displayFieldValue = JsonNullable.<Object>of(displayFieldValue);
     return this;
   }
@@ -144,7 +144,7 @@ public class AutoTestResultReasonGroupApiResult {
 
 
   /**
-   * Return true if this AutoTestResultReasonGroupApiResult object is equal to o.
+   * Return true if this FailureCategoryGroupApiResult object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -154,10 +154,10 @@ public class AutoTestResultReasonGroupApiResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AutoTestResultReasonGroupApiResult autoTestResultReasonGroupApiResult = (AutoTestResultReasonGroupApiResult) o;
-    return Objects.equals(this.count, autoTestResultReasonGroupApiResult.count) &&
-        equalsNullable(this.fieldValue, autoTestResultReasonGroupApiResult.fieldValue) &&
-        equalsNullable(this.displayFieldValue, autoTestResultReasonGroupApiResult.displayFieldValue);
+    FailureCategoryGroupApiResult failureCategoryGroupApiResult = (FailureCategoryGroupApiResult) o;
+    return Objects.equals(this.count, failureCategoryGroupApiResult.count) &&
+        equalsNullable(this.fieldValue, failureCategoryGroupApiResult.fieldValue) &&
+        equalsNullable(this.displayFieldValue, failureCategoryGroupApiResult.displayFieldValue);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -179,7 +179,7 @@ public class AutoTestResultReasonGroupApiResult {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AutoTestResultReasonGroupApiResult {\n");
+    sb.append("class FailureCategoryGroupApiResult {\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    fieldValue: ").append(toIndentedString(fieldValue)).append("\n");
     sb.append("    displayFieldValue: ").append(toIndentedString(displayFieldValue)).append("\n");

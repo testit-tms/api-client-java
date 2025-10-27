@@ -45,7 +45,6 @@ import ru.testit.client.invoker.JSON;
   ProjectShortModel.JSON_PROPERTY_CREATED_BY_ID,
   ProjectShortModel.JSON_PROPERTY_GLOBAL_ID,
   ProjectShortModel.JSON_PROPERTY_TYPE,
-  ProjectShortModel.JSON_PROPERTY_IS_FLAKY_AUTO,
   ProjectShortModel.JSON_PROPERTY_WORKFLOW_ID,
   ProjectShortModel.JSON_PROPERTY_DESCRIPTION,
   ProjectShortModel.JSON_PROPERTY_TEST_CASES_COUNT,
@@ -53,7 +52,8 @@ import ru.testit.client.invoker.JSON;
   ProjectShortModel.JSON_PROPERTY_CHECK_LISTS_COUNT,
   ProjectShortModel.JSON_PROPERTY_AUTO_TESTS_COUNT,
   ProjectShortModel.JSON_PROPERTY_MODIFIED_DATE,
-  ProjectShortModel.JSON_PROPERTY_MODIFIED_BY_ID
+  ProjectShortModel.JSON_PROPERTY_MODIFIED_BY_ID,
+  ProjectShortModel.JSON_PROPERTY_IS_FLAKY_AUTO
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ProjectShortModel {
@@ -81,10 +81,6 @@ public class ProjectShortModel {
   public static final String JSON_PROPERTY_TYPE = "type";
   private ProjectTypeModel type;
 
-  public static final String JSON_PROPERTY_IS_FLAKY_AUTO = "isFlakyAuto";
-  @Deprecated
-  private Boolean isFlakyAuto;
-
   public static final String JSON_PROPERTY_WORKFLOW_ID = "workflowId";
   private UUID workflowId;
 
@@ -108,6 +104,10 @@ public class ProjectShortModel {
 
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
   private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_IS_FLAKY_AUTO = "isFlakyAuto";
+  @Deprecated
+  private JsonNullable<Boolean> isFlakyAuto = JsonNullable.<Boolean>undefined();
 
   public ProjectShortModel() { 
   }
@@ -309,35 +309,6 @@ public class ProjectShortModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(ProjectTypeModel type) {
     this.type = type;
-  }
-
-
-  @Deprecated
-  public ProjectShortModel isFlakyAuto(Boolean isFlakyAuto) {
-    this.isFlakyAuto = isFlakyAuto;
-    return this;
-  }
-
-  /**
-   * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
-   * @return isFlakyAuto
-   * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getIsFlakyAuto() {
-    return isFlakyAuto;
-  }
-
-
-  @Deprecated
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsFlakyAuto(Boolean isFlakyAuto) {
-    this.isFlakyAuto = isFlakyAuto;
   }
 
 
@@ -597,6 +568,43 @@ public class ProjectShortModel {
   }
 
 
+  @Deprecated
+  public ProjectShortModel isFlakyAuto(Boolean isFlakyAuto) {
+    this.isFlakyAuto = JsonNullable.<Boolean>of(isFlakyAuto);
+    return this;
+  }
+
+  /**
+   * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
+   * @return isFlakyAuto
+   * @deprecated
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Boolean getIsFlakyAuto() {
+        return isFlakyAuto.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsFlakyAuto_JsonNullable() {
+    return isFlakyAuto;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
+  public void setIsFlakyAuto_JsonNullable(JsonNullable<Boolean> isFlakyAuto) {
+    this.isFlakyAuto = isFlakyAuto;
+  }
+
+  @Deprecated
+  public void setIsFlakyAuto(Boolean isFlakyAuto) {
+    this.isFlakyAuto = JsonNullable.<Boolean>of(isFlakyAuto);
+  }
+
+
   /**
    * Return true if this ProjectShortModel object is equal to o.
    */
@@ -617,7 +625,6 @@ public class ProjectShortModel {
         Objects.equals(this.createdById, projectShortModel.createdById) &&
         Objects.equals(this.globalId, projectShortModel.globalId) &&
         Objects.equals(this.type, projectShortModel.type) &&
-        Objects.equals(this.isFlakyAuto, projectShortModel.isFlakyAuto) &&
         Objects.equals(this.workflowId, projectShortModel.workflowId) &&
         equalsNullable(this.description, projectShortModel.description) &&
         equalsNullable(this.testCasesCount, projectShortModel.testCasesCount) &&
@@ -625,7 +632,8 @@ public class ProjectShortModel {
         equalsNullable(this.checkListsCount, projectShortModel.checkListsCount) &&
         equalsNullable(this.autoTestsCount, projectShortModel.autoTestsCount) &&
         equalsNullable(this.modifiedDate, projectShortModel.modifiedDate) &&
-        equalsNullable(this.modifiedById, projectShortModel.modifiedById);
+        equalsNullable(this.modifiedById, projectShortModel.modifiedById) &&
+        equalsNullable(this.isFlakyAuto, projectShortModel.isFlakyAuto);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -634,7 +642,7 @@ public class ProjectShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isFavorite, isDeleted, createdDate, createdById, globalId, type, isFlakyAuto, workflowId, hashCodeNullable(description), hashCodeNullable(testCasesCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(checkListsCount), hashCodeNullable(autoTestsCount), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
+    return Objects.hash(id, name, isFavorite, isDeleted, createdDate, createdById, globalId, type, workflowId, hashCodeNullable(description), hashCodeNullable(testCasesCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(checkListsCount), hashCodeNullable(autoTestsCount), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(isFlakyAuto));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -656,7 +664,6 @@ public class ProjectShortModel {
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    testCasesCount: ").append(toIndentedString(testCasesCount)).append("\n");
@@ -665,6 +672,7 @@ public class ProjectShortModel {
     sb.append("    autoTestsCount: ").append(toIndentedString(autoTestsCount)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
+    sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("}");
     return sb.toString();
   }

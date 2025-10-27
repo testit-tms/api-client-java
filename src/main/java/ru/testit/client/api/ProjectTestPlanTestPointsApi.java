@@ -54,7 +54,7 @@ public class ProjectTestPlanTestPointsApi {
   /**
    * Rerun autotests.
    * 
-   * @param projectId  (required)
+   * @param projectId Internal (UUID) or global (integer) identifier (required)
    * @param testPlanId  (required)
    * @param testPlanTestPointsAutoTestsRerunApiModel  (optional)
    * @throws ApiException if fails to make API call
@@ -77,7 +77,7 @@ public class ProjectTestPlanTestPointsApi {
   /**
    * Rerun autotests.
    * 
-   * @param projectId  (required)
+   * @param projectId Internal (UUID) or global (integer) identifier (required)
    * @param testPlanId  (required)
    * @param testPlanTestPointsAutoTestsRerunApiModel  (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -118,7 +118,7 @@ public class ProjectTestPlanTestPointsApi {
   /**
    * Run autotests.
    * 
-   * @param projectId  (required)
+   * @param projectId Internal (UUID) or global (integer) identifier (required)
    * @param testPlanId  (required)
    * @param testPlanTestPointsAutoTestsRunApiModel  (optional)
    * @return TestRunNameApiResult
@@ -142,7 +142,7 @@ public class ProjectTestPlanTestPointsApi {
   /**
    * Run autotests.
    * 
-   * @param projectId  (required)
+   * @param projectId Internal (UUID) or global (integer) identifier (required)
    * @param testPlanId  (required)
    * @param testPlanTestPointsAutoTestsRunApiModel  (optional)
    * @return ApiResponse&lt;TestRunNameApiResult&gt;

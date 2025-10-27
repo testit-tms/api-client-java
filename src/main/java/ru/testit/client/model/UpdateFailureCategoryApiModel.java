@@ -26,8 +26,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.CreateFailureClassRegexApiModel;
 import ru.testit.client.model.FailureCategory;
+import ru.testit.client.model.UpdateFailureClassRegexApiModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -36,16 +36,20 @@ import ru.testit.client.invoker.JSON;
 
 
 /**
- * CreateAutoTestResultReasonProjectApiModel
+ * UpdateFailureCategoryApiModel
  */
 @JsonPropertyOrder({
-  CreateAutoTestResultReasonProjectApiModel.JSON_PROPERTY_NAME,
-  CreateAutoTestResultReasonProjectApiModel.JSON_PROPERTY_FAILURE_CATEGORY,
-  CreateAutoTestResultReasonProjectApiModel.JSON_PROPERTY_FAILURE_CLASS_REGEXES,
-  CreateAutoTestResultReasonProjectApiModel.JSON_PROPERTY_PROJECT_IDS
+  UpdateFailureCategoryApiModel.JSON_PROPERTY_ID,
+  UpdateFailureCategoryApiModel.JSON_PROPERTY_NAME,
+  UpdateFailureCategoryApiModel.JSON_PROPERTY_FAILURE_CATEGORY,
+  UpdateFailureCategoryApiModel.JSON_PROPERTY_FAILURE_CLASS_REGEXES,
+  UpdateFailureCategoryApiModel.JSON_PROPERTY_PROJECT_IDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class CreateAutoTestResultReasonProjectApiModel {
+public class UpdateFailureCategoryApiModel {
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -53,15 +57,40 @@ public class CreateAutoTestResultReasonProjectApiModel {
   private FailureCategory failureCategory;
 
   public static final String JSON_PROPERTY_FAILURE_CLASS_REGEXES = "failureClassRegexes";
-  private JsonNullable<List<CreateFailureClassRegexApiModel>> failureClassRegexes = JsonNullable.<List<CreateFailureClassRegexApiModel>>undefined();
+  private JsonNullable<List<UpdateFailureClassRegexApiModel>> failureClassRegexes = JsonNullable.<List<UpdateFailureClassRegexApiModel>>undefined();
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
   private JsonNullable<List<UUID>> projectIds = JsonNullable.<List<UUID>>undefined();
 
-  public CreateAutoTestResultReasonProjectApiModel() { 
+  public UpdateFailureCategoryApiModel() { 
   }
 
-  public CreateAutoTestResultReasonProjectApiModel name(String name) {
+  public UpdateFailureCategoryApiModel id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Failure category identifier
+   * @return id
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public UpdateFailureCategoryApiModel name(String name) {
     this.name = name;
     return this;
   }
@@ -86,7 +115,7 @@ public class CreateAutoTestResultReasonProjectApiModel {
   }
 
 
-  public CreateAutoTestResultReasonProjectApiModel failureCategory(FailureCategory failureCategory) {
+  public UpdateFailureCategoryApiModel failureCategory(FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -111,14 +140,14 @@ public class CreateAutoTestResultReasonProjectApiModel {
   }
 
 
-  public CreateAutoTestResultReasonProjectApiModel failureClassRegexes(List<CreateFailureClassRegexApiModel> failureClassRegexes) {
-    this.failureClassRegexes = JsonNullable.<List<CreateFailureClassRegexApiModel>>of(failureClassRegexes);
+  public UpdateFailureCategoryApiModel failureClassRegexes(List<UpdateFailureClassRegexApiModel> failureClassRegexes) {
+    this.failureClassRegexes = JsonNullable.<List<UpdateFailureClassRegexApiModel>>of(failureClassRegexes);
     return this;
   }
 
-  public CreateAutoTestResultReasonProjectApiModel addFailureClassRegexesItem(CreateFailureClassRegexApiModel failureClassRegexesItem) {
+  public UpdateFailureCategoryApiModel addFailureClassRegexesItem(UpdateFailureClassRegexApiModel failureClassRegexesItem) {
     if (this.failureClassRegexes == null || !this.failureClassRegexes.isPresent()) {
-      this.failureClassRegexes = JsonNullable.<List<CreateFailureClassRegexApiModel>>of(new ArrayList<>());
+      this.failureClassRegexes = JsonNullable.<List<UpdateFailureClassRegexApiModel>>of(new ArrayList<>());
     }
     try {
       this.failureClassRegexes.get().add(failureClassRegexesItem);
@@ -135,33 +164,33 @@ public class CreateAutoTestResultReasonProjectApiModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public List<CreateFailureClassRegexApiModel> getFailureClassRegexes() {
+  public List<UpdateFailureClassRegexApiModel> getFailureClassRegexes() {
         return failureClassRegexes.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_REGEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<CreateFailureClassRegexApiModel>> getFailureClassRegexes_JsonNullable() {
+  public JsonNullable<List<UpdateFailureClassRegexApiModel>> getFailureClassRegexes_JsonNullable() {
     return failureClassRegexes;
   }
   
   @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_REGEXES)
-  public void setFailureClassRegexes_JsonNullable(JsonNullable<List<CreateFailureClassRegexApiModel>> failureClassRegexes) {
+  public void setFailureClassRegexes_JsonNullable(JsonNullable<List<UpdateFailureClassRegexApiModel>> failureClassRegexes) {
     this.failureClassRegexes = failureClassRegexes;
   }
 
-  public void setFailureClassRegexes(List<CreateFailureClassRegexApiModel> failureClassRegexes) {
-    this.failureClassRegexes = JsonNullable.<List<CreateFailureClassRegexApiModel>>of(failureClassRegexes);
+  public void setFailureClassRegexes(List<UpdateFailureClassRegexApiModel> failureClassRegexes) {
+    this.failureClassRegexes = JsonNullable.<List<UpdateFailureClassRegexApiModel>>of(failureClassRegexes);
   }
 
 
-  public CreateAutoTestResultReasonProjectApiModel projectIds(List<UUID> projectIds) {
+  public UpdateFailureCategoryApiModel projectIds(List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
 
-  public CreateAutoTestResultReasonProjectApiModel addProjectIdsItem(UUID projectIdsItem) {
+  public UpdateFailureCategoryApiModel addProjectIdsItem(UUID projectIdsItem) {
     if (this.projectIds == null || !this.projectIds.isPresent()) {
       this.projectIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
     }
@@ -202,7 +231,7 @@ public class CreateAutoTestResultReasonProjectApiModel {
 
 
   /**
-   * Return true if this CreateAutoTestResultReasonProjectApiModel object is equal to o.
+   * Return true if this UpdateFailureCategoryApiModel object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -212,11 +241,12 @@ public class CreateAutoTestResultReasonProjectApiModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateAutoTestResultReasonProjectApiModel createAutoTestResultReasonProjectApiModel = (CreateAutoTestResultReasonProjectApiModel) o;
-    return Objects.equals(this.name, createAutoTestResultReasonProjectApiModel.name) &&
-        Objects.equals(this.failureCategory, createAutoTestResultReasonProjectApiModel.failureCategory) &&
-        equalsNullable(this.failureClassRegexes, createAutoTestResultReasonProjectApiModel.failureClassRegexes) &&
-        equalsNullable(this.projectIds, createAutoTestResultReasonProjectApiModel.projectIds);
+    UpdateFailureCategoryApiModel updateFailureCategoryApiModel = (UpdateFailureCategoryApiModel) o;
+    return Objects.equals(this.id, updateFailureCategoryApiModel.id) &&
+        Objects.equals(this.name, updateFailureCategoryApiModel.name) &&
+        Objects.equals(this.failureCategory, updateFailureCategoryApiModel.failureCategory) &&
+        equalsNullable(this.failureClassRegexes, updateFailureCategoryApiModel.failureClassRegexes) &&
+        equalsNullable(this.projectIds, updateFailureCategoryApiModel.projectIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -225,7 +255,7 @@ public class CreateAutoTestResultReasonProjectApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, failureCategory, hashCodeNullable(failureClassRegexes), hashCodeNullable(projectIds));
+    return Objects.hash(id, name, failureCategory, hashCodeNullable(failureClassRegexes), hashCodeNullable(projectIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -238,7 +268,8 @@ public class CreateAutoTestResultReasonProjectApiModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateAutoTestResultReasonProjectApiModel {\n");
+    sb.append("class UpdateFailureCategoryApiModel {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    failureCategory: ").append(toIndentedString(failureCategory)).append("\n");
     sb.append("    failureClassRegexes: ").append(toIndentedString(failureClassRegexes)).append("\n");

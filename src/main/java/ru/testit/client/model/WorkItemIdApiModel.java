@@ -27,26 +27,26 @@ import ru.testit.client.invoker.JSON;
 
 
 /**
- * WorkItemIdModel
+ * WorkItemIdApiModel
  */
 @JsonPropertyOrder({
-  WorkItemIdModel.JSON_PROPERTY_ID
+  WorkItemIdApiModel.JSON_PROPERTY_ID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class WorkItemIdModel {
+public class WorkItemIdApiModel {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public WorkItemIdModel() { 
+  public WorkItemIdApiModel() { 
   }
 
-  public WorkItemIdModel id(String id) {
+  public WorkItemIdApiModel id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format
+   * Work Item ID or Global ID
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -66,7 +66,7 @@ public class WorkItemIdModel {
 
 
   /**
-   * Return true if this WorkItemIdModel object is equal to o.
+   * Return true if this WorkItemIdApiModel object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -76,8 +76,8 @@ public class WorkItemIdModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WorkItemIdModel workItemIdModel = (WorkItemIdModel) o;
-    return Objects.equals(this.id, workItemIdModel.id);
+    WorkItemIdApiModel workItemIdApiModel = (WorkItemIdApiModel) o;
+    return Objects.equals(this.id, workItemIdApiModel.id);
   }
 
   @Override
@@ -88,7 +88,7 @@ public class WorkItemIdModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WorkItemIdModel {\n");
+    sb.append("class WorkItemIdApiModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

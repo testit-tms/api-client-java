@@ -1,6 +1,6 @@
 
 
-# AutoTestResultReasonProjectApiResult
+# FailureCategoryApiResult
 
 
 ## Properties

@@ -1,13 +1,12 @@
 
 
-# AutoTestProjectSettingsGetModel
+# AutoTestProjectSettingsApiModel
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**projectId** | **UUID** | Unique ID of the project. |  |
 |**rerunEnabled** | **Boolean** | Auto rerun enabled |  |
 |**rerunAttemptsCount** | **Integer** | Auto rerun attempt count |  |
 |**isFlakyAuto** | **Boolean** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically |  [optional] |
