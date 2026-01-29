@@ -30,5 +30,5 @@ out
 new/
 *.bak
 !.vendor/*.jar
-.swagger
+.swagger_
 README-NEW.md
