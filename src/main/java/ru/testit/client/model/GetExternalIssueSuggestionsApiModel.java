@@ -43,9 +43,10 @@ import ru.testit.client.invoker.JSON;
   GetExternalIssueSuggestionsApiModel.JSON_PROPERTY_PROJECT_IDS,
   GetExternalIssueSuggestionsApiModel.JSON_PROPERTY_INQUIRY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GetExternalIssueSuggestionsApiModel {
   public static final String JSON_PROPERTY_FIELD = "field";
+  @jakarta.annotation.Nonnull
   private ExternalIssueApiField field;
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
@@ -57,7 +58,7 @@ public class GetExternalIssueSuggestionsApiModel {
   public GetExternalIssueSuggestionsApiModel() { 
   }
 
-  public GetExternalIssueSuggestionsApiModel field(ExternalIssueApiField field) {
+  public GetExternalIssueSuggestionsApiModel field(@jakarta.annotation.Nonnull ExternalIssueApiField field) {
     this.field = field;
     return this;
   }
@@ -77,12 +78,12 @@ public class GetExternalIssueSuggestionsApiModel {
 
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setField(ExternalIssueApiField field) {
+  public void setField(@jakarta.annotation.Nonnull ExternalIssueApiField field) {
     this.field = field;
   }
 
 
-  public GetExternalIssueSuggestionsApiModel projectIds(List<UUID> projectIds) {
+  public GetExternalIssueSuggestionsApiModel projectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
@@ -122,12 +123,12 @@ public class GetExternalIssueSuggestionsApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
   }
 
 
-  public GetExternalIssueSuggestionsApiModel inquiry(Inquiry inquiry) {
+  public GetExternalIssueSuggestionsApiModel inquiry(@jakarta.annotation.Nullable Inquiry inquiry) {
     this.inquiry = JsonNullable.<Inquiry>of(inquiry);
     return this;
   }
@@ -155,7 +156,7 @@ public class GetExternalIssueSuggestionsApiModel {
     this.inquiry = inquiry;
   }
 
-  public void setInquiry(Inquiry inquiry) {
+  public void setInquiry(@jakarta.annotation.Nullable Inquiry inquiry) {
     this.inquiry = JsonNullable.<Inquiry>of(inquiry);
   }
 

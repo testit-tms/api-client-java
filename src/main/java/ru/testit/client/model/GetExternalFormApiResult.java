@@ -37,18 +37,20 @@ import ru.testit.client.invoker.JSON;
   GetExternalFormApiResult.JSON_PROPERTY_TEST_RESULT_IDS,
   GetExternalFormApiResult.JSON_PROPERTY_FORM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GetExternalFormApiResult {
   public static final String JSON_PROPERTY_TEST_RESULT_IDS = "testResultIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> testResultIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FORM = "form";
+  @jakarta.annotation.Nonnull
   private ExternalFormModel form;
 
   public GetExternalFormApiResult() { 
   }
 
-  public GetExternalFormApiResult testResultIds(List<UUID> testResultIds) {
+  public GetExternalFormApiResult testResultIds(@jakarta.annotation.Nonnull List<UUID> testResultIds) {
     this.testResultIds = testResultIds;
     return this;
   }
@@ -76,12 +78,12 @@ public class GetExternalFormApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_RESULT_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestResultIds(List<UUID> testResultIds) {
+  public void setTestResultIds(@jakarta.annotation.Nonnull List<UUID> testResultIds) {
     this.testResultIds = testResultIds;
   }
 
 
-  public GetExternalFormApiResult form(ExternalFormModel form) {
+  public GetExternalFormApiResult form(@jakarta.annotation.Nonnull ExternalFormModel form) {
     this.form = form;
     return this;
   }
@@ -101,7 +103,7 @@ public class GetExternalFormApiResult {
 
   @JsonProperty(JSON_PROPERTY_FORM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setForm(ExternalFormModel form) {
+  public void setForm(@jakarta.annotation.Nonnull ExternalFormModel form) {
     this.form = form;
   }
 

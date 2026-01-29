@@ -337,7 +337,7 @@ null (empty response body)
 
 ## apiV2TestResultsIdAttachmentsInfoGet
 
-> List&lt;AttachmentModel&gt; apiV2TestResultsIdAttachmentsInfoGet(id)
+> List&lt;AttachmentApiResult&gt; apiV2TestResultsIdAttachmentsInfoGet(id)
 
 Get test result attachments meta-information
 
@@ -367,7 +367,7 @@ public class Example {
         TestResultsApi apiInstance = new TestResultsApi(defaultClient);
         UUID id = UUID.randomUUID(); // UUID | Test result unique ID
         try {
-            List<AttachmentModel> result = apiInstance.apiV2TestResultsIdAttachmentsInfoGet(id);
+            List<AttachmentApiResult> result = apiInstance.apiV2TestResultsIdAttachmentsInfoGet(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdAttachmentsInfoGet");
@@ -389,7 +389,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;AttachmentModel&gt;**](AttachmentModel.md)
+[**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md)
 
 ### Authorization
 
@@ -1089,14 +1089,14 @@ null (empty response body)
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Read permission for test result required |  -  |
-| **404** |   File not found    Attachment not found |  -  |
+| **404** |  File not found  Attachment not found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
 
 ## getAttachment
 
-> AttachmentModel getAttachment(id, attachmentId)
+> AttachmentApiResult getAttachment(id, attachmentId)
 
 Get Metadata of TestResult&#39;s attachment
 
@@ -1138,7 +1138,7 @@ public class Example {
         UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
         UUID attachmentId = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Attachment internal identifier (guid format)
         try {
-            AttachmentModel result = apiInstance.getAttachment(id, attachmentId);
+            AttachmentApiResult result = apiInstance.getAttachment(id, attachmentId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TestResultsApi#getAttachment");
@@ -1161,7 +1161,7 @@ public class Example {
 
 ### Return type
 
-[**AttachmentModel**](AttachmentModel.md)
+[**AttachmentApiResult**](AttachmentApiResult.md)
 
 ### Authorization
 
@@ -1186,7 +1186,7 @@ public class Example {
 
 ## getAttachments
 
-> List&lt;AttachmentModel&gt; getAttachments(id)
+> List&lt;AttachmentApiResult&gt; getAttachments(id)
 
 Get all attachments of TestResult
 
@@ -1227,7 +1227,7 @@ public class Example {
         TestResultsApi apiInstance = new TestResultsApi(defaultClient);
         UUID id = UUID.fromString("3fa85f64-5717-4562-b3fc-2c963f66afa6"); // UUID | Test result internal identifier (guid format)
         try {
-            List<AttachmentModel> result = apiInstance.getAttachments(id);
+            List<AttachmentApiResult> result = apiInstance.getAttachments(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TestResultsApi#getAttachments");
@@ -1249,7 +1249,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;AttachmentModel&gt;**](AttachmentModel.md)
+[**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md)
 
 ### Authorization
 

@@ -37,18 +37,20 @@ import ru.testit.client.invoker.JSON;
   AssignIterationApiModel.JSON_PROPERTY_PARAMETERS,
   AssignIterationApiModel.JSON_PROPERTY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AssignIterationApiModel {
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  @jakarta.annotation.Nonnull
   private List<ParameterIterationModel> parameters = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public AssignIterationApiModel() { 
   }
 
-  public AssignIterationApiModel parameters(List<ParameterIterationModel> parameters) {
+  public AssignIterationApiModel parameters(@jakarta.annotation.Nonnull List<ParameterIterationModel> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -76,12 +78,12 @@ public class AssignIterationApiModel {
 
   @JsonProperty(JSON_PROPERTY_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameters(List<ParameterIterationModel> parameters) {
+  public void setParameters(@jakarta.annotation.Nonnull List<ParameterIterationModel> parameters) {
     this.parameters = parameters;
   }
 
 
-  public AssignIterationApiModel id(UUID id) {
+  public AssignIterationApiModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -101,7 +103,7 @@ public class AssignIterationApiModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 

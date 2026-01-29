@@ -37,24 +37,28 @@ import ru.testit.client.invoker.JSON;
   RerunTestResultApiResult.JSON_PROPERTY_STATUS,
   RerunTestResultApiResult.JSON_PROPERTY_RUN_NUMBER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class RerunTestResultApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
+  @jakarta.annotation.Nonnull
   private String outcome;
 
   public static final String JSON_PROPERTY_STATUS = "status";
+  @jakarta.annotation.Nonnull
   private TestStatusApiResult status;
 
   public static final String JSON_PROPERTY_RUN_NUMBER = "runNumber";
+  @jakarta.annotation.Nonnull
   private Integer runNumber;
 
   public RerunTestResultApiResult() { 
   }
 
-  public RerunTestResultApiResult id(UUID id) {
+  public RerunTestResultApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -74,12 +78,12 @@ public class RerunTestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public RerunTestResultApiResult outcome(String outcome) {
+  public RerunTestResultApiResult outcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -99,12 +103,12 @@ public class RerunTestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_OUTCOME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOutcome(String outcome) {
+  public void setOutcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
   }
 
 
-  public RerunTestResultApiResult status(TestStatusApiResult status) {
+  public RerunTestResultApiResult status(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -124,12 +128,12 @@ public class RerunTestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(TestStatusApiResult status) {
+  public void setStatus(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public RerunTestResultApiResult runNumber(Integer runNumber) {
+  public RerunTestResultApiResult runNumber(@jakarta.annotation.Nonnull Integer runNumber) {
     this.runNumber = runNumber;
     return this;
   }
@@ -149,7 +153,7 @@ public class RerunTestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_RUN_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRunNumber(Integer runNumber) {
+  public void setRunNumber(@jakarta.annotation.Nonnull Integer runNumber) {
     this.runNumber = runNumber;
   }
 

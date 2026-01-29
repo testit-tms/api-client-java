@@ -52,36 +52,44 @@ import ru.testit.client.invoker.JSON;
   ProjectShortModel.JSON_PROPERTY_CHECK_LISTS_COUNT,
   ProjectShortModel.JSON_PROPERTY_AUTO_TESTS_COUNT,
   ProjectShortModel.JSON_PROPERTY_MODIFIED_DATE,
-  ProjectShortModel.JSON_PROPERTY_MODIFIED_BY_ID,
-  ProjectShortModel.JSON_PROPERTY_IS_FLAKY_AUTO
+  ProjectShortModel.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectShortModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_IS_FAVORITE = "isFavorite";
+  @jakarta.annotation.Nonnull
   private Boolean isFavorite;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private ProjectTypeModel type;
 
   public static final String JSON_PROPERTY_WORKFLOW_ID = "workflowId";
+  @jakarta.annotation.Nonnull
   private UUID workflowId;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -105,14 +113,10 @@ public class ProjectShortModel {
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
   private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
 
-  public static final String JSON_PROPERTY_IS_FLAKY_AUTO = "isFlakyAuto";
-  @Deprecated
-  private JsonNullable<Boolean> isFlakyAuto = JsonNullable.<Boolean>undefined();
-
   public ProjectShortModel() { 
   }
 
-  public ProjectShortModel id(UUID id) {
+  public ProjectShortModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -132,12 +136,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ProjectShortModel name(String name) {
+  public ProjectShortModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -157,12 +161,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectShortModel isFavorite(Boolean isFavorite) {
+  public ProjectShortModel isFavorite(@jakarta.annotation.Nonnull Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
@@ -182,12 +186,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsFavorite(Boolean isFavorite) {
+  public void setIsFavorite(@jakarta.annotation.Nonnull Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 
 
-  public ProjectShortModel isDeleted(Boolean isDeleted) {
+  public ProjectShortModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -207,12 +211,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectShortModel createdDate(OffsetDateTime createdDate) {
+  public ProjectShortModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -232,12 +236,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public ProjectShortModel createdById(UUID createdById) {
+  public ProjectShortModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -257,12 +261,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public ProjectShortModel globalId(Long globalId) {
+  public ProjectShortModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -282,12 +286,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public ProjectShortModel type(ProjectTypeModel type) {
+  public ProjectShortModel type(@jakarta.annotation.Nonnull ProjectTypeModel type) {
     this.type = type;
     return this;
   }
@@ -307,12 +311,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(ProjectTypeModel type) {
+  public void setType(@jakarta.annotation.Nonnull ProjectTypeModel type) {
     this.type = type;
   }
 
 
-  public ProjectShortModel workflowId(UUID workflowId) {
+  public ProjectShortModel workflowId(@jakarta.annotation.Nonnull UUID workflowId) {
     this.workflowId = workflowId;
     return this;
   }
@@ -332,12 +336,12 @@ public class ProjectShortModel {
 
   @JsonProperty(JSON_PROPERTY_WORKFLOW_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkflowId(UUID workflowId) {
+  public void setWorkflowId(@jakarta.annotation.Nonnull UUID workflowId) {
     this.workflowId = workflowId;
   }
 
 
-  public ProjectShortModel description(String description) {
+  public ProjectShortModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -365,12 +369,12 @@ public class ProjectShortModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public ProjectShortModel testCasesCount(Integer testCasesCount) {
+  public ProjectShortModel testCasesCount(@jakarta.annotation.Nullable Integer testCasesCount) {
     this.testCasesCount = JsonNullable.<Integer>of(testCasesCount);
     return this;
   }
@@ -398,12 +402,12 @@ public class ProjectShortModel {
     this.testCasesCount = testCasesCount;
   }
 
-  public void setTestCasesCount(Integer testCasesCount) {
+  public void setTestCasesCount(@jakarta.annotation.Nullable Integer testCasesCount) {
     this.testCasesCount = JsonNullable.<Integer>of(testCasesCount);
   }
 
 
-  public ProjectShortModel sharedStepsCount(Integer sharedStepsCount) {
+  public ProjectShortModel sharedStepsCount(@jakarta.annotation.Nullable Integer sharedStepsCount) {
     this.sharedStepsCount = JsonNullable.<Integer>of(sharedStepsCount);
     return this;
   }
@@ -431,12 +435,12 @@ public class ProjectShortModel {
     this.sharedStepsCount = sharedStepsCount;
   }
 
-  public void setSharedStepsCount(Integer sharedStepsCount) {
+  public void setSharedStepsCount(@jakarta.annotation.Nullable Integer sharedStepsCount) {
     this.sharedStepsCount = JsonNullable.<Integer>of(sharedStepsCount);
   }
 
 
-  public ProjectShortModel checkListsCount(Integer checkListsCount) {
+  public ProjectShortModel checkListsCount(@jakarta.annotation.Nullable Integer checkListsCount) {
     this.checkListsCount = JsonNullable.<Integer>of(checkListsCount);
     return this;
   }
@@ -464,12 +468,12 @@ public class ProjectShortModel {
     this.checkListsCount = checkListsCount;
   }
 
-  public void setCheckListsCount(Integer checkListsCount) {
+  public void setCheckListsCount(@jakarta.annotation.Nullable Integer checkListsCount) {
     this.checkListsCount = JsonNullable.<Integer>of(checkListsCount);
   }
 
 
-  public ProjectShortModel autoTestsCount(Integer autoTestsCount) {
+  public ProjectShortModel autoTestsCount(@jakarta.annotation.Nullable Integer autoTestsCount) {
     this.autoTestsCount = JsonNullable.<Integer>of(autoTestsCount);
     return this;
   }
@@ -497,12 +501,12 @@ public class ProjectShortModel {
     this.autoTestsCount = autoTestsCount;
   }
 
-  public void setAutoTestsCount(Integer autoTestsCount) {
+  public void setAutoTestsCount(@jakarta.annotation.Nullable Integer autoTestsCount) {
     this.autoTestsCount = JsonNullable.<Integer>of(autoTestsCount);
   }
 
 
-  public ProjectShortModel modifiedDate(OffsetDateTime modifiedDate) {
+  public ProjectShortModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -530,12 +534,12 @@ public class ProjectShortModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public ProjectShortModel modifiedById(UUID modifiedById) {
+  public ProjectShortModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -563,45 +567,8 @@ public class ProjectShortModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
-  }
-
-
-  @Deprecated
-  public ProjectShortModel isFlakyAuto(Boolean isFlakyAuto) {
-    this.isFlakyAuto = JsonNullable.<Boolean>of(isFlakyAuto);
-    return this;
-  }
-
-  /**
-   * Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically
-   * @return isFlakyAuto
-   * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Boolean getIsFlakyAuto() {
-        return isFlakyAuto.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsFlakyAuto_JsonNullable() {
-    return isFlakyAuto;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
-  public void setIsFlakyAuto_JsonNullable(JsonNullable<Boolean> isFlakyAuto) {
-    this.isFlakyAuto = isFlakyAuto;
-  }
-
-  @Deprecated
-  public void setIsFlakyAuto(Boolean isFlakyAuto) {
-    this.isFlakyAuto = JsonNullable.<Boolean>of(isFlakyAuto);
   }
 
 
@@ -632,8 +599,7 @@ public class ProjectShortModel {
         equalsNullable(this.checkListsCount, projectShortModel.checkListsCount) &&
         equalsNullable(this.autoTestsCount, projectShortModel.autoTestsCount) &&
         equalsNullable(this.modifiedDate, projectShortModel.modifiedDate) &&
-        equalsNullable(this.modifiedById, projectShortModel.modifiedById) &&
-        equalsNullable(this.isFlakyAuto, projectShortModel.isFlakyAuto);
+        equalsNullable(this.modifiedById, projectShortModel.modifiedById);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -642,7 +608,7 @@ public class ProjectShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isFavorite, isDeleted, createdDate, createdById, globalId, type, workflowId, hashCodeNullable(description), hashCodeNullable(testCasesCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(checkListsCount), hashCodeNullable(autoTestsCount), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(isFlakyAuto));
+    return Objects.hash(id, name, isFavorite, isDeleted, createdDate, createdById, globalId, type, workflowId, hashCodeNullable(description), hashCodeNullable(testCasesCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(checkListsCount), hashCodeNullable(autoTestsCount), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -672,7 +638,6 @@ public class ProjectShortModel {
     sb.append("    autoTestsCount: ").append(toIndentedString(autoTestsCount)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
-    sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("}");
     return sb.toString();
   }

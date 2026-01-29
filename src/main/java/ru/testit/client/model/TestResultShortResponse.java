@@ -48,6 +48,7 @@ import ru.testit.client.invoker.JSON;
   TestResultShortResponse.JSON_PROPERTY_TEST_RUN_ID,
   TestResultShortResponse.JSON_PROPERTY_CONFIGURATION_ID,
   TestResultShortResponse.JSON_PROPERTY_CONFIGURATION_NAME,
+  TestResultShortResponse.JSON_PROPERTY_STATUS,
   TestResultShortResponse.JSON_PROPERTY_RESULT_REASONS,
   TestResultShortResponse.JSON_PROPERTY_DATE,
   TestResultShortResponse.JSON_PROPERTY_CREATED_DATE,
@@ -56,50 +57,65 @@ import ru.testit.client.invoker.JSON;
   TestResultShortResponse.JSON_PROPERTY_RERUN_COMPLETED_COUNT,
   TestResultShortResponse.JSON_PROPERTY_AUTOTEST_EXTERNAL_ID,
   TestResultShortResponse.JSON_PROPERTY_OUTCOME,
-  TestResultShortResponse.JSON_PROPERTY_STATUS,
   TestResultShortResponse.JSON_PROPERTY_COMMENT,
   TestResultShortResponse.JSON_PROPERTY_MODIFIED_DATE,
   TestResultShortResponse.JSON_PROPERTY_STARTED_ON,
   TestResultShortResponse.JSON_PROPERTY_COMPLETED_ON,
   TestResultShortResponse.JSON_PROPERTY_DURATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultShortResponse {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_AUTOTEST_GLOBAL_ID = "autotestGlobalId";
+  @jakarta.annotation.Nonnull
   private Long autotestGlobalId;
 
   public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
+  @jakarta.annotation.Nonnull
   private UUID testRunId;
 
   public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
+  @jakarta.annotation.Nonnull
   private UUID configurationId;
 
   public static final String JSON_PROPERTY_CONFIGURATION_NAME = "configurationName";
+  @jakarta.annotation.Nonnull
   private String configurationName;
 
+  public static final String JSON_PROPERTY_STATUS = "status";
+  @jakarta.annotation.Nonnull
+  private TestStatusApiResult status;
+
   public static final String JSON_PROPERTY_RESULT_REASONS = "resultReasons";
+  @jakarta.annotation.Nonnull
   private List<AutoTestResultReasonShort> resultReasons = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DATE = "date";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_LINKS = "links";
+  @jakarta.annotation.Nonnull
   private List<LinkShort> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nonnull
   private List<AttachmentApiResult> attachments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_RERUN_COMPLETED_COUNT = "rerunCompletedCount";
+  @jakarta.annotation.Nonnull
   private Integer rerunCompletedCount;
 
   public static final String JSON_PROPERTY_AUTOTEST_EXTERNAL_ID = "autotestExternalId";
@@ -108,9 +124,6 @@ public class TestResultShortResponse {
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
   @Deprecated
   private JsonNullable<String> outcome = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private JsonNullable<TestStatusApiResult> status = JsonNullable.<TestStatusApiResult>undefined();
 
   public static final String JSON_PROPERTY_COMMENT = "comment";
   private JsonNullable<String> comment = JsonNullable.<String>undefined();
@@ -130,7 +143,7 @@ public class TestResultShortResponse {
   public TestResultShortResponse() { 
   }
 
-  public TestResultShortResponse id(UUID id) {
+  public TestResultShortResponse id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -150,12 +163,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestResultShortResponse name(String name) {
+  public TestResultShortResponse name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -175,12 +188,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestResultShortResponse autotestGlobalId(Long autotestGlobalId) {
+  public TestResultShortResponse autotestGlobalId(@jakarta.annotation.Nonnull Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
     return this;
   }
@@ -200,12 +213,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_AUTOTEST_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutotestGlobalId(Long autotestGlobalId) {
+  public void setAutotestGlobalId(@jakarta.annotation.Nonnull Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
   }
 
 
-  public TestResultShortResponse testRunId(UUID testRunId) {
+  public TestResultShortResponse testRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -225,12 +238,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public TestResultShortResponse configurationId(UUID configurationId) {
+  public TestResultShortResponse configurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -250,12 +263,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestResultShortResponse configurationName(String configurationName) {
+  public TestResultShortResponse configurationName(@jakarta.annotation.Nonnull String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
@@ -275,12 +288,37 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@jakarta.annotation.Nonnull String configurationName) {
     this.configurationName = configurationName;
   }
 
 
-  public TestResultShortResponse resultReasons(List<AutoTestResultReasonShort> resultReasons) {
+  public TestResultShortResponse status(@jakarta.annotation.Nonnull TestStatusApiResult status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public TestStatusApiResult getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setStatus(@jakarta.annotation.Nonnull TestStatusApiResult status) {
+    this.status = status;
+  }
+
+
+  public TestResultShortResponse resultReasons(@jakarta.annotation.Nonnull List<AutoTestResultReasonShort> resultReasons) {
     this.resultReasons = resultReasons;
     return this;
   }
@@ -308,13 +346,13 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_RESULT_REASONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResultReasons(List<AutoTestResultReasonShort> resultReasons) {
+  public void setResultReasons(@jakarta.annotation.Nonnull List<AutoTestResultReasonShort> resultReasons) {
     this.resultReasons = resultReasons;
   }
 
 
   @Deprecated
-  public TestResultShortResponse date(OffsetDateTime date) {
+  public TestResultShortResponse date(@jakarta.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
     return this;
   }
@@ -337,12 +375,12 @@ public class TestResultShortResponse {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDate(OffsetDateTime date) {
+  public void setDate(@jakarta.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
   }
 
 
-  public TestResultShortResponse createdDate(OffsetDateTime createdDate) {
+  public TestResultShortResponse createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -362,12 +400,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestResultShortResponse links(List<LinkShort> links) {
+  public TestResultShortResponse links(@jakarta.annotation.Nonnull List<LinkShort> links) {
     this.links = links;
     return this;
   }
@@ -395,12 +433,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(List<LinkShort> links) {
+  public void setLinks(@jakarta.annotation.Nonnull List<LinkShort> links) {
     this.links = links;
   }
 
 
-  public TestResultShortResponse attachments(List<AttachmentApiResult> attachments) {
+  public TestResultShortResponse attachments(@jakarta.annotation.Nonnull List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -428,12 +466,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttachments(List<AttachmentApiResult> attachments) {
+  public void setAttachments(@jakarta.annotation.Nonnull List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestResultShortResponse rerunCompletedCount(Integer rerunCompletedCount) {
+  public TestResultShortResponse rerunCompletedCount(@jakarta.annotation.Nonnull Integer rerunCompletedCount) {
     this.rerunCompletedCount = rerunCompletedCount;
     return this;
   }
@@ -453,12 +491,12 @@ public class TestResultShortResponse {
 
   @JsonProperty(JSON_PROPERTY_RERUN_COMPLETED_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRerunCompletedCount(Integer rerunCompletedCount) {
+  public void setRerunCompletedCount(@jakarta.annotation.Nonnull Integer rerunCompletedCount) {
     this.rerunCompletedCount = rerunCompletedCount;
   }
 
 
-  public TestResultShortResponse autotestExternalId(String autotestExternalId) {
+  public TestResultShortResponse autotestExternalId(@jakarta.annotation.Nullable String autotestExternalId) {
     this.autotestExternalId = JsonNullable.<String>of(autotestExternalId);
     return this;
   }
@@ -486,13 +524,13 @@ public class TestResultShortResponse {
     this.autotestExternalId = autotestExternalId;
   }
 
-  public void setAutotestExternalId(String autotestExternalId) {
+  public void setAutotestExternalId(@jakarta.annotation.Nullable String autotestExternalId) {
     this.autotestExternalId = JsonNullable.<String>of(autotestExternalId);
   }
 
 
   @Deprecated
-  public TestResultShortResponse outcome(String outcome) {
+  public TestResultShortResponse outcome(@jakarta.annotation.Nullable String outcome) {
     this.outcome = JsonNullable.<String>of(outcome);
     return this;
   }
@@ -523,45 +561,12 @@ public class TestResultShortResponse {
   }
 
   @Deprecated
-  public void setOutcome(String outcome) {
+  public void setOutcome(@jakarta.annotation.Nullable String outcome) {
     this.outcome = JsonNullable.<String>of(outcome);
   }
 
 
-  public TestResultShortResponse status(TestStatusApiResult status) {
-    this.status = JsonNullable.<TestStatusApiResult>of(status);
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public TestStatusApiResult getStatus() {
-        return status.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<TestStatusApiResult> getStatus_JsonNullable() {
-    return status;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  public void setStatus_JsonNullable(JsonNullable<TestStatusApiResult> status) {
-    this.status = status;
-  }
-
-  public void setStatus(TestStatusApiResult status) {
-    this.status = JsonNullable.<TestStatusApiResult>of(status);
-  }
-
-
-  public TestResultShortResponse comment(String comment) {
+  public TestResultShortResponse comment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
     return this;
   }
@@ -589,12 +594,12 @@ public class TestResultShortResponse {
     this.comment = comment;
   }
 
-  public void setComment(String comment) {
+  public void setComment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
   }
 
 
-  public TestResultShortResponse modifiedDate(OffsetDateTime modifiedDate) {
+  public TestResultShortResponse modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -622,12 +627,12 @@ public class TestResultShortResponse {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public TestResultShortResponse startedOn(OffsetDateTime startedOn) {
+  public TestResultShortResponse startedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
     return this;
   }
@@ -655,12 +660,12 @@ public class TestResultShortResponse {
     this.startedOn = startedOn;
   }
 
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
   }
 
 
-  public TestResultShortResponse completedOn(OffsetDateTime completedOn) {
+  public TestResultShortResponse completedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
     return this;
   }
@@ -688,12 +693,12 @@ public class TestResultShortResponse {
     this.completedOn = completedOn;
   }
 
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
   }
 
 
-  public TestResultShortResponse duration(Long duration) {
+  public TestResultShortResponse duration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
     return this;
   }
@@ -721,7 +726,7 @@ public class TestResultShortResponse {
     this.duration = duration;
   }
 
-  public void setDuration(Long duration) {
+  public void setDuration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
   }
 
@@ -744,6 +749,7 @@ public class TestResultShortResponse {
         Objects.equals(this.testRunId, testResultShortResponse.testRunId) &&
         Objects.equals(this.configurationId, testResultShortResponse.configurationId) &&
         Objects.equals(this.configurationName, testResultShortResponse.configurationName) &&
+        Objects.equals(this.status, testResultShortResponse.status) &&
         Objects.equals(this.resultReasons, testResultShortResponse.resultReasons) &&
         Objects.equals(this.date, testResultShortResponse.date) &&
         Objects.equals(this.createdDate, testResultShortResponse.createdDate) &&
@@ -752,7 +758,6 @@ public class TestResultShortResponse {
         Objects.equals(this.rerunCompletedCount, testResultShortResponse.rerunCompletedCount) &&
         equalsNullable(this.autotestExternalId, testResultShortResponse.autotestExternalId) &&
         equalsNullable(this.outcome, testResultShortResponse.outcome) &&
-        equalsNullable(this.status, testResultShortResponse.status) &&
         equalsNullable(this.comment, testResultShortResponse.comment) &&
         equalsNullable(this.modifiedDate, testResultShortResponse.modifiedDate) &&
         equalsNullable(this.startedOn, testResultShortResponse.startedOn) &&
@@ -766,7 +771,7 @@ public class TestResultShortResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, autotestGlobalId, testRunId, configurationId, configurationName, resultReasons, date, createdDate, links, attachments, rerunCompletedCount, hashCodeNullable(autotestExternalId), hashCodeNullable(outcome), hashCodeNullable(status), hashCodeNullable(comment), hashCodeNullable(modifiedDate), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration));
+    return Objects.hash(id, name, autotestGlobalId, testRunId, configurationId, configurationName, status, resultReasons, date, createdDate, links, attachments, rerunCompletedCount, hashCodeNullable(autotestExternalId), hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(modifiedDate), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -786,6 +791,7 @@ public class TestResultShortResponse {
     sb.append("    testRunId: ").append(toIndentedString(testRunId)).append("\n");
     sb.append("    configurationId: ").append(toIndentedString(configurationId)).append("\n");
     sb.append("    configurationName: ").append(toIndentedString(configurationName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    resultReasons: ").append(toIndentedString(resultReasons)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
@@ -794,7 +800,6 @@ public class TestResultShortResponse {
     sb.append("    rerunCompletedCount: ").append(toIndentedString(rerunCompletedCount)).append("\n");
     sb.append("    autotestExternalId: ").append(toIndentedString(autotestExternalId)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");

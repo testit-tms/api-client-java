@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   Int32ChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   Int32ChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Int32ChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  @jakarta.annotation.Nonnull
   private Integer oldValue;
 
   public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  @jakarta.annotation.Nonnull
   private Integer newValue;
 
   public Int32ChangedFieldViewModel() { 
   }
 
-  public Int32ChangedFieldViewModel oldValue(Integer oldValue) {
+  public Int32ChangedFieldViewModel oldValue(@jakarta.annotation.Nonnull Integer oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -64,12 +66,12 @@ public class Int32ChangedFieldViewModel {
 
   @JsonProperty(JSON_PROPERTY_OLD_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOldValue(Integer oldValue) {
+  public void setOldValue(@jakarta.annotation.Nonnull Integer oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public Int32ChangedFieldViewModel newValue(Integer newValue) {
+  public Int32ChangedFieldViewModel newValue(@jakarta.annotation.Nonnull Integer newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -89,7 +91,7 @@ public class Int32ChangedFieldViewModel {
 
   @JsonProperty(JSON_PROPERTY_NEW_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNewValue(Integer newValue) {
+  public void setNewValue(@jakarta.annotation.Nonnull Integer newValue) {
     this.newValue = newValue;
   }
 

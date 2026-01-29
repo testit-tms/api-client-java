@@ -47,42 +47,52 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_REQUIRED,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_GLOBAL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeSearchResponseModel {
   public static final String JSON_PROPERTY_WORK_ITEM_USAGE = "workItemUsage";
+  @jakarta.annotation.Nonnull
   private List<ProjectShortestModel> workItemUsage = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TEST_PLAN_USAGE = "testPlanUsage";
+  @jakarta.annotation.Nonnull
   private List<ProjectShortestModel> testPlanUsage = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
+  @jakarta.annotation.Nonnull
   private List<CustomAttributeOptionModel> options = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private CustomAttributeTypesEnum type;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  @jakarta.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_IS_REQUIRED = "isRequired";
+  @jakarta.annotation.Nonnull
   private Boolean isRequired;
 
   public static final String JSON_PROPERTY_IS_GLOBAL = "isGlobal";
+  @jakarta.annotation.Nonnull
   private Boolean isGlobal;
 
   public CustomAttributeSearchResponseModel() { 
   }
 
-  public CustomAttributeSearchResponseModel workItemUsage(List<ProjectShortestModel> workItemUsage) {
+  public CustomAttributeSearchResponseModel workItemUsage(@jakarta.annotation.Nonnull List<ProjectShortestModel> workItemUsage) {
     this.workItemUsage = workItemUsage;
     return this;
   }
@@ -110,12 +120,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_USAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemUsage(List<ProjectShortestModel> workItemUsage) {
+  public void setWorkItemUsage(@jakarta.annotation.Nonnull List<ProjectShortestModel> workItemUsage) {
     this.workItemUsage = workItemUsage;
   }
 
 
-  public CustomAttributeSearchResponseModel testPlanUsage(List<ProjectShortestModel> testPlanUsage) {
+  public CustomAttributeSearchResponseModel testPlanUsage(@jakarta.annotation.Nonnull List<ProjectShortestModel> testPlanUsage) {
     this.testPlanUsage = testPlanUsage;
     return this;
   }
@@ -143,12 +153,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_USAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanUsage(List<ProjectShortestModel> testPlanUsage) {
+  public void setTestPlanUsage(@jakarta.annotation.Nonnull List<ProjectShortestModel> testPlanUsage) {
     this.testPlanUsage = testPlanUsage;
   }
 
 
-  public CustomAttributeSearchResponseModel id(UUID id) {
+  public CustomAttributeSearchResponseModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -168,12 +178,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributeSearchResponseModel options(List<CustomAttributeOptionModel> options) {
+  public CustomAttributeSearchResponseModel options(@jakarta.annotation.Nonnull List<CustomAttributeOptionModel> options) {
     this.options = options;
     return this;
   }
@@ -187,7 +197,7 @@ public class CustomAttributeSearchResponseModel {
   }
 
   /**
-   * Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
   @jakarta.annotation.Nonnull
@@ -201,12 +211,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOptions(List<CustomAttributeOptionModel> options) {
+  public void setOptions(@jakarta.annotation.Nonnull List<CustomAttributeOptionModel> options) {
     this.options = options;
   }
 
 
-  public CustomAttributeSearchResponseModel type(CustomAttributeTypesEnum type) {
+  public CustomAttributeSearchResponseModel type(@jakarta.annotation.Nonnull CustomAttributeTypesEnum type) {
     this.type = type;
     return this;
   }
@@ -226,12 +236,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(CustomAttributeTypesEnum type) {
+  public void setType(@jakarta.annotation.Nonnull CustomAttributeTypesEnum type) {
     this.type = type;
   }
 
 
-  public CustomAttributeSearchResponseModel isDeleted(Boolean isDeleted) {
+  public CustomAttributeSearchResponseModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -251,12 +261,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public CustomAttributeSearchResponseModel name(String name) {
+  public CustomAttributeSearchResponseModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -276,12 +286,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CustomAttributeSearchResponseModel isEnabled(Boolean isEnabled) {
+  public CustomAttributeSearchResponseModel isEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -301,12 +311,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public CustomAttributeSearchResponseModel isRequired(Boolean isRequired) {
+  public CustomAttributeSearchResponseModel isRequired(@jakarta.annotation.Nonnull Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -326,12 +336,12 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@jakarta.annotation.Nonnull Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public CustomAttributeSearchResponseModel isGlobal(Boolean isGlobal) {
+  public CustomAttributeSearchResponseModel isGlobal(@jakarta.annotation.Nonnull Boolean isGlobal) {
     this.isGlobal = isGlobal;
     return this;
   }
@@ -351,7 +361,7 @@ public class CustomAttributeSearchResponseModel {
 
   @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsGlobal(Boolean isGlobal) {
+  public void setIsGlobal(@jakarta.annotation.Nonnull Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 

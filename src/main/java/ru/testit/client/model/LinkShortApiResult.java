@@ -36,24 +36,28 @@ import ru.testit.client.invoker.JSON;
   LinkShortApiResult.JSON_PROPERTY_URL,
   LinkShortApiResult.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LinkShortApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type;
 
   public LinkShortApiResult() { 
   }
 
-  public LinkShortApiResult id(UUID id) {
+  public LinkShortApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -73,12 +77,12 @@ public class LinkShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public LinkShortApiResult title(String title) {
+  public LinkShortApiResult title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -98,12 +102,12 @@ public class LinkShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public LinkShortApiResult url(String url) {
+  public LinkShortApiResult url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -123,12 +127,12 @@ public class LinkShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public LinkShortApiResult type(String type) {
+  public LinkShortApiResult type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -148,7 +152,7 @@ public class LinkShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 

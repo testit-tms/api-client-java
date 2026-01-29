@@ -33,23 +33,36 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_EXTERNAL_SERVICE_ID,
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_TASK_KEY,
-  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_SECTION_ID
+  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_SECTION_ID,
+  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_TEMPERATURE,
+  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_PREVIEW_LIMIT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GenerateWorkItemPreviewsApiModel {
   public static final String JSON_PROPERTY_EXTERNAL_SERVICE_ID = "externalServiceId";
+  @jakarta.annotation.Nonnull
   private UUID externalServiceId;
 
   public static final String JSON_PROPERTY_TASK_KEY = "taskKey";
+  @jakarta.annotation.Nonnull
   private String taskKey;
 
   public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  @jakarta.annotation.Nonnull
   private UUID sectionId;
+
+  public static final String JSON_PROPERTY_TEMPERATURE = "temperature";
+  @jakarta.annotation.Nonnull
+  private Float temperature;
+
+  public static final String JSON_PROPERTY_PREVIEW_LIMIT = "previewLimit";
+  @jakarta.annotation.Nonnull
+  private Integer previewLimit;
 
   public GenerateWorkItemPreviewsApiModel() { 
   }
 
-  public GenerateWorkItemPreviewsApiModel externalServiceId(UUID externalServiceId) {
+  public GenerateWorkItemPreviewsApiModel externalServiceId(@jakarta.annotation.Nonnull UUID externalServiceId) {
     this.externalServiceId = externalServiceId;
     return this;
   }
@@ -69,12 +82,12 @@ public class GenerateWorkItemPreviewsApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_SERVICE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalServiceId(UUID externalServiceId) {
+  public void setExternalServiceId(@jakarta.annotation.Nonnull UUID externalServiceId) {
     this.externalServiceId = externalServiceId;
   }
 
 
-  public GenerateWorkItemPreviewsApiModel taskKey(String taskKey) {
+  public GenerateWorkItemPreviewsApiModel taskKey(@jakarta.annotation.Nonnull String taskKey) {
     this.taskKey = taskKey;
     return this;
   }
@@ -94,12 +107,12 @@ public class GenerateWorkItemPreviewsApiModel {
 
   @JsonProperty(JSON_PROPERTY_TASK_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTaskKey(String taskKey) {
+  public void setTaskKey(@jakarta.annotation.Nonnull String taskKey) {
     this.taskKey = taskKey;
   }
 
 
-  public GenerateWorkItemPreviewsApiModel sectionId(UUID sectionId) {
+  public GenerateWorkItemPreviewsApiModel sectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -119,8 +132,62 @@ public class GenerateWorkItemPreviewsApiModel {
 
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionId(UUID sectionId) {
+  public void setSectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
+  }
+
+
+  public GenerateWorkItemPreviewsApiModel temperature(@jakarta.annotation.Nonnull Float temperature) {
+    this.temperature = temperature;
+    return this;
+  }
+
+  /**
+   * Get temperature
+   * minimum: 0
+   * maximum: 1
+   * @return temperature
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEMPERATURE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Float getTemperature() {
+    return temperature;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPERATURE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemperature(@jakarta.annotation.Nonnull Float temperature) {
+    this.temperature = temperature;
+  }
+
+
+  public GenerateWorkItemPreviewsApiModel previewLimit(@jakarta.annotation.Nonnull Integer previewLimit) {
+    this.previewLimit = previewLimit;
+    return this;
+  }
+
+  /**
+   * Get previewLimit
+   * minimum: 1
+   * maximum: 30
+   * @return previewLimit
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PREVIEW_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getPreviewLimit() {
+    return previewLimit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PREVIEW_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPreviewLimit(@jakarta.annotation.Nonnull Integer previewLimit) {
+    this.previewLimit = previewLimit;
   }
 
 
@@ -138,12 +205,14 @@ public class GenerateWorkItemPreviewsApiModel {
     GenerateWorkItemPreviewsApiModel generateWorkItemPreviewsApiModel = (GenerateWorkItemPreviewsApiModel) o;
     return Objects.equals(this.externalServiceId, generateWorkItemPreviewsApiModel.externalServiceId) &&
         Objects.equals(this.taskKey, generateWorkItemPreviewsApiModel.taskKey) &&
-        Objects.equals(this.sectionId, generateWorkItemPreviewsApiModel.sectionId);
+        Objects.equals(this.sectionId, generateWorkItemPreviewsApiModel.sectionId) &&
+        Objects.equals(this.temperature, generateWorkItemPreviewsApiModel.temperature) &&
+        Objects.equals(this.previewLimit, generateWorkItemPreviewsApiModel.previewLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalServiceId, taskKey, sectionId);
+    return Objects.hash(externalServiceId, taskKey, sectionId, temperature, previewLimit);
   }
 
   @Override
@@ -153,6 +222,8 @@ public class GenerateWorkItemPreviewsApiModel {
     sb.append("    externalServiceId: ").append(toIndentedString(externalServiceId)).append("\n");
     sb.append("    taskKey: ").append(toIndentedString(taskKey)).append("\n");
     sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
+    sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
+    sb.append("    previewLimit: ").append(toIndentedString(previewLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

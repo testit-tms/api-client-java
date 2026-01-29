@@ -45,15 +45,18 @@ import ru.testit.client.invoker.JSON;
   UpdateFailureCategoryApiModel.JSON_PROPERTY_FAILURE_CLASS_REGEXES,
   UpdateFailureCategoryApiModel.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateFailureCategoryApiModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  @jakarta.annotation.Nonnull
   private FailureCategory failureCategory;
 
   public static final String JSON_PROPERTY_FAILURE_CLASS_REGEXES = "failureClassRegexes";
@@ -65,7 +68,7 @@ public class UpdateFailureCategoryApiModel {
   public UpdateFailureCategoryApiModel() { 
   }
 
-  public UpdateFailureCategoryApiModel id(UUID id) {
+  public UpdateFailureCategoryApiModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -85,12 +88,12 @@ public class UpdateFailureCategoryApiModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public UpdateFailureCategoryApiModel name(String name) {
+  public UpdateFailureCategoryApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -110,12 +113,12 @@ public class UpdateFailureCategoryApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public UpdateFailureCategoryApiModel failureCategory(FailureCategory failureCategory) {
+  public UpdateFailureCategoryApiModel failureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -135,12 +138,12 @@ public class UpdateFailureCategoryApiModel {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategory(FailureCategory failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public UpdateFailureCategoryApiModel failureClassRegexes(List<UpdateFailureClassRegexApiModel> failureClassRegexes) {
+  public UpdateFailureCategoryApiModel failureClassRegexes(@jakarta.annotation.Nullable List<UpdateFailureClassRegexApiModel> failureClassRegexes) {
     this.failureClassRegexes = JsonNullable.<List<UpdateFailureClassRegexApiModel>>of(failureClassRegexes);
     return this;
   }
@@ -180,12 +183,12 @@ public class UpdateFailureCategoryApiModel {
     this.failureClassRegexes = failureClassRegexes;
   }
 
-  public void setFailureClassRegexes(List<UpdateFailureClassRegexApiModel> failureClassRegexes) {
+  public void setFailureClassRegexes(@jakarta.annotation.Nullable List<UpdateFailureClassRegexApiModel> failureClassRegexes) {
     this.failureClassRegexes = JsonNullable.<List<UpdateFailureClassRegexApiModel>>of(failureClassRegexes);
   }
 
 
-  public UpdateFailureCategoryApiModel projectIds(List<UUID> projectIds) {
+  public UpdateFailureCategoryApiModel projectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
@@ -225,7 +228,7 @@ public class UpdateFailureCategoryApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
   }
 

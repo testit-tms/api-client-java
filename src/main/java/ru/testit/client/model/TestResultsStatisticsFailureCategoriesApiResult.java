@@ -34,21 +34,24 @@ import ru.testit.client.invoker.JSON;
   TestResultsStatisticsFailureCategoriesApiResult.JSON_PROPERTY_PRODUCT_DEFECT,
   TestResultsStatisticsFailureCategoriesApiResult.JSON_PROPERTY_TEST_DEFECT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultsStatisticsFailureCategoriesApiResult {
   public static final String JSON_PROPERTY_INFRASTRUCTURE_DEFECT = "infrastructureDefect";
+  @jakarta.annotation.Nonnull
   private Integer infrastructureDefect;
 
   public static final String JSON_PROPERTY_PRODUCT_DEFECT = "productDefect";
+  @jakarta.annotation.Nonnull
   private Integer productDefect;
 
   public static final String JSON_PROPERTY_TEST_DEFECT = "testDefect";
+  @jakarta.annotation.Nonnull
   private Integer testDefect;
 
   public TestResultsStatisticsFailureCategoriesApiResult() { 
   }
 
-  public TestResultsStatisticsFailureCategoriesApiResult infrastructureDefect(Integer infrastructureDefect) {
+  public TestResultsStatisticsFailureCategoriesApiResult infrastructureDefect(@jakarta.annotation.Nonnull Integer infrastructureDefect) {
     this.infrastructureDefect = infrastructureDefect;
     return this;
   }
@@ -68,12 +71,12 @@ public class TestResultsStatisticsFailureCategoriesApiResult {
 
   @JsonProperty(JSON_PROPERTY_INFRASTRUCTURE_DEFECT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInfrastructureDefect(Integer infrastructureDefect) {
+  public void setInfrastructureDefect(@jakarta.annotation.Nonnull Integer infrastructureDefect) {
     this.infrastructureDefect = infrastructureDefect;
   }
 
 
-  public TestResultsStatisticsFailureCategoriesApiResult productDefect(Integer productDefect) {
+  public TestResultsStatisticsFailureCategoriesApiResult productDefect(@jakarta.annotation.Nonnull Integer productDefect) {
     this.productDefect = productDefect;
     return this;
   }
@@ -93,12 +96,12 @@ public class TestResultsStatisticsFailureCategoriesApiResult {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT_DEFECT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProductDefect(Integer productDefect) {
+  public void setProductDefect(@jakarta.annotation.Nonnull Integer productDefect) {
     this.productDefect = productDefect;
   }
 
 
-  public TestResultsStatisticsFailureCategoriesApiResult testDefect(Integer testDefect) {
+  public TestResultsStatisticsFailureCategoriesApiResult testDefect(@jakarta.annotation.Nonnull Integer testDefect) {
     this.testDefect = testDefect;
     return this;
   }
@@ -118,7 +121,7 @@ public class TestResultsStatisticsFailureCategoriesApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_DEFECT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestDefect(Integer testDefect) {
+  public void setTestDefect(@jakarta.annotation.Nonnull Integer testDefect) {
     this.testDefect = testDefect;
   }
 

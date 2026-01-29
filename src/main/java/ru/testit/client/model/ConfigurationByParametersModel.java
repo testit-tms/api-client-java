@@ -37,18 +37,20 @@ import ru.testit.client.invoker.JSON;
   ConfigurationByParametersModel.JSON_PROPERTY_PROJECT_ID,
   ConfigurationByParametersModel.JSON_PROPERTY_PARAMETER_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ConfigurationByParametersModel {
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_PARAMETER_IDS = "parameterIds";
+  @jakarta.annotation.Nonnull
   private Set<UUID> parameterIds = new LinkedHashSet<>();
 
   public ConfigurationByParametersModel() { 
   }
 
-  public ConfigurationByParametersModel projectId(UUID projectId) {
+  public ConfigurationByParametersModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -68,12 +70,12 @@ public class ConfigurationByParametersModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationByParametersModel parameterIds(Set<UUID> parameterIds) {
+  public ConfigurationByParametersModel parameterIds(@jakarta.annotation.Nonnull Set<UUID> parameterIds) {
     this.parameterIds = parameterIds;
     return this;
   }
@@ -102,7 +104,7 @@ public class ConfigurationByParametersModel {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_PARAMETER_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameterIds(Set<UUID> parameterIds) {
+  public void setParameterIds(@jakarta.annotation.Nonnull Set<UUID> parameterIds) {
     this.parameterIds = parameterIds;
   }
 

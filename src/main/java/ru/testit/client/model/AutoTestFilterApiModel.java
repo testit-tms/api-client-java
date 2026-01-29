@@ -61,7 +61,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestFilterApiModel.JSON_PROPERTY_EXTERNAL_KEY,
   AutoTestFilterApiModel.JSON_PROPERTY_LAST_TEST_RESULT_CONFIGURATION_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestFilterApiModel {
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
   private JsonNullable<Set<UUID>> projectIds = JsonNullable.<Set<UUID>>undefined();
@@ -126,7 +126,7 @@ public class AutoTestFilterApiModel {
   public AutoTestFilterApiModel() { 
   }
 
-  public AutoTestFilterApiModel projectIds(Set<UUID> projectIds) {
+  public AutoTestFilterApiModel projectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
     return this;
   }
@@ -166,12 +166,12 @@ public class AutoTestFilterApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
   }
 
 
-  public AutoTestFilterApiModel externalIds(Set<String> externalIds) {
+  public AutoTestFilterApiModel externalIds(@jakarta.annotation.Nullable Set<String> externalIds) {
     this.externalIds = JsonNullable.<Set<String>>of(externalIds);
     return this;
   }
@@ -211,12 +211,12 @@ public class AutoTestFilterApiModel {
     this.externalIds = externalIds;
   }
 
-  public void setExternalIds(Set<String> externalIds) {
+  public void setExternalIds(@jakarta.annotation.Nullable Set<String> externalIds) {
     this.externalIds = JsonNullable.<Set<String>>of(externalIds);
   }
 
 
-  public AutoTestFilterApiModel globalIds(Set<Long> globalIds) {
+  public AutoTestFilterApiModel globalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
@@ -256,12 +256,12 @@ public class AutoTestFilterApiModel {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
-  public AutoTestFilterApiModel name(String name) {
+  public AutoTestFilterApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -289,12 +289,12 @@ public class AutoTestFilterApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public AutoTestFilterApiModel isFlaky(Boolean isFlaky) {
+  public AutoTestFilterApiModel isFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
     return this;
   }
@@ -322,12 +322,12 @@ public class AutoTestFilterApiModel {
     this.isFlaky = isFlaky;
   }
 
-  public void setIsFlaky(Boolean isFlaky) {
+  public void setIsFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
   }
 
 
-  public AutoTestFilterApiModel mustBeApproved(Boolean mustBeApproved) {
+  public AutoTestFilterApiModel mustBeApproved(@jakarta.annotation.Nullable Boolean mustBeApproved) {
     this.mustBeApproved = JsonNullable.<Boolean>of(mustBeApproved);
     return this;
   }
@@ -355,12 +355,12 @@ public class AutoTestFilterApiModel {
     this.mustBeApproved = mustBeApproved;
   }
 
-  public void setMustBeApproved(Boolean mustBeApproved) {
+  public void setMustBeApproved(@jakarta.annotation.Nullable Boolean mustBeApproved) {
     this.mustBeApproved = JsonNullable.<Boolean>of(mustBeApproved);
   }
 
 
-  public AutoTestFilterApiModel stabilityPercentage(Int64RangeSelectorModel stabilityPercentage) {
+  public AutoTestFilterApiModel stabilityPercentage(@jakarta.annotation.Nullable Int64RangeSelectorModel stabilityPercentage) {
     this.stabilityPercentage = JsonNullable.<Int64RangeSelectorModel>of(stabilityPercentage);
     return this;
   }
@@ -388,12 +388,12 @@ public class AutoTestFilterApiModel {
     this.stabilityPercentage = stabilityPercentage;
   }
 
-  public void setStabilityPercentage(Int64RangeSelectorModel stabilityPercentage) {
+  public void setStabilityPercentage(@jakarta.annotation.Nullable Int64RangeSelectorModel stabilityPercentage) {
     this.stabilityPercentage = JsonNullable.<Int64RangeSelectorModel>of(stabilityPercentage);
   }
 
 
-  public AutoTestFilterApiModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public AutoTestFilterApiModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -421,12 +421,12 @@ public class AutoTestFilterApiModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public AutoTestFilterApiModel createdByIds(Set<UUID> createdByIds) {
+  public AutoTestFilterApiModel createdByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
@@ -466,12 +466,12 @@ public class AutoTestFilterApiModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
-  public AutoTestFilterApiModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public AutoTestFilterApiModel modifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
     return this;
   }
@@ -499,12 +499,12 @@ public class AutoTestFilterApiModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
   }
 
 
-  public AutoTestFilterApiModel modifiedByIds(Set<UUID> modifiedByIds) {
+  public AutoTestFilterApiModel modifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
     return this;
   }
@@ -544,12 +544,12 @@ public class AutoTestFilterApiModel {
     this.modifiedByIds = modifiedByIds;
   }
 
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
   }
 
 
-  public AutoTestFilterApiModel isDeleted(Boolean isDeleted) {
+  public AutoTestFilterApiModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -577,12 +577,12 @@ public class AutoTestFilterApiModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public AutoTestFilterApiModel namespace(String namespace) {
+  public AutoTestFilterApiModel namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
     return this;
   }
@@ -610,12 +610,12 @@ public class AutoTestFilterApiModel {
     this.namespace = namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
   }
 
 
-  public AutoTestFilterApiModel isEmptyNamespace(Boolean isEmptyNamespace) {
+  public AutoTestFilterApiModel isEmptyNamespace(@jakarta.annotation.Nullable Boolean isEmptyNamespace) {
     this.isEmptyNamespace = JsonNullable.<Boolean>of(isEmptyNamespace);
     return this;
   }
@@ -643,12 +643,12 @@ public class AutoTestFilterApiModel {
     this.isEmptyNamespace = isEmptyNamespace;
   }
 
-  public void setIsEmptyNamespace(Boolean isEmptyNamespace) {
+  public void setIsEmptyNamespace(@jakarta.annotation.Nullable Boolean isEmptyNamespace) {
     this.isEmptyNamespace = JsonNullable.<Boolean>of(isEmptyNamespace);
   }
 
 
-  public AutoTestFilterApiModel className(String className) {
+  public AutoTestFilterApiModel className(@jakarta.annotation.Nullable String className) {
     this.className = JsonNullable.<String>of(className);
     return this;
   }
@@ -676,12 +676,12 @@ public class AutoTestFilterApiModel {
     this.className = className;
   }
 
-  public void setClassName(String className) {
+  public void setClassName(@jakarta.annotation.Nullable String className) {
     this.className = JsonNullable.<String>of(className);
   }
 
 
-  public AutoTestFilterApiModel isEmptyClassName(Boolean isEmptyClassName) {
+  public AutoTestFilterApiModel isEmptyClassName(@jakarta.annotation.Nullable Boolean isEmptyClassName) {
     this.isEmptyClassName = JsonNullable.<Boolean>of(isEmptyClassName);
     return this;
   }
@@ -709,12 +709,12 @@ public class AutoTestFilterApiModel {
     this.isEmptyClassName = isEmptyClassName;
   }
 
-  public void setIsEmptyClassName(Boolean isEmptyClassName) {
+  public void setIsEmptyClassName(@jakarta.annotation.Nullable Boolean isEmptyClassName) {
     this.isEmptyClassName = JsonNullable.<Boolean>of(isEmptyClassName);
   }
 
 
-  public AutoTestFilterApiModel lastTestResultOutcome(AutotestResultOutcome lastTestResultOutcome) {
+  public AutoTestFilterApiModel lastTestResultOutcome(@jakarta.annotation.Nullable AutotestResultOutcome lastTestResultOutcome) {
     this.lastTestResultOutcome = JsonNullable.<AutotestResultOutcome>of(lastTestResultOutcome);
     return this;
   }
@@ -742,12 +742,12 @@ public class AutoTestFilterApiModel {
     this.lastTestResultOutcome = lastTestResultOutcome;
   }
 
-  public void setLastTestResultOutcome(AutotestResultOutcome lastTestResultOutcome) {
+  public void setLastTestResultOutcome(@jakarta.annotation.Nullable AutotestResultOutcome lastTestResultOutcome) {
     this.lastTestResultOutcome = JsonNullable.<AutotestResultOutcome>of(lastTestResultOutcome);
   }
 
 
-  public AutoTestFilterApiModel lastTestResultStatusCodes(Set<String> lastTestResultStatusCodes) {
+  public AutoTestFilterApiModel lastTestResultStatusCodes(@jakarta.annotation.Nullable Set<String> lastTestResultStatusCodes) {
     this.lastTestResultStatusCodes = JsonNullable.<Set<String>>of(lastTestResultStatusCodes);
     return this;
   }
@@ -787,12 +787,12 @@ public class AutoTestFilterApiModel {
     this.lastTestResultStatusCodes = lastTestResultStatusCodes;
   }
 
-  public void setLastTestResultStatusCodes(Set<String> lastTestResultStatusCodes) {
+  public void setLastTestResultStatusCodes(@jakarta.annotation.Nullable Set<String> lastTestResultStatusCodes) {
     this.lastTestResultStatusCodes = JsonNullable.<Set<String>>of(lastTestResultStatusCodes);
   }
 
 
-  public AutoTestFilterApiModel externalKey(String externalKey) {
+  public AutoTestFilterApiModel externalKey(@jakarta.annotation.Nullable String externalKey) {
     this.externalKey = JsonNullable.<String>of(externalKey);
     return this;
   }
@@ -820,12 +820,12 @@ public class AutoTestFilterApiModel {
     this.externalKey = externalKey;
   }
 
-  public void setExternalKey(String externalKey) {
+  public void setExternalKey(@jakarta.annotation.Nullable String externalKey) {
     this.externalKey = JsonNullable.<String>of(externalKey);
   }
 
 
-  public AutoTestFilterApiModel lastTestResultConfigurationIds(Set<UUID> lastTestResultConfigurationIds) {
+  public AutoTestFilterApiModel lastTestResultConfigurationIds(@jakarta.annotation.Nullable Set<UUID> lastTestResultConfigurationIds) {
     this.lastTestResultConfigurationIds = JsonNullable.<Set<UUID>>of(lastTestResultConfigurationIds);
     return this;
   }
@@ -865,7 +865,7 @@ public class AutoTestFilterApiModel {
     this.lastTestResultConfigurationIds = lastTestResultConfigurationIds;
   }
 
-  public void setLastTestResultConfigurationIds(Set<UUID> lastTestResultConfigurationIds) {
+  public void setLastTestResultConfigurationIds(@jakarta.annotation.Nullable Set<UUID> lastTestResultConfigurationIds) {
     this.lastTestResultConfigurationIds = JsonNullable.<Set<UUID>>of(lastTestResultConfigurationIds);
   }
 

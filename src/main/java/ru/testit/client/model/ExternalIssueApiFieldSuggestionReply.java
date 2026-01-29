@@ -36,18 +36,20 @@ import ru.testit.client.invoker.JSON;
   ExternalIssueApiFieldSuggestionReply.JSON_PROPERTY_DATA,
   ExternalIssueApiFieldSuggestionReply.JSON_PROPERTY_TOTAL_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalIssueApiFieldSuggestionReply {
   public static final String JSON_PROPERTY_DATA = "data";
+  @jakarta.annotation.Nonnull
   private List<ExternalIssueApiFieldSuggestion> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
+  @jakarta.annotation.Nonnull
   private Integer totalCount;
 
   public ExternalIssueApiFieldSuggestionReply() { 
   }
 
-  public ExternalIssueApiFieldSuggestionReply data(List<ExternalIssueApiFieldSuggestion> data) {
+  public ExternalIssueApiFieldSuggestionReply data(@jakarta.annotation.Nonnull List<ExternalIssueApiFieldSuggestion> data) {
     this.data = data;
     return this;
   }
@@ -75,12 +77,12 @@ public class ExternalIssueApiFieldSuggestionReply {
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<ExternalIssueApiFieldSuggestion> data) {
+  public void setData(@jakarta.annotation.Nonnull List<ExternalIssueApiFieldSuggestion> data) {
     this.data = data;
   }
 
 
-  public ExternalIssueApiFieldSuggestionReply totalCount(Integer totalCount) {
+  public ExternalIssueApiFieldSuggestionReply totalCount(@jakarta.annotation.Nonnull Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -100,7 +102,7 @@ public class ExternalIssueApiFieldSuggestionReply {
 
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(@jakarta.annotation.Nonnull Integer totalCount) {
     this.totalCount = totalCount;
   }
 

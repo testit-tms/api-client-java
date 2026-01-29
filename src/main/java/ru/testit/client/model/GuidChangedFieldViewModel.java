@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   GuidChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   GuidChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GuidChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  @jakarta.annotation.Nonnull
   private UUID oldValue;
 
   public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  @jakarta.annotation.Nonnull
   private UUID newValue;
 
   public GuidChangedFieldViewModel() { 
   }
 
-  public GuidChangedFieldViewModel oldValue(UUID oldValue) {
+  public GuidChangedFieldViewModel oldValue(@jakarta.annotation.Nonnull UUID oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -65,12 +67,12 @@ public class GuidChangedFieldViewModel {
 
   @JsonProperty(JSON_PROPERTY_OLD_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOldValue(UUID oldValue) {
+  public void setOldValue(@jakarta.annotation.Nonnull UUID oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public GuidChangedFieldViewModel newValue(UUID newValue) {
+  public GuidChangedFieldViewModel newValue(@jakarta.annotation.Nonnull UUID newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -90,7 +92,7 @@ public class GuidChangedFieldViewModel {
 
   @JsonProperty(JSON_PROPERTY_NEW_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNewValue(UUID newValue) {
+  public void setNewValue(@jakarta.annotation.Nonnull UUID newValue) {
     this.newValue = newValue;
   }
 

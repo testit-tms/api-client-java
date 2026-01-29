@@ -40,33 +40,40 @@ import ru.testit.client.invoker.JSON;
   WorkflowStatusApiResult.JSON_PROPERTY_IS_SYSTEM,
   WorkflowStatusApiResult.JSON_PROPERTY_PRIORITY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkflowStatusApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_CODE = "code";
+  @jakarta.annotation.Nonnull
   private String code;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private TestStatusApiType type;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @jakarta.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
+  @jakarta.annotation.Nonnull
   private Boolean isSystem;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @jakarta.annotation.Nonnull
   private Integer priority;
 
   public WorkflowStatusApiResult() { 
   }
 
-  public WorkflowStatusApiResult id(UUID id) {
+  public WorkflowStatusApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -86,12 +93,12 @@ public class WorkflowStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WorkflowStatusApiResult name(String name) {
+  public WorkflowStatusApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -111,12 +118,12 @@ public class WorkflowStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public WorkflowStatusApiResult code(String code) {
+  public WorkflowStatusApiResult code(@jakarta.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
@@ -136,12 +143,12 @@ public class WorkflowStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCode(String code) {
+  public void setCode(@jakarta.annotation.Nonnull String code) {
     this.code = code;
   }
 
 
-  public WorkflowStatusApiResult type(TestStatusApiType type) {
+  public WorkflowStatusApiResult type(@jakarta.annotation.Nonnull TestStatusApiType type) {
     this.type = type;
     return this;
   }
@@ -161,12 +168,12 @@ public class WorkflowStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TestStatusApiType type) {
+  public void setType(@jakarta.annotation.Nonnull TestStatusApiType type) {
     this.type = type;
   }
 
 
-  public WorkflowStatusApiResult description(String description) {
+  public WorkflowStatusApiResult description(@jakarta.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
@@ -186,12 +193,12 @@ public class WorkflowStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = description;
   }
 
 
-  public WorkflowStatusApiResult isSystem(Boolean isSystem) {
+  public WorkflowStatusApiResult isSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
     this.isSystem = isSystem;
     return this;
   }
@@ -211,12 +218,12 @@ public class WorkflowStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsSystem(Boolean isSystem) {
+  public void setIsSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
     this.isSystem = isSystem;
   }
 
 
-  public WorkflowStatusApiResult priority(Integer priority) {
+  public WorkflowStatusApiResult priority(@jakarta.annotation.Nonnull Integer priority) {
     this.priority = priority;
     return this;
   }
@@ -236,7 +243,7 @@ public class WorkflowStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPriority(Integer priority) {
+  public void setPriority(@jakarta.annotation.Nonnull Integer priority) {
     this.priority = priority;
   }
 

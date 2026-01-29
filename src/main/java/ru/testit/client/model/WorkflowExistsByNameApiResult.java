@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   WorkflowExistsByNameApiResult.JSON_PROPERTY_EXISTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkflowExistsByNameApiResult {
   public static final String JSON_PROPERTY_EXISTS = "exists";
+  @jakarta.annotation.Nonnull
   private Boolean exists;
 
   public WorkflowExistsByNameApiResult() { 
   }
 
-  public WorkflowExistsByNameApiResult exists(Boolean exists) {
+  public WorkflowExistsByNameApiResult exists(@jakarta.annotation.Nonnull Boolean exists) {
     this.exists = exists;
     return this;
   }
@@ -60,7 +61,7 @@ public class WorkflowExistsByNameApiResult {
 
   @JsonProperty(JSON_PROPERTY_EXISTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExists(Boolean exists) {
+  public void setExists(@jakarta.annotation.Nonnull Boolean exists) {
     this.exists = exists;
   }
 

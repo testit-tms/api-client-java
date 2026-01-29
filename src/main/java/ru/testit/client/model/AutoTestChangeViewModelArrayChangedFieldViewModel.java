@@ -40,7 +40,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestChangeViewModelArrayChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   AutoTestChangeViewModelArrayChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestChangeViewModelArrayChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private JsonNullable<List<AutoTestChangeViewModel>> oldValue = JsonNullable.<List<AutoTestChangeViewModel>>undefined();
@@ -51,7 +51,7 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
   public AutoTestChangeViewModelArrayChangedFieldViewModel() { 
   }
 
-  public AutoTestChangeViewModelArrayChangedFieldViewModel oldValue(List<AutoTestChangeViewModel> oldValue) {
+  public AutoTestChangeViewModelArrayChangedFieldViewModel oldValue(@jakarta.annotation.Nullable List<AutoTestChangeViewModel> oldValue) {
     this.oldValue = JsonNullable.<List<AutoTestChangeViewModel>>of(oldValue);
     return this;
   }
@@ -91,12 +91,12 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(List<AutoTestChangeViewModel> oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable List<AutoTestChangeViewModel> oldValue) {
     this.oldValue = JsonNullable.<List<AutoTestChangeViewModel>>of(oldValue);
   }
 
 
-  public AutoTestChangeViewModelArrayChangedFieldViewModel newValue(List<AutoTestChangeViewModel> newValue) {
+  public AutoTestChangeViewModelArrayChangedFieldViewModel newValue(@jakarta.annotation.Nullable List<AutoTestChangeViewModel> newValue) {
     this.newValue = JsonNullable.<List<AutoTestChangeViewModel>>of(newValue);
     return this;
   }
@@ -136,7 +136,7 @@ public class AutoTestChangeViewModelArrayChangedFieldViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(List<AutoTestChangeViewModel> newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable List<AutoTestChangeViewModel> newValue) {
     this.newValue = JsonNullable.<List<AutoTestChangeViewModel>>of(newValue);
   }
 

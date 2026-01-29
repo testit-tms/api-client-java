@@ -36,24 +36,28 @@ import ru.testit.client.invoker.JSON;
   AutoTestChangeViewModel.JSON_PROPERTY_EXTERNAL_ID,
   AutoTestChangeViewModel.JSON_PROPERTY_GLOBAL_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestChangeViewModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @jakarta.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public AutoTestChangeViewModel() { 
   }
 
-  public AutoTestChangeViewModel id(UUID id) {
+  public AutoTestChangeViewModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -73,12 +77,12 @@ public class AutoTestChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestChangeViewModel projectId(UUID projectId) {
+  public AutoTestChangeViewModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -98,12 +102,12 @@ public class AutoTestChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestChangeViewModel externalId(String externalId) {
+  public AutoTestChangeViewModel externalId(@jakarta.annotation.Nonnull String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -123,12 +127,12 @@ public class AutoTestChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@jakarta.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestChangeViewModel globalId(Long globalId) {
+  public AutoTestChangeViewModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -148,7 +152,7 @@ public class AutoTestChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 

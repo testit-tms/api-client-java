@@ -42,9 +42,10 @@ import ru.testit.client.invoker.JSON;
   UpdateMultipleTestRunsApiModel.JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME,
   UpdateMultipleTestRunsApiModel.JSON_PROPERTY_LINK_UPDATE_SCHEME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateMultipleTestRunsApiModel {
   public static final String JSON_PROPERTY_SELECT_MODEL = "selectModel";
+  @jakarta.annotation.Nonnull
   private TestRunSelectApiModel selectModel;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -59,7 +60,7 @@ public class UpdateMultipleTestRunsApiModel {
   public UpdateMultipleTestRunsApiModel() { 
   }
 
-  public UpdateMultipleTestRunsApiModel selectModel(TestRunSelectApiModel selectModel) {
+  public UpdateMultipleTestRunsApiModel selectModel(@jakarta.annotation.Nonnull TestRunSelectApiModel selectModel) {
     this.selectModel = selectModel;
     return this;
   }
@@ -79,12 +80,12 @@ public class UpdateMultipleTestRunsApiModel {
 
   @JsonProperty(JSON_PROPERTY_SELECT_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSelectModel(TestRunSelectApiModel selectModel) {
+  public void setSelectModel(@jakarta.annotation.Nonnull TestRunSelectApiModel selectModel) {
     this.selectModel = selectModel;
   }
 
 
-  public UpdateMultipleTestRunsApiModel description(String description) {
+  public UpdateMultipleTestRunsApiModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -112,12 +113,12 @@ public class UpdateMultipleTestRunsApiModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public UpdateMultipleTestRunsApiModel attachmentUpdateScheme(UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
+  public UpdateMultipleTestRunsApiModel attachmentUpdateScheme(@jakarta.annotation.Nullable UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
     this.attachmentUpdateScheme = JsonNullable.<UpdateMultipleAttachmentsApiModel>of(attachmentUpdateScheme);
     return this;
   }
@@ -145,12 +146,12 @@ public class UpdateMultipleTestRunsApiModel {
     this.attachmentUpdateScheme = attachmentUpdateScheme;
   }
 
-  public void setAttachmentUpdateScheme(UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
+  public void setAttachmentUpdateScheme(@jakarta.annotation.Nullable UpdateMultipleAttachmentsApiModel attachmentUpdateScheme) {
     this.attachmentUpdateScheme = JsonNullable.<UpdateMultipleAttachmentsApiModel>of(attachmentUpdateScheme);
   }
 
 
-  public UpdateMultipleTestRunsApiModel linkUpdateScheme(UpdateMultipleLinksApiModel linkUpdateScheme) {
+  public UpdateMultipleTestRunsApiModel linkUpdateScheme(@jakarta.annotation.Nullable UpdateMultipleLinksApiModel linkUpdateScheme) {
     this.linkUpdateScheme = JsonNullable.<UpdateMultipleLinksApiModel>of(linkUpdateScheme);
     return this;
   }
@@ -178,7 +179,7 @@ public class UpdateMultipleTestRunsApiModel {
     this.linkUpdateScheme = linkUpdateScheme;
   }
 
-  public void setLinkUpdateScheme(UpdateMultipleLinksApiModel linkUpdateScheme) {
+  public void setLinkUpdateScheme(@jakarta.annotation.Nullable UpdateMultipleLinksApiModel linkUpdateScheme) {
     this.linkUpdateScheme = JsonNullable.<UpdateMultipleLinksApiModel>of(linkUpdateScheme);
   }
 

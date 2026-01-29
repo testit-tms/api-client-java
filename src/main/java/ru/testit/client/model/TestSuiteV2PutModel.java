@@ -41,15 +41,18 @@ import ru.testit.client.invoker.JSON;
   TestSuiteV2PutModel.JSON_PROPERTY_PARENT_ID,
   TestSuiteV2PutModel.JSON_PROPERTY_AUTO_REFRESH
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteV2PutModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parentId";
@@ -61,7 +64,7 @@ public class TestSuiteV2PutModel {
   public TestSuiteV2PutModel() { 
   }
 
-  public TestSuiteV2PutModel id(UUID id) {
+  public TestSuiteV2PutModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -81,12 +84,12 @@ public class TestSuiteV2PutModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteV2PutModel name(String name) {
+  public TestSuiteV2PutModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -106,12 +109,12 @@ public class TestSuiteV2PutModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestSuiteV2PutModel isDeleted(Boolean isDeleted) {
+  public TestSuiteV2PutModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -131,12 +134,12 @@ public class TestSuiteV2PutModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestSuiteV2PutModel parentId(UUID parentId) {
+  public TestSuiteV2PutModel parentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = JsonNullable.<UUID>of(parentId);
     return this;
   }
@@ -164,12 +167,12 @@ public class TestSuiteV2PutModel {
     this.parentId = parentId;
   }
 
-  public void setParentId(UUID parentId) {
+  public void setParentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = JsonNullable.<UUID>of(parentId);
   }
 
 
-  public TestSuiteV2PutModel autoRefresh(Boolean autoRefresh) {
+  public TestSuiteV2PutModel autoRefresh(@jakarta.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = JsonNullable.<Boolean>of(autoRefresh);
     return this;
   }
@@ -197,7 +200,7 @@ public class TestSuiteV2PutModel {
     this.autoRefresh = autoRefresh;
   }
 
-  public void setAutoRefresh(Boolean autoRefresh) {
+  public void setAutoRefresh(@jakarta.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = JsonNullable.<Boolean>of(autoRefresh);
   }
 

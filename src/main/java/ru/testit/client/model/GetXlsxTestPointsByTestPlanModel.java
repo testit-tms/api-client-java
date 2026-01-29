@@ -53,45 +53,58 @@ import ru.testit.client.invoker.JSON;
   GetXlsxTestPointsByTestPlanModel.JSON_PROPERTY_CUSTOM_ATTRIBUTES_IDS,
   GetXlsxTestPointsByTestPlanModel.JSON_PROPERTY_CONFIGURATION_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GetXlsxTestPointsByTestPlanModel {
   public static final String JSON_PROPERTY_INCLUDE_NAME = "includeName";
+  @jakarta.annotation.Nonnull
   private Boolean includeName;
 
   public static final String JSON_PROPERTY_INCLUDE_SECTION = "includeSection";
+  @jakarta.annotation.Nonnull
   private Boolean includeSection;
 
   public static final String JSON_PROPERTY_INCLUDE_PRIORITY = "includePriority";
+  @jakarta.annotation.Nonnull
   private Boolean includePriority;
 
   public static final String JSON_PROPERTY_INCLUDE_SOURCE_TYPE = "includeSourceType";
+  @jakarta.annotation.Nonnull
   private Boolean includeSourceType;
 
   public static final String JSON_PROPERTY_INCLUDE_AUTOMATED = "includeAutomated";
+  @jakarta.annotation.Nonnull
   private Boolean includeAutomated;
 
   public static final String JSON_PROPERTY_INCLUDE_STATUS = "includeStatus";
+  @jakarta.annotation.Nonnull
   private Boolean includeStatus;
 
   public static final String JSON_PROPERTY_INCLUDE_DURATION = "includeDuration";
+  @jakarta.annotation.Nonnull
   private Boolean includeDuration;
 
   public static final String JSON_PROPERTY_INCLUDE_CREATION_DATE = "includeCreationDate";
+  @jakarta.annotation.Nonnull
   private Boolean includeCreationDate;
 
   public static final String JSON_PROPERTY_INCLUDE_AUTHOR = "includeAuthor";
+  @jakarta.annotation.Nonnull
   private Boolean includeAuthor;
 
   public static final String JSON_PROPERTY_INCLUDE_MODIFICATION_DATE = "includeModificationDate";
+  @jakarta.annotation.Nonnull
   private Boolean includeModificationDate;
 
   public static final String JSON_PROPERTY_INCLUDE_MODIFIED_BY = "includeModifiedBy";
+  @jakarta.annotation.Nonnull
   private Boolean includeModifiedBy;
 
   public static final String JSON_PROPERTY_INCLUDE_TAGS = "includeTags";
+  @jakarta.annotation.Nonnull
   private Boolean includeTags;
 
   public static final String JSON_PROPERTY_INCLUDE_ITERATIONS = "includeIterations";
+  @jakarta.annotation.Nonnull
   private Boolean includeIterations;
 
   public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTES_IDS = "customAttributesIds";
@@ -103,7 +116,7 @@ public class GetXlsxTestPointsByTestPlanModel {
   public GetXlsxTestPointsByTestPlanModel() { 
   }
 
-  public GetXlsxTestPointsByTestPlanModel includeName(Boolean includeName) {
+  public GetXlsxTestPointsByTestPlanModel includeName(@jakarta.annotation.Nonnull Boolean includeName) {
     this.includeName = includeName;
     return this;
   }
@@ -123,12 +136,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeName(Boolean includeName) {
+  public void setIncludeName(@jakarta.annotation.Nonnull Boolean includeName) {
     this.includeName = includeName;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeSection(Boolean includeSection) {
+  public GetXlsxTestPointsByTestPlanModel includeSection(@jakarta.annotation.Nonnull Boolean includeSection) {
     this.includeSection = includeSection;
     return this;
   }
@@ -148,12 +161,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_SECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeSection(Boolean includeSection) {
+  public void setIncludeSection(@jakarta.annotation.Nonnull Boolean includeSection) {
     this.includeSection = includeSection;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includePriority(Boolean includePriority) {
+  public GetXlsxTestPointsByTestPlanModel includePriority(@jakarta.annotation.Nonnull Boolean includePriority) {
     this.includePriority = includePriority;
     return this;
   }
@@ -173,12 +186,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludePriority(Boolean includePriority) {
+  public void setIncludePriority(@jakarta.annotation.Nonnull Boolean includePriority) {
     this.includePriority = includePriority;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeSourceType(Boolean includeSourceType) {
+  public GetXlsxTestPointsByTestPlanModel includeSourceType(@jakarta.annotation.Nonnull Boolean includeSourceType) {
     this.includeSourceType = includeSourceType;
     return this;
   }
@@ -198,12 +211,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_SOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeSourceType(Boolean includeSourceType) {
+  public void setIncludeSourceType(@jakarta.annotation.Nonnull Boolean includeSourceType) {
     this.includeSourceType = includeSourceType;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeAutomated(Boolean includeAutomated) {
+  public GetXlsxTestPointsByTestPlanModel includeAutomated(@jakarta.annotation.Nonnull Boolean includeAutomated) {
     this.includeAutomated = includeAutomated;
     return this;
   }
@@ -223,12 +236,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_AUTOMATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeAutomated(Boolean includeAutomated) {
+  public void setIncludeAutomated(@jakarta.annotation.Nonnull Boolean includeAutomated) {
     this.includeAutomated = includeAutomated;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeStatus(Boolean includeStatus) {
+  public GetXlsxTestPointsByTestPlanModel includeStatus(@jakarta.annotation.Nonnull Boolean includeStatus) {
     this.includeStatus = includeStatus;
     return this;
   }
@@ -248,12 +261,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeStatus(Boolean includeStatus) {
+  public void setIncludeStatus(@jakarta.annotation.Nonnull Boolean includeStatus) {
     this.includeStatus = includeStatus;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeDuration(Boolean includeDuration) {
+  public GetXlsxTestPointsByTestPlanModel includeDuration(@jakarta.annotation.Nonnull Boolean includeDuration) {
     this.includeDuration = includeDuration;
     return this;
   }
@@ -273,12 +286,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeDuration(Boolean includeDuration) {
+  public void setIncludeDuration(@jakarta.annotation.Nonnull Boolean includeDuration) {
     this.includeDuration = includeDuration;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeCreationDate(Boolean includeCreationDate) {
+  public GetXlsxTestPointsByTestPlanModel includeCreationDate(@jakarta.annotation.Nonnull Boolean includeCreationDate) {
     this.includeCreationDate = includeCreationDate;
     return this;
   }
@@ -298,12 +311,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeCreationDate(Boolean includeCreationDate) {
+  public void setIncludeCreationDate(@jakarta.annotation.Nonnull Boolean includeCreationDate) {
     this.includeCreationDate = includeCreationDate;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeAuthor(Boolean includeAuthor) {
+  public GetXlsxTestPointsByTestPlanModel includeAuthor(@jakarta.annotation.Nonnull Boolean includeAuthor) {
     this.includeAuthor = includeAuthor;
     return this;
   }
@@ -323,12 +336,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeAuthor(Boolean includeAuthor) {
+  public void setIncludeAuthor(@jakarta.annotation.Nonnull Boolean includeAuthor) {
     this.includeAuthor = includeAuthor;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeModificationDate(Boolean includeModificationDate) {
+  public GetXlsxTestPointsByTestPlanModel includeModificationDate(@jakarta.annotation.Nonnull Boolean includeModificationDate) {
     this.includeModificationDate = includeModificationDate;
     return this;
   }
@@ -348,12 +361,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_MODIFICATION_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeModificationDate(Boolean includeModificationDate) {
+  public void setIncludeModificationDate(@jakarta.annotation.Nonnull Boolean includeModificationDate) {
     this.includeModificationDate = includeModificationDate;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeModifiedBy(Boolean includeModifiedBy) {
+  public GetXlsxTestPointsByTestPlanModel includeModifiedBy(@jakarta.annotation.Nonnull Boolean includeModifiedBy) {
     this.includeModifiedBy = includeModifiedBy;
     return this;
   }
@@ -373,12 +386,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_MODIFIED_BY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeModifiedBy(Boolean includeModifiedBy) {
+  public void setIncludeModifiedBy(@jakarta.annotation.Nonnull Boolean includeModifiedBy) {
     this.includeModifiedBy = includeModifiedBy;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeTags(Boolean includeTags) {
+  public GetXlsxTestPointsByTestPlanModel includeTags(@jakarta.annotation.Nonnull Boolean includeTags) {
     this.includeTags = includeTags;
     return this;
   }
@@ -398,12 +411,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeTags(Boolean includeTags) {
+  public void setIncludeTags(@jakarta.annotation.Nonnull Boolean includeTags) {
     this.includeTags = includeTags;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel includeIterations(Boolean includeIterations) {
+  public GetXlsxTestPointsByTestPlanModel includeIterations(@jakarta.annotation.Nonnull Boolean includeIterations) {
     this.includeIterations = includeIterations;
     return this;
   }
@@ -423,12 +436,12 @@ public class GetXlsxTestPointsByTestPlanModel {
 
   @JsonProperty(JSON_PROPERTY_INCLUDE_ITERATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncludeIterations(Boolean includeIterations) {
+  public void setIncludeIterations(@jakarta.annotation.Nonnull Boolean includeIterations) {
     this.includeIterations = includeIterations;
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel customAttributesIds(List<UUID> customAttributesIds) {
+  public GetXlsxTestPointsByTestPlanModel customAttributesIds(@jakarta.annotation.Nullable List<UUID> customAttributesIds) {
     this.customAttributesIds = JsonNullable.<List<UUID>>of(customAttributesIds);
     return this;
   }
@@ -468,12 +481,12 @@ public class GetXlsxTestPointsByTestPlanModel {
     this.customAttributesIds = customAttributesIds;
   }
 
-  public void setCustomAttributesIds(List<UUID> customAttributesIds) {
+  public void setCustomAttributesIds(@jakarta.annotation.Nullable List<UUID> customAttributesIds) {
     this.customAttributesIds = JsonNullable.<List<UUID>>of(customAttributesIds);
   }
 
 
-  public GetXlsxTestPointsByTestPlanModel configurationIds(List<UUID> configurationIds) {
+  public GetXlsxTestPointsByTestPlanModel configurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
     return this;
   }
@@ -513,7 +526,7 @@ public class GetXlsxTestPointsByTestPlanModel {
     this.configurationIds = configurationIds;
   }
 
-  public void setConfigurationIds(List<UUID> configurationIds) {
+  public void setConfigurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
   }
 

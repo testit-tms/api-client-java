@@ -71,33 +71,42 @@ import ru.testit.client.invoker.JSON;
   AutoTest.JSON_PROPERTY_LAST_TEST_RESULT_OUTCOME,
   AutoTest.JSON_PROPERTY_STABILITY_PERCENTAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTest {
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @jakarta.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_MUST_BE_APPROVED = "mustBeApproved";
+  @jakarta.annotation.Nonnull
   private Boolean mustBeApproved;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_LINKS = "links";
@@ -160,7 +169,7 @@ public class AutoTest {
   public AutoTest() { 
   }
 
-  public AutoTest externalId(String externalId) {
+  public AutoTest externalId(@jakarta.annotation.Nonnull String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -180,12 +189,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@jakarta.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTest projectId(UUID projectId) {
+  public AutoTest projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -205,12 +214,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTest name(String name) {
+  public AutoTest name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -230,12 +239,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public AutoTest globalId(Long globalId) {
+  public AutoTest globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -255,12 +264,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public AutoTest isDeleted(Boolean isDeleted) {
+  public AutoTest isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -280,12 +289,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public AutoTest mustBeApproved(Boolean mustBeApproved) {
+  public AutoTest mustBeApproved(@jakarta.annotation.Nonnull Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
     return this;
   }
@@ -305,12 +314,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_MUST_BE_APPROVED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMustBeApproved(Boolean mustBeApproved) {
+  public void setMustBeApproved(@jakarta.annotation.Nonnull Boolean mustBeApproved) {
     this.mustBeApproved = mustBeApproved;
   }
 
 
-  public AutoTest id(UUID id) {
+  public AutoTest id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -330,12 +339,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AutoTest createdDate(OffsetDateTime createdDate) {
+  public AutoTest createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -355,12 +364,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutoTest createdById(UUID createdById) {
+  public AutoTest createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -380,12 +389,12 @@ public class AutoTest {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AutoTest links(List<Link> links) {
+  public AutoTest links(@jakarta.annotation.Nullable List<Link> links) {
     this.links = JsonNullable.<List<Link>>of(links);
     return this;
   }
@@ -425,12 +434,12 @@ public class AutoTest {
     this.links = links;
   }
 
-  public void setLinks(List<Link> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<Link> links) {
     this.links = JsonNullable.<List<Link>>of(links);
   }
 
 
-  public AutoTest namespace(String namespace) {
+  public AutoTest namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
     return this;
   }
@@ -458,12 +467,12 @@ public class AutoTest {
     this.namespace = namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
   }
 
 
-  public AutoTest classname(String classname) {
+  public AutoTest classname(@jakarta.annotation.Nullable String classname) {
     this.classname = JsonNullable.<String>of(classname);
     return this;
   }
@@ -491,12 +500,12 @@ public class AutoTest {
     this.classname = classname;
   }
 
-  public void setClassname(String classname) {
+  public void setClassname(@jakarta.annotation.Nullable String classname) {
     this.classname = JsonNullable.<String>of(classname);
   }
 
 
-  public AutoTest steps(List<AutoTestStep> steps) {
+  public AutoTest steps(@jakarta.annotation.Nullable List<AutoTestStep> steps) {
     this.steps = JsonNullable.<List<AutoTestStep>>of(steps);
     return this;
   }
@@ -536,12 +545,12 @@ public class AutoTest {
     this.steps = steps;
   }
 
-  public void setSteps(List<AutoTestStep> steps) {
+  public void setSteps(@jakarta.annotation.Nullable List<AutoTestStep> steps) {
     this.steps = JsonNullable.<List<AutoTestStep>>of(steps);
   }
 
 
-  public AutoTest setup(List<AutoTestStep> setup) {
+  public AutoTest setup(@jakarta.annotation.Nullable List<AutoTestStep> setup) {
     this.setup = JsonNullable.<List<AutoTestStep>>of(setup);
     return this;
   }
@@ -581,12 +590,12 @@ public class AutoTest {
     this.setup = setup;
   }
 
-  public void setSetup(List<AutoTestStep> setup) {
+  public void setSetup(@jakarta.annotation.Nullable List<AutoTestStep> setup) {
     this.setup = JsonNullable.<List<AutoTestStep>>of(setup);
   }
 
 
-  public AutoTest teardown(List<AutoTestStep> teardown) {
+  public AutoTest teardown(@jakarta.annotation.Nullable List<AutoTestStep> teardown) {
     this.teardown = JsonNullable.<List<AutoTestStep>>of(teardown);
     return this;
   }
@@ -626,12 +635,12 @@ public class AutoTest {
     this.teardown = teardown;
   }
 
-  public void setTeardown(List<AutoTestStep> teardown) {
+  public void setTeardown(@jakarta.annotation.Nullable List<AutoTestStep> teardown) {
     this.teardown = JsonNullable.<List<AutoTestStep>>of(teardown);
   }
 
 
-  public AutoTest title(String title) {
+  public AutoTest title(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
@@ -659,12 +668,12 @@ public class AutoTest {
     this.title = title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
 
-  public AutoTest description(String description) {
+  public AutoTest description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -692,12 +701,12 @@ public class AutoTest {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public AutoTest labels(List<Label> labels) {
+  public AutoTest labels(@jakarta.annotation.Nullable List<Label> labels) {
     this.labels = JsonNullable.<List<Label>>of(labels);
     return this;
   }
@@ -737,12 +746,12 @@ public class AutoTest {
     this.labels = labels;
   }
 
-  public void setLabels(List<Label> labels) {
+  public void setLabels(@jakarta.annotation.Nullable List<Label> labels) {
     this.labels = JsonNullable.<List<Label>>of(labels);
   }
 
 
-  public AutoTest isFlaky(Boolean isFlaky) {
+  public AutoTest isFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
     return this;
   }
@@ -770,12 +779,12 @@ public class AutoTest {
     this.isFlaky = isFlaky;
   }
 
-  public void setIsFlaky(Boolean isFlaky) {
+  public void setIsFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
   }
 
 
-  public AutoTest externalKey(String externalKey) {
+  public AutoTest externalKey(@jakarta.annotation.Nullable String externalKey) {
     this.externalKey = JsonNullable.<String>of(externalKey);
     return this;
   }
@@ -803,12 +812,12 @@ public class AutoTest {
     this.externalKey = externalKey;
   }
 
-  public void setExternalKey(String externalKey) {
+  public void setExternalKey(@jakarta.annotation.Nullable String externalKey) {
     this.externalKey = JsonNullable.<String>of(externalKey);
   }
 
 
-  public AutoTest modifiedDate(OffsetDateTime modifiedDate) {
+  public AutoTest modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -836,12 +845,12 @@ public class AutoTest {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public AutoTest modifiedById(UUID modifiedById) {
+  public AutoTest modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -869,12 +878,12 @@ public class AutoTest {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public AutoTest lastTestRunId(UUID lastTestRunId) {
+  public AutoTest lastTestRunId(@jakarta.annotation.Nullable UUID lastTestRunId) {
     this.lastTestRunId = JsonNullable.<UUID>of(lastTestRunId);
     return this;
   }
@@ -902,12 +911,12 @@ public class AutoTest {
     this.lastTestRunId = lastTestRunId;
   }
 
-  public void setLastTestRunId(UUID lastTestRunId) {
+  public void setLastTestRunId(@jakarta.annotation.Nullable UUID lastTestRunId) {
     this.lastTestRunId = JsonNullable.<UUID>of(lastTestRunId);
   }
 
 
-  public AutoTest lastTestRunName(String lastTestRunName) {
+  public AutoTest lastTestRunName(@jakarta.annotation.Nullable String lastTestRunName) {
     this.lastTestRunName = JsonNullable.<String>of(lastTestRunName);
     return this;
   }
@@ -935,12 +944,12 @@ public class AutoTest {
     this.lastTestRunName = lastTestRunName;
   }
 
-  public void setLastTestRunName(String lastTestRunName) {
+  public void setLastTestRunName(@jakarta.annotation.Nullable String lastTestRunName) {
     this.lastTestRunName = JsonNullable.<String>of(lastTestRunName);
   }
 
 
-  public AutoTest lastTestResultId(UUID lastTestResultId) {
+  public AutoTest lastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
     return this;
   }
@@ -968,12 +977,12 @@ public class AutoTest {
     this.lastTestResultId = lastTestResultId;
   }
 
-  public void setLastTestResultId(UUID lastTestResultId) {
+  public void setLastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
   }
 
 
-  public AutoTest lastTestResultConfiguration(ConfigurationShort lastTestResultConfiguration) {
+  public AutoTest lastTestResultConfiguration(@jakarta.annotation.Nullable ConfigurationShort lastTestResultConfiguration) {
     this.lastTestResultConfiguration = JsonNullable.<ConfigurationShort>of(lastTestResultConfiguration);
     return this;
   }
@@ -1001,12 +1010,12 @@ public class AutoTest {
     this.lastTestResultConfiguration = lastTestResultConfiguration;
   }
 
-  public void setLastTestResultConfiguration(ConfigurationShort lastTestResultConfiguration) {
+  public void setLastTestResultConfiguration(@jakarta.annotation.Nullable ConfigurationShort lastTestResultConfiguration) {
     this.lastTestResultConfiguration = JsonNullable.<ConfigurationShort>of(lastTestResultConfiguration);
   }
 
 
-  public AutoTest lastTestResultOutcome(String lastTestResultOutcome) {
+  public AutoTest lastTestResultOutcome(@jakarta.annotation.Nullable String lastTestResultOutcome) {
     this.lastTestResultOutcome = JsonNullable.<String>of(lastTestResultOutcome);
     return this;
   }
@@ -1034,12 +1043,12 @@ public class AutoTest {
     this.lastTestResultOutcome = lastTestResultOutcome;
   }
 
-  public void setLastTestResultOutcome(String lastTestResultOutcome) {
+  public void setLastTestResultOutcome(@jakarta.annotation.Nullable String lastTestResultOutcome) {
     this.lastTestResultOutcome = JsonNullable.<String>of(lastTestResultOutcome);
   }
 
 
-  public AutoTest stabilityPercentage(Integer stabilityPercentage) {
+  public AutoTest stabilityPercentage(@jakarta.annotation.Nullable Integer stabilityPercentage) {
     this.stabilityPercentage = JsonNullable.<Integer>of(stabilityPercentage);
     return this;
   }
@@ -1067,7 +1076,7 @@ public class AutoTest {
     this.stabilityPercentage = stabilityPercentage;
   }
 
-  public void setStabilityPercentage(Integer stabilityPercentage) {
+  public void setStabilityPercentage(@jakarta.annotation.Nullable Integer stabilityPercentage) {
     this.stabilityPercentage = JsonNullable.<Integer>of(stabilityPercentage);
   }
 

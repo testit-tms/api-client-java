@@ -38,30 +38,36 @@ import ru.testit.client.invoker.JSON;
   AutoTestProjectSettingsApiResult.JSON_PROPERTY_RERUN_ENABLED,
   AutoTestProjectSettingsApiResult.JSON_PROPERTY_RERUN_ATTEMPTS_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestProjectSettingsApiResult {
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_IS_FLAKY_AUTO = "isFlakyAuto";
+  @jakarta.annotation.Nonnull
   private Boolean isFlakyAuto;
 
   public static final String JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE = "flakyStabilityPercentage";
+  @jakarta.annotation.Nonnull
   private Integer flakyStabilityPercentage;
 
   public static final String JSON_PROPERTY_FLAKY_TEST_RUN_COUNT = "flakyTestRunCount";
+  @jakarta.annotation.Nonnull
   private Integer flakyTestRunCount;
 
   public static final String JSON_PROPERTY_RERUN_ENABLED = "rerunEnabled";
+  @jakarta.annotation.Nonnull
   private Boolean rerunEnabled;
 
   public static final String JSON_PROPERTY_RERUN_ATTEMPTS_COUNT = "rerunAttemptsCount";
+  @jakarta.annotation.Nonnull
   private Integer rerunAttemptsCount;
 
   public AutoTestProjectSettingsApiResult() { 
   }
 
-  public AutoTestProjectSettingsApiResult projectId(UUID projectId) {
+  public AutoTestProjectSettingsApiResult projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -81,12 +87,12 @@ public class AutoTestProjectSettingsApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestProjectSettingsApiResult isFlakyAuto(Boolean isFlakyAuto) {
+  public AutoTestProjectSettingsApiResult isFlakyAuto(@jakarta.annotation.Nonnull Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
     return this;
   }
@@ -106,12 +112,12 @@ public class AutoTestProjectSettingsApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsFlakyAuto(Boolean isFlakyAuto) {
+  public void setIsFlakyAuto(@jakarta.annotation.Nonnull Boolean isFlakyAuto) {
     this.isFlakyAuto = isFlakyAuto;
   }
 
 
-  public AutoTestProjectSettingsApiResult flakyStabilityPercentage(Integer flakyStabilityPercentage) {
+  public AutoTestProjectSettingsApiResult flakyStabilityPercentage(@jakarta.annotation.Nonnull Integer flakyStabilityPercentage) {
     this.flakyStabilityPercentage = flakyStabilityPercentage;
     return this;
   }
@@ -131,12 +137,12 @@ public class AutoTestProjectSettingsApiResult {
 
   @JsonProperty(JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFlakyStabilityPercentage(Integer flakyStabilityPercentage) {
+  public void setFlakyStabilityPercentage(@jakarta.annotation.Nonnull Integer flakyStabilityPercentage) {
     this.flakyStabilityPercentage = flakyStabilityPercentage;
   }
 
 
-  public AutoTestProjectSettingsApiResult flakyTestRunCount(Integer flakyTestRunCount) {
+  public AutoTestProjectSettingsApiResult flakyTestRunCount(@jakarta.annotation.Nonnull Integer flakyTestRunCount) {
     this.flakyTestRunCount = flakyTestRunCount;
     return this;
   }
@@ -156,12 +162,12 @@ public class AutoTestProjectSettingsApiResult {
 
   @JsonProperty(JSON_PROPERTY_FLAKY_TEST_RUN_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFlakyTestRunCount(Integer flakyTestRunCount) {
+  public void setFlakyTestRunCount(@jakarta.annotation.Nonnull Integer flakyTestRunCount) {
     this.flakyTestRunCount = flakyTestRunCount;
   }
 
 
-  public AutoTestProjectSettingsApiResult rerunEnabled(Boolean rerunEnabled) {
+  public AutoTestProjectSettingsApiResult rerunEnabled(@jakarta.annotation.Nonnull Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
     return this;
   }
@@ -181,12 +187,12 @@ public class AutoTestProjectSettingsApiResult {
 
   @JsonProperty(JSON_PROPERTY_RERUN_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRerunEnabled(Boolean rerunEnabled) {
+  public void setRerunEnabled(@jakarta.annotation.Nonnull Boolean rerunEnabled) {
     this.rerunEnabled = rerunEnabled;
   }
 
 
-  public AutoTestProjectSettingsApiResult rerunAttemptsCount(Integer rerunAttemptsCount) {
+  public AutoTestProjectSettingsApiResult rerunAttemptsCount(@jakarta.annotation.Nonnull Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
     return this;
   }
@@ -206,7 +212,7 @@ public class AutoTestProjectSettingsApiResult {
 
   @JsonProperty(JSON_PROPERTY_RERUN_ATTEMPTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRerunAttemptsCount(Integer rerunAttemptsCount) {
+  public void setRerunAttemptsCount(@jakarta.annotation.Nonnull Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
   }
 

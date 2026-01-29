@@ -63,12 +63,14 @@ import ru.testit.client.invoker.JSON;
   AutoTestResultsForTestRunModel.JSON_PROPERTY_SETUP_RESULTS,
   AutoTestResultsForTestRunModel.JSON_PROPERTY_TEARDOWN_RESULTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestResultsForTestRunModel {
   public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
+  @jakarta.annotation.Nonnull
   private UUID configurationId;
 
   public static final String JSON_PROPERTY_AUTO_TEST_EXTERNAL_ID = "autoTestExternalId";
+  @jakarta.annotation.Nonnull
   private String autoTestExternalId;
 
   public static final String JSON_PROPERTY_LINKS = "links";
@@ -120,7 +122,7 @@ public class AutoTestResultsForTestRunModel {
   public AutoTestResultsForTestRunModel() { 
   }
 
-  public AutoTestResultsForTestRunModel configurationId(UUID configurationId) {
+  public AutoTestResultsForTestRunModel configurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -140,12 +142,12 @@ public class AutoTestResultsForTestRunModel {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public AutoTestResultsForTestRunModel autoTestExternalId(String autoTestExternalId) {
+  public AutoTestResultsForTestRunModel autoTestExternalId(@jakarta.annotation.Nonnull String autoTestExternalId) {
     this.autoTestExternalId = autoTestExternalId;
     return this;
   }
@@ -165,12 +167,12 @@ public class AutoTestResultsForTestRunModel {
 
   @JsonProperty(JSON_PROPERTY_AUTO_TEST_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutoTestExternalId(String autoTestExternalId) {
+  public void setAutoTestExternalId(@jakarta.annotation.Nonnull String autoTestExternalId) {
     this.autoTestExternalId = autoTestExternalId;
   }
 
 
-  public AutoTestResultsForTestRunModel links(List<LinkPostModel> links) {
+  public AutoTestResultsForTestRunModel links(@jakarta.annotation.Nullable List<LinkPostModel> links) {
     this.links = JsonNullable.<List<LinkPostModel>>of(links);
     return this;
   }
@@ -210,12 +212,12 @@ public class AutoTestResultsForTestRunModel {
     this.links = links;
   }
 
-  public void setLinks(List<LinkPostModel> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<LinkPostModel> links) {
     this.links = JsonNullable.<List<LinkPostModel>>of(links);
   }
 
 
-  public AutoTestResultsForTestRunModel failureReasonNames(List<FailureCategoryModel> failureReasonNames) {
+  public AutoTestResultsForTestRunModel failureReasonNames(@jakarta.annotation.Nullable List<FailureCategoryModel> failureReasonNames) {
     this.failureReasonNames = JsonNullable.<List<FailureCategoryModel>>of(failureReasonNames);
     return this;
   }
@@ -255,13 +257,13 @@ public class AutoTestResultsForTestRunModel {
     this.failureReasonNames = failureReasonNames;
   }
 
-  public void setFailureReasonNames(List<FailureCategoryModel> failureReasonNames) {
+  public void setFailureReasonNames(@jakarta.annotation.Nullable List<FailureCategoryModel> failureReasonNames) {
     this.failureReasonNames = JsonNullable.<List<FailureCategoryModel>>of(failureReasonNames);
   }
 
 
   @Deprecated
-  public AutoTestResultsForTestRunModel outcome(AvailableTestResultOutcome outcome) {
+  public AutoTestResultsForTestRunModel outcome(@jakarta.annotation.Nullable AvailableTestResultOutcome outcome) {
     this.outcome = JsonNullable.<AvailableTestResultOutcome>of(outcome);
     return this;
   }
@@ -292,12 +294,12 @@ public class AutoTestResultsForTestRunModel {
   }
 
   @Deprecated
-  public void setOutcome(AvailableTestResultOutcome outcome) {
+  public void setOutcome(@jakarta.annotation.Nullable AvailableTestResultOutcome outcome) {
     this.outcome = JsonNullable.<AvailableTestResultOutcome>of(outcome);
   }
 
 
-  public AutoTestResultsForTestRunModel statusCode(String statusCode) {
+  public AutoTestResultsForTestRunModel statusCode(@jakarta.annotation.Nullable String statusCode) {
     this.statusCode = JsonNullable.<String>of(statusCode);
     return this;
   }
@@ -325,12 +327,12 @@ public class AutoTestResultsForTestRunModel {
     this.statusCode = statusCode;
   }
 
-  public void setStatusCode(String statusCode) {
+  public void setStatusCode(@jakarta.annotation.Nullable String statusCode) {
     this.statusCode = JsonNullable.<String>of(statusCode);
   }
 
 
-  public AutoTestResultsForTestRunModel message(String message) {
+  public AutoTestResultsForTestRunModel message(@jakarta.annotation.Nullable String message) {
     this.message = JsonNullable.<String>of(message);
     return this;
   }
@@ -358,12 +360,12 @@ public class AutoTestResultsForTestRunModel {
     this.message = message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = JsonNullable.<String>of(message);
   }
 
 
-  public AutoTestResultsForTestRunModel traces(String traces) {
+  public AutoTestResultsForTestRunModel traces(@jakarta.annotation.Nullable String traces) {
     this.traces = JsonNullable.<String>of(traces);
     return this;
   }
@@ -391,12 +393,12 @@ public class AutoTestResultsForTestRunModel {
     this.traces = traces;
   }
 
-  public void setTraces(String traces) {
+  public void setTraces(@jakarta.annotation.Nullable String traces) {
     this.traces = JsonNullable.<String>of(traces);
   }
 
 
-  public AutoTestResultsForTestRunModel startedOn(OffsetDateTime startedOn) {
+  public AutoTestResultsForTestRunModel startedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
     return this;
   }
@@ -424,12 +426,12 @@ public class AutoTestResultsForTestRunModel {
     this.startedOn = startedOn;
   }
 
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
   }
 
 
-  public AutoTestResultsForTestRunModel completedOn(OffsetDateTime completedOn) {
+  public AutoTestResultsForTestRunModel completedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
     return this;
   }
@@ -457,12 +459,12 @@ public class AutoTestResultsForTestRunModel {
     this.completedOn = completedOn;
   }
 
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
   }
 
 
-  public AutoTestResultsForTestRunModel duration(Long duration) {
+  public AutoTestResultsForTestRunModel duration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
     return this;
   }
@@ -492,12 +494,12 @@ public class AutoTestResultsForTestRunModel {
     this.duration = duration;
   }
 
-  public void setDuration(Long duration) {
+  public void setDuration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
   }
 
 
-  public AutoTestResultsForTestRunModel attachments(List<AttachmentPutModel> attachments) {
+  public AutoTestResultsForTestRunModel attachments(@jakarta.annotation.Nullable List<AttachmentPutModel> attachments) {
     this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
     return this;
   }
@@ -537,12 +539,12 @@ public class AutoTestResultsForTestRunModel {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AttachmentPutModel> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<AttachmentPutModel> attachments) {
     this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
   }
 
 
-  public AutoTestResultsForTestRunModel parameters(Map<String, String> parameters) {
+  public AutoTestResultsForTestRunModel parameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
     return this;
   }
@@ -582,12 +584,12 @@ public class AutoTestResultsForTestRunModel {
     this.parameters = parameters;
   }
 
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
   }
 
 
-  public AutoTestResultsForTestRunModel properties(Map<String, String> properties) {
+  public AutoTestResultsForTestRunModel properties(@jakarta.annotation.Nullable Map<String, String> properties) {
     this.properties = JsonNullable.<Map<String, String>>of(properties);
     return this;
   }
@@ -627,12 +629,12 @@ public class AutoTestResultsForTestRunModel {
     this.properties = properties;
   }
 
-  public void setProperties(Map<String, String> properties) {
+  public void setProperties(@jakarta.annotation.Nullable Map<String, String> properties) {
     this.properties = JsonNullable.<Map<String, String>>of(properties);
   }
 
 
-  public AutoTestResultsForTestRunModel stepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+  public AutoTestResultsForTestRunModel stepResults(@jakarta.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
     this.stepResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(stepResults);
     return this;
   }
@@ -672,12 +674,12 @@ public class AutoTestResultsForTestRunModel {
     this.stepResults = stepResults;
   }
 
-  public void setStepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+  public void setStepResults(@jakarta.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
     this.stepResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(stepResults);
   }
 
 
-  public AutoTestResultsForTestRunModel setupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public AutoTestResultsForTestRunModel setupResults(@jakarta.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(setupResults);
     return this;
   }
@@ -717,12 +719,12 @@ public class AutoTestResultsForTestRunModel {
     this.setupResults = setupResults;
   }
 
-  public void setSetupResults(List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
+  public void setSetupResults(@jakarta.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> setupResults) {
     this.setupResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(setupResults);
   }
 
 
-  public AutoTestResultsForTestRunModel teardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public AutoTestResultsForTestRunModel teardownResults(@jakarta.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(teardownResults);
     return this;
   }
@@ -762,7 +764,7 @@ public class AutoTestResultsForTestRunModel {
     this.teardownResults = teardownResults;
   }
 
-  public void setTeardownResults(List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
+  public void setTeardownResults(@jakarta.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> teardownResults) {
     this.teardownResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(teardownResults);
   }
 

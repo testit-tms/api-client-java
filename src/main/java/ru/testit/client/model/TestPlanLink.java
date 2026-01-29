@@ -45,7 +45,7 @@ import ru.testit.client.invoker.JSON;
   TestPlanLink.JSON_PROPERTY_COMMENT,
   TestPlanLink.JSON_PROPERTY_INFO
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanLink {
   public static final String JSON_PROPERTY_BUG_LINK = "bugLink";
   private JsonNullable<LinkModel> bugLink = JsonNullable.<LinkModel>undefined();
@@ -71,7 +71,7 @@ public class TestPlanLink {
   public TestPlanLink() { 
   }
 
-  public TestPlanLink bugLink(LinkModel bugLink) {
+  public TestPlanLink bugLink(@jakarta.annotation.Nullable LinkModel bugLink) {
     this.bugLink = JsonNullable.<LinkModel>of(bugLink);
     return this;
   }
@@ -99,12 +99,12 @@ public class TestPlanLink {
     this.bugLink = bugLink;
   }
 
-  public void setBugLink(LinkModel bugLink) {
+  public void setBugLink(@jakarta.annotation.Nullable LinkModel bugLink) {
     this.bugLink = JsonNullable.<LinkModel>of(bugLink);
   }
 
 
-  public TestPlanLink workItemGlobalId(Long workItemGlobalId) {
+  public TestPlanLink workItemGlobalId(@jakarta.annotation.Nullable Long workItemGlobalId) {
     this.workItemGlobalId = JsonNullable.<Long>of(workItemGlobalId);
     return this;
   }
@@ -132,12 +132,12 @@ public class TestPlanLink {
     this.workItemGlobalId = workItemGlobalId;
   }
 
-  public void setWorkItemGlobalId(Long workItemGlobalId) {
+  public void setWorkItemGlobalId(@jakarta.annotation.Nullable Long workItemGlobalId) {
     this.workItemGlobalId = JsonNullable.<Long>of(workItemGlobalId);
   }
 
 
-  public TestPlanLink workItemName(String workItemName) {
+  public TestPlanLink workItemName(@jakarta.annotation.Nullable String workItemName) {
     this.workItemName = JsonNullable.<String>of(workItemName);
     return this;
   }
@@ -165,12 +165,12 @@ public class TestPlanLink {
     this.workItemName = workItemName;
   }
 
-  public void setWorkItemName(String workItemName) {
+  public void setWorkItemName(@jakarta.annotation.Nullable String workItemName) {
     this.workItemName = JsonNullable.<String>of(workItemName);
   }
 
 
-  public TestPlanLink configurationName(String configurationName) {
+  public TestPlanLink configurationName(@jakarta.annotation.Nullable String configurationName) {
     this.configurationName = JsonNullable.<String>of(configurationName);
     return this;
   }
@@ -198,12 +198,12 @@ public class TestPlanLink {
     this.configurationName = configurationName;
   }
 
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@jakarta.annotation.Nullable String configurationName) {
     this.configurationName = JsonNullable.<String>of(configurationName);
   }
 
 
-  public TestPlanLink createdById(UUID createdById) {
+  public TestPlanLink createdById(@jakarta.annotation.Nullable UUID createdById) {
     this.createdById = JsonNullable.<UUID>of(createdById);
     return this;
   }
@@ -231,12 +231,12 @@ public class TestPlanLink {
     this.createdById = createdById;
   }
 
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nullable UUID createdById) {
     this.createdById = JsonNullable.<UUID>of(createdById);
   }
 
 
-  public TestPlanLink comment(String comment) {
+  public TestPlanLink comment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
     return this;
   }
@@ -264,12 +264,12 @@ public class TestPlanLink {
     this.comment = comment;
   }
 
-  public void setComment(String comment) {
+  public void setComment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
   }
 
 
-  public TestPlanLink info(ExternalLinkModel info) {
+  public TestPlanLink info(@jakarta.annotation.Nullable ExternalLinkModel info) {
     this.info = JsonNullable.<ExternalLinkModel>of(info);
     return this;
   }
@@ -297,7 +297,7 @@ public class TestPlanLink {
     this.info = info;
   }
 
-  public void setInfo(ExternalLinkModel info) {
+  public void setInfo(@jakarta.annotation.Nullable ExternalLinkModel info) {
     this.info = JsonNullable.<ExternalLinkModel>of(info);
   }
 

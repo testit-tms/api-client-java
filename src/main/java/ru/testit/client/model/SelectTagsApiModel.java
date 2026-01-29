@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   SelectTagsApiModel.JSON_PROPERTY_FILTER,
   SelectTagsApiModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SelectTagsApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<TagsFilterApiModel> filter = JsonNullable.<TagsFilterApiModel>undefined();
@@ -50,7 +50,7 @@ public class SelectTagsApiModel {
   public SelectTagsApiModel() { 
   }
 
-  public SelectTagsApiModel filter(TagsFilterApiModel filter) {
+  public SelectTagsApiModel filter(@jakarta.annotation.Nullable TagsFilterApiModel filter) {
     this.filter = JsonNullable.<TagsFilterApiModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class SelectTagsApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(TagsFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TagsFilterApiModel filter) {
     this.filter = JsonNullable.<TagsFilterApiModel>of(filter);
   }
 
 
-  public SelectTagsApiModel extractionModel(TagsExtractionApiModel extractionModel) {
+  public SelectTagsApiModel extractionModel(@jakarta.annotation.Nullable TagsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TagsExtractionApiModel>of(extractionModel);
     return this;
   }
@@ -111,7 +111,7 @@ public class SelectTagsApiModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(TagsExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable TagsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TagsExtractionApiModel>of(extractionModel);
   }
 

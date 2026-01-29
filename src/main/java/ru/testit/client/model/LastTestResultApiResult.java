@@ -47,18 +47,22 @@ import ru.testit.client.invoker.JSON;
   LastTestResultApiResult.JSON_PROPERTY_COMMENT,
   LastTestResultApiResult.JSON_PROPERTY_WORK_ITEM_VERSION_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LastTestResultApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
+  @jakarta.annotation.Nonnull
   private UUID testRunId;
 
   public static final String JSON_PROPERTY_LINKS = "links";
+  @jakarta.annotation.Nonnull
   private List<LinkApiResult> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nonnull
   private List<AttachmentApiResult> attachments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_AUTO_TEST_ID = "autoTestId";
@@ -73,7 +77,7 @@ public class LastTestResultApiResult {
   public LastTestResultApiResult() { 
   }
 
-  public LastTestResultApiResult id(UUID id) {
+  public LastTestResultApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -93,12 +97,12 @@ public class LastTestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public LastTestResultApiResult testRunId(UUID testRunId) {
+  public LastTestResultApiResult testRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -118,12 +122,12 @@ public class LastTestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public LastTestResultApiResult links(List<LinkApiResult> links) {
+  public LastTestResultApiResult links(@jakarta.annotation.Nonnull List<LinkApiResult> links) {
     this.links = links;
     return this;
   }
@@ -151,12 +155,12 @@ public class LastTestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(List<LinkApiResult> links) {
+  public void setLinks(@jakarta.annotation.Nonnull List<LinkApiResult> links) {
     this.links = links;
   }
 
 
-  public LastTestResultApiResult attachments(List<AttachmentApiResult> attachments) {
+  public LastTestResultApiResult attachments(@jakarta.annotation.Nonnull List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -184,12 +188,12 @@ public class LastTestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttachments(List<AttachmentApiResult> attachments) {
+  public void setAttachments(@jakarta.annotation.Nonnull List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
 
-  public LastTestResultApiResult autoTestId(UUID autoTestId) {
+  public LastTestResultApiResult autoTestId(@jakarta.annotation.Nullable UUID autoTestId) {
     this.autoTestId = JsonNullable.<UUID>of(autoTestId);
     return this;
   }
@@ -217,12 +221,12 @@ public class LastTestResultApiResult {
     this.autoTestId = autoTestId;
   }
 
-  public void setAutoTestId(UUID autoTestId) {
+  public void setAutoTestId(@jakarta.annotation.Nullable UUID autoTestId) {
     this.autoTestId = JsonNullable.<UUID>of(autoTestId);
   }
 
 
-  public LastTestResultApiResult comment(String comment) {
+  public LastTestResultApiResult comment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
     return this;
   }
@@ -250,12 +254,12 @@ public class LastTestResultApiResult {
     this.comment = comment;
   }
 
-  public void setComment(String comment) {
+  public void setComment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
   }
 
 
-  public LastTestResultApiResult workItemVersionId(UUID workItemVersionId) {
+  public LastTestResultApiResult workItemVersionId(@jakarta.annotation.Nullable UUID workItemVersionId) {
     this.workItemVersionId = JsonNullable.<UUID>of(workItemVersionId);
     return this;
   }
@@ -283,7 +287,7 @@ public class LastTestResultApiResult {
     this.workItemVersionId = workItemVersionId;
   }
 
-  public void setWorkItemVersionId(UUID workItemVersionId) {
+  public void setWorkItemVersionId(@jakarta.annotation.Nullable UUID workItemVersionId) {
     this.workItemVersionId = JsonNullable.<UUID>of(workItemVersionId);
   }
 

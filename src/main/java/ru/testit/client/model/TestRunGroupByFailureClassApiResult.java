@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   TestRunGroupByFailureClassApiResult.JSON_PROPERTY_FAILURE_CATEGORY,
   TestRunGroupByFailureClassApiResult.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunGroupByFailureClassApiResult {
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  @jakarta.annotation.Nonnull
   private String failureCategory;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private Integer value;
 
   public TestRunGroupByFailureClassApiResult() { 
   }
 
-  public TestRunGroupByFailureClassApiResult failureCategory(String failureCategory) {
+  public TestRunGroupByFailureClassApiResult failureCategory(@jakarta.annotation.Nonnull String failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -64,12 +66,12 @@ public class TestRunGroupByFailureClassApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategory(String failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nonnull String failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public TestRunGroupByFailureClassApiResult value(Integer value) {
+  public TestRunGroupByFailureClassApiResult value(@jakarta.annotation.Nonnull Integer value) {
     this.value = value;
     return this;
   }
@@ -89,7 +91,7 @@ public class TestRunGroupByFailureClassApiResult {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Integer value) {
+  public void setValue(@jakarta.annotation.Nonnull Integer value) {
     this.value = value;
   }
 

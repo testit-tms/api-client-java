@@ -43,18 +43,22 @@ import ru.testit.client.invoker.JSON;
   TestPlanChangeModel.JSON_PROPERTY_CREATED_BY_ID,
   TestPlanChangeModel.JSON_PROPERTY_CREATED_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanChangeModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  @jakarta.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String JSON_PROPERTY_TEST_PLAN_CHANGED_FIELDS = "testPlanChangedFields";
+  @jakarta.annotation.Nonnull
   private TestPlanChangedFieldsViewModel testPlanChangedFields;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
@@ -63,7 +67,7 @@ public class TestPlanChangeModel {
   public TestPlanChangeModel() { 
   }
 
-  public TestPlanChangeModel id(UUID id) {
+  public TestPlanChangeModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -83,12 +87,12 @@ public class TestPlanChangeModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanChangeModel testPlanId(UUID testPlanId) {
+  public TestPlanChangeModel testPlanId(@jakarta.annotation.Nonnull UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -108,12 +112,12 @@ public class TestPlanChangeModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@jakarta.annotation.Nonnull UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestPlanChangeModel testPlanChangedFields(TestPlanChangedFieldsViewModel testPlanChangedFields) {
+  public TestPlanChangeModel testPlanChangedFields(@jakarta.annotation.Nonnull TestPlanChangedFieldsViewModel testPlanChangedFields) {
     this.testPlanChangedFields = testPlanChangedFields;
     return this;
   }
@@ -133,12 +137,12 @@ public class TestPlanChangeModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_CHANGED_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanChangedFields(TestPlanChangedFieldsViewModel testPlanChangedFields) {
+  public void setTestPlanChangedFields(@jakarta.annotation.Nonnull TestPlanChangedFieldsViewModel testPlanChangedFields) {
     this.testPlanChangedFields = testPlanChangedFields;
   }
 
 
-  public TestPlanChangeModel createdById(UUID createdById) {
+  public TestPlanChangeModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -158,12 +162,12 @@ public class TestPlanChangeModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanChangeModel createdDate(OffsetDateTime createdDate) {
+  public TestPlanChangeModel createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -191,7 +195,7 @@ public class TestPlanChangeModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 

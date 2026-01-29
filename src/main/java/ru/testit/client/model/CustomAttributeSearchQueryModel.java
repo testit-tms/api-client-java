@@ -45,7 +45,7 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeSearchQueryModel.JSON_PROPERTY_IS_GLOBAL,
   CustomAttributeSearchQueryModel.JSON_PROPERTY_IS_DELETED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeSearchQueryModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -68,7 +68,7 @@ public class CustomAttributeSearchQueryModel {
   public CustomAttributeSearchQueryModel() { 
   }
 
-  public CustomAttributeSearchQueryModel name(String name) {
+  public CustomAttributeSearchQueryModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -96,12 +96,12 @@ public class CustomAttributeSearchQueryModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public CustomAttributeSearchQueryModel projectIds(Set<UUID> projectIds) {
+  public CustomAttributeSearchQueryModel projectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
     return this;
   }
@@ -141,12 +141,12 @@ public class CustomAttributeSearchQueryModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
   }
 
 
-  public CustomAttributeSearchQueryModel customAttributeIds(Set<UUID> customAttributeIds) {
+  public CustomAttributeSearchQueryModel customAttributeIds(@jakarta.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
     return this;
   }
@@ -186,12 +186,12 @@ public class CustomAttributeSearchQueryModel {
     this.customAttributeIds = customAttributeIds;
   }
 
-  public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
+  public void setCustomAttributeIds(@jakarta.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
   }
 
 
-  public CustomAttributeSearchQueryModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public CustomAttributeSearchQueryModel customAttributeTypes(@jakarta.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
     return this;
   }
@@ -231,12 +231,12 @@ public class CustomAttributeSearchQueryModel {
     this.customAttributeTypes = customAttributeTypes;
   }
 
-  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public void setCustomAttributeTypes(@jakarta.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
   }
 
 
-  public CustomAttributeSearchQueryModel isGlobal(Boolean isGlobal) {
+  public CustomAttributeSearchQueryModel isGlobal(@jakarta.annotation.Nullable Boolean isGlobal) {
     this.isGlobal = JsonNullable.<Boolean>of(isGlobal);
     return this;
   }
@@ -264,12 +264,12 @@ public class CustomAttributeSearchQueryModel {
     this.isGlobal = isGlobal;
   }
 
-  public void setIsGlobal(Boolean isGlobal) {
+  public void setIsGlobal(@jakarta.annotation.Nullable Boolean isGlobal) {
     this.isGlobal = JsonNullable.<Boolean>of(isGlobal);
   }
 
 
-  public CustomAttributeSearchQueryModel isDeleted(Boolean isDeleted) {
+  public CustomAttributeSearchQueryModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -297,7 +297,7 @@ public class CustomAttributeSearchQueryModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 

@@ -39,12 +39,14 @@ import ru.testit.client.invoker.JSON;
   RerunTestResultModel.JSON_PROPERTY_RUN_NUMBER,
   RerunTestResultModel.JSON_PROPERTY_OUTCOME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class RerunTestResultModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_RUN_NUMBER = "runNumber";
+  @jakarta.annotation.Nonnull
   private Integer runNumber;
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
@@ -53,7 +55,7 @@ public class RerunTestResultModel {
   public RerunTestResultModel() { 
   }
 
-  public RerunTestResultModel id(UUID id) {
+  public RerunTestResultModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -73,12 +75,12 @@ public class RerunTestResultModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public RerunTestResultModel runNumber(Integer runNumber) {
+  public RerunTestResultModel runNumber(@jakarta.annotation.Nonnull Integer runNumber) {
     this.runNumber = runNumber;
     return this;
   }
@@ -98,12 +100,12 @@ public class RerunTestResultModel {
 
   @JsonProperty(JSON_PROPERTY_RUN_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRunNumber(Integer runNumber) {
+  public void setRunNumber(@jakarta.annotation.Nonnull Integer runNumber) {
     this.runNumber = runNumber;
   }
 
 
-  public RerunTestResultModel outcome(String outcome) {
+  public RerunTestResultModel outcome(@jakarta.annotation.Nullable String outcome) {
     this.outcome = JsonNullable.<String>of(outcome);
     return this;
   }
@@ -131,7 +133,7 @@ public class RerunTestResultModel {
     this.outcome = outcome;
   }
 
-  public void setOutcome(String outcome) {
+  public void setOutcome(@jakarta.annotation.Nullable String outcome) {
     this.outcome = JsonNullable.<String>of(outcome);
   }
 

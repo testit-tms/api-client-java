@@ -43,12 +43,14 @@ import ru.testit.client.invoker.JSON;
   LinkPutModel.JSON_PROPERTY_DESCRIPTION,
   LinkPutModel.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LinkPutModel {
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
+  @jakarta.annotation.Nonnull
   private Boolean hasInfo;
 
   public static final String JSON_PROPERTY_ID = "id";
@@ -66,7 +68,7 @@ public class LinkPutModel {
   public LinkPutModel() { 
   }
 
-  public LinkPutModel url(String url) {
+  public LinkPutModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -86,12 +88,12 @@ public class LinkPutModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public LinkPutModel hasInfo(Boolean hasInfo) {
+  public LinkPutModel hasInfo(@jakarta.annotation.Nonnull Boolean hasInfo) {
     this.hasInfo = hasInfo;
     return this;
   }
@@ -111,12 +113,12 @@ public class LinkPutModel {
 
   @JsonProperty(JSON_PROPERTY_HAS_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHasInfo(Boolean hasInfo) {
+  public void setHasInfo(@jakarta.annotation.Nonnull Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 
 
-  public LinkPutModel id(UUID id) {
+  public LinkPutModel id(@jakarta.annotation.Nullable UUID id) {
     this.id = JsonNullable.<UUID>of(id);
     return this;
   }
@@ -144,12 +146,12 @@ public class LinkPutModel {
     this.id = id;
   }
 
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nullable UUID id) {
     this.id = JsonNullable.<UUID>of(id);
   }
 
 
-  public LinkPutModel title(String title) {
+  public LinkPutModel title(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
@@ -177,12 +179,12 @@ public class LinkPutModel {
     this.title = title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
 
-  public LinkPutModel description(String description) {
+  public LinkPutModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -210,12 +212,12 @@ public class LinkPutModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public LinkPutModel type(LinkType type) {
+  public LinkPutModel type(@jakarta.annotation.Nullable LinkType type) {
     this.type = JsonNullable.<LinkType>of(type);
     return this;
   }
@@ -243,7 +245,7 @@ public class LinkPutModel {
     this.type = type;
   }
 
-  public void setType(LinkType type) {
+  public void setType(@jakarta.annotation.Nullable LinkType type) {
     this.type = JsonNullable.<LinkType>of(type);
   }
 

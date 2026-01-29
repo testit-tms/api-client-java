@@ -38,27 +38,32 @@ import ru.testit.client.invoker.JSON;
   ProjectShortestModel.JSON_PROPERTY_NAME,
   ProjectShortestModel.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectShortestModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private ProjectTypeModel type;
 
   public ProjectShortestModel() { 
   }
 
-  public ProjectShortestModel id(UUID id) {
+  public ProjectShortestModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -78,12 +83,12 @@ public class ProjectShortestModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ProjectShortestModel isDeleted(Boolean isDeleted) {
+  public ProjectShortestModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -103,12 +108,12 @@ public class ProjectShortestModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectShortestModel globalId(Long globalId) {
+  public ProjectShortestModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -128,12 +133,12 @@ public class ProjectShortestModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public ProjectShortestModel name(String name) {
+  public ProjectShortestModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -153,12 +158,12 @@ public class ProjectShortestModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectShortestModel type(ProjectTypeModel type) {
+  public ProjectShortestModel type(@jakarta.annotation.Nonnull ProjectTypeModel type) {
     this.type = type;
     return this;
   }
@@ -178,7 +183,7 @@ public class ProjectShortestModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(ProjectTypeModel type) {
+  public void setType(@jakarta.annotation.Nonnull ProjectTypeModel type) {
     this.type = type;
   }
 

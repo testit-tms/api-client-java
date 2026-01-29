@@ -45,12 +45,14 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsAutoTestsRunApiModel.JSON_PROPERTY_EXTRACTION_MODEL,
   TestPlanTestPointsAutoTestsRunApiModel.JSON_PROPERTY_BUILD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsAutoTestsRunApiModel {
   public static final String JSON_PROPERTY_WEBHOOK_IDS = "webhookIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> webhookIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_RESET_NOT_ACTUAL_AUTOMATED_TEST_POINTS = "resetNotActualAutomatedTestPoints";
+  @jakarta.annotation.Nonnull
   private Boolean resetNotActualAutomatedTestPoints;
 
   public static final String JSON_PROPERTY_FILTER = "filter";
@@ -65,7 +67,7 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
   public TestPlanTestPointsAutoTestsRunApiModel() { 
   }
 
-  public TestPlanTestPointsAutoTestsRunApiModel webhookIds(List<UUID> webhookIds) {
+  public TestPlanTestPointsAutoTestsRunApiModel webhookIds(@jakarta.annotation.Nonnull List<UUID> webhookIds) {
     this.webhookIds = webhookIds;
     return this;
   }
@@ -93,12 +95,12 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
 
   @JsonProperty(JSON_PROPERTY_WEBHOOK_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWebhookIds(List<UUID> webhookIds) {
+  public void setWebhookIds(@jakarta.annotation.Nonnull List<UUID> webhookIds) {
     this.webhookIds = webhookIds;
   }
 
 
-  public TestPlanTestPointsAutoTestsRunApiModel resetNotActualAutomatedTestPoints(Boolean resetNotActualAutomatedTestPoints) {
+  public TestPlanTestPointsAutoTestsRunApiModel resetNotActualAutomatedTestPoints(@jakarta.annotation.Nonnull Boolean resetNotActualAutomatedTestPoints) {
     this.resetNotActualAutomatedTestPoints = resetNotActualAutomatedTestPoints;
     return this;
   }
@@ -118,12 +120,12 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
 
   @JsonProperty(JSON_PROPERTY_RESET_NOT_ACTUAL_AUTOMATED_TEST_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResetNotActualAutomatedTestPoints(Boolean resetNotActualAutomatedTestPoints) {
+  public void setResetNotActualAutomatedTestPoints(@jakarta.annotation.Nonnull Boolean resetNotActualAutomatedTestPoints) {
     this.resetNotActualAutomatedTestPoints = resetNotActualAutomatedTestPoints;
   }
 
 
-  public TestPlanTestPointsAutoTestsRunApiModel filter(TestPlanTestPointsSearchApiModel filter) {
+  public TestPlanTestPointsAutoTestsRunApiModel filter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
     return this;
   }
@@ -151,12 +153,12 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(TestPlanTestPointsSearchApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
   }
 
 
-  public TestPlanTestPointsAutoTestsRunApiModel extractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+  public TestPlanTestPointsAutoTestsRunApiModel extractionModel(@jakarta.annotation.Nullable TestPlanTestPointsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
     return this;
   }
@@ -184,12 +186,12 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable TestPlanTestPointsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
   }
 
 
-  public TestPlanTestPointsAutoTestsRunApiModel build(String build) {
+  public TestPlanTestPointsAutoTestsRunApiModel build(@jakarta.annotation.Nullable String build) {
     this.build = JsonNullable.<String>of(build);
     return this;
   }
@@ -217,7 +219,7 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
     this.build = build;
   }
 
-  public void setBuild(String build) {
+  public void setBuild(@jakarta.annotation.Nullable String build) {
     this.build = JsonNullable.<String>of(build);
   }
 

@@ -45,21 +45,26 @@ import ru.testit.client.invoker.JSON;
   WorkItemCommentModel.JSON_PROPERTY_MODIFIED_BY_ID,
   WorkItemCommentModel.JSON_PROPERTY_MODIFIED_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemCommentModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TEXT = "text";
+  @jakarta.annotation.Nonnull
   private String text;
 
   public static final String JSON_PROPERTY_USER = "user";
+  @jakarta.annotation.Nonnull
   private UserWithRankModel user;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
@@ -71,7 +76,7 @@ public class WorkItemCommentModel {
   public WorkItemCommentModel() { 
   }
 
-  public WorkItemCommentModel id(UUID id) {
+  public WorkItemCommentModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -91,12 +96,12 @@ public class WorkItemCommentModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemCommentModel text(String text) {
+  public WorkItemCommentModel text(@jakarta.annotation.Nonnull String text) {
     this.text = text;
     return this;
   }
@@ -116,12 +121,12 @@ public class WorkItemCommentModel {
 
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setText(String text) {
+  public void setText(@jakarta.annotation.Nonnull String text) {
     this.text = text;
   }
 
 
-  public WorkItemCommentModel user(UserWithRankModel user) {
+  public WorkItemCommentModel user(@jakarta.annotation.Nonnull UserWithRankModel user) {
     this.user = user;
     return this;
   }
@@ -141,12 +146,12 @@ public class WorkItemCommentModel {
 
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUser(UserWithRankModel user) {
+  public void setUser(@jakarta.annotation.Nonnull UserWithRankModel user) {
     this.user = user;
   }
 
 
-  public WorkItemCommentModel createdById(UUID createdById) {
+  public WorkItemCommentModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -166,12 +171,12 @@ public class WorkItemCommentModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkItemCommentModel createdDate(OffsetDateTime createdDate) {
+  public WorkItemCommentModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -191,12 +196,12 @@ public class WorkItemCommentModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WorkItemCommentModel modifiedById(UUID modifiedById) {
+  public WorkItemCommentModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -224,12 +229,12 @@ public class WorkItemCommentModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public WorkItemCommentModel modifiedDate(OffsetDateTime modifiedDate) {
+  public WorkItemCommentModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -257,7 +262,7 @@ public class WorkItemCommentModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 

@@ -35,15 +35,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   AutoTestResultReasonsCountModel.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestResultReasonsCountModel {
   public static final String JSON_PROPERTY_DATA = "data";
+  @jakarta.annotation.Nonnull
   private List<AutoTestResultReasonsCountItemModel> data = new ArrayList<>();
 
   public AutoTestResultReasonsCountModel() { 
   }
 
-  public AutoTestResultReasonsCountModel data(List<AutoTestResultReasonsCountItemModel> data) {
+  public AutoTestResultReasonsCountModel data(@jakarta.annotation.Nonnull List<AutoTestResultReasonsCountItemModel> data) {
     this.data = data;
     return this;
   }
@@ -71,7 +72,7 @@ public class AutoTestResultReasonsCountModel {
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<AutoTestResultReasonsCountItemModel> data) {
+  public void setData(@jakarta.annotation.Nonnull List<AutoTestResultReasonsCountItemModel> data) {
     this.data = data;
   }
 

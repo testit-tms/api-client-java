@@ -41,12 +41,14 @@ import ru.testit.client.invoker.JSON;
   CreateParameterApiModel.JSON_PROPERTY_VALUE,
   CreateParameterApiModel.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateParameterApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private String value;
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
@@ -55,7 +57,7 @@ public class CreateParameterApiModel {
   public CreateParameterApiModel() { 
   }
 
-  public CreateParameterApiModel name(String name) {
+  public CreateParameterApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -75,12 +77,12 @@ public class CreateParameterApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CreateParameterApiModel value(String value) {
+  public CreateParameterApiModel value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
@@ -100,12 +102,12 @@ public class CreateParameterApiModel {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 
 
-  public CreateParameterApiModel projectIds(List<UUID> projectIds) {
+  public CreateParameterApiModel projectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
@@ -145,7 +147,7 @@ public class CreateParameterApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
   }
 

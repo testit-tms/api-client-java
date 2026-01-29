@@ -101,7 +101,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |   - Parameter model is not valid |  -  |
+| **400** |  - Parameter model is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -185,7 +185,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - Parameter model is not valid |  -  |
+| **400** |  - Parameter model is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Invalid user permissions |  -  |
 | **404** | Not Found |  -  |
@@ -1054,7 +1054,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** |   - ID is not valid    - DTO is not valid |  -  |
+| **400** |  - ID is not valid  - DTO is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -1327,7 +1327,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - ID is not valid    - DTO is not valid |  -  |
+| **400** |  - ID is not valid  - DTO is not valid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Parameter with provided ID was not found |  -  |

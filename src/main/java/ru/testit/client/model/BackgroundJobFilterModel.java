@@ -45,7 +45,7 @@ import ru.testit.client.invoker.JSON;
   BackgroundJobFilterModel.JSON_PROPERTY_START_DATE,
   BackgroundJobFilterModel.JSON_PROPERTY_END_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class BackgroundJobFilterModel {
   public static final String JSON_PROPERTY_TYPES = "types";
   private JsonNullable<List<BackgroundJobType>> types = JsonNullable.<List<BackgroundJobType>>undefined();
@@ -65,7 +65,7 @@ public class BackgroundJobFilterModel {
   public BackgroundJobFilterModel() { 
   }
 
-  public BackgroundJobFilterModel types(List<BackgroundJobType> types) {
+  public BackgroundJobFilterModel types(@jakarta.annotation.Nullable List<BackgroundJobType> types) {
     this.types = JsonNullable.<List<BackgroundJobType>>of(types);
     return this;
   }
@@ -105,12 +105,12 @@ public class BackgroundJobFilterModel {
     this.types = types;
   }
 
-  public void setTypes(List<BackgroundJobType> types) {
+  public void setTypes(@jakarta.annotation.Nullable List<BackgroundJobType> types) {
     this.types = JsonNullable.<List<BackgroundJobType>>of(types);
   }
 
 
-  public BackgroundJobFilterModel states(List<BackgroundJobState> states) {
+  public BackgroundJobFilterModel states(@jakarta.annotation.Nullable List<BackgroundJobState> states) {
     this.states = JsonNullable.<List<BackgroundJobState>>of(states);
     return this;
   }
@@ -150,12 +150,12 @@ public class BackgroundJobFilterModel {
     this.states = states;
   }
 
-  public void setStates(List<BackgroundJobState> states) {
+  public void setStates(@jakarta.annotation.Nullable List<BackgroundJobState> states) {
     this.states = JsonNullable.<List<BackgroundJobState>>of(states);
   }
 
 
-  public BackgroundJobFilterModel isDeleted(Boolean isDeleted) {
+  public BackgroundJobFilterModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -183,12 +183,12 @@ public class BackgroundJobFilterModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public BackgroundJobFilterModel startDate(DateTimeRangeSelectorModel startDate) {
+  public BackgroundJobFilterModel startDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startDate) {
     this.startDate = JsonNullable.<DateTimeRangeSelectorModel>of(startDate);
     return this;
   }
@@ -216,12 +216,12 @@ public class BackgroundJobFilterModel {
     this.startDate = startDate;
   }
 
-  public void setStartDate(DateTimeRangeSelectorModel startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startDate) {
     this.startDate = JsonNullable.<DateTimeRangeSelectorModel>of(startDate);
   }
 
 
-  public BackgroundJobFilterModel endDate(DateTimeRangeSelectorModel endDate) {
+  public BackgroundJobFilterModel endDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel endDate) {
     this.endDate = JsonNullable.<DateTimeRangeSelectorModel>of(endDate);
     return this;
   }
@@ -249,7 +249,7 @@ public class BackgroundJobFilterModel {
     this.endDate = endDate;
   }
 
-  public void setEndDate(DateTimeRangeSelectorModel endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel endDate) {
     this.endDate = JsonNullable.<DateTimeRangeSelectorModel>of(endDate);
   }
 

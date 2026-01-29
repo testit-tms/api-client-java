@@ -43,7 +43,7 @@ import ru.testit.client.invoker.JSON;
   ExternalLinkModel.JSON_PROPERTY_STATUS_NAME,
   ExternalLinkModel.JSON_PROPERTY_ASSIGNEE_DISPLAY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalLinkModel {
   public static final String JSON_PROPERTY_URL = "url";
   private JsonNullable<String> url = JsonNullable.<String>undefined();
@@ -72,7 +72,7 @@ public class ExternalLinkModel {
   public ExternalLinkModel() { 
   }
 
-  public ExternalLinkModel url(String url) {
+  public ExternalLinkModel url(@jakarta.annotation.Nullable String url) {
     this.url = JsonNullable.<String>of(url);
     return this;
   }
@@ -100,12 +100,12 @@ public class ExternalLinkModel {
     this.url = url;
   }
 
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nullable String url) {
     this.url = JsonNullable.<String>of(url);
   }
 
 
-  public ExternalLinkModel title(String title) {
+  public ExternalLinkModel title(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
@@ -133,12 +133,12 @@ public class ExternalLinkModel {
     this.title = title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
 
-  public ExternalLinkModel issueTypeName(String issueTypeName) {
+  public ExternalLinkModel issueTypeName(@jakarta.annotation.Nullable String issueTypeName) {
     this.issueTypeName = JsonNullable.<String>of(issueTypeName);
     return this;
   }
@@ -166,12 +166,12 @@ public class ExternalLinkModel {
     this.issueTypeName = issueTypeName;
   }
 
-  public void setIssueTypeName(String issueTypeName) {
+  public void setIssueTypeName(@jakarta.annotation.Nullable String issueTypeName) {
     this.issueTypeName = JsonNullable.<String>of(issueTypeName);
   }
 
 
-  public ExternalLinkModel issueTypeIconUrl(String issueTypeIconUrl) {
+  public ExternalLinkModel issueTypeIconUrl(@jakarta.annotation.Nullable String issueTypeIconUrl) {
     this.issueTypeIconUrl = JsonNullable.<String>of(issueTypeIconUrl);
     return this;
   }
@@ -199,12 +199,12 @@ public class ExternalLinkModel {
     this.issueTypeIconUrl = issueTypeIconUrl;
   }
 
-  public void setIssueTypeIconUrl(String issueTypeIconUrl) {
+  public void setIssueTypeIconUrl(@jakarta.annotation.Nullable String issueTypeIconUrl) {
     this.issueTypeIconUrl = JsonNullable.<String>of(issueTypeIconUrl);
   }
 
 
-  public ExternalLinkModel priorityName(String priorityName) {
+  public ExternalLinkModel priorityName(@jakarta.annotation.Nullable String priorityName) {
     this.priorityName = JsonNullable.<String>of(priorityName);
     return this;
   }
@@ -232,12 +232,12 @@ public class ExternalLinkModel {
     this.priorityName = priorityName;
   }
 
-  public void setPriorityName(String priorityName) {
+  public void setPriorityName(@jakarta.annotation.Nullable String priorityName) {
     this.priorityName = JsonNullable.<String>of(priorityName);
   }
 
 
-  public ExternalLinkModel priorityIconUrl(String priorityIconUrl) {
+  public ExternalLinkModel priorityIconUrl(@jakarta.annotation.Nullable String priorityIconUrl) {
     this.priorityIconUrl = JsonNullable.<String>of(priorityIconUrl);
     return this;
   }
@@ -265,12 +265,12 @@ public class ExternalLinkModel {
     this.priorityIconUrl = priorityIconUrl;
   }
 
-  public void setPriorityIconUrl(String priorityIconUrl) {
+  public void setPriorityIconUrl(@jakarta.annotation.Nullable String priorityIconUrl) {
     this.priorityIconUrl = JsonNullable.<String>of(priorityIconUrl);
   }
 
 
-  public ExternalLinkModel statusName(String statusName) {
+  public ExternalLinkModel statusName(@jakarta.annotation.Nullable String statusName) {
     this.statusName = JsonNullable.<String>of(statusName);
     return this;
   }
@@ -298,12 +298,12 @@ public class ExternalLinkModel {
     this.statusName = statusName;
   }
 
-  public void setStatusName(String statusName) {
+  public void setStatusName(@jakarta.annotation.Nullable String statusName) {
     this.statusName = JsonNullable.<String>of(statusName);
   }
 
 
-  public ExternalLinkModel assigneeDisplayName(String assigneeDisplayName) {
+  public ExternalLinkModel assigneeDisplayName(@jakarta.annotation.Nullable String assigneeDisplayName) {
     this.assigneeDisplayName = JsonNullable.<String>of(assigneeDisplayName);
     return this;
   }
@@ -331,7 +331,7 @@ public class ExternalLinkModel {
     this.assigneeDisplayName = assigneeDisplayName;
   }
 
-  public void setAssigneeDisplayName(String assigneeDisplayName) {
+  public void setAssigneeDisplayName(@jakarta.annotation.Nullable String assigneeDisplayName) {
     this.assigneeDisplayName = JsonNullable.<String>of(assigneeDisplayName);
   }
 

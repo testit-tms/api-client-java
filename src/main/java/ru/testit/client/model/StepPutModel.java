@@ -42,9 +42,10 @@ import ru.testit.client.invoker.JSON;
   StepPutModel.JSON_PROPERTY_COMMENTS,
   StepPutModel.JSON_PROPERTY_WORK_ITEM_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StepPutModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_ACTION = "action";
@@ -65,7 +66,7 @@ public class StepPutModel {
   public StepPutModel() { 
   }
 
-  public StepPutModel id(UUID id) {
+  public StepPutModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -85,12 +86,12 @@ public class StepPutModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public StepPutModel action(String action) {
+  public StepPutModel action(@jakarta.annotation.Nullable String action) {
     this.action = JsonNullable.<String>of(action);
     return this;
   }
@@ -118,12 +119,12 @@ public class StepPutModel {
     this.action = action;
   }
 
-  public void setAction(String action) {
+  public void setAction(@jakarta.annotation.Nullable String action) {
     this.action = JsonNullable.<String>of(action);
   }
 
 
-  public StepPutModel expected(String expected) {
+  public StepPutModel expected(@jakarta.annotation.Nullable String expected) {
     this.expected = JsonNullable.<String>of(expected);
     return this;
   }
@@ -151,12 +152,12 @@ public class StepPutModel {
     this.expected = expected;
   }
 
-  public void setExpected(String expected) {
+  public void setExpected(@jakarta.annotation.Nullable String expected) {
     this.expected = JsonNullable.<String>of(expected);
   }
 
 
-  public StepPutModel testData(String testData) {
+  public StepPutModel testData(@jakarta.annotation.Nullable String testData) {
     this.testData = JsonNullable.<String>of(testData);
     return this;
   }
@@ -184,12 +185,12 @@ public class StepPutModel {
     this.testData = testData;
   }
 
-  public void setTestData(String testData) {
+  public void setTestData(@jakarta.annotation.Nullable String testData) {
     this.testData = JsonNullable.<String>of(testData);
   }
 
 
-  public StepPutModel comments(String comments) {
+  public StepPutModel comments(@jakarta.annotation.Nullable String comments) {
     this.comments = JsonNullable.<String>of(comments);
     return this;
   }
@@ -217,12 +218,12 @@ public class StepPutModel {
     this.comments = comments;
   }
 
-  public void setComments(String comments) {
+  public void setComments(@jakarta.annotation.Nullable String comments) {
     this.comments = JsonNullable.<String>of(comments);
   }
 
 
-  public StepPutModel workItemId(UUID workItemId) {
+  public StepPutModel workItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
     return this;
   }
@@ -250,7 +251,7 @@ public class StepPutModel {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
   }
 

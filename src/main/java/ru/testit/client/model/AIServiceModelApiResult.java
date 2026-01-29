@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   AIServiceModelApiResult.JSON_PROPERTY_ID,
   AIServiceModelApiResult.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AIServiceModelApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private String id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public AIServiceModelApiResult() { 
   }
 
-  public AIServiceModelApiResult id(String id) {
+  public AIServiceModelApiResult id(@jakarta.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
@@ -64,12 +66,12 @@ public class AIServiceModelApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
+  public void setId(@jakarta.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public AIServiceModelApiResult name(String name) {
+  public AIServiceModelApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -89,7 +91,7 @@ public class AIServiceModelApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 

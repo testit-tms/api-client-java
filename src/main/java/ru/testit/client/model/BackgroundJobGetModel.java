@@ -53,30 +53,38 @@ import ru.testit.client.invoker.JSON;
   BackgroundJobGetModel.JSON_PROPERTY_END_DATE,
   BackgroundJobGetModel.JSON_PROPERTY_ERROR
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class BackgroundJobGetModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_JOB_ID = "jobId";
+  @jakarta.annotation.Nonnull
   private String jobId;
 
   public static final String JSON_PROPERTY_JOB_TYPE = "jobType";
+  @jakarta.annotation.Nonnull
   private BackgroundJobType jobType;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @jakarta.annotation.Nonnull
   private BackgroundJobState state;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_PROGRESS = "progress";
+  @jakarta.annotation.Nonnull
   private Long progress;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nonnull
   private List<BackgroundJobAttachmentModel> attachments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_START_DATE = "startDate";
@@ -91,7 +99,7 @@ public class BackgroundJobGetModel {
   public BackgroundJobGetModel() { 
   }
 
-  public BackgroundJobGetModel id(UUID id) {
+  public BackgroundJobGetModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -111,12 +119,12 @@ public class BackgroundJobGetModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public BackgroundJobGetModel jobId(String jobId) {
+  public BackgroundJobGetModel jobId(@jakarta.annotation.Nonnull String jobId) {
     this.jobId = jobId;
     return this;
   }
@@ -136,12 +144,12 @@ public class BackgroundJobGetModel {
 
   @JsonProperty(JSON_PROPERTY_JOB_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setJobId(String jobId) {
+  public void setJobId(@jakarta.annotation.Nonnull String jobId) {
     this.jobId = jobId;
   }
 
 
-  public BackgroundJobGetModel jobType(BackgroundJobType jobType) {
+  public BackgroundJobGetModel jobType(@jakarta.annotation.Nonnull BackgroundJobType jobType) {
     this.jobType = jobType;
     return this;
   }
@@ -161,12 +169,12 @@ public class BackgroundJobGetModel {
 
   @JsonProperty(JSON_PROPERTY_JOB_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setJobType(BackgroundJobType jobType) {
+  public void setJobType(@jakarta.annotation.Nonnull BackgroundJobType jobType) {
     this.jobType = jobType;
   }
 
 
-  public BackgroundJobGetModel state(BackgroundJobState state) {
+  public BackgroundJobGetModel state(@jakarta.annotation.Nonnull BackgroundJobState state) {
     this.state = state;
     return this;
   }
@@ -186,12 +194,12 @@ public class BackgroundJobGetModel {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(BackgroundJobState state) {
+  public void setState(@jakarta.annotation.Nonnull BackgroundJobState state) {
     this.state = state;
   }
 
 
-  public BackgroundJobGetModel isDeleted(Boolean isDeleted) {
+  public BackgroundJobGetModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -211,12 +219,12 @@ public class BackgroundJobGetModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public BackgroundJobGetModel progress(Long progress) {
+  public BackgroundJobGetModel progress(@jakarta.annotation.Nonnull Long progress) {
     this.progress = progress;
     return this;
   }
@@ -236,12 +244,12 @@ public class BackgroundJobGetModel {
 
   @JsonProperty(JSON_PROPERTY_PROGRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProgress(Long progress) {
+  public void setProgress(@jakarta.annotation.Nonnull Long progress) {
     this.progress = progress;
   }
 
 
-  public BackgroundJobGetModel createdDate(OffsetDateTime createdDate) {
+  public BackgroundJobGetModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -261,12 +269,12 @@ public class BackgroundJobGetModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public BackgroundJobGetModel attachments(List<BackgroundJobAttachmentModel> attachments) {
+  public BackgroundJobGetModel attachments(@jakarta.annotation.Nonnull List<BackgroundJobAttachmentModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -294,12 +302,12 @@ public class BackgroundJobGetModel {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttachments(List<BackgroundJobAttachmentModel> attachments) {
+  public void setAttachments(@jakarta.annotation.Nonnull List<BackgroundJobAttachmentModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public BackgroundJobGetModel startDate(OffsetDateTime startDate) {
+  public BackgroundJobGetModel startDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
     return this;
   }
@@ -327,12 +335,12 @@ public class BackgroundJobGetModel {
     this.startDate = startDate;
   }
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
   }
 
 
-  public BackgroundJobGetModel endDate(OffsetDateTime endDate) {
+  public BackgroundJobGetModel endDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
     return this;
   }
@@ -360,12 +368,12 @@ public class BackgroundJobGetModel {
     this.endDate = endDate;
   }
 
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
   }
 
 
-  public BackgroundJobGetModel error(String error) {
+  public BackgroundJobGetModel error(@jakarta.annotation.Nullable String error) {
     this.error = JsonNullable.<String>of(error);
     return this;
   }
@@ -393,7 +401,7 @@ public class BackgroundJobGetModel {
     this.error = error;
   }
 
-  public void setError(String error) {
+  public void setError(@jakarta.annotation.Nullable String error) {
     this.error = JsonNullable.<String>of(error);
   }
 

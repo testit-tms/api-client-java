@@ -23,10 +23,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -38,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   ReplaceProjectExternalServiceApiModel.JSON_PROPERTY_NEW_EXTERNAL_SERVICE_ID,
   ReplaceProjectExternalServiceApiModel.JSON_PROPERTY_SETTINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ReplaceProjectExternalServiceApiModel {
   public static final String JSON_PROPERTY_NEW_EXTERNAL_SERVICE_ID = "newExternalServiceId";
+  @jakarta.annotation.Nonnull
   private UUID newExternalServiceId;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private JsonNullable<Object> settings = JsonNullable.<Object>of(null);
+  @jakarta.annotation.Nullable
+  private Object settings = null;
 
   public ReplaceProjectExternalServiceApiModel() { 
   }
 
-  public ReplaceProjectExternalServiceApiModel newExternalServiceId(UUID newExternalServiceId) {
+  public ReplaceProjectExternalServiceApiModel newExternalServiceId(@jakarta.annotation.Nonnull UUID newExternalServiceId) {
     this.newExternalServiceId = newExternalServiceId;
     return this;
   }
@@ -69,13 +67,13 @@ public class ReplaceProjectExternalServiceApiModel {
 
   @JsonProperty(JSON_PROPERTY_NEW_EXTERNAL_SERVICE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNewExternalServiceId(UUID newExternalServiceId) {
+  public void setNewExternalServiceId(@jakarta.annotation.Nonnull UUID newExternalServiceId) {
     this.newExternalServiceId = newExternalServiceId;
   }
 
 
-  public ReplaceProjectExternalServiceApiModel settings(Object settings) {
-    this.settings = JsonNullable.<Object>of(settings);
+  public ReplaceProjectExternalServiceApiModel settings(@jakarta.annotation.Nullable Object settings) {
+    this.settings = settings;
     return this;
   }
 
@@ -84,26 +82,18 @@ public class ReplaceProjectExternalServiceApiModel {
    * @return settings
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Object getSettings() {
-        return settings.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Object> getSettings_JsonNullable() {
     return settings;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
-  public void setSettings_JsonNullable(JsonNullable<Object> settings) {
-    this.settings = settings;
-  }
 
-  public void setSettings(Object settings) {
-    this.settings = JsonNullable.<Object>of(settings);
+
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSettings(@jakarta.annotation.Nullable Object settings) {
+    this.settings = settings;
   }
 
 
@@ -120,23 +110,12 @@ public class ReplaceProjectExternalServiceApiModel {
     }
     ReplaceProjectExternalServiceApiModel replaceProjectExternalServiceApiModel = (ReplaceProjectExternalServiceApiModel) o;
     return Objects.equals(this.newExternalServiceId, replaceProjectExternalServiceApiModel.newExternalServiceId) &&
-        equalsNullable(this.settings, replaceProjectExternalServiceApiModel.settings);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.settings, replaceProjectExternalServiceApiModel.settings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newExternalServiceId, hashCodeNullable(settings));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(newExternalServiceId, settings);
   }
 
   @Override

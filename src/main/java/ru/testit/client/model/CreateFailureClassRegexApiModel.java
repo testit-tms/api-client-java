@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   CreateFailureClassRegexApiModel.JSON_PROPERTY_REGEX_TEXT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateFailureClassRegexApiModel {
   public static final String JSON_PROPERTY_REGEX_TEXT = "regexText";
+  @jakarta.annotation.Nonnull
   private String regexText;
 
   public CreateFailureClassRegexApiModel() { 
   }
 
-  public CreateFailureClassRegexApiModel regexText(String regexText) {
+  public CreateFailureClassRegexApiModel regexText(@jakarta.annotation.Nonnull String regexText) {
     this.regexText = regexText;
     return this;
   }
@@ -60,7 +61,7 @@ public class CreateFailureClassRegexApiModel {
 
   @JsonProperty(JSON_PROPERTY_REGEX_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRegexText(String regexText) {
+  public void setRegexText(@jakarta.annotation.Nonnull String regexText) {
     this.regexText = regexText;
   }
 

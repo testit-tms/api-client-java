@@ -35,21 +35,24 @@ import ru.testit.client.invoker.JSON;
   TestPlanGroupByTestSuite.JSON_PROPERTY_TEST_SUITE_NAME,
   TestPlanGroupByTestSuite.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanGroupByTestSuite {
   public static final String JSON_PROPERTY_TEST_SUITE_ID = "testSuiteId";
+  @jakarta.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String JSON_PROPERTY_TEST_SUITE_NAME = "testSuiteName";
+  @jakarta.annotation.Nonnull
   private String testSuiteName;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private Long value;
 
   public TestPlanGroupByTestSuite() { 
   }
 
-  public TestPlanGroupByTestSuite testSuiteId(UUID testSuiteId) {
+  public TestPlanGroupByTestSuite testSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -69,12 +72,12 @@ public class TestPlanGroupByTestSuite {
 
   @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestSuiteId(UUID testSuiteId) {
+  public void setTestSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
-  public TestPlanGroupByTestSuite testSuiteName(String testSuiteName) {
+  public TestPlanGroupByTestSuite testSuiteName(@jakarta.annotation.Nonnull String testSuiteName) {
     this.testSuiteName = testSuiteName;
     return this;
   }
@@ -94,12 +97,12 @@ public class TestPlanGroupByTestSuite {
 
   @JsonProperty(JSON_PROPERTY_TEST_SUITE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestSuiteName(String testSuiteName) {
+  public void setTestSuiteName(@jakarta.annotation.Nonnull String testSuiteName) {
     this.testSuiteName = testSuiteName;
   }
 
 
-  public TestPlanGroupByTestSuite value(Long value) {
+  public TestPlanGroupByTestSuite value(@jakarta.annotation.Nonnull Long value) {
     this.value = value;
     return this;
   }
@@ -119,7 +122,7 @@ public class TestPlanGroupByTestSuite {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Long value) {
+  public void setValue(@jakarta.annotation.Nonnull Long value) {
     this.value = value;
   }
 

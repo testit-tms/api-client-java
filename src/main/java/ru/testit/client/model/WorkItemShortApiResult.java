@@ -70,60 +70,78 @@ import ru.testit.client.invoker.JSON;
   WorkItemShortApiResult.JSON_PROPERTY_MODIFIED_DATE,
   WorkItemShortApiResult.JSON_PROPERTY_TAG_NAMES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemShortApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_VERSION_ID = "versionId";
+  @jakarta.annotation.Nonnull
   private UUID versionId;
 
   public static final String JSON_PROPERTY_VERSION_NUMBER = "versionNumber";
+  @jakarta.annotation.Nonnull
   private Integer versionNumber;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_ENTITY_TYPE_NAME = "entityTypeName";
+  @jakarta.annotation.Nonnull
   private String entityTypeName;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  @jakarta.annotation.Nonnull
   private UUID sectionId;
 
   public static final String JSON_PROPERTY_SECTION_NAME = "sectionName";
+  @jakarta.annotation.Nonnull
   private String sectionName;
 
   public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  @jakarta.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
+  @jakarta.annotation.Nonnull
   private Integer duration;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @jakarta.annotation.Nonnull
   private WorkItemStates state;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @jakarta.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String JSON_PROPERTY_SOURCE_TYPE = "sourceType";
+  @jakarta.annotation.Nonnull
   private WorkItemSourceTypeModel sourceType;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_ITERATIONS = "iterations";
+  @jakarta.annotation.Nonnull
   private List<IterationApiResult> iterations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKS = "links";
+  @jakarta.annotation.Nonnull
   private List<LinkShortApiResult> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MEDIAN_DURATION = "medianDuration";
@@ -147,7 +165,7 @@ public class WorkItemShortApiResult {
   public WorkItemShortApiResult() { 
   }
 
-  public WorkItemShortApiResult id(UUID id) {
+  public WorkItemShortApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -167,12 +185,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemShortApiResult versionId(UUID versionId) {
+  public WorkItemShortApiResult versionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -192,12 +210,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionId(UUID versionId) {
+  public void setVersionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public WorkItemShortApiResult versionNumber(Integer versionNumber) {
+  public WorkItemShortApiResult versionNumber(@jakarta.annotation.Nonnull Integer versionNumber) {
     this.versionNumber = versionNumber;
     return this;
   }
@@ -217,12 +235,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_VERSION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionNumber(Integer versionNumber) {
+  public void setVersionNumber(@jakarta.annotation.Nonnull Integer versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
-  public WorkItemShortApiResult name(String name) {
+  public WorkItemShortApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -242,12 +260,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public WorkItemShortApiResult entityTypeName(String entityTypeName) {
+  public WorkItemShortApiResult entityTypeName(@jakarta.annotation.Nonnull String entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -267,12 +285,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEntityTypeName(String entityTypeName) {
+  public void setEntityTypeName(@jakarta.annotation.Nonnull String entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
-  public WorkItemShortApiResult projectId(UUID projectId) {
+  public WorkItemShortApiResult projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -292,12 +310,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WorkItemShortApiResult sectionId(UUID sectionId) {
+  public WorkItemShortApiResult sectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -317,12 +335,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionId(UUID sectionId) {
+  public void setSectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public WorkItemShortApiResult sectionName(String sectionName) {
+  public WorkItemShortApiResult sectionName(@jakarta.annotation.Nonnull String sectionName) {
     this.sectionName = sectionName;
     return this;
   }
@@ -342,12 +360,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_SECTION_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionName(String sectionName) {
+  public void setSectionName(@jakarta.annotation.Nonnull String sectionName) {
     this.sectionName = sectionName;
   }
 
 
-  public WorkItemShortApiResult isAutomated(Boolean isAutomated) {
+  public WorkItemShortApiResult isAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -367,12 +385,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public WorkItemShortApiResult globalId(Long globalId) {
+  public WorkItemShortApiResult globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -392,12 +410,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public WorkItemShortApiResult duration(Integer duration) {
+  public WorkItemShortApiResult duration(@jakarta.annotation.Nonnull Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -417,12 +435,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(Integer duration) {
+  public void setDuration(@jakarta.annotation.Nonnull Integer duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemShortApiResult createdById(UUID createdById) {
+  public WorkItemShortApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -442,12 +460,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkItemShortApiResult state(WorkItemStates state) {
+  public WorkItemShortApiResult state(@jakarta.annotation.Nonnull WorkItemStates state) {
     this.state = state;
     return this;
   }
@@ -467,12 +485,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(WorkItemStates state) {
+  public void setState(@jakarta.annotation.Nonnull WorkItemStates state) {
     this.state = state;
   }
 
 
-  public WorkItemShortApiResult priority(WorkItemPriorityModel priority) {
+  public WorkItemShortApiResult priority(@jakarta.annotation.Nonnull WorkItemPriorityModel priority) {
     this.priority = priority;
     return this;
   }
@@ -492,12 +510,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPriority(WorkItemPriorityModel priority) {
+  public void setPriority(@jakarta.annotation.Nonnull WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public WorkItemShortApiResult sourceType(WorkItemSourceTypeModel sourceType) {
+  public WorkItemShortApiResult sourceType(@jakarta.annotation.Nonnull WorkItemSourceTypeModel sourceType) {
     this.sourceType = sourceType;
     return this;
   }
@@ -517,12 +535,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+  public void setSourceType(@jakarta.annotation.Nonnull WorkItemSourceTypeModel sourceType) {
     this.sourceType = sourceType;
   }
 
 
-  public WorkItemShortApiResult isDeleted(Boolean isDeleted) {
+  public WorkItemShortApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -542,12 +560,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public WorkItemShortApiResult iterations(List<IterationApiResult> iterations) {
+  public WorkItemShortApiResult iterations(@jakarta.annotation.Nonnull List<IterationApiResult> iterations) {
     this.iterations = iterations;
     return this;
   }
@@ -575,12 +593,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ITERATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIterations(List<IterationApiResult> iterations) {
+  public void setIterations(@jakarta.annotation.Nonnull List<IterationApiResult> iterations) {
     this.iterations = iterations;
   }
 
 
-  public WorkItemShortApiResult links(List<LinkShortApiResult> links) {
+  public WorkItemShortApiResult links(@jakarta.annotation.Nonnull List<LinkShortApiResult> links) {
     this.links = links;
     return this;
   }
@@ -608,12 +626,12 @@ public class WorkItemShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(List<LinkShortApiResult> links) {
+  public void setLinks(@jakarta.annotation.Nonnull List<LinkShortApiResult> links) {
     this.links = links;
   }
 
 
-  public WorkItemShortApiResult medianDuration(Long medianDuration) {
+  public WorkItemShortApiResult medianDuration(@jakarta.annotation.Nullable Long medianDuration) {
     this.medianDuration = JsonNullable.<Long>of(medianDuration);
     return this;
   }
@@ -641,12 +659,12 @@ public class WorkItemShortApiResult {
     this.medianDuration = medianDuration;
   }
 
-  public void setMedianDuration(Long medianDuration) {
+  public void setMedianDuration(@jakarta.annotation.Nullable Long medianDuration) {
     this.medianDuration = JsonNullable.<Long>of(medianDuration);
   }
 
 
-  public WorkItemShortApiResult attributes(Map<String, Object> attributes) {
+  public WorkItemShortApiResult attributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
     return this;
   }
@@ -686,12 +704,12 @@ public class WorkItemShortApiResult {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Object> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
   }
 
 
-  public WorkItemShortApiResult modifiedById(UUID modifiedById) {
+  public WorkItemShortApiResult modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -719,12 +737,12 @@ public class WorkItemShortApiResult {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public WorkItemShortApiResult createdDate(OffsetDateTime createdDate) {
+  public WorkItemShortApiResult createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -752,12 +770,12 @@ public class WorkItemShortApiResult {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 
 
-  public WorkItemShortApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public WorkItemShortApiResult modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -785,12 +803,12 @@ public class WorkItemShortApiResult {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public WorkItemShortApiResult tagNames(List<String> tagNames) {
+  public WorkItemShortApiResult tagNames(@jakarta.annotation.Nullable List<String> tagNames) {
     this.tagNames = JsonNullable.<List<String>>of(tagNames);
     return this;
   }
@@ -830,7 +848,7 @@ public class WorkItemShortApiResult {
     this.tagNames = tagNames;
   }
 
-  public void setTagNames(List<String> tagNames) {
+  public void setTagNames(@jakarta.annotation.Nullable List<String> tagNames) {
     this.tagNames = JsonNullable.<List<String>>of(tagNames);
   }
 

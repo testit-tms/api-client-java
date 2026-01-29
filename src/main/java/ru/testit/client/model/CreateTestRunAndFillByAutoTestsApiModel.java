@@ -48,15 +48,18 @@ import ru.testit.client.invoker.JSON;
   CreateTestRunAndFillByAutoTestsApiModel.JSON_PROPERTY_ATTACHMENTS,
   CreateTestRunAndFillByAutoTestsApiModel.JSON_PROPERTY_LINKS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateTestRunAndFillByAutoTestsApiModel {
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> configurationIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_AUTO_TEST_EXTERNAL_IDS = "autoTestExternalIds";
+  @jakarta.annotation.Nonnull
   private List<String> autoTestExternalIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
@@ -77,7 +80,7 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
   public CreateTestRunAndFillByAutoTestsApiModel() { 
   }
 
-  public CreateTestRunAndFillByAutoTestsApiModel projectId(UUID projectId) {
+  public CreateTestRunAndFillByAutoTestsApiModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -97,12 +100,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel configurationIds(List<UUID> configurationIds) {
+  public CreateTestRunAndFillByAutoTestsApiModel configurationIds(@jakarta.annotation.Nonnull List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
     return this;
   }
@@ -130,12 +133,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationIds(List<UUID> configurationIds) {
+  public void setConfigurationIds(@jakarta.annotation.Nonnull List<UUID> configurationIds) {
     this.configurationIds = configurationIds;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel autoTestExternalIds(List<String> autoTestExternalIds) {
+  public CreateTestRunAndFillByAutoTestsApiModel autoTestExternalIds(@jakarta.annotation.Nonnull List<String> autoTestExternalIds) {
     this.autoTestExternalIds = autoTestExternalIds;
     return this;
   }
@@ -163,12 +166,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
 
   @JsonProperty(JSON_PROPERTY_AUTO_TEST_EXTERNAL_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutoTestExternalIds(List<String> autoTestExternalIds) {
+  public void setAutoTestExternalIds(@jakarta.annotation.Nonnull List<String> autoTestExternalIds) {
     this.autoTestExternalIds = autoTestExternalIds;
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel name(String name) {
+  public CreateTestRunAndFillByAutoTestsApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -196,12 +199,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel description(String description) {
+  public CreateTestRunAndFillByAutoTestsApiModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -229,12 +232,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel launchSource(String launchSource) {
+  public CreateTestRunAndFillByAutoTestsApiModel launchSource(@jakarta.annotation.Nullable String launchSource) {
     this.launchSource = JsonNullable.<String>of(launchSource);
     return this;
   }
@@ -262,12 +265,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     this.launchSource = launchSource;
   }
 
-  public void setLaunchSource(String launchSource) {
+  public void setLaunchSource(@jakarta.annotation.Nullable String launchSource) {
     this.launchSource = JsonNullable.<String>of(launchSource);
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel attachments(List<AssignAttachmentApiModel> attachments) {
+  public CreateTestRunAndFillByAutoTestsApiModel attachments(@jakarta.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
     this.attachments = JsonNullable.<List<AssignAttachmentApiModel>>of(attachments);
     return this;
   }
@@ -307,12 +310,12 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AssignAttachmentApiModel> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
     this.attachments = JsonNullable.<List<AssignAttachmentApiModel>>of(attachments);
   }
 
 
-  public CreateTestRunAndFillByAutoTestsApiModel links(List<CreateLinkApiModel> links) {
+  public CreateTestRunAndFillByAutoTestsApiModel links(@jakarta.annotation.Nullable List<CreateLinkApiModel> links) {
     this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
     return this;
   }
@@ -352,7 +355,7 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     this.links = links;
   }
 
-  public void setLinks(List<CreateLinkApiModel> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<CreateLinkApiModel> links) {
     this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
   }
 

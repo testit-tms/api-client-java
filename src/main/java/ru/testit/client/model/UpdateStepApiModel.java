@@ -42,9 +42,10 @@ import ru.testit.client.invoker.JSON;
   UpdateStepApiModel.JSON_PROPERTY_COMMENTS,
   UpdateStepApiModel.JSON_PROPERTY_WORK_ITEM_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateStepApiModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_ACTION = "action";
@@ -65,7 +66,7 @@ public class UpdateStepApiModel {
   public UpdateStepApiModel() { 
   }
 
-  public UpdateStepApiModel id(UUID id) {
+  public UpdateStepApiModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -85,12 +86,12 @@ public class UpdateStepApiModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public UpdateStepApiModel action(String action) {
+  public UpdateStepApiModel action(@jakarta.annotation.Nullable String action) {
     this.action = JsonNullable.<String>of(action);
     return this;
   }
@@ -118,12 +119,12 @@ public class UpdateStepApiModel {
     this.action = action;
   }
 
-  public void setAction(String action) {
+  public void setAction(@jakarta.annotation.Nullable String action) {
     this.action = JsonNullable.<String>of(action);
   }
 
 
-  public UpdateStepApiModel expected(String expected) {
+  public UpdateStepApiModel expected(@jakarta.annotation.Nullable String expected) {
     this.expected = JsonNullable.<String>of(expected);
     return this;
   }
@@ -151,12 +152,12 @@ public class UpdateStepApiModel {
     this.expected = expected;
   }
 
-  public void setExpected(String expected) {
+  public void setExpected(@jakarta.annotation.Nullable String expected) {
     this.expected = JsonNullable.<String>of(expected);
   }
 
 
-  public UpdateStepApiModel testData(String testData) {
+  public UpdateStepApiModel testData(@jakarta.annotation.Nullable String testData) {
     this.testData = JsonNullable.<String>of(testData);
     return this;
   }
@@ -184,12 +185,12 @@ public class UpdateStepApiModel {
     this.testData = testData;
   }
 
-  public void setTestData(String testData) {
+  public void setTestData(@jakarta.annotation.Nullable String testData) {
     this.testData = JsonNullable.<String>of(testData);
   }
 
 
-  public UpdateStepApiModel comments(String comments) {
+  public UpdateStepApiModel comments(@jakarta.annotation.Nullable String comments) {
     this.comments = JsonNullable.<String>of(comments);
     return this;
   }
@@ -217,12 +218,12 @@ public class UpdateStepApiModel {
     this.comments = comments;
   }
 
-  public void setComments(String comments) {
+  public void setComments(@jakarta.annotation.Nullable String comments) {
     this.comments = JsonNullable.<String>of(comments);
   }
 
 
-  public UpdateStepApiModel workItemId(UUID workItemId) {
+  public UpdateStepApiModel workItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
     return this;
   }
@@ -250,7 +251,7 @@ public class UpdateStepApiModel {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
   }
 

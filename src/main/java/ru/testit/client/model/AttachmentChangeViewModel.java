@@ -40,12 +40,14 @@ import ru.testit.client.invoker.JSON;
   AttachmentChangeViewModel.JSON_PROPERTY_NAME,
   AttachmentChangeViewModel.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AttachmentChangeViewModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_SIZE = "size";
+  @jakarta.annotation.Nonnull
   private Float size;
 
   public static final String JSON_PROPERTY_NAME = "name";
@@ -57,7 +59,7 @@ public class AttachmentChangeViewModel {
   public AttachmentChangeViewModel() { 
   }
 
-  public AttachmentChangeViewModel id(UUID id) {
+  public AttachmentChangeViewModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -77,12 +79,12 @@ public class AttachmentChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AttachmentChangeViewModel size(Float size) {
+  public AttachmentChangeViewModel size(@jakarta.annotation.Nonnull Float size) {
     this.size = size;
     return this;
   }
@@ -102,12 +104,12 @@ public class AttachmentChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSize(Float size) {
+  public void setSize(@jakarta.annotation.Nonnull Float size) {
     this.size = size;
   }
 
 
-  public AttachmentChangeViewModel name(String name) {
+  public AttachmentChangeViewModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -135,12 +137,12 @@ public class AttachmentChangeViewModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public AttachmentChangeViewModel type(String type) {
+  public AttachmentChangeViewModel type(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
     return this;
   }
@@ -168,7 +170,7 @@ public class AttachmentChangeViewModel {
     this.type = type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
   }
 

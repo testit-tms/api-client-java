@@ -37,9 +37,10 @@ import ru.testit.client.invoker.JSON;
   ExternalIssueApiPriority.JSON_PROPERTY_NAME,
   ExternalIssueApiPriority.JSON_PROPERTY_ICON_URL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalIssueApiPriority {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_ICON_URL = "iconUrl";
@@ -48,7 +49,7 @@ public class ExternalIssueApiPriority {
   public ExternalIssueApiPriority() { 
   }
 
-  public ExternalIssueApiPriority name(String name) {
+  public ExternalIssueApiPriority name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -68,12 +69,12 @@ public class ExternalIssueApiPriority {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ExternalIssueApiPriority iconUrl(String iconUrl) {
+  public ExternalIssueApiPriority iconUrl(@jakarta.annotation.Nullable String iconUrl) {
     this.iconUrl = JsonNullable.<String>of(iconUrl);
     return this;
   }
@@ -101,7 +102,7 @@ public class ExternalIssueApiPriority {
     this.iconUrl = iconUrl;
   }
 
-  public void setIconUrl(String iconUrl) {
+  public void setIconUrl(@jakarta.annotation.Nullable String iconUrl) {
     this.iconUrl = JsonNullable.<String>of(iconUrl);
   }
 

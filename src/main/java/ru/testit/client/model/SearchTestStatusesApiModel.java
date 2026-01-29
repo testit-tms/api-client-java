@@ -37,7 +37,7 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   SearchTestStatusesApiModel.JSON_PROPERTY_INQUIRY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SearchTestStatusesApiModel {
   public static final String JSON_PROPERTY_INQUIRY = "inquiry";
   private JsonNullable<Inquiry> inquiry = JsonNullable.<Inquiry>undefined();
@@ -45,7 +45,7 @@ public class SearchTestStatusesApiModel {
   public SearchTestStatusesApiModel() { 
   }
 
-  public SearchTestStatusesApiModel inquiry(Inquiry inquiry) {
+  public SearchTestStatusesApiModel inquiry(@jakarta.annotation.Nullable Inquiry inquiry) {
     this.inquiry = JsonNullable.<Inquiry>of(inquiry);
     return this;
   }
@@ -73,7 +73,7 @@ public class SearchTestStatusesApiModel {
     this.inquiry = inquiry;
   }
 
-  public void setInquiry(Inquiry inquiry) {
+  public void setInquiry(@jakarta.annotation.Nullable Inquiry inquiry) {
     this.inquiry = JsonNullable.<Inquiry>of(inquiry);
   }
 

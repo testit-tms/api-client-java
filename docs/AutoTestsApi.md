@@ -630,7 +630,7 @@ public class Example {
 
 ## createAutoTest
 
-> AutoTestModel createAutoTest(autoTestPostModel)
+> AutoTestApiResult createAutoTest(autoTestCreateApiModel)
 
 Create autotest
 
@@ -664,9 +664,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-        AutoTestPostModel autoTestPostModel = new AutoTestPostModel(); // AutoTestPostModel | 
+        AutoTestCreateApiModel autoTestCreateApiModel = new AutoTestCreateApiModel(); // AutoTestCreateApiModel | 
         try {
-            AutoTestModel result = apiInstance.createAutoTest(autoTestPostModel);
+            AutoTestApiResult result = apiInstance.createAutoTest(autoTestCreateApiModel);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AutoTestsApi#createAutoTest");
@@ -684,11 +684,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **autoTestPostModel** | [**AutoTestPostModel**](AutoTestPostModel.md)|  | [optional] |
+| **autoTestCreateApiModel** | [**AutoTestCreateApiModel**](AutoTestCreateApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**AutoTestModel**](AutoTestModel.md)
+[**AutoTestApiResult**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -703,17 +703,17 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
+| **400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
 | **404** | Project with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** |   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
+| **422** |  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
 
 
 ## createMultiple
 
-> List&lt;AutoTestModel&gt; createMultiple(autoTestPostModel)
+> List&lt;AutoTestApiResult&gt; createMultiple(autoTestCreateApiModel)
 
 Create multiple autotests
 
@@ -759,9 +759,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-        List<AutoTestPostModel> autoTestPostModel = Arrays.asList(); // List<AutoTestPostModel> | 
+        List<AutoTestCreateApiModel> autoTestCreateApiModel = Arrays.asList(); // List<AutoTestCreateApiModel> | 
         try {
-            List<AutoTestModel> result = apiInstance.createMultiple(autoTestPostModel);
+            List<AutoTestApiResult> result = apiInstance.createMultiple(autoTestCreateApiModel);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AutoTestsApi#createMultiple");
@@ -779,11 +779,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **autoTestPostModel** | [**List&lt;AutoTestPostModel&gt;**](AutoTestPostModel.md)|  | [optional] |
+| **autoTestCreateApiModel** | [**List&lt;AutoTestCreateApiModel&gt;**](AutoTestCreateApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**List&lt;AutoTestModel&gt;**](AutoTestModel.md)
+[**List&lt;AutoTestApiResult&gt;**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -798,12 +798,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
+| **400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
 | **404** | Project with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** |   - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
+| **422** |  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
 
 
 ## deleteAutoTest
@@ -980,7 +980,7 @@ null (empty response body)
 | **400** | Work item ID is invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **404** |   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found |  -  |
+| **404** |  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -1114,7 +1114,7 @@ public class Example {
 
 ## getAutoTestAverageDuration
 
-> AutoTestAverageDurationModel getAutoTestAverageDuration(id)
+> AutoTestAverageDurationApiResult getAutoTestAverageDuration(id)
 
 Get average autotest duration
 
@@ -1154,7 +1154,7 @@ public class Example {
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
         try {
-            AutoTestAverageDurationModel result = apiInstance.getAutoTestAverageDuration(id);
+            AutoTestAverageDurationApiResult result = apiInstance.getAutoTestAverageDuration(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AutoTestsApi#getAutoTestAverageDuration");
@@ -1176,7 +1176,7 @@ public class Example {
 
 ### Return type
 
-[**AutoTestAverageDurationModel**](AutoTestAverageDurationModel.md)
+[**AutoTestAverageDurationApiResult**](AutoTestAverageDurationApiResult.md)
 
 ### Authorization
 
@@ -1201,7 +1201,7 @@ public class Example {
 
 ## getAutoTestById
 
-> AutoTestModel getAutoTestById(id)
+> AutoTestApiResult getAutoTestById(id)
 
 Get autotest by internal or global ID
 
@@ -1237,7 +1237,7 @@ public class Example {
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
         try {
-            AutoTestModel result = apiInstance.getAutoTestById(id);
+            AutoTestApiResult result = apiInstance.getAutoTestById(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AutoTestsApi#getAutoTestById");
@@ -1259,7 +1259,7 @@ public class Example {
 
 ### Return type
 
-[**AutoTestModel**](AutoTestModel.md)
+[**AutoTestApiResult**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -1460,7 +1460,7 @@ public class Example {
 
 ## getWorkItemsLinkedToAutoTest
 
-> List&lt;WorkItemIdentifierModel&gt; getWorkItemsLinkedToAutoTest(id, isDeleted, isWorkItemDeleted)
+> List&lt;AutoTestWorkItemIdentifierApiResult&gt; getWorkItemsLinkedToAutoTest(id, isDeleted, isWorkItemDeleted)
 
 Get work items linked to autotest
 
@@ -1500,11 +1500,11 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-        String id = "id_example"; // String | Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
+        String id = "id_example"; // String | Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
         Boolean isDeleted = true; // Boolean | Specifies that a test is deleted or still relevant.
         Boolean isWorkItemDeleted = false; // Boolean | OBSOLETE: Use `isDeleted` instead
         try {
-            List<WorkItemIdentifierModel> result = apiInstance.getWorkItemsLinkedToAutoTest(id, isDeleted, isWorkItemDeleted);
+            List<AutoTestWorkItemIdentifierApiResult> result = apiInstance.getWorkItemsLinkedToAutoTest(id, isDeleted, isWorkItemDeleted);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AutoTestsApi#getWorkItemsLinkedToAutoTest");
@@ -1522,13 +1522,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID. | |
+| **id** | **String**| Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. | |
 | **isDeleted** | **Boolean**| Specifies that a test is deleted or still relevant. | [optional] |
 | **isWorkItemDeleted** | **Boolean**| OBSOLETE: Use &#x60;isDeleted&#x60; instead | [optional] [default to false] |
 
 ### Return type
 
-[**List&lt;WorkItemIdentifierModel&gt;**](WorkItemIdentifierModel.md)
+[**List&lt;AutoTestWorkItemIdentifierApiResult&gt;**](AutoTestWorkItemIdentifierApiResult.md)
 
 ### Authorization
 
@@ -1635,17 +1635,17 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - Autotest cannot be linked to shared steps    - Autotest cannot be linked to work item from other project    - Work item ID is invalid |  -  |
+| **400** |  - Autotest cannot be linked to shared steps  - Autotest cannot be linked to work item from other project  - Work item ID is invalid |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **404** |   - Autotest with provided ID cannot be found    - Work item with provided ID cannot be found |  -  |
+| **404** |  - Autotest with provided ID cannot be found  - Work item with provided ID cannot be found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
 
 ## updateAutoTest
 
-> updateAutoTest(autoTestPutModel)
+> updateAutoTest(autoTestUpdateApiModel)
 
 Update autotest
 
@@ -1698,9 +1698,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-        AutoTestPutModel autoTestPutModel = new AutoTestPutModel(); // AutoTestPutModel | 
+        AutoTestUpdateApiModel autoTestUpdateApiModel = new AutoTestUpdateApiModel(); // AutoTestUpdateApiModel | 
         try {
-            apiInstance.updateAutoTest(autoTestPutModel);
+            apiInstance.updateAutoTest(autoTestUpdateApiModel);
         } catch (ApiException e) {
             System.err.println("Exception when calling AutoTestsApi#updateAutoTest");
             System.err.println("Status code: " + e.getCode());
@@ -1717,7 +1717,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **autoTestPutModel** | [**AutoTestPutModel**](AutoTestPutModel.md)|  | [optional] |
+| **autoTestUpdateApiModel** | [**AutoTestUpdateApiModel**](AutoTestUpdateApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1736,18 +1736,18 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
+| **400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **404** |   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found |  -  |
+| **404** |  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** |   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
+| **422** |  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
 | **204** | Success |  -  |
 
 
 ## updateMultiple
 
-> updateMultiple(autoTestPutModel)
+> updateMultiple(autoTestUpdateApiModel)
 
 Update multiple autotests
 
@@ -1800,9 +1800,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
-        List<AutoTestPutModel> autoTestPutModel = Arrays.asList(); // List<AutoTestPutModel> | 
+        List<AutoTestUpdateApiModel> autoTestUpdateApiModel = Arrays.asList(); // List<AutoTestUpdateApiModel> | 
         try {
-            apiInstance.updateMultiple(autoTestPutModel);
+            apiInstance.updateMultiple(autoTestUpdateApiModel);
         } catch (ApiException e) {
             System.err.println("Exception when calling AutoTestsApi#updateMultiple");
             System.err.println("Status code: " + e.getCode());
@@ -1819,7 +1819,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **autoTestPutModel** | [**List&lt;AutoTestPutModel&gt;**](AutoTestPutModel.md)|  | [optional] |
+| **autoTestUpdateApiModel** | [**List&lt;AutoTestUpdateApiModel&gt;**](AutoTestUpdateApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -1838,10 +1838,10 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - Name cannot be empty or contain only white space characters    - External ID cannot be empty or contain only white space characters    - Namespace cannot be empty or contain only white space characters    - Classname cannot be empty or contain only white space characters    - Steps cannot be &#x60;null&#x60;    - Steps nesting level is more than 15    - Invalid URI |  -  |
+| **400** |  - Name cannot be empty or contain only white space characters  - External ID cannot be empty or contain only white space characters  - Namespace cannot be empty or contain only white space characters  - Classname cannot be empty or contain only white space characters  - Steps cannot be &#x60;null&#x60;  - Steps nesting level is more than 15  - Invalid URI |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for autotests is required |  -  |
-| **404** |   - Autotests with provided ID cannot be found    - Project with provided ID cannot be found    - Link with provided ID cannot be found    - Label with provided ID cannot be found |  -  |
+| **404** |  - Autotests with provided ID cannot be found  - Project with provided ID cannot be found  - Link with provided ID cannot be found  - Label with provided ID cannot be found |  -  |
 | **409** | Autotest with the same external ID already exists is the project |  -  |
-| **422** |   - Project ID cannot be changed    - Labels have duplicates    - Labels begin with &#x60;::&#x60;    - Labels with the same base have different values |  -  |
+| **422** |  - Project ID cannot be changed  - Labels have duplicates  - Labels begin with &#x60;::&#x60;  - Labels with the same base have different values |  -  |
 

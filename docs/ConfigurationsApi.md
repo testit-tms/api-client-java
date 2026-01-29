@@ -97,7 +97,7 @@ public class Example {
 
 ## apiV2ConfigurationsDeleteBulkPost
 
-> Integer apiV2ConfigurationsDeleteBulkPost(configurationSelectModel)
+> Integer apiV2ConfigurationsDeleteBulkPost(configurationSelectApiModel)
 
 Delete multiple configurations
 
@@ -124,9 +124,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         ConfigurationsApi apiInstance = new ConfigurationsApi(defaultClient);
-        ConfigurationSelectModel configurationSelectModel = new ConfigurationSelectModel(); // ConfigurationSelectModel | 
+        ConfigurationSelectApiModel configurationSelectApiModel = new ConfigurationSelectApiModel(); // ConfigurationSelectApiModel | 
         try {
-            Integer result = apiInstance.apiV2ConfigurationsDeleteBulkPost(configurationSelectModel);
+            Integer result = apiInstance.apiV2ConfigurationsDeleteBulkPost(configurationSelectApiModel);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ConfigurationsApi#apiV2ConfigurationsDeleteBulkPost");
@@ -144,7 +144,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md)|  | [optional] |
+| **configurationSelectApiModel** | [**ConfigurationSelectApiModel**](ConfigurationSelectApiModel.md)|  | [optional] |
 
 ### Return type
 

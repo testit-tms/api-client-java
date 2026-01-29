@@ -56,37 +56,47 @@ import ru.testit.client.invoker.JSON;
   TestRunShortApiResult.JSON_PROPERTY_COMPLETED_DATE,
   TestRunShortApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunShortApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_STATE = "state";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private TestRunState state;
 
   public static final String JSON_PROPERTY_STATUS = "status";
+  @jakarta.annotation.Nonnull
   private TestStatusApiResult status;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_AUTO_TESTS_COUNT = "autoTestsCount";
+  @jakarta.annotation.Nonnull
   private Integer autoTestsCount;
 
   public static final String JSON_PROPERTY_STATISTICS = "statistics";
+  @jakarta.annotation.Nonnull
   private TestResultsStatisticsApiResult statistics;
 
   public static final String JSON_PROPERTY_TEST_RESULTS_CONFIGURATIONS = "testResultsConfigurations";
+  @jakarta.annotation.Nonnull
   private List<ConfigurationShortApiResult> testResultsConfigurations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STARTED_DATE = "startedDate";
@@ -101,7 +111,7 @@ public class TestRunShortApiResult {
   public TestRunShortApiResult() { 
   }
 
-  public TestRunShortApiResult id(UUID id) {
+  public TestRunShortApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -121,12 +131,12 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestRunShortApiResult name(String name) {
+  public TestRunShortApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -146,13 +156,13 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
   @Deprecated
-  public TestRunShortApiResult state(TestRunState state) {
+  public TestRunShortApiResult state(@jakarta.annotation.Nonnull TestRunState state) {
     this.state = state;
     return this;
   }
@@ -175,12 +185,12 @@ public class TestRunShortApiResult {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(TestRunState state) {
+  public void setState(@jakarta.annotation.Nonnull TestRunState state) {
     this.state = state;
   }
 
 
-  public TestRunShortApiResult status(TestStatusApiResult status) {
+  public TestRunShortApiResult status(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -200,12 +210,12 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(TestStatusApiResult status) {
+  public void setStatus(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public TestRunShortApiResult createdDate(OffsetDateTime createdDate) {
+  public TestRunShortApiResult createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -225,12 +235,12 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestRunShortApiResult createdById(UUID createdById) {
+  public TestRunShortApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -250,12 +260,12 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestRunShortApiResult isDeleted(Boolean isDeleted) {
+  public TestRunShortApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -275,12 +285,12 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestRunShortApiResult autoTestsCount(Integer autoTestsCount) {
+  public TestRunShortApiResult autoTestsCount(@jakarta.annotation.Nonnull Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
     return this;
   }
@@ -300,12 +310,12 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_AUTO_TESTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutoTestsCount(Integer autoTestsCount) {
+  public void setAutoTestsCount(@jakarta.annotation.Nonnull Integer autoTestsCount) {
     this.autoTestsCount = autoTestsCount;
   }
 
 
-  public TestRunShortApiResult statistics(TestResultsStatisticsApiResult statistics) {
+  public TestRunShortApiResult statistics(@jakarta.annotation.Nonnull TestResultsStatisticsApiResult statistics) {
     this.statistics = statistics;
     return this;
   }
@@ -325,12 +335,12 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATISTICS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatistics(TestResultsStatisticsApiResult statistics) {
+  public void setStatistics(@jakarta.annotation.Nonnull TestResultsStatisticsApiResult statistics) {
     this.statistics = statistics;
   }
 
 
-  public TestRunShortApiResult testResultsConfigurations(List<ConfigurationShortApiResult> testResultsConfigurations) {
+  public TestRunShortApiResult testResultsConfigurations(@jakarta.annotation.Nonnull List<ConfigurationShortApiResult> testResultsConfigurations) {
     this.testResultsConfigurations = testResultsConfigurations;
     return this;
   }
@@ -358,12 +368,12 @@ public class TestRunShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_RESULTS_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestResultsConfigurations(List<ConfigurationShortApiResult> testResultsConfigurations) {
+  public void setTestResultsConfigurations(@jakarta.annotation.Nonnull List<ConfigurationShortApiResult> testResultsConfigurations) {
     this.testResultsConfigurations = testResultsConfigurations;
   }
 
 
-  public TestRunShortApiResult startedDate(OffsetDateTime startedDate) {
+  public TestRunShortApiResult startedDate(@jakarta.annotation.Nullable OffsetDateTime startedDate) {
     this.startedDate = JsonNullable.<OffsetDateTime>of(startedDate);
     return this;
   }
@@ -391,12 +401,12 @@ public class TestRunShortApiResult {
     this.startedDate = startedDate;
   }
 
-  public void setStartedDate(OffsetDateTime startedDate) {
+  public void setStartedDate(@jakarta.annotation.Nullable OffsetDateTime startedDate) {
     this.startedDate = JsonNullable.<OffsetDateTime>of(startedDate);
   }
 
 
-  public TestRunShortApiResult completedDate(OffsetDateTime completedDate) {
+  public TestRunShortApiResult completedDate(@jakarta.annotation.Nullable OffsetDateTime completedDate) {
     this.completedDate = JsonNullable.<OffsetDateTime>of(completedDate);
     return this;
   }
@@ -424,12 +434,12 @@ public class TestRunShortApiResult {
     this.completedDate = completedDate;
   }
 
-  public void setCompletedDate(OffsetDateTime completedDate) {
+  public void setCompletedDate(@jakarta.annotation.Nullable OffsetDateTime completedDate) {
     this.completedDate = JsonNullable.<OffsetDateTime>of(completedDate);
   }
 
 
-  public TestRunShortApiResult modifiedById(UUID modifiedById) {
+  public TestRunShortApiResult modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -457,7 +467,7 @@ public class TestRunShortApiResult {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

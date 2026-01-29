@@ -43,9 +43,10 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsSetTestersApiModel.JSON_PROPERTY_FILTER,
   TestPlanTestPointsSetTestersApiModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsSetTestersApiModel {
   public static final String JSON_PROPERTY_TESTER_IDS = "testerIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> testerIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FILTER = "filter";
@@ -57,7 +58,7 @@ public class TestPlanTestPointsSetTestersApiModel {
   public TestPlanTestPointsSetTestersApiModel() { 
   }
 
-  public TestPlanTestPointsSetTestersApiModel testerIds(List<UUID> testerIds) {
+  public TestPlanTestPointsSetTestersApiModel testerIds(@jakarta.annotation.Nonnull List<UUID> testerIds) {
     this.testerIds = testerIds;
     return this;
   }
@@ -85,12 +86,12 @@ public class TestPlanTestPointsSetTestersApiModel {
 
   @JsonProperty(JSON_PROPERTY_TESTER_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTesterIds(List<UUID> testerIds) {
+  public void setTesterIds(@jakarta.annotation.Nonnull List<UUID> testerIds) {
     this.testerIds = testerIds;
   }
 
 
-  public TestPlanTestPointsSetTestersApiModel filter(TestPlanTestPointsSearchApiModel filter) {
+  public TestPlanTestPointsSetTestersApiModel filter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
     return this;
   }
@@ -118,12 +119,12 @@ public class TestPlanTestPointsSetTestersApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(TestPlanTestPointsSearchApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
   }
 
 
-  public TestPlanTestPointsSetTestersApiModel extractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+  public TestPlanTestPointsSetTestersApiModel extractionModel(@jakarta.annotation.Nullable TestPlanTestPointsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
     return this;
   }
@@ -151,7 +152,7 @@ public class TestPlanTestPointsSetTestersApiModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable TestPlanTestPointsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
   }
 

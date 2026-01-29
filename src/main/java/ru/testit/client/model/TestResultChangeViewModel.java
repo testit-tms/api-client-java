@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   TestResultChangeViewModel.JSON_PROPERTY_TEST_POINT_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultChangeViewModel {
   public static final String JSON_PROPERTY_TEST_POINT_COUNT = "testPointCount";
+  @jakarta.annotation.Nonnull
   private Long testPointCount;
 
   public TestResultChangeViewModel() { 
   }
 
-  public TestResultChangeViewModel testPointCount(Long testPointCount) {
+  public TestResultChangeViewModel testPointCount(@jakarta.annotation.Nonnull Long testPointCount) {
     this.testPointCount = testPointCount;
     return this;
   }
@@ -60,7 +61,7 @@ public class TestResultChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_POINT_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPointCount(Long testPointCount) {
+  public void setTestPointCount(@jakarta.annotation.Nonnull Long testPointCount) {
     this.testPointCount = testPointCount;
   }
 

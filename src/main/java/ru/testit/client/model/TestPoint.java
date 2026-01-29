@@ -47,18 +47,22 @@ import ru.testit.client.invoker.JSON;
   TestPoint.JSON_PROPERTY_STATUS_MODEL,
   TestPoint.JSON_PROPERTY_LAST_TEST_RESULT_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPoint {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_ITERATION_ID = "iterationId";
+  @jakarta.annotation.Nonnull
   private UUID iterationId;
 
   public static final String JSON_PROPERTY_TEST_SUITE_ID = "testSuiteId";
+  @jakarta.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String JSON_PROPERTY_TESTER_ID = "testerId";
@@ -83,7 +87,7 @@ public class TestPoint {
   public TestPoint() { 
   }
 
-  public TestPoint id(UUID id) {
+  public TestPoint id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -103,12 +107,12 @@ public class TestPoint {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPoint isDeleted(Boolean isDeleted) {
+  public TestPoint isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -128,12 +132,12 @@ public class TestPoint {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestPoint iterationId(UUID iterationId) {
+  public TestPoint iterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -153,12 +157,12 @@ public class TestPoint {
 
   @JsonProperty(JSON_PROPERTY_ITERATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIterationId(UUID iterationId) {
+  public void setIterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPoint testSuiteId(UUID testSuiteId) {
+  public TestPoint testSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -178,12 +182,12 @@ public class TestPoint {
 
   @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestSuiteId(UUID testSuiteId) {
+  public void setTestSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
-  public TestPoint testerId(UUID testerId) {
+  public TestPoint testerId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
     return this;
   }
@@ -211,12 +215,12 @@ public class TestPoint {
     this.testerId = testerId;
   }
 
-  public void setTesterId(UUID testerId) {
+  public void setTesterId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
   }
 
 
-  public TestPoint workItemId(UUID workItemId) {
+  public TestPoint workItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
     return this;
   }
@@ -244,12 +248,12 @@ public class TestPoint {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
   }
 
 
-  public TestPoint configurationId(UUID configurationId) {
+  public TestPoint configurationId(@jakarta.annotation.Nullable UUID configurationId) {
     this.configurationId = JsonNullable.<UUID>of(configurationId);
     return this;
   }
@@ -277,13 +281,13 @@ public class TestPoint {
     this.configurationId = configurationId;
   }
 
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nullable UUID configurationId) {
     this.configurationId = JsonNullable.<UUID>of(configurationId);
   }
 
 
   @Deprecated
-  public TestPoint status(String status) {
+  public TestPoint status(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
     return this;
   }
@@ -314,12 +318,12 @@ public class TestPoint {
   }
 
   @Deprecated
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
   }
 
 
-  public TestPoint statusModel(TestStatusApiResult statusModel) {
+  public TestPoint statusModel(@jakarta.annotation.Nullable TestStatusApiResult statusModel) {
     this.statusModel = JsonNullable.<TestStatusApiResult>of(statusModel);
     return this;
   }
@@ -347,12 +351,12 @@ public class TestPoint {
     this.statusModel = statusModel;
   }
 
-  public void setStatusModel(TestStatusApiResult statusModel) {
+  public void setStatusModel(@jakarta.annotation.Nullable TestStatusApiResult statusModel) {
     this.statusModel = JsonNullable.<TestStatusApiResult>of(statusModel);
   }
 
 
-  public TestPoint lastTestResultId(UUID lastTestResultId) {
+  public TestPoint lastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
     return this;
   }
@@ -380,7 +384,7 @@ public class TestPoint {
     this.lastTestResultId = lastTestResultId;
   }
 
-  public void setLastTestResultId(UUID lastTestResultId) {
+  public void setLastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
   }
 

@@ -41,9 +41,10 @@ import ru.testit.client.invoker.JSON;
   FailureCategoryGroupItemApiResult.JSON_PROPERTY_ITEMS,
   FailureCategoryGroupItemApiResult.JSON_PROPERTY_GROUP
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FailureCategoryGroupItemApiResult {
   public static final String JSON_PROPERTY_ITEMS = "items";
+  @jakarta.annotation.Nonnull
   private List<FailureCategoryItemApiResult> items = new ArrayList<>();
 
   public static final String JSON_PROPERTY_GROUP = "group";
@@ -52,7 +53,7 @@ public class FailureCategoryGroupItemApiResult {
   public FailureCategoryGroupItemApiResult() { 
   }
 
-  public FailureCategoryGroupItemApiResult items(List<FailureCategoryItemApiResult> items) {
+  public FailureCategoryGroupItemApiResult items(@jakarta.annotation.Nonnull List<FailureCategoryItemApiResult> items) {
     this.items = items;
     return this;
   }
@@ -80,12 +81,12 @@ public class FailureCategoryGroupItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setItems(List<FailureCategoryItemApiResult> items) {
+  public void setItems(@jakarta.annotation.Nonnull List<FailureCategoryItemApiResult> items) {
     this.items = items;
   }
 
 
-  public FailureCategoryGroupItemApiResult group(FailureCategoryGroupApiResult group) {
+  public FailureCategoryGroupItemApiResult group(@jakarta.annotation.Nullable FailureCategoryGroupApiResult group) {
     this.group = JsonNullable.<FailureCategoryGroupApiResult>of(group);
     return this;
   }
@@ -113,7 +114,7 @@ public class FailureCategoryGroupItemApiResult {
     this.group = group;
   }
 
-  public void setGroup(FailureCategoryGroupApiResult group) {
+  public void setGroup(@jakarta.annotation.Nullable FailureCategoryGroupApiResult group) {
     this.group = JsonNullable.<FailureCategoryGroupApiResult>of(group);
   }
 

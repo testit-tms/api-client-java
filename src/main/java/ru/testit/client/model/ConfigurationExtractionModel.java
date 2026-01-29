@@ -38,7 +38,7 @@ import ru.testit.client.invoker.JSON;
   ConfigurationExtractionModel.JSON_PROPERTY_IDS,
   ConfigurationExtractionModel.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ConfigurationExtractionModel {
   public static final String JSON_PROPERTY_IDS = "ids";
   private JsonNullable<GuidExtractionModel> ids = JsonNullable.<GuidExtractionModel>undefined();
@@ -49,7 +49,7 @@ public class ConfigurationExtractionModel {
   public ConfigurationExtractionModel() { 
   }
 
-  public ConfigurationExtractionModel ids(GuidExtractionModel ids) {
+  public ConfigurationExtractionModel ids(@jakarta.annotation.Nullable GuidExtractionModel ids) {
     this.ids = JsonNullable.<GuidExtractionModel>of(ids);
     return this;
   }
@@ -77,12 +77,12 @@ public class ConfigurationExtractionModel {
     this.ids = ids;
   }
 
-  public void setIds(GuidExtractionModel ids) {
+  public void setIds(@jakarta.annotation.Nullable GuidExtractionModel ids) {
     this.ids = JsonNullable.<GuidExtractionModel>of(ids);
   }
 
 
-  public ConfigurationExtractionModel projectIds(GuidExtractionModel projectIds) {
+  public ConfigurationExtractionModel projectIds(@jakarta.annotation.Nullable GuidExtractionModel projectIds) {
     this.projectIds = JsonNullable.<GuidExtractionModel>of(projectIds);
     return this;
   }
@@ -110,7 +110,7 @@ public class ConfigurationExtractionModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(GuidExtractionModel projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable GuidExtractionModel projectIds) {
     this.projectIds = JsonNullable.<GuidExtractionModel>of(projectIds);
   }
 

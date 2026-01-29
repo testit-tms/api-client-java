@@ -43,7 +43,7 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeTemplateSearchQueryModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES,
   CustomAttributeTemplateSearchQueryModel.JSON_PROPERTY_IS_DELETED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeTemplateSearchQueryModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -60,7 +60,7 @@ public class CustomAttributeTemplateSearchQueryModel {
   public CustomAttributeTemplateSearchQueryModel() { 
   }
 
-  public CustomAttributeTemplateSearchQueryModel name(String name) {
+  public CustomAttributeTemplateSearchQueryModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -88,12 +88,12 @@ public class CustomAttributeTemplateSearchQueryModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public CustomAttributeTemplateSearchQueryModel projectIds(Set<UUID> projectIds) {
+  public CustomAttributeTemplateSearchQueryModel projectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
     return this;
   }
@@ -133,12 +133,12 @@ public class CustomAttributeTemplateSearchQueryModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
   }
 
 
-  public CustomAttributeTemplateSearchQueryModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public CustomAttributeTemplateSearchQueryModel customAttributeTypes(@jakarta.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
     return this;
   }
@@ -178,12 +178,12 @@ public class CustomAttributeTemplateSearchQueryModel {
     this.customAttributeTypes = customAttributeTypes;
   }
 
-  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public void setCustomAttributeTypes(@jakarta.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
   }
 
 
-  public CustomAttributeTemplateSearchQueryModel isDeleted(Boolean isDeleted) {
+  public CustomAttributeTemplateSearchQueryModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -211,7 +211,7 @@ public class CustomAttributeTemplateSearchQueryModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 

@@ -42,24 +42,30 @@ import ru.testit.client.invoker.JSON;
   TestPlanSummaryModel.JSON_PROPERTY_PLANNED_TEST_POINTS_DURATION,
   TestPlanSummaryModel.JSON_PROPERTY_SPENT_TEST_POINTS_DURATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanSummaryModel {
   public static final String JSON_PROPERTY_TOTAL_TEST_POINTS_COUNT = "totalTestPointsCount";
+  @jakarta.annotation.Nonnull
   private Integer totalTestPointsCount;
 
   public static final String JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT = "manualTestPointsCount";
+  @jakarta.annotation.Nonnull
   private Integer manualTestPointsCount;
 
   public static final String JSON_PROPERTY_AUTOMATED_TEST_POINTS_COUNT = "automatedTestPointsCount";
+  @jakarta.annotation.Nonnull
   private Integer automatedTestPointsCount;
 
   public static final String JSON_PROPERTY_COMPLETED_TEST_POINTS_COUNT = "completedTestPointsCount";
+  @jakarta.annotation.Nonnull
   private Integer completedTestPointsCount;
 
   public static final String JSON_PROPERTY_DEFECTS_COUNT = "defectsCount";
+  @jakarta.annotation.Nonnull
   private Integer defectsCount;
 
   public static final String JSON_PROPERTY_PLANNED_TEST_POINTS_DURATION = "plannedTestPointsDuration";
+  @jakarta.annotation.Nonnull
   private Long plannedTestPointsDuration;
 
   public static final String JSON_PROPERTY_SPENT_TEST_POINTS_DURATION = "spentTestPointsDuration";
@@ -68,7 +74,7 @@ public class TestPlanSummaryModel {
   public TestPlanSummaryModel() { 
   }
 
-  public TestPlanSummaryModel totalTestPointsCount(Integer totalTestPointsCount) {
+  public TestPlanSummaryModel totalTestPointsCount(@jakarta.annotation.Nonnull Integer totalTestPointsCount) {
     this.totalTestPointsCount = totalTestPointsCount;
     return this;
   }
@@ -88,12 +94,12 @@ public class TestPlanSummaryModel {
 
   @JsonProperty(JSON_PROPERTY_TOTAL_TEST_POINTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTotalTestPointsCount(Integer totalTestPointsCount) {
+  public void setTotalTestPointsCount(@jakarta.annotation.Nonnull Integer totalTestPointsCount) {
     this.totalTestPointsCount = totalTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel manualTestPointsCount(Integer manualTestPointsCount) {
+  public TestPlanSummaryModel manualTestPointsCount(@jakarta.annotation.Nonnull Integer manualTestPointsCount) {
     this.manualTestPointsCount = manualTestPointsCount;
     return this;
   }
@@ -113,12 +119,12 @@ public class TestPlanSummaryModel {
 
   @JsonProperty(JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setManualTestPointsCount(Integer manualTestPointsCount) {
+  public void setManualTestPointsCount(@jakarta.annotation.Nonnull Integer manualTestPointsCount) {
     this.manualTestPointsCount = manualTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel automatedTestPointsCount(Integer automatedTestPointsCount) {
+  public TestPlanSummaryModel automatedTestPointsCount(@jakarta.annotation.Nonnull Integer automatedTestPointsCount) {
     this.automatedTestPointsCount = automatedTestPointsCount;
     return this;
   }
@@ -138,12 +144,12 @@ public class TestPlanSummaryModel {
 
   @JsonProperty(JSON_PROPERTY_AUTOMATED_TEST_POINTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutomatedTestPointsCount(Integer automatedTestPointsCount) {
+  public void setAutomatedTestPointsCount(@jakarta.annotation.Nonnull Integer automatedTestPointsCount) {
     this.automatedTestPointsCount = automatedTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel completedTestPointsCount(Integer completedTestPointsCount) {
+  public TestPlanSummaryModel completedTestPointsCount(@jakarta.annotation.Nonnull Integer completedTestPointsCount) {
     this.completedTestPointsCount = completedTestPointsCount;
     return this;
   }
@@ -163,12 +169,12 @@ public class TestPlanSummaryModel {
 
   @JsonProperty(JSON_PROPERTY_COMPLETED_TEST_POINTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCompletedTestPointsCount(Integer completedTestPointsCount) {
+  public void setCompletedTestPointsCount(@jakarta.annotation.Nonnull Integer completedTestPointsCount) {
     this.completedTestPointsCount = completedTestPointsCount;
   }
 
 
-  public TestPlanSummaryModel defectsCount(Integer defectsCount) {
+  public TestPlanSummaryModel defectsCount(@jakarta.annotation.Nonnull Integer defectsCount) {
     this.defectsCount = defectsCount;
     return this;
   }
@@ -188,12 +194,12 @@ public class TestPlanSummaryModel {
 
   @JsonProperty(JSON_PROPERTY_DEFECTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDefectsCount(Integer defectsCount) {
+  public void setDefectsCount(@jakarta.annotation.Nonnull Integer defectsCount) {
     this.defectsCount = defectsCount;
   }
 
 
-  public TestPlanSummaryModel plannedTestPointsDuration(Long plannedTestPointsDuration) {
+  public TestPlanSummaryModel plannedTestPointsDuration(@jakarta.annotation.Nonnull Long plannedTestPointsDuration) {
     this.plannedTestPointsDuration = plannedTestPointsDuration;
     return this;
   }
@@ -213,12 +219,12 @@ public class TestPlanSummaryModel {
 
   @JsonProperty(JSON_PROPERTY_PLANNED_TEST_POINTS_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPlannedTestPointsDuration(Long plannedTestPointsDuration) {
+  public void setPlannedTestPointsDuration(@jakarta.annotation.Nonnull Long plannedTestPointsDuration) {
     this.plannedTestPointsDuration = plannedTestPointsDuration;
   }
 
 
-  public TestPlanSummaryModel spentTestPointsDuration(Long spentTestPointsDuration) {
+  public TestPlanSummaryModel spentTestPointsDuration(@jakarta.annotation.Nullable Long spentTestPointsDuration) {
     this.spentTestPointsDuration = JsonNullable.<Long>of(spentTestPointsDuration);
     return this;
   }
@@ -246,7 +252,7 @@ public class TestPlanSummaryModel {
     this.spentTestPointsDuration = spentTestPointsDuration;
   }
 
-  public void setSpentTestPointsDuration(Long spentTestPointsDuration) {
+  public void setSpentTestPointsDuration(@jakarta.annotation.Nullable Long spentTestPointsDuration) {
     this.spentTestPointsDuration = JsonNullable.<Long>of(spentTestPointsDuration);
   }
 

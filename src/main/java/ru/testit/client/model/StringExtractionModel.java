@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   StringExtractionModel.JSON_PROPERTY_INCLUDE,
   StringExtractionModel.JSON_PROPERTY_EXCLUDE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StringExtractionModel {
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private JsonNullable<List<String>> include = JsonNullable.<List<String>>undefined();
@@ -50,7 +50,7 @@ public class StringExtractionModel {
   public StringExtractionModel() { 
   }
 
-  public StringExtractionModel include(List<String> include) {
+  public StringExtractionModel include(@jakarta.annotation.Nullable List<String> include) {
     this.include = JsonNullable.<List<String>>of(include);
     return this;
   }
@@ -90,12 +90,12 @@ public class StringExtractionModel {
     this.include = include;
   }
 
-  public void setInclude(List<String> include) {
+  public void setInclude(@jakarta.annotation.Nullable List<String> include) {
     this.include = JsonNullable.<List<String>>of(include);
   }
 
 
-  public StringExtractionModel exclude(List<String> exclude) {
+  public StringExtractionModel exclude(@jakarta.annotation.Nullable List<String> exclude) {
     this.exclude = JsonNullable.<List<String>>of(exclude);
     return this;
   }
@@ -135,7 +135,7 @@ public class StringExtractionModel {
     this.exclude = exclude;
   }
 
-  public void setExclude(List<String> exclude) {
+  public void setExclude(@jakarta.annotation.Nullable List<String> exclude) {
     this.exclude = JsonNullable.<List<String>>of(exclude);
   }
 

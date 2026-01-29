@@ -34,21 +34,24 @@ import ru.testit.client.invoker.JSON;
   WorkItemPreviewStepApiModel.JSON_PROPERTY_ACTION,
   WorkItemPreviewStepApiModel.JSON_PROPERTY_EXPECTED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemPreviewStepApiModel {
   public static final String JSON_PROPERTY_NUMBER = "number";
+  @jakarta.annotation.Nonnull
   private Integer number;
 
   public static final String JSON_PROPERTY_ACTION = "action";
+  @jakarta.annotation.Nonnull
   private String action;
 
   public static final String JSON_PROPERTY_EXPECTED = "expected";
+  @jakarta.annotation.Nonnull
   private String expected;
 
   public WorkItemPreviewStepApiModel() { 
   }
 
-  public WorkItemPreviewStepApiModel number(Integer number) {
+  public WorkItemPreviewStepApiModel number(@jakarta.annotation.Nonnull Integer number) {
     this.number = number;
     return this;
   }
@@ -68,12 +71,12 @@ public class WorkItemPreviewStepApiModel {
 
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNumber(Integer number) {
+  public void setNumber(@jakarta.annotation.Nonnull Integer number) {
     this.number = number;
   }
 
 
-  public WorkItemPreviewStepApiModel action(String action) {
+  public WorkItemPreviewStepApiModel action(@jakarta.annotation.Nonnull String action) {
     this.action = action;
     return this;
   }
@@ -93,12 +96,12 @@ public class WorkItemPreviewStepApiModel {
 
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAction(String action) {
+  public void setAction(@jakarta.annotation.Nonnull String action) {
     this.action = action;
   }
 
 
-  public WorkItemPreviewStepApiModel expected(String expected) {
+  public WorkItemPreviewStepApiModel expected(@jakarta.annotation.Nonnull String expected) {
     this.expected = expected;
     return this;
   }
@@ -118,7 +121,7 @@ public class WorkItemPreviewStepApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXPECTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExpected(String expected) {
+  public void setExpected(@jakarta.annotation.Nonnull String expected) {
     this.expected = expected;
   }
 

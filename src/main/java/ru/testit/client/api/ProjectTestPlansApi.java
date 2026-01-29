@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectTestPlansApi {
   private ApiClient apiClient;
 
@@ -53,7 +53,7 @@ public class ProjectTestPlansApi {
 
   /**
    * Get TestPlans analytics
-   *   Use case    User sets project internal identifier    User sets query params    User runs method execution    System return analytics
+   *  Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics
    * @param projectId Project internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @param mustUpdateCache  (optional, default to false)
@@ -65,7 +65,8 @@ public class ProjectTestPlansApi {
    * @return List&lt;TestPlanWithAnalyticModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -82,7 +83,7 @@ public class ProjectTestPlansApi {
 
   /**
    * Get TestPlans analytics
-   *   Use case    User sets project internal identifier    User sets query params    User runs method execution    System return analytics
+   *  Use case  User sets project internal identifier  User sets query params  User runs method execution  System return analytics
    * @param projectId Project internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @param mustUpdateCache  (optional, default to false)
@@ -94,7 +95,8 @@ public class ProjectTestPlansApi {
    * @return ApiResponse&lt;List&lt;TestPlanWithAnalyticModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -142,12 +144,13 @@ public class ProjectTestPlansApi {
    * @return List&lt;UUID&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> - Read permission for the project is required  - Delete permission for test plans is required </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> - Read permission for the project is required - Delete permission for test plans is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
@@ -165,12 +168,13 @@ public class ProjectTestPlansApi {
    * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> - Read permission for the project is required  - Delete permission for test plans is required </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> - Read permission for the project is required - Delete permission for test plans is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
@@ -196,13 +200,14 @@ public class ProjectTestPlansApi {
   }
   /**
    * Checks if TestPlan exists with the specified name exists for the project
-   *   Use case    User sets project internal or global identifier    User runs method execution    System purge delete project workitems
+   *  Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param name TestPlan name to check (required)
    * @return Boolean
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -219,13 +224,14 @@ public class ProjectTestPlansApi {
 
   /**
    * Checks if TestPlan exists with the specified name exists for the project
-   *   Use case    User sets project internal or global identifier    User runs method execution    System purge delete project workitems
+   *  Use case  User sets project internal or global identifier  User runs method execution  System purge delete project workitems
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param name TestPlan name to check (required)
    * @return ApiResponse&lt;Boolean&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -265,7 +271,8 @@ public class ProjectTestPlansApi {
    * @param testPlanSelectModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -288,7 +295,8 @@ public class ProjectTestPlansApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -324,7 +332,8 @@ public class ProjectTestPlansApi {
    * @return List&lt;UUID&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -347,7 +356,8 @@ public class ProjectTestPlansApi {
    * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -378,7 +388,7 @@ public class ProjectTestPlansApi {
   }
   /**
    * Get Project TestPlans with analytics
-   *   Use case    User sets project internal or global identifier    User sets request body    User runs method execution    System returns project testplans with analytics
+   *  Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param mustUpdateCache  (optional, default to false)
    * @param skip Amount of items to be skipped (offset) (optional)
@@ -390,7 +400,8 @@ public class ProjectTestPlansApi {
    * @return List&lt;TestPlanWithAnalyticModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -407,7 +418,7 @@ public class ProjectTestPlansApi {
 
   /**
    * Get Project TestPlans with analytics
-   *   Use case    User sets project internal or global identifier    User sets request body    User runs method execution    System returns project testplans with analytics
+   *  Use case  User sets project internal or global identifier  User sets request body  User runs method execution  System returns project testplans with analytics
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param mustUpdateCache  (optional, default to false)
    * @param skip Amount of items to be skipped (offset) (optional)
@@ -419,7 +430,8 @@ public class ProjectTestPlansApi {
    * @return ApiResponse&lt;List&lt;TestPlanWithAnalyticModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>

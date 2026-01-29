@@ -48,7 +48,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestResultHistorySelectApiModel.JSON_PROPERTY_USER_IDS,
   AutoTestResultHistorySelectApiModel.JSON_PROPERTY_DURATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestResultHistorySelectApiModel {
   public static final String JSON_PROPERTY_OUTCOMES = "outcomes";
   @Deprecated
@@ -79,7 +79,7 @@ public class AutoTestResultHistorySelectApiModel {
   }
 
   @Deprecated
-  public AutoTestResultHistorySelectApiModel outcomes(Set<AutotestResultOutcome> outcomes) {
+  public AutoTestResultHistorySelectApiModel outcomes(@jakarta.annotation.Nullable Set<AutotestResultOutcome> outcomes) {
     this.outcomes = JsonNullable.<Set<AutotestResultOutcome>>of(outcomes);
     return this;
   }
@@ -122,12 +122,12 @@ public class AutoTestResultHistorySelectApiModel {
   }
 
   @Deprecated
-  public void setOutcomes(Set<AutotestResultOutcome> outcomes) {
+  public void setOutcomes(@jakarta.annotation.Nullable Set<AutotestResultOutcome> outcomes) {
     this.outcomes = JsonNullable.<Set<AutotestResultOutcome>>of(outcomes);
   }
 
 
-  public AutoTestResultHistorySelectApiModel statusCodes(Set<String> statusCodes) {
+  public AutoTestResultHistorySelectApiModel statusCodes(@jakarta.annotation.Nullable Set<String> statusCodes) {
     this.statusCodes = JsonNullable.<Set<String>>of(statusCodes);
     return this;
   }
@@ -167,12 +167,12 @@ public class AutoTestResultHistorySelectApiModel {
     this.statusCodes = statusCodes;
   }
 
-  public void setStatusCodes(Set<String> statusCodes) {
+  public void setStatusCodes(@jakarta.annotation.Nullable Set<String> statusCodes) {
     this.statusCodes = JsonNullable.<Set<String>>of(statusCodes);
   }
 
 
-  public AutoTestResultHistorySelectApiModel testPlanIds(Set<UUID> testPlanIds) {
+  public AutoTestResultHistorySelectApiModel testPlanIds(@jakarta.annotation.Nullable Set<UUID> testPlanIds) {
     this.testPlanIds = JsonNullable.<Set<UUID>>of(testPlanIds);
     return this;
   }
@@ -212,12 +212,12 @@ public class AutoTestResultHistorySelectApiModel {
     this.testPlanIds = testPlanIds;
   }
 
-  public void setTestPlanIds(Set<UUID> testPlanIds) {
+  public void setTestPlanIds(@jakarta.annotation.Nullable Set<UUID> testPlanIds) {
     this.testPlanIds = JsonNullable.<Set<UUID>>of(testPlanIds);
   }
 
 
-  public AutoTestResultHistorySelectApiModel testRunIds(Set<UUID> testRunIds) {
+  public AutoTestResultHistorySelectApiModel testRunIds(@jakarta.annotation.Nullable Set<UUID> testRunIds) {
     this.testRunIds = JsonNullable.<Set<UUID>>of(testRunIds);
     return this;
   }
@@ -257,12 +257,12 @@ public class AutoTestResultHistorySelectApiModel {
     this.testRunIds = testRunIds;
   }
 
-  public void setTestRunIds(Set<UUID> testRunIds) {
+  public void setTestRunIds(@jakarta.annotation.Nullable Set<UUID> testRunIds) {
     this.testRunIds = JsonNullable.<Set<UUID>>of(testRunIds);
   }
 
 
-  public AutoTestResultHistorySelectApiModel configurationIds(Set<UUID> configurationIds) {
+  public AutoTestResultHistorySelectApiModel configurationIds(@jakarta.annotation.Nullable Set<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<Set<UUID>>of(configurationIds);
     return this;
   }
@@ -302,12 +302,12 @@ public class AutoTestResultHistorySelectApiModel {
     this.configurationIds = configurationIds;
   }
 
-  public void setConfigurationIds(Set<UUID> configurationIds) {
+  public void setConfigurationIds(@jakarta.annotation.Nullable Set<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<Set<UUID>>of(configurationIds);
   }
 
 
-  public AutoTestResultHistorySelectApiModel launchSource(String launchSource) {
+  public AutoTestResultHistorySelectApiModel launchSource(@jakarta.annotation.Nullable String launchSource) {
     this.launchSource = JsonNullable.<String>of(launchSource);
     return this;
   }
@@ -335,12 +335,12 @@ public class AutoTestResultHistorySelectApiModel {
     this.launchSource = launchSource;
   }
 
-  public void setLaunchSource(String launchSource) {
+  public void setLaunchSource(@jakarta.annotation.Nullable String launchSource) {
     this.launchSource = JsonNullable.<String>of(launchSource);
   }
 
 
-  public AutoTestResultHistorySelectApiModel userIds(Set<UUID> userIds) {
+  public AutoTestResultHistorySelectApiModel userIds(@jakarta.annotation.Nullable Set<UUID> userIds) {
     this.userIds = JsonNullable.<Set<UUID>>of(userIds);
     return this;
   }
@@ -380,12 +380,12 @@ public class AutoTestResultHistorySelectApiModel {
     this.userIds = userIds;
   }
 
-  public void setUserIds(Set<UUID> userIds) {
+  public void setUserIds(@jakarta.annotation.Nullable Set<UUID> userIds) {
     this.userIds = JsonNullable.<Set<UUID>>of(userIds);
   }
 
 
-  public AutoTestResultHistorySelectApiModel duration(Int64RangeSelectorModel duration) {
+  public AutoTestResultHistorySelectApiModel duration(@jakarta.annotation.Nullable Int64RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
     return this;
   }
@@ -413,7 +413,7 @@ public class AutoTestResultHistorySelectApiModel {
     this.duration = duration;
   }
 
-  public void setDuration(Int64RangeSelectorModel duration) {
+  public void setDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
   }
 

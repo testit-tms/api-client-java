@@ -48,39 +48,47 @@ import ru.testit.client.invoker.JSON;
   TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS_CODE,
   TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointAnalyticResult {
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private List<TestPlanGroupByStatus> countGroupByStatus = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SUM_GROUP_BY_TESTER = "sumGroupByTester";
+  @jakarta.annotation.Nonnull
   private List<TestPlanGroupByTester> sumGroupByTester = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER = "countGroupByTester";
+  @jakarta.annotation.Nonnull
   private List<TestPlanGroupByTester> countGroupByTester = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE = "countGroupByTestSuite";
+  @jakarta.annotation.Nonnull
   private List<TestPlanGroupByTestSuite> countGroupByTestSuite = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_STATUS_CODE = "countGroupByStatusCode";
+  @jakarta.annotation.Nonnull
   private List<TestPlanGroupByStatusCode> countGroupByStatusCode = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS_CODE = "countGroupByTesterAndStatusCode";
+  @jakarta.annotation.Nonnull
   private List<TestPlanGroupByTesterAndStatusCode> countGroupByTesterAndStatusCode = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE = "countGroupByStatusType";
+  @jakarta.annotation.Nonnull
   private List<TestPlanGroupByStatusType> countGroupByStatusType = new ArrayList<>();
 
   public TestPointAnalyticResult() { 
   }
 
   @Deprecated
-  public TestPointAnalyticResult countGroupByStatus(List<TestPlanGroupByStatus> countGroupByStatus) {
+  public TestPointAnalyticResult countGroupByStatus(@jakarta.annotation.Nonnull List<TestPlanGroupByStatus> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
     return this;
   }
@@ -111,12 +119,12 @@ public class TestPointAnalyticResult {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByStatus(List<TestPlanGroupByStatus> countGroupByStatus) {
+  public void setCountGroupByStatus(@jakarta.annotation.Nonnull List<TestPlanGroupByStatus> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
   }
 
 
-  public TestPointAnalyticResult sumGroupByTester(List<TestPlanGroupByTester> sumGroupByTester) {
+  public TestPointAnalyticResult sumGroupByTester(@jakarta.annotation.Nonnull List<TestPlanGroupByTester> sumGroupByTester) {
     this.sumGroupByTester = sumGroupByTester;
     return this;
   }
@@ -144,12 +152,12 @@ public class TestPointAnalyticResult {
 
   @JsonProperty(JSON_PROPERTY_SUM_GROUP_BY_TESTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSumGroupByTester(List<TestPlanGroupByTester> sumGroupByTester) {
+  public void setSumGroupByTester(@jakarta.annotation.Nonnull List<TestPlanGroupByTester> sumGroupByTester) {
     this.sumGroupByTester = sumGroupByTester;
   }
 
 
-  public TestPointAnalyticResult countGroupByTester(List<TestPlanGroupByTester> countGroupByTester) {
+  public TestPointAnalyticResult countGroupByTester(@jakarta.annotation.Nonnull List<TestPlanGroupByTester> countGroupByTester) {
     this.countGroupByTester = countGroupByTester;
     return this;
   }
@@ -177,12 +185,12 @@ public class TestPointAnalyticResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByTester(List<TestPlanGroupByTester> countGroupByTester) {
+  public void setCountGroupByTester(@jakarta.annotation.Nonnull List<TestPlanGroupByTester> countGroupByTester) {
     this.countGroupByTester = countGroupByTester;
   }
 
 
-  public TestPointAnalyticResult countGroupByTestSuite(List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
+  public TestPointAnalyticResult countGroupByTestSuite(@jakarta.annotation.Nonnull List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
     this.countGroupByTestSuite = countGroupByTestSuite;
     return this;
   }
@@ -210,13 +218,13 @@ public class TestPointAnalyticResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByTestSuite(List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
+  public void setCountGroupByTestSuite(@jakarta.annotation.Nonnull List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
     this.countGroupByTestSuite = countGroupByTestSuite;
   }
 
 
   @Deprecated
-  public TestPointAnalyticResult countGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
+  public TestPointAnalyticResult countGroupByTesterAndStatus(@jakarta.annotation.Nonnull List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
     this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
     return this;
   }
@@ -247,12 +255,12 @@ public class TestPointAnalyticResult {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByTesterAndStatus(List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
+  public void setCountGroupByTesterAndStatus(@jakarta.annotation.Nonnull List<TestPlanGroupByTesterAndStatus> countGroupByTesterAndStatus) {
     this.countGroupByTesterAndStatus = countGroupByTesterAndStatus;
   }
 
 
-  public TestPointAnalyticResult countGroupByStatusCode(List<TestPlanGroupByStatusCode> countGroupByStatusCode) {
+  public TestPointAnalyticResult countGroupByStatusCode(@jakarta.annotation.Nonnull List<TestPlanGroupByStatusCode> countGroupByStatusCode) {
     this.countGroupByStatusCode = countGroupByStatusCode;
     return this;
   }
@@ -280,12 +288,12 @@ public class TestPointAnalyticResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByStatusCode(List<TestPlanGroupByStatusCode> countGroupByStatusCode) {
+  public void setCountGroupByStatusCode(@jakarta.annotation.Nonnull List<TestPlanGroupByStatusCode> countGroupByStatusCode) {
     this.countGroupByStatusCode = countGroupByStatusCode;
   }
 
 
-  public TestPointAnalyticResult countGroupByTesterAndStatusCode(List<TestPlanGroupByTesterAndStatusCode> countGroupByTesterAndStatusCode) {
+  public TestPointAnalyticResult countGroupByTesterAndStatusCode(@jakarta.annotation.Nonnull List<TestPlanGroupByTesterAndStatusCode> countGroupByTesterAndStatusCode) {
     this.countGroupByTesterAndStatusCode = countGroupByTesterAndStatusCode;
     return this;
   }
@@ -313,12 +321,12 @@ public class TestPointAnalyticResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByTesterAndStatusCode(List<TestPlanGroupByTesterAndStatusCode> countGroupByTesterAndStatusCode) {
+  public void setCountGroupByTesterAndStatusCode(@jakarta.annotation.Nonnull List<TestPlanGroupByTesterAndStatusCode> countGroupByTesterAndStatusCode) {
     this.countGroupByTesterAndStatusCode = countGroupByTesterAndStatusCode;
   }
 
 
-  public TestPointAnalyticResult countGroupByStatusType(List<TestPlanGroupByStatusType> countGroupByStatusType) {
+  public TestPointAnalyticResult countGroupByStatusType(@jakarta.annotation.Nonnull List<TestPlanGroupByStatusType> countGroupByStatusType) {
     this.countGroupByStatusType = countGroupByStatusType;
     return this;
   }
@@ -346,7 +354,7 @@ public class TestPointAnalyticResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByStatusType(List<TestPlanGroupByStatusType> countGroupByStatusType) {
+  public void setCountGroupByStatusType(@jakarta.annotation.Nonnull List<TestPlanGroupByStatusType> countGroupByStatusType) {
     this.countGroupByStatusType = countGroupByStatusType;
   }
 

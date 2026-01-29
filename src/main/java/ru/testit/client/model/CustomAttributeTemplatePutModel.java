@@ -41,12 +41,14 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeTemplatePutModel.JSON_PROPERTY_NAME,
   CustomAttributeTemplatePutModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeTemplatePutModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
@@ -55,7 +57,7 @@ public class CustomAttributeTemplatePutModel {
   public CustomAttributeTemplatePutModel() { 
   }
 
-  public CustomAttributeTemplatePutModel id(UUID id) {
+  public CustomAttributeTemplatePutModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -75,12 +77,12 @@ public class CustomAttributeTemplatePutModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributeTemplatePutModel name(String name) {
+  public CustomAttributeTemplatePutModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -100,12 +102,12 @@ public class CustomAttributeTemplatePutModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CustomAttributeTemplatePutModel customAttributeIds(Set<UUID> customAttributeIds) {
+  public CustomAttributeTemplatePutModel customAttributeIds(@jakarta.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
     return this;
   }
@@ -145,7 +147,7 @@ public class CustomAttributeTemplatePutModel {
     this.customAttributeIds = customAttributeIds;
   }
 
-  public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
+  public void setCustomAttributeIds(@jakarta.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
   }
 

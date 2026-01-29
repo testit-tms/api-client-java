@@ -82,85 +82,111 @@ import ru.testit.client.invoker.JSON;
   TestPointShortResponseModel.JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_ID,
   TestPointShortResponseModel.JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointShortResponseModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  @jakarta.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
+  @jakarta.annotation.Nonnull
   private List<String> tags = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKS = "links";
+  @jakarta.annotation.Nonnull
   private List<String> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TEST_SUITE_ID = "testSuiteId";
+  @jakarta.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String JSON_PROPERTY_TEST_SUITE_NAME = "testSuiteName";
+  @jakarta.annotation.Nonnull
   private String testSuiteName;
 
   public static final String JSON_PROPERTY_WORK_ITEM_ID = "workItemId";
+  @jakarta.annotation.Nonnull
   private UUID workItemId;
 
   public static final String JSON_PROPERTY_WORK_ITEM_GLOBAL_ID = "workItemGlobalId";
+  @jakarta.annotation.Nonnull
   private Long workItemGlobalId;
 
   public static final String JSON_PROPERTY_WORK_ITEM_VERSION_ID = "workItemVersionId";
+  @jakarta.annotation.Nonnull
   private UUID workItemVersionId;
 
   public static final String JSON_PROPERTY_WORK_ITEM_VERSION_NUMBER = "workItemVersionNumber";
+  @jakarta.annotation.Nonnull
   private Integer workItemVersionNumber;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private TestPointStatus status;
 
   public static final String JSON_PROPERTY_STATUS_MODEL = "statusModel";
+  @jakarta.annotation.Nonnull
   private TestStatusApiResult statusModel;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @jakarta.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String JSON_PROPERTY_SOURCE_TYPE = "sourceType";
+  @jakarta.annotation.Nonnull
   private WorkItemSourceTypeModel sourceType;
 
   public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  @jakarta.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
+  @jakarta.annotation.Nonnull
   private UUID configurationId;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
+  @jakarta.annotation.Nonnull
   private Integer duration;
 
   public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  @jakarta.annotation.Nonnull
   private UUID sectionId;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_ITERATION_ID = "iterationId";
+  @jakarta.annotation.Nonnull
   private UUID iterationId;
 
   public static final String JSON_PROPERTY_WORK_ITEM_STATE = "workItemState";
+  @jakarta.annotation.Nonnull
   private WorkItemState workItemState;
 
   public static final String JSON_PROPERTY_WORK_ITEM_CREATED_BY_ID = "workItemCreatedById";
+  @jakarta.annotation.Nonnull
   private UUID workItemCreatedById;
 
   public static final String JSON_PROPERTY_WORK_ITEM_CREATED_DATE = "workItemCreatedDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime workItemCreatedDate;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
@@ -193,7 +219,7 @@ public class TestPointShortResponseModel {
   public TestPointShortResponseModel() { 
   }
 
-  public TestPointShortResponseModel id(UUID id) {
+  public TestPointShortResponseModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -213,12 +239,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPointShortResponseModel createdDate(OffsetDateTime createdDate) {
+  public TestPointShortResponseModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -238,12 +264,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestPointShortResponseModel createdById(UUID createdById) {
+  public TestPointShortResponseModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -263,12 +289,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPointShortResponseModel attributes(Map<String, Object> attributes) {
+  public TestPointShortResponseModel attributes(@jakarta.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -296,12 +322,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(Map<String, Object> attributes) {
+  public void setAttributes(@jakarta.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public TestPointShortResponseModel tags(List<String> tags) {
+  public TestPointShortResponseModel tags(@jakarta.annotation.Nonnull List<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -329,12 +355,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTags(List<String> tags) {
+  public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
     this.tags = tags;
   }
 
 
-  public TestPointShortResponseModel links(List<String> links) {
+  public TestPointShortResponseModel links(@jakarta.annotation.Nonnull List<String> links) {
     this.links = links;
     return this;
   }
@@ -362,12 +388,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(List<String> links) {
+  public void setLinks(@jakarta.annotation.Nonnull List<String> links) {
     this.links = links;
   }
 
 
-  public TestPointShortResponseModel testSuiteId(UUID testSuiteId) {
+  public TestPointShortResponseModel testSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -387,12 +413,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestSuiteId(UUID testSuiteId) {
+  public void setTestSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
-  public TestPointShortResponseModel testSuiteName(String testSuiteName) {
+  public TestPointShortResponseModel testSuiteName(@jakarta.annotation.Nonnull String testSuiteName) {
     this.testSuiteName = testSuiteName;
     return this;
   }
@@ -412,12 +438,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_SUITE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestSuiteName(String testSuiteName) {
+  public void setTestSuiteName(@jakarta.annotation.Nonnull String testSuiteName) {
     this.testSuiteName = testSuiteName;
   }
 
 
-  public TestPointShortResponseModel workItemId(UUID workItemId) {
+  public TestPointShortResponseModel workItemId(@jakarta.annotation.Nonnull UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -437,12 +463,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nonnull UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public TestPointShortResponseModel workItemGlobalId(Long workItemGlobalId) {
+  public TestPointShortResponseModel workItemGlobalId(@jakarta.annotation.Nonnull Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
     return this;
   }
@@ -462,12 +488,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemGlobalId(Long workItemGlobalId) {
+  public void setWorkItemGlobalId(@jakarta.annotation.Nonnull Long workItemGlobalId) {
     this.workItemGlobalId = workItemGlobalId;
   }
 
 
-  public TestPointShortResponseModel workItemVersionId(UUID workItemVersionId) {
+  public TestPointShortResponseModel workItemVersionId(@jakarta.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -487,12 +513,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemVersionId(UUID workItemVersionId) {
+  public void setWorkItemVersionId(@jakarta.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public TestPointShortResponseModel workItemVersionNumber(Integer workItemVersionNumber) {
+  public TestPointShortResponseModel workItemVersionNumber(@jakarta.annotation.Nonnull Integer workItemVersionNumber) {
     this.workItemVersionNumber = workItemVersionNumber;
     return this;
   }
@@ -512,13 +538,13 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
+  public void setWorkItemVersionNumber(@jakarta.annotation.Nonnull Integer workItemVersionNumber) {
     this.workItemVersionNumber = workItemVersionNumber;
   }
 
 
   @Deprecated
-  public TestPointShortResponseModel status(TestPointStatus status) {
+  public TestPointShortResponseModel status(@jakarta.annotation.Nonnull TestPointStatus status) {
     this.status = status;
     return this;
   }
@@ -541,12 +567,12 @@ public class TestPointShortResponseModel {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(TestPointStatus status) {
+  public void setStatus(@jakarta.annotation.Nonnull TestPointStatus status) {
     this.status = status;
   }
 
 
-  public TestPointShortResponseModel statusModel(TestStatusApiResult statusModel) {
+  public TestPointShortResponseModel statusModel(@jakarta.annotation.Nonnull TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
     return this;
   }
@@ -566,12 +592,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_STATUS_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusModel(TestStatusApiResult statusModel) {
+  public void setStatusModel(@jakarta.annotation.Nonnull TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
   }
 
 
-  public TestPointShortResponseModel priority(WorkItemPriorityModel priority) {
+  public TestPointShortResponseModel priority(@jakarta.annotation.Nonnull WorkItemPriorityModel priority) {
     this.priority = priority;
     return this;
   }
@@ -591,12 +617,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPriority(WorkItemPriorityModel priority) {
+  public void setPriority(@jakarta.annotation.Nonnull WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public TestPointShortResponseModel sourceType(WorkItemSourceTypeModel sourceType) {
+  public TestPointShortResponseModel sourceType(@jakarta.annotation.Nonnull WorkItemSourceTypeModel sourceType) {
     this.sourceType = sourceType;
     return this;
   }
@@ -616,12 +642,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+  public void setSourceType(@jakarta.annotation.Nonnull WorkItemSourceTypeModel sourceType) {
     this.sourceType = sourceType;
   }
 
 
-  public TestPointShortResponseModel isAutomated(Boolean isAutomated) {
+  public TestPointShortResponseModel isAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -641,12 +667,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestPointShortResponseModel name(String name) {
+  public TestPointShortResponseModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -666,12 +692,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestPointShortResponseModel configurationId(UUID configurationId) {
+  public TestPointShortResponseModel configurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -691,12 +717,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestPointShortResponseModel duration(Integer duration) {
+  public TestPointShortResponseModel duration(@jakarta.annotation.Nonnull Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -716,12 +742,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(Integer duration) {
+  public void setDuration(@jakarta.annotation.Nonnull Integer duration) {
     this.duration = duration;
   }
 
 
-  public TestPointShortResponseModel sectionId(UUID sectionId) {
+  public TestPointShortResponseModel sectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -741,12 +767,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionId(UUID sectionId) {
+  public void setSectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public TestPointShortResponseModel projectId(UUID projectId) {
+  public TestPointShortResponseModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -766,12 +792,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPointShortResponseModel iterationId(UUID iterationId) {
+  public TestPointShortResponseModel iterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -791,12 +817,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_ITERATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIterationId(UUID iterationId) {
+  public void setIterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPointShortResponseModel workItemState(WorkItemState workItemState) {
+  public TestPointShortResponseModel workItemState(@jakarta.annotation.Nonnull WorkItemState workItemState) {
     this.workItemState = workItemState;
     return this;
   }
@@ -816,12 +842,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemState(WorkItemState workItemState) {
+  public void setWorkItemState(@jakarta.annotation.Nonnull WorkItemState workItemState) {
     this.workItemState = workItemState;
   }
 
 
-  public TestPointShortResponseModel workItemCreatedById(UUID workItemCreatedById) {
+  public TestPointShortResponseModel workItemCreatedById(@jakarta.annotation.Nonnull UUID workItemCreatedById) {
     this.workItemCreatedById = workItemCreatedById;
     return this;
   }
@@ -841,12 +867,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemCreatedById(UUID workItemCreatedById) {
+  public void setWorkItemCreatedById(@jakarta.annotation.Nonnull UUID workItemCreatedById) {
     this.workItemCreatedById = workItemCreatedById;
   }
 
 
-  public TestPointShortResponseModel workItemCreatedDate(OffsetDateTime workItemCreatedDate) {
+  public TestPointShortResponseModel workItemCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
     return this;
   }
@@ -866,12 +892,12 @@ public class TestPointShortResponseModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemCreatedDate(OffsetDateTime workItemCreatedDate) {
+  public void setWorkItemCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime workItemCreatedDate) {
     this.workItemCreatedDate = workItemCreatedDate;
   }
 
 
-  public TestPointShortResponseModel modifiedDate(OffsetDateTime modifiedDate) {
+  public TestPointShortResponseModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -899,12 +925,12 @@ public class TestPointShortResponseModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public TestPointShortResponseModel modifiedById(UUID modifiedById) {
+  public TestPointShortResponseModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -932,12 +958,12 @@ public class TestPointShortResponseModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public TestPointShortResponseModel testerId(UUID testerId) {
+  public TestPointShortResponseModel testerId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
     return this;
   }
@@ -965,12 +991,12 @@ public class TestPointShortResponseModel {
     this.testerId = testerId;
   }
 
-  public void setTesterId(UUID testerId) {
+  public void setTesterId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
   }
 
 
-  public TestPointShortResponseModel parameters(Map<String, String> parameters) {
+  public TestPointShortResponseModel parameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
     return this;
   }
@@ -1010,12 +1036,12 @@ public class TestPointShortResponseModel {
     this.parameters = parameters;
   }
 
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
   }
 
 
-  public TestPointShortResponseModel workItemMedianDuration(Long workItemMedianDuration) {
+  public TestPointShortResponseModel workItemMedianDuration(@jakarta.annotation.Nullable Long workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
     return this;
   }
@@ -1043,12 +1069,12 @@ public class TestPointShortResponseModel {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(Long workItemMedianDuration) {
+  public void setWorkItemMedianDuration(@jakarta.annotation.Nullable Long workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
   }
 
 
-  public TestPointShortResponseModel sectionName(String sectionName) {
+  public TestPointShortResponseModel sectionName(@jakarta.annotation.Nullable String sectionName) {
     this.sectionName = JsonNullable.<String>of(sectionName);
     return this;
   }
@@ -1076,12 +1102,12 @@ public class TestPointShortResponseModel {
     this.sectionName = sectionName;
   }
 
-  public void setSectionName(String sectionName) {
+  public void setSectionName(@jakarta.annotation.Nullable String sectionName) {
     this.sectionName = JsonNullable.<String>of(sectionName);
   }
 
 
-  public TestPointShortResponseModel lastTestResult(LastTestResultModel lastTestResult) {
+  public TestPointShortResponseModel lastTestResult(@jakarta.annotation.Nullable LastTestResultModel lastTestResult) {
     this.lastTestResult = JsonNullable.<LastTestResultModel>of(lastTestResult);
     return this;
   }
@@ -1109,12 +1135,12 @@ public class TestPointShortResponseModel {
     this.lastTestResult = lastTestResult;
   }
 
-  public void setLastTestResult(LastTestResultModel lastTestResult) {
+  public void setLastTestResult(@jakarta.annotation.Nullable LastTestResultModel lastTestResult) {
     this.lastTestResult = JsonNullable.<LastTestResultModel>of(lastTestResult);
   }
 
 
-  public TestPointShortResponseModel workItemModifiedById(UUID workItemModifiedById) {
+  public TestPointShortResponseModel workItemModifiedById(@jakarta.annotation.Nullable UUID workItemModifiedById) {
     this.workItemModifiedById = JsonNullable.<UUID>of(workItemModifiedById);
     return this;
   }
@@ -1142,12 +1168,12 @@ public class TestPointShortResponseModel {
     this.workItemModifiedById = workItemModifiedById;
   }
 
-  public void setWorkItemModifiedById(UUID workItemModifiedById) {
+  public void setWorkItemModifiedById(@jakarta.annotation.Nullable UUID workItemModifiedById) {
     this.workItemModifiedById = JsonNullable.<UUID>of(workItemModifiedById);
   }
 
 
-  public TestPointShortResponseModel workItemModifiedDate(OffsetDateTime workItemModifiedDate) {
+  public TestPointShortResponseModel workItemModifiedDate(@jakarta.annotation.Nullable OffsetDateTime workItemModifiedDate) {
     this.workItemModifiedDate = JsonNullable.<OffsetDateTime>of(workItemModifiedDate);
     return this;
   }
@@ -1175,7 +1201,7 @@ public class TestPointShortResponseModel {
     this.workItemModifiedDate = workItemModifiedDate;
   }
 
-  public void setWorkItemModifiedDate(OffsetDateTime workItemModifiedDate) {
+  public void setWorkItemModifiedDate(@jakarta.annotation.Nullable OffsetDateTime workItemModifiedDate) {
     this.workItemModifiedDate = JsonNullable.<OffsetDateTime>of(workItemModifiedDate);
   }
 

@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   TestPointSelectModel.JSON_PROPERTY_FILTER,
   TestPointSelectModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointSelectModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<TestPointFilterModel> filter = JsonNullable.<TestPointFilterModel>undefined();
@@ -50,7 +50,7 @@ public class TestPointSelectModel {
   public TestPointSelectModel() { 
   }
 
-  public TestPointSelectModel filter(TestPointFilterModel filter) {
+  public TestPointSelectModel filter(@jakarta.annotation.Nullable TestPointFilterModel filter) {
     this.filter = JsonNullable.<TestPointFilterModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class TestPointSelectModel {
     this.filter = filter;
   }
 
-  public void setFilter(TestPointFilterModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TestPointFilterModel filter) {
     this.filter = JsonNullable.<TestPointFilterModel>of(filter);
   }
 
 
-  public TestPointSelectModel extractionModel(TestPointsExtractionModel extractionModel) {
+  public TestPointSelectModel extractionModel(@jakarta.annotation.Nullable TestPointsExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPointsExtractionModel>of(extractionModel);
     return this;
   }
@@ -111,7 +111,7 @@ public class TestPointSelectModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(TestPointsExtractionModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable TestPointsExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPointsExtractionModel>of(extractionModel);
   }
 

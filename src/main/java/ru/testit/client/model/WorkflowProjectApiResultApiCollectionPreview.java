@@ -36,18 +36,20 @@ import ru.testit.client.invoker.JSON;
   WorkflowProjectApiResultApiCollectionPreview.JSON_PROPERTY_DATA,
   WorkflowProjectApiResultApiCollectionPreview.JSON_PROPERTY_TOTAL_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkflowProjectApiResultApiCollectionPreview {
   public static final String JSON_PROPERTY_DATA = "data";
+  @jakarta.annotation.Nonnull
   private List<WorkflowProjectApiResult> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
+  @jakarta.annotation.Nonnull
   private Integer totalCount;
 
   public WorkflowProjectApiResultApiCollectionPreview() { 
   }
 
-  public WorkflowProjectApiResultApiCollectionPreview data(List<WorkflowProjectApiResult> data) {
+  public WorkflowProjectApiResultApiCollectionPreview data(@jakarta.annotation.Nonnull List<WorkflowProjectApiResult> data) {
     this.data = data;
     return this;
   }
@@ -75,12 +77,12 @@ public class WorkflowProjectApiResultApiCollectionPreview {
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<WorkflowProjectApiResult> data) {
+  public void setData(@jakarta.annotation.Nonnull List<WorkflowProjectApiResult> data) {
     this.data = data;
   }
 
 
-  public WorkflowProjectApiResultApiCollectionPreview totalCount(Integer totalCount) {
+  public WorkflowProjectApiResultApiCollectionPreview totalCount(@jakarta.annotation.Nonnull Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -100,7 +102,7 @@ public class WorkflowProjectApiResultApiCollectionPreview {
 
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(@jakarta.annotation.Nonnull Integer totalCount) {
     this.totalCount = totalCount;
   }
 

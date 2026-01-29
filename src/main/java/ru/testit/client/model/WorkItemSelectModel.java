@@ -39,9 +39,10 @@ import ru.testit.client.invoker.JSON;
   WorkItemSelectModel.JSON_PROPERTY_FILTER,
   WorkItemSelectModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemSelectModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private WorkItemFilterModel filter;
 
   public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
@@ -50,7 +51,7 @@ public class WorkItemSelectModel {
   public WorkItemSelectModel() { 
   }
 
-  public WorkItemSelectModel filter(WorkItemFilterModel filter) {
+  public WorkItemSelectModel filter(@jakarta.annotation.Nonnull WorkItemFilterModel filter) {
     this.filter = filter;
     return this;
   }
@@ -70,12 +71,12 @@ public class WorkItemSelectModel {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(WorkItemFilterModel filter) {
+  public void setFilter(@jakarta.annotation.Nonnull WorkItemFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public WorkItemSelectModel extractionModel(WorkItemExtractionModel extractionModel) {
+  public WorkItemSelectModel extractionModel(@jakarta.annotation.Nullable WorkItemExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<WorkItemExtractionModel>of(extractionModel);
     return this;
   }
@@ -103,7 +104,7 @@ public class WorkItemSelectModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(WorkItemExtractionModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable WorkItemExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<WorkItemExtractionModel>of(extractionModel);
   }
 

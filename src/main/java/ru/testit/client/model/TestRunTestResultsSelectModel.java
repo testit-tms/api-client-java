@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   TestRunTestResultsSelectModel.JSON_PROPERTY_FILTER,
   TestRunTestResultsSelectModel.JSON_PROPERTY_TEST_RESULT_IDS_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunTestResultsSelectModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<TestResultsLocalFilterModel> filter = JsonNullable.<TestResultsLocalFilterModel>undefined();
@@ -50,7 +50,7 @@ public class TestRunTestResultsSelectModel {
   public TestRunTestResultsSelectModel() { 
   }
 
-  public TestRunTestResultsSelectModel filter(TestResultsLocalFilterModel filter) {
+  public TestRunTestResultsSelectModel filter(@jakarta.annotation.Nullable TestResultsLocalFilterModel filter) {
     this.filter = JsonNullable.<TestResultsLocalFilterModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class TestRunTestResultsSelectModel {
     this.filter = filter;
   }
 
-  public void setFilter(TestResultsLocalFilterModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TestResultsLocalFilterModel filter) {
     this.filter = JsonNullable.<TestResultsLocalFilterModel>of(filter);
   }
 
 
-  public TestRunTestResultsSelectModel testResultIdsExtractionModel(GuidExtractionModel testResultIdsExtractionModel) {
+  public TestRunTestResultsSelectModel testResultIdsExtractionModel(@jakarta.annotation.Nullable GuidExtractionModel testResultIdsExtractionModel) {
     this.testResultIdsExtractionModel = JsonNullable.<GuidExtractionModel>of(testResultIdsExtractionModel);
     return this;
   }
@@ -111,7 +111,7 @@ public class TestRunTestResultsSelectModel {
     this.testResultIdsExtractionModel = testResultIdsExtractionModel;
   }
 
-  public void setTestResultIdsExtractionModel(GuidExtractionModel testResultIdsExtractionModel) {
+  public void setTestResultIdsExtractionModel(@jakarta.annotation.Nullable GuidExtractionModel testResultIdsExtractionModel) {
     this.testResultIdsExtractionModel = JsonNullable.<GuidExtractionModel>of(testResultIdsExtractionModel);
   }
 

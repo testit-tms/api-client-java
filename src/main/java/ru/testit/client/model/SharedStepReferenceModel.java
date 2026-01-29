@@ -61,51 +61,66 @@ import ru.testit.client.invoker.JSON;
   SharedStepReferenceModel.JSON_PROPERTY_MODIFIED_DATE,
   SharedStepReferenceModel.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SharedStepReferenceModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_ENTITY_TYPE_NAME = "entityTypeName";
+  @jakarta.annotation.Nonnull
   private String entityTypeName;
 
   public static final String JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_STEP = "hasThisSharedStepAsStep";
+  @jakarta.annotation.Nonnull
   private Boolean hasThisSharedStepAsStep;
 
   public static final String JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_PRECONDITION = "hasThisSharedStepAsPrecondition";
+  @jakarta.annotation.Nonnull
   private Boolean hasThisSharedStepAsPrecondition;
 
   public static final String JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_POSTCONDITION = "hasThisSharedStepAsPostcondition";
+  @jakarta.annotation.Nonnull
   private Boolean hasThisSharedStepAsPostcondition;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @jakarta.annotation.Nonnull
   private String state;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @jakarta.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String JSON_PROPERTY_SOURCE_TYPE = "sourceType";
+  @jakarta.annotation.Nonnull
   private WorkItemSourceTypeModel sourceType;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_VERSION_ID = "versionId";
+  @jakarta.annotation.Nonnull
   private UUID versionId;
 
   public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  @jakarta.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  @jakarta.annotation.Nonnull
   private UUID sectionId;
 
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
@@ -123,7 +138,7 @@ public class SharedStepReferenceModel {
   public SharedStepReferenceModel() { 
   }
 
-  public SharedStepReferenceModel id(UUID id) {
+  public SharedStepReferenceModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -143,12 +158,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public SharedStepReferenceModel globalId(Long globalId) {
+  public SharedStepReferenceModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -168,12 +183,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public SharedStepReferenceModel name(String name) {
+  public SharedStepReferenceModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -193,12 +208,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SharedStepReferenceModel entityTypeName(String entityTypeName) {
+  public SharedStepReferenceModel entityTypeName(@jakarta.annotation.Nonnull String entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -218,12 +233,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEntityTypeName(String entityTypeName) {
+  public void setEntityTypeName(@jakarta.annotation.Nonnull String entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
-  public SharedStepReferenceModel hasThisSharedStepAsStep(Boolean hasThisSharedStepAsStep) {
+  public SharedStepReferenceModel hasThisSharedStepAsStep(@jakarta.annotation.Nonnull Boolean hasThisSharedStepAsStep) {
     this.hasThisSharedStepAsStep = hasThisSharedStepAsStep;
     return this;
   }
@@ -243,12 +258,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_STEP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHasThisSharedStepAsStep(Boolean hasThisSharedStepAsStep) {
+  public void setHasThisSharedStepAsStep(@jakarta.annotation.Nonnull Boolean hasThisSharedStepAsStep) {
     this.hasThisSharedStepAsStep = hasThisSharedStepAsStep;
   }
 
 
-  public SharedStepReferenceModel hasThisSharedStepAsPrecondition(Boolean hasThisSharedStepAsPrecondition) {
+  public SharedStepReferenceModel hasThisSharedStepAsPrecondition(@jakarta.annotation.Nonnull Boolean hasThisSharedStepAsPrecondition) {
     this.hasThisSharedStepAsPrecondition = hasThisSharedStepAsPrecondition;
     return this;
   }
@@ -268,12 +283,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_PRECONDITION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHasThisSharedStepAsPrecondition(Boolean hasThisSharedStepAsPrecondition) {
+  public void setHasThisSharedStepAsPrecondition(@jakarta.annotation.Nonnull Boolean hasThisSharedStepAsPrecondition) {
     this.hasThisSharedStepAsPrecondition = hasThisSharedStepAsPrecondition;
   }
 
 
-  public SharedStepReferenceModel hasThisSharedStepAsPostcondition(Boolean hasThisSharedStepAsPostcondition) {
+  public SharedStepReferenceModel hasThisSharedStepAsPostcondition(@jakarta.annotation.Nonnull Boolean hasThisSharedStepAsPostcondition) {
     this.hasThisSharedStepAsPostcondition = hasThisSharedStepAsPostcondition;
     return this;
   }
@@ -293,12 +308,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_HAS_THIS_SHARED_STEP_AS_POSTCONDITION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHasThisSharedStepAsPostcondition(Boolean hasThisSharedStepAsPostcondition) {
+  public void setHasThisSharedStepAsPostcondition(@jakarta.annotation.Nonnull Boolean hasThisSharedStepAsPostcondition) {
     this.hasThisSharedStepAsPostcondition = hasThisSharedStepAsPostcondition;
   }
 
 
-  public SharedStepReferenceModel createdById(UUID createdById) {
+  public SharedStepReferenceModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -318,12 +333,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public SharedStepReferenceModel state(String state) {
+  public SharedStepReferenceModel state(@jakarta.annotation.Nonnull String state) {
     this.state = state;
     return this;
   }
@@ -343,12 +358,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(String state) {
+  public void setState(@jakarta.annotation.Nonnull String state) {
     this.state = state;
   }
 
 
-  public SharedStepReferenceModel priority(WorkItemPriorityModel priority) {
+  public SharedStepReferenceModel priority(@jakarta.annotation.Nonnull WorkItemPriorityModel priority) {
     this.priority = priority;
     return this;
   }
@@ -368,12 +383,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPriority(WorkItemPriorityModel priority) {
+  public void setPriority(@jakarta.annotation.Nonnull WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public SharedStepReferenceModel sourceType(WorkItemSourceTypeModel sourceType) {
+  public SharedStepReferenceModel sourceType(@jakarta.annotation.Nonnull WorkItemSourceTypeModel sourceType) {
     this.sourceType = sourceType;
     return this;
   }
@@ -393,12 +408,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+  public void setSourceType(@jakarta.annotation.Nonnull WorkItemSourceTypeModel sourceType) {
     this.sourceType = sourceType;
   }
 
 
-  public SharedStepReferenceModel isDeleted(Boolean isDeleted) {
+  public SharedStepReferenceModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -418,12 +433,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public SharedStepReferenceModel versionId(UUID versionId) {
+  public SharedStepReferenceModel versionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -443,12 +458,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionId(UUID versionId) {
+  public void setVersionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public SharedStepReferenceModel isAutomated(Boolean isAutomated) {
+  public SharedStepReferenceModel isAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -468,12 +483,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public SharedStepReferenceModel sectionId(UUID sectionId) {
+  public SharedStepReferenceModel sectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -493,12 +508,12 @@ public class SharedStepReferenceModel {
 
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionId(UUID sectionId) {
+  public void setSectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public SharedStepReferenceModel modifiedById(UUID modifiedById) {
+  public SharedStepReferenceModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -526,12 +541,12 @@ public class SharedStepReferenceModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public SharedStepReferenceModel createdDate(OffsetDateTime createdDate) {
+  public SharedStepReferenceModel createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -559,12 +574,12 @@ public class SharedStepReferenceModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 
 
-  public SharedStepReferenceModel modifiedDate(OffsetDateTime modifiedDate) {
+  public SharedStepReferenceModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -592,12 +607,12 @@ public class SharedStepReferenceModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public SharedStepReferenceModel tags(List<TagModel> tags) {
+  public SharedStepReferenceModel tags(@jakarta.annotation.Nullable List<TagModel> tags) {
     this.tags = JsonNullable.<List<TagModel>>of(tags);
     return this;
   }
@@ -637,7 +652,7 @@ public class SharedStepReferenceModel {
     this.tags = tags;
   }
 
-  public void setTags(List<TagModel> tags) {
+  public void setTags(@jakarta.annotation.Nullable List<TagModel> tags) {
     this.tags = JsonNullable.<List<TagModel>>of(tags);
   }
 

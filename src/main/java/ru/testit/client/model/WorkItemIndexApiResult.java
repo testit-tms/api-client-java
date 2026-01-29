@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   WorkItemIndexApiResult.JSON_PROPERTY_CURRENT_INDEX,
   WorkItemIndexApiResult.JSON_PROPERTY_TOTAL_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemIndexApiResult {
   public static final String JSON_PROPERTY_CURRENT_INDEX = "currentIndex";
+  @jakarta.annotation.Nonnull
   private Long currentIndex;
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
+  @jakarta.annotation.Nonnull
   private Long totalCount;
 
   public WorkItemIndexApiResult() { 
   }
 
-  public WorkItemIndexApiResult currentIndex(Long currentIndex) {
+  public WorkItemIndexApiResult currentIndex(@jakarta.annotation.Nonnull Long currentIndex) {
     this.currentIndex = currentIndex;
     return this;
   }
@@ -64,12 +66,12 @@ public class WorkItemIndexApiResult {
 
   @JsonProperty(JSON_PROPERTY_CURRENT_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCurrentIndex(Long currentIndex) {
+  public void setCurrentIndex(@jakarta.annotation.Nonnull Long currentIndex) {
     this.currentIndex = currentIndex;
   }
 
 
-  public WorkItemIndexApiResult totalCount(Long totalCount) {
+  public WorkItemIndexApiResult totalCount(@jakarta.annotation.Nonnull Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -89,7 +91,7 @@ public class WorkItemIndexApiResult {
 
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTotalCount(Long totalCount) {
+  public void setTotalCount(@jakarta.annotation.Nonnull Long totalCount) {
     this.totalCount = totalCount;
   }
 

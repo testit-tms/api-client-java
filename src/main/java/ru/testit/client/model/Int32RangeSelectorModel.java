@@ -37,7 +37,7 @@ import ru.testit.client.invoker.JSON;
   Int32RangeSelectorModel.JSON_PROPERTY_FROM,
   Int32RangeSelectorModel.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Int32RangeSelectorModel {
   public static final String JSON_PROPERTY_FROM = "from";
   private JsonNullable<Integer> from = JsonNullable.<Integer>undefined();
@@ -48,7 +48,7 @@ public class Int32RangeSelectorModel {
   public Int32RangeSelectorModel() { 
   }
 
-  public Int32RangeSelectorModel from(Integer from) {
+  public Int32RangeSelectorModel from(@jakarta.annotation.Nullable Integer from) {
     this.from = JsonNullable.<Integer>of(from);
     return this;
   }
@@ -76,12 +76,12 @@ public class Int32RangeSelectorModel {
     this.from = from;
   }
 
-  public void setFrom(Integer from) {
+  public void setFrom(@jakarta.annotation.Nullable Integer from) {
     this.from = JsonNullable.<Integer>of(from);
   }
 
 
-  public Int32RangeSelectorModel to(Integer to) {
+  public Int32RangeSelectorModel to(@jakarta.annotation.Nullable Integer to) {
     this.to = JsonNullable.<Integer>of(to);
     return this;
   }
@@ -109,7 +109,7 @@ public class Int32RangeSelectorModel {
     this.to = to;
   }
 
-  public void setTo(Integer to) {
+  public void setTo(@jakarta.annotation.Nullable Integer to) {
     this.to = JsonNullable.<Integer>of(to);
   }
 

@@ -40,15 +40,18 @@ import ru.testit.client.invoker.JSON;
   LinkShortModel.JSON_PROPERTY_URL,
   LinkShortModel.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LinkShortModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -57,7 +60,7 @@ public class LinkShortModel {
   public LinkShortModel() { 
   }
 
-  public LinkShortModel id(UUID id) {
+  public LinkShortModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -77,12 +80,12 @@ public class LinkShortModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public LinkShortModel title(String title) {
+  public LinkShortModel title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -102,12 +105,12 @@ public class LinkShortModel {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public LinkShortModel url(String url) {
+  public LinkShortModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -127,12 +130,12 @@ public class LinkShortModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public LinkShortModel type(String type) {
+  public LinkShortModel type(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
     return this;
   }
@@ -160,7 +163,7 @@ public class LinkShortModel {
     this.type = type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
   }
 

@@ -46,15 +46,18 @@ import ru.testit.client.invoker.JSON;
   TestSuiteV2GetModel.JSON_PROPERTY_SAVE_STRUCTURE,
   TestSuiteV2GetModel.JSON_PROPERTY_AUTO_REFRESH
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteV2GetModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  @jakarta.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_REFRESH_DATE = "refreshDate";
@@ -75,7 +78,7 @@ public class TestSuiteV2GetModel {
   public TestSuiteV2GetModel() { 
   }
 
-  public TestSuiteV2GetModel id(UUID id) {
+  public TestSuiteV2GetModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -95,12 +98,12 @@ public class TestSuiteV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteV2GetModel testPlanId(UUID testPlanId) {
+  public TestSuiteV2GetModel testPlanId(@jakarta.annotation.Nonnull UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -120,12 +123,12 @@ public class TestSuiteV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@jakarta.annotation.Nonnull UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestSuiteV2GetModel name(String name) {
+  public TestSuiteV2GetModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -145,12 +148,12 @@ public class TestSuiteV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestSuiteV2GetModel refreshDate(OffsetDateTime refreshDate) {
+  public TestSuiteV2GetModel refreshDate(@jakarta.annotation.Nullable OffsetDateTime refreshDate) {
     this.refreshDate = JsonNullable.<OffsetDateTime>of(refreshDate);
     return this;
   }
@@ -178,12 +181,12 @@ public class TestSuiteV2GetModel {
     this.refreshDate = refreshDate;
   }
 
-  public void setRefreshDate(OffsetDateTime refreshDate) {
+  public void setRefreshDate(@jakarta.annotation.Nullable OffsetDateTime refreshDate) {
     this.refreshDate = JsonNullable.<OffsetDateTime>of(refreshDate);
   }
 
 
-  public TestSuiteV2GetModel parentId(UUID parentId) {
+  public TestSuiteV2GetModel parentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = JsonNullable.<UUID>of(parentId);
     return this;
   }
@@ -211,12 +214,12 @@ public class TestSuiteV2GetModel {
     this.parentId = parentId;
   }
 
-  public void setParentId(UUID parentId) {
+  public void setParentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = JsonNullable.<UUID>of(parentId);
   }
 
 
-  public TestSuiteV2GetModel type(TestSuiteType type) {
+  public TestSuiteV2GetModel type(@jakarta.annotation.Nullable TestSuiteType type) {
     this.type = JsonNullable.<TestSuiteType>of(type);
     return this;
   }
@@ -244,12 +247,12 @@ public class TestSuiteV2GetModel {
     this.type = type;
   }
 
-  public void setType(TestSuiteType type) {
+  public void setType(@jakarta.annotation.Nullable TestSuiteType type) {
     this.type = JsonNullable.<TestSuiteType>of(type);
   }
 
 
-  public TestSuiteV2GetModel saveStructure(Boolean saveStructure) {
+  public TestSuiteV2GetModel saveStructure(@jakarta.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = JsonNullable.<Boolean>of(saveStructure);
     return this;
   }
@@ -277,12 +280,12 @@ public class TestSuiteV2GetModel {
     this.saveStructure = saveStructure;
   }
 
-  public void setSaveStructure(Boolean saveStructure) {
+  public void setSaveStructure(@jakarta.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = JsonNullable.<Boolean>of(saveStructure);
   }
 
 
-  public TestSuiteV2GetModel autoRefresh(Boolean autoRefresh) {
+  public TestSuiteV2GetModel autoRefresh(@jakarta.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = JsonNullable.<Boolean>of(autoRefresh);
     return this;
   }
@@ -310,7 +313,7 @@ public class TestSuiteV2GetModel {
     this.autoRefresh = autoRefresh;
   }
 
-  public void setAutoRefresh(Boolean autoRefresh) {
+  public void setAutoRefresh(@jakarta.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = JsonNullable.<Boolean>of(autoRefresh);
   }
 

@@ -45,12 +45,14 @@ import ru.testit.client.invoker.JSON;
   StepResultApiModel.JSON_PROPERTY_SHARED_STEP_RESULTS,
   StepResultApiModel.JSON_PROPERTY_COMMENT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StepResultApiModel {
   public static final String JSON_PROPERTY_STEP_ID = "stepId";
+  @jakarta.annotation.Nonnull
   private UUID stepId;
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
+  @jakarta.annotation.Nonnull
   private String outcome;
 
   public static final String JSON_PROPERTY_SHARED_STEP_VERSION_ID = "sharedStepVersionId";
@@ -65,7 +67,7 @@ public class StepResultApiModel {
   public StepResultApiModel() { 
   }
 
-  public StepResultApiModel stepId(UUID stepId) {
+  public StepResultApiModel stepId(@jakarta.annotation.Nonnull UUID stepId) {
     this.stepId = stepId;
     return this;
   }
@@ -85,12 +87,12 @@ public class StepResultApiModel {
 
   @JsonProperty(JSON_PROPERTY_STEP_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStepId(UUID stepId) {
+  public void setStepId(@jakarta.annotation.Nonnull UUID stepId) {
     this.stepId = stepId;
   }
 
 
-  public StepResultApiModel outcome(String outcome) {
+  public StepResultApiModel outcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -110,12 +112,12 @@ public class StepResultApiModel {
 
   @JsonProperty(JSON_PROPERTY_OUTCOME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOutcome(String outcome) {
+  public void setOutcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
   }
 
 
-  public StepResultApiModel sharedStepVersionId(UUID sharedStepVersionId) {
+  public StepResultApiModel sharedStepVersionId(@jakarta.annotation.Nullable UUID sharedStepVersionId) {
     this.sharedStepVersionId = JsonNullable.<UUID>of(sharedStepVersionId);
     return this;
   }
@@ -143,12 +145,12 @@ public class StepResultApiModel {
     this.sharedStepVersionId = sharedStepVersionId;
   }
 
-  public void setSharedStepVersionId(UUID sharedStepVersionId) {
+  public void setSharedStepVersionId(@jakarta.annotation.Nullable UUID sharedStepVersionId) {
     this.sharedStepVersionId = JsonNullable.<UUID>of(sharedStepVersionId);
   }
 
 
-  public StepResultApiModel sharedStepResults(List<SharedStepResultApiModel> sharedStepResults) {
+  public StepResultApiModel sharedStepResults(@jakarta.annotation.Nullable List<SharedStepResultApiModel> sharedStepResults) {
     this.sharedStepResults = JsonNullable.<List<SharedStepResultApiModel>>of(sharedStepResults);
     return this;
   }
@@ -188,12 +190,12 @@ public class StepResultApiModel {
     this.sharedStepResults = sharedStepResults;
   }
 
-  public void setSharedStepResults(List<SharedStepResultApiModel> sharedStepResults) {
+  public void setSharedStepResults(@jakarta.annotation.Nullable List<SharedStepResultApiModel> sharedStepResults) {
     this.sharedStepResults = JsonNullable.<List<SharedStepResultApiModel>>of(sharedStepResults);
   }
 
 
-  public StepResultApiModel comment(StepCommentApiModel comment) {
+  public StepResultApiModel comment(@jakarta.annotation.Nullable StepCommentApiModel comment) {
     this.comment = JsonNullable.<StepCommentApiModel>of(comment);
     return this;
   }
@@ -221,7 +223,7 @@ public class StepResultApiModel {
     this.comment = comment;
   }
 
-  public void setComment(StepCommentApiModel comment) {
+  public void setComment(@jakarta.annotation.Nullable StepCommentApiModel comment) {
     this.comment = JsonNullable.<StepCommentApiModel>of(comment);
   }
 

@@ -43,7 +43,7 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsAutoTestsRerunApiModel.JSON_PROPERTY_EXTRACTION_MODEL,
   TestPlanTestPointsAutoTestsRerunApiModel.JSON_PROPERTY_WEBHOOK_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsAutoTestsRerunApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<TestPlanTestPointsSearchApiModel> filter = JsonNullable.<TestPlanTestPointsSearchApiModel>undefined();
@@ -57,7 +57,7 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
   public TestPlanTestPointsAutoTestsRerunApiModel() { 
   }
 
-  public TestPlanTestPointsAutoTestsRerunApiModel filter(TestPlanTestPointsSearchApiModel filter) {
+  public TestPlanTestPointsAutoTestsRerunApiModel filter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
     return this;
   }
@@ -85,12 +85,12 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(TestPlanTestPointsSearchApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
   }
 
 
-  public TestPlanTestPointsAutoTestsRerunApiModel extractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+  public TestPlanTestPointsAutoTestsRerunApiModel extractionModel(@jakarta.annotation.Nullable TestPlanTestPointsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
     return this;
   }
@@ -118,12 +118,12 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable TestPlanTestPointsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
   }
 
 
-  public TestPlanTestPointsAutoTestsRerunApiModel webhookIds(List<UUID> webhookIds) {
+  public TestPlanTestPointsAutoTestsRerunApiModel webhookIds(@jakarta.annotation.Nullable List<UUID> webhookIds) {
     this.webhookIds = JsonNullable.<List<UUID>>of(webhookIds);
     return this;
   }
@@ -163,7 +163,7 @@ public class TestPlanTestPointsAutoTestsRerunApiModel {
     this.webhookIds = webhookIds;
   }
 
-  public void setWebhookIds(List<UUID> webhookIds) {
+  public void setWebhookIds(@jakarta.annotation.Nullable List<UUID> webhookIds) {
     this.webhookIds = JsonNullable.<List<UUID>>of(webhookIds);
   }
 

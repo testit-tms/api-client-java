@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   WorkflowStatusApiModel.JSON_PROPERTY_STATUS_ID,
   WorkflowStatusApiModel.JSON_PROPERTY_PRIORITY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkflowStatusApiModel {
   public static final String JSON_PROPERTY_STATUS_ID = "statusId";
+  @jakarta.annotation.Nonnull
   private UUID statusId;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @jakarta.annotation.Nonnull
   private Integer priority;
 
   public WorkflowStatusApiModel() { 
   }
 
-  public WorkflowStatusApiModel statusId(UUID statusId) {
+  public WorkflowStatusApiModel statusId(@jakarta.annotation.Nonnull UUID statusId) {
     this.statusId = statusId;
     return this;
   }
@@ -65,12 +67,12 @@ public class WorkflowStatusApiModel {
 
   @JsonProperty(JSON_PROPERTY_STATUS_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusId(UUID statusId) {
+  public void setStatusId(@jakarta.annotation.Nonnull UUID statusId) {
     this.statusId = statusId;
   }
 
 
-  public WorkflowStatusApiModel priority(Integer priority) {
+  public WorkflowStatusApiModel priority(@jakarta.annotation.Nonnull Integer priority) {
     this.priority = priority;
     return this;
   }
@@ -90,7 +92,7 @@ public class WorkflowStatusApiModel {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPriority(Integer priority) {
+  public void setPriority(@jakarta.annotation.Nonnull Integer priority) {
     this.priority = priority;
   }
 

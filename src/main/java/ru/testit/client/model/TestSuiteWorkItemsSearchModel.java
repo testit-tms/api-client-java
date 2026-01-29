@@ -80,7 +80,7 @@ import ru.testit.client.invoker.JSON;
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_AUTO_TEST_IDS,
   TestSuiteWorkItemsSearchModel.JSON_PROPERTY_WORK_ITEM_VERSION_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteWorkItemsSearchModel {
   public static final String JSON_PROPERTY_TAG_NAMES = "tagNames";
   private JsonNullable<Set<String>> tagNames = JsonNullable.<Set<String>>undefined();
@@ -172,7 +172,7 @@ public class TestSuiteWorkItemsSearchModel {
   public TestSuiteWorkItemsSearchModel() { 
   }
 
-  public TestSuiteWorkItemsSearchModel tagNames(Set<String> tagNames) {
+  public TestSuiteWorkItemsSearchModel tagNames(@jakarta.annotation.Nullable Set<String> tagNames) {
     this.tagNames = JsonNullable.<Set<String>>of(tagNames);
     return this;
   }
@@ -212,12 +212,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.tagNames = tagNames;
   }
 
-  public void setTagNames(Set<String> tagNames) {
+  public void setTagNames(@jakarta.annotation.Nullable Set<String> tagNames) {
     this.tagNames = JsonNullable.<Set<String>>of(tagNames);
   }
 
 
-  public TestSuiteWorkItemsSearchModel entityTypes(Set<WorkItemEntityTypes> entityTypes) {
+  public TestSuiteWorkItemsSearchModel entityTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> entityTypes) {
     this.entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>of(entityTypes);
     return this;
   }
@@ -235,7 +235,7 @@ public class TestSuiteWorkItemsSearchModel {
   }
 
   /**
-   * Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
+   * Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
    */
   @jakarta.annotation.Nullable
@@ -257,12 +257,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.entityTypes = entityTypes;
   }
 
-  public void setEntityTypes(Set<WorkItemEntityTypes> entityTypes) {
+  public void setEntityTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> entityTypes) {
     this.entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>of(entityTypes);
   }
 
 
-  public TestSuiteWorkItemsSearchModel nameOrId(String nameOrId) {
+  public TestSuiteWorkItemsSearchModel nameOrId(@jakarta.annotation.Nullable String nameOrId) {
     this.nameOrId = JsonNullable.<String>of(nameOrId);
     return this;
   }
@@ -290,12 +290,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.nameOrId = nameOrId;
   }
 
-  public void setNameOrId(String nameOrId) {
+  public void setNameOrId(@jakarta.annotation.Nullable String nameOrId) {
     this.nameOrId = JsonNullable.<String>of(nameOrId);
   }
 
 
-  public TestSuiteWorkItemsSearchModel includeIds(Set<UUID> includeIds) {
+  public TestSuiteWorkItemsSearchModel includeIds(@jakarta.annotation.Nullable Set<UUID> includeIds) {
     this.includeIds = JsonNullable.<Set<UUID>>of(includeIds);
     return this;
   }
@@ -335,12 +335,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.includeIds = includeIds;
   }
 
-  public void setIncludeIds(Set<UUID> includeIds) {
+  public void setIncludeIds(@jakarta.annotation.Nullable Set<UUID> includeIds) {
     this.includeIds = JsonNullable.<Set<UUID>>of(includeIds);
   }
 
 
-  public TestSuiteWorkItemsSearchModel excludeIds(Set<UUID> excludeIds) {
+  public TestSuiteWorkItemsSearchModel excludeIds(@jakarta.annotation.Nullable Set<UUID> excludeIds) {
     this.excludeIds = JsonNullable.<Set<UUID>>of(excludeIds);
     return this;
   }
@@ -380,12 +380,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.excludeIds = excludeIds;
   }
 
-  public void setExcludeIds(Set<UUID> excludeIds) {
+  public void setExcludeIds(@jakarta.annotation.Nullable Set<UUID> excludeIds) {
     this.excludeIds = JsonNullable.<Set<UUID>>of(excludeIds);
   }
 
 
-  public TestSuiteWorkItemsSearchModel externalMetadata(WorkItemExternalMetadataFilterModel externalMetadata) {
+  public TestSuiteWorkItemsSearchModel externalMetadata(@jakarta.annotation.Nullable WorkItemExternalMetadataFilterModel externalMetadata) {
     this.externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterModel>of(externalMetadata);
     return this;
   }
@@ -413,12 +413,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.externalMetadata = externalMetadata;
   }
 
-  public void setExternalMetadata(WorkItemExternalMetadataFilterModel externalMetadata) {
+  public void setExternalMetadata(@jakarta.annotation.Nullable WorkItemExternalMetadataFilterModel externalMetadata) {
     this.externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterModel>of(externalMetadata);
   }
 
 
-  public TestSuiteWorkItemsSearchModel projectIds(Set<UUID> projectIds) {
+  public TestSuiteWorkItemsSearchModel projectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
     return this;
   }
@@ -458,12 +458,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
   }
 
 
-  public TestSuiteWorkItemsSearchModel links(WorkItemLinkFilterModel links) {
+  public TestSuiteWorkItemsSearchModel links(@jakarta.annotation.Nullable WorkItemLinkFilterModel links) {
     this.links = JsonNullable.<WorkItemLinkFilterModel>of(links);
     return this;
   }
@@ -491,12 +491,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.links = links;
   }
 
-  public void setLinks(WorkItemLinkFilterModel links) {
+  public void setLinks(@jakarta.annotation.Nullable WorkItemLinkFilterModel links) {
     this.links = JsonNullable.<WorkItemLinkFilterModel>of(links);
   }
 
 
-  public TestSuiteWorkItemsSearchModel name(String name) {
+  public TestSuiteWorkItemsSearchModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -524,12 +524,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public TestSuiteWorkItemsSearchModel ids(Set<UUID> ids) {
+  public TestSuiteWorkItemsSearchModel ids(@jakarta.annotation.Nullable Set<UUID> ids) {
     this.ids = JsonNullable.<Set<UUID>>of(ids);
     return this;
   }
@@ -569,12 +569,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.ids = ids;
   }
 
-  public void setIds(Set<UUID> ids) {
+  public void setIds(@jakarta.annotation.Nullable Set<UUID> ids) {
     this.ids = JsonNullable.<Set<UUID>>of(ids);
   }
 
 
-  public TestSuiteWorkItemsSearchModel globalIds(Set<Long> globalIds) {
+  public TestSuiteWorkItemsSearchModel globalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
@@ -614,12 +614,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
-  public TestSuiteWorkItemsSearchModel attributes(Map<String, Set<String>> attributes) {
+  public TestSuiteWorkItemsSearchModel attributes(@jakarta.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
     return this;
   }
@@ -659,12 +659,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Set<String>> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
   }
 
 
-  public TestSuiteWorkItemsSearchModel isDeleted(Boolean isDeleted) {
+  public TestSuiteWorkItemsSearchModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -692,12 +692,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public TestSuiteWorkItemsSearchModel sectionIds(Set<UUID> sectionIds) {
+  public TestSuiteWorkItemsSearchModel sectionIds(@jakarta.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
     return this;
   }
@@ -737,12 +737,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.sectionIds = sectionIds;
   }
 
-  public void setSectionIds(Set<UUID> sectionIds) {
+  public void setSectionIds(@jakarta.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
   }
 
 
-  public TestSuiteWorkItemsSearchModel createdByIds(Set<UUID> createdByIds) {
+  public TestSuiteWorkItemsSearchModel createdByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
@@ -782,12 +782,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
-  public TestSuiteWorkItemsSearchModel modifiedByIds(Set<UUID> modifiedByIds) {
+  public TestSuiteWorkItemsSearchModel modifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
     return this;
   }
@@ -827,12 +827,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.modifiedByIds = modifiedByIds;
   }
 
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
   }
 
 
-  public TestSuiteWorkItemsSearchModel states(Set<WorkItemStates> states) {
+  public TestSuiteWorkItemsSearchModel states(@jakarta.annotation.Nullable Set<WorkItemStates> states) {
     this.states = JsonNullable.<Set<WorkItemStates>>of(states);
     return this;
   }
@@ -872,12 +872,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.states = states;
   }
 
-  public void setStates(Set<WorkItemStates> states) {
+  public void setStates(@jakarta.annotation.Nullable Set<WorkItemStates> states) {
     this.states = JsonNullable.<Set<WorkItemStates>>of(states);
   }
 
 
-  public TestSuiteWorkItemsSearchModel priorities(Set<WorkItemPriorityModel> priorities) {
+  public TestSuiteWorkItemsSearchModel priorities(@jakarta.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
     return this;
   }
@@ -917,12 +917,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.priorities = priorities;
   }
 
-  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
+  public void setPriorities(@jakarta.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
   }
 
 
-  public TestSuiteWorkItemsSearchModel sourceTypes(Set<WorkItemSourceTypeModel> sourceTypes) {
+  public TestSuiteWorkItemsSearchModel sourceTypes(@jakarta.annotation.Nullable Set<WorkItemSourceTypeModel> sourceTypes) {
     this.sourceTypes = JsonNullable.<Set<WorkItemSourceTypeModel>>of(sourceTypes);
     return this;
   }
@@ -962,12 +962,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.sourceTypes = sourceTypes;
   }
 
-  public void setSourceTypes(Set<WorkItemSourceTypeModel> sourceTypes) {
+  public void setSourceTypes(@jakarta.annotation.Nullable Set<WorkItemSourceTypeModel> sourceTypes) {
     this.sourceTypes = JsonNullable.<Set<WorkItemSourceTypeModel>>of(sourceTypes);
   }
 
 
-  public TestSuiteWorkItemsSearchModel types(Set<WorkItemEntityTypes> types) {
+  public TestSuiteWorkItemsSearchModel types(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
     this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
     return this;
   }
@@ -1007,12 +1007,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.types = types;
   }
 
-  public void setTypes(Set<WorkItemEntityTypes> types) {
+  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
     this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
   }
 
 
-  public TestSuiteWorkItemsSearchModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public TestSuiteWorkItemsSearchModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -1040,12 +1040,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public TestSuiteWorkItemsSearchModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public TestSuiteWorkItemsSearchModel modifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
     return this;
   }
@@ -1073,12 +1073,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
   }
 
 
-  public TestSuiteWorkItemsSearchModel duration(Int32RangeSelectorModel duration) {
+  public TestSuiteWorkItemsSearchModel duration(@jakarta.annotation.Nullable Int32RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int32RangeSelectorModel>of(duration);
     return this;
   }
@@ -1106,12 +1106,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.duration = duration;
   }
 
-  public void setDuration(Int32RangeSelectorModel duration) {
+  public void setDuration(@jakarta.annotation.Nullable Int32RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int32RangeSelectorModel>of(duration);
   }
 
 
-  public TestSuiteWorkItemsSearchModel medianDuration(Int64RangeSelectorModel medianDuration) {
+  public TestSuiteWorkItemsSearchModel medianDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel medianDuration) {
     this.medianDuration = JsonNullable.<Int64RangeSelectorModel>of(medianDuration);
     return this;
   }
@@ -1139,12 +1139,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.medianDuration = medianDuration;
   }
 
-  public void setMedianDuration(Int64RangeSelectorModel medianDuration) {
+  public void setMedianDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel medianDuration) {
     this.medianDuration = JsonNullable.<Int64RangeSelectorModel>of(medianDuration);
   }
 
 
-  public TestSuiteWorkItemsSearchModel isAutomated(Boolean isAutomated) {
+  public TestSuiteWorkItemsSearchModel isAutomated(@jakarta.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
     return this;
   }
@@ -1172,12 +1172,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.isAutomated = isAutomated;
   }
 
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
   }
 
 
-  public TestSuiteWorkItemsSearchModel tags(Set<String> tags) {
+  public TestSuiteWorkItemsSearchModel tags(@jakarta.annotation.Nullable Set<String> tags) {
     this.tags = JsonNullable.<Set<String>>of(tags);
     return this;
   }
@@ -1217,12 +1217,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.tags = tags;
   }
 
-  public void setTags(Set<String> tags) {
+  public void setTags(@jakarta.annotation.Nullable Set<String> tags) {
     this.tags = JsonNullable.<Set<String>>of(tags);
   }
 
 
-  public TestSuiteWorkItemsSearchModel excludeTags(Set<String> excludeTags) {
+  public TestSuiteWorkItemsSearchModel excludeTags(@jakarta.annotation.Nullable Set<String> excludeTags) {
     this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
     return this;
   }
@@ -1262,12 +1262,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.excludeTags = excludeTags;
   }
 
-  public void setExcludeTags(Set<String> excludeTags) {
+  public void setExcludeTags(@jakarta.annotation.Nullable Set<String> excludeTags) {
     this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
   }
 
 
-  public TestSuiteWorkItemsSearchModel autoTestIds(Set<UUID> autoTestIds) {
+  public TestSuiteWorkItemsSearchModel autoTestIds(@jakarta.annotation.Nullable Set<UUID> autoTestIds) {
     this.autoTestIds = JsonNullable.<Set<UUID>>of(autoTestIds);
     return this;
   }
@@ -1307,12 +1307,12 @@ public class TestSuiteWorkItemsSearchModel {
     this.autoTestIds = autoTestIds;
   }
 
-  public void setAutoTestIds(Set<UUID> autoTestIds) {
+  public void setAutoTestIds(@jakarta.annotation.Nullable Set<UUID> autoTestIds) {
     this.autoTestIds = JsonNullable.<Set<UUID>>of(autoTestIds);
   }
 
 
-  public TestSuiteWorkItemsSearchModel workItemVersionIds(List<UUID> workItemVersionIds) {
+  public TestSuiteWorkItemsSearchModel workItemVersionIds(@jakarta.annotation.Nullable List<UUID> workItemVersionIds) {
     this.workItemVersionIds = JsonNullable.<List<UUID>>of(workItemVersionIds);
     return this;
   }
@@ -1352,7 +1352,7 @@ public class TestSuiteWorkItemsSearchModel {
     this.workItemVersionIds = workItemVersionIds;
   }
 
-  public void setWorkItemVersionIds(List<UUID> workItemVersionIds) {
+  public void setWorkItemVersionIds(@jakarta.annotation.Nullable List<UUID> workItemVersionIds) {
     this.workItemVersionIds = JsonNullable.<List<UUID>>of(workItemVersionIds);
   }
 

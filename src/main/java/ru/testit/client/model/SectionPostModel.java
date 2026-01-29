@@ -46,15 +46,18 @@ import ru.testit.client.invoker.JSON;
   SectionPostModel.JSON_PROPERTY_PRECONDITION_STEPS,
   SectionPostModel.JSON_PROPERTY_POSTCONDITION_STEPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SectionPostModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nonnull
   private List<AttachmentPutModel> attachments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PARENT_ID = "parentId";
@@ -69,7 +72,7 @@ public class SectionPostModel {
   public SectionPostModel() { 
   }
 
-  public SectionPostModel name(String name) {
+  public SectionPostModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -89,12 +92,12 @@ public class SectionPostModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public SectionPostModel projectId(UUID projectId) {
+  public SectionPostModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -114,12 +117,12 @@ public class SectionPostModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public SectionPostModel attachments(List<AttachmentPutModel> attachments) {
+  public SectionPostModel attachments(@jakarta.annotation.Nonnull List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -147,12 +150,12 @@ public class SectionPostModel {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttachments(List<AttachmentPutModel> attachments) {
+  public void setAttachments(@jakarta.annotation.Nonnull List<AttachmentPutModel> attachments) {
     this.attachments = attachments;
   }
 
 
-  public SectionPostModel parentId(UUID parentId) {
+  public SectionPostModel parentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = JsonNullable.<UUID>of(parentId);
     return this;
   }
@@ -180,12 +183,12 @@ public class SectionPostModel {
     this.parentId = parentId;
   }
 
-  public void setParentId(UUID parentId) {
+  public void setParentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = JsonNullable.<UUID>of(parentId);
   }
 
 
-  public SectionPostModel preconditionSteps(List<StepPostModel> preconditionSteps) {
+  public SectionPostModel preconditionSteps(@jakarta.annotation.Nullable List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = JsonNullable.<List<StepPostModel>>of(preconditionSteps);
     return this;
   }
@@ -225,12 +228,12 @@ public class SectionPostModel {
     this.preconditionSteps = preconditionSteps;
   }
 
-  public void setPreconditionSteps(List<StepPostModel> preconditionSteps) {
+  public void setPreconditionSteps(@jakarta.annotation.Nullable List<StepPostModel> preconditionSteps) {
     this.preconditionSteps = JsonNullable.<List<StepPostModel>>of(preconditionSteps);
   }
 
 
-  public SectionPostModel postconditionSteps(List<StepPostModel> postconditionSteps) {
+  public SectionPostModel postconditionSteps(@jakarta.annotation.Nullable List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = JsonNullable.<List<StepPostModel>>of(postconditionSteps);
     return this;
   }
@@ -270,7 +273,7 @@ public class SectionPostModel {
     this.postconditionSteps = postconditionSteps;
   }
 
-  public void setPostconditionSteps(List<StepPostModel> postconditionSteps) {
+  public void setPostconditionSteps(@jakarta.annotation.Nullable List<StepPostModel> postconditionSteps) {
     this.postconditionSteps = JsonNullable.<List<StepPostModel>>of(postconditionSteps);
   }
 

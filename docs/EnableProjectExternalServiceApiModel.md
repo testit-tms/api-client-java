@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**settings** | **Object** | External service settings |  [optional] |
+|**settings** | **Object** | External service settings |  |
 
 
 

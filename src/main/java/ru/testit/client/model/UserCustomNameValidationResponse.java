@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   UserCustomNameValidationResponse.JSON_PROPERTY_EXISTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UserCustomNameValidationResponse {
   public static final String JSON_PROPERTY_EXISTS = "exists";
+  @jakarta.annotation.Nonnull
   private Boolean exists;
 
   public UserCustomNameValidationResponse() { 
   }
 
-  public UserCustomNameValidationResponse exists(Boolean exists) {
+  public UserCustomNameValidationResponse exists(@jakarta.annotation.Nonnull Boolean exists) {
     this.exists = exists;
     return this;
   }
@@ -60,7 +61,7 @@ public class UserCustomNameValidationResponse {
 
   @JsonProperty(JSON_PROPERTY_EXISTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExists(Boolean exists) {
+  public void setExists(@jakarta.annotation.Nonnull Boolean exists) {
     this.exists = exists;
   }
 

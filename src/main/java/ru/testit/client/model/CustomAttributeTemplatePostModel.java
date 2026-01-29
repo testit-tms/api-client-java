@@ -40,9 +40,10 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeTemplatePostModel.JSON_PROPERTY_NAME,
   CustomAttributeTemplatePostModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeTemplatePostModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_IDS = "customAttributeIds";
@@ -51,7 +52,7 @@ public class CustomAttributeTemplatePostModel {
   public CustomAttributeTemplatePostModel() { 
   }
 
-  public CustomAttributeTemplatePostModel name(String name) {
+  public CustomAttributeTemplatePostModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -71,12 +72,12 @@ public class CustomAttributeTemplatePostModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CustomAttributeTemplatePostModel customAttributeIds(Set<UUID> customAttributeIds) {
+  public CustomAttributeTemplatePostModel customAttributeIds(@jakarta.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
     return this;
   }
@@ -116,7 +117,7 @@ public class CustomAttributeTemplatePostModel {
     this.customAttributeIds = customAttributeIds;
   }
 
-  public void setCustomAttributeIds(Set<UUID> customAttributeIds) {
+  public void setCustomAttributeIds(@jakarta.annotation.Nullable Set<UUID> customAttributeIds) {
     this.customAttributeIds = JsonNullable.<Set<UUID>>of(customAttributeIds);
   }
 

@@ -54,42 +54,54 @@ import ru.testit.client.invoker.JSON;
   WebHookPostModel.JSON_PROPERTY_DESCRIPTION,
   WebHookPostModel.JSON_PROPERTY_CUSTOM_BODY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebHookPostModel {
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
+  @jakarta.annotation.Nonnull
   private WebHookEventTypeModel eventType;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
+  @jakarta.annotation.Nonnull
   private RequestTypeModel requestType;
 
   public static final String JSON_PROPERTY_SHOULD_SEND_BODY = "shouldSendBody";
+  @jakarta.annotation.Nonnull
   private Boolean shouldSendBody;
 
   public static final String JSON_PROPERTY_HEADERS = "headers";
+  @jakarta.annotation.Nonnull
   private Map<String, String> headers = new HashMap<>();
 
   public static final String JSON_PROPERTY_QUERY_PARAMETERS = "queryParameters";
+  @jakarta.annotation.Nonnull
   private Map<String, String> queryParameters = new HashMap<>();
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  @jakarta.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_SHOULD_SEND_CUSTOM_BODY = "shouldSendCustomBody";
+  @jakarta.annotation.Nonnull
   private Boolean shouldSendCustomBody;
 
   public static final String JSON_PROPERTY_SHOULD_REPLACE_PARAMETERS = "shouldReplaceParameters";
+  @jakarta.annotation.Nonnull
   private Boolean shouldReplaceParameters;
 
   public static final String JSON_PROPERTY_SHOULD_ESCAPE_PARAMETERS = "shouldEscapeParameters";
+  @jakarta.annotation.Nonnull
   private Boolean shouldEscapeParameters;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -101,7 +113,7 @@ public class WebHookPostModel {
   public WebHookPostModel() { 
   }
 
-  public WebHookPostModel projectId(UUID projectId) {
+  public WebHookPostModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -121,12 +133,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WebHookPostModel eventType(WebHookEventTypeModel eventType) {
+  public WebHookPostModel eventType(@jakarta.annotation.Nonnull WebHookEventTypeModel eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -146,12 +158,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEventType(WebHookEventTypeModel eventType) {
+  public void setEventType(@jakarta.annotation.Nonnull WebHookEventTypeModel eventType) {
     this.eventType = eventType;
   }
 
 
-  public WebHookPostModel url(String url) {
+  public WebHookPostModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -171,12 +183,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public WebHookPostModel requestType(RequestTypeModel requestType) {
+  public WebHookPostModel requestType(@jakarta.annotation.Nonnull RequestTypeModel requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -196,12 +208,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequestType(RequestTypeModel requestType) {
+  public void setRequestType(@jakarta.annotation.Nonnull RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookPostModel shouldSendBody(Boolean shouldSendBody) {
+  public WebHookPostModel shouldSendBody(@jakarta.annotation.Nonnull Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
     return this;
   }
@@ -221,12 +233,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_BODY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setShouldSendBody(Boolean shouldSendBody) {
+  public void setShouldSendBody(@jakarta.annotation.Nonnull Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
   }
 
 
-  public WebHookPostModel headers(Map<String, String> headers) {
+  public WebHookPostModel headers(@jakarta.annotation.Nonnull Map<String, String> headers) {
     this.headers = headers;
     return this;
   }
@@ -254,12 +266,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_HEADERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHeaders(Map<String, String> headers) {
+  public void setHeaders(@jakarta.annotation.Nonnull Map<String, String> headers) {
     this.headers = headers;
   }
 
 
-  public WebHookPostModel queryParameters(Map<String, String> queryParameters) {
+  public WebHookPostModel queryParameters(@jakarta.annotation.Nonnull Map<String, String> queryParameters) {
     this.queryParameters = queryParameters;
     return this;
   }
@@ -287,12 +299,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_QUERY_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQueryParameters(Map<String, String> queryParameters) {
+  public void setQueryParameters(@jakarta.annotation.Nonnull Map<String, String> queryParameters) {
     this.queryParameters = queryParameters;
   }
 
 
-  public WebHookPostModel isEnabled(Boolean isEnabled) {
+  public WebHookPostModel isEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -312,12 +324,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public WebHookPostModel shouldSendCustomBody(Boolean shouldSendCustomBody) {
+  public WebHookPostModel shouldSendCustomBody(@jakarta.annotation.Nonnull Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
     return this;
   }
@@ -337,12 +349,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_CUSTOM_BODY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setShouldSendCustomBody(Boolean shouldSendCustomBody) {
+  public void setShouldSendCustomBody(@jakarta.annotation.Nonnull Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
   }
 
 
-  public WebHookPostModel shouldReplaceParameters(Boolean shouldReplaceParameters) {
+  public WebHookPostModel shouldReplaceParameters(@jakarta.annotation.Nonnull Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
     return this;
   }
@@ -362,12 +374,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_SHOULD_REPLACE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setShouldReplaceParameters(Boolean shouldReplaceParameters) {
+  public void setShouldReplaceParameters(@jakarta.annotation.Nonnull Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
   }
 
 
-  public WebHookPostModel shouldEscapeParameters(Boolean shouldEscapeParameters) {
+  public WebHookPostModel shouldEscapeParameters(@jakarta.annotation.Nonnull Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
     return this;
   }
@@ -387,12 +399,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_SHOULD_ESCAPE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setShouldEscapeParameters(Boolean shouldEscapeParameters) {
+  public void setShouldEscapeParameters(@jakarta.annotation.Nonnull Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
   }
 
 
-  public WebHookPostModel name(String name) {
+  public WebHookPostModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -412,12 +424,12 @@ public class WebHookPostModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public WebHookPostModel description(String description) {
+  public WebHookPostModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -445,12 +457,12 @@ public class WebHookPostModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public WebHookPostModel customBody(String customBody) {
+  public WebHookPostModel customBody(@jakarta.annotation.Nullable String customBody) {
     this.customBody = JsonNullable.<String>of(customBody);
     return this;
   }
@@ -478,7 +490,7 @@ public class WebHookPostModel {
     this.customBody = customBody;
   }
 
-  public void setCustomBody(String customBody) {
+  public void setCustomBody(@jakarta.annotation.Nullable String customBody) {
     this.customBody = JsonNullable.<String>of(customBody);
   }
 

@@ -41,9 +41,10 @@ import ru.testit.client.invoker.JSON;
   UpdateMultipleLinksApiModel.JSON_PROPERTY_ACTION,
   UpdateMultipleLinksApiModel.JSON_PROPERTY_LINKS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateMultipleLinksApiModel {
   public static final String JSON_PROPERTY_ACTION = "action";
+  @jakarta.annotation.Nonnull
   private ActionUpdate action;
 
   public static final String JSON_PROPERTY_LINKS = "links";
@@ -52,7 +53,7 @@ public class UpdateMultipleLinksApiModel {
   public UpdateMultipleLinksApiModel() { 
   }
 
-  public UpdateMultipleLinksApiModel action(ActionUpdate action) {
+  public UpdateMultipleLinksApiModel action(@jakarta.annotation.Nonnull ActionUpdate action) {
     this.action = action;
     return this;
   }
@@ -72,12 +73,12 @@ public class UpdateMultipleLinksApiModel {
 
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAction(ActionUpdate action) {
+  public void setAction(@jakarta.annotation.Nonnull ActionUpdate action) {
     this.action = action;
   }
 
 
-  public UpdateMultipleLinksApiModel links(List<CreateLinkApiModel> links) {
+  public UpdateMultipleLinksApiModel links(@jakarta.annotation.Nullable List<CreateLinkApiModel> links) {
     this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
     return this;
   }
@@ -117,7 +118,7 @@ public class UpdateMultipleLinksApiModel {
     this.links = links;
   }
 
-  public void setLinks(List<CreateLinkApiModel> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<CreateLinkApiModel> links) {
     this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
   }
 

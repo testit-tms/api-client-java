@@ -67,33 +67,42 @@ import ru.testit.client.invoker.JSON;
   TestPlanWithTestSuiteTreeModel.JSON_PROPERTY_PRODUCT_NAME,
   TestPlanWithTestSuiteTreeModel.JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanWithTestSuiteTreeModel {
   public static final String JSON_PROPERTY_TEST_SUITES = "testSuites";
+  @jakarta.annotation.Nonnull
   private List<TestSuiteWithChildrenModel> testSuites = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STATUS = "status";
+  @jakarta.annotation.Nonnull
   private TestPlanStatusModel status;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  @jakarta.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String JSON_PROPERTY_STARTED_ON = "startedOn";
@@ -141,7 +150,7 @@ public class TestPlanWithTestSuiteTreeModel {
   public TestPlanWithTestSuiteTreeModel() { 
   }
 
-  public TestPlanWithTestSuiteTreeModel testSuites(List<TestSuiteWithChildrenModel> testSuites) {
+  public TestPlanWithTestSuiteTreeModel testSuites(@jakarta.annotation.Nonnull List<TestSuiteWithChildrenModel> testSuites) {
     this.testSuites = testSuites;
     return this;
   }
@@ -169,12 +178,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_SUITES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestSuites(List<TestSuiteWithChildrenModel> testSuites) {
+  public void setTestSuites(@jakarta.annotation.Nonnull List<TestSuiteWithChildrenModel> testSuites) {
     this.testSuites = testSuites;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel status(TestPlanStatusModel status) {
+  public TestPlanWithTestSuiteTreeModel status(@jakarta.annotation.Nonnull TestPlanStatusModel status) {
     this.status = status;
     return this;
   }
@@ -194,12 +203,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(TestPlanStatusModel status) {
+  public void setStatus(@jakarta.annotation.Nonnull TestPlanStatusModel status) {
     this.status = status;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel createdById(UUID createdById) {
+  public TestPlanWithTestSuiteTreeModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -219,12 +228,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel globalId(Long globalId) {
+  public TestPlanWithTestSuiteTreeModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -244,12 +253,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel isDeleted(Boolean isDeleted) {
+  public TestPlanWithTestSuiteTreeModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -269,12 +278,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel id(UUID id) {
+  public TestPlanWithTestSuiteTreeModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -294,12 +303,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel name(String name) {
+  public TestPlanWithTestSuiteTreeModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -319,12 +328,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel projectId(UUID projectId) {
+  public TestPlanWithTestSuiteTreeModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -344,12 +353,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel attributes(Map<String, Object> attributes) {
+  public TestPlanWithTestSuiteTreeModel attributes(@jakarta.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -377,12 +386,12 @@ public class TestPlanWithTestSuiteTreeModel {
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(Map<String, Object> attributes) {
+  public void setAttributes(@jakarta.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public TestPlanWithTestSuiteTreeModel startedOn(OffsetDateTime startedOn) {
+  public TestPlanWithTestSuiteTreeModel startedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
     return this;
   }
@@ -410,12 +419,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.startedOn = startedOn;
   }
 
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel completedOn(OffsetDateTime completedOn) {
+  public TestPlanWithTestSuiteTreeModel completedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
     return this;
   }
@@ -443,12 +452,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.completedOn = completedOn;
   }
 
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel createdDate(OffsetDateTime createdDate) {
+  public TestPlanWithTestSuiteTreeModel createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -476,12 +485,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel modifiedDate(OffsetDateTime modifiedDate) {
+  public TestPlanWithTestSuiteTreeModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -509,12 +518,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel modifiedById(UUID modifiedById) {
+  public TestPlanWithTestSuiteTreeModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -542,12 +551,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel lockedDate(OffsetDateTime lockedDate) {
+  public TestPlanWithTestSuiteTreeModel lockedDate(@jakarta.annotation.Nullable OffsetDateTime lockedDate) {
     this.lockedDate = JsonNullable.<OffsetDateTime>of(lockedDate);
     return this;
   }
@@ -575,12 +584,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.lockedDate = lockedDate;
   }
 
-  public void setLockedDate(OffsetDateTime lockedDate) {
+  public void setLockedDate(@jakarta.annotation.Nullable OffsetDateTime lockedDate) {
     this.lockedDate = JsonNullable.<OffsetDateTime>of(lockedDate);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel lockedById(UUID lockedById) {
+  public TestPlanWithTestSuiteTreeModel lockedById(@jakarta.annotation.Nullable UUID lockedById) {
     this.lockedById = JsonNullable.<UUID>of(lockedById);
     return this;
   }
@@ -608,12 +617,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.lockedById = lockedById;
   }
 
-  public void setLockedById(UUID lockedById) {
+  public void setLockedById(@jakarta.annotation.Nullable UUID lockedById) {
     this.lockedById = JsonNullable.<UUID>of(lockedById);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel tags(List<TagModel> tags) {
+  public TestPlanWithTestSuiteTreeModel tags(@jakarta.annotation.Nullable List<TagModel> tags) {
     this.tags = JsonNullable.<List<TagModel>>of(tags);
     return this;
   }
@@ -653,12 +662,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.tags = tags;
   }
 
-  public void setTags(List<TagModel> tags) {
+  public void setTags(@jakarta.annotation.Nullable List<TagModel> tags) {
     this.tags = JsonNullable.<List<TagModel>>of(tags);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel startDate(OffsetDateTime startDate) {
+  public TestPlanWithTestSuiteTreeModel startDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
     return this;
   }
@@ -686,12 +695,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.startDate = startDate;
   }
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel endDate(OffsetDateTime endDate) {
+  public TestPlanWithTestSuiteTreeModel endDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
     return this;
   }
@@ -719,12 +728,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.endDate = endDate;
   }
 
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel description(String description) {
+  public TestPlanWithTestSuiteTreeModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -752,12 +761,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel build(String build) {
+  public TestPlanWithTestSuiteTreeModel build(@jakarta.annotation.Nullable String build) {
     this.build = JsonNullable.<String>of(build);
     return this;
   }
@@ -785,12 +794,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.build = build;
   }
 
-  public void setBuild(String build) {
+  public void setBuild(@jakarta.annotation.Nullable String build) {
     this.build = JsonNullable.<String>of(build);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel productName(String productName) {
+  public TestPlanWithTestSuiteTreeModel productName(@jakarta.annotation.Nullable String productName) {
     this.productName = JsonNullable.<String>of(productName);
     return this;
   }
@@ -818,12 +827,12 @@ public class TestPlanWithTestSuiteTreeModel {
     this.productName = productName;
   }
 
-  public void setProductName(String productName) {
+  public void setProductName(@jakarta.annotation.Nullable String productName) {
     this.productName = JsonNullable.<String>of(productName);
   }
 
 
-  public TestPlanWithTestSuiteTreeModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
+  public TestPlanWithTestSuiteTreeModel hasAutomaticDurationTimer(@jakarta.annotation.Nullable Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = JsonNullable.<Boolean>of(hasAutomaticDurationTimer);
     return this;
   }
@@ -851,7 +860,7 @@ public class TestPlanWithTestSuiteTreeModel {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
-  public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(@jakarta.annotation.Nullable Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = JsonNullable.<Boolean>of(hasAutomaticDurationTimer);
   }
 

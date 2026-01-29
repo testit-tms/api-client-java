@@ -41,7 +41,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.JSON_PROPERTY_OLD_VALUE,
   WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
   public static final String JSON_PROPERTY_DIFF_VALUE = "diffValue";
   private JsonNullable<List<WorkItemStepChangeViewModel>> diffValue = JsonNullable.<List<WorkItemStepChangeViewModel>>undefined();
@@ -55,7 +55,7 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
   public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel() { 
   }
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel diffValue(List<WorkItemStepChangeViewModel> diffValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel diffValue(@jakarta.annotation.Nullable List<WorkItemStepChangeViewModel> diffValue) {
     this.diffValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(diffValue);
     return this;
   }
@@ -95,12 +95,12 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     this.diffValue = diffValue;
   }
 
-  public void setDiffValue(List<WorkItemStepChangeViewModel> diffValue) {
+  public void setDiffValue(@jakarta.annotation.Nullable List<WorkItemStepChangeViewModel> diffValue) {
     this.diffValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(diffValue);
   }
 
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel oldValue(List<WorkItemStepChangeViewModel> oldValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel oldValue(@jakarta.annotation.Nullable List<WorkItemStepChangeViewModel> oldValue) {
     this.oldValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(oldValue);
     return this;
   }
@@ -140,12 +140,12 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(List<WorkItemStepChangeViewModel> oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable List<WorkItemStepChangeViewModel> oldValue) {
     this.oldValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(oldValue);
   }
 
 
-  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel newValue(List<WorkItemStepChangeViewModel> newValue) {
+  public WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel newValue(@jakarta.annotation.Nullable List<WorkItemStepChangeViewModel> newValue) {
     this.newValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(newValue);
     return this;
   }
@@ -185,7 +185,7 @@ public class WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(List<WorkItemStepChangeViewModel> newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable List<WorkItemStepChangeViewModel> newValue) {
     this.newValue = JsonNullable.<List<WorkItemStepChangeViewModel>>of(newValue);
   }
 

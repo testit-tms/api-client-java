@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   AutoTestResultReasonShort.JSON_PROPERTY_FAILURE_CATEGORY,
   AutoTestResultReasonShort.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestResultReasonShort {
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  @jakarta.annotation.Nonnull
   private FailureCategoryModel failureCategory;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public AutoTestResultReasonShort() { 
   }
 
-  public AutoTestResultReasonShort failureCategory(FailureCategoryModel failureCategory) {
+  public AutoTestResultReasonShort failureCategory(@jakarta.annotation.Nonnull FailureCategoryModel failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -65,12 +67,12 @@ public class AutoTestResultReasonShort {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategory(FailureCategoryModel failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nonnull FailureCategoryModel failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public AutoTestResultReasonShort name(String name) {
+  public AutoTestResultReasonShort name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -90,7 +92,7 @@ public class AutoTestResultReasonShort {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 

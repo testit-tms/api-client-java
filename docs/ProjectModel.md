@@ -25,7 +25,6 @@
 |**autoTestsCount** | **Integer** | Number of autotests in the project |  [optional] |
 |**modifiedDate** | **OffsetDateTime** | Last modification date of the project |  [optional] |
 |**modifiedById** | **UUID** | Unique ID of the project last editor |  [optional] |
-|**isFlakyAuto** | **Boolean** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically |  [optional] |
 
 
 

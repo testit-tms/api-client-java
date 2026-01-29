@@ -45,12 +45,14 @@ import ru.testit.client.invoker.JSON;
   TestSuiteTestPlanApiModel.JSON_PROPERTY_TYPE,
   TestSuiteTestPlanApiModel.JSON_PROPERTY_SAVE_STRUCTURE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteTestPlanApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_WORK_ITEMS_SELECTOR = "workItemsSelector";
+  @jakarta.annotation.Nonnull
   private WorkItemSelectModel workItemsSelector;
 
   public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
@@ -65,7 +67,7 @@ public class TestSuiteTestPlanApiModel {
   public TestSuiteTestPlanApiModel() { 
   }
 
-  public TestSuiteTestPlanApiModel name(String name) {
+  public TestSuiteTestPlanApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -85,12 +87,12 @@ public class TestSuiteTestPlanApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestSuiteTestPlanApiModel workItemsSelector(WorkItemSelectModel workItemsSelector) {
+  public TestSuiteTestPlanApiModel workItemsSelector(@jakarta.annotation.Nonnull WorkItemSelectModel workItemsSelector) {
     this.workItemsSelector = workItemsSelector;
     return this;
   }
@@ -110,12 +112,12 @@ public class TestSuiteTestPlanApiModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEMS_SELECTOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemsSelector(WorkItemSelectModel workItemsSelector) {
+  public void setWorkItemsSelector(@jakarta.annotation.Nonnull WorkItemSelectModel workItemsSelector) {
     this.workItemsSelector = workItemsSelector;
   }
 
 
-  public TestSuiteTestPlanApiModel configurationIds(List<UUID> configurationIds) {
+  public TestSuiteTestPlanApiModel configurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
     return this;
   }
@@ -155,12 +157,12 @@ public class TestSuiteTestPlanApiModel {
     this.configurationIds = configurationIds;
   }
 
-  public void setConfigurationIds(List<UUID> configurationIds) {
+  public void setConfigurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
   }
 
 
-  public TestSuiteTestPlanApiModel type(TestSuiteType type) {
+  public TestSuiteTestPlanApiModel type(@jakarta.annotation.Nullable TestSuiteType type) {
     this.type = JsonNullable.<TestSuiteType>of(type);
     return this;
   }
@@ -188,12 +190,12 @@ public class TestSuiteTestPlanApiModel {
     this.type = type;
   }
 
-  public void setType(TestSuiteType type) {
+  public void setType(@jakarta.annotation.Nullable TestSuiteType type) {
     this.type = JsonNullable.<TestSuiteType>of(type);
   }
 
 
-  public TestSuiteTestPlanApiModel saveStructure(Boolean saveStructure) {
+  public TestSuiteTestPlanApiModel saveStructure(@jakarta.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = JsonNullable.<Boolean>of(saveStructure);
     return this;
   }
@@ -221,7 +223,7 @@ public class TestSuiteTestPlanApiModel {
     this.saveStructure = saveStructure;
   }
 
-  public void setSaveStructure(Boolean saveStructure) {
+  public void setSaveStructure(@jakarta.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = JsonNullable.<Boolean>of(saveStructure);
   }
 

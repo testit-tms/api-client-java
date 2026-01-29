@@ -51,45 +51,58 @@ import ru.testit.client.invoker.JSON;
   UserWithRankModel.JSON_PROPERTY_USER_RANK,
   UserWithRankModel.JSON_PROPERTY_PROVIDER_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UserWithRankModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
+  @jakarta.annotation.Nonnull
   private String firstName;
 
   public static final String JSON_PROPERTY_LAST_NAME = "lastName";
+  @jakarta.annotation.Nonnull
   private String lastName;
 
   public static final String JSON_PROPERTY_MIDDLE_NAME = "middleName";
+  @jakarta.annotation.Nonnull
   private String middleName;
 
   public static final String JSON_PROPERTY_USER_NAME = "userName";
+  @jakarta.annotation.Nonnull
   private String userName;
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
+  @jakarta.annotation.Nonnull
   private String displayName;
 
   public static final String JSON_PROPERTY_USER_TYPE = "userType";
+  @jakarta.annotation.Nonnull
   private String userType;
 
   public static final String JSON_PROPERTY_AVATAR_URL = "avatarUrl";
+  @jakarta.annotation.Nonnull
   private String avatarUrl;
 
   public static final String JSON_PROPERTY_AVATAR_METADATA = "avatarMetadata";
+  @jakarta.annotation.Nonnull
   private String avatarMetadata;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_IS_DISABLED = "isDisabled";
+  @jakarta.annotation.Nonnull
   private Boolean isDisabled;
 
   public static final String JSON_PROPERTY_IS_ACTIVE_STATUS_BY_ENTITY = "isActiveStatusByEntity";
+  @jakarta.annotation.Nonnull
   private Boolean isActiveStatusByEntity;
 
   public static final String JSON_PROPERTY_USER_RANK = "userRank";
+  @jakarta.annotation.Nonnull
   private UserRankModel userRank;
 
   public static final String JSON_PROPERTY_PROVIDER_ID = "providerId";
@@ -98,7 +111,7 @@ public class UserWithRankModel {
   public UserWithRankModel() { 
   }
 
-  public UserWithRankModel id(UUID id) {
+  public UserWithRankModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -118,12 +131,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public UserWithRankModel firstName(String firstName) {
+  public UserWithRankModel firstName(@jakarta.annotation.Nonnull String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -143,12 +156,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_FIRST_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFirstName(String firstName) {
+  public void setFirstName(@jakarta.annotation.Nonnull String firstName) {
     this.firstName = firstName;
   }
 
 
-  public UserWithRankModel lastName(String lastName) {
+  public UserWithRankModel lastName(@jakarta.annotation.Nonnull String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -168,12 +181,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_LAST_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLastName(String lastName) {
+  public void setLastName(@jakarta.annotation.Nonnull String lastName) {
     this.lastName = lastName;
   }
 
 
-  public UserWithRankModel middleName(String middleName) {
+  public UserWithRankModel middleName(@jakarta.annotation.Nonnull String middleName) {
     this.middleName = middleName;
     return this;
   }
@@ -193,12 +206,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_MIDDLE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMiddleName(String middleName) {
+  public void setMiddleName(@jakarta.annotation.Nonnull String middleName) {
     this.middleName = middleName;
   }
 
 
-  public UserWithRankModel userName(String userName) {
+  public UserWithRankModel userName(@jakarta.annotation.Nonnull String userName) {
     this.userName = userName;
     return this;
   }
@@ -218,12 +231,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_USER_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUserName(String userName) {
+  public void setUserName(@jakarta.annotation.Nonnull String userName) {
     this.userName = userName;
   }
 
 
-  public UserWithRankModel displayName(String displayName) {
+  public UserWithRankModel displayName(@jakarta.annotation.Nonnull String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -243,12 +256,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDisplayName(String displayName) {
+  public void setDisplayName(@jakarta.annotation.Nonnull String displayName) {
     this.displayName = displayName;
   }
 
 
-  public UserWithRankModel userType(String userType) {
+  public UserWithRankModel userType(@jakarta.annotation.Nonnull String userType) {
     this.userType = userType;
     return this;
   }
@@ -268,12 +281,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_USER_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUserType(String userType) {
+  public void setUserType(@jakarta.annotation.Nonnull String userType) {
     this.userType = userType;
   }
 
 
-  public UserWithRankModel avatarUrl(String avatarUrl) {
+  public UserWithRankModel avatarUrl(@jakarta.annotation.Nonnull String avatarUrl) {
     this.avatarUrl = avatarUrl;
     return this;
   }
@@ -293,12 +306,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_AVATAR_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAvatarUrl(String avatarUrl) {
+  public void setAvatarUrl(@jakarta.annotation.Nonnull String avatarUrl) {
     this.avatarUrl = avatarUrl;
   }
 
 
-  public UserWithRankModel avatarMetadata(String avatarMetadata) {
+  public UserWithRankModel avatarMetadata(@jakarta.annotation.Nonnull String avatarMetadata) {
     this.avatarMetadata = avatarMetadata;
     return this;
   }
@@ -318,12 +331,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_AVATAR_METADATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAvatarMetadata(String avatarMetadata) {
+  public void setAvatarMetadata(@jakarta.annotation.Nonnull String avatarMetadata) {
     this.avatarMetadata = avatarMetadata;
   }
 
 
-  public UserWithRankModel isDeleted(Boolean isDeleted) {
+  public UserWithRankModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -343,12 +356,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public UserWithRankModel isDisabled(Boolean isDisabled) {
+  public UserWithRankModel isDisabled(@jakarta.annotation.Nonnull Boolean isDisabled) {
     this.isDisabled = isDisabled;
     return this;
   }
@@ -368,12 +381,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DISABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDisabled(Boolean isDisabled) {
+  public void setIsDisabled(@jakarta.annotation.Nonnull Boolean isDisabled) {
     this.isDisabled = isDisabled;
   }
 
 
-  public UserWithRankModel isActiveStatusByEntity(Boolean isActiveStatusByEntity) {
+  public UserWithRankModel isActiveStatusByEntity(@jakarta.annotation.Nonnull Boolean isActiveStatusByEntity) {
     this.isActiveStatusByEntity = isActiveStatusByEntity;
     return this;
   }
@@ -393,12 +406,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_IS_ACTIVE_STATUS_BY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsActiveStatusByEntity(Boolean isActiveStatusByEntity) {
+  public void setIsActiveStatusByEntity(@jakarta.annotation.Nonnull Boolean isActiveStatusByEntity) {
     this.isActiveStatusByEntity = isActiveStatusByEntity;
   }
 
 
-  public UserWithRankModel userRank(UserRankModel userRank) {
+  public UserWithRankModel userRank(@jakarta.annotation.Nonnull UserRankModel userRank) {
     this.userRank = userRank;
     return this;
   }
@@ -418,12 +431,12 @@ public class UserWithRankModel {
 
   @JsonProperty(JSON_PROPERTY_USER_RANK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUserRank(UserRankModel userRank) {
+  public void setUserRank(@jakarta.annotation.Nonnull UserRankModel userRank) {
     this.userRank = userRank;
   }
 
 
-  public UserWithRankModel providerId(UUID providerId) {
+  public UserWithRankModel providerId(@jakarta.annotation.Nullable UUID providerId) {
     this.providerId = JsonNullable.<UUID>of(providerId);
     return this;
   }
@@ -451,7 +464,7 @@ public class UserWithRankModel {
     this.providerId = providerId;
   }
 
-  public void setProviderId(UUID providerId) {
+  public void setProviderId(@jakarta.annotation.Nullable UUID providerId) {
     this.providerId = JsonNullable.<UUID>of(providerId);
   }
 

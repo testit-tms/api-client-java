@@ -37,18 +37,20 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsGroupSearchItemApiResult.JSON_PROPERTY_GROUP,
   TestPlanTestPointsGroupSearchItemApiResult.JSON_PROPERTY_ITEMS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsGroupSearchItemApiResult {
   public static final String JSON_PROPERTY_GROUP = "group";
+  @jakarta.annotation.Nullable
   private TestPlanTestPointsGroupApiResult group;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
+  @jakarta.annotation.Nonnull
   private List<TestPlanTestPointsSearchApiResult> items = new ArrayList<>();
 
   public TestPlanTestPointsGroupSearchItemApiResult() { 
   }
 
-  public TestPlanTestPointsGroupSearchItemApiResult group(TestPlanTestPointsGroupApiResult group) {
+  public TestPlanTestPointsGroupSearchItemApiResult group(@jakarta.annotation.Nullable TestPlanTestPointsGroupApiResult group) {
     this.group = group;
     return this;
   }
@@ -68,12 +70,12 @@ public class TestPlanTestPointsGroupSearchItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGroup(TestPlanTestPointsGroupApiResult group) {
+  public void setGroup(@jakarta.annotation.Nullable TestPlanTestPointsGroupApiResult group) {
     this.group = group;
   }
 
 
-  public TestPlanTestPointsGroupSearchItemApiResult items(List<TestPlanTestPointsSearchApiResult> items) {
+  public TestPlanTestPointsGroupSearchItemApiResult items(@jakarta.annotation.Nonnull List<TestPlanTestPointsSearchApiResult> items) {
     this.items = items;
     return this;
   }
@@ -101,7 +103,7 @@ public class TestPlanTestPointsGroupSearchItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setItems(List<TestPlanTestPointsSearchApiResult> items) {
+  public void setItems(@jakarta.annotation.Nonnull List<TestPlanTestPointsSearchApiResult> items) {
     this.items = items;
   }
 

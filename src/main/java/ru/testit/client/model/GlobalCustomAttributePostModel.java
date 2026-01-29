@@ -44,12 +44,14 @@ import ru.testit.client.invoker.JSON;
   GlobalCustomAttributePostModel.JSON_PROPERTY_IS_REQUIRED,
   GlobalCustomAttributePostModel.JSON_PROPERTY_OPTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GlobalCustomAttributePostModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private CustomAttributeTypesEnum type;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
@@ -64,7 +66,7 @@ public class GlobalCustomAttributePostModel {
   public GlobalCustomAttributePostModel() { 
   }
 
-  public GlobalCustomAttributePostModel name(String name) {
+  public GlobalCustomAttributePostModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -84,12 +86,12 @@ public class GlobalCustomAttributePostModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public GlobalCustomAttributePostModel type(CustomAttributeTypesEnum type) {
+  public GlobalCustomAttributePostModel type(@jakarta.annotation.Nonnull CustomAttributeTypesEnum type) {
     this.type = type;
     return this;
   }
@@ -109,12 +111,12 @@ public class GlobalCustomAttributePostModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(CustomAttributeTypesEnum type) {
+  public void setType(@jakarta.annotation.Nonnull CustomAttributeTypesEnum type) {
     this.type = type;
   }
 
 
-  public GlobalCustomAttributePostModel isEnabled(Boolean isEnabled) {
+  public GlobalCustomAttributePostModel isEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
     return this;
   }
@@ -142,12 +144,12 @@ public class GlobalCustomAttributePostModel {
     this.isEnabled = isEnabled;
   }
 
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
   }
 
 
-  public GlobalCustomAttributePostModel isRequired(Boolean isRequired) {
+  public GlobalCustomAttributePostModel isRequired(@jakarta.annotation.Nullable Boolean isRequired) {
     this.isRequired = JsonNullable.<Boolean>of(isRequired);
     return this;
   }
@@ -175,12 +177,12 @@ public class GlobalCustomAttributePostModel {
     this.isRequired = isRequired;
   }
 
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@jakarta.annotation.Nullable Boolean isRequired) {
     this.isRequired = JsonNullable.<Boolean>of(isRequired);
   }
 
 
-  public GlobalCustomAttributePostModel options(List<CustomAttributeOptionPostModel> options) {
+  public GlobalCustomAttributePostModel options(@jakarta.annotation.Nullable List<CustomAttributeOptionPostModel> options) {
     this.options = JsonNullable.<List<CustomAttributeOptionPostModel>>of(options);
     return this;
   }
@@ -198,7 +200,7 @@ public class GlobalCustomAttributePostModel {
   }
 
   /**
-   * Collection of attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
   @jakarta.annotation.Nullable
@@ -220,7 +222,7 @@ public class GlobalCustomAttributePostModel {
     this.options = options;
   }
 
-  public void setOptions(List<CustomAttributeOptionPostModel> options) {
+  public void setOptions(@jakarta.annotation.Nullable List<CustomAttributeOptionPostModel> options) {
     this.options = JsonNullable.<List<CustomAttributeOptionPostModel>>of(options);
   }
 

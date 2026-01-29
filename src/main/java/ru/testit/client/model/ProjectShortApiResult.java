@@ -39,30 +39,36 @@ import ru.testit.client.invoker.JSON;
   ProjectShortApiResult.JSON_PROPERTY_TYPE,
   ProjectShortApiResult.JSON_PROPERTY_IS_FAVORITE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectShortApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private ProjectType type;
 
   public static final String JSON_PROPERTY_IS_FAVORITE = "isFavorite";
+  @jakarta.annotation.Nonnull
   private Boolean isFavorite;
 
   public ProjectShortApiResult() { 
   }
 
-  public ProjectShortApiResult id(UUID id) {
+  public ProjectShortApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -82,12 +88,12 @@ public class ProjectShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ProjectShortApiResult isDeleted(Boolean isDeleted) {
+  public ProjectShortApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -107,12 +113,12 @@ public class ProjectShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectShortApiResult globalId(Long globalId) {
+  public ProjectShortApiResult globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -132,12 +138,12 @@ public class ProjectShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public ProjectShortApiResult name(String name) {
+  public ProjectShortApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -157,12 +163,12 @@ public class ProjectShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectShortApiResult type(ProjectType type) {
+  public ProjectShortApiResult type(@jakarta.annotation.Nonnull ProjectType type) {
     this.type = type;
     return this;
   }
@@ -182,12 +188,12 @@ public class ProjectShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(ProjectType type) {
+  public void setType(@jakarta.annotation.Nonnull ProjectType type) {
     this.type = type;
   }
 
 
-  public ProjectShortApiResult isFavorite(Boolean isFavorite) {
+  public ProjectShortApiResult isFavorite(@jakarta.annotation.Nonnull Boolean isFavorite) {
     this.isFavorite = isFavorite;
     return this;
   }
@@ -207,7 +213,7 @@ public class ProjectShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsFavorite(Boolean isFavorite) {
+  public void setIsFavorite(@jakarta.annotation.Nonnull Boolean isFavorite) {
     this.isFavorite = isFavorite;
   }
 

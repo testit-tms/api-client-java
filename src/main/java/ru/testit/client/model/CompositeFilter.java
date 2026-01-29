@@ -37,18 +37,20 @@ import ru.testit.client.invoker.JSON;
   CompositeFilter.JSON_PROPERTY_FILTERS,
   CompositeFilter.JSON_PROPERTY_OPERATOR
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CompositeFilter {
   public static final String JSON_PROPERTY_FILTERS = "filters";
+  @jakarta.annotation.Nonnull
   private List<IFilter> filters = new ArrayList<>();
 
   public static final String JSON_PROPERTY_OPERATOR = "operator";
+  @jakarta.annotation.Nonnull
   private LogicalOperator operator;
 
   public CompositeFilter() { 
   }
 
-  public CompositeFilter filters(List<IFilter> filters) {
+  public CompositeFilter filters(@jakarta.annotation.Nonnull List<IFilter> filters) {
     this.filters = filters;
     return this;
   }
@@ -76,12 +78,12 @@ public class CompositeFilter {
 
   @JsonProperty(JSON_PROPERTY_FILTERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilters(List<IFilter> filters) {
+  public void setFilters(@jakarta.annotation.Nonnull List<IFilter> filters) {
     this.filters = filters;
   }
 
 
-  public CompositeFilter operator(LogicalOperator operator) {
+  public CompositeFilter operator(@jakarta.annotation.Nonnull LogicalOperator operator) {
     this.operator = operator;
     return this;
   }
@@ -101,7 +103,7 @@ public class CompositeFilter {
 
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOperator(LogicalOperator operator) {
+  public void setOperator(@jakarta.annotation.Nonnull LogicalOperator operator) {
     this.operator = operator;
   }
 

@@ -46,7 +46,7 @@ import ru.testit.client.invoker.JSON;
   TestResultsLocalFilterModel.JSON_PROPERTY_NAMESPACE,
   TestResultsLocalFilterModel.JSON_PROPERTY_CLASS_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultsLocalFilterModel {
   public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
   private JsonNullable<List<UUID>> configurationIds = JsonNullable.<List<UUID>>undefined();
@@ -70,7 +70,7 @@ public class TestResultsLocalFilterModel {
   public TestResultsLocalFilterModel() { 
   }
 
-  public TestResultsLocalFilterModel configurationIds(List<UUID> configurationIds) {
+  public TestResultsLocalFilterModel configurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
     return this;
   }
@@ -110,13 +110,13 @@ public class TestResultsLocalFilterModel {
     this.configurationIds = configurationIds;
   }
 
-  public void setConfigurationIds(List<UUID> configurationIds) {
+  public void setConfigurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
   }
 
 
   @Deprecated
-  public TestResultsLocalFilterModel outcomes(List<TestResultOutcome> outcomes) {
+  public TestResultsLocalFilterModel outcomes(@jakarta.annotation.Nullable List<TestResultOutcome> outcomes) {
     this.outcomes = JsonNullable.<List<TestResultOutcome>>of(outcomes);
     return this;
   }
@@ -159,12 +159,12 @@ public class TestResultsLocalFilterModel {
   }
 
   @Deprecated
-  public void setOutcomes(List<TestResultOutcome> outcomes) {
+  public void setOutcomes(@jakarta.annotation.Nullable List<TestResultOutcome> outcomes) {
     this.outcomes = JsonNullable.<List<TestResultOutcome>>of(outcomes);
   }
 
 
-  public TestResultsLocalFilterModel statusCodes(List<String> statusCodes) {
+  public TestResultsLocalFilterModel statusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
     return this;
   }
@@ -204,12 +204,12 @@ public class TestResultsLocalFilterModel {
     this.statusCodes = statusCodes;
   }
 
-  public void setStatusCodes(List<String> statusCodes) {
+  public void setStatusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
   }
 
 
-  public TestResultsLocalFilterModel failureCategories(List<FailureCategoryModel> failureCategories) {
+  public TestResultsLocalFilterModel failureCategories(@jakarta.annotation.Nullable List<FailureCategoryModel> failureCategories) {
     this.failureCategories = JsonNullable.<List<FailureCategoryModel>>of(failureCategories);
     return this;
   }
@@ -249,12 +249,12 @@ public class TestResultsLocalFilterModel {
     this.failureCategories = failureCategories;
   }
 
-  public void setFailureCategories(List<FailureCategoryModel> failureCategories) {
+  public void setFailureCategories(@jakarta.annotation.Nullable List<FailureCategoryModel> failureCategories) {
     this.failureCategories = JsonNullable.<List<FailureCategoryModel>>of(failureCategories);
   }
 
 
-  public TestResultsLocalFilterModel namespace(String namespace) {
+  public TestResultsLocalFilterModel namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
     return this;
   }
@@ -282,12 +282,12 @@ public class TestResultsLocalFilterModel {
     this.namespace = namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
   }
 
 
-  public TestResultsLocalFilterModel className(String className) {
+  public TestResultsLocalFilterModel className(@jakarta.annotation.Nullable String className) {
     this.className = JsonNullable.<String>of(className);
     return this;
   }
@@ -315,7 +315,7 @@ public class TestResultsLocalFilterModel {
     this.className = className;
   }
 
-  public void setClassName(String className) {
+  public void setClassName(@jakarta.annotation.Nullable String className) {
     this.className = JsonNullable.<String>of(className);
   }
 

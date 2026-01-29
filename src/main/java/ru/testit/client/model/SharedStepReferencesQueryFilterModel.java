@@ -53,7 +53,7 @@ import ru.testit.client.invoker.JSON;
   SharedStepReferencesQueryFilterModel.JSON_PROPERTY_IS_AUTOMATED,
   SharedStepReferencesQueryFilterModel.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SharedStepReferencesQueryFilterModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -94,7 +94,7 @@ public class SharedStepReferencesQueryFilterModel {
   public SharedStepReferencesQueryFilterModel() { 
   }
 
-  public SharedStepReferencesQueryFilterModel name(String name) {
+  public SharedStepReferencesQueryFilterModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -122,12 +122,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public SharedStepReferencesQueryFilterModel globalIds(Set<Long> globalIds) {
+  public SharedStepReferencesQueryFilterModel globalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
@@ -167,12 +167,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
-  public SharedStepReferencesQueryFilterModel sectionIds(Set<UUID> sectionIds) {
+  public SharedStepReferencesQueryFilterModel sectionIds(@jakarta.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
     return this;
   }
@@ -212,12 +212,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.sectionIds = sectionIds;
   }
 
-  public void setSectionIds(Set<UUID> sectionIds) {
+  public void setSectionIds(@jakarta.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
   }
 
 
-  public SharedStepReferencesQueryFilterModel createdByIds(Set<UUID> createdByIds) {
+  public SharedStepReferencesQueryFilterModel createdByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
@@ -257,12 +257,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
-  public SharedStepReferencesQueryFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
+  public SharedStepReferencesQueryFilterModel modifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
     return this;
   }
@@ -302,12 +302,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.modifiedByIds = modifiedByIds;
   }
 
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
   }
 
 
-  public SharedStepReferencesQueryFilterModel states(Set<WorkItemStates> states) {
+  public SharedStepReferencesQueryFilterModel states(@jakarta.annotation.Nullable Set<WorkItemStates> states) {
     this.states = JsonNullable.<Set<WorkItemStates>>of(states);
     return this;
   }
@@ -347,12 +347,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.states = states;
   }
 
-  public void setStates(Set<WorkItemStates> states) {
+  public void setStates(@jakarta.annotation.Nullable Set<WorkItemStates> states) {
     this.states = JsonNullable.<Set<WorkItemStates>>of(states);
   }
 
 
-  public SharedStepReferencesQueryFilterModel priorities(Set<WorkItemPriorityModel> priorities) {
+  public SharedStepReferencesQueryFilterModel priorities(@jakarta.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
     return this;
   }
@@ -392,12 +392,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.priorities = priorities;
   }
 
-  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
+  public void setPriorities(@jakarta.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
   }
 
 
-  public SharedStepReferencesQueryFilterModel entityTypes(Set<String> entityTypes) {
+  public SharedStepReferencesQueryFilterModel entityTypes(@jakarta.annotation.Nullable Set<String> entityTypes) {
     this.entityTypes = JsonNullable.<Set<String>>of(entityTypes);
     return this;
   }
@@ -415,7 +415,7 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
   /**
-   * Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
+   * Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60;
    * @return entityTypes
    */
   @jakarta.annotation.Nullable
@@ -437,12 +437,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.entityTypes = entityTypes;
   }
 
-  public void setEntityTypes(Set<String> entityTypes) {
+  public void setEntityTypes(@jakarta.annotation.Nullable Set<String> entityTypes) {
     this.entityTypes = JsonNullable.<Set<String>>of(entityTypes);
   }
 
 
-  public SharedStepReferencesQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public SharedStepReferencesQueryFilterModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -470,12 +470,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public SharedStepReferencesQueryFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public SharedStepReferencesQueryFilterModel modifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
     return this;
   }
@@ -503,12 +503,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
   }
 
 
-  public SharedStepReferencesQueryFilterModel isAutomated(Boolean isAutomated) {
+  public SharedStepReferencesQueryFilterModel isAutomated(@jakarta.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
     return this;
   }
@@ -536,12 +536,12 @@ public class SharedStepReferencesQueryFilterModel {
     this.isAutomated = isAutomated;
   }
 
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
   }
 
 
-  public SharedStepReferencesQueryFilterModel tags(Set<String> tags) {
+  public SharedStepReferencesQueryFilterModel tags(@jakarta.annotation.Nullable Set<String> tags) {
     this.tags = JsonNullable.<Set<String>>of(tags);
     return this;
   }
@@ -581,7 +581,7 @@ public class SharedStepReferencesQueryFilterModel {
     this.tags = tags;
   }
 
-  public void setTags(Set<String> tags) {
+  public void setTags(@jakarta.annotation.Nullable Set<String> tags) {
     this.tags = JsonNullable.<Set<String>>of(tags);
   }
 

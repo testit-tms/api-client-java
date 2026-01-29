@@ -52,30 +52,38 @@ import ru.testit.client.invoker.JSON;
   FailureCategoryItemApiResult.JSON_PROPERTY_MODIFIED_DATE,
   FailureCategoryItemApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FailureCategoryItemApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  @jakarta.annotation.Nonnull
   private FailureCategory failureCategory;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_FAILURE_CATEGORY_ID = "failureCategoryId";
+  @jakarta.annotation.Nonnull
   private Integer failureCategoryId;
 
   public static final String JSON_PROPERTY_REGEX_COUNT = "regexCount";
+  @jakarta.annotation.Nonnull
   private Integer regexCount;
 
   public static final String JSON_PROPERTY_PROJECTS = "projects";
+  @jakarta.annotation.Nonnull
   private List<ProjectNameApiResult> projects = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> projectIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
@@ -90,7 +98,7 @@ public class FailureCategoryItemApiResult {
   public FailureCategoryItemApiResult() { 
   }
 
-  public FailureCategoryItemApiResult id(UUID id) {
+  public FailureCategoryItemApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -110,12 +118,12 @@ public class FailureCategoryItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public FailureCategoryItemApiResult failureCategory(FailureCategory failureCategory) {
+  public FailureCategoryItemApiResult failureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -135,12 +143,12 @@ public class FailureCategoryItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategory(FailureCategory failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public FailureCategoryItemApiResult createdDate(OffsetDateTime createdDate) {
+  public FailureCategoryItemApiResult createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -160,12 +168,12 @@ public class FailureCategoryItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public FailureCategoryItemApiResult createdById(UUID createdById) {
+  public FailureCategoryItemApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -185,12 +193,12 @@ public class FailureCategoryItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public FailureCategoryItemApiResult failureCategoryId(Integer failureCategoryId) {
+  public FailureCategoryItemApiResult failureCategoryId(@jakarta.annotation.Nonnull Integer failureCategoryId) {
     this.failureCategoryId = failureCategoryId;
     return this;
   }
@@ -210,12 +218,12 @@ public class FailureCategoryItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategoryId(Integer failureCategoryId) {
+  public void setFailureCategoryId(@jakarta.annotation.Nonnull Integer failureCategoryId) {
     this.failureCategoryId = failureCategoryId;
   }
 
 
-  public FailureCategoryItemApiResult regexCount(Integer regexCount) {
+  public FailureCategoryItemApiResult regexCount(@jakarta.annotation.Nonnull Integer regexCount) {
     this.regexCount = regexCount;
     return this;
   }
@@ -235,12 +243,12 @@ public class FailureCategoryItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_REGEX_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRegexCount(Integer regexCount) {
+  public void setRegexCount(@jakarta.annotation.Nonnull Integer regexCount) {
     this.regexCount = regexCount;
   }
 
 
-  public FailureCategoryItemApiResult projects(List<ProjectNameApiResult> projects) {
+  public FailureCategoryItemApiResult projects(@jakarta.annotation.Nonnull List<ProjectNameApiResult> projects) {
     this.projects = projects;
     return this;
   }
@@ -268,12 +276,12 @@ public class FailureCategoryItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjects(List<ProjectNameApiResult> projects) {
+  public void setProjects(@jakarta.annotation.Nonnull List<ProjectNameApiResult> projects) {
     this.projects = projects;
   }
 
 
-  public FailureCategoryItemApiResult projectIds(List<UUID> projectIds) {
+  public FailureCategoryItemApiResult projectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -301,12 +309,12 @@ public class FailureCategoryItemApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public FailureCategoryItemApiResult name(String name) {
+  public FailureCategoryItemApiResult name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -334,12 +342,12 @@ public class FailureCategoryItemApiResult {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public FailureCategoryItemApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public FailureCategoryItemApiResult modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -367,12 +375,12 @@ public class FailureCategoryItemApiResult {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public FailureCategoryItemApiResult modifiedById(UUID modifiedById) {
+  public FailureCategoryItemApiResult modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -400,7 +408,7 @@ public class FailureCategoryItemApiResult {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

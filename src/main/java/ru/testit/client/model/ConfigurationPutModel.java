@@ -44,21 +44,26 @@ import ru.testit.client.invoker.JSON;
   ConfigurationPutModel.JSON_PROPERTY_NAME,
   ConfigurationPutModel.JSON_PROPERTY_DESCRIPTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ConfigurationPutModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  @jakarta.annotation.Nonnull
   private Map<String, String> parameters = new HashMap<>();
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
+  @jakarta.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -67,7 +72,7 @@ public class ConfigurationPutModel {
   public ConfigurationPutModel() { 
   }
 
-  public ConfigurationPutModel id(UUID id) {
+  public ConfigurationPutModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -87,12 +92,12 @@ public class ConfigurationPutModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ConfigurationPutModel parameters(Map<String, String> parameters) {
+  public ConfigurationPutModel parameters(@jakarta.annotation.Nonnull Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -120,12 +125,12 @@ public class ConfigurationPutModel {
 
   @JsonProperty(JSON_PROPERTY_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nonnull Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public ConfigurationPutModel projectId(UUID projectId) {
+  public ConfigurationPutModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -145,12 +150,12 @@ public class ConfigurationPutModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationPutModel isDefault(Boolean isDefault) {
+  public ConfigurationPutModel isDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -170,12 +175,12 @@ public class ConfigurationPutModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDefault(Boolean isDefault) {
+  public void setIsDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public ConfigurationPutModel name(String name) {
+  public ConfigurationPutModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -195,12 +200,12 @@ public class ConfigurationPutModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ConfigurationPutModel description(String description) {
+  public ConfigurationPutModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -228,7 +233,7 @@ public class ConfigurationPutModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 

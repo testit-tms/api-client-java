@@ -41,18 +41,22 @@ import ru.testit.client.invoker.JSON;
   WebhookResponse.JSON_PROPERTY_URI,
   WebhookResponse.JSON_PROPERTY_REQUEST_BODY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebhookResponse {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
+  @jakarta.annotation.Nonnull
   private Integer statusCode;
 
   public static final String JSON_PROPERTY_REQUEST_META = "requestMeta";
+  @jakarta.annotation.Nonnull
   private String requestMeta;
 
   public static final String JSON_PROPERTY_RESPONSE_BODY = "responseBody";
+  @jakarta.annotation.Nonnull
   private String responseBody;
 
   public static final String JSON_PROPERTY_RESPONSE_META = "responseMeta";
+  @jakarta.annotation.Nonnull
   private String responseMeta;
 
   public static final String JSON_PROPERTY_URI = "uri";
@@ -64,7 +68,7 @@ public class WebhookResponse {
   public WebhookResponse() { 
   }
 
-  public WebhookResponse statusCode(Integer statusCode) {
+  public WebhookResponse statusCode(@jakarta.annotation.Nonnull Integer statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -84,12 +88,12 @@ public class WebhookResponse {
 
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusCode(Integer statusCode) {
+  public void setStatusCode(@jakarta.annotation.Nonnull Integer statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public WebhookResponse requestMeta(String requestMeta) {
+  public WebhookResponse requestMeta(@jakarta.annotation.Nonnull String requestMeta) {
     this.requestMeta = requestMeta;
     return this;
   }
@@ -109,12 +113,12 @@ public class WebhookResponse {
 
   @JsonProperty(JSON_PROPERTY_REQUEST_META)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequestMeta(String requestMeta) {
+  public void setRequestMeta(@jakarta.annotation.Nonnull String requestMeta) {
     this.requestMeta = requestMeta;
   }
 
 
-  public WebhookResponse responseBody(String responseBody) {
+  public WebhookResponse responseBody(@jakarta.annotation.Nonnull String responseBody) {
     this.responseBody = responseBody;
     return this;
   }
@@ -134,12 +138,12 @@ public class WebhookResponse {
 
   @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResponseBody(String responseBody) {
+  public void setResponseBody(@jakarta.annotation.Nonnull String responseBody) {
     this.responseBody = responseBody;
   }
 
 
-  public WebhookResponse responseMeta(String responseMeta) {
+  public WebhookResponse responseMeta(@jakarta.annotation.Nonnull String responseMeta) {
     this.responseMeta = responseMeta;
     return this;
   }
@@ -159,12 +163,12 @@ public class WebhookResponse {
 
   @JsonProperty(JSON_PROPERTY_RESPONSE_META)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResponseMeta(String responseMeta) {
+  public void setResponseMeta(@jakarta.annotation.Nonnull String responseMeta) {
     this.responseMeta = responseMeta;
   }
 
 
-  public WebhookResponse uri(String uri) {
+  public WebhookResponse uri(@jakarta.annotation.Nullable String uri) {
     this.uri = JsonNullable.<String>of(uri);
     return this;
   }
@@ -192,12 +196,12 @@ public class WebhookResponse {
     this.uri = uri;
   }
 
-  public void setUri(String uri) {
+  public void setUri(@jakarta.annotation.Nullable String uri) {
     this.uri = JsonNullable.<String>of(uri);
   }
 
 
-  public WebhookResponse requestBody(String requestBody) {
+  public WebhookResponse requestBody(@jakarta.annotation.Nullable String requestBody) {
     this.requestBody = JsonNullable.<String>of(requestBody);
     return this;
   }
@@ -225,7 +229,7 @@ public class WebhookResponse {
     this.requestBody = requestBody;
   }
 
-  public void setRequestBody(String requestBody) {
+  public void setRequestBody(@jakarta.annotation.Nullable String requestBody) {
     this.requestBody = JsonNullable.<String>of(requestBody);
   }
 

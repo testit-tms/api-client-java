@@ -40,15 +40,18 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeOptionModel.JSON_PROPERTY_IS_DEFAULT,
   CustomAttributeOptionModel.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeOptionModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
+  @jakarta.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_VALUE = "value";
@@ -57,7 +60,7 @@ public class CustomAttributeOptionModel {
   public CustomAttributeOptionModel() { 
   }
 
-  public CustomAttributeOptionModel id(UUID id) {
+  public CustomAttributeOptionModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -77,12 +80,12 @@ public class CustomAttributeOptionModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributeOptionModel isDeleted(Boolean isDeleted) {
+  public CustomAttributeOptionModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -102,12 +105,12 @@ public class CustomAttributeOptionModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public CustomAttributeOptionModel isDefault(Boolean isDefault) {
+  public CustomAttributeOptionModel isDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -127,12 +130,12 @@ public class CustomAttributeOptionModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDefault(Boolean isDefault) {
+  public void setIsDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public CustomAttributeOptionModel value(String value) {
+  public CustomAttributeOptionModel value(@jakarta.annotation.Nullable String value) {
     this.value = JsonNullable.<String>of(value);
     return this;
   }
@@ -160,7 +163,7 @@ public class CustomAttributeOptionModel {
     this.value = value;
   }
 
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = JsonNullable.<String>of(value);
   }
 

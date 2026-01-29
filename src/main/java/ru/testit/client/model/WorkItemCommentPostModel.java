@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   WorkItemCommentPostModel.JSON_PROPERTY_TEXT,
   WorkItemCommentPostModel.JSON_PROPERTY_WORK_ITEM_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemCommentPostModel {
   public static final String JSON_PROPERTY_TEXT = "text";
+  @jakarta.annotation.Nonnull
   private String text;
 
   public static final String JSON_PROPERTY_WORK_ITEM_ID = "workItemId";
+  @jakarta.annotation.Nonnull
   private UUID workItemId;
 
   public WorkItemCommentPostModel() { 
   }
 
-  public WorkItemCommentPostModel text(String text) {
+  public WorkItemCommentPostModel text(@jakarta.annotation.Nonnull String text) {
     this.text = text;
     return this;
   }
@@ -65,12 +67,12 @@ public class WorkItemCommentPostModel {
 
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setText(String text) {
+  public void setText(@jakarta.annotation.Nonnull String text) {
     this.text = text;
   }
 
 
-  public WorkItemCommentPostModel workItemId(UUID workItemId) {
+  public WorkItemCommentPostModel workItemId(@jakarta.annotation.Nonnull UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -90,7 +92,7 @@ public class WorkItemCommentPostModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nonnull UUID workItemId) {
     this.workItemId = workItemId;
   }
 

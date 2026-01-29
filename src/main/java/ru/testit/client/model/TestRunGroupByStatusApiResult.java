@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   TestRunGroupByStatusApiResult.JSON_PROPERTY_STATUS,
   TestRunGroupByStatusApiResult.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunGroupByStatusApiResult {
   public static final String JSON_PROPERTY_STATUS = "status";
+  @jakarta.annotation.Nonnull
   private String status;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private Integer value;
 
   public TestRunGroupByStatusApiResult() { 
   }
 
-  public TestRunGroupByStatusApiResult status(String status) {
+  public TestRunGroupByStatusApiResult status(@jakarta.annotation.Nonnull String status) {
     this.status = status;
     return this;
   }
@@ -64,12 +66,12 @@ public class TestRunGroupByStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nonnull String status) {
     this.status = status;
   }
 
 
-  public TestRunGroupByStatusApiResult value(Integer value) {
+  public TestRunGroupByStatusApiResult value(@jakarta.annotation.Nonnull Integer value) {
     this.value = value;
     return this;
   }
@@ -89,7 +91,7 @@ public class TestRunGroupByStatusApiResult {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Integer value) {
+  public void setValue(@jakarta.annotation.Nonnull Integer value) {
     this.value = value;
   }
 

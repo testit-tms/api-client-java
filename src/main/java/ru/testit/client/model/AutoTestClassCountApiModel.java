@@ -37,9 +37,10 @@ import ru.testit.client.invoker.JSON;
   AutoTestClassCountApiModel.JSON_PROPERTY_COUNT,
   AutoTestClassCountApiModel.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestClassCountApiModel {
   public static final String JSON_PROPERTY_COUNT = "count";
+  @jakarta.annotation.Nonnull
   private Long count;
 
   public static final String JSON_PROPERTY_NAME = "name";
@@ -48,7 +49,7 @@ public class AutoTestClassCountApiModel {
   public AutoTestClassCountApiModel() { 
   }
 
-  public AutoTestClassCountApiModel count(Long count) {
+  public AutoTestClassCountApiModel count(@jakarta.annotation.Nonnull Long count) {
     this.count = count;
     return this;
   }
@@ -68,12 +69,12 @@ public class AutoTestClassCountApiModel {
 
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCount(Long count) {
+  public void setCount(@jakarta.annotation.Nonnull Long count) {
     this.count = count;
   }
 
 
-  public AutoTestClassCountApiModel name(String name) {
+  public AutoTestClassCountApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -101,7 +102,7 @@ public class AutoTestClassCountApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 

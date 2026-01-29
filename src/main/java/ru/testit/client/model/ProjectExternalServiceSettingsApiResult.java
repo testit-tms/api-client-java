@@ -36,7 +36,7 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   ProjectExternalServiceSettingsApiResult.JSON_PROPERTY_SETTINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectExternalServiceSettingsApiResult {
   public static final String JSON_PROPERTY_SETTINGS = "settings";
   private JsonNullable<Object> settings = JsonNullable.<Object>of(null);
@@ -44,7 +44,7 @@ public class ProjectExternalServiceSettingsApiResult {
   public ProjectExternalServiceSettingsApiResult() { 
   }
 
-  public ProjectExternalServiceSettingsApiResult settings(Object settings) {
+  public ProjectExternalServiceSettingsApiResult settings(@jakarta.annotation.Nullable Object settings) {
     this.settings = JsonNullable.<Object>of(settings);
     return this;
   }
@@ -72,7 +72,7 @@ public class ProjectExternalServiceSettingsApiResult {
     this.settings = settings;
   }
 
-  public void setSettings(Object settings) {
+  public void setSettings(@jakarta.annotation.Nullable Object settings) {
     this.settings = JsonNullable.<Object>of(settings);
   }
 

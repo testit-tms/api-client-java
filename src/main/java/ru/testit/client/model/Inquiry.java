@@ -43,9 +43,10 @@ import ru.testit.client.invoker.JSON;
   Inquiry.JSON_PROPERTY_FILTER,
   Inquiry.JSON_PROPERTY_PAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Inquiry {
   public static final String JSON_PROPERTY_ORDER = "order";
+  @jakarta.annotation.Nonnull
   private List<Order> order = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FILTER = "filter";
@@ -57,7 +58,7 @@ public class Inquiry {
   public Inquiry() { 
   }
 
-  public Inquiry order(List<Order> order) {
+  public Inquiry order(@jakarta.annotation.Nonnull List<Order> order) {
     this.order = order;
     return this;
   }
@@ -85,12 +86,12 @@ public class Inquiry {
 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOrder(List<Order> order) {
+  public void setOrder(@jakarta.annotation.Nonnull List<Order> order) {
     this.order = order;
   }
 
 
-  public Inquiry filter(CompositeFilter filter) {
+  public Inquiry filter(@jakarta.annotation.Nullable CompositeFilter filter) {
     this.filter = JsonNullable.<CompositeFilter>of(filter);
     return this;
   }
@@ -118,12 +119,12 @@ public class Inquiry {
     this.filter = filter;
   }
 
-  public void setFilter(CompositeFilter filter) {
+  public void setFilter(@jakarta.annotation.Nullable CompositeFilter filter) {
     this.filter = JsonNullable.<CompositeFilter>of(filter);
   }
 
 
-  public Inquiry page(Page page) {
+  public Inquiry page(@jakarta.annotation.Nullable Page page) {
     this.page = JsonNullable.<Page>of(page);
     return this;
   }
@@ -151,7 +152,7 @@ public class Inquiry {
     this.page = page;
   }
 
-  public void setPage(Page page) {
+  public void setPage(@jakarta.annotation.Nullable Page page) {
     this.page = JsonNullable.<Page>of(page);
   }
 

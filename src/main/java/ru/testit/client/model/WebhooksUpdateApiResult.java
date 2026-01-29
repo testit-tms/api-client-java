@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   WebhooksUpdateApiResult.JSON_PROPERTY_UPDATED_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebhooksUpdateApiResult {
   public static final String JSON_PROPERTY_UPDATED_COUNT = "updatedCount";
+  @jakarta.annotation.Nonnull
   private Integer updatedCount;
 
   public WebhooksUpdateApiResult() { 
   }
 
-  public WebhooksUpdateApiResult updatedCount(Integer updatedCount) {
+  public WebhooksUpdateApiResult updatedCount(@jakarta.annotation.Nonnull Integer updatedCount) {
     this.updatedCount = updatedCount;
     return this;
   }
@@ -60,7 +61,7 @@ public class WebhooksUpdateApiResult {
 
   @JsonProperty(JSON_PROPERTY_UPDATED_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUpdatedCount(Integer updatedCount) {
+  public void setUpdatedCount(@jakarta.annotation.Nonnull Integer updatedCount) {
     this.updatedCount = updatedCount;
   }
 

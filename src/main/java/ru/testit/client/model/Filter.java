@@ -39,12 +39,14 @@ import ru.testit.client.invoker.JSON;
   Filter.JSON_PROPERTY_FIELD,
   Filter.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Filter {
   public static final String JSON_PROPERTY_OPERATOR = "operator";
+  @jakarta.annotation.Nonnull
   private FilterOperator operator;
 
   public static final String JSON_PROPERTY_FIELD = "field";
+  @jakarta.annotation.Nonnull
   private String field;
 
   public static final String JSON_PROPERTY_VALUE = "value";
@@ -61,7 +63,7 @@ public class Filter {
     this.field = field;
   }
 
-  public Filter operator(FilterOperator operator) {
+  public Filter operator(@jakarta.annotation.Nonnull FilterOperator operator) {
     this.operator = operator;
     return this;
   }
@@ -81,7 +83,7 @@ public class Filter {
 
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOperator(FilterOperator operator) {
+  public void setOperator(@jakarta.annotation.Nonnull FilterOperator operator) {
     this.operator = operator;
   }
 
@@ -101,7 +103,7 @@ public class Filter {
 
 
 
-  public Filter value(String value) {
+  public Filter value(@jakarta.annotation.Nullable String value) {
     this.value = JsonNullable.<String>of(value);
     return this;
   }
@@ -129,7 +131,7 @@ public class Filter {
     this.value = value;
   }
 
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = JsonNullable.<String>of(value);
   }
 

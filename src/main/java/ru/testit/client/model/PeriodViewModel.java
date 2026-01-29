@@ -38,7 +38,7 @@ import ru.testit.client.invoker.JSON;
   PeriodViewModel.JSON_PROPERTY_START_DATE,
   PeriodViewModel.JSON_PROPERTY_END_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class PeriodViewModel {
   public static final String JSON_PROPERTY_START_DATE = "startDate";
   private JsonNullable<OffsetDateTime> startDate = JsonNullable.<OffsetDateTime>undefined();
@@ -49,7 +49,7 @@ public class PeriodViewModel {
   public PeriodViewModel() { 
   }
 
-  public PeriodViewModel startDate(OffsetDateTime startDate) {
+  public PeriodViewModel startDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
     return this;
   }
@@ -77,12 +77,12 @@ public class PeriodViewModel {
     this.startDate = startDate;
   }
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
   }
 
 
-  public PeriodViewModel endDate(OffsetDateTime endDate) {
+  public PeriodViewModel endDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
     return this;
   }
@@ -110,7 +110,7 @@ public class PeriodViewModel {
     this.endDate = endDate;
   }
 
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
   }
 

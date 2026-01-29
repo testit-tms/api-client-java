@@ -41,12 +41,14 @@ import ru.testit.client.invoker.JSON;
   WorkItemGroupModel.JSON_PROPERTY_WORK_ITEMS,
   WorkItemGroupModel.JSON_PROPERTY_KEY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemGroupModel {
   public static final String JSON_PROPERTY_SIZE = "size";
+  @jakarta.annotation.Nonnull
   private Integer size;
 
   public static final String JSON_PROPERTY_WORK_ITEMS = "workItems";
+  @jakarta.annotation.Nonnull
   private List<WorkItemShortModel> workItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_KEY = "key";
@@ -55,7 +57,7 @@ public class WorkItemGroupModel {
   public WorkItemGroupModel() { 
   }
 
-  public WorkItemGroupModel size(Integer size) {
+  public WorkItemGroupModel size(@jakarta.annotation.Nonnull Integer size) {
     this.size = size;
     return this;
   }
@@ -75,12 +77,12 @@ public class WorkItemGroupModel {
 
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSize(Integer size) {
+  public void setSize(@jakarta.annotation.Nonnull Integer size) {
     this.size = size;
   }
 
 
-  public WorkItemGroupModel workItems(List<WorkItemShortModel> workItems) {
+  public WorkItemGroupModel workItems(@jakarta.annotation.Nonnull List<WorkItemShortModel> workItems) {
     this.workItems = workItems;
     return this;
   }
@@ -108,12 +110,12 @@ public class WorkItemGroupModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItems(List<WorkItemShortModel> workItems) {
+  public void setWorkItems(@jakarta.annotation.Nonnull List<WorkItemShortModel> workItems) {
     this.workItems = workItems;
   }
 
 
-  public WorkItemGroupModel key(Object key) {
+  public WorkItemGroupModel key(@jakarta.annotation.Nullable Object key) {
     this.key = JsonNullable.<Object>of(key);
     return this;
   }
@@ -141,7 +143,7 @@ public class WorkItemGroupModel {
     this.key = key;
   }
 
-  public void setKey(Object key) {
+  public void setKey(@jakarta.annotation.Nullable Object key) {
     this.key = JsonNullable.<Object>of(key);
   }
 

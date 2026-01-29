@@ -37,24 +37,28 @@ import ru.testit.client.invoker.JSON;
   TestStatusShortApiResult.JSON_PROPERTY_CODE,
   TestStatusShortApiResult.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestStatusShortApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_CODE = "code";
+  @jakarta.annotation.Nonnull
   private String code;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private TestStatusApiType type;
 
   public TestStatusShortApiResult() { 
   }
 
-  public TestStatusShortApiResult id(UUID id) {
+  public TestStatusShortApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -74,12 +78,12 @@ public class TestStatusShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestStatusShortApiResult name(String name) {
+  public TestStatusShortApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -99,12 +103,12 @@ public class TestStatusShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestStatusShortApiResult code(String code) {
+  public TestStatusShortApiResult code(@jakarta.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
@@ -124,12 +128,12 @@ public class TestStatusShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCode(String code) {
+  public void setCode(@jakarta.annotation.Nonnull String code) {
     this.code = code;
   }
 
 
-  public TestStatusShortApiResult type(TestStatusApiType type) {
+  public TestStatusShortApiResult type(@jakarta.annotation.Nonnull TestStatusApiType type) {
     this.type = type;
     return this;
   }
@@ -149,7 +153,7 @@ public class TestStatusShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TestStatusApiType type) {
+  public void setType(@jakarta.annotation.Nonnull TestStatusApiType type) {
     this.type = type;
   }
 

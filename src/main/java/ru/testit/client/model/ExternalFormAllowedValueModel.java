@@ -39,9 +39,10 @@ import ru.testit.client.invoker.JSON;
   ExternalFormAllowedValueModel.JSON_PROPERTY_NAME,
   ExternalFormAllowedValueModel.JSON_PROPERTY_PARENT_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalFormAllowedValueModel {
   public static final String JSON_PROPERTY_HAS_CHILDREN = "hasChildren";
+  @jakarta.annotation.Nonnull
   private Boolean hasChildren;
 
   public static final String JSON_PROPERTY_ID = "id";
@@ -56,7 +57,7 @@ public class ExternalFormAllowedValueModel {
   public ExternalFormAllowedValueModel() { 
   }
 
-  public ExternalFormAllowedValueModel hasChildren(Boolean hasChildren) {
+  public ExternalFormAllowedValueModel hasChildren(@jakarta.annotation.Nonnull Boolean hasChildren) {
     this.hasChildren = hasChildren;
     return this;
   }
@@ -76,12 +77,12 @@ public class ExternalFormAllowedValueModel {
 
   @JsonProperty(JSON_PROPERTY_HAS_CHILDREN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHasChildren(Boolean hasChildren) {
+  public void setHasChildren(@jakarta.annotation.Nonnull Boolean hasChildren) {
     this.hasChildren = hasChildren;
   }
 
 
-  public ExternalFormAllowedValueModel id(String id) {
+  public ExternalFormAllowedValueModel id(@jakarta.annotation.Nullable String id) {
     this.id = JsonNullable.<String>of(id);
     return this;
   }
@@ -109,12 +110,12 @@ public class ExternalFormAllowedValueModel {
     this.id = id;
   }
 
-  public void setId(String id) {
+  public void setId(@jakarta.annotation.Nullable String id) {
     this.id = JsonNullable.<String>of(id);
   }
 
 
-  public ExternalFormAllowedValueModel name(String name) {
+  public ExternalFormAllowedValueModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -142,12 +143,12 @@ public class ExternalFormAllowedValueModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public ExternalFormAllowedValueModel parentId(String parentId) {
+  public ExternalFormAllowedValueModel parentId(@jakarta.annotation.Nullable String parentId) {
     this.parentId = JsonNullable.<String>of(parentId);
     return this;
   }
@@ -175,7 +176,7 @@ public class ExternalFormAllowedValueModel {
     this.parentId = parentId;
   }
 
-  public void setParentId(String parentId) {
+  public void setParentId(@jakarta.annotation.Nullable String parentId) {
     this.parentId = JsonNullable.<String>of(parentId);
   }
 

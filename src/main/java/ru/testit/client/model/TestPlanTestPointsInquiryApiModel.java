@@ -41,9 +41,10 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsInquiryApiModel.JSON_PROPERTY_ORDER,
   TestPlanTestPointsInquiryApiModel.JSON_PROPERTY_PAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsInquiryApiModel {
   public static final String JSON_PROPERTY_ORDER = "order";
+  @jakarta.annotation.Nonnull
   private List<Order> order = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PAGE = "page";
@@ -52,7 +53,7 @@ public class TestPlanTestPointsInquiryApiModel {
   public TestPlanTestPointsInquiryApiModel() { 
   }
 
-  public TestPlanTestPointsInquiryApiModel order(List<Order> order) {
+  public TestPlanTestPointsInquiryApiModel order(@jakarta.annotation.Nonnull List<Order> order) {
     this.order = order;
     return this;
   }
@@ -80,12 +81,12 @@ public class TestPlanTestPointsInquiryApiModel {
 
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOrder(List<Order> order) {
+  public void setOrder(@jakarta.annotation.Nonnull List<Order> order) {
     this.order = order;
   }
 
 
-  public TestPlanTestPointsInquiryApiModel page(Page page) {
+  public TestPlanTestPointsInquiryApiModel page(@jakarta.annotation.Nullable Page page) {
     this.page = JsonNullable.<Page>of(page);
     return this;
   }
@@ -113,7 +114,7 @@ public class TestPlanTestPointsInquiryApiModel {
     this.page = page;
   }
 
-  public void setPage(Page page) {
+  public void setPage(@jakarta.annotation.Nullable Page page) {
     this.page = JsonNullable.<Page>of(page);
   }
 

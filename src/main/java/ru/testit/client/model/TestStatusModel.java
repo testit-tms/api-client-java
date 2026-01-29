@@ -43,21 +43,26 @@ import ru.testit.client.invoker.JSON;
   TestStatusModel.JSON_PROPERTY_CODE,
   TestStatusModel.JSON_PROPERTY_DESCRIPTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestStatusModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private TestStatusType type;
 
   public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
+  @jakarta.annotation.Nonnull
   private Boolean isSystem;
 
   public static final String JSON_PROPERTY_CODE = "code";
+  @jakarta.annotation.Nonnull
   private String code;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -66,7 +71,7 @@ public class TestStatusModel {
   public TestStatusModel() { 
   }
 
-  public TestStatusModel id(UUID id) {
+  public TestStatusModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -86,12 +91,12 @@ public class TestStatusModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestStatusModel name(String name) {
+  public TestStatusModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -111,12 +116,12 @@ public class TestStatusModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestStatusModel type(TestStatusType type) {
+  public TestStatusModel type(@jakarta.annotation.Nonnull TestStatusType type) {
     this.type = type;
     return this;
   }
@@ -136,12 +141,12 @@ public class TestStatusModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TestStatusType type) {
+  public void setType(@jakarta.annotation.Nonnull TestStatusType type) {
     this.type = type;
   }
 
 
-  public TestStatusModel isSystem(Boolean isSystem) {
+  public TestStatusModel isSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
     this.isSystem = isSystem;
     return this;
   }
@@ -161,12 +166,12 @@ public class TestStatusModel {
 
   @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsSystem(Boolean isSystem) {
+  public void setIsSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
     this.isSystem = isSystem;
   }
 
 
-  public TestStatusModel code(String code) {
+  public TestStatusModel code(@jakarta.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
@@ -186,12 +191,12 @@ public class TestStatusModel {
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCode(String code) {
+  public void setCode(@jakarta.annotation.Nonnull String code) {
     this.code = code;
   }
 
 
-  public TestStatusModel description(String description) {
+  public TestStatusModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -219,7 +224,7 @@ public class TestStatusModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 

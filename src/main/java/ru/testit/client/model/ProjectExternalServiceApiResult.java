@@ -37,24 +37,28 @@ import ru.testit.client.invoker.JSON;
   ProjectExternalServiceApiResult.JSON_PROPERTY_METADATA,
   ProjectExternalServiceApiResult.JSON_PROPERTY_ENABLED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectExternalServiceApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
+  @jakarta.annotation.Nonnull
   private ExternalServiceMetadataApiResult metadata;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
+  @jakarta.annotation.Nonnull
   private Boolean enabled;
 
   public ProjectExternalServiceApiResult() { 
   }
 
-  public ProjectExternalServiceApiResult id(UUID id) {
+  public ProjectExternalServiceApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -74,12 +78,12 @@ public class ProjectExternalServiceApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ProjectExternalServiceApiResult name(String name) {
+  public ProjectExternalServiceApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -99,12 +103,12 @@ public class ProjectExternalServiceApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectExternalServiceApiResult metadata(ExternalServiceMetadataApiResult metadata) {
+  public ProjectExternalServiceApiResult metadata(@jakarta.annotation.Nonnull ExternalServiceMetadataApiResult metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -124,12 +128,12 @@ public class ProjectExternalServiceApiResult {
 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMetadata(ExternalServiceMetadataApiResult metadata) {
+  public void setMetadata(@jakarta.annotation.Nonnull ExternalServiceMetadataApiResult metadata) {
     this.metadata = metadata;
   }
 
 
-  public ProjectExternalServiceApiResult enabled(Boolean enabled) {
+  public ProjectExternalServiceApiResult enabled(@jakarta.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
@@ -149,7 +153,7 @@ public class ProjectExternalServiceApiResult {
 
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEnabled(Boolean enabled) {
+  public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
     this.enabled = enabled;
   }
 

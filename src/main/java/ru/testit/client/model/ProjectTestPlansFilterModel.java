@@ -55,10 +55,11 @@ import ru.testit.client.invoker.JSON;
   ProjectTestPlansFilterModel.JSON_PROPERTY_START_DATE,
   ProjectTestPlansFilterModel.JSON_PROPERTY_END_DATE,
   ProjectTestPlansFilterModel.JSON_PROPERTY_TAG_NAMES,
+  ProjectTestPlansFilterModel.JSON_PROPERTY_EXCLUDE_TAG_NAMES,
   ProjectTestPlansFilterModel.JSON_PROPERTY_ATTRIBUTES,
   ProjectTestPlansFilterModel.JSON_PROPERTY_IS_DELETED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectTestPlansFilterModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -102,6 +103,9 @@ public class ProjectTestPlansFilterModel {
   public static final String JSON_PROPERTY_TAG_NAMES = "tagNames";
   private JsonNullable<Set<String>> tagNames = JsonNullable.<Set<String>>undefined();
 
+  public static final String JSON_PROPERTY_EXCLUDE_TAG_NAMES = "excludeTagNames";
+  private JsonNullable<Set<String>> excludeTagNames = JsonNullable.<Set<String>>undefined();
+
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private JsonNullable<Map<String, Set<String>>> attributes = JsonNullable.<Map<String, Set<String>>>undefined();
 
@@ -111,7 +115,7 @@ public class ProjectTestPlansFilterModel {
   public ProjectTestPlansFilterModel() { 
   }
 
-  public ProjectTestPlansFilterModel name(String name) {
+  public ProjectTestPlansFilterModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -139,12 +143,12 @@ public class ProjectTestPlansFilterModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public ProjectTestPlansFilterModel description(String description) {
+  public ProjectTestPlansFilterModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -172,12 +176,12 @@ public class ProjectTestPlansFilterModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public ProjectTestPlansFilterModel build(String build) {
+  public ProjectTestPlansFilterModel build(@jakarta.annotation.Nullable String build) {
     this.build = JsonNullable.<String>of(build);
     return this;
   }
@@ -205,12 +209,12 @@ public class ProjectTestPlansFilterModel {
     this.build = build;
   }
 
-  public void setBuild(String build) {
+  public void setBuild(@jakarta.annotation.Nullable String build) {
     this.build = JsonNullable.<String>of(build);
   }
 
 
-  public ProjectTestPlansFilterModel productName(String productName) {
+  public ProjectTestPlansFilterModel productName(@jakarta.annotation.Nullable String productName) {
     this.productName = JsonNullable.<String>of(productName);
     return this;
   }
@@ -238,12 +242,12 @@ public class ProjectTestPlansFilterModel {
     this.productName = productName;
   }
 
-  public void setProductName(String productName) {
+  public void setProductName(@jakarta.annotation.Nullable String productName) {
     this.productName = JsonNullable.<String>of(productName);
   }
 
 
-  public ProjectTestPlansFilterModel status(Set<TestPlanStatusModel> status) {
+  public ProjectTestPlansFilterModel status(@jakarta.annotation.Nullable Set<TestPlanStatusModel> status) {
     this.status = JsonNullable.<Set<TestPlanStatusModel>>of(status);
     return this;
   }
@@ -283,12 +287,12 @@ public class ProjectTestPlansFilterModel {
     this.status = status;
   }
 
-  public void setStatus(Set<TestPlanStatusModel> status) {
+  public void setStatus(@jakarta.annotation.Nullable Set<TestPlanStatusModel> status) {
     this.status = JsonNullable.<Set<TestPlanStatusModel>>of(status);
   }
 
 
-  public ProjectTestPlansFilterModel globalIds(Set<Long> globalIds) {
+  public ProjectTestPlansFilterModel globalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
@@ -328,12 +332,12 @@ public class ProjectTestPlansFilterModel {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
-  public ProjectTestPlansFilterModel isLocked(Boolean isLocked) {
+  public ProjectTestPlansFilterModel isLocked(@jakarta.annotation.Nullable Boolean isLocked) {
     this.isLocked = JsonNullable.<Boolean>of(isLocked);
     return this;
   }
@@ -361,12 +365,12 @@ public class ProjectTestPlansFilterModel {
     this.isLocked = isLocked;
   }
 
-  public void setIsLocked(Boolean isLocked) {
+  public void setIsLocked(@jakarta.annotation.Nullable Boolean isLocked) {
     this.isLocked = JsonNullable.<Boolean>of(isLocked);
   }
 
 
-  public ProjectTestPlansFilterModel lockedDate(DateTimeRangeSelectorModel lockedDate) {
+  public ProjectTestPlansFilterModel lockedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel lockedDate) {
     this.lockedDate = JsonNullable.<DateTimeRangeSelectorModel>of(lockedDate);
     return this;
   }
@@ -394,12 +398,12 @@ public class ProjectTestPlansFilterModel {
     this.lockedDate = lockedDate;
   }
 
-  public void setLockedDate(DateTimeRangeSelectorModel lockedDate) {
+  public void setLockedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel lockedDate) {
     this.lockedDate = JsonNullable.<DateTimeRangeSelectorModel>of(lockedDate);
   }
 
 
-  public ProjectTestPlansFilterModel automaticDurationTimer(Set<Boolean> automaticDurationTimer) {
+  public ProjectTestPlansFilterModel automaticDurationTimer(@jakarta.annotation.Nullable Set<Boolean> automaticDurationTimer) {
     this.automaticDurationTimer = JsonNullable.<Set<Boolean>>of(automaticDurationTimer);
     return this;
   }
@@ -439,12 +443,12 @@ public class ProjectTestPlansFilterModel {
     this.automaticDurationTimer = automaticDurationTimer;
   }
 
-  public void setAutomaticDurationTimer(Set<Boolean> automaticDurationTimer) {
+  public void setAutomaticDurationTimer(@jakarta.annotation.Nullable Set<Boolean> automaticDurationTimer) {
     this.automaticDurationTimer = JsonNullable.<Set<Boolean>>of(automaticDurationTimer);
   }
 
 
-  public ProjectTestPlansFilterModel createdByIds(Set<UUID> createdByIds) {
+  public ProjectTestPlansFilterModel createdByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
@@ -484,12 +488,12 @@ public class ProjectTestPlansFilterModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
-  public ProjectTestPlansFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public ProjectTestPlansFilterModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -517,12 +521,12 @@ public class ProjectTestPlansFilterModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public ProjectTestPlansFilterModel startDate(DateTimeRangeSelectorModel startDate) {
+  public ProjectTestPlansFilterModel startDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startDate) {
     this.startDate = JsonNullable.<DateTimeRangeSelectorModel>of(startDate);
     return this;
   }
@@ -550,12 +554,12 @@ public class ProjectTestPlansFilterModel {
     this.startDate = startDate;
   }
 
-  public void setStartDate(DateTimeRangeSelectorModel startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startDate) {
     this.startDate = JsonNullable.<DateTimeRangeSelectorModel>of(startDate);
   }
 
 
-  public ProjectTestPlansFilterModel endDate(DateTimeRangeSelectorModel endDate) {
+  public ProjectTestPlansFilterModel endDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel endDate) {
     this.endDate = JsonNullable.<DateTimeRangeSelectorModel>of(endDate);
     return this;
   }
@@ -583,12 +587,12 @@ public class ProjectTestPlansFilterModel {
     this.endDate = endDate;
   }
 
-  public void setEndDate(DateTimeRangeSelectorModel endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel endDate) {
     this.endDate = JsonNullable.<DateTimeRangeSelectorModel>of(endDate);
   }
 
 
-  public ProjectTestPlansFilterModel tagNames(Set<String> tagNames) {
+  public ProjectTestPlansFilterModel tagNames(@jakarta.annotation.Nullable Set<String> tagNames) {
     this.tagNames = JsonNullable.<Set<String>>of(tagNames);
     return this;
   }
@@ -628,12 +632,57 @@ public class ProjectTestPlansFilterModel {
     this.tagNames = tagNames;
   }
 
-  public void setTagNames(Set<String> tagNames) {
+  public void setTagNames(@jakarta.annotation.Nullable Set<String> tagNames) {
     this.tagNames = JsonNullable.<Set<String>>of(tagNames);
   }
 
 
-  public ProjectTestPlansFilterModel attributes(Map<String, Set<String>> attributes) {
+  public ProjectTestPlansFilterModel excludeTagNames(@jakarta.annotation.Nullable Set<String> excludeTagNames) {
+    this.excludeTagNames = JsonNullable.<Set<String>>of(excludeTagNames);
+    return this;
+  }
+
+  public ProjectTestPlansFilterModel addExcludeTagNamesItem(String excludeTagNamesItem) {
+    if (this.excludeTagNames == null || !this.excludeTagNames.isPresent()) {
+      this.excludeTagNames = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.excludeTagNames.get().add(excludeTagNamesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Get excludeTagNames
+   * @return excludeTagNames
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getExcludeTagNames() {
+        return excludeTagNames.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAG_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getExcludeTagNames_JsonNullable() {
+    return excludeTagNames;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAG_NAMES)
+  public void setExcludeTagNames_JsonNullable(JsonNullable<Set<String>> excludeTagNames) {
+    this.excludeTagNames = excludeTagNames;
+  }
+
+  public void setExcludeTagNames(@jakarta.annotation.Nullable Set<String> excludeTagNames) {
+    this.excludeTagNames = JsonNullable.<Set<String>>of(excludeTagNames);
+  }
+
+
+  public ProjectTestPlansFilterModel attributes(@jakarta.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
     return this;
   }
@@ -673,12 +722,12 @@ public class ProjectTestPlansFilterModel {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Set<String>> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
   }
 
 
-  public ProjectTestPlansFilterModel isDeleted(Boolean isDeleted) {
+  public ProjectTestPlansFilterModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -706,7 +755,7 @@ public class ProjectTestPlansFilterModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
@@ -737,6 +786,7 @@ public class ProjectTestPlansFilterModel {
         equalsNullable(this.startDate, projectTestPlansFilterModel.startDate) &&
         equalsNullable(this.endDate, projectTestPlansFilterModel.endDate) &&
         equalsNullable(this.tagNames, projectTestPlansFilterModel.tagNames) &&
+        equalsNullable(this.excludeTagNames, projectTestPlansFilterModel.excludeTagNames) &&
         equalsNullable(this.attributes, projectTestPlansFilterModel.attributes) &&
         equalsNullable(this.isDeleted, projectTestPlansFilterModel.isDeleted);
   }
@@ -747,7 +797,7 @@ public class ProjectTestPlansFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(build), hashCodeNullable(productName), hashCodeNullable(status), hashCodeNullable(globalIds), hashCodeNullable(isLocked), hashCodeNullable(lockedDate), hashCodeNullable(automaticDurationTimer), hashCodeNullable(createdByIds), hashCodeNullable(createdDate), hashCodeNullable(startDate), hashCodeNullable(endDate), hashCodeNullable(tagNames), hashCodeNullable(attributes), hashCodeNullable(isDeleted));
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(build), hashCodeNullable(productName), hashCodeNullable(status), hashCodeNullable(globalIds), hashCodeNullable(isLocked), hashCodeNullable(lockedDate), hashCodeNullable(automaticDurationTimer), hashCodeNullable(createdByIds), hashCodeNullable(createdDate), hashCodeNullable(startDate), hashCodeNullable(endDate), hashCodeNullable(tagNames), hashCodeNullable(excludeTagNames), hashCodeNullable(attributes), hashCodeNullable(isDeleted));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -775,6 +825,7 @@ public class ProjectTestPlansFilterModel {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
+    sb.append("    excludeTagNames: ").append(toIndentedString(excludeTagNames)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("}");

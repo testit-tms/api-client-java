@@ -329,7 +329,7 @@ This endpoint does not need any parameter.
 
 Upload new attachment file
 
-File size is restricted to 1 GB (1 073 741 824 bytes)
+File size is restricted to 50 MB (52 428 800 bytes)
 
 ### Example
 
@@ -394,7 +394,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |   - Invalid file contents    - Invalid HTTP headers |  -  |
+| **400** |  - Invalid file contents  - Invalid HTTP headers |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |

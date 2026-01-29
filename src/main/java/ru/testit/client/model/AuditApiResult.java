@@ -40,12 +40,14 @@ import ru.testit.client.invoker.JSON;
   AuditApiResult.JSON_PROPERTY_DATE_TIME,
   AuditApiResult.JSON_PROPERTY_USER_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AuditApiResult {
   public static final String JSON_PROPERTY_USER_ID = "userId";
+  @jakarta.annotation.Nonnull
   private UUID userId;
 
   public static final String JSON_PROPERTY_DATE_TIME = "dateTime";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime dateTime;
 
   public static final String JSON_PROPERTY_USER_NAME = "userName";
@@ -54,7 +56,7 @@ public class AuditApiResult {
   public AuditApiResult() { 
   }
 
-  public AuditApiResult userId(UUID userId) {
+  public AuditApiResult userId(@jakarta.annotation.Nonnull UUID userId) {
     this.userId = userId;
     return this;
   }
@@ -74,12 +76,12 @@ public class AuditApiResult {
 
   @JsonProperty(JSON_PROPERTY_USER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUserId(UUID userId) {
+  public void setUserId(@jakarta.annotation.Nonnull UUID userId) {
     this.userId = userId;
   }
 
 
-  public AuditApiResult dateTime(OffsetDateTime dateTime) {
+  public AuditApiResult dateTime(@jakarta.annotation.Nonnull OffsetDateTime dateTime) {
     this.dateTime = dateTime;
     return this;
   }
@@ -99,12 +101,12 @@ public class AuditApiResult {
 
   @JsonProperty(JSON_PROPERTY_DATE_TIME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDateTime(OffsetDateTime dateTime) {
+  public void setDateTime(@jakarta.annotation.Nonnull OffsetDateTime dateTime) {
     this.dateTime = dateTime;
   }
 
 
-  public AuditApiResult userName(String userName) {
+  public AuditApiResult userName(@jakarta.annotation.Nullable String userName) {
     this.userName = JsonNullable.<String>of(userName);
     return this;
   }
@@ -132,7 +134,7 @@ public class AuditApiResult {
     this.userName = userName;
   }
 
-  public void setUserName(String userName) {
+  public void setUserName(@jakarta.annotation.Nullable String userName) {
     this.userName = JsonNullable.<String>of(userName);
   }
 

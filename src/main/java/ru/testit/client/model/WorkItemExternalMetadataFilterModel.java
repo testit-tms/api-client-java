@@ -43,7 +43,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemExternalMetadataFilterModel.JSON_PROPERTY_STATUSES,
   WorkItemExternalMetadataFilterModel.JSON_PROPERTY_ASSIGNEES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemExternalMetadataFilterModel {
   public static final String JSON_PROPERTY_IDS = "ids";
   private JsonNullable<List<WorkItemExternalMetadataFieldFilterModel>> ids = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>undefined();
@@ -63,7 +63,7 @@ public class WorkItemExternalMetadataFilterModel {
   public WorkItemExternalMetadataFilterModel() { 
   }
 
-  public WorkItemExternalMetadataFilterModel ids(List<WorkItemExternalMetadataFieldFilterModel> ids) {
+  public WorkItemExternalMetadataFilterModel ids(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> ids) {
     this.ids = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(ids);
     return this;
   }
@@ -103,12 +103,12 @@ public class WorkItemExternalMetadataFilterModel {
     this.ids = ids;
   }
 
-  public void setIds(List<WorkItemExternalMetadataFieldFilterModel> ids) {
+  public void setIds(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> ids) {
     this.ids = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(ids);
   }
 
 
-  public WorkItemExternalMetadataFilterModel types(List<WorkItemExternalMetadataFieldFilterModel> types) {
+  public WorkItemExternalMetadataFilterModel types(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> types) {
     this.types = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(types);
     return this;
   }
@@ -148,12 +148,12 @@ public class WorkItemExternalMetadataFilterModel {
     this.types = types;
   }
 
-  public void setTypes(List<WorkItemExternalMetadataFieldFilterModel> types) {
+  public void setTypes(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> types) {
     this.types = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(types);
   }
 
 
-  public WorkItemExternalMetadataFilterModel priorities(List<WorkItemExternalMetadataFieldFilterModel> priorities) {
+  public WorkItemExternalMetadataFilterModel priorities(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> priorities) {
     this.priorities = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(priorities);
     return this;
   }
@@ -193,12 +193,12 @@ public class WorkItemExternalMetadataFilterModel {
     this.priorities = priorities;
   }
 
-  public void setPriorities(List<WorkItemExternalMetadataFieldFilterModel> priorities) {
+  public void setPriorities(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> priorities) {
     this.priorities = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(priorities);
   }
 
 
-  public WorkItemExternalMetadataFilterModel statuses(List<WorkItemExternalMetadataFieldFilterModel> statuses) {
+  public WorkItemExternalMetadataFilterModel statuses(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> statuses) {
     this.statuses = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(statuses);
     return this;
   }
@@ -238,12 +238,12 @@ public class WorkItemExternalMetadataFilterModel {
     this.statuses = statuses;
   }
 
-  public void setStatuses(List<WorkItemExternalMetadataFieldFilterModel> statuses) {
+  public void setStatuses(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> statuses) {
     this.statuses = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(statuses);
   }
 
 
-  public WorkItemExternalMetadataFilterModel assignees(List<WorkItemExternalMetadataFieldFilterModel> assignees) {
+  public WorkItemExternalMetadataFilterModel assignees(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> assignees) {
     this.assignees = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(assignees);
     return this;
   }
@@ -283,7 +283,7 @@ public class WorkItemExternalMetadataFilterModel {
     this.assignees = assignees;
   }
 
-  public void setAssignees(List<WorkItemExternalMetadataFieldFilterModel> assignees) {
+  public void setAssignees(@jakarta.annotation.Nullable List<WorkItemExternalMetadataFieldFilterModel> assignees) {
     this.assignees = JsonNullable.<List<WorkItemExternalMetadataFieldFilterModel>>of(assignees);
   }
 

@@ -40,7 +40,7 @@ import ru.testit.client.invoker.JSON;
   ProjectCustomAttributesTemplatesFilterModel.JSON_PROPERTY_NAME,
   ProjectCustomAttributesTemplatesFilterModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_TYPES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectCustomAttributesTemplatesFilterModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -51,7 +51,7 @@ public class ProjectCustomAttributesTemplatesFilterModel {
   public ProjectCustomAttributesTemplatesFilterModel() { 
   }
 
-  public ProjectCustomAttributesTemplatesFilterModel name(String name) {
+  public ProjectCustomAttributesTemplatesFilterModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -79,12 +79,12 @@ public class ProjectCustomAttributesTemplatesFilterModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public ProjectCustomAttributesTemplatesFilterModel customAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public ProjectCustomAttributesTemplatesFilterModel customAttributeTypes(@jakarta.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
     return this;
   }
@@ -124,7 +124,7 @@ public class ProjectCustomAttributesTemplatesFilterModel {
     this.customAttributeTypes = customAttributeTypes;
   }
 
-  public void setCustomAttributeTypes(Set<CustomAttributeTypesEnum> customAttributeTypes) {
+  public void setCustomAttributeTypes(@jakarta.annotation.Nullable Set<CustomAttributeTypesEnum> customAttributeTypes) {
     this.customAttributeTypes = JsonNullable.<Set<CustomAttributeTypesEnum>>of(customAttributeTypes);
   }
 

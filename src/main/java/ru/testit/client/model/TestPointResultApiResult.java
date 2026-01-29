@@ -47,9 +47,10 @@ import ru.testit.client.invoker.JSON;
   TestPointResultApiResult.JSON_PROPERTY_WORK_ITEM_NAME,
   TestPointResultApiResult.JSON_PROPERTY_CONFIGURATION_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointResultApiResult {
   public static final String JSON_PROPERTY_TEST_RESULTS = "testResults";
+  @jakarta.annotation.Nonnull
   private List<TestResultShortApiResult> testResults = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TEST_POINT_ID = "testPointId";
@@ -74,7 +75,7 @@ public class TestPointResultApiResult {
   public TestPointResultApiResult() { 
   }
 
-  public TestPointResultApiResult testResults(List<TestResultShortApiResult> testResults) {
+  public TestPointResultApiResult testResults(@jakarta.annotation.Nonnull List<TestResultShortApiResult> testResults) {
     this.testResults = testResults;
     return this;
   }
@@ -102,12 +103,12 @@ public class TestPointResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestResults(List<TestResultShortApiResult> testResults) {
+  public void setTestResults(@jakarta.annotation.Nonnull List<TestResultShortApiResult> testResults) {
     this.testResults = testResults;
   }
 
 
-  public TestPointResultApiResult testPointId(UUID testPointId) {
+  public TestPointResultApiResult testPointId(@jakarta.annotation.Nullable UUID testPointId) {
     this.testPointId = JsonNullable.<UUID>of(testPointId);
     return this;
   }
@@ -135,13 +136,13 @@ public class TestPointResultApiResult {
     this.testPointId = testPointId;
   }
 
-  public void setTestPointId(UUID testPointId) {
+  public void setTestPointId(@jakarta.annotation.Nullable UUID testPointId) {
     this.testPointId = JsonNullable.<UUID>of(testPointId);
   }
 
 
   @Deprecated
-  public TestPointResultApiResult aggregatedOutcome(String aggregatedOutcome) {
+  public TestPointResultApiResult aggregatedOutcome(@jakarta.annotation.Nullable String aggregatedOutcome) {
     this.aggregatedOutcome = JsonNullable.<String>of(aggregatedOutcome);
     return this;
   }
@@ -172,12 +173,12 @@ public class TestPointResultApiResult {
   }
 
   @Deprecated
-  public void setAggregatedOutcome(String aggregatedOutcome) {
+  public void setAggregatedOutcome(@jakarta.annotation.Nullable String aggregatedOutcome) {
     this.aggregatedOutcome = JsonNullable.<String>of(aggregatedOutcome);
   }
 
 
-  public TestPointResultApiResult aggregatedStatus(TestStatusApiResult aggregatedStatus) {
+  public TestPointResultApiResult aggregatedStatus(@jakarta.annotation.Nullable TestStatusApiResult aggregatedStatus) {
     this.aggregatedStatus = JsonNullable.<TestStatusApiResult>of(aggregatedStatus);
     return this;
   }
@@ -205,12 +206,12 @@ public class TestPointResultApiResult {
     this.aggregatedStatus = aggregatedStatus;
   }
 
-  public void setAggregatedStatus(TestStatusApiResult aggregatedStatus) {
+  public void setAggregatedStatus(@jakarta.annotation.Nullable TestStatusApiResult aggregatedStatus) {
     this.aggregatedStatus = JsonNullable.<TestStatusApiResult>of(aggregatedStatus);
   }
 
 
-  public TestPointResultApiResult workItemGlobalId(Long workItemGlobalId) {
+  public TestPointResultApiResult workItemGlobalId(@jakarta.annotation.Nullable Long workItemGlobalId) {
     this.workItemGlobalId = JsonNullable.<Long>of(workItemGlobalId);
     return this;
   }
@@ -238,12 +239,12 @@ public class TestPointResultApiResult {
     this.workItemGlobalId = workItemGlobalId;
   }
 
-  public void setWorkItemGlobalId(Long workItemGlobalId) {
+  public void setWorkItemGlobalId(@jakarta.annotation.Nullable Long workItemGlobalId) {
     this.workItemGlobalId = JsonNullable.<Long>of(workItemGlobalId);
   }
 
 
-  public TestPointResultApiResult workItemName(String workItemName) {
+  public TestPointResultApiResult workItemName(@jakarta.annotation.Nullable String workItemName) {
     this.workItemName = JsonNullable.<String>of(workItemName);
     return this;
   }
@@ -271,12 +272,12 @@ public class TestPointResultApiResult {
     this.workItemName = workItemName;
   }
 
-  public void setWorkItemName(String workItemName) {
+  public void setWorkItemName(@jakarta.annotation.Nullable String workItemName) {
     this.workItemName = JsonNullable.<String>of(workItemName);
   }
 
 
-  public TestPointResultApiResult configurationName(String configurationName) {
+  public TestPointResultApiResult configurationName(@jakarta.annotation.Nullable String configurationName) {
     this.configurationName = JsonNullable.<String>of(configurationName);
     return this;
   }
@@ -304,7 +305,7 @@ public class TestPointResultApiResult {
     this.configurationName = configurationName;
   }
 
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@jakarta.annotation.Nullable String configurationName) {
     this.configurationName = JsonNullable.<String>of(configurationName);
   }
 

@@ -36,24 +36,28 @@ import ru.testit.client.invoker.JSON;
   ParameterShortApiResult.JSON_PROPERTY_VALUE,
   ParameterShortApiResult.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ParameterShortApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_PARAMETER_KEY_ID = "parameterKeyId";
+  @jakarta.annotation.Nonnull
   private UUID parameterKeyId;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private String value;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public ParameterShortApiResult() { 
   }
 
-  public ParameterShortApiResult id(UUID id) {
+  public ParameterShortApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -73,12 +77,12 @@ public class ParameterShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ParameterShortApiResult parameterKeyId(UUID parameterKeyId) {
+  public ParameterShortApiResult parameterKeyId(@jakarta.annotation.Nonnull UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
     return this;
   }
@@ -98,12 +102,12 @@ public class ParameterShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_PARAMETER_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameterKeyId(UUID parameterKeyId) {
+  public void setParameterKeyId(@jakarta.annotation.Nonnull UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
   }
 
 
-  public ParameterShortApiResult value(String value) {
+  public ParameterShortApiResult value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
@@ -123,12 +127,12 @@ public class ParameterShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 
 
-  public ParameterShortApiResult name(String name) {
+  public ParameterShortApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -148,7 +152,7 @@ public class ParameterShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 

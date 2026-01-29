@@ -43,7 +43,7 @@ import ru.testit.client.invoker.JSON;
   ManualRerunSelectTestResultsApiModel.JSON_PROPERTY_EXTRACTION_MODEL,
   ManualRerunSelectTestResultsApiModel.JSON_PROPERTY_WEBHOOK_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ManualRerunSelectTestResultsApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<TestResultsFilterApiModel> filter = JsonNullable.<TestResultsFilterApiModel>undefined();
@@ -57,7 +57,7 @@ public class ManualRerunSelectTestResultsApiModel {
   public ManualRerunSelectTestResultsApiModel() { 
   }
 
-  public ManualRerunSelectTestResultsApiModel filter(TestResultsFilterApiModel filter) {
+  public ManualRerunSelectTestResultsApiModel filter(@jakarta.annotation.Nullable TestResultsFilterApiModel filter) {
     this.filter = JsonNullable.<TestResultsFilterApiModel>of(filter);
     return this;
   }
@@ -85,12 +85,12 @@ public class ManualRerunSelectTestResultsApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(TestResultsFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TestResultsFilterApiModel filter) {
     this.filter = JsonNullable.<TestResultsFilterApiModel>of(filter);
   }
 
 
-  public ManualRerunSelectTestResultsApiModel extractionModel(ManualRerunTestResultApiModel extractionModel) {
+  public ManualRerunSelectTestResultsApiModel extractionModel(@jakarta.annotation.Nullable ManualRerunTestResultApiModel extractionModel) {
     this.extractionModel = JsonNullable.<ManualRerunTestResultApiModel>of(extractionModel);
     return this;
   }
@@ -118,12 +118,12 @@ public class ManualRerunSelectTestResultsApiModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(ManualRerunTestResultApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable ManualRerunTestResultApiModel extractionModel) {
     this.extractionModel = JsonNullable.<ManualRerunTestResultApiModel>of(extractionModel);
   }
 
 
-  public ManualRerunSelectTestResultsApiModel webhookIds(List<UUID> webhookIds) {
+  public ManualRerunSelectTestResultsApiModel webhookIds(@jakarta.annotation.Nullable List<UUID> webhookIds) {
     this.webhookIds = JsonNullable.<List<UUID>>of(webhookIds);
     return this;
   }
@@ -163,7 +163,7 @@ public class ManualRerunSelectTestResultsApiModel {
     this.webhookIds = webhookIds;
   }
 
-  public void setWebhookIds(List<UUID> webhookIds) {
+  public void setWebhookIds(@jakarta.annotation.Nullable List<UUID> webhookIds) {
     this.webhookIds = JsonNullable.<List<UUID>>of(webhookIds);
   }
 

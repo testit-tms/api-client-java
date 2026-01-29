@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   Operation.JSON_PROPERTY_OP,
   Operation.JSON_PROPERTY_FROM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Operation {
   public static final String JSON_PROPERTY_VALUE = "value";
   private JsonNullable<Object> value = JsonNullable.<Object>of(null);
@@ -56,7 +56,7 @@ public class Operation {
   public Operation() { 
   }
 
-  public Operation value(Object value) {
+  public Operation value(@jakarta.annotation.Nullable Object value) {
     this.value = JsonNullable.<Object>of(value);
     return this;
   }
@@ -84,12 +84,12 @@ public class Operation {
     this.value = value;
   }
 
-  public void setValue(Object value) {
+  public void setValue(@jakarta.annotation.Nullable Object value) {
     this.value = JsonNullable.<Object>of(value);
   }
 
 
-  public Operation path(String path) {
+  public Operation path(@jakarta.annotation.Nullable String path) {
     this.path = JsonNullable.<String>of(path);
     return this;
   }
@@ -117,12 +117,12 @@ public class Operation {
     this.path = path;
   }
 
-  public void setPath(String path) {
+  public void setPath(@jakarta.annotation.Nullable String path) {
     this.path = JsonNullable.<String>of(path);
   }
 
 
-  public Operation op(String op) {
+  public Operation op(@jakarta.annotation.Nullable String op) {
     this.op = JsonNullable.<String>of(op);
     return this;
   }
@@ -150,12 +150,12 @@ public class Operation {
     this.op = op;
   }
 
-  public void setOp(String op) {
+  public void setOp(@jakarta.annotation.Nullable String op) {
     this.op = JsonNullable.<String>of(op);
   }
 
 
-  public Operation from(String from) {
+  public Operation from(@jakarta.annotation.Nullable String from) {
     this.from = JsonNullable.<String>of(from);
     return this;
   }
@@ -183,7 +183,7 @@ public class Operation {
     this.from = from;
   }
 
-  public void setFrom(String from) {
+  public void setFrom(@jakarta.annotation.Nullable String from) {
     this.from = JsonNullable.<String>of(from);
   }
 

@@ -40,15 +40,18 @@ import ru.testit.client.invoker.JSON;
   SectionMoveModel.JSON_PROPERTY_PARENT_ID,
   SectionMoveModel.JSON_PROPERTY_NEXT_SECTION_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SectionMoveModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_OLD_PARENT_ID = "oldParentId";
+  @jakarta.annotation.Nonnull
   private UUID oldParentId;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parentId";
+  @jakarta.annotation.Nonnull
   private UUID parentId;
 
   public static final String JSON_PROPERTY_NEXT_SECTION_ID = "nextSectionId";
@@ -57,7 +60,7 @@ public class SectionMoveModel {
   public SectionMoveModel() { 
   }
 
-  public SectionMoveModel id(UUID id) {
+  public SectionMoveModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -77,12 +80,12 @@ public class SectionMoveModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public SectionMoveModel oldParentId(UUID oldParentId) {
+  public SectionMoveModel oldParentId(@jakarta.annotation.Nonnull UUID oldParentId) {
     this.oldParentId = oldParentId;
     return this;
   }
@@ -102,12 +105,12 @@ public class SectionMoveModel {
 
   @JsonProperty(JSON_PROPERTY_OLD_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOldParentId(UUID oldParentId) {
+  public void setOldParentId(@jakarta.annotation.Nonnull UUID oldParentId) {
     this.oldParentId = oldParentId;
   }
 
 
-  public SectionMoveModel parentId(UUID parentId) {
+  public SectionMoveModel parentId(@jakarta.annotation.Nonnull UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -127,12 +130,12 @@ public class SectionMoveModel {
 
   @JsonProperty(JSON_PROPERTY_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParentId(UUID parentId) {
+  public void setParentId(@jakarta.annotation.Nonnull UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public SectionMoveModel nextSectionId(UUID nextSectionId) {
+  public SectionMoveModel nextSectionId(@jakarta.annotation.Nullable UUID nextSectionId) {
     this.nextSectionId = JsonNullable.<UUID>of(nextSectionId);
     return this;
   }
@@ -160,7 +163,7 @@ public class SectionMoveModel {
     this.nextSectionId = nextSectionId;
   }
 
-  public void setNextSectionId(UUID nextSectionId) {
+  public void setNextSectionId(@jakarta.annotation.Nullable UUID nextSectionId) {
     this.nextSectionId = JsonNullable.<UUID>of(nextSectionId);
   }
 

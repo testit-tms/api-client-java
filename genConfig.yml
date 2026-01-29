@@ -1,0 +1,17 @@
+apiPackage: "ru.testit.client.api"
+artifactId: "testit-api-client"
+artifactUrl: "https://github.com/testit-tms/api-client-java"
+artifactVersion: 2.3.0
+developerEmail: "integrations@testit.software"
+developerName: "Integration Team"
+developerOrganization: "Test IT"
+developerOrganizationUrl: "https://testit.software/"
+groupId: "ru.testit"
+hideGenerationTimestamp: true
+invokerPackage: "ru.testit.client.invoker"
+library: "jersey3"
+modelPackage: "ru.testit.client.model"
+enumUnknownDefaultCase: true
+failOnUnknownProperties: false
+sortModelPropertiesByRequiredFlag: true
+sortParamsByRequiredFlag: true

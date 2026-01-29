@@ -45,24 +45,30 @@ import ru.testit.client.invoker.JSON;
   WorkItemChangeModel.JSON_PROPERTY_CREATED_BY_ID,
   WorkItemChangeModel.JSON_PROPERTY_CREATED_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemChangeModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_WORK_ITEM_ID = "workItemId";
+  @jakarta.annotation.Nonnull
   private UUID workItemId;
 
   public static final String JSON_PROPERTY_OLD_VERSION_ID = "oldVersionId";
+  @jakarta.annotation.Nonnull
   private UUID oldVersionId;
 
   public static final String JSON_PROPERTY_NEW_VERSION_ID = "newVersionId";
+  @jakarta.annotation.Nonnull
   private UUID newVersionId;
 
   public static final String JSON_PROPERTY_WORK_ITEM_CHANGED_FIELDS = "workItemChangedFields";
+  @jakarta.annotation.Nonnull
   private WorkItemChangedFieldsViewModel workItemChangedFields;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
@@ -71,7 +77,7 @@ public class WorkItemChangeModel {
   public WorkItemChangeModel() { 
   }
 
-  public WorkItemChangeModel id(UUID id) {
+  public WorkItemChangeModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -91,12 +97,12 @@ public class WorkItemChangeModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemChangeModel workItemId(UUID workItemId) {
+  public WorkItemChangeModel workItemId(@jakarta.annotation.Nonnull UUID workItemId) {
     this.workItemId = workItemId;
     return this;
   }
@@ -116,12 +122,12 @@ public class WorkItemChangeModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nonnull UUID workItemId) {
     this.workItemId = workItemId;
   }
 
 
-  public WorkItemChangeModel oldVersionId(UUID oldVersionId) {
+  public WorkItemChangeModel oldVersionId(@jakarta.annotation.Nonnull UUID oldVersionId) {
     this.oldVersionId = oldVersionId;
     return this;
   }
@@ -141,12 +147,12 @@ public class WorkItemChangeModel {
 
   @JsonProperty(JSON_PROPERTY_OLD_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOldVersionId(UUID oldVersionId) {
+  public void setOldVersionId(@jakarta.annotation.Nonnull UUID oldVersionId) {
     this.oldVersionId = oldVersionId;
   }
 
 
-  public WorkItemChangeModel newVersionId(UUID newVersionId) {
+  public WorkItemChangeModel newVersionId(@jakarta.annotation.Nonnull UUID newVersionId) {
     this.newVersionId = newVersionId;
     return this;
   }
@@ -166,12 +172,12 @@ public class WorkItemChangeModel {
 
   @JsonProperty(JSON_PROPERTY_NEW_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNewVersionId(UUID newVersionId) {
+  public void setNewVersionId(@jakarta.annotation.Nonnull UUID newVersionId) {
     this.newVersionId = newVersionId;
   }
 
 
-  public WorkItemChangeModel workItemChangedFields(WorkItemChangedFieldsViewModel workItemChangedFields) {
+  public WorkItemChangeModel workItemChangedFields(@jakarta.annotation.Nonnull WorkItemChangedFieldsViewModel workItemChangedFields) {
     this.workItemChangedFields = workItemChangedFields;
     return this;
   }
@@ -191,12 +197,12 @@ public class WorkItemChangeModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_CHANGED_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemChangedFields(WorkItemChangedFieldsViewModel workItemChangedFields) {
+  public void setWorkItemChangedFields(@jakarta.annotation.Nonnull WorkItemChangedFieldsViewModel workItemChangedFields) {
     this.workItemChangedFields = workItemChangedFields;
   }
 
 
-  public WorkItemChangeModel createdById(UUID createdById) {
+  public WorkItemChangeModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -216,12 +222,12 @@ public class WorkItemChangeModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkItemChangeModel createdDate(OffsetDateTime createdDate) {
+  public WorkItemChangeModel createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -249,7 +255,7 @@ public class WorkItemChangeModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 

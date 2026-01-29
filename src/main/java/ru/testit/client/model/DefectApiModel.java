@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   DefectApiModel.JSON_PROPERTY_EXTERNAL_URL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class DefectApiModel {
   public static final String JSON_PROPERTY_EXTERNAL_URL = "externalUrl";
+  @jakarta.annotation.Nonnull
   private String externalUrl;
 
   public DefectApiModel() { 
   }
 
-  public DefectApiModel externalUrl(String externalUrl) {
+  public DefectApiModel externalUrl(@jakarta.annotation.Nonnull String externalUrl) {
     this.externalUrl = externalUrl;
     return this;
   }
@@ -60,7 +61,7 @@ public class DefectApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalUrl(String externalUrl) {
+  public void setExternalUrl(@jakarta.annotation.Nonnull String externalUrl) {
     this.externalUrl = externalUrl;
   }
 

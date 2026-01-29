@@ -45,15 +45,18 @@ import ru.testit.client.invoker.JSON;
   TestPointShortModel.JSON_PROPERTY_LAST_TEST_RESULT_ID,
   TestPointShortModel.JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointShortModel {
   public static final String JSON_PROPERTY_TEST_SUITE_ID = "testSuiteId";
+  @jakarta.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_ITERATION_ID = "iterationId";
+  @jakarta.annotation.Nonnull
   private UUID iterationId;
 
   public static final String JSON_PROPERTY_TESTER_ID = "testerId";
@@ -77,7 +80,7 @@ public class TestPointShortModel {
   public TestPointShortModel() { 
   }
 
-  public TestPointShortModel testSuiteId(UUID testSuiteId) {
+  public TestPointShortModel testSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -97,12 +100,12 @@ public class TestPointShortModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestSuiteId(UUID testSuiteId) {
+  public void setTestSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
-  public TestPointShortModel id(UUID id) {
+  public TestPointShortModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -122,12 +125,12 @@ public class TestPointShortModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPointShortModel iterationId(UUID iterationId) {
+  public TestPointShortModel iterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -147,12 +150,12 @@ public class TestPointShortModel {
 
   @JsonProperty(JSON_PROPERTY_ITERATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIterationId(UUID iterationId) {
+  public void setIterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPointShortModel testerId(UUID testerId) {
+  public TestPointShortModel testerId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
     return this;
   }
@@ -180,12 +183,12 @@ public class TestPointShortModel {
     this.testerId = testerId;
   }
 
-  public void setTesterId(UUID testerId) {
+  public void setTesterId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
   }
 
 
-  public TestPointShortModel workItemId(UUID workItemId) {
+  public TestPointShortModel workItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
     return this;
   }
@@ -213,12 +216,12 @@ public class TestPointShortModel {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
   }
 
 
-  public TestPointShortModel configurationId(UUID configurationId) {
+  public TestPointShortModel configurationId(@jakarta.annotation.Nullable UUID configurationId) {
     this.configurationId = JsonNullable.<UUID>of(configurationId);
     return this;
   }
@@ -246,18 +249,18 @@ public class TestPointShortModel {
     this.configurationId = configurationId;
   }
 
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nullable UUID configurationId) {
     this.configurationId = JsonNullable.<UUID>of(configurationId);
   }
 
 
-  public TestPointShortModel status(String status) {
+  public TestPointShortModel status(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
     return this;
   }
 
   /**
-   * Test point status    Applies one of these values: Blocked, NoResults, Failed, Passed
+   * Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed
    * @return status
    */
   @jakarta.annotation.Nullable
@@ -279,12 +282,12 @@ public class TestPointShortModel {
     this.status = status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
   }
 
 
-  public TestPointShortModel lastTestResultId(UUID lastTestResultId) {
+  public TestPointShortModel lastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
     return this;
   }
@@ -312,12 +315,12 @@ public class TestPointShortModel {
     this.lastTestResultId = lastTestResultId;
   }
 
-  public void setLastTestResultId(UUID lastTestResultId) {
+  public void setLastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
   }
 
 
-  public TestPointShortModel workItemMedianDuration(Long workItemMedianDuration) {
+  public TestPointShortModel workItemMedianDuration(@jakarta.annotation.Nullable Long workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
     return this;
   }
@@ -345,7 +348,7 @@ public class TestPointShortModel {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(Long workItemMedianDuration) {
+  public void setWorkItemMedianDuration(@jakarta.annotation.Nullable Long workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
   }
 

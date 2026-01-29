@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   ExternalIssueApiFieldSuggestion.JSON_PROPERTY_VALUE,
   ExternalIssueApiFieldSuggestion.JSON_PROPERTY_EXTERNAL_SERVICE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalIssueApiFieldSuggestion {
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private String value;
 
   public static final String JSON_PROPERTY_EXTERNAL_SERVICE = "externalService";
+  @jakarta.annotation.Nonnull
   private ExternalIssueExternalServiceApiResult externalService;
 
   public ExternalIssueApiFieldSuggestion() { 
   }
 
-  public ExternalIssueApiFieldSuggestion value(String value) {
+  public ExternalIssueApiFieldSuggestion value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
@@ -65,12 +67,12 @@ public class ExternalIssueApiFieldSuggestion {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 
 
-  public ExternalIssueApiFieldSuggestion externalService(ExternalIssueExternalServiceApiResult externalService) {
+  public ExternalIssueApiFieldSuggestion externalService(@jakarta.annotation.Nonnull ExternalIssueExternalServiceApiResult externalService) {
     this.externalService = externalService;
     return this;
   }
@@ -90,7 +92,7 @@ public class ExternalIssueApiFieldSuggestion {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalService(ExternalIssueExternalServiceApiResult externalService) {
+  public void setExternalService(@jakarta.annotation.Nonnull ExternalIssueExternalServiceApiResult externalService) {
     this.externalService = externalService;
   }
 

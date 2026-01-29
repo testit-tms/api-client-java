@@ -45,7 +45,7 @@ import ru.testit.client.invoker.JSON;
   WebhooksDeleteFilterApiModel.JSON_PROPERTY_PROJECT_IDS,
   WebhooksDeleteFilterApiModel.JSON_PROPERTY_IS_ENABLED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebhooksDeleteFilterApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -65,7 +65,7 @@ public class WebhooksDeleteFilterApiModel {
   public WebhooksDeleteFilterApiModel() { 
   }
 
-  public WebhooksDeleteFilterApiModel name(String name) {
+  public WebhooksDeleteFilterApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -93,12 +93,12 @@ public class WebhooksDeleteFilterApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public WebhooksDeleteFilterApiModel eventTypes(Set<WebHookEventTypeRequest> eventTypes) {
+  public WebhooksDeleteFilterApiModel eventTypes(@jakarta.annotation.Nullable Set<WebHookEventTypeRequest> eventTypes) {
     this.eventTypes = JsonNullable.<Set<WebHookEventTypeRequest>>of(eventTypes);
     return this;
   }
@@ -138,12 +138,12 @@ public class WebhooksDeleteFilterApiModel {
     this.eventTypes = eventTypes;
   }
 
-  public void setEventTypes(Set<WebHookEventTypeRequest> eventTypes) {
+  public void setEventTypes(@jakarta.annotation.Nullable Set<WebHookEventTypeRequest> eventTypes) {
     this.eventTypes = JsonNullable.<Set<WebHookEventTypeRequest>>of(eventTypes);
   }
 
 
-  public WebhooksDeleteFilterApiModel methods(Set<RequestTypeApiModel> methods) {
+  public WebhooksDeleteFilterApiModel methods(@jakarta.annotation.Nullable Set<RequestTypeApiModel> methods) {
     this.methods = JsonNullable.<Set<RequestTypeApiModel>>of(methods);
     return this;
   }
@@ -183,12 +183,12 @@ public class WebhooksDeleteFilterApiModel {
     this.methods = methods;
   }
 
-  public void setMethods(Set<RequestTypeApiModel> methods) {
+  public void setMethods(@jakarta.annotation.Nullable Set<RequestTypeApiModel> methods) {
     this.methods = JsonNullable.<Set<RequestTypeApiModel>>of(methods);
   }
 
 
-  public WebhooksDeleteFilterApiModel projectIds(Set<UUID> projectIds) {
+  public WebhooksDeleteFilterApiModel projectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
     return this;
   }
@@ -228,12 +228,12 @@ public class WebhooksDeleteFilterApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
   }
 
 
-  public WebhooksDeleteFilterApiModel isEnabled(Boolean isEnabled) {
+  public WebhooksDeleteFilterApiModel isEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
     return this;
   }
@@ -261,7 +261,7 @@ public class WebhooksDeleteFilterApiModel {
     this.isEnabled = isEnabled;
   }
 
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
   }
 

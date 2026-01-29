@@ -43,7 +43,7 @@ import ru.testit.client.invoker.JSON;
   AutotestResultReasonFilterModel.JSON_PROPERTY_REGEX_COUNT,
   AutotestResultReasonFilterModel.JSON_PROPERTY_IS_DELETED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutotestResultReasonFilterModel {
   public static final String JSON_PROPERTY_FAILURE_CATEGORIES = "failureCategories";
   private JsonNullable<Set<AvailableFailureCategory>> failureCategories = JsonNullable.<Set<AvailableFailureCategory>>undefined();
@@ -60,7 +60,7 @@ public class AutotestResultReasonFilterModel {
   public AutotestResultReasonFilterModel() { 
   }
 
-  public AutotestResultReasonFilterModel failureCategories(Set<AvailableFailureCategory> failureCategories) {
+  public AutotestResultReasonFilterModel failureCategories(@jakarta.annotation.Nullable Set<AvailableFailureCategory> failureCategories) {
     this.failureCategories = JsonNullable.<Set<AvailableFailureCategory>>of(failureCategories);
     return this;
   }
@@ -100,12 +100,12 @@ public class AutotestResultReasonFilterModel {
     this.failureCategories = failureCategories;
   }
 
-  public void setFailureCategories(Set<AvailableFailureCategory> failureCategories) {
+  public void setFailureCategories(@jakarta.annotation.Nullable Set<AvailableFailureCategory> failureCategories) {
     this.failureCategories = JsonNullable.<Set<AvailableFailureCategory>>of(failureCategories);
   }
 
 
-  public AutotestResultReasonFilterModel name(String name) {
+  public AutotestResultReasonFilterModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -133,12 +133,12 @@ public class AutotestResultReasonFilterModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public AutotestResultReasonFilterModel regexCount(Int32RangeSelectorModel regexCount) {
+  public AutotestResultReasonFilterModel regexCount(@jakarta.annotation.Nullable Int32RangeSelectorModel regexCount) {
     this.regexCount = JsonNullable.<Int32RangeSelectorModel>of(regexCount);
     return this;
   }
@@ -166,12 +166,12 @@ public class AutotestResultReasonFilterModel {
     this.regexCount = regexCount;
   }
 
-  public void setRegexCount(Int32RangeSelectorModel regexCount) {
+  public void setRegexCount(@jakarta.annotation.Nullable Int32RangeSelectorModel regexCount) {
     this.regexCount = JsonNullable.<Int32RangeSelectorModel>of(regexCount);
   }
 
 
-  public AutotestResultReasonFilterModel isDeleted(Boolean isDeleted) {
+  public AutotestResultReasonFilterModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -199,7 +199,7 @@ public class AutotestResultReasonFilterModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 

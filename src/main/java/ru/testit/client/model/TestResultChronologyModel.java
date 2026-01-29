@@ -37,9 +37,10 @@ import ru.testit.client.invoker.JSON;
   TestResultChronologyModel.JSON_PROPERTY_COUNT,
   TestResultChronologyModel.JSON_PROPERTY_OUTCOME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultChronologyModel {
   public static final String JSON_PROPERTY_COUNT = "count";
+  @jakarta.annotation.Nonnull
   private Integer count;
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
@@ -48,7 +49,7 @@ public class TestResultChronologyModel {
   public TestResultChronologyModel() { 
   }
 
-  public TestResultChronologyModel count(Integer count) {
+  public TestResultChronologyModel count(@jakarta.annotation.Nonnull Integer count) {
     this.count = count;
     return this;
   }
@@ -68,12 +69,12 @@ public class TestResultChronologyModel {
 
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCount(Integer count) {
+  public void setCount(@jakarta.annotation.Nonnull Integer count) {
     this.count = count;
   }
 
 
-  public TestResultChronologyModel outcome(String outcome) {
+  public TestResultChronologyModel outcome(@jakarta.annotation.Nullable String outcome) {
     this.outcome = JsonNullable.<String>of(outcome);
     return this;
   }
@@ -101,7 +102,7 @@ public class TestResultChronologyModel {
     this.outcome = outcome;
   }
 
-  public void setOutcome(String outcome) {
+  public void setOutcome(@jakarta.annotation.Nullable String outcome) {
     this.outcome = JsonNullable.<String>of(outcome);
   }
 

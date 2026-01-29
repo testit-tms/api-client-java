@@ -33,15 +33,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   TestResultFailureClassApiResult.JSON_PROPERTY_FAILURE_CATEGORY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultFailureClassApiResult {
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  @jakarta.annotation.Nonnull
   private FailureCategory failureCategory;
 
   public TestResultFailureClassApiResult() { 
   }
 
-  public TestResultFailureClassApiResult failureCategory(FailureCategory failureCategory) {
+  public TestResultFailureClassApiResult failureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -61,7 +62,7 @@ public class TestResultFailureClassApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategory(FailureCategory failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
   }
 

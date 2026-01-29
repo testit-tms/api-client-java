@@ -35,24 +35,28 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsSearchStatusCountersApiResult.JSON_PROPERTY_AUTOMATED_TEST_POINTS_FAILED_COUNT,
   TestPlanTestPointsSearchStatusCountersApiResult.JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsSearchStatusCountersApiResult {
   public static final String JSON_PROPERTY_AUTOMATED_TEST_POINTS_COUNT = "automatedTestPointsCount";
+  @jakarta.annotation.Nonnull
   private Integer automatedTestPointsCount;
 
   public static final String JSON_PROPERTY_AUTOMATED_TEST_POINTS_IN_PROGRESS_COUNT = "automatedTestPointsInProgressCount";
+  @jakarta.annotation.Nonnull
   private Integer automatedTestPointsInProgressCount;
 
   public static final String JSON_PROPERTY_AUTOMATED_TEST_POINTS_FAILED_COUNT = "automatedTestPointsFailedCount";
+  @jakarta.annotation.Nonnull
   private Integer automatedTestPointsFailedCount;
 
   public static final String JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT = "manualTestPointsCount";
+  @jakarta.annotation.Nonnull
   private Integer manualTestPointsCount;
 
   public TestPlanTestPointsSearchStatusCountersApiResult() { 
   }
 
-  public TestPlanTestPointsSearchStatusCountersApiResult automatedTestPointsCount(Integer automatedTestPointsCount) {
+  public TestPlanTestPointsSearchStatusCountersApiResult automatedTestPointsCount(@jakarta.annotation.Nonnull Integer automatedTestPointsCount) {
     this.automatedTestPointsCount = automatedTestPointsCount;
     return this;
   }
@@ -72,12 +76,12 @@ public class TestPlanTestPointsSearchStatusCountersApiResult {
 
   @JsonProperty(JSON_PROPERTY_AUTOMATED_TEST_POINTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutomatedTestPointsCount(Integer automatedTestPointsCount) {
+  public void setAutomatedTestPointsCount(@jakarta.annotation.Nonnull Integer automatedTestPointsCount) {
     this.automatedTestPointsCount = automatedTestPointsCount;
   }
 
 
-  public TestPlanTestPointsSearchStatusCountersApiResult automatedTestPointsInProgressCount(Integer automatedTestPointsInProgressCount) {
+  public TestPlanTestPointsSearchStatusCountersApiResult automatedTestPointsInProgressCount(@jakarta.annotation.Nonnull Integer automatedTestPointsInProgressCount) {
     this.automatedTestPointsInProgressCount = automatedTestPointsInProgressCount;
     return this;
   }
@@ -97,12 +101,12 @@ public class TestPlanTestPointsSearchStatusCountersApiResult {
 
   @JsonProperty(JSON_PROPERTY_AUTOMATED_TEST_POINTS_IN_PROGRESS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutomatedTestPointsInProgressCount(Integer automatedTestPointsInProgressCount) {
+  public void setAutomatedTestPointsInProgressCount(@jakarta.annotation.Nonnull Integer automatedTestPointsInProgressCount) {
     this.automatedTestPointsInProgressCount = automatedTestPointsInProgressCount;
   }
 
 
-  public TestPlanTestPointsSearchStatusCountersApiResult automatedTestPointsFailedCount(Integer automatedTestPointsFailedCount) {
+  public TestPlanTestPointsSearchStatusCountersApiResult automatedTestPointsFailedCount(@jakarta.annotation.Nonnull Integer automatedTestPointsFailedCount) {
     this.automatedTestPointsFailedCount = automatedTestPointsFailedCount;
     return this;
   }
@@ -122,12 +126,12 @@ public class TestPlanTestPointsSearchStatusCountersApiResult {
 
   @JsonProperty(JSON_PROPERTY_AUTOMATED_TEST_POINTS_FAILED_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutomatedTestPointsFailedCount(Integer automatedTestPointsFailedCount) {
+  public void setAutomatedTestPointsFailedCount(@jakarta.annotation.Nonnull Integer automatedTestPointsFailedCount) {
     this.automatedTestPointsFailedCount = automatedTestPointsFailedCount;
   }
 
 
-  public TestPlanTestPointsSearchStatusCountersApiResult manualTestPointsCount(Integer manualTestPointsCount) {
+  public TestPlanTestPointsSearchStatusCountersApiResult manualTestPointsCount(@jakarta.annotation.Nonnull Integer manualTestPointsCount) {
     this.manualTestPointsCount = manualTestPointsCount;
     return this;
   }
@@ -147,7 +151,7 @@ public class TestPlanTestPointsSearchStatusCountersApiResult {
 
   @JsonProperty(JSON_PROPERTY_MANUAL_TEST_POINTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setManualTestPointsCount(Integer manualTestPointsCount) {
+  public void setManualTestPointsCount(@jakarta.annotation.Nonnull Integer manualTestPointsCount) {
     this.manualTestPointsCount = manualTestPointsCount;
   }
 

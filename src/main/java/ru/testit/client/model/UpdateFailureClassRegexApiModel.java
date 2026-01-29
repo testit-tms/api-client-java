@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   UpdateFailureClassRegexApiModel.JSON_PROPERTY_ID,
   UpdateFailureClassRegexApiModel.JSON_PROPERTY_REGEX_TEXT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateFailureClassRegexApiModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_REGEX_TEXT = "regexText";
+  @jakarta.annotation.Nonnull
   private String regexText;
 
   public UpdateFailureClassRegexApiModel() { 
   }
 
-  public UpdateFailureClassRegexApiModel id(UUID id) {
+  public UpdateFailureClassRegexApiModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -65,12 +67,12 @@ public class UpdateFailureClassRegexApiModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public UpdateFailureClassRegexApiModel regexText(String regexText) {
+  public UpdateFailureClassRegexApiModel regexText(@jakarta.annotation.Nonnull String regexText) {
     this.regexText = regexText;
     return this;
   }
@@ -90,7 +92,7 @@ public class UpdateFailureClassRegexApiModel {
 
   @JsonProperty(JSON_PROPERTY_REGEX_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRegexText(String regexText) {
+  public void setRegexText(@jakarta.annotation.Nonnull String regexText) {
     this.regexText = regexText;
   }
 

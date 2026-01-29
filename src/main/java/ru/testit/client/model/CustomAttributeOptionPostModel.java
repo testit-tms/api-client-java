@@ -37,9 +37,10 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeOptionPostModel.JSON_PROPERTY_IS_DEFAULT,
   CustomAttributeOptionPostModel.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeOptionPostModel {
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
+  @jakarta.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_VALUE = "value";
@@ -48,7 +49,7 @@ public class CustomAttributeOptionPostModel {
   public CustomAttributeOptionPostModel() { 
   }
 
-  public CustomAttributeOptionPostModel isDefault(Boolean isDefault) {
+  public CustomAttributeOptionPostModel isDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -68,12 +69,12 @@ public class CustomAttributeOptionPostModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDefault(Boolean isDefault) {
+  public void setIsDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public CustomAttributeOptionPostModel value(String value) {
+  public CustomAttributeOptionPostModel value(@jakarta.annotation.Nullable String value) {
     this.value = JsonNullable.<String>of(value);
     return this;
   }
@@ -101,7 +102,7 @@ public class CustomAttributeOptionPostModel {
     this.value = value;
   }
 
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = JsonNullable.<String>of(value);
   }
 

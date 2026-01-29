@@ -46,22 +46,27 @@ import ru.testit.client.invoker.JSON;
   TestRunByAutoTestApiResult.JSON_PROPERTY_NAME,
   TestRunByAutoTestApiResult.JSON_PROPERTY_DESCRIPTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunByAutoTestApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_STATE_NAME = "stateName";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private TestRunState stateName;
 
   public static final String JSON_PROPERTY_STATUS = "status";
+  @jakarta.annotation.Nonnull
   private TestStatusApiResult status;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
@@ -76,7 +81,7 @@ public class TestRunByAutoTestApiResult {
   public TestRunByAutoTestApiResult() { 
   }
 
-  public TestRunByAutoTestApiResult id(UUID id) {
+  public TestRunByAutoTestApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -96,12 +101,12 @@ public class TestRunByAutoTestApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestRunByAutoTestApiResult isDeleted(Boolean isDeleted) {
+  public TestRunByAutoTestApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -121,13 +126,13 @@ public class TestRunByAutoTestApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
   @Deprecated
-  public TestRunByAutoTestApiResult stateName(TestRunState stateName) {
+  public TestRunByAutoTestApiResult stateName(@jakarta.annotation.Nonnull TestRunState stateName) {
     this.stateName = stateName;
     return this;
   }
@@ -150,12 +155,12 @@ public class TestRunByAutoTestApiResult {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_STATE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStateName(TestRunState stateName) {
+  public void setStateName(@jakarta.annotation.Nonnull TestRunState stateName) {
     this.stateName = stateName;
   }
 
 
-  public TestRunByAutoTestApiResult status(TestStatusApiResult status) {
+  public TestRunByAutoTestApiResult status(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -175,12 +180,12 @@ public class TestRunByAutoTestApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(TestStatusApiResult status) {
+  public void setStatus(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public TestRunByAutoTestApiResult projectId(UUID projectId) {
+  public TestRunByAutoTestApiResult projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -200,12 +205,12 @@ public class TestRunByAutoTestApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestRunByAutoTestApiResult testPlanId(UUID testPlanId) {
+  public TestRunByAutoTestApiResult testPlanId(@jakarta.annotation.Nullable UUID testPlanId) {
     this.testPlanId = JsonNullable.<UUID>of(testPlanId);
     return this;
   }
@@ -233,12 +238,12 @@ public class TestRunByAutoTestApiResult {
     this.testPlanId = testPlanId;
   }
 
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@jakarta.annotation.Nullable UUID testPlanId) {
     this.testPlanId = JsonNullable.<UUID>of(testPlanId);
   }
 
 
-  public TestRunByAutoTestApiResult name(String name) {
+  public TestRunByAutoTestApiResult name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -266,12 +271,12 @@ public class TestRunByAutoTestApiResult {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public TestRunByAutoTestApiResult description(String description) {
+  public TestRunByAutoTestApiResult description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -299,7 +304,7 @@ public class TestRunByAutoTestApiResult {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 

@@ -54,15 +54,18 @@ import ru.testit.client.invoker.JSON;
   UpdateTestPlanApiModel.JSON_PROPERTY_ATTRIBUTES,
   UpdateTestPlanApiModel.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateTestPlanApiModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_LOCKED_BY_ID = "lockedById";
@@ -95,7 +98,7 @@ public class UpdateTestPlanApiModel {
   public UpdateTestPlanApiModel() { 
   }
 
-  public UpdateTestPlanApiModel id(UUID id) {
+  public UpdateTestPlanApiModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -115,12 +118,12 @@ public class UpdateTestPlanApiModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public UpdateTestPlanApiModel name(String name) {
+  public UpdateTestPlanApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -140,12 +143,12 @@ public class UpdateTestPlanApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public UpdateTestPlanApiModel projectId(UUID projectId) {
+  public UpdateTestPlanApiModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -165,12 +168,12 @@ public class UpdateTestPlanApiModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public UpdateTestPlanApiModel lockedById(UUID lockedById) {
+  public UpdateTestPlanApiModel lockedById(@jakarta.annotation.Nullable UUID lockedById) {
     this.lockedById = JsonNullable.<UUID>of(lockedById);
     return this;
   }
@@ -198,12 +201,12 @@ public class UpdateTestPlanApiModel {
     this.lockedById = lockedById;
   }
 
-  public void setLockedById(UUID lockedById) {
+  public void setLockedById(@jakarta.annotation.Nullable UUID lockedById) {
     this.lockedById = JsonNullable.<UUID>of(lockedById);
   }
 
 
-  public UpdateTestPlanApiModel startDate(OffsetDateTime startDate) {
+  public UpdateTestPlanApiModel startDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
     return this;
   }
@@ -231,12 +234,12 @@ public class UpdateTestPlanApiModel {
     this.startDate = startDate;
   }
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(@jakarta.annotation.Nullable OffsetDateTime startDate) {
     this.startDate = JsonNullable.<OffsetDateTime>of(startDate);
   }
 
 
-  public UpdateTestPlanApiModel endDate(OffsetDateTime endDate) {
+  public UpdateTestPlanApiModel endDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
     return this;
   }
@@ -264,12 +267,12 @@ public class UpdateTestPlanApiModel {
     this.endDate = endDate;
   }
 
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(@jakarta.annotation.Nullable OffsetDateTime endDate) {
     this.endDate = JsonNullable.<OffsetDateTime>of(endDate);
   }
 
 
-  public UpdateTestPlanApiModel description(String description) {
+  public UpdateTestPlanApiModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -297,12 +300,12 @@ public class UpdateTestPlanApiModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public UpdateTestPlanApiModel build(String build) {
+  public UpdateTestPlanApiModel build(@jakarta.annotation.Nullable String build) {
     this.build = JsonNullable.<String>of(build);
     return this;
   }
@@ -330,12 +333,12 @@ public class UpdateTestPlanApiModel {
     this.build = build;
   }
 
-  public void setBuild(String build) {
+  public void setBuild(@jakarta.annotation.Nullable String build) {
     this.build = JsonNullable.<String>of(build);
   }
 
 
-  public UpdateTestPlanApiModel productName(String productName) {
+  public UpdateTestPlanApiModel productName(@jakarta.annotation.Nullable String productName) {
     this.productName = JsonNullable.<String>of(productName);
     return this;
   }
@@ -363,12 +366,12 @@ public class UpdateTestPlanApiModel {
     this.productName = productName;
   }
 
-  public void setProductName(String productName) {
+  public void setProductName(@jakarta.annotation.Nullable String productName) {
     this.productName = JsonNullable.<String>of(productName);
   }
 
 
-  public UpdateTestPlanApiModel hasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
+  public UpdateTestPlanApiModel hasAutomaticDurationTimer(@jakarta.annotation.Nullable Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = JsonNullable.<Boolean>of(hasAutomaticDurationTimer);
     return this;
   }
@@ -396,12 +399,12 @@ public class UpdateTestPlanApiModel {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
-  public void setHasAutomaticDurationTimer(Boolean hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(@jakarta.annotation.Nullable Boolean hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = JsonNullable.<Boolean>of(hasAutomaticDurationTimer);
   }
 
 
-  public UpdateTestPlanApiModel attributes(Map<String, Object> attributes) {
+  public UpdateTestPlanApiModel attributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
     return this;
   }
@@ -441,12 +444,12 @@ public class UpdateTestPlanApiModel {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Object> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
   }
 
 
-  public UpdateTestPlanApiModel tags(List<TagApiModel> tags) {
+  public UpdateTestPlanApiModel tags(@jakarta.annotation.Nullable List<TagApiModel> tags) {
     this.tags = JsonNullable.<List<TagApiModel>>of(tags);
     return this;
   }
@@ -486,7 +489,7 @@ public class UpdateTestPlanApiModel {
     this.tags = tags;
   }
 
-  public void setTags(List<TagApiModel> tags) {
+  public void setTags(@jakarta.annotation.Nullable List<TagApiModel> tags) {
     this.tags = JsonNullable.<List<TagApiModel>>of(tags);
   }
 

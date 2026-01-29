@@ -48,24 +48,30 @@ import ru.testit.client.invoker.JSON;
   FilterModel.JSON_PROPERTY_DATA,
   FilterModel.JSON_PROPERTY_FIELDS_TO_SHOW
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FilterModel {
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
@@ -83,7 +89,7 @@ public class FilterModel {
   public FilterModel() { 
   }
 
-  public FilterModel createdDate(OffsetDateTime createdDate) {
+  public FilterModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -103,12 +109,12 @@ public class FilterModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public FilterModel createdById(UUID createdById) {
+  public FilterModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -128,12 +134,12 @@ public class FilterModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public FilterModel projectId(UUID projectId) {
+  public FilterModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -153,12 +159,12 @@ public class FilterModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public FilterModel name(String name) {
+  public FilterModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -178,12 +184,12 @@ public class FilterModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public FilterModel id(UUID id) {
+  public FilterModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -203,12 +209,12 @@ public class FilterModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public FilterModel isDeleted(Boolean isDeleted) {
+  public FilterModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -228,12 +234,12 @@ public class FilterModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public FilterModel modifiedDate(OffsetDateTime modifiedDate) {
+  public FilterModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -261,12 +267,12 @@ public class FilterModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public FilterModel modifiedById(UUID modifiedById) {
+  public FilterModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -294,12 +300,12 @@ public class FilterModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public FilterModel data(WorkItemSearchQueryModel data) {
+  public FilterModel data(@jakarta.annotation.Nullable WorkItemSearchQueryModel data) {
     this.data = JsonNullable.<WorkItemSearchQueryModel>of(data);
     return this;
   }
@@ -327,12 +333,12 @@ public class FilterModel {
     this.data = data;
   }
 
-  public void setData(WorkItemSearchQueryModel data) {
+  public void setData(@jakarta.annotation.Nullable WorkItemSearchQueryModel data) {
     this.data = JsonNullable.<WorkItemSearchQueryModel>of(data);
   }
 
 
-  public FilterModel fieldsToShow(Object fieldsToShow) {
+  public FilterModel fieldsToShow(@jakarta.annotation.Nullable Object fieldsToShow) {
     this.fieldsToShow = JsonNullable.<Object>of(fieldsToShow);
     return this;
   }
@@ -360,7 +366,7 @@ public class FilterModel {
     this.fieldsToShow = fieldsToShow;
   }
 
-  public void setFieldsToShow(Object fieldsToShow) {
+  public void setFieldsToShow(@jakarta.annotation.Nullable Object fieldsToShow) {
     this.fieldsToShow = JsonNullable.<Object>of(fieldsToShow);
   }
 

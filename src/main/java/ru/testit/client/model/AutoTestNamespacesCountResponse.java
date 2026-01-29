@@ -35,15 +35,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   AutoTestNamespacesCountResponse.JSON_PROPERTY_NAMESPACES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestNamespacesCountResponse {
   public static final String JSON_PROPERTY_NAMESPACES = "namespaces";
+  @jakarta.annotation.Nonnull
   private List<AutoTestNamespaceCountApiModel> namespaces = new ArrayList<>();
 
   public AutoTestNamespacesCountResponse() { 
   }
 
-  public AutoTestNamespacesCountResponse namespaces(List<AutoTestNamespaceCountApiModel> namespaces) {
+  public AutoTestNamespacesCountResponse namespaces(@jakarta.annotation.Nonnull List<AutoTestNamespaceCountApiModel> namespaces) {
     this.namespaces = namespaces;
     return this;
   }
@@ -71,7 +72,7 @@ public class AutoTestNamespacesCountResponse {
 
   @JsonProperty(JSON_PROPERTY_NAMESPACES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNamespaces(List<AutoTestNamespaceCountApiModel> namespaces) {
+  public void setNamespaces(@jakarta.annotation.Nonnull List<AutoTestNamespaceCountApiModel> namespaces) {
     this.namespaces = namespaces;
   }
 

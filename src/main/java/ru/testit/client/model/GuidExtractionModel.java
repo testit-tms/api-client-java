@@ -40,7 +40,7 @@ import ru.testit.client.invoker.JSON;
   GuidExtractionModel.JSON_PROPERTY_INCLUDE,
   GuidExtractionModel.JSON_PROPERTY_EXCLUDE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GuidExtractionModel {
   public static final String JSON_PROPERTY_INCLUDE = "include";
   private JsonNullable<List<UUID>> include = JsonNullable.<List<UUID>>undefined();
@@ -51,7 +51,7 @@ public class GuidExtractionModel {
   public GuidExtractionModel() { 
   }
 
-  public GuidExtractionModel include(List<UUID> include) {
+  public GuidExtractionModel include(@jakarta.annotation.Nullable List<UUID> include) {
     this.include = JsonNullable.<List<UUID>>of(include);
     return this;
   }
@@ -91,12 +91,12 @@ public class GuidExtractionModel {
     this.include = include;
   }
 
-  public void setInclude(List<UUID> include) {
+  public void setInclude(@jakarta.annotation.Nullable List<UUID> include) {
     this.include = JsonNullable.<List<UUID>>of(include);
   }
 
 
-  public GuidExtractionModel exclude(List<UUID> exclude) {
+  public GuidExtractionModel exclude(@jakarta.annotation.Nullable List<UUID> exclude) {
     this.exclude = JsonNullable.<List<UUID>>of(exclude);
     return this;
   }
@@ -136,7 +136,7 @@ public class GuidExtractionModel {
     this.exclude = exclude;
   }
 
-  public void setExclude(List<UUID> exclude) {
+  public void setExclude(@jakarta.annotation.Nullable List<UUID> exclude) {
     this.exclude = JsonNullable.<List<UUID>>of(exclude);
   }
 

@@ -37,7 +37,7 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   ManualRerunTestResultApiModel.JSON_PROPERTY_TEST_RESULT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ManualRerunTestResultApiModel {
   public static final String JSON_PROPERTY_TEST_RESULT_IDS = "testResultIds";
   private JsonNullable<GuidExtractionModel> testResultIds = JsonNullable.<GuidExtractionModel>undefined();
@@ -45,7 +45,7 @@ public class ManualRerunTestResultApiModel {
   public ManualRerunTestResultApiModel() { 
   }
 
-  public ManualRerunTestResultApiModel testResultIds(GuidExtractionModel testResultIds) {
+  public ManualRerunTestResultApiModel testResultIds(@jakarta.annotation.Nullable GuidExtractionModel testResultIds) {
     this.testResultIds = JsonNullable.<GuidExtractionModel>of(testResultIds);
     return this;
   }
@@ -73,7 +73,7 @@ public class ManualRerunTestResultApiModel {
     this.testResultIds = testResultIds;
   }
 
-  public void setTestResultIds(GuidExtractionModel testResultIds) {
+  public void setTestResultIds(@jakarta.annotation.Nullable GuidExtractionModel testResultIds) {
     this.testResultIds = JsonNullable.<GuidExtractionModel>of(testResultIds);
   }
 

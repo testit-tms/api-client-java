@@ -48,27 +48,34 @@ import ru.testit.client.invoker.JSON;
   CustomAttributePutModel.JSON_PROPERTY_IS_GLOBAL,
   CustomAttributePutModel.JSON_PROPERTY_OPTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributePutModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private CustomAttributeTypesEnum type;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  @jakarta.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_IS_REQUIRED = "isRequired";
+  @jakarta.annotation.Nonnull
   private Boolean isRequired;
 
   public static final String JSON_PROPERTY_IS_GLOBAL = "isGlobal";
+  @jakarta.annotation.Nonnull
   private Boolean isGlobal;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
@@ -77,7 +84,7 @@ public class CustomAttributePutModel {
   public CustomAttributePutModel() { 
   }
 
-  public CustomAttributePutModel id(UUID id) {
+  public CustomAttributePutModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -97,12 +104,12 @@ public class CustomAttributePutModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributePutModel type(CustomAttributeTypesEnum type) {
+  public CustomAttributePutModel type(@jakarta.annotation.Nonnull CustomAttributeTypesEnum type) {
     this.type = type;
     return this;
   }
@@ -122,12 +129,12 @@ public class CustomAttributePutModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(CustomAttributeTypesEnum type) {
+  public void setType(@jakarta.annotation.Nonnull CustomAttributeTypesEnum type) {
     this.type = type;
   }
 
 
-  public CustomAttributePutModel isDeleted(Boolean isDeleted) {
+  public CustomAttributePutModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -147,12 +154,12 @@ public class CustomAttributePutModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public CustomAttributePutModel name(String name) {
+  public CustomAttributePutModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -172,12 +179,12 @@ public class CustomAttributePutModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CustomAttributePutModel isEnabled(Boolean isEnabled) {
+  public CustomAttributePutModel isEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -197,12 +204,12 @@ public class CustomAttributePutModel {
 
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public CustomAttributePutModel isRequired(Boolean isRequired) {
+  public CustomAttributePutModel isRequired(@jakarta.annotation.Nonnull Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -222,12 +229,12 @@ public class CustomAttributePutModel {
 
   @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@jakarta.annotation.Nonnull Boolean isRequired) {
     this.isRequired = isRequired;
   }
 
 
-  public CustomAttributePutModel isGlobal(Boolean isGlobal) {
+  public CustomAttributePutModel isGlobal(@jakarta.annotation.Nonnull Boolean isGlobal) {
     this.isGlobal = isGlobal;
     return this;
   }
@@ -247,12 +254,12 @@ public class CustomAttributePutModel {
 
   @JsonProperty(JSON_PROPERTY_IS_GLOBAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsGlobal(Boolean isGlobal) {
+  public void setIsGlobal(@jakarta.annotation.Nonnull Boolean isGlobal) {
     this.isGlobal = isGlobal;
   }
 
 
-  public CustomAttributePutModel options(List<CustomAttributeOptionModel> options) {
+  public CustomAttributePutModel options(@jakarta.annotation.Nullable List<CustomAttributeOptionModel> options) {
     this.options = JsonNullable.<List<CustomAttributeOptionModel>>of(options);
     return this;
   }
@@ -270,7 +277,7 @@ public class CustomAttributePutModel {
   }
 
   /**
-   * Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
   @jakarta.annotation.Nullable
@@ -292,7 +299,7 @@ public class CustomAttributePutModel {
     this.options = options;
   }
 
-  public void setOptions(List<CustomAttributeOptionModel> options) {
+  public void setOptions(@jakarta.annotation.Nullable List<CustomAttributeOptionModel> options) {
     this.options = JsonNullable.<List<CustomAttributeOptionModel>>of(options);
   }
 

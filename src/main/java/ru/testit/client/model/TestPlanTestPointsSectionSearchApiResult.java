@@ -39,12 +39,14 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsSectionSearchApiResult.JSON_PROPERTY_ORDER_RANK,
   TestPlanTestPointsSectionSearchApiResult.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsSectionSearchApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_ORDER_RANK = "orderRank";
+  @jakarta.annotation.Nonnull
   private String orderRank;
 
   public static final String JSON_PROPERTY_NAME = "name";
@@ -53,7 +55,7 @@ public class TestPlanTestPointsSectionSearchApiResult {
   public TestPlanTestPointsSectionSearchApiResult() { 
   }
 
-  public TestPlanTestPointsSectionSearchApiResult id(UUID id) {
+  public TestPlanTestPointsSectionSearchApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -73,12 +75,12 @@ public class TestPlanTestPointsSectionSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanTestPointsSectionSearchApiResult orderRank(String orderRank) {
+  public TestPlanTestPointsSectionSearchApiResult orderRank(@jakarta.annotation.Nonnull String orderRank) {
     this.orderRank = orderRank;
     return this;
   }
@@ -98,12 +100,12 @@ public class TestPlanTestPointsSectionSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_ORDER_RANK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOrderRank(String orderRank) {
+  public void setOrderRank(@jakarta.annotation.Nonnull String orderRank) {
     this.orderRank = orderRank;
   }
 
 
-  public TestPlanTestPointsSectionSearchApiResult name(String name) {
+  public TestPlanTestPointsSectionSearchApiResult name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -131,7 +133,7 @@ public class TestPlanTestPointsSectionSearchApiResult {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 

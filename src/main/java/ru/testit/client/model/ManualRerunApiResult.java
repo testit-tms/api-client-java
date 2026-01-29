@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   ManualRerunApiResult.JSON_PROPERTY_TEST_RESULTS_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ManualRerunApiResult {
   public static final String JSON_PROPERTY_TEST_RESULTS_COUNT = "testResultsCount";
+  @jakarta.annotation.Nonnull
   private Integer testResultsCount;
 
   public ManualRerunApiResult() { 
   }
 
-  public ManualRerunApiResult testResultsCount(Integer testResultsCount) {
+  public ManualRerunApiResult testResultsCount(@jakarta.annotation.Nonnull Integer testResultsCount) {
     this.testResultsCount = testResultsCount;
     return this;
   }
@@ -60,7 +61,7 @@ public class ManualRerunApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_RESULTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestResultsCount(Integer testResultsCount) {
+  public void setTestResultsCount(@jakarta.annotation.Nonnull Integer testResultsCount) {
     this.testResultsCount = testResultsCount;
   }
 

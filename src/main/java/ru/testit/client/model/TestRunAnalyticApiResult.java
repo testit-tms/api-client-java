@@ -39,21 +39,24 @@ import ru.testit.client.invoker.JSON;
   TestRunAnalyticApiResult.JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE,
   TestRunAnalyticApiResult.JSON_PROPERTY_COUNT_GROUP_BY_FAILURE_CLASS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunAnalyticApiResult {
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_STATUS = "countGroupByStatus";
+  @jakarta.annotation.Nonnull
   private List<TestRunGroupByStatusApiResult> countGroupByStatus = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE = "countGroupByStatusType";
+  @jakarta.annotation.Nonnull
   private List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_FAILURE_CLASS = "countGroupByFailureClass";
+  @jakarta.annotation.Nonnull
   private List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass = new ArrayList<>();
 
   public TestRunAnalyticApiResult() { 
   }
 
-  public TestRunAnalyticApiResult countGroupByStatus(List<TestRunGroupByStatusApiResult> countGroupByStatus) {
+  public TestRunAnalyticApiResult countGroupByStatus(@jakarta.annotation.Nonnull List<TestRunGroupByStatusApiResult> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
     return this;
   }
@@ -81,12 +84,12 @@ public class TestRunAnalyticApiResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByStatus(List<TestRunGroupByStatusApiResult> countGroupByStatus) {
+  public void setCountGroupByStatus(@jakarta.annotation.Nonnull List<TestRunGroupByStatusApiResult> countGroupByStatus) {
     this.countGroupByStatus = countGroupByStatus;
   }
 
 
-  public TestRunAnalyticApiResult countGroupByStatusType(List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType) {
+  public TestRunAnalyticApiResult countGroupByStatusType(@jakarta.annotation.Nonnull List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType) {
     this.countGroupByStatusType = countGroupByStatusType;
     return this;
   }
@@ -114,12 +117,12 @@ public class TestRunAnalyticApiResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_STATUS_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByStatusType(List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType) {
+  public void setCountGroupByStatusType(@jakarta.annotation.Nonnull List<TestRunGroupByStatusTypeApiResult> countGroupByStatusType) {
     this.countGroupByStatusType = countGroupByStatusType;
   }
 
 
-  public TestRunAnalyticApiResult countGroupByFailureClass(List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass) {
+  public TestRunAnalyticApiResult countGroupByFailureClass(@jakarta.annotation.Nonnull List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass) {
     this.countGroupByFailureClass = countGroupByFailureClass;
     return this;
   }
@@ -147,7 +150,7 @@ public class TestRunAnalyticApiResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_FAILURE_CLASS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByFailureClass(List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass) {
+  public void setCountGroupByFailureClass(@jakarta.annotation.Nonnull List<TestRunGroupByFailureClassApiResult> countGroupByFailureClass) {
     this.countGroupByFailureClass = countGroupByFailureClass;
   }
 

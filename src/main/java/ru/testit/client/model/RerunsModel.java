@@ -36,18 +36,20 @@ import ru.testit.client.invoker.JSON;
   RerunsModel.JSON_PROPERTY_RERUN_COUNT,
   RerunsModel.JSON_PROPERTY_RERUN_TEST_RESULTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class RerunsModel {
   public static final String JSON_PROPERTY_RERUN_COUNT = "rerunCount";
+  @jakarta.annotation.Nonnull
   private Integer rerunCount;
 
   public static final String JSON_PROPERTY_RERUN_TEST_RESULTS = "rerunTestResults";
+  @jakarta.annotation.Nonnull
   private List<RerunTestResultModel> rerunTestResults = new ArrayList<>();
 
   public RerunsModel() { 
   }
 
-  public RerunsModel rerunCount(Integer rerunCount) {
+  public RerunsModel rerunCount(@jakarta.annotation.Nonnull Integer rerunCount) {
     this.rerunCount = rerunCount;
     return this;
   }
@@ -67,12 +69,12 @@ public class RerunsModel {
 
   @JsonProperty(JSON_PROPERTY_RERUN_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRerunCount(Integer rerunCount) {
+  public void setRerunCount(@jakarta.annotation.Nonnull Integer rerunCount) {
     this.rerunCount = rerunCount;
   }
 
 
-  public RerunsModel rerunTestResults(List<RerunTestResultModel> rerunTestResults) {
+  public RerunsModel rerunTestResults(@jakarta.annotation.Nonnull List<RerunTestResultModel> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
     return this;
   }
@@ -100,7 +102,7 @@ public class RerunsModel {
 
   @JsonProperty(JSON_PROPERTY_RERUN_TEST_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRerunTestResults(List<RerunTestResultModel> rerunTestResults) {
+  public void setRerunTestResults(@jakarta.annotation.Nonnull List<RerunTestResultModel> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
   }
 

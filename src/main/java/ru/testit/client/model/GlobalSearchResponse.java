@@ -37,21 +37,24 @@ import ru.testit.client.invoker.JSON;
   GlobalSearchResponse.JSON_PROPERTY_MORE_RESULTS_AVAILABLE,
   GlobalSearchResponse.JSON_PROPERTY_AVAILABLE_RESOURCE_TYPES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GlobalSearchResponse {
   public static final String JSON_PROPERTY_RESULTS = "results";
+  @jakarta.annotation.Nonnull
   private List<GlobalSearchItemResult> results = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MORE_RESULTS_AVAILABLE = "moreResultsAvailable";
+  @jakarta.annotation.Nonnull
   private Boolean moreResultsAvailable;
 
   public static final String JSON_PROPERTY_AVAILABLE_RESOURCE_TYPES = "availableResourceTypes";
+  @jakarta.annotation.Nonnull
   private List<String> availableResourceTypes = new ArrayList<>();
 
   public GlobalSearchResponse() { 
   }
 
-  public GlobalSearchResponse results(List<GlobalSearchItemResult> results) {
+  public GlobalSearchResponse results(@jakarta.annotation.Nonnull List<GlobalSearchItemResult> results) {
     this.results = results;
     return this;
   }
@@ -79,12 +82,12 @@ public class GlobalSearchResponse {
 
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResults(List<GlobalSearchItemResult> results) {
+  public void setResults(@jakarta.annotation.Nonnull List<GlobalSearchItemResult> results) {
     this.results = results;
   }
 
 
-  public GlobalSearchResponse moreResultsAvailable(Boolean moreResultsAvailable) {
+  public GlobalSearchResponse moreResultsAvailable(@jakarta.annotation.Nonnull Boolean moreResultsAvailable) {
     this.moreResultsAvailable = moreResultsAvailable;
     return this;
   }
@@ -104,12 +107,12 @@ public class GlobalSearchResponse {
 
   @JsonProperty(JSON_PROPERTY_MORE_RESULTS_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMoreResultsAvailable(Boolean moreResultsAvailable) {
+  public void setMoreResultsAvailable(@jakarta.annotation.Nonnull Boolean moreResultsAvailable) {
     this.moreResultsAvailable = moreResultsAvailable;
   }
 
 
-  public GlobalSearchResponse availableResourceTypes(List<String> availableResourceTypes) {
+  public GlobalSearchResponse availableResourceTypes(@jakarta.annotation.Nonnull List<String> availableResourceTypes) {
     this.availableResourceTypes = availableResourceTypes;
     return this;
   }
@@ -137,7 +140,7 @@ public class GlobalSearchResponse {
 
   @JsonProperty(JSON_PROPERTY_AVAILABLE_RESOURCE_TYPES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAvailableResourceTypes(List<String> availableResourceTypes) {
+  public void setAvailableResourceTypes(@jakarta.annotation.Nonnull List<String> availableResourceTypes) {
     this.availableResourceTypes = availableResourceTypes;
   }
 

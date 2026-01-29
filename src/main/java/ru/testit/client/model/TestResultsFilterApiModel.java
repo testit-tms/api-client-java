@@ -57,7 +57,7 @@ import ru.testit.client.invoker.JSON;
   TestResultsFilterApiModel.JSON_PROPERTY_RESULT_REASONS,
   TestResultsFilterApiModel.JSON_PROPERTY_TEST_RUN_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultsFilterApiModel {
   public static final String JSON_PROPERTY_CONFIGURATION_IDS = "configurationIds";
   private JsonNullable<List<UUID>> configurationIds = JsonNullable.<List<UUID>>undefined();
@@ -108,7 +108,7 @@ public class TestResultsFilterApiModel {
   public TestResultsFilterApiModel() { 
   }
 
-  public TestResultsFilterApiModel configurationIds(List<UUID> configurationIds) {
+  public TestResultsFilterApiModel configurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
     return this;
   }
@@ -148,13 +148,13 @@ public class TestResultsFilterApiModel {
     this.configurationIds = configurationIds;
   }
 
-  public void setConfigurationIds(List<UUID> configurationIds) {
+  public void setConfigurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
   }
 
 
   @Deprecated
-  public TestResultsFilterApiModel outcomes(List<TestResultOutcome> outcomes) {
+  public TestResultsFilterApiModel outcomes(@jakarta.annotation.Nullable List<TestResultOutcome> outcomes) {
     this.outcomes = JsonNullable.<List<TestResultOutcome>>of(outcomes);
     return this;
   }
@@ -197,12 +197,12 @@ public class TestResultsFilterApiModel {
   }
 
   @Deprecated
-  public void setOutcomes(List<TestResultOutcome> outcomes) {
+  public void setOutcomes(@jakarta.annotation.Nullable List<TestResultOutcome> outcomes) {
     this.outcomes = JsonNullable.<List<TestResultOutcome>>of(outcomes);
   }
 
 
-  public TestResultsFilterApiModel statusCodes(List<String> statusCodes) {
+  public TestResultsFilterApiModel statusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
     return this;
   }
@@ -242,12 +242,12 @@ public class TestResultsFilterApiModel {
     this.statusCodes = statusCodes;
   }
 
-  public void setStatusCodes(List<String> statusCodes) {
+  public void setStatusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
   }
 
 
-  public TestResultsFilterApiModel failureCategories(List<FailureCategoryModel> failureCategories) {
+  public TestResultsFilterApiModel failureCategories(@jakarta.annotation.Nullable List<FailureCategoryModel> failureCategories) {
     this.failureCategories = JsonNullable.<List<FailureCategoryModel>>of(failureCategories);
     return this;
   }
@@ -287,12 +287,12 @@ public class TestResultsFilterApiModel {
     this.failureCategories = failureCategories;
   }
 
-  public void setFailureCategories(List<FailureCategoryModel> failureCategories) {
+  public void setFailureCategories(@jakarta.annotation.Nullable List<FailureCategoryModel> failureCategories) {
     this.failureCategories = JsonNullable.<List<FailureCategoryModel>>of(failureCategories);
   }
 
 
-  public TestResultsFilterApiModel namespace(String namespace) {
+  public TestResultsFilterApiModel namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
     return this;
   }
@@ -320,12 +320,12 @@ public class TestResultsFilterApiModel {
     this.namespace = namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
   }
 
 
-  public TestResultsFilterApiModel className(String className) {
+  public TestResultsFilterApiModel className(@jakarta.annotation.Nullable String className) {
     this.className = JsonNullable.<String>of(className);
     return this;
   }
@@ -353,12 +353,12 @@ public class TestResultsFilterApiModel {
     this.className = className;
   }
 
-  public void setClassName(String className) {
+  public void setClassName(@jakarta.annotation.Nullable String className) {
     this.className = JsonNullable.<String>of(className);
   }
 
 
-  public TestResultsFilterApiModel autoTestGlobalIds(List<Long> autoTestGlobalIds) {
+  public TestResultsFilterApiModel autoTestGlobalIds(@jakarta.annotation.Nullable List<Long> autoTestGlobalIds) {
     this.autoTestGlobalIds = JsonNullable.<List<Long>>of(autoTestGlobalIds);
     return this;
   }
@@ -398,12 +398,12 @@ public class TestResultsFilterApiModel {
     this.autoTestGlobalIds = autoTestGlobalIds;
   }
 
-  public void setAutoTestGlobalIds(List<Long> autoTestGlobalIds) {
+  public void setAutoTestGlobalIds(@jakarta.annotation.Nullable List<Long> autoTestGlobalIds) {
     this.autoTestGlobalIds = JsonNullable.<List<Long>>of(autoTestGlobalIds);
   }
 
 
-  public TestResultsFilterApiModel name(String name) {
+  public TestResultsFilterApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -431,12 +431,12 @@ public class TestResultsFilterApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public TestResultsFilterApiModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public TestResultsFilterApiModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -464,12 +464,12 @@ public class TestResultsFilterApiModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public TestResultsFilterApiModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public TestResultsFilterApiModel modifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
     return this;
   }
@@ -497,12 +497,12 @@ public class TestResultsFilterApiModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
   }
 
 
-  public TestResultsFilterApiModel startedOn(DateTimeRangeSelectorModel startedOn) {
+  public TestResultsFilterApiModel startedOn(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startedOn) {
     this.startedOn = JsonNullable.<DateTimeRangeSelectorModel>of(startedOn);
     return this;
   }
@@ -530,12 +530,12 @@ public class TestResultsFilterApiModel {
     this.startedOn = startedOn;
   }
 
-  public void setStartedOn(DateTimeRangeSelectorModel startedOn) {
+  public void setStartedOn(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startedOn) {
     this.startedOn = JsonNullable.<DateTimeRangeSelectorModel>of(startedOn);
   }
 
 
-  public TestResultsFilterApiModel completedOn(DateTimeRangeSelectorModel completedOn) {
+  public TestResultsFilterApiModel completedOn(@jakarta.annotation.Nullable DateTimeRangeSelectorModel completedOn) {
     this.completedOn = JsonNullable.<DateTimeRangeSelectorModel>of(completedOn);
     return this;
   }
@@ -563,12 +563,12 @@ public class TestResultsFilterApiModel {
     this.completedOn = completedOn;
   }
 
-  public void setCompletedOn(DateTimeRangeSelectorModel completedOn) {
+  public void setCompletedOn(@jakarta.annotation.Nullable DateTimeRangeSelectorModel completedOn) {
     this.completedOn = JsonNullable.<DateTimeRangeSelectorModel>of(completedOn);
   }
 
 
-  public TestResultsFilterApiModel duration(Int64RangeSelectorModel duration) {
+  public TestResultsFilterApiModel duration(@jakarta.annotation.Nullable Int64RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
     return this;
   }
@@ -596,12 +596,12 @@ public class TestResultsFilterApiModel {
     this.duration = duration;
   }
 
-  public void setDuration(Int64RangeSelectorModel duration) {
+  public void setDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
   }
 
 
-  public TestResultsFilterApiModel resultReasons(List<String> resultReasons) {
+  public TestResultsFilterApiModel resultReasons(@jakarta.annotation.Nullable List<String> resultReasons) {
     this.resultReasons = JsonNullable.<List<String>>of(resultReasons);
     return this;
   }
@@ -641,12 +641,12 @@ public class TestResultsFilterApiModel {
     this.resultReasons = resultReasons;
   }
 
-  public void setResultReasons(List<String> resultReasons) {
+  public void setResultReasons(@jakarta.annotation.Nullable List<String> resultReasons) {
     this.resultReasons = JsonNullable.<List<String>>of(resultReasons);
   }
 
 
-  public TestResultsFilterApiModel testRunIds(List<UUID> testRunIds) {
+  public TestResultsFilterApiModel testRunIds(@jakarta.annotation.Nullable List<UUID> testRunIds) {
     this.testRunIds = JsonNullable.<List<UUID>>of(testRunIds);
     return this;
   }
@@ -686,7 +686,7 @@ public class TestResultsFilterApiModel {
     this.testRunIds = testRunIds;
   }
 
-  public void setTestRunIds(List<UUID> testRunIds) {
+  public void setTestRunIds(@jakarta.annotation.Nullable List<UUID> testRunIds) {
     this.testRunIds = JsonNullable.<List<UUID>>of(testRunIds);
   }
 

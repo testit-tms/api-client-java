@@ -39,9 +39,10 @@ import ru.testit.client.invoker.JSON;
   WorkItemSelectApiModel.JSON_PROPERTY_FILTER,
   WorkItemSelectApiModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemSelectApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private WorkItemFilterApiModel filter;
 
   public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
@@ -50,7 +51,7 @@ public class WorkItemSelectApiModel {
   public WorkItemSelectApiModel() { 
   }
 
-  public WorkItemSelectApiModel filter(WorkItemFilterApiModel filter) {
+  public WorkItemSelectApiModel filter(@jakarta.annotation.Nonnull WorkItemFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -70,12 +71,12 @@ public class WorkItemSelectApiModel {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(WorkItemFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nonnull WorkItemFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public WorkItemSelectApiModel extractionModel(WorkItemExtractionApiModel extractionModel) {
+  public WorkItemSelectApiModel extractionModel(@jakarta.annotation.Nullable WorkItemExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<WorkItemExtractionApiModel>of(extractionModel);
     return this;
   }
@@ -103,7 +104,7 @@ public class WorkItemSelectApiModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(WorkItemExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable WorkItemExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<WorkItemExtractionApiModel>of(extractionModel);
   }
 

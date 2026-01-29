@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   WorkItemExternalMetadataFieldFilterApiModel.JSON_PROPERTY_VALUE,
   WorkItemExternalMetadataFieldFilterApiModel.JSON_PROPERTY_EXTERNAL_SERVICE_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemExternalMetadataFieldFilterApiModel {
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private String value;
 
   public static final String JSON_PROPERTY_EXTERNAL_SERVICE_ID = "externalServiceId";
+  @jakarta.annotation.Nonnull
   private UUID externalServiceId;
 
   public WorkItemExternalMetadataFieldFilterApiModel() { 
   }
 
-  public WorkItemExternalMetadataFieldFilterApiModel value(String value) {
+  public WorkItemExternalMetadataFieldFilterApiModel value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
@@ -65,12 +67,12 @@ public class WorkItemExternalMetadataFieldFilterApiModel {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 
 
-  public WorkItemExternalMetadataFieldFilterApiModel externalServiceId(UUID externalServiceId) {
+  public WorkItemExternalMetadataFieldFilterApiModel externalServiceId(@jakarta.annotation.Nonnull UUID externalServiceId) {
     this.externalServiceId = externalServiceId;
     return this;
   }
@@ -90,7 +92,7 @@ public class WorkItemExternalMetadataFieldFilterApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_SERVICE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalServiceId(UUID externalServiceId) {
+  public void setExternalServiceId(@jakarta.annotation.Nonnull UUID externalServiceId) {
     this.externalServiceId = externalServiceId;
   }
 

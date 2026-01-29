@@ -43,18 +43,22 @@ import ru.testit.client.invoker.JSON;
   ConfigurationPostModel.JSON_PROPERTY_NAME,
   ConfigurationPostModel.JSON_PROPERTY_DESCRIPTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ConfigurationPostModel {
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  @jakarta.annotation.Nonnull
   private Map<String, String> parameters = new HashMap<>();
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
+  @jakarta.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -63,7 +67,7 @@ public class ConfigurationPostModel {
   public ConfigurationPostModel() { 
   }
 
-  public ConfigurationPostModel parameters(Map<String, String> parameters) {
+  public ConfigurationPostModel parameters(@jakarta.annotation.Nonnull Map<String, String> parameters) {
     this.parameters = parameters;
     return this;
   }
@@ -91,12 +95,12 @@ public class ConfigurationPostModel {
 
   @JsonProperty(JSON_PROPERTY_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nonnull Map<String, String> parameters) {
     this.parameters = parameters;
   }
 
 
-  public ConfigurationPostModel projectId(UUID projectId) {
+  public ConfigurationPostModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -116,12 +120,12 @@ public class ConfigurationPostModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationPostModel isDefault(Boolean isDefault) {
+  public ConfigurationPostModel isDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -141,12 +145,12 @@ public class ConfigurationPostModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDefault(Boolean isDefault) {
+  public void setIsDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public ConfigurationPostModel name(String name) {
+  public ConfigurationPostModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -166,12 +170,12 @@ public class ConfigurationPostModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ConfigurationPostModel description(String description) {
+  public ConfigurationPostModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -199,7 +203,7 @@ public class ConfigurationPostModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 

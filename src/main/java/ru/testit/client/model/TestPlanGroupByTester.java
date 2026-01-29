@@ -38,9 +38,10 @@ import ru.testit.client.invoker.JSON;
   TestPlanGroupByTester.JSON_PROPERTY_VALUE,
   TestPlanGroupByTester.JSON_PROPERTY_USER_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanGroupByTester {
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private Long value;
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
@@ -49,7 +50,7 @@ public class TestPlanGroupByTester {
   public TestPlanGroupByTester() { 
   }
 
-  public TestPlanGroupByTester value(Long value) {
+  public TestPlanGroupByTester value(@jakarta.annotation.Nonnull Long value) {
     this.value = value;
     return this;
   }
@@ -69,12 +70,12 @@ public class TestPlanGroupByTester {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Long value) {
+  public void setValue(@jakarta.annotation.Nonnull Long value) {
     this.value = value;
   }
 
 
-  public TestPlanGroupByTester userId(UUID userId) {
+  public TestPlanGroupByTester userId(@jakarta.annotation.Nullable UUID userId) {
     this.userId = JsonNullable.<UUID>of(userId);
     return this;
   }
@@ -102,7 +103,7 @@ public class TestPlanGroupByTester {
     this.userId = userId;
   }
 
-  public void setUserId(UUID userId) {
+  public void setUserId(@jakarta.annotation.Nullable UUID userId) {
     this.userId = JsonNullable.<UUID>of(userId);
   }
 

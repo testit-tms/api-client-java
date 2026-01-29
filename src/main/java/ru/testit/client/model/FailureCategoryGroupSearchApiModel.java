@@ -39,9 +39,10 @@ import ru.testit.client.invoker.JSON;
   FailureCategoryGroupSearchApiModel.JSON_PROPERTY_INQUIRY,
   FailureCategoryGroupSearchApiModel.JSON_PROPERTY_GROUP
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FailureCategoryGroupSearchApiModel {
   public static final String JSON_PROPERTY_INQUIRY = "inquiry";
+  @jakarta.annotation.Nonnull
   private Inquiry inquiry;
 
   public static final String JSON_PROPERTY_GROUP = "group";
@@ -50,7 +51,7 @@ public class FailureCategoryGroupSearchApiModel {
   public FailureCategoryGroupSearchApiModel() { 
   }
 
-  public FailureCategoryGroupSearchApiModel inquiry(Inquiry inquiry) {
+  public FailureCategoryGroupSearchApiModel inquiry(@jakarta.annotation.Nonnull Inquiry inquiry) {
     this.inquiry = inquiry;
     return this;
   }
@@ -70,12 +71,12 @@ public class FailureCategoryGroupSearchApiModel {
 
   @JsonProperty(JSON_PROPERTY_INQUIRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInquiry(Inquiry inquiry) {
+  public void setInquiry(@jakarta.annotation.Nonnull Inquiry inquiry) {
     this.inquiry = inquiry;
   }
 
 
-  public FailureCategoryGroupSearchApiModel group(FailureCategoryGroupApiModel group) {
+  public FailureCategoryGroupSearchApiModel group(@jakarta.annotation.Nullable FailureCategoryGroupApiModel group) {
     this.group = JsonNullable.<FailureCategoryGroupApiModel>of(group);
     return this;
   }
@@ -103,7 +104,7 @@ public class FailureCategoryGroupSearchApiModel {
     this.group = group;
   }
 
-  public void setGroup(FailureCategoryGroupApiModel group) {
+  public void setGroup(@jakarta.annotation.Nullable FailureCategoryGroupApiModel group) {
     this.group = JsonNullable.<FailureCategoryGroupApiModel>of(group);
   }
 

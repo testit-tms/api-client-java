@@ -52,7 +52,7 @@ import ru.testit.client.invoker.JSON;
   ProjectsFilterModel.JSON_PROPERTY_CREATED_BY_IDS,
   ProjectsFilterModel.JSON_PROPERTY_TYPES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectsFilterModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -90,7 +90,7 @@ public class ProjectsFilterModel {
   public ProjectsFilterModel() { 
   }
 
-  public ProjectsFilterModel name(String name) {
+  public ProjectsFilterModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -118,12 +118,12 @@ public class ProjectsFilterModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public ProjectsFilterModel isFavorite(Boolean isFavorite) {
+  public ProjectsFilterModel isFavorite(@jakarta.annotation.Nullable Boolean isFavorite) {
     this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
     return this;
   }
@@ -151,12 +151,12 @@ public class ProjectsFilterModel {
     this.isFavorite = isFavorite;
   }
 
-  public void setIsFavorite(Boolean isFavorite) {
+  public void setIsFavorite(@jakarta.annotation.Nullable Boolean isFavorite) {
     this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
   }
 
 
-  public ProjectsFilterModel isDeleted(Boolean isDeleted) {
+  public ProjectsFilterModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -184,12 +184,12 @@ public class ProjectsFilterModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public ProjectsFilterModel testCasesCount(Int32RangeSelectorModel testCasesCount) {
+  public ProjectsFilterModel testCasesCount(@jakarta.annotation.Nullable Int32RangeSelectorModel testCasesCount) {
     this.testCasesCount = JsonNullable.<Int32RangeSelectorModel>of(testCasesCount);
     return this;
   }
@@ -217,12 +217,12 @@ public class ProjectsFilterModel {
     this.testCasesCount = testCasesCount;
   }
 
-  public void setTestCasesCount(Int32RangeSelectorModel testCasesCount) {
+  public void setTestCasesCount(@jakarta.annotation.Nullable Int32RangeSelectorModel testCasesCount) {
     this.testCasesCount = JsonNullable.<Int32RangeSelectorModel>of(testCasesCount);
   }
 
 
-  public ProjectsFilterModel checklistsCount(Int32RangeSelectorModel checklistsCount) {
+  public ProjectsFilterModel checklistsCount(@jakarta.annotation.Nullable Int32RangeSelectorModel checklistsCount) {
     this.checklistsCount = JsonNullable.<Int32RangeSelectorModel>of(checklistsCount);
     return this;
   }
@@ -250,12 +250,12 @@ public class ProjectsFilterModel {
     this.checklistsCount = checklistsCount;
   }
 
-  public void setChecklistsCount(Int32RangeSelectorModel checklistsCount) {
+  public void setChecklistsCount(@jakarta.annotation.Nullable Int32RangeSelectorModel checklistsCount) {
     this.checklistsCount = JsonNullable.<Int32RangeSelectorModel>of(checklistsCount);
   }
 
 
-  public ProjectsFilterModel sharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
+  public ProjectsFilterModel sharedStepsCount(@jakarta.annotation.Nullable Int32RangeSelectorModel sharedStepsCount) {
     this.sharedStepsCount = JsonNullable.<Int32RangeSelectorModel>of(sharedStepsCount);
     return this;
   }
@@ -283,12 +283,12 @@ public class ProjectsFilterModel {
     this.sharedStepsCount = sharedStepsCount;
   }
 
-  public void setSharedStepsCount(Int32RangeSelectorModel sharedStepsCount) {
+  public void setSharedStepsCount(@jakarta.annotation.Nullable Int32RangeSelectorModel sharedStepsCount) {
     this.sharedStepsCount = JsonNullable.<Int32RangeSelectorModel>of(sharedStepsCount);
   }
 
 
-  public ProjectsFilterModel autotestsCount(Int32RangeSelectorModel autotestsCount) {
+  public ProjectsFilterModel autotestsCount(@jakarta.annotation.Nullable Int32RangeSelectorModel autotestsCount) {
     this.autotestsCount = JsonNullable.<Int32RangeSelectorModel>of(autotestsCount);
     return this;
   }
@@ -316,12 +316,12 @@ public class ProjectsFilterModel {
     this.autotestsCount = autotestsCount;
   }
 
-  public void setAutotestsCount(Int32RangeSelectorModel autotestsCount) {
+  public void setAutotestsCount(@jakarta.annotation.Nullable Int32RangeSelectorModel autotestsCount) {
     this.autotestsCount = JsonNullable.<Int32RangeSelectorModel>of(autotestsCount);
   }
 
 
-  public ProjectsFilterModel globalIds(Set<Long> globalIds) {
+  public ProjectsFilterModel globalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
@@ -361,12 +361,12 @@ public class ProjectsFilterModel {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
-  public ProjectsFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public ProjectsFilterModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -394,12 +394,12 @@ public class ProjectsFilterModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public ProjectsFilterModel createdByIds(Set<UUID> createdByIds) {
+  public ProjectsFilterModel createdByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
@@ -439,12 +439,12 @@ public class ProjectsFilterModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
-  public ProjectsFilterModel types(Set<ProjectTypeModel> types) {
+  public ProjectsFilterModel types(@jakarta.annotation.Nullable Set<ProjectTypeModel> types) {
     this.types = JsonNullable.<Set<ProjectTypeModel>>of(types);
     return this;
   }
@@ -484,7 +484,7 @@ public class ProjectsFilterModel {
     this.types = types;
   }
 
-  public void setTypes(Set<ProjectTypeModel> types) {
+  public void setTypes(@jakarta.annotation.Nullable Set<ProjectTypeModel> types) {
     this.types = JsonNullable.<Set<ProjectTypeModel>>of(types);
   }
 

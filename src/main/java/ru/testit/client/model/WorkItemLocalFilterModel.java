@@ -70,7 +70,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemLocalFilterModel.JSON_PROPERTY_AUTO_TEST_IDS,
   WorkItemLocalFilterModel.JSON_PROPERTY_WORK_ITEM_VERSION_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLocalFilterModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -138,7 +138,7 @@ public class WorkItemLocalFilterModel {
   public WorkItemLocalFilterModel() { 
   }
 
-  public WorkItemLocalFilterModel name(String name) {
+  public WorkItemLocalFilterModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -166,12 +166,12 @@ public class WorkItemLocalFilterModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public WorkItemLocalFilterModel ids(Set<UUID> ids) {
+  public WorkItemLocalFilterModel ids(@jakarta.annotation.Nullable Set<UUID> ids) {
     this.ids = JsonNullable.<Set<UUID>>of(ids);
     return this;
   }
@@ -211,12 +211,12 @@ public class WorkItemLocalFilterModel {
     this.ids = ids;
   }
 
-  public void setIds(Set<UUID> ids) {
+  public void setIds(@jakarta.annotation.Nullable Set<UUID> ids) {
     this.ids = JsonNullable.<Set<UUID>>of(ids);
   }
 
 
-  public WorkItemLocalFilterModel globalIds(Set<Long> globalIds) {
+  public WorkItemLocalFilterModel globalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
@@ -256,12 +256,12 @@ public class WorkItemLocalFilterModel {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 
 
-  public WorkItemLocalFilterModel attributes(Map<String, Set<String>> attributes) {
+  public WorkItemLocalFilterModel attributes(@jakarta.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
     return this;
   }
@@ -301,12 +301,12 @@ public class WorkItemLocalFilterModel {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Set<String>> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
   }
 
 
-  public WorkItemLocalFilterModel isDeleted(Boolean isDeleted) {
+  public WorkItemLocalFilterModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -334,12 +334,12 @@ public class WorkItemLocalFilterModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public WorkItemLocalFilterModel sectionIds(Set<UUID> sectionIds) {
+  public WorkItemLocalFilterModel sectionIds(@jakarta.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
     return this;
   }
@@ -379,12 +379,12 @@ public class WorkItemLocalFilterModel {
     this.sectionIds = sectionIds;
   }
 
-  public void setSectionIds(Set<UUID> sectionIds) {
+  public void setSectionIds(@jakarta.annotation.Nullable Set<UUID> sectionIds) {
     this.sectionIds = JsonNullable.<Set<UUID>>of(sectionIds);
   }
 
 
-  public WorkItemLocalFilterModel createdByIds(Set<UUID> createdByIds) {
+  public WorkItemLocalFilterModel createdByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
@@ -424,12 +424,12 @@ public class WorkItemLocalFilterModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
-  public WorkItemLocalFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
+  public WorkItemLocalFilterModel modifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
     return this;
   }
@@ -469,12 +469,12 @@ public class WorkItemLocalFilterModel {
     this.modifiedByIds = modifiedByIds;
   }
 
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
   }
 
 
-  public WorkItemLocalFilterModel states(Set<WorkItemStates> states) {
+  public WorkItemLocalFilterModel states(@jakarta.annotation.Nullable Set<WorkItemStates> states) {
     this.states = JsonNullable.<Set<WorkItemStates>>of(states);
     return this;
   }
@@ -514,12 +514,12 @@ public class WorkItemLocalFilterModel {
     this.states = states;
   }
 
-  public void setStates(Set<WorkItemStates> states) {
+  public void setStates(@jakarta.annotation.Nullable Set<WorkItemStates> states) {
     this.states = JsonNullable.<Set<WorkItemStates>>of(states);
   }
 
 
-  public WorkItemLocalFilterModel priorities(Set<WorkItemPriorityModel> priorities) {
+  public WorkItemLocalFilterModel priorities(@jakarta.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
     return this;
   }
@@ -559,12 +559,12 @@ public class WorkItemLocalFilterModel {
     this.priorities = priorities;
   }
 
-  public void setPriorities(Set<WorkItemPriorityModel> priorities) {
+  public void setPriorities(@jakarta.annotation.Nullable Set<WorkItemPriorityModel> priorities) {
     this.priorities = JsonNullable.<Set<WorkItemPriorityModel>>of(priorities);
   }
 
 
-  public WorkItemLocalFilterModel sourceTypes(Set<WorkItemSourceTypeModel> sourceTypes) {
+  public WorkItemLocalFilterModel sourceTypes(@jakarta.annotation.Nullable Set<WorkItemSourceTypeModel> sourceTypes) {
     this.sourceTypes = JsonNullable.<Set<WorkItemSourceTypeModel>>of(sourceTypes);
     return this;
   }
@@ -604,12 +604,12 @@ public class WorkItemLocalFilterModel {
     this.sourceTypes = sourceTypes;
   }
 
-  public void setSourceTypes(Set<WorkItemSourceTypeModel> sourceTypes) {
+  public void setSourceTypes(@jakarta.annotation.Nullable Set<WorkItemSourceTypeModel> sourceTypes) {
     this.sourceTypes = JsonNullable.<Set<WorkItemSourceTypeModel>>of(sourceTypes);
   }
 
 
-  public WorkItemLocalFilterModel types(Set<WorkItemEntityTypes> types) {
+  public WorkItemLocalFilterModel types(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
     this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
     return this;
   }
@@ -649,12 +649,12 @@ public class WorkItemLocalFilterModel {
     this.types = types;
   }
 
-  public void setTypes(Set<WorkItemEntityTypes> types) {
+  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
     this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
   }
 
 
-  public WorkItemLocalFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public WorkItemLocalFilterModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -682,12 +682,12 @@ public class WorkItemLocalFilterModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public WorkItemLocalFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public WorkItemLocalFilterModel modifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
     return this;
   }
@@ -715,12 +715,12 @@ public class WorkItemLocalFilterModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
   }
 
 
-  public WorkItemLocalFilterModel duration(Int32RangeSelectorModel duration) {
+  public WorkItemLocalFilterModel duration(@jakarta.annotation.Nullable Int32RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int32RangeSelectorModel>of(duration);
     return this;
   }
@@ -748,12 +748,12 @@ public class WorkItemLocalFilterModel {
     this.duration = duration;
   }
 
-  public void setDuration(Int32RangeSelectorModel duration) {
+  public void setDuration(@jakarta.annotation.Nullable Int32RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int32RangeSelectorModel>of(duration);
   }
 
 
-  public WorkItemLocalFilterModel medianDuration(Int64RangeSelectorModel medianDuration) {
+  public WorkItemLocalFilterModel medianDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel medianDuration) {
     this.medianDuration = JsonNullable.<Int64RangeSelectorModel>of(medianDuration);
     return this;
   }
@@ -781,12 +781,12 @@ public class WorkItemLocalFilterModel {
     this.medianDuration = medianDuration;
   }
 
-  public void setMedianDuration(Int64RangeSelectorModel medianDuration) {
+  public void setMedianDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel medianDuration) {
     this.medianDuration = JsonNullable.<Int64RangeSelectorModel>of(medianDuration);
   }
 
 
-  public WorkItemLocalFilterModel isAutomated(Boolean isAutomated) {
+  public WorkItemLocalFilterModel isAutomated(@jakarta.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
     return this;
   }
@@ -814,12 +814,12 @@ public class WorkItemLocalFilterModel {
     this.isAutomated = isAutomated;
   }
 
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
   }
 
 
-  public WorkItemLocalFilterModel tags(Set<String> tags) {
+  public WorkItemLocalFilterModel tags(@jakarta.annotation.Nullable Set<String> tags) {
     this.tags = JsonNullable.<Set<String>>of(tags);
     return this;
   }
@@ -859,12 +859,12 @@ public class WorkItemLocalFilterModel {
     this.tags = tags;
   }
 
-  public void setTags(Set<String> tags) {
+  public void setTags(@jakarta.annotation.Nullable Set<String> tags) {
     this.tags = JsonNullable.<Set<String>>of(tags);
   }
 
 
-  public WorkItemLocalFilterModel excludeTags(Set<String> excludeTags) {
+  public WorkItemLocalFilterModel excludeTags(@jakarta.annotation.Nullable Set<String> excludeTags) {
     this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
     return this;
   }
@@ -904,12 +904,12 @@ public class WorkItemLocalFilterModel {
     this.excludeTags = excludeTags;
   }
 
-  public void setExcludeTags(Set<String> excludeTags) {
+  public void setExcludeTags(@jakarta.annotation.Nullable Set<String> excludeTags) {
     this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
   }
 
 
-  public WorkItemLocalFilterModel autoTestIds(Set<UUID> autoTestIds) {
+  public WorkItemLocalFilterModel autoTestIds(@jakarta.annotation.Nullable Set<UUID> autoTestIds) {
     this.autoTestIds = JsonNullable.<Set<UUID>>of(autoTestIds);
     return this;
   }
@@ -949,12 +949,12 @@ public class WorkItemLocalFilterModel {
     this.autoTestIds = autoTestIds;
   }
 
-  public void setAutoTestIds(Set<UUID> autoTestIds) {
+  public void setAutoTestIds(@jakarta.annotation.Nullable Set<UUID> autoTestIds) {
     this.autoTestIds = JsonNullable.<Set<UUID>>of(autoTestIds);
   }
 
 
-  public WorkItemLocalFilterModel workItemVersionIds(List<UUID> workItemVersionIds) {
+  public WorkItemLocalFilterModel workItemVersionIds(@jakarta.annotation.Nullable List<UUID> workItemVersionIds) {
     this.workItemVersionIds = JsonNullable.<List<UUID>>of(workItemVersionIds);
     return this;
   }
@@ -994,7 +994,7 @@ public class WorkItemLocalFilterModel {
     this.workItemVersionIds = workItemVersionIds;
   }
 
-  public void setWorkItemVersionIds(List<UUID> workItemVersionIds) {
+  public void setWorkItemVersionIds(@jakarta.annotation.Nullable List<UUID> workItemVersionIds) {
     this.workItemVersionIds = JsonNullable.<List<UUID>>of(workItemVersionIds);
   }
 

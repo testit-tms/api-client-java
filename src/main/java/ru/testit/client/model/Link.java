@@ -43,12 +43,14 @@ import ru.testit.client.invoker.JSON;
   Link.JSON_PROPERTY_DESCRIPTION,
   Link.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Link {
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
+  @jakarta.annotation.Nonnull
   private Boolean hasInfo;
 
   public static final String JSON_PROPERTY_ID = "id";
@@ -66,7 +68,7 @@ public class Link {
   public Link() { 
   }
 
-  public Link url(String url) {
+  public Link url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -86,12 +88,12 @@ public class Link {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public Link hasInfo(Boolean hasInfo) {
+  public Link hasInfo(@jakarta.annotation.Nonnull Boolean hasInfo) {
     this.hasInfo = hasInfo;
     return this;
   }
@@ -111,12 +113,12 @@ public class Link {
 
   @JsonProperty(JSON_PROPERTY_HAS_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHasInfo(Boolean hasInfo) {
+  public void setHasInfo(@jakarta.annotation.Nonnull Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 
 
-  public Link id(UUID id) {
+  public Link id(@jakarta.annotation.Nullable UUID id) {
     this.id = JsonNullable.<UUID>of(id);
     return this;
   }
@@ -144,12 +146,12 @@ public class Link {
     this.id = id;
   }
 
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nullable UUID id) {
     this.id = JsonNullable.<UUID>of(id);
   }
 
 
-  public Link title(String title) {
+  public Link title(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
@@ -177,12 +179,12 @@ public class Link {
     this.title = title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
 
-  public Link description(String description) {
+  public Link description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -210,12 +212,12 @@ public class Link {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public Link type(LinkType type) {
+  public Link type(@jakarta.annotation.Nullable LinkType type) {
     this.type = JsonNullable.<LinkType>of(type);
     return this;
   }
@@ -243,7 +245,7 @@ public class Link {
     this.type = type;
   }
 
-  public void setType(LinkType type) {
+  public void setType(@jakarta.annotation.Nullable LinkType type) {
     this.type = JsonNullable.<LinkType>of(type);
   }
 

@@ -34,6 +34,8 @@ public enum BackgroundJobType {
   
   EXPORT_XLSX_TEST_POINTS_BY_TEST_PLAN("ExportXlsxTestPointsByTestPlan"),
   
+  EXPORT_XLSX_WORK_ITEM_LINKS("ExportXlsxWorkItemLinks"),
+  
   EXPORT_JSON_PROJECT("ExportJsonProject"),
   
   EXPORT_ZIP_PROJECT("ExportZipProject"),
@@ -59,6 +61,10 @@ public enum BackgroundJobType {
   PURGE_ENTITIES("PurgeEntities"),
   
   DELETE_COMPLETED_JOBS("DeleteCompletedJobs"),
+  
+  COPY_SECTIONS("CopySections"),
+  
+  DELETE_SECTION("DeleteSection"),
   
   UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
