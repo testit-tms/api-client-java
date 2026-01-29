@@ -71,6 +71,13 @@ if [ -f ".reserved/Configuration.java" ]; then
     cp .reserved/Configuration.java src/main/java/ru/testit/client/invoker/Configuration.java
 fi
 
+# Замена некорректного максимального значения long на правильное значение MaxValue для Int64
+# Это необходимо, потому что OpenAPI генератор иногда использует -9223372036854775616 либо 9223372036854776000 вместо правильного 9223372036854775807
+echo "Замена -9223372036854775616 на 9223372036854775807 в сгенерированных моделях..."
+find src/main/java/ru/testit/client/model -name "*.java" -exec sed -i 's/-9223372036854775616/9223372036854775807/g' {} +
+echo "Замена 9223372036854776000 на 9223372036854775807 в сгенерированных моделях..."
+find src/main/java/ru/testit/client/model -name "*.java" -exec sed -i 's/9223372036854776000/9223372036854775807/g' {} +
+
 
 # Копирование документации если она была сгенерирована
 if [ -d "new/docs" ]; then
