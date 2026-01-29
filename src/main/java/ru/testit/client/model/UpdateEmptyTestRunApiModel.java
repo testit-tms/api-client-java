@@ -46,12 +46,14 @@ import ru.testit.client.invoker.JSON;
   UpdateEmptyTestRunApiModel.JSON_PROPERTY_ATTACHMENTS,
   UpdateEmptyTestRunApiModel.JSON_PROPERTY_LINKS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateEmptyTestRunApiModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -69,7 +71,7 @@ public class UpdateEmptyTestRunApiModel {
   public UpdateEmptyTestRunApiModel() { 
   }
 
-  public UpdateEmptyTestRunApiModel id(UUID id) {
+  public UpdateEmptyTestRunApiModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -89,12 +91,12 @@ public class UpdateEmptyTestRunApiModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public UpdateEmptyTestRunApiModel name(String name) {
+  public UpdateEmptyTestRunApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -114,12 +116,12 @@ public class UpdateEmptyTestRunApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public UpdateEmptyTestRunApiModel description(String description) {
+  public UpdateEmptyTestRunApiModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -147,18 +149,18 @@ public class UpdateEmptyTestRunApiModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public UpdateEmptyTestRunApiModel launchSource(String launchSource) {
+  public UpdateEmptyTestRunApiModel launchSource(@jakarta.annotation.Nullable String launchSource) {
     this.launchSource = JsonNullable.<String>of(launchSource);
     return this;
   }
 
   /**
-   * Test run launch source                Once launch source is specified it cannot be updated
+   * Test run launch source              Once launch source is specified it cannot be updated
    * @return launchSource
    */
   @jakarta.annotation.Nullable
@@ -180,12 +182,12 @@ public class UpdateEmptyTestRunApiModel {
     this.launchSource = launchSource;
   }
 
-  public void setLaunchSource(String launchSource) {
+  public void setLaunchSource(@jakarta.annotation.Nullable String launchSource) {
     this.launchSource = JsonNullable.<String>of(launchSource);
   }
 
 
-  public UpdateEmptyTestRunApiModel attachments(List<AssignAttachmentApiModel> attachments) {
+  public UpdateEmptyTestRunApiModel attachments(@jakarta.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
     this.attachments = JsonNullable.<List<AssignAttachmentApiModel>>of(attachments);
     return this;
   }
@@ -225,12 +227,12 @@ public class UpdateEmptyTestRunApiModel {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AssignAttachmentApiModel> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<AssignAttachmentApiModel> attachments) {
     this.attachments = JsonNullable.<List<AssignAttachmentApiModel>>of(attachments);
   }
 
 
-  public UpdateEmptyTestRunApiModel links(List<UpdateLinkApiModel> links) {
+  public UpdateEmptyTestRunApiModel links(@jakarta.annotation.Nullable List<UpdateLinkApiModel> links) {
     this.links = JsonNullable.<List<UpdateLinkApiModel>>of(links);
     return this;
   }
@@ -270,7 +272,7 @@ public class UpdateEmptyTestRunApiModel {
     this.links = links;
   }
 
-  public void setLinks(List<UpdateLinkApiModel> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<UpdateLinkApiModel> links) {
     this.links = JsonNullable.<List<UpdateLinkApiModel>>of(links);
   }
 

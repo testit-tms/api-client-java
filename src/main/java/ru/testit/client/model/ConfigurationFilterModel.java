@@ -42,7 +42,7 @@ import ru.testit.client.invoker.JSON;
   ConfigurationFilterModel.JSON_PROPERTY_IS_DELETED,
   ConfigurationFilterModel.JSON_PROPERTY_GLOBAL_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ConfigurationFilterModel {
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
   private JsonNullable<Set<UUID>> projectIds = JsonNullable.<Set<UUID>>undefined();
@@ -59,7 +59,7 @@ public class ConfigurationFilterModel {
   public ConfigurationFilterModel() { 
   }
 
-  public ConfigurationFilterModel projectIds(Set<UUID> projectIds) {
+  public ConfigurationFilterModel projectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
     return this;
   }
@@ -99,12 +99,12 @@ public class ConfigurationFilterModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
   }
 
 
-  public ConfigurationFilterModel name(String name) {
+  public ConfigurationFilterModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -132,12 +132,12 @@ public class ConfigurationFilterModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public ConfigurationFilterModel isDeleted(Boolean isDeleted) {
+  public ConfigurationFilterModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -165,12 +165,12 @@ public class ConfigurationFilterModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public ConfigurationFilterModel globalIds(Set<Long> globalIds) {
+  public ConfigurationFilterModel globalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
     return this;
   }
@@ -210,7 +210,7 @@ public class ConfigurationFilterModel {
     this.globalIds = globalIds;
   }
 
-  public void setGlobalIds(Set<Long> globalIds) {
+  public void setGlobalIds(@jakarta.annotation.Nullable Set<Long> globalIds) {
     this.globalIds = JsonNullable.<Set<Long>>of(globalIds);
   }
 

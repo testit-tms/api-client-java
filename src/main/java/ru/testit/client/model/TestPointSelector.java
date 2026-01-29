@@ -36,18 +36,20 @@ import ru.testit.client.invoker.JSON;
   TestPointSelector.JSON_PROPERTY_CONFIGURATION_ID,
   TestPointSelector.JSON_PROPERTY_WORK_ITEM_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointSelector {
   public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
+  @jakarta.annotation.Nonnull
   private UUID configurationId;
 
   public static final String JSON_PROPERTY_WORK_ITEM_IDS = "workItemIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> workItemIds = new ArrayList<>();
 
   public TestPointSelector() { 
   }
 
-  public TestPointSelector configurationId(UUID configurationId) {
+  public TestPointSelector configurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -67,12 +69,12 @@ public class TestPointSelector {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestPointSelector workItemIds(List<UUID> workItemIds) {
+  public TestPointSelector workItemIds(@jakarta.annotation.Nonnull List<UUID> workItemIds) {
     this.workItemIds = workItemIds;
     return this;
   }
@@ -100,7 +102,7 @@ public class TestPointSelector {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemIds(List<UUID> workItemIds) {
+  public void setWorkItemIds(@jakarta.annotation.Nonnull List<UUID> workItemIds) {
     this.workItemIds = workItemIds;
   }
 

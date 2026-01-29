@@ -44,12 +44,14 @@ import ru.testit.client.invoker.JSON;
   TestPointByTestSuiteModel.JSON_PROPERTY_LAST_TEST_RESULT_ID,
   TestPointByTestSuiteModel.JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointByTestSuiteModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_ITERATION_ID = "iterationId";
+  @jakarta.annotation.Nonnull
   private UUID iterationId;
 
   public static final String JSON_PROPERTY_TESTER_ID = "testerId";
@@ -73,7 +75,7 @@ public class TestPointByTestSuiteModel {
   public TestPointByTestSuiteModel() { 
   }
 
-  public TestPointByTestSuiteModel id(UUID id) {
+  public TestPointByTestSuiteModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -93,12 +95,12 @@ public class TestPointByTestSuiteModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPointByTestSuiteModel iterationId(UUID iterationId) {
+  public TestPointByTestSuiteModel iterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -118,12 +120,12 @@ public class TestPointByTestSuiteModel {
 
   @JsonProperty(JSON_PROPERTY_ITERATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIterationId(UUID iterationId) {
+  public void setIterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPointByTestSuiteModel testerId(UUID testerId) {
+  public TestPointByTestSuiteModel testerId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
     return this;
   }
@@ -151,12 +153,12 @@ public class TestPointByTestSuiteModel {
     this.testerId = testerId;
   }
 
-  public void setTesterId(UUID testerId) {
+  public void setTesterId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
   }
 
 
-  public TestPointByTestSuiteModel workItemId(UUID workItemId) {
+  public TestPointByTestSuiteModel workItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
     return this;
   }
@@ -184,12 +186,12 @@ public class TestPointByTestSuiteModel {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
   }
 
 
-  public TestPointByTestSuiteModel configurationId(UUID configurationId) {
+  public TestPointByTestSuiteModel configurationId(@jakarta.annotation.Nullable UUID configurationId) {
     this.configurationId = JsonNullable.<UUID>of(configurationId);
     return this;
   }
@@ -217,18 +219,18 @@ public class TestPointByTestSuiteModel {
     this.configurationId = configurationId;
   }
 
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nullable UUID configurationId) {
     this.configurationId = JsonNullable.<UUID>of(configurationId);
   }
 
 
-  public TestPointByTestSuiteModel status(String status) {
+  public TestPointByTestSuiteModel status(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
     return this;
   }
 
   /**
-   * Test point status    Applies one of these values: Blocked, NoResults, Failed, Passed
+   * Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed
    * @return status
    */
   @jakarta.annotation.Nullable
@@ -250,12 +252,12 @@ public class TestPointByTestSuiteModel {
     this.status = status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
   }
 
 
-  public TestPointByTestSuiteModel lastTestResultId(UUID lastTestResultId) {
+  public TestPointByTestSuiteModel lastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
     return this;
   }
@@ -283,12 +285,12 @@ public class TestPointByTestSuiteModel {
     this.lastTestResultId = lastTestResultId;
   }
 
-  public void setLastTestResultId(UUID lastTestResultId) {
+  public void setLastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
   }
 
 
-  public TestPointByTestSuiteModel workItemMedianDuration(Long workItemMedianDuration) {
+  public TestPointByTestSuiteModel workItemMedianDuration(@jakarta.annotation.Nullable Long workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
     return this;
   }
@@ -316,7 +318,7 @@ public class TestPointByTestSuiteModel {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(Long workItemMedianDuration) {
+  public void setWorkItemMedianDuration(@jakarta.annotation.Nullable Long workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
   }
 

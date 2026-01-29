@@ -38,7 +38,7 @@ import ru.testit.client.invoker.JSON;
   StringChangedFieldWithDiffsViewModel.JSON_PROPERTY_OLD_VALUE,
   StringChangedFieldWithDiffsViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StringChangedFieldWithDiffsViewModel {
   public static final String JSON_PROPERTY_DIFF_VALUE = "diffValue";
   private JsonNullable<String> diffValue = JsonNullable.<String>undefined();
@@ -52,7 +52,7 @@ public class StringChangedFieldWithDiffsViewModel {
   public StringChangedFieldWithDiffsViewModel() { 
   }
 
-  public StringChangedFieldWithDiffsViewModel diffValue(String diffValue) {
+  public StringChangedFieldWithDiffsViewModel diffValue(@jakarta.annotation.Nullable String diffValue) {
     this.diffValue = JsonNullable.<String>of(diffValue);
     return this;
   }
@@ -80,12 +80,12 @@ public class StringChangedFieldWithDiffsViewModel {
     this.diffValue = diffValue;
   }
 
-  public void setDiffValue(String diffValue) {
+  public void setDiffValue(@jakarta.annotation.Nullable String diffValue) {
     this.diffValue = JsonNullable.<String>of(diffValue);
   }
 
 
-  public StringChangedFieldWithDiffsViewModel oldValue(String oldValue) {
+  public StringChangedFieldWithDiffsViewModel oldValue(@jakarta.annotation.Nullable String oldValue) {
     this.oldValue = JsonNullable.<String>of(oldValue);
     return this;
   }
@@ -113,12 +113,12 @@ public class StringChangedFieldWithDiffsViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(String oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable String oldValue) {
     this.oldValue = JsonNullable.<String>of(oldValue);
   }
 
 
-  public StringChangedFieldWithDiffsViewModel newValue(String newValue) {
+  public StringChangedFieldWithDiffsViewModel newValue(@jakarta.annotation.Nullable String newValue) {
     this.newValue = JsonNullable.<String>of(newValue);
     return this;
   }
@@ -146,7 +146,7 @@ public class StringChangedFieldWithDiffsViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(String newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable String newValue) {
     this.newValue = JsonNullable.<String>of(newValue);
   }
 

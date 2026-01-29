@@ -40,28 +40,33 @@ import ru.testit.client.invoker.JSON;
   SharedStepModel.JSON_PROPERTY_STEPS,
   SharedStepModel.JSON_PROPERTY_IS_DELETED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SharedStepModel {
   public static final String JSON_PROPERTY_VERSION_ID = "versionId";
+  @jakarta.annotation.Nonnull
   private UUID versionId;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_STEPS = "steps";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private List<StepModel> steps = new ArrayList<>();
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public SharedStepModel() { 
   }
 
-  public SharedStepModel versionId(UUID versionId) {
+  public SharedStepModel versionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -81,12 +86,12 @@ public class SharedStepModel {
 
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionId(UUID versionId) {
+  public void setVersionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public SharedStepModel globalId(Long globalId) {
+  public SharedStepModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -106,12 +111,12 @@ public class SharedStepModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public SharedStepModel name(String name) {
+  public SharedStepModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -131,13 +136,13 @@ public class SharedStepModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
   @Deprecated
-  public SharedStepModel steps(List<StepModel> steps) {
+  public SharedStepModel steps(@jakarta.annotation.Nonnull List<StepModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -168,12 +173,12 @@ public class SharedStepModel {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSteps(List<StepModel> steps) {
+  public void setSteps(@jakarta.annotation.Nonnull List<StepModel> steps) {
     this.steps = steps;
   }
 
 
-  public SharedStepModel isDeleted(Boolean isDeleted) {
+  public SharedStepModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -193,7 +198,7 @@ public class SharedStepModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 

@@ -47,42 +47,52 @@ import ru.testit.client.invoker.JSON;
   WorkflowApiResult.JSON_PROPERTY_STATUSES,
   WorkflowApiResult.JSON_PROPERTY_PROJECTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkflowApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
+  @jakarta.annotation.Nonnull
   private Boolean isSystem;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
+  @jakarta.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime modifiedDate;
 
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  @jakarta.annotation.Nonnull
   private UUID modifiedById;
 
   public static final String JSON_PROPERTY_STATUSES = "statuses";
+  @jakarta.annotation.Nonnull
   private List<WorkflowStatusApiResult> statuses = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROJECTS = "projects";
+  @jakarta.annotation.Nonnull
   private List<WorkflowProjectApiResult> projects = new ArrayList<>();
 
   public WorkflowApiResult() { 
   }
 
-  public WorkflowApiResult id(UUID id) {
+  public WorkflowApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -102,12 +112,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WorkflowApiResult name(String name) {
+  public WorkflowApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -127,12 +137,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public WorkflowApiResult isSystem(Boolean isSystem) {
+  public WorkflowApiResult isSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
     this.isSystem = isSystem;
     return this;
   }
@@ -152,12 +162,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsSystem(Boolean isSystem) {
+  public void setIsSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
     this.isSystem = isSystem;
   }
 
 
-  public WorkflowApiResult isDefault(Boolean isDefault) {
+  public WorkflowApiResult isDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -177,12 +187,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDefault(Boolean isDefault) {
+  public void setIsDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public WorkflowApiResult createdDate(OffsetDateTime createdDate) {
+  public WorkflowApiResult createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -202,12 +212,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WorkflowApiResult createdById(UUID createdById) {
+  public WorkflowApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -227,12 +237,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkflowApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public WorkflowApiResult modifiedDate(@jakarta.annotation.Nonnull OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
     return this;
   }
@@ -252,12 +262,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nonnull OffsetDateTime modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
 
 
-  public WorkflowApiResult modifiedById(UUID modifiedById) {
+  public WorkflowApiResult modifiedById(@jakarta.annotation.Nonnull UUID modifiedById) {
     this.modifiedById = modifiedById;
     return this;
   }
@@ -277,12 +287,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nonnull UUID modifiedById) {
     this.modifiedById = modifiedById;
   }
 
 
-  public WorkflowApiResult statuses(List<WorkflowStatusApiResult> statuses) {
+  public WorkflowApiResult statuses(@jakarta.annotation.Nonnull List<WorkflowStatusApiResult> statuses) {
     this.statuses = statuses;
     return this;
   }
@@ -310,12 +320,12 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUSES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatuses(List<WorkflowStatusApiResult> statuses) {
+  public void setStatuses(@jakarta.annotation.Nonnull List<WorkflowStatusApiResult> statuses) {
     this.statuses = statuses;
   }
 
 
-  public WorkflowApiResult projects(List<WorkflowProjectApiResult> projects) {
+  public WorkflowApiResult projects(@jakarta.annotation.Nonnull List<WorkflowProjectApiResult> projects) {
     this.projects = projects;
     return this;
   }
@@ -343,7 +353,7 @@ public class WorkflowApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjects(List<WorkflowProjectApiResult> projects) {
+  public void setProjects(@jakarta.annotation.Nonnull List<WorkflowProjectApiResult> projects) {
     this.projects = projects;
   }
 

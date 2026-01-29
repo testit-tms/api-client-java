@@ -35,12 +35,14 @@ import ru.testit.client.invoker.JSON;
   TestResultsStatisticsApiResult.JSON_PROPERTY_STATUSES,
   TestResultsStatisticsApiResult.JSON_PROPERTY_FAILURE_CATEGORIES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultsStatisticsApiResult {
   public static final String JSON_PROPERTY_STATUSES = "statuses";
+  @jakarta.annotation.Nonnull
   private TestResultsStatisticsStatusesApiResult statuses;
 
   public static final String JSON_PROPERTY_FAILURE_CATEGORIES = "failureCategories";
+  @jakarta.annotation.Nonnull
   private TestResultsStatisticsFailureCategoriesApiResult failureCategories;
 
   public TestResultsStatisticsApiResult() { 

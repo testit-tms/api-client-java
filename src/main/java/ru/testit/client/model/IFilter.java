@@ -62,7 +62,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import ru.testit.client.invoker.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 @JsonDeserialize(using = IFilter.IFilterDeserializer.class)
 @JsonSerialize(using = IFilter.IFilterSerializer.class)
 public class IFilter extends AbstractOpenApiSchema {

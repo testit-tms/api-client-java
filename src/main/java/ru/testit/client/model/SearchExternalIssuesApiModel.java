@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   SearchExternalIssuesApiModel.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SearchExternalIssuesApiModel {
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public SearchExternalIssuesApiModel() { 
   }
 
-  public SearchExternalIssuesApiModel url(String url) {
+  public SearchExternalIssuesApiModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -60,7 +61,7 @@ public class SearchExternalIssuesApiModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 

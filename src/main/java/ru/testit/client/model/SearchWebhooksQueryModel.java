@@ -45,7 +45,7 @@ import ru.testit.client.invoker.JSON;
   SearchWebhooksQueryModel.JSON_PROPERTY_PROJECT_IDS,
   SearchWebhooksQueryModel.JSON_PROPERTY_IS_ENABLED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SearchWebhooksQueryModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -65,7 +65,7 @@ public class SearchWebhooksQueryModel {
   public SearchWebhooksQueryModel() { 
   }
 
-  public SearchWebhooksQueryModel name(String name) {
+  public SearchWebhooksQueryModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -93,12 +93,12 @@ public class SearchWebhooksQueryModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public SearchWebhooksQueryModel eventTypes(Set<WebHookEventTypeModel> eventTypes) {
+  public SearchWebhooksQueryModel eventTypes(@jakarta.annotation.Nullable Set<WebHookEventTypeModel> eventTypes) {
     this.eventTypes = JsonNullable.<Set<WebHookEventTypeModel>>of(eventTypes);
     return this;
   }
@@ -138,12 +138,12 @@ public class SearchWebhooksQueryModel {
     this.eventTypes = eventTypes;
   }
 
-  public void setEventTypes(Set<WebHookEventTypeModel> eventTypes) {
+  public void setEventTypes(@jakarta.annotation.Nullable Set<WebHookEventTypeModel> eventTypes) {
     this.eventTypes = JsonNullable.<Set<WebHookEventTypeModel>>of(eventTypes);
   }
 
 
-  public SearchWebhooksQueryModel methods(Set<RequestTypeModel> methods) {
+  public SearchWebhooksQueryModel methods(@jakarta.annotation.Nullable Set<RequestTypeModel> methods) {
     this.methods = JsonNullable.<Set<RequestTypeModel>>of(methods);
     return this;
   }
@@ -183,12 +183,12 @@ public class SearchWebhooksQueryModel {
     this.methods = methods;
   }
 
-  public void setMethods(Set<RequestTypeModel> methods) {
+  public void setMethods(@jakarta.annotation.Nullable Set<RequestTypeModel> methods) {
     this.methods = JsonNullable.<Set<RequestTypeModel>>of(methods);
   }
 
 
-  public SearchWebhooksQueryModel projectIds(Set<UUID> projectIds) {
+  public SearchWebhooksQueryModel projectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
     return this;
   }
@@ -228,12 +228,12 @@ public class SearchWebhooksQueryModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(Set<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable Set<UUID> projectIds) {
     this.projectIds = JsonNullable.<Set<UUID>>of(projectIds);
   }
 
 
-  public SearchWebhooksQueryModel isEnabled(Boolean isEnabled) {
+  public SearchWebhooksQueryModel isEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
     return this;
   }
@@ -261,7 +261,7 @@ public class SearchWebhooksQueryModel {
     this.isEnabled = isEnabled;
   }
 
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
   }
 

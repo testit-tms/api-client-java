@@ -37,24 +37,28 @@ import ru.testit.client.invoker.JSON;
   ExternalIssueModel.JSON_PROPERTY_URL,
   ExternalIssueModel.JSON_PROPERTY_METADATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalIssueModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @jakarta.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
+  @jakarta.annotation.Nonnull
   private ExternalIssueMetadataModel metadata;
 
   public ExternalIssueModel() { 
   }
 
-  public ExternalIssueModel id(UUID id) {
+  public ExternalIssueModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -74,12 +78,12 @@ public class ExternalIssueModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ExternalIssueModel externalId(String externalId) {
+  public ExternalIssueModel externalId(@jakarta.annotation.Nonnull String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -99,12 +103,12 @@ public class ExternalIssueModel {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@jakarta.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
 
-  public ExternalIssueModel url(String url) {
+  public ExternalIssueModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -124,12 +128,12 @@ public class ExternalIssueModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public ExternalIssueModel metadata(ExternalIssueMetadataModel metadata) {
+  public ExternalIssueModel metadata(@jakarta.annotation.Nonnull ExternalIssueMetadataModel metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -149,7 +153,7 @@ public class ExternalIssueModel {
 
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMetadata(ExternalIssueMetadataModel metadata) {
+  public void setMetadata(@jakarta.annotation.Nonnull ExternalIssueMetadataModel metadata) {
     this.metadata = metadata;
   }
 

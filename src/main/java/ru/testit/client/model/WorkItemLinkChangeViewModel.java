@@ -38,30 +38,36 @@ import ru.testit.client.invoker.JSON;
   WorkItemLinkChangeViewModel.JSON_PROPERTY_ID,
   WorkItemLinkChangeViewModel.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLinkChangeViewModel {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @jakarta.annotation.Nonnull
   private String description;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
+  @jakarta.annotation.Nonnull
   private Boolean hasInfo;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type;
 
   public WorkItemLinkChangeViewModel() { 
   }
 
-  public WorkItemLinkChangeViewModel description(String description) {
+  public WorkItemLinkChangeViewModel description(@jakarta.annotation.Nonnull String description) {
     this.description = description;
     return this;
   }
@@ -81,12 +87,12 @@ public class WorkItemLinkChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nonnull String description) {
     this.description = description;
   }
 
 
-  public WorkItemLinkChangeViewModel url(String url) {
+  public WorkItemLinkChangeViewModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -106,12 +112,12 @@ public class WorkItemLinkChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public WorkItemLinkChangeViewModel title(String title) {
+  public WorkItemLinkChangeViewModel title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -131,12 +137,12 @@ public class WorkItemLinkChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public WorkItemLinkChangeViewModel hasInfo(Boolean hasInfo) {
+  public WorkItemLinkChangeViewModel hasInfo(@jakarta.annotation.Nonnull Boolean hasInfo) {
     this.hasInfo = hasInfo;
     return this;
   }
@@ -156,12 +162,12 @@ public class WorkItemLinkChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_HAS_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHasInfo(Boolean hasInfo) {
+  public void setHasInfo(@jakarta.annotation.Nonnull Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 
 
-  public WorkItemLinkChangeViewModel id(UUID id) {
+  public WorkItemLinkChangeViewModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -181,12 +187,12 @@ public class WorkItemLinkChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemLinkChangeViewModel type(String type) {
+  public WorkItemLinkChangeViewModel type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -206,7 +212,7 @@ public class WorkItemLinkChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 

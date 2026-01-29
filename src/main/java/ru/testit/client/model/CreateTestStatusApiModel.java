@@ -40,15 +40,18 @@ import ru.testit.client.invoker.JSON;
   CreateTestStatusApiModel.JSON_PROPERTY_CODE,
   CreateTestStatusApiModel.JSON_PROPERTY_DESCRIPTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateTestStatusApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private TestStatusApiType type;
 
   public static final String JSON_PROPERTY_CODE = "code";
+  @jakarta.annotation.Nonnull
   private String code;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -57,7 +60,7 @@ public class CreateTestStatusApiModel {
   public CreateTestStatusApiModel() { 
   }
 
-  public CreateTestStatusApiModel name(String name) {
+  public CreateTestStatusApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -77,12 +80,12 @@ public class CreateTestStatusApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CreateTestStatusApiModel type(TestStatusApiType type) {
+  public CreateTestStatusApiModel type(@jakarta.annotation.Nonnull TestStatusApiType type) {
     this.type = type;
     return this;
   }
@@ -102,12 +105,12 @@ public class CreateTestStatusApiModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TestStatusApiType type) {
+  public void setType(@jakarta.annotation.Nonnull TestStatusApiType type) {
     this.type = type;
   }
 
 
-  public CreateTestStatusApiModel code(String code) {
+  public CreateTestStatusApiModel code(@jakarta.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
@@ -127,12 +130,12 @@ public class CreateTestStatusApiModel {
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCode(String code) {
+  public void setCode(@jakarta.annotation.Nonnull String code) {
     this.code = code;
   }
 
 
-  public CreateTestStatusApiModel description(String description) {
+  public CreateTestStatusApiModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -160,7 +163,7 @@ public class CreateTestStatusApiModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 

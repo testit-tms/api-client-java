@@ -52,33 +52,42 @@ import ru.testit.client.invoker.JSON;
   NotificationModel.JSON_PROPERTY_WORKITEM_GLOBAL_ID,
   NotificationModel.JSON_PROPERTY_ATTRIBUTE_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class NotificationModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_READ = "isRead";
+  @jakarta.annotation.Nonnull
   private Boolean isRead;
 
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
+  @jakarta.annotation.Nonnull
   private UUID entityId;
 
   public static final String JSON_PROPERTY_NOTIFICATION_TYPE = "notificationType";
+  @jakarta.annotation.Nonnull
   private NotificationTypeModel notificationType;
 
   public static final String JSON_PROPERTY_TEST_PLAN_GLOBAL_ID = "testPlanGlobalId";
+  @jakarta.annotation.Nonnull
   private Long testPlanGlobalId;
 
   public static final String JSON_PROPERTY_TEST_PLAN_NAME = "testPlanName";
+  @jakarta.annotation.Nonnull
   private String testPlanName;
 
   public static final String JSON_PROPERTY_COMMENT = "comment";
+  @jakarta.annotation.Nonnull
   private String comment;
 
   public static final String JSON_PROPERTY_WORK_ITEM_NAME = "workItemName";
+  @jakarta.annotation.Nonnull
   private String workItemName;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
@@ -99,7 +108,7 @@ public class NotificationModel {
   public NotificationModel() { 
   }
 
-  public NotificationModel id(UUID id) {
+  public NotificationModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -119,12 +128,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public NotificationModel isRead(Boolean isRead) {
+  public NotificationModel isRead(@jakarta.annotation.Nonnull Boolean isRead) {
     this.isRead = isRead;
     return this;
   }
@@ -144,12 +153,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_IS_READ)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsRead(Boolean isRead) {
+  public void setIsRead(@jakarta.annotation.Nonnull Boolean isRead) {
     this.isRead = isRead;
   }
 
 
-  public NotificationModel entityId(UUID entityId) {
+  public NotificationModel entityId(@jakarta.annotation.Nonnull UUID entityId) {
     this.entityId = entityId;
     return this;
   }
@@ -169,12 +178,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEntityId(UUID entityId) {
+  public void setEntityId(@jakarta.annotation.Nonnull UUID entityId) {
     this.entityId = entityId;
   }
 
 
-  public NotificationModel notificationType(NotificationTypeModel notificationType) {
+  public NotificationModel notificationType(@jakarta.annotation.Nonnull NotificationTypeModel notificationType) {
     this.notificationType = notificationType;
     return this;
   }
@@ -194,12 +203,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNotificationType(NotificationTypeModel notificationType) {
+  public void setNotificationType(@jakarta.annotation.Nonnull NotificationTypeModel notificationType) {
     this.notificationType = notificationType;
   }
 
 
-  public NotificationModel testPlanGlobalId(Long testPlanGlobalId) {
+  public NotificationModel testPlanGlobalId(@jakarta.annotation.Nonnull Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
     return this;
   }
@@ -219,12 +228,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanGlobalId(Long testPlanGlobalId) {
+  public void setTestPlanGlobalId(@jakarta.annotation.Nonnull Long testPlanGlobalId) {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
 
-  public NotificationModel testPlanName(String testPlanName) {
+  public NotificationModel testPlanName(@jakarta.annotation.Nonnull String testPlanName) {
     this.testPlanName = testPlanName;
     return this;
   }
@@ -244,12 +253,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanName(String testPlanName) {
+  public void setTestPlanName(@jakarta.annotation.Nonnull String testPlanName) {
     this.testPlanName = testPlanName;
   }
 
 
-  public NotificationModel comment(String comment) {
+  public NotificationModel comment(@jakarta.annotation.Nonnull String comment) {
     this.comment = comment;
     return this;
   }
@@ -269,12 +278,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_COMMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setComment(String comment) {
+  public void setComment(@jakarta.annotation.Nonnull String comment) {
     this.comment = comment;
   }
 
 
-  public NotificationModel workItemName(String workItemName) {
+  public NotificationModel workItemName(@jakarta.annotation.Nonnull String workItemName) {
     this.workItemName = workItemName;
     return this;
   }
@@ -294,12 +303,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemName(String workItemName) {
+  public void setWorkItemName(@jakarta.annotation.Nonnull String workItemName) {
     this.workItemName = workItemName;
   }
 
 
-  public NotificationModel createdById(UUID createdById) {
+  public NotificationModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -319,12 +328,12 @@ public class NotificationModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public NotificationModel createdDate(OffsetDateTime createdDate) {
+  public NotificationModel createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -352,12 +361,12 @@ public class NotificationModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 
 
-  public NotificationModel projectGlobalId(Long projectGlobalId) {
+  public NotificationModel projectGlobalId(@jakarta.annotation.Nullable Long projectGlobalId) {
     this.projectGlobalId = JsonNullable.<Long>of(projectGlobalId);
     return this;
   }
@@ -385,12 +394,12 @@ public class NotificationModel {
     this.projectGlobalId = projectGlobalId;
   }
 
-  public void setProjectGlobalId(Long projectGlobalId) {
+  public void setProjectGlobalId(@jakarta.annotation.Nullable Long projectGlobalId) {
     this.projectGlobalId = JsonNullable.<Long>of(projectGlobalId);
   }
 
 
-  public NotificationModel projectName(String projectName) {
+  public NotificationModel projectName(@jakarta.annotation.Nullable String projectName) {
     this.projectName = JsonNullable.<String>of(projectName);
     return this;
   }
@@ -418,12 +427,12 @@ public class NotificationModel {
     this.projectName = projectName;
   }
 
-  public void setProjectName(String projectName) {
+  public void setProjectName(@jakarta.annotation.Nullable String projectName) {
     this.projectName = JsonNullable.<String>of(projectName);
   }
 
 
-  public NotificationModel workitemGlobalId(Long workitemGlobalId) {
+  public NotificationModel workitemGlobalId(@jakarta.annotation.Nullable Long workitemGlobalId) {
     this.workitemGlobalId = JsonNullable.<Long>of(workitemGlobalId);
     return this;
   }
@@ -451,12 +460,12 @@ public class NotificationModel {
     this.workitemGlobalId = workitemGlobalId;
   }
 
-  public void setWorkitemGlobalId(Long workitemGlobalId) {
+  public void setWorkitemGlobalId(@jakarta.annotation.Nullable Long workitemGlobalId) {
     this.workitemGlobalId = JsonNullable.<Long>of(workitemGlobalId);
   }
 
 
-  public NotificationModel attributeName(String attributeName) {
+  public NotificationModel attributeName(@jakarta.annotation.Nullable String attributeName) {
     this.attributeName = JsonNullable.<String>of(attributeName);
     return this;
   }
@@ -484,7 +493,7 @@ public class NotificationModel {
     this.attributeName = attributeName;
   }
 
-  public void setAttributeName(String attributeName) {
+  public void setAttributeName(@jakarta.annotation.Nullable String attributeName) {
     this.attributeName = JsonNullable.<String>of(attributeName);
   }
 

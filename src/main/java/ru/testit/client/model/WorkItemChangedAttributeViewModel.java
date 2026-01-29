@@ -36,27 +36,32 @@ import ru.testit.client.invoker.JSON;
   WorkItemChangedAttributeViewModel.JSON_PROPERTY_OLD_VALUE,
   WorkItemChangedAttributeViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemChangedAttributeViewModel {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type;
 
   public static final String JSON_PROPERTY_OLD_ATTRIBUTE_NAME = "oldAttributeName";
+  @jakarta.annotation.Nonnull
   private String oldAttributeName;
 
   public static final String JSON_PROPERTY_NEW_ATTRIBUTE_NAME = "newAttributeName";
+  @jakarta.annotation.Nonnull
   private String newAttributeName;
 
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  @jakarta.annotation.Nullable
   private Object oldValue = null;
 
   public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  @jakarta.annotation.Nullable
   private Object newValue = null;
 
   public WorkItemChangedAttributeViewModel() { 
   }
 
-  public WorkItemChangedAttributeViewModel type(String type) {
+  public WorkItemChangedAttributeViewModel type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -76,12 +81,12 @@ public class WorkItemChangedAttributeViewModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public WorkItemChangedAttributeViewModel oldAttributeName(String oldAttributeName) {
+  public WorkItemChangedAttributeViewModel oldAttributeName(@jakarta.annotation.Nonnull String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
     return this;
   }
@@ -101,12 +106,12 @@ public class WorkItemChangedAttributeViewModel {
 
   @JsonProperty(JSON_PROPERTY_OLD_ATTRIBUTE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOldAttributeName(String oldAttributeName) {
+  public void setOldAttributeName(@jakarta.annotation.Nonnull String oldAttributeName) {
     this.oldAttributeName = oldAttributeName;
   }
 
 
-  public WorkItemChangedAttributeViewModel newAttributeName(String newAttributeName) {
+  public WorkItemChangedAttributeViewModel newAttributeName(@jakarta.annotation.Nonnull String newAttributeName) {
     this.newAttributeName = newAttributeName;
     return this;
   }
@@ -126,12 +131,12 @@ public class WorkItemChangedAttributeViewModel {
 
   @JsonProperty(JSON_PROPERTY_NEW_ATTRIBUTE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNewAttributeName(String newAttributeName) {
+  public void setNewAttributeName(@jakarta.annotation.Nonnull String newAttributeName) {
     this.newAttributeName = newAttributeName;
   }
 
 
-  public WorkItemChangedAttributeViewModel oldValue(Object oldValue) {
+  public WorkItemChangedAttributeViewModel oldValue(@jakarta.annotation.Nullable Object oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -151,12 +156,12 @@ public class WorkItemChangedAttributeViewModel {
 
   @JsonProperty(JSON_PROPERTY_OLD_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOldValue(Object oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable Object oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public WorkItemChangedAttributeViewModel newValue(Object newValue) {
+  public WorkItemChangedAttributeViewModel newValue(@jakarta.annotation.Nullable Object newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -176,7 +181,7 @@ public class WorkItemChangedAttributeViewModel {
 
   @JsonProperty(JSON_PROPERTY_NEW_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNewValue(Object newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable Object newValue) {
     this.newValue = newValue;
   }
 

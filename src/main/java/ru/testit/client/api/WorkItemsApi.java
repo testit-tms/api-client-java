@@ -41,7 +41,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemsApi {
   private ApiClient apiClient;
 
@@ -73,12 +73,13 @@ public class WorkItemsApi {
 
   /**
    * Upload and link attachment to WorkItem
-   *   Use case    User sets workItemId    User attaches a file    System creates attachment and links it to the work item    System returns attachment identifier
+   *  Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
    * @param id Work item internal identifier (guid format) (required)
    * @param _file Select file (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -96,13 +97,14 @@ public class WorkItemsApi {
 
   /**
    * Upload and link attachment to WorkItem
-   *   Use case    User sets workItemId    User attaches a file    System creates attachment and links it to the work item    System returns attachment identifier
+   *  Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
    * @param id Work item internal identifier (guid format) (required)
    * @param _file Select file (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 413 </td><td> Multipart body length limit exceeded (default constraint is one gigabyte) </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -139,12 +141,13 @@ public class WorkItemsApi {
   }
   /**
    * Transform CheckList to TestCase
-   *   Use case    User sets checklist identifier    User runs method execution    System transform CheckList to TestCase
+   *  Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
    * @param id  (required)
    * @return WorkItemModel
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -161,12 +164,13 @@ public class WorkItemsApi {
 
   /**
    * Transform CheckList to TestCase
-   *   Use case    User sets checklist identifier    User runs method execution    System transform CheckList to TestCase
+   *  Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
    * @param id  (required)
    * @return ApiResponse&lt;WorkItemModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -197,7 +201,7 @@ public class WorkItemsApi {
   }
   /**
    * Get change history of WorkItem
-   *   Use case    User sets work item identifier    User runs method execution    System return change history of WorkItem
+   *  Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
    * @param id  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -207,7 +211,8 @@ public class WorkItemsApi {
    * @return List&lt;WorkItemChangeModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -224,7 +229,7 @@ public class WorkItemsApi {
 
   /**
    * Get change history of WorkItem
-   *   Use case    User sets work item identifier    User runs method execution    System return change history of WorkItem
+   *  Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
    * @param id  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -234,7 +239,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;List&lt;WorkItemChangeModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -274,11 +280,12 @@ public class WorkItemsApi {
   }
   /**
    * Delete like from WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System delete like from WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
    * @param id  (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -295,12 +302,13 @@ public class WorkItemsApi {
 
   /**
    * Delete like from WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System delete like from WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
    * @param id  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -330,11 +338,12 @@ public class WorkItemsApi {
   }
   /**
    * Set like to WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System set like to WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
    * @param id  (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -351,12 +360,13 @@ public class WorkItemsApi {
 
   /**
    * Set like to WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System set like to WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
    * @param id  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -386,12 +396,13 @@ public class WorkItemsApi {
   }
   /**
    * Get likes count of WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System return likes count of WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
    * @param id  (required)
    * @return Integer
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -408,12 +419,13 @@ public class WorkItemsApi {
 
   /**
    * Get likes count of WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System return likes count of WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
    * @param id  (required)
    * @return ApiResponse&lt;Integer&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -444,12 +456,13 @@ public class WorkItemsApi {
   }
   /**
    * Get likes of WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System return likes of WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
    * @param id  (required)
    * @return List&lt;WorkItemLikeModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -466,12 +479,13 @@ public class WorkItemsApi {
 
   /**
    * Get likes of WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System return likes of WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
    * @param id  (required)
    * @return ApiResponse&lt;List&lt;WorkItemLikeModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -502,7 +516,7 @@ public class WorkItemsApi {
   }
   /**
    * Get test results history of WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System return test results history of WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
    * @param id  (required)
    * @param from Take results from this date (optional)
    * @param to Take results until this date (optional)
@@ -522,7 +536,8 @@ public class WorkItemsApi {
    * @return List&lt;TestResultHistoryReportApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -539,7 +554,7 @@ public class WorkItemsApi {
 
   /**
    * Get test results history of WorkItem
-   *   Use case    User sets WorkItem identifier    User runs method execution    System return test results history of WorkItem
+   *  Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
    * @param id  (required)
    * @param from Take results from this date (optional)
    * @param to Take results until this date (optional)
@@ -559,7 +574,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;List&lt;TestResultHistoryReportApiResult&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -609,13 +625,14 @@ public class WorkItemsApi {
   }
   /**
    * Set WorkItem as actual
-   *   Use case    User sets work item identifier    User runs method execution    System set WorkItem as actual
+   *  Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
    * @param id  (required)
    * @param versionId  (required)
    * @return WorkItemModel
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -632,13 +649,14 @@ public class WorkItemsApi {
 
   /**
    * Set WorkItem as actual
-   *   Use case    User sets work item identifier    User runs method execution    System set WorkItem as actual
+   *  Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
    * @param id  (required)
    * @param versionId  (required)
    * @return ApiResponse&lt;WorkItemModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -683,7 +701,8 @@ public class WorkItemsApi {
    * @return SearchWorkItemLinkUrlsApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -710,7 +729,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;SearchWorkItemLinkUrlsApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -741,12 +761,13 @@ public class WorkItemsApi {
   }
   /**
    * Move WorkItem to another section
-   *   Use case    User sets WorkItem identifier    User runs method execution    System move WorkItem to another section
+   *  Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
    * @param workItemMovePostModel  (optional)
    * @return WorkItemShortModel
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -763,12 +784,13 @@ public class WorkItemsApi {
 
   /**
    * Move WorkItem to another section
-   *   Use case    User sets WorkItem identifier    User runs method execution    System move WorkItem to another section
+   *  Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
    * @param workItemMovePostModel  (optional)
    * @return ApiResponse&lt;WorkItemShortModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -795,7 +817,8 @@ public class WorkItemsApi {
    * @return WorkItemApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -817,7 +840,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;WorkItemApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -849,7 +873,8 @@ public class WorkItemsApi {
    * @return List&lt;WorkItemShortApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -876,7 +901,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;List&lt;WorkItemShortApiResult&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -907,7 +933,7 @@ public class WorkItemsApi {
   }
   /**
    * Get SharedStep references in sections
-   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
+   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
    * @param sharedStepId  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -918,7 +944,8 @@ public class WorkItemsApi {
    * @return List&lt;SharedStepReferenceSectionModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -935,7 +962,7 @@ public class WorkItemsApi {
 
   /**
    * Get SharedStep references in sections
-   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
+   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
    * @param sharedStepId  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -946,7 +973,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;List&lt;SharedStepReferenceSectionModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -986,7 +1014,7 @@ public class WorkItemsApi {
   }
   /**
    * Get SharedStep references in work items
-   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
+   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
    * @param sharedStepId  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -997,7 +1025,8 @@ public class WorkItemsApi {
    * @return List&lt;SharedStepReferenceModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1014,7 +1043,7 @@ public class WorkItemsApi {
 
   /**
    * Get SharedStep references in work items
-   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
+   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
    * @param sharedStepId  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -1025,7 +1054,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;List&lt;SharedStepReferenceModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1065,12 +1095,13 @@ public class WorkItemsApi {
   }
   /**
    * Get SharedStep references
-   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
+   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
    * @param sharedStepId  (required)
    * @return List&lt;SharedStepReferenceModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1089,12 +1120,13 @@ public class WorkItemsApi {
 
   /**
    * Get SharedStep references
-   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
+   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
    * @param sharedStepId  (required)
    * @return ApiResponse&lt;List&lt;SharedStepReferenceModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1127,11 +1159,12 @@ public class WorkItemsApi {
   }
   /**
    * Delete all links AutoTests from WorkItem by Id or GlobalId
-   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search and delete all autotests, related to found work item    System returns no content response
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1149,12 +1182,13 @@ public class WorkItemsApi {
 
   /**
    * Delete all links AutoTests from WorkItem by Id or GlobalId
-   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search and delete all autotests, related to found work item    System returns no content response
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1185,11 +1219,12 @@ public class WorkItemsApi {
   }
   /**
    * Delete Test Case, Checklist or Shared Step by Id or GlobalId
-   *   Use case    User sets work item identifier    User runs method execution    System deletes work item    System returns no content response
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   *  Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1206,12 +1241,13 @@ public class WorkItemsApi {
 
   /**
    * Delete Test Case, Checklist or Shared Step by Id or GlobalId
-   *   Use case    User sets work item identifier    User runs method execution    System deletes work item    System returns no content response
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   *  Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1241,12 +1277,13 @@ public class WorkItemsApi {
   }
   /**
    * Get all AutoTests linked to WorkItem by Id or GlobalId
-   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search all autotests, related to found work item    System returns list of found autotests
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @return List&lt;AutoTestModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1263,12 +1300,13 @@ public class WorkItemsApi {
 
   /**
    * Get all AutoTests linked to WorkItem by Id or GlobalId
-   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search all autotests, related to found work item    System returns list of found autotests
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1300,13 +1338,14 @@ public class WorkItemsApi {
   /**
    * Get iterations by work item Id or GlobalId
    * 
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
    * @return List&lt;IterationModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1324,13 +1363,14 @@ public class WorkItemsApi {
   /**
    * Get iterations by work item Id or GlobalId
    * 
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
    * @return ApiResponse&lt;List&lt;IterationModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1367,14 +1407,15 @@ public class WorkItemsApi {
   }
   /**
    * Get Test Case, Checklist or Shared Step by Id or GlobalId
-   *   Use case    User sets work item identifier    [Optional] User sets work item version identifier    [Optional] User sets work item version number    User runs method execution    System search work item by identifier    [Optional] if User sets work item version identifier, system search work item version by identifier.    [Optional] if user sets work item version number, system search work item version by number    Otherwise, system search last work item version    System returns work item
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
    * @return WorkItemModel
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1391,14 +1432,15 @@ public class WorkItemsApi {
 
   /**
    * Get Test Case, Checklist or Shared Step by Id or GlobalId
-   *   Use case    User sets work item identifier    [Optional] User sets work item version identifier    [Optional] User sets work item version number    User runs method execution    System search work item by identifier    [Optional] if User sets work item version identifier, system search work item version by identifier.    [Optional] if user sets work item version number, system search work item version by number    Otherwise, system search last work item version    System returns work item
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
    * @return ApiResponse&lt;WorkItemModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1435,12 +1477,13 @@ public class WorkItemsApi {
   }
   /**
    * Get WorkItem chronology by Id or GlobalId
-   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search test results of all autotests, related to found work item    System sort results by CompletedOn ascending, then by CreatedDate ascending    System returns sorted collection of test results
+   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
    * @param id Internal (UUID) or global (integer) identifier (required)
    * @return List&lt;TestResultChronologyModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Not valid workItemId </td><td>  -  </td></tr>
@@ -1459,12 +1502,13 @@ public class WorkItemsApi {
 
   /**
    * Get WorkItem chronology by Id or GlobalId
-   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search test results of all autotests, related to found work item    System sort results by CompletedOn ascending, then by CreatedDate ascending    System returns sorted collection of test results
+   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
    * @param id Internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;List&lt;TestResultChronologyModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Not valid workItemId </td><td>  -  </td></tr>
@@ -1497,14 +1541,15 @@ public class WorkItemsApi {
   }
   /**
    * Get WorkItem versions
-   *   Use case    User sets work item identifier    [Optional] User sets work item version identifier    User runs method execution    System search work item by identifier    [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item    System returns array of work item version models (listed in response example)
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
-   * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
-   * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
+   *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   * @param workItemVersionId WorkItem version (guid format) identifier\&quot; (optional)
+   * @param versionNumber WorkItem version (integer format) number\&quot; (optional)
    * @return List&lt;WorkItemVersionModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1521,14 +1566,15 @@ public class WorkItemsApi {
 
   /**
    * Get WorkItem versions
-   *   Use case    User sets work item identifier    [Optional] User sets work item version identifier    User runs method execution    System search work item by identifier    [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item    System returns array of work item version models (listed in response example)
-   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
-   * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
-   * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
+   *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
+   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   * @param workItemVersionId WorkItem version (guid format) identifier\&quot; (optional)
+   * @param versionNumber WorkItem version (integer format) number\&quot; (optional)
    * @return ApiResponse&lt;List&lt;WorkItemVersionModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1569,7 +1615,8 @@ public class WorkItemsApi {
    * @param id Unique or global ID of the work item (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1591,7 +1638,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1625,7 +1673,8 @@ public class WorkItemsApi {
    * @param id Unique or global ID of the work item (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1647,7 +1696,8 @@ public class WorkItemsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -1677,17 +1727,18 @@ public class WorkItemsApi {
   }
   /**
    * Update Test Case, Checklist or Shared Step
-   *   Use case    User sets work item properties (listed in request parameters)    User runs method execution    System updates work item by identifier    System returns updated work item model (listed in response parameters)
+   *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
    * @param updateWorkItemApiModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    Priority is not a valid    duration should be a positive number    should be empty for CheckList    There is no option in ProjectAttributesScheme with such Id    Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   WorkItem not found    Can&#39;t find section    Can&#39;t attributesScheme    Can&#39;t attribute    AutoTestIds not exist in project </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1698,18 +1749,19 @@ public class WorkItemsApi {
 
   /**
    * Update Test Case, Checklist or Shared Step
-   *   Use case    User sets work item properties (listed in request parameters)    User runs method execution    System updates work item by identifier    System returns updated work item model (listed in response parameters)
+   *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
    * @param updateWorkItemApiModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    Priority is not a valid    duration should be a positive number    should be empty for CheckList    There is no option in ProjectAttributesScheme with such Id    Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   WorkItem not found    Can&#39;t find section    Can&#39;t attributesScheme    Can&#39;t attribute    AutoTestIds not exist in project </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>

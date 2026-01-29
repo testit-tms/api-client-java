@@ -41,9 +41,10 @@ import ru.testit.client.invoker.JSON;
   GenerateWorkItemPreviewsApiResult.JSON_PROPERTY_PREVIEWS,
   GenerateWorkItemPreviewsApiResult.JSON_PROPERTY_LINK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GenerateWorkItemPreviewsApiResult {
   public static final String JSON_PROPERTY_PREVIEWS = "previews";
+  @jakarta.annotation.Nonnull
   private List<WorkItemPreviewApiModel> previews = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINK = "link";
@@ -52,7 +53,7 @@ public class GenerateWorkItemPreviewsApiResult {
   public GenerateWorkItemPreviewsApiResult() { 
   }
 
-  public GenerateWorkItemPreviewsApiResult previews(List<WorkItemPreviewApiModel> previews) {
+  public GenerateWorkItemPreviewsApiResult previews(@jakarta.annotation.Nonnull List<WorkItemPreviewApiModel> previews) {
     this.previews = previews;
     return this;
   }
@@ -80,12 +81,12 @@ public class GenerateWorkItemPreviewsApiResult {
 
   @JsonProperty(JSON_PROPERTY_PREVIEWS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPreviews(List<WorkItemPreviewApiModel> previews) {
+  public void setPreviews(@jakarta.annotation.Nonnull List<WorkItemPreviewApiModel> previews) {
     this.previews = previews;
   }
 
 
-  public GenerateWorkItemPreviewsApiResult link(PreviewsIssueLinkApiResult link) {
+  public GenerateWorkItemPreviewsApiResult link(@jakarta.annotation.Nullable PreviewsIssueLinkApiResult link) {
     this.link = JsonNullable.<PreviewsIssueLinkApiResult>of(link);
     return this;
   }
@@ -113,7 +114,7 @@ public class GenerateWorkItemPreviewsApiResult {
     this.link = link;
   }
 
-  public void setLink(PreviewsIssueLinkApiResult link) {
+  public void setLink(@jakarta.annotation.Nullable PreviewsIssueLinkApiResult link) {
     this.link = JsonNullable.<PreviewsIssueLinkApiResult>of(link);
   }
 

@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   GetShortProjectsApiModel.JSON_PROPERTY_PERMISSION_NAME,
   GetShortProjectsApiModel.JSON_PROPERTY_PERMISSION_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GetShortProjectsApiModel {
   public static final String JSON_PROPERTY_INQUIRY = "inquiry";
   private JsonNullable<Inquiry> inquiry = JsonNullable.<Inquiry>undefined();
@@ -53,7 +53,7 @@ public class GetShortProjectsApiModel {
   public GetShortProjectsApiModel() { 
   }
 
-  public GetShortProjectsApiModel inquiry(Inquiry inquiry) {
+  public GetShortProjectsApiModel inquiry(@jakarta.annotation.Nullable Inquiry inquiry) {
     this.inquiry = JsonNullable.<Inquiry>of(inquiry);
     return this;
   }
@@ -81,12 +81,12 @@ public class GetShortProjectsApiModel {
     this.inquiry = inquiry;
   }
 
-  public void setInquiry(Inquiry inquiry) {
+  public void setInquiry(@jakarta.annotation.Nullable Inquiry inquiry) {
     this.inquiry = JsonNullable.<Inquiry>of(inquiry);
   }
 
 
-  public GetShortProjectsApiModel permissionName(String permissionName) {
+  public GetShortProjectsApiModel permissionName(@jakarta.annotation.Nullable String permissionName) {
     this.permissionName = JsonNullable.<String>of(permissionName);
     return this;
   }
@@ -114,12 +114,12 @@ public class GetShortProjectsApiModel {
     this.permissionName = permissionName;
   }
 
-  public void setPermissionName(String permissionName) {
+  public void setPermissionName(@jakarta.annotation.Nullable String permissionName) {
     this.permissionName = JsonNullable.<String>of(permissionName);
   }
 
 
-  public GetShortProjectsApiModel permissionType(String permissionType) {
+  public GetShortProjectsApiModel permissionType(@jakarta.annotation.Nullable String permissionType) {
     this.permissionType = JsonNullable.<String>of(permissionType);
     return this;
   }
@@ -147,7 +147,7 @@ public class GetShortProjectsApiModel {
     this.permissionType = permissionType;
   }
 
-  public void setPermissionType(String permissionType) {
+  public void setPermissionType(@jakarta.annotation.Nullable String permissionType) {
     this.permissionType = JsonNullable.<String>of(permissionType);
   }
 

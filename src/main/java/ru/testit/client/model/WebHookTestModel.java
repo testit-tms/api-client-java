@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   WebHookTestModel.JSON_PROPERTY_REQUEST_TYPE,
   WebHookTestModel.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebHookTestModel {
   public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
+  @jakarta.annotation.Nonnull
   private RequestTypeModel requestType;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public WebHookTestModel() { 
   }
 
-  public WebHookTestModel requestType(RequestTypeModel requestType) {
+  public WebHookTestModel requestType(@jakarta.annotation.Nonnull RequestTypeModel requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -65,12 +67,12 @@ public class WebHookTestModel {
 
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequestType(RequestTypeModel requestType) {
+  public void setRequestType(@jakarta.annotation.Nonnull RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookTestModel url(String url) {
+  public WebHookTestModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -90,7 +92,7 @@ public class WebHookTestModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 

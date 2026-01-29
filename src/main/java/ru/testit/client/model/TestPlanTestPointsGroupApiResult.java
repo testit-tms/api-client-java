@@ -34,21 +34,24 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsGroupApiResult.JSON_PROPERTY_DISPLAY_FIELD_VALUE,
   TestPlanTestPointsGroupApiResult.JSON_PROPERTY_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsGroupApiResult {
   public static final String JSON_PROPERTY_FIELD_VALUE = "fieldValue";
+  @jakarta.annotation.Nullable
   private Object fieldValue = null;
 
   public static final String JSON_PROPERTY_DISPLAY_FIELD_VALUE = "displayFieldValue";
+  @jakarta.annotation.Nullable
   private Object displayFieldValue = null;
 
   public static final String JSON_PROPERTY_COUNT = "count";
+  @jakarta.annotation.Nonnull
   private Integer count;
 
   public TestPlanTestPointsGroupApiResult() { 
   }
 
-  public TestPlanTestPointsGroupApiResult fieldValue(Object fieldValue) {
+  public TestPlanTestPointsGroupApiResult fieldValue(@jakarta.annotation.Nullable Object fieldValue) {
     this.fieldValue = fieldValue;
     return this;
   }
@@ -68,12 +71,12 @@ public class TestPlanTestPointsGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_FIELD_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFieldValue(Object fieldValue) {
+  public void setFieldValue(@jakarta.annotation.Nullable Object fieldValue) {
     this.fieldValue = fieldValue;
   }
 
 
-  public TestPlanTestPointsGroupApiResult displayFieldValue(Object displayFieldValue) {
+  public TestPlanTestPointsGroupApiResult displayFieldValue(@jakarta.annotation.Nullable Object displayFieldValue) {
     this.displayFieldValue = displayFieldValue;
     return this;
   }
@@ -93,12 +96,12 @@ public class TestPlanTestPointsGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_DISPLAY_FIELD_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDisplayFieldValue(Object displayFieldValue) {
+  public void setDisplayFieldValue(@jakarta.annotation.Nullable Object displayFieldValue) {
     this.displayFieldValue = displayFieldValue;
   }
 
 
-  public TestPlanTestPointsGroupApiResult count(Integer count) {
+  public TestPlanTestPointsGroupApiResult count(@jakarta.annotation.Nonnull Integer count) {
     this.count = count;
     return this;
   }
@@ -118,7 +121,7 @@ public class TestPlanTestPointsGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCount(Integer count) {
+  public void setCount(@jakarta.annotation.Nonnull Integer count) {
     this.count = count;
   }
 

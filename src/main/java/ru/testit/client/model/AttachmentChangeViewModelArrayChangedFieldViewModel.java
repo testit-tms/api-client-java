@@ -40,7 +40,7 @@ import ru.testit.client.invoker.JSON;
   AttachmentChangeViewModelArrayChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   AttachmentChangeViewModelArrayChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AttachmentChangeViewModelArrayChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private JsonNullable<List<AttachmentChangeViewModel>> oldValue = JsonNullable.<List<AttachmentChangeViewModel>>undefined();
@@ -51,7 +51,7 @@ public class AttachmentChangeViewModelArrayChangedFieldViewModel {
   public AttachmentChangeViewModelArrayChangedFieldViewModel() { 
   }
 
-  public AttachmentChangeViewModelArrayChangedFieldViewModel oldValue(List<AttachmentChangeViewModel> oldValue) {
+  public AttachmentChangeViewModelArrayChangedFieldViewModel oldValue(@jakarta.annotation.Nullable List<AttachmentChangeViewModel> oldValue) {
     this.oldValue = JsonNullable.<List<AttachmentChangeViewModel>>of(oldValue);
     return this;
   }
@@ -91,12 +91,12 @@ public class AttachmentChangeViewModelArrayChangedFieldViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(List<AttachmentChangeViewModel> oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable List<AttachmentChangeViewModel> oldValue) {
     this.oldValue = JsonNullable.<List<AttachmentChangeViewModel>>of(oldValue);
   }
 
 
-  public AttachmentChangeViewModelArrayChangedFieldViewModel newValue(List<AttachmentChangeViewModel> newValue) {
+  public AttachmentChangeViewModelArrayChangedFieldViewModel newValue(@jakarta.annotation.Nullable List<AttachmentChangeViewModel> newValue) {
     this.newValue = JsonNullable.<List<AttachmentChangeViewModel>>of(newValue);
     return this;
   }
@@ -136,7 +136,7 @@ public class AttachmentChangeViewModelArrayChangedFieldViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(List<AttachmentChangeViewModel> newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable List<AttachmentChangeViewModel> newValue) {
     this.newValue = JsonNullable.<List<AttachmentChangeViewModel>>of(newValue);
   }
 

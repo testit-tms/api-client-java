@@ -82,39 +82,50 @@ import ru.testit.client.invoker.JSON;
   TestResultApiResult.JSON_PROPERTY_MODIFIED_DATE,
   TestResultApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
+  @jakarta.annotation.Nonnull
   private String outcome;
 
   public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
+  @jakarta.annotation.Nonnull
   private UUID testRunId;
 
   public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
+  @jakarta.annotation.Nonnull
   private UUID configurationId;
 
   public static final String JSON_PROPERTY_STATUS = "status";
+  @jakarta.annotation.Nonnull
   private TestStatusApiResult status;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nonnull
   private List<AttachmentApiResult> attachments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKS = "links";
+  @jakarta.annotation.Nonnull
   private List<LinkApiResult> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FAILURE_CLASSES = "failureClasses";
+  @jakarta.annotation.Nonnull
   private List<TestResultFailureClassApiResult> failureClasses = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_STARTED_ON = "startedOn";
@@ -186,7 +197,7 @@ public class TestResultApiResult {
   public TestResultApiResult() { 
   }
 
-  public TestResultApiResult id(UUID id) {
+  public TestResultApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -206,12 +217,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestResultApiResult outcome(String outcome) {
+  public TestResultApiResult outcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -231,12 +242,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_OUTCOME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOutcome(String outcome) {
+  public void setOutcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultApiResult testRunId(UUID testRunId) {
+  public TestResultApiResult testRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -256,12 +267,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public TestResultApiResult configurationId(UUID configurationId) {
+  public TestResultApiResult configurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -281,12 +292,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestResultApiResult status(TestStatusApiResult status) {
+  public TestResultApiResult status(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -306,12 +317,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(TestStatusApiResult status) {
+  public void setStatus(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public TestResultApiResult attachments(List<AttachmentApiResult> attachments) {
+  public TestResultApiResult attachments(@jakarta.annotation.Nonnull List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -339,12 +350,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttachments(List<AttachmentApiResult> attachments) {
+  public void setAttachments(@jakarta.annotation.Nonnull List<AttachmentApiResult> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestResultApiResult links(List<LinkApiResult> links) {
+  public TestResultApiResult links(@jakarta.annotation.Nonnull List<LinkApiResult> links) {
     this.links = links;
     return this;
   }
@@ -372,12 +383,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(List<LinkApiResult> links) {
+  public void setLinks(@jakarta.annotation.Nonnull List<LinkApiResult> links) {
     this.links = links;
   }
 
 
-  public TestResultApiResult failureClasses(List<TestResultFailureClassApiResult> failureClasses) {
+  public TestResultApiResult failureClasses(@jakarta.annotation.Nonnull List<TestResultFailureClassApiResult> failureClasses) {
     this.failureClasses = failureClasses;
     return this;
   }
@@ -405,12 +416,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CLASSES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureClasses(List<TestResultFailureClassApiResult> failureClasses) {
+  public void setFailureClasses(@jakarta.annotation.Nonnull List<TestResultFailureClassApiResult> failureClasses) {
     this.failureClasses = failureClasses;
   }
 
 
-  public TestResultApiResult createdDate(OffsetDateTime createdDate) {
+  public TestResultApiResult createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -430,12 +441,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public TestResultApiResult createdById(UUID createdById) {
+  public TestResultApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -455,12 +466,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public TestResultApiResult isDeleted(Boolean isDeleted) {
+  public TestResultApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -480,12 +491,12 @@ public class TestResultApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestResultApiResult startedOn(OffsetDateTime startedOn) {
+  public TestResultApiResult startedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
     return this;
   }
@@ -513,12 +524,12 @@ public class TestResultApiResult {
     this.startedOn = startedOn;
   }
 
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
   }
 
 
-  public TestResultApiResult completedOn(OffsetDateTime completedOn) {
+  public TestResultApiResult completedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
     return this;
   }
@@ -546,12 +557,12 @@ public class TestResultApiResult {
     this.completedOn = completedOn;
   }
 
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
   }
 
 
-  public TestResultApiResult durationInMs(Long durationInMs) {
+  public TestResultApiResult durationInMs(@jakarta.annotation.Nullable Long durationInMs) {
     this.durationInMs = JsonNullable.<Long>of(durationInMs);
     return this;
   }
@@ -579,12 +590,12 @@ public class TestResultApiResult {
     this.durationInMs = durationInMs;
   }
 
-  public void setDurationInMs(Long durationInMs) {
+  public void setDurationInMs(@jakarta.annotation.Nullable Long durationInMs) {
     this.durationInMs = JsonNullable.<Long>of(durationInMs);
   }
 
 
-  public TestResultApiResult traces(String traces) {
+  public TestResultApiResult traces(@jakarta.annotation.Nullable String traces) {
     this.traces = JsonNullable.<String>of(traces);
     return this;
   }
@@ -612,12 +623,12 @@ public class TestResultApiResult {
     this.traces = traces;
   }
 
-  public void setTraces(String traces) {
+  public void setTraces(@jakarta.annotation.Nullable String traces) {
     this.traces = JsonNullable.<String>of(traces);
   }
 
 
-  public TestResultApiResult failureType(String failureType) {
+  public TestResultApiResult failureType(@jakarta.annotation.Nullable String failureType) {
     this.failureType = JsonNullable.<String>of(failureType);
     return this;
   }
@@ -645,12 +656,12 @@ public class TestResultApiResult {
     this.failureType = failureType;
   }
 
-  public void setFailureType(String failureType) {
+  public void setFailureType(@jakarta.annotation.Nullable String failureType) {
     this.failureType = JsonNullable.<String>of(failureType);
   }
 
 
-  public TestResultApiResult message(String message) {
+  public TestResultApiResult message(@jakarta.annotation.Nullable String message) {
     this.message = JsonNullable.<String>of(message);
     return this;
   }
@@ -678,12 +689,12 @@ public class TestResultApiResult {
     this.message = message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = JsonNullable.<String>of(message);
   }
 
 
-  public TestResultApiResult runByUserId(UUID runByUserId) {
+  public TestResultApiResult runByUserId(@jakarta.annotation.Nullable UUID runByUserId) {
     this.runByUserId = JsonNullable.<UUID>of(runByUserId);
     return this;
   }
@@ -711,12 +722,12 @@ public class TestResultApiResult {
     this.runByUserId = runByUserId;
   }
 
-  public void setRunByUserId(UUID runByUserId) {
+  public void setRunByUserId(@jakarta.annotation.Nullable UUID runByUserId) {
     this.runByUserId = JsonNullable.<UUID>of(runByUserId);
   }
 
 
-  public TestResultApiResult stoppedByUserId(UUID stoppedByUserId) {
+  public TestResultApiResult stoppedByUserId(@jakarta.annotation.Nullable UUID stoppedByUserId) {
     this.stoppedByUserId = JsonNullable.<UUID>of(stoppedByUserId);
     return this;
   }
@@ -744,12 +755,12 @@ public class TestResultApiResult {
     this.stoppedByUserId = stoppedByUserId;
   }
 
-  public void setStoppedByUserId(UUID stoppedByUserId) {
+  public void setStoppedByUserId(@jakarta.annotation.Nullable UUID stoppedByUserId) {
     this.stoppedByUserId = JsonNullable.<UUID>of(stoppedByUserId);
   }
 
 
-  public TestResultApiResult autoTestId(UUID autoTestId) {
+  public TestResultApiResult autoTestId(@jakarta.annotation.Nullable UUID autoTestId) {
     this.autoTestId = JsonNullable.<UUID>of(autoTestId);
     return this;
   }
@@ -777,12 +788,12 @@ public class TestResultApiResult {
     this.autoTestId = autoTestId;
   }
 
-  public void setAutoTestId(UUID autoTestId) {
+  public void setAutoTestId(@jakarta.annotation.Nullable UUID autoTestId) {
     this.autoTestId = JsonNullable.<UUID>of(autoTestId);
   }
 
 
-  public TestResultApiResult testPointId(UUID testPointId) {
+  public TestResultApiResult testPointId(@jakarta.annotation.Nullable UUID testPointId) {
     this.testPointId = JsonNullable.<UUID>of(testPointId);
     return this;
   }
@@ -810,12 +821,12 @@ public class TestResultApiResult {
     this.testPointId = testPointId;
   }
 
-  public void setTestPointId(UUID testPointId) {
+  public void setTestPointId(@jakarta.annotation.Nullable UUID testPointId) {
     this.testPointId = JsonNullable.<UUID>of(testPointId);
   }
 
 
-  public TestResultApiResult testPoint(TestPointShortApiResult testPoint) {
+  public TestResultApiResult testPoint(@jakarta.annotation.Nullable TestPointShortApiResult testPoint) {
     this.testPoint = JsonNullable.<TestPointShortApiResult>of(testPoint);
     return this;
   }
@@ -843,12 +854,12 @@ public class TestResultApiResult {
     this.testPoint = testPoint;
   }
 
-  public void setTestPoint(TestPointShortApiResult testPoint) {
+  public void setTestPoint(@jakarta.annotation.Nullable TestPointShortApiResult testPoint) {
     this.testPoint = JsonNullable.<TestPointShortApiResult>of(testPoint);
   }
 
 
-  public TestResultApiResult autoTest(AutoTestApiResult autoTest) {
+  public TestResultApiResult autoTest(@jakarta.annotation.Nullable AutoTestApiResult autoTest) {
     this.autoTest = JsonNullable.<AutoTestApiResult>of(autoTest);
     return this;
   }
@@ -876,12 +887,12 @@ public class TestResultApiResult {
     this.autoTest = autoTest;
   }
 
-  public void setAutoTest(AutoTestApiResult autoTest) {
+  public void setAutoTest(@jakarta.annotation.Nullable AutoTestApiResult autoTest) {
     this.autoTest = JsonNullable.<AutoTestApiResult>of(autoTest);
   }
 
 
-  public TestResultApiResult autoTestStepResults(List<AutoTestStepResultsApiResult> autoTestStepResults) {
+  public TestResultApiResult autoTestStepResults(@jakarta.annotation.Nullable List<AutoTestStepResultsApiResult> autoTestStepResults) {
     this.autoTestStepResults = JsonNullable.<List<AutoTestStepResultsApiResult>>of(autoTestStepResults);
     return this;
   }
@@ -921,12 +932,12 @@ public class TestResultApiResult {
     this.autoTestStepResults = autoTestStepResults;
   }
 
-  public void setAutoTestStepResults(List<AutoTestStepResultsApiResult> autoTestStepResults) {
+  public void setAutoTestStepResults(@jakarta.annotation.Nullable List<AutoTestStepResultsApiResult> autoTestStepResults) {
     this.autoTestStepResults = JsonNullable.<List<AutoTestStepResultsApiResult>>of(autoTestStepResults);
   }
 
 
-  public TestResultApiResult setupResults(List<AutoTestStepResultsApiResult> setupResults) {
+  public TestResultApiResult setupResults(@jakarta.annotation.Nullable List<AutoTestStepResultsApiResult> setupResults) {
     this.setupResults = JsonNullable.<List<AutoTestStepResultsApiResult>>of(setupResults);
     return this;
   }
@@ -966,12 +977,12 @@ public class TestResultApiResult {
     this.setupResults = setupResults;
   }
 
-  public void setSetupResults(List<AutoTestStepResultsApiResult> setupResults) {
+  public void setSetupResults(@jakarta.annotation.Nullable List<AutoTestStepResultsApiResult> setupResults) {
     this.setupResults = JsonNullable.<List<AutoTestStepResultsApiResult>>of(setupResults);
   }
 
 
-  public TestResultApiResult teardownResults(List<AutoTestStepResultsApiResult> teardownResults) {
+  public TestResultApiResult teardownResults(@jakarta.annotation.Nullable List<AutoTestStepResultsApiResult> teardownResults) {
     this.teardownResults = JsonNullable.<List<AutoTestStepResultsApiResult>>of(teardownResults);
     return this;
   }
@@ -1011,12 +1022,12 @@ public class TestResultApiResult {
     this.teardownResults = teardownResults;
   }
 
-  public void setTeardownResults(List<AutoTestStepResultsApiResult> teardownResults) {
+  public void setTeardownResults(@jakarta.annotation.Nullable List<AutoTestStepResultsApiResult> teardownResults) {
     this.teardownResults = JsonNullable.<List<AutoTestStepResultsApiResult>>of(teardownResults);
   }
 
 
-  public TestResultApiResult workItemVersionId(UUID workItemVersionId) {
+  public TestResultApiResult workItemVersionId(@jakarta.annotation.Nullable UUID workItemVersionId) {
     this.workItemVersionId = JsonNullable.<UUID>of(workItemVersionId);
     return this;
   }
@@ -1044,12 +1055,12 @@ public class TestResultApiResult {
     this.workItemVersionId = workItemVersionId;
   }
 
-  public void setWorkItemVersionId(UUID workItemVersionId) {
+  public void setWorkItemVersionId(@jakarta.annotation.Nullable UUID workItemVersionId) {
     this.workItemVersionId = JsonNullable.<UUID>of(workItemVersionId);
   }
 
 
-  public TestResultApiResult workItemVersionNumber(Integer workItemVersionNumber) {
+  public TestResultApiResult workItemVersionNumber(@jakarta.annotation.Nullable Integer workItemVersionNumber) {
     this.workItemVersionNumber = JsonNullable.<Integer>of(workItemVersionNumber);
     return this;
   }
@@ -1077,12 +1088,12 @@ public class TestResultApiResult {
     this.workItemVersionNumber = workItemVersionNumber;
   }
 
-  public void setWorkItemVersionNumber(Integer workItemVersionNumber) {
+  public void setWorkItemVersionNumber(@jakarta.annotation.Nullable Integer workItemVersionNumber) {
     this.workItemVersionNumber = JsonNullable.<Integer>of(workItemVersionNumber);
   }
 
 
-  public TestResultApiResult stepComments(List<StepCommentApiModel> stepComments) {
+  public TestResultApiResult stepComments(@jakarta.annotation.Nullable List<StepCommentApiModel> stepComments) {
     this.stepComments = JsonNullable.<List<StepCommentApiModel>>of(stepComments);
     return this;
   }
@@ -1122,12 +1133,12 @@ public class TestResultApiResult {
     this.stepComments = stepComments;
   }
 
-  public void setStepComments(List<StepCommentApiModel> stepComments) {
+  public void setStepComments(@jakarta.annotation.Nullable List<StepCommentApiModel> stepComments) {
     this.stepComments = JsonNullable.<List<StepCommentApiModel>>of(stepComments);
   }
 
 
-  public TestResultApiResult parameters(Map<String, String> parameters) {
+  public TestResultApiResult parameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
     return this;
   }
@@ -1167,12 +1178,12 @@ public class TestResultApiResult {
     this.parameters = parameters;
   }
 
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
   }
 
 
-  public TestResultApiResult properties(Map<String, String> properties) {
+  public TestResultApiResult properties(@jakarta.annotation.Nullable Map<String, String> properties) {
     this.properties = JsonNullable.<Map<String, String>>of(properties);
     return this;
   }
@@ -1212,12 +1223,12 @@ public class TestResultApiResult {
     this.properties = properties;
   }
 
-  public void setProperties(Map<String, String> properties) {
+  public void setProperties(@jakarta.annotation.Nullable Map<String, String> properties) {
     this.properties = JsonNullable.<Map<String, String>>of(properties);
   }
 
 
-  public TestResultApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public TestResultApiResult modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -1245,12 +1256,12 @@ public class TestResultApiResult {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public TestResultApiResult modifiedById(UUID modifiedById) {
+  public TestResultApiResult modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -1278,7 +1289,7 @@ public class TestResultApiResult {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

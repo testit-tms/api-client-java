@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   BooleanChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   BooleanChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class BooleanChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  @jakarta.annotation.Nonnull
   private Boolean oldValue;
 
   public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  @jakarta.annotation.Nonnull
   private Boolean newValue;
 
   public BooleanChangedFieldViewModel() { 
   }
 
-  public BooleanChangedFieldViewModel oldValue(Boolean oldValue) {
+  public BooleanChangedFieldViewModel oldValue(@jakarta.annotation.Nonnull Boolean oldValue) {
     this.oldValue = oldValue;
     return this;
   }
@@ -64,12 +66,12 @@ public class BooleanChangedFieldViewModel {
 
   @JsonProperty(JSON_PROPERTY_OLD_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOldValue(Boolean oldValue) {
+  public void setOldValue(@jakarta.annotation.Nonnull Boolean oldValue) {
     this.oldValue = oldValue;
   }
 
 
-  public BooleanChangedFieldViewModel newValue(Boolean newValue) {
+  public BooleanChangedFieldViewModel newValue(@jakarta.annotation.Nonnull Boolean newValue) {
     this.newValue = newValue;
     return this;
   }
@@ -89,7 +91,7 @@ public class BooleanChangedFieldViewModel {
 
   @JsonProperty(JSON_PROPERTY_NEW_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNewValue(Boolean newValue) {
+  public void setNewValue(@jakarta.annotation.Nonnull Boolean newValue) {
     this.newValue = newValue;
   }
 

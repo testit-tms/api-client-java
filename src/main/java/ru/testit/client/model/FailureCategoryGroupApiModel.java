@@ -37,9 +37,10 @@ import ru.testit.client.invoker.JSON;
   FailureCategoryGroupApiModel.JSON_PROPERTY_FIELD,
   FailureCategoryGroupApiModel.JSON_PROPERTY_DISPLAY_FIELD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FailureCategoryGroupApiModel {
   public static final String JSON_PROPERTY_FIELD = "field";
+  @jakarta.annotation.Nonnull
   private String field;
 
   public static final String JSON_PROPERTY_DISPLAY_FIELD = "displayField";
@@ -48,7 +49,7 @@ public class FailureCategoryGroupApiModel {
   public FailureCategoryGroupApiModel() { 
   }
 
-  public FailureCategoryGroupApiModel field(String field) {
+  public FailureCategoryGroupApiModel field(@jakarta.annotation.Nonnull String field) {
     this.field = field;
     return this;
   }
@@ -68,12 +69,12 @@ public class FailureCategoryGroupApiModel {
 
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setField(String field) {
+  public void setField(@jakarta.annotation.Nonnull String field) {
     this.field = field;
   }
 
 
-  public FailureCategoryGroupApiModel displayField(String displayField) {
+  public FailureCategoryGroupApiModel displayField(@jakarta.annotation.Nullable String displayField) {
     this.displayField = JsonNullable.<String>of(displayField);
     return this;
   }
@@ -101,7 +102,7 @@ public class FailureCategoryGroupApiModel {
     this.displayField = displayField;
   }
 
-  public void setDisplayField(String displayField) {
+  public void setDisplayField(@jakarta.annotation.Nullable String displayField) {
     this.displayField = JsonNullable.<String>of(displayField);
   }
 

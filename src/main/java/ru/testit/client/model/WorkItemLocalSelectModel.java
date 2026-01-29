@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemLocalSelectModel.JSON_PROPERTY_FILTER,
   WorkItemLocalSelectModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLocalSelectModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<WorkItemLocalFilterModel> filter = JsonNullable.<WorkItemLocalFilterModel>undefined();
@@ -50,7 +50,7 @@ public class WorkItemLocalSelectModel {
   public WorkItemLocalSelectModel() { 
   }
 
-  public WorkItemLocalSelectModel filter(WorkItemLocalFilterModel filter) {
+  public WorkItemLocalSelectModel filter(@jakarta.annotation.Nullable WorkItemLocalFilterModel filter) {
     this.filter = JsonNullable.<WorkItemLocalFilterModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class WorkItemLocalSelectModel {
     this.filter = filter;
   }
 
-  public void setFilter(WorkItemLocalFilterModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable WorkItemLocalFilterModel filter) {
     this.filter = JsonNullable.<WorkItemLocalFilterModel>of(filter);
   }
 
 
-  public WorkItemLocalSelectModel extractionModel(WorkItemExtractionModel extractionModel) {
+  public WorkItemLocalSelectModel extractionModel(@jakarta.annotation.Nullable WorkItemExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<WorkItemExtractionModel>of(extractionModel);
     return this;
   }
@@ -111,7 +111,7 @@ public class WorkItemLocalSelectModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(WorkItemExtractionModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable WorkItemExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<WorkItemExtractionModel>of(extractionModel);
   }
 

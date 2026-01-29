@@ -33,15 +33,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   AutoTestBulkDeleteApiModel.JSON_PROPERTY_AUTO_TEST_SELECT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestBulkDeleteApiModel {
   public static final String JSON_PROPERTY_AUTO_TEST_SELECT = "autoTestSelect";
+  @jakarta.annotation.Nonnull
   private AutoTestSelectModel autoTestSelect;
 
   public AutoTestBulkDeleteApiModel() { 
   }
 
-  public AutoTestBulkDeleteApiModel autoTestSelect(AutoTestSelectModel autoTestSelect) {
+  public AutoTestBulkDeleteApiModel autoTestSelect(@jakarta.annotation.Nonnull AutoTestSelectModel autoTestSelect) {
     this.autoTestSelect = autoTestSelect;
     return this;
   }
@@ -61,7 +62,7 @@ public class AutoTestBulkDeleteApiModel {
 
   @JsonProperty(JSON_PROPERTY_AUTO_TEST_SELECT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutoTestSelect(AutoTestSelectModel autoTestSelect) {
+  public void setAutoTestSelect(@jakarta.annotation.Nonnull AutoTestSelectModel autoTestSelect) {
     this.autoTestSelect = autoTestSelect;
   }
 

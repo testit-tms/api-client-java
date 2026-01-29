@@ -44,9 +44,10 @@ import ru.testit.client.invoker.JSON;
   StepModel.JSON_PROPERTY_COMMENTS,
   StepModel.JSON_PROPERTY_WORK_ITEM_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StepModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_WORK_ITEM = "workItem";
@@ -70,7 +71,7 @@ public class StepModel {
   public StepModel() { 
   }
 
-  public StepModel id(UUID id) {
+  public StepModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -90,12 +91,12 @@ public class StepModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public StepModel workItem(SharedStepModel workItem) {
+  public StepModel workItem(@jakarta.annotation.Nullable SharedStepModel workItem) {
     this.workItem = JsonNullable.<SharedStepModel>of(workItem);
     return this;
   }
@@ -123,12 +124,12 @@ public class StepModel {
     this.workItem = workItem;
   }
 
-  public void setWorkItem(SharedStepModel workItem) {
+  public void setWorkItem(@jakarta.annotation.Nullable SharedStepModel workItem) {
     this.workItem = JsonNullable.<SharedStepModel>of(workItem);
   }
 
 
-  public StepModel action(String action) {
+  public StepModel action(@jakarta.annotation.Nullable String action) {
     this.action = JsonNullable.<String>of(action);
     return this;
   }
@@ -156,12 +157,12 @@ public class StepModel {
     this.action = action;
   }
 
-  public void setAction(String action) {
+  public void setAction(@jakarta.annotation.Nullable String action) {
     this.action = JsonNullable.<String>of(action);
   }
 
 
-  public StepModel expected(String expected) {
+  public StepModel expected(@jakarta.annotation.Nullable String expected) {
     this.expected = JsonNullable.<String>of(expected);
     return this;
   }
@@ -189,12 +190,12 @@ public class StepModel {
     this.expected = expected;
   }
 
-  public void setExpected(String expected) {
+  public void setExpected(@jakarta.annotation.Nullable String expected) {
     this.expected = JsonNullable.<String>of(expected);
   }
 
 
-  public StepModel testData(String testData) {
+  public StepModel testData(@jakarta.annotation.Nullable String testData) {
     this.testData = JsonNullable.<String>of(testData);
     return this;
   }
@@ -222,12 +223,12 @@ public class StepModel {
     this.testData = testData;
   }
 
-  public void setTestData(String testData) {
+  public void setTestData(@jakarta.annotation.Nullable String testData) {
     this.testData = JsonNullable.<String>of(testData);
   }
 
 
-  public StepModel comments(String comments) {
+  public StepModel comments(@jakarta.annotation.Nullable String comments) {
     this.comments = JsonNullable.<String>of(comments);
     return this;
   }
@@ -255,12 +256,12 @@ public class StepModel {
     this.comments = comments;
   }
 
-  public void setComments(String comments) {
+  public void setComments(@jakarta.annotation.Nullable String comments) {
     this.comments = JsonNullable.<String>of(comments);
   }
 
 
-  public StepModel workItemId(UUID workItemId) {
+  public StepModel workItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
     return this;
   }
@@ -288,7 +289,7 @@ public class StepModel {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
   }
 

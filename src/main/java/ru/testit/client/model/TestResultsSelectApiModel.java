@@ -35,18 +35,20 @@ import ru.testit.client.invoker.JSON;
   TestResultsSelectApiModel.JSON_PROPERTY_FILTER,
   TestResultsSelectApiModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultsSelectApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private TestResultsFilterApiModel filter;
 
   public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
+  @jakarta.annotation.Nonnull
   private TestResultsExtractionApiModel extractionModel;
 
   public TestResultsSelectApiModel() { 
   }
 
-  public TestResultsSelectApiModel filter(TestResultsFilterApiModel filter) {
+  public TestResultsSelectApiModel filter(@jakarta.annotation.Nonnull TestResultsFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -66,12 +68,12 @@ public class TestResultsSelectApiModel {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(TestResultsFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nonnull TestResultsFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public TestResultsSelectApiModel extractionModel(TestResultsExtractionApiModel extractionModel) {
+  public TestResultsSelectApiModel extractionModel(@jakarta.annotation.Nonnull TestResultsExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -91,7 +93,7 @@ public class TestResultsSelectApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExtractionModel(TestResultsExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nonnull TestResultsExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

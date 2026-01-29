@@ -38,7 +38,7 @@ import ru.testit.client.invoker.JSON;
   TestSuiteChangeViewModelChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   TestSuiteChangeViewModelChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteChangeViewModelChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private JsonNullable<TestSuiteChangeViewModel> oldValue = JsonNullable.<TestSuiteChangeViewModel>undefined();
@@ -49,7 +49,7 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
   public TestSuiteChangeViewModelChangedFieldViewModel() { 
   }
 
-  public TestSuiteChangeViewModelChangedFieldViewModel oldValue(TestSuiteChangeViewModel oldValue) {
+  public TestSuiteChangeViewModelChangedFieldViewModel oldValue(@jakarta.annotation.Nullable TestSuiteChangeViewModel oldValue) {
     this.oldValue = JsonNullable.<TestSuiteChangeViewModel>of(oldValue);
     return this;
   }
@@ -77,12 +77,12 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(TestSuiteChangeViewModel oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable TestSuiteChangeViewModel oldValue) {
     this.oldValue = JsonNullable.<TestSuiteChangeViewModel>of(oldValue);
   }
 
 
-  public TestSuiteChangeViewModelChangedFieldViewModel newValue(TestSuiteChangeViewModel newValue) {
+  public TestSuiteChangeViewModelChangedFieldViewModel newValue(@jakarta.annotation.Nullable TestSuiteChangeViewModel newValue) {
     this.newValue = JsonNullable.<TestSuiteChangeViewModel>of(newValue);
     return this;
   }
@@ -110,7 +110,7 @@ public class TestSuiteChangeViewModelChangedFieldViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(TestSuiteChangeViewModel newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable TestSuiteChangeViewModel newValue) {
     this.newValue = JsonNullable.<TestSuiteChangeViewModel>of(newValue);
   }
 

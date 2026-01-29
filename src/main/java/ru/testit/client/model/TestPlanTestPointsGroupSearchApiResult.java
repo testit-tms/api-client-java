@@ -38,21 +38,24 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsGroupSearchApiResult.JSON_PROPERTY_TOTAL_COUNT,
   TestPlanTestPointsGroupSearchApiResult.JSON_PROPERTY_STATUS_COUNTERS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsGroupSearchApiResult {
   public static final String JSON_PROPERTY_DATA = "data";
+  @jakarta.annotation.Nonnull
   private List<TestPlanTestPointsGroupSearchItemApiResult> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
+  @jakarta.annotation.Nonnull
   private Integer totalCount;
 
   public static final String JSON_PROPERTY_STATUS_COUNTERS = "statusCounters";
+  @jakarta.annotation.Nonnull
   private TestPlanTestPointsSearchStatusCountersApiResult statusCounters;
 
   public TestPlanTestPointsGroupSearchApiResult() { 
   }
 
-  public TestPlanTestPointsGroupSearchApiResult data(List<TestPlanTestPointsGroupSearchItemApiResult> data) {
+  public TestPlanTestPointsGroupSearchApiResult data(@jakarta.annotation.Nonnull List<TestPlanTestPointsGroupSearchItemApiResult> data) {
     this.data = data;
     return this;
   }
@@ -80,12 +83,12 @@ public class TestPlanTestPointsGroupSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<TestPlanTestPointsGroupSearchItemApiResult> data) {
+  public void setData(@jakarta.annotation.Nonnull List<TestPlanTestPointsGroupSearchItemApiResult> data) {
     this.data = data;
   }
 
 
-  public TestPlanTestPointsGroupSearchApiResult totalCount(Integer totalCount) {
+  public TestPlanTestPointsGroupSearchApiResult totalCount(@jakarta.annotation.Nonnull Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -105,12 +108,12 @@ public class TestPlanTestPointsGroupSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(@jakarta.annotation.Nonnull Integer totalCount) {
     this.totalCount = totalCount;
   }
 
 
-  public TestPlanTestPointsGroupSearchApiResult statusCounters(TestPlanTestPointsSearchStatusCountersApiResult statusCounters) {
+  public TestPlanTestPointsGroupSearchApiResult statusCounters(@jakarta.annotation.Nonnull TestPlanTestPointsSearchStatusCountersApiResult statusCounters) {
     this.statusCounters = statusCounters;
     return this;
   }
@@ -130,7 +133,7 @@ public class TestPlanTestPointsGroupSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS_COUNTERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusCounters(TestPlanTestPointsSearchStatusCountersApiResult statusCounters) {
+  public void setStatusCounters(@jakarta.annotation.Nonnull TestPlanTestPointsSearchStatusCountersApiResult statusCounters) {
     this.statusCounters = statusCounters;
   }
 

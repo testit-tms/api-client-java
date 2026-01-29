@@ -21,8 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
+import ru.testit.client.model.TestPlanTestPointsStatusCodeGroupApiResult;
 import ru.testit.client.model.TestStatusApiType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
@@ -34,23 +37,26 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   TestPlanTestPointsTesterAndStatusTypeGroupApiResult.JSON_PROPERTY_USER_ID,
   TestPlanTestPointsTesterAndStatusTypeGroupApiResult.JSON_PROPERTY_STATUS_TYPE,
-  TestPlanTestPointsTesterAndStatusTypeGroupApiResult.JSON_PROPERTY_VALUE
+  TestPlanTestPointsTesterAndStatusTypeGroupApiResult.JSON_PROPERTY_STATUSES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsTesterAndStatusTypeGroupApiResult {
   public static final String JSON_PROPERTY_USER_ID = "userId";
+  @jakarta.annotation.Nullable
   private UUID userId;
 
   public static final String JSON_PROPERTY_STATUS_TYPE = "statusType";
+  @jakarta.annotation.Nonnull
   private TestStatusApiType statusType;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private Long value;
+  public static final String JSON_PROPERTY_STATUSES = "statuses";
+  @jakarta.annotation.Nonnull
+  private List<TestPlanTestPointsStatusCodeGroupApiResult> statuses = new ArrayList<>();
 
   public TestPlanTestPointsTesterAndStatusTypeGroupApiResult() { 
   }
 
-  public TestPlanTestPointsTesterAndStatusTypeGroupApiResult userId(UUID userId) {
+  public TestPlanTestPointsTesterAndStatusTypeGroupApiResult userId(@jakarta.annotation.Nullable UUID userId) {
     this.userId = userId;
     return this;
   }
@@ -70,12 +76,12 @@ public class TestPlanTestPointsTesterAndStatusTypeGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_USER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUserId(UUID userId) {
+  public void setUserId(@jakarta.annotation.Nullable UUID userId) {
     this.userId = userId;
   }
 
 
-  public TestPlanTestPointsTesterAndStatusTypeGroupApiResult statusType(TestStatusApiType statusType) {
+  public TestPlanTestPointsTesterAndStatusTypeGroupApiResult statusType(@jakarta.annotation.Nonnull TestStatusApiType statusType) {
     this.statusType = statusType;
     return this;
   }
@@ -95,33 +101,41 @@ public class TestPlanTestPointsTesterAndStatusTypeGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusType(TestStatusApiType statusType) {
+  public void setStatusType(@jakarta.annotation.Nonnull TestStatusApiType statusType) {
     this.statusType = statusType;
   }
 
 
-  public TestPlanTestPointsTesterAndStatusTypeGroupApiResult value(Long value) {
-    this.value = value;
+  public TestPlanTestPointsTesterAndStatusTypeGroupApiResult statuses(@jakarta.annotation.Nonnull List<TestPlanTestPointsStatusCodeGroupApiResult> statuses) {
+    this.statuses = statuses;
+    return this;
+  }
+
+  public TestPlanTestPointsTesterAndStatusTypeGroupApiResult addStatusesItem(TestPlanTestPointsStatusCodeGroupApiResult statusesItem) {
+    if (this.statuses == null) {
+      this.statuses = new ArrayList<>();
+    }
+    this.statuses.add(statusesItem);
     return this;
   }
 
   /**
-   * Get value
-   * @return value
+   * Get statuses
+   * @return statuses
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(JSON_PROPERTY_STATUSES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Long getValue() {
-    return value;
+  public List<TestPlanTestPointsStatusCodeGroupApiResult> getStatuses() {
+    return statuses;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(JSON_PROPERTY_STATUSES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Long value) {
-    this.value = value;
+  public void setStatuses(@jakarta.annotation.Nonnull List<TestPlanTestPointsStatusCodeGroupApiResult> statuses) {
+    this.statuses = statuses;
   }
 
 
@@ -139,12 +153,12 @@ public class TestPlanTestPointsTesterAndStatusTypeGroupApiResult {
     TestPlanTestPointsTesterAndStatusTypeGroupApiResult testPlanTestPointsTesterAndStatusTypeGroupApiResult = (TestPlanTestPointsTesterAndStatusTypeGroupApiResult) o;
     return Objects.equals(this.userId, testPlanTestPointsTesterAndStatusTypeGroupApiResult.userId) &&
         Objects.equals(this.statusType, testPlanTestPointsTesterAndStatusTypeGroupApiResult.statusType) &&
-        Objects.equals(this.value, testPlanTestPointsTesterAndStatusTypeGroupApiResult.value);
+        Objects.equals(this.statuses, testPlanTestPointsTesterAndStatusTypeGroupApiResult.statuses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, statusType, value);
+    return Objects.hash(userId, statusType, statuses);
   }
 
   @Override
@@ -153,7 +167,7 @@ public class TestPlanTestPointsTesterAndStatusTypeGroupApiResult {
     sb.append("class TestPlanTestPointsTesterAndStatusTypeGroupApiResult {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    statusType: ").append(toIndentedString(statusType)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -37,7 +37,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunsApi {
   private ApiClient apiClient;
 
@@ -69,15 +69,16 @@ public class TestRunsApi {
 
   /**
    * Delete multiple test runs
-   *   Use case    User sets selection parameters of test runs    System search and delete collection of test runs    System returns the number of deleted test runs
+   *  Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs
    * @param testRunSelectApiModel  (optional)
    * @return Integer
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - ID is not valid    - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - ID is not valid  - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -91,15 +92,16 @@ public class TestRunsApi {
 
   /**
    * Delete multiple test runs
-   *   Use case    User sets selection parameters of test runs    System search and delete collection of test runs    System returns the number of deleted test runs
+   *  Use case  User sets selection parameters of test runs  System search and delete collection of test runs  System returns the number of deleted test runs
    * @param testRunSelectApiModel  (optional)
    * @return ApiResponse&lt;Integer&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - ID is not valid    - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - ID is not valid  - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -123,7 +125,8 @@ public class TestRunsApi {
    * @return AutoTestNamespacesCountResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -145,7 +148,8 @@ public class TestRunsApi {
    * @return ApiResponse&lt;AutoTestNamespacesCountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -176,14 +180,15 @@ public class TestRunsApi {
   }
   /**
    * Delete test run
-   *   Use case    User sets test run internal (guid format) identifier    System search and delete test run
+   *  Use case  User sets test run internal (guid format) identifier  System search and delete test run
    * @param id Test run internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - ID is not valid    - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - ID is not valid  - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Test run with provided ID cannot be found </td><td>  -  </td></tr>
@@ -197,15 +202,16 @@ public class TestRunsApi {
 
   /**
    * Delete test run
-   *   Use case    User sets test run internal (guid format) identifier    System search and delete test run
+   *  Use case  User sets test run internal (guid format) identifier  System search and delete test run
    * @param id Test run internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - ID is not valid    - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - ID is not valid  - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Test run with provided ID cannot be found </td><td>  -  </td></tr>
@@ -232,14 +238,15 @@ public class TestRunsApi {
   }
   /**
    * Permanently delete test run from archive
-   *   Use case    User sets archived test run internal (guid format) identifier    System search and purge archived test run
+   *  Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run
    * @param id Test run internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - ID is not valid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Delete permission for archived test runs is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -253,15 +260,16 @@ public class TestRunsApi {
 
   /**
    * Permanently delete test run from archive
-   *   Use case    User sets archived test run internal (guid format) identifier    System search and purge archived test run
+   *  Use case  User sets archived test run internal (guid format) identifier  System search and purge archived test run
    * @param id Test run internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - ID is not valid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Delete permission for archived test runs is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -294,7 +302,8 @@ public class TestRunsApi {
    * @return ManualRerunApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -317,7 +326,8 @@ public class TestRunsApi {
    * @return ApiResponse&lt;ManualRerunApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -348,14 +358,15 @@ public class TestRunsApi {
   }
   /**
    * Restore test run from the archive
-   *   Use case    User sets archived test run internal (guid format) identifier    System search and restore test run
+   *  Use case  User sets archived test run internal (guid format) identifier  System search and restore test run
    * @param id Unique ID of the test run (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - ID is not valid    - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - ID is not valid  - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for archive is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -369,15 +380,16 @@ public class TestRunsApi {
 
   /**
    * Restore test run from the archive
-   *   Use case    User sets archived test run internal (guid format) identifier    System search and restore test run
+   *  Use case  User sets archived test run internal (guid format) identifier  System search and restore test run
    * @param id Unique ID of the test run (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - ID is not valid    - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - ID is not valid  - Project was archived and cannot be edited anymore </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for archive is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -410,7 +422,8 @@ public class TestRunsApi {
    * @return TestResultsStatisticsApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -433,7 +446,8 @@ public class TestRunsApi {
    * @return ApiResponse&lt;TestResultsStatisticsApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -469,7 +483,8 @@ public class TestRunsApi {
    * @return List&lt;TestPointResultApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -491,7 +506,8 @@ public class TestRunsApi {
    * @return ApiResponse&lt;List&lt;TestPointResultApiResult&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -527,7 +543,8 @@ public class TestRunsApi {
    * @param testRunTestResultsPartialBulkSetModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -550,7 +567,8 @@ public class TestRunsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -585,7 +603,8 @@ public class TestRunsApi {
    * @return OffsetDateTime
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -607,7 +626,8 @@ public class TestRunsApi {
    * @return ApiResponse&lt;OffsetDateTime&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -638,12 +658,13 @@ public class TestRunsApi {
   }
   /**
    * Permanently delete multiple test runs from archive
-   *   Use case    User sets selection parameters of archived test runs    System search and delete collection of archived test runs    System returns the number of deleted archived test runs
+   *  Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs
    * @param testRunSelectApiModel  (optional)
    * @return Integer
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -660,12 +681,13 @@ public class TestRunsApi {
 
   /**
    * Permanently delete multiple test runs from archive
-   *   Use case    User sets selection parameters of archived test runs    System search and delete collection of archived test runs    System returns the number of deleted archived test runs
+   *  Use case  User sets selection parameters of archived test runs  System search and delete collection of archived test runs  System returns the number of deleted archived test runs
    * @param testRunSelectApiModel  (optional)
    * @return ApiResponse&lt;Integer&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -687,12 +709,13 @@ public class TestRunsApi {
   }
   /**
    * Restore multiple test runs from the archive
-   *   Use case    User sets selection parameters of archived test runs    System search and restore collection of archived test runs    System returns the number of restored test runs
+   *  Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs
    * @param testRunSelectApiModel  (optional)
    * @return Integer
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -709,12 +732,13 @@ public class TestRunsApi {
 
   /**
    * Restore multiple test runs from the archive
-   *   Use case    User sets selection parameters of archived test runs    System search and restore collection of archived test runs    System returns the number of restored test runs
+   *  Use case  User sets selection parameters of archived test runs  System search and restore collection of archived test runs  System returns the number of restored test runs
    * @param testRunSelectApiModel  (optional)
    * @return ApiResponse&lt;Integer&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -746,7 +770,8 @@ public class TestRunsApi {
    * @return List&lt;TestRunShortApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -773,7 +798,8 @@ public class TestRunsApi {
    * @return ApiResponse&lt;List&lt;TestRunShortApiResult&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -808,7 +834,8 @@ public class TestRunsApi {
    * @param updateMultipleTestRunsApiModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -830,7 +857,8 @@ public class TestRunsApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -851,17 +879,18 @@ public class TestRunsApi {
   }
   /**
    * Complete TestRun
-   *   Use case    User sets test run identifier    User runs method execution    System completes test run    System returns no content response
+   *  Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response
    * @param id Test Run internal identifier (GUID format) (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    the StateName is already Stopped    the StateName is already Completed </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  the StateName is already Stopped  the StateName is already Completed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -872,18 +901,19 @@ public class TestRunsApi {
 
   /**
    * Complete TestRun
-   *   Use case    User sets test run identifier    User runs method execution    System completes test run    System returns no content response
+   *  Use case  User sets test run identifier  User runs method execution  System completes test run  System returns no content response
    * @param id Test Run internal identifier (GUID format) (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    the StateName is already Stopped    the StateName is already Completed </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  the StateName is already Stopped  the StateName is already Completed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -907,15 +937,16 @@ public class TestRunsApi {
   }
   /**
    * Create test runs based on autotests and configurations
-   * This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
+   * This method creates a test run based on an autotest and a configuration. The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is that in this method there is no need to create a test plan and work items (test cases and checklists).
    * @param createTestRunAndFillByAutoTestsApiModel  (optional)
    * @return TestRunV2ApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - Field is required    - Configuration does not exist in the project    - Autotest does not exist in the project    - Test run must be automated    - Project ID is invalid    - Autotest external IDs are required    - Configuration IDs are required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - Field is required  - Configuration does not exist in the project  - Autotest does not exist in the project  - Test run must be automated  - Project ID is invalid  - Autotest external IDs are required  - Configuration IDs are required </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
@@ -929,15 +960,16 @@ public class TestRunsApi {
 
   /**
    * Create test runs based on autotests and configurations
-   * This method creates a test run based on an autotest and a configuration.  The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is  that in this method there is no need to create a test plan and work items (test cases and checklists).
+   * This method creates a test run based on an autotest and a configuration. The difference between the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; and &#x60;POST /api/v2/testRuns/byConfigurations&#x60; methods is that in this method there is no need to create a test plan and work items (test cases and checklists).
    * @param createTestRunAndFillByAutoTestsApiModel  (optional)
    * @return ApiResponse&lt;TestRunV2ApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - Field is required    - Configuration does not exist in the project    - Autotest does not exist in the project    - Test run must be automated    - Project ID is invalid    - Autotest external IDs are required    - Configuration IDs are required </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - Field is required  - Configuration does not exist in the project  - Autotest does not exist in the project  - Test run must be automated  - Project ID is invalid  - Autotest external IDs are required  - Configuration IDs are required </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Some autotests do not exist </td><td>  -  </td></tr>
@@ -956,15 +988,16 @@ public class TestRunsApi {
   }
   /**
    * Create test runs picking the needed test points
-   * This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
+   * This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
    * @param createTestRunAndFillByConfigurationsApiModel  (optional)
    * @return TestRunV2ApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - Field is required    - Test run cannot be created with deleted test points    - Test suites with IDs [ids] is archived    - Configurations with IDs [ids] is archived    - Test run cannot be created with non-automated test point    - Test run must be automated    - Some work items do not exist    - Project ID is invalid    - Test point selectors are required    - Some work item IDs are invalid    - Some configuration IDs are invalid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - Field is required  - Test run cannot be created with deleted test points  - Test suites with IDs [ids] is archived  - Configurations with IDs [ids] is archived  - Test run cannot be created with non-automated test point  - Test run must be automated  - Some work items do not exist  - Project ID is invalid  - Test point selectors are required  - Some work item IDs are invalid  - Some configuration IDs are invalid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
@@ -978,15 +1011,16 @@ public class TestRunsApi {
 
   /**
    * Create test runs picking the needed test points
-   * This method creates a test run based on a combination of a configuration and a work item(test case or checklist).  Before you create a test run using this method, make sure to create a test plan. Work items must be automated.  This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a  jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
+   * This method creates a test run based on a combination of a configuration and a work item(test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated. This method is different from the &#x60;POST /api/v2/testRuns/byWorkItems&#x60; method because of the ability to send a jagged array within the \&quot;&lt;b&gt;testPointSelectors&lt;/b&gt;\&quot; parameter.
    * @param createTestRunAndFillByConfigurationsApiModel  (optional)
    * @return ApiResponse&lt;TestRunV2ApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - Field is required    - Test run cannot be created with deleted test points    - Test suites with IDs [ids] is archived    - Configurations with IDs [ids] is archived    - Test run cannot be created with non-automated test point    - Test run must be automated    - Some work items do not exist    - Project ID is invalid    - Test point selectors are required    - Some work item IDs are invalid    - Some configuration IDs are invalid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - Field is required  - Test run cannot be created with deleted test points  - Test suites with IDs [ids] is archived  - Configurations with IDs [ids] is archived  - Test run cannot be created with non-automated test point  - Test run must be automated  - Some work items do not exist  - Project ID is invalid  - Test point selectors are required  - Some work item IDs are invalid  - Some configuration IDs are invalid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Some test points do not exists </td><td>  -  </td></tr>
@@ -1005,15 +1039,16 @@ public class TestRunsApi {
   }
   /**
    * Create test run based on configurations and work items
-   * This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
+   * This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
    * @param createTestRunAndFillByWorkItemsApiModel  (optional)
    * @return TestRunV2ApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - Field is required    - Test run cannot be created with deleted test points    - Test suites with IDs [ids] is archived    - Configurations with IDs [ids] is archived    - Test run cannot be created with non-automated test point    - Some work items do not exist    - Project ID is invalid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - Field is required  - Test run cannot be created with deleted test points  - Test suites with IDs [ids] is archived  - Configurations with IDs [ids] is archived  - Test run cannot be created with non-automated test point  - Some work items do not exist  - Project ID is invalid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
@@ -1027,15 +1062,16 @@ public class TestRunsApi {
 
   /**
    * Create test run based on configurations and work items
-   * This method creates a test run based on a combination of configuration and work item (test case or checklist).  Before you create a test run using this method, make sure to create a test plan.  Work items must be automated.
+   * This method creates a test run based on a combination of configuration and work item (test case or checklist). Before you create a test run using this method, make sure to create a test plan. Work items must be automated.
    * @param createTestRunAndFillByWorkItemsApiModel  (optional)
    * @return ApiResponse&lt;TestRunV2ApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - Field is required    - Test run cannot be created with deleted test points    - Test suites with IDs [ids] is archived    - Configurations with IDs [ids] is archived    - Test run cannot be created with non-automated test point    - Some work items do not exist    - Project ID is invalid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - Field is required  - Test run cannot be created with deleted test points  - Test suites with IDs [ids] is archived  - Configurations with IDs [ids] is archived  - Test run cannot be created with non-automated test point  - Some work items do not exist  - Project ID is invalid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Some test points, work items or configurations do not exist </td><td>  -  </td></tr>
@@ -1054,15 +1090,16 @@ public class TestRunsApi {
   }
   /**
    * Create empty TestRun
-   *   Use case    User sets test run model (listed in the request example)    User runs method execution    System creates test run    System returns test run model
+   *  Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model
    * @param createEmptyTestRunApiModel  (optional)
    * @return TestRunV2ApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    TestRun must be automated    ProjectId is not a valid! </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  TestRun must be automated  ProjectId is not a valid! </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
@@ -1076,15 +1113,16 @@ public class TestRunsApi {
 
   /**
    * Create empty TestRun
-   *   Use case    User sets test run model (listed in the request example)    User runs method execution    System creates test run    System returns test run model
+   *  Use case  User sets test run model (listed in the request example)  User runs method execution  System creates test run  System returns test run model
    * @param createEmptyTestRunApiModel  (optional)
    * @return ApiResponse&lt;TestRunV2ApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    TestRun must be automated    ProjectId is not a valid! </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  TestRun must be automated  ProjectId is not a valid! </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> TestRunTesterRequirement permission required </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Can&#39;t find a TestRun with id &#x3D; testRunId </td><td>  -  </td></tr>
@@ -1103,18 +1141,19 @@ public class TestRunsApi {
   }
   /**
    * Get TestRun by Id
-   *   Use case    User sets test run identifier    User runs method execution    System finds test run    System returns test run
+   *  Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run
    * @param id Test Run internal identifier (GUID format) (required)
    * @return TestRunV2ApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   TestRun with ID &#39;{id}&#39; does not exist. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  TestRun with ID &#39;{id}&#39; does not exist. </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1125,18 +1164,19 @@ public class TestRunsApi {
 
   /**
    * Get TestRun by Id
-   *   Use case    User sets test run identifier    User runs method execution    System finds test run    System returns test run
+   *  Use case  User sets test run identifier  User runs method execution  System finds test run  System returns test run
    * @param id Test Run internal identifier (GUID format) (required)
    * @return ApiResponse&lt;TestRunV2ApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   TestRun with ID &#39;{id}&#39; does not exist. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  TestRun with ID &#39;{id}&#39; does not exist. </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1167,15 +1207,16 @@ public class TestRunsApi {
    * @return List&lt;UUID&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - Field is required    - Body is invalid    - Test points are required    - Duration must be a positive number    - Outcome is not defined    - Test run is stopped </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - Field is required  - Body is invalid  - Test points are required  - Duration must be a positive number  - Outcome is not defined  - Test run is stopped </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   - Test run with provided ID was not found    - Test point was not found    - Autotest with provided external ID was not found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  - Test run with provided ID was not found  - Test point was not found  - Autotest with provided external ID was not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>   - Configuration with provided ID was not found    - Test points relevant to provided filters were not found </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>  - Configuration with provided ID was not found  - Test points relevant to provided filters were not found </td><td>  -  </td></tr>
      </table>
    */
   public List<UUID> setAutoTestResultsForTestRun(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel) throws ApiException {
@@ -1190,15 +1231,16 @@ public class TestRunsApi {
    * @return ApiResponse&lt;List&lt;UUID&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   - Field is required    - Body is invalid    - Test points are required    - Duration must be a positive number    - Outcome is not defined    - Test run is stopped </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  - Field is required  - Body is invalid  - Test points are required  - Duration must be a positive number  - Outcome is not defined  - Test run is stopped </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test results is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   - Test run with provided ID was not found    - Test point was not found    - Autotest with provided external ID was not found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  - Test run with provided ID was not found  - Test point was not found  - Autotest with provided external ID was not found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>   - Configuration with provided ID was not found    - Test points relevant to provided filters were not found </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>  - Configuration with provided ID was not found  - Test points relevant to provided filters were not found </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<List<UUID>> setAutoTestResultsForTestRunWithHttpInfo(UUID id, List<AutoTestResultsForTestRunModel> autoTestResultsForTestRunModel) throws ApiException {
@@ -1221,17 +1263,18 @@ public class TestRunsApi {
   }
   /**
    * Start TestRun
-   *   Use case    User sets test run identifier    User runs method execution    System starts test run    System returns no content response
+   *  Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response
    * @param id Test Run internal identifier (GUID format) (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    the StateName is already InProgress    the StateName is already Stopped    the StateName is already Completed </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  the StateName is already InProgress  the StateName is already Stopped  the StateName is already Completed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1242,18 +1285,19 @@ public class TestRunsApi {
 
   /**
    * Start TestRun
-   *   Use case    User sets test run identifier    User runs method execution    System starts test run    System returns no content response
+   *  Use case  User sets test run identifier  User runs method execution  System starts test run  System returns no content response
    * @param id Test Run internal identifier (GUID format) (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    the StateName is already InProgress    the StateName is already Stopped    the StateName is already Completed </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  the StateName is already InProgress  the StateName is already Stopped  the StateName is already Completed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1277,17 +1321,18 @@ public class TestRunsApi {
   }
   /**
    * Stop TestRun
-   *   Use case    User sets test run identifier    User runs method execution    System stops test run    System returns no content response
+   *  Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response
    * @param id Test Run internal identifier (GUID format) (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    the StateName is already Stopped    the StateName is already Completed </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  the StateName is already Stopped  the StateName is already Completed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1298,18 +1343,19 @@ public class TestRunsApi {
 
   /**
    * Stop TestRun
-   *   Use case    User sets test run identifier    User runs method execution    System stops test run    System returns no content response
+   *  Use case  User sets test run identifier  User runs method execution  System stops test run  System returns no content response
    * @param id Test Run internal identifier (GUID format) (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    the StateName is already Stopped    the StateName is already Completed </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  the StateName is already Stopped  the StateName is already Completed </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1333,17 +1379,18 @@ public class TestRunsApi {
   }
   /**
    * Update empty TestRun
-   *   Use case    User sets test run properties (listed in the request example)    User runs method execution    System updates test run    System returns returns no content response
+   *  Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response
    * @param updateEmptyTestRunApiModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    Name is not valid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  Name is not valid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -1354,18 +1401,19 @@ public class TestRunsApi {
 
   /**
    * Update empty TestRun
-   *   Use case    User sets test run properties (listed in the request example)    User runs method execution    System updates test run    System returns returns no content response
+   *  Use case  User sets test run properties (listed in the request example)  User runs method execution  System updates test run  System returns returns no content response
    * @param updateEmptyTestRunApiModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>   Field is required    Name is not valid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>  Field is required  Name is not valid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test result required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>   Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>  Can&#39;t find a TestRun with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>

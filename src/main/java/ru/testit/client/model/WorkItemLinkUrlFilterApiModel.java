@@ -40,7 +40,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemLinkUrlFilterApiModel.JSON_PROPERTY_TYPES,
   WorkItemLinkUrlFilterApiModel.JSON_PROPERTY_SEARCH_URL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLinkUrlFilterApiModel {
   public static final String JSON_PROPERTY_TYPES = "types";
   private JsonNullable<Set<WorkItemEntityTypes>> types = JsonNullable.<Set<WorkItemEntityTypes>>undefined();
@@ -51,7 +51,7 @@ public class WorkItemLinkUrlFilterApiModel {
   public WorkItemLinkUrlFilterApiModel() { 
   }
 
-  public WorkItemLinkUrlFilterApiModel types(Set<WorkItemEntityTypes> types) {
+  public WorkItemLinkUrlFilterApiModel types(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
     this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
     return this;
   }
@@ -91,12 +91,12 @@ public class WorkItemLinkUrlFilterApiModel {
     this.types = types;
   }
 
-  public void setTypes(Set<WorkItemEntityTypes> types) {
+  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
     this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
   }
 
 
-  public WorkItemLinkUrlFilterApiModel searchUrl(String searchUrl) {
+  public WorkItemLinkUrlFilterApiModel searchUrl(@jakarta.annotation.Nullable String searchUrl) {
     this.searchUrl = JsonNullable.<String>of(searchUrl);
     return this;
   }
@@ -124,7 +124,7 @@ public class WorkItemLinkUrlFilterApiModel {
     this.searchUrl = searchUrl;
   }
 
-  public void setSearchUrl(String searchUrl) {
+  public void setSearchUrl(@jakarta.annotation.Nullable String searchUrl) {
     this.searchUrl = JsonNullable.<String>of(searchUrl);
   }
 

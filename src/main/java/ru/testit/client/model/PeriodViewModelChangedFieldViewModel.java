@@ -38,7 +38,7 @@ import ru.testit.client.invoker.JSON;
   PeriodViewModelChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   PeriodViewModelChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class PeriodViewModelChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private JsonNullable<PeriodViewModel> oldValue = JsonNullable.<PeriodViewModel>undefined();
@@ -49,7 +49,7 @@ public class PeriodViewModelChangedFieldViewModel {
   public PeriodViewModelChangedFieldViewModel() { 
   }
 
-  public PeriodViewModelChangedFieldViewModel oldValue(PeriodViewModel oldValue) {
+  public PeriodViewModelChangedFieldViewModel oldValue(@jakarta.annotation.Nullable PeriodViewModel oldValue) {
     this.oldValue = JsonNullable.<PeriodViewModel>of(oldValue);
     return this;
   }
@@ -77,12 +77,12 @@ public class PeriodViewModelChangedFieldViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(PeriodViewModel oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable PeriodViewModel oldValue) {
     this.oldValue = JsonNullable.<PeriodViewModel>of(oldValue);
   }
 
 
-  public PeriodViewModelChangedFieldViewModel newValue(PeriodViewModel newValue) {
+  public PeriodViewModelChangedFieldViewModel newValue(@jakarta.annotation.Nullable PeriodViewModel newValue) {
     this.newValue = JsonNullable.<PeriodViewModel>of(newValue);
     return this;
   }
@@ -110,7 +110,7 @@ public class PeriodViewModelChangedFieldViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(PeriodViewModel newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable PeriodViewModel newValue) {
     this.newValue = JsonNullable.<PeriodViewModel>of(newValue);
   }
 

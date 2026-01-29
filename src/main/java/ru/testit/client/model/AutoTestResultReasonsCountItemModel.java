@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   AutoTestResultReasonsCountItemModel.JSON_PROPERTY_FAILURE_CATEGORY,
   AutoTestResultReasonsCountItemModel.JSON_PROPERTY_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestResultReasonsCountItemModel {
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  @jakarta.annotation.Nonnull
   private AvailableFailureCategory failureCategory;
 
   public static final String JSON_PROPERTY_COUNT = "count";
+  @jakarta.annotation.Nonnull
   private Integer count;
 
   public AutoTestResultReasonsCountItemModel() { 
   }
 
-  public AutoTestResultReasonsCountItemModel failureCategory(AvailableFailureCategory failureCategory) {
+  public AutoTestResultReasonsCountItemModel failureCategory(@jakarta.annotation.Nonnull AvailableFailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -65,12 +67,12 @@ public class AutoTestResultReasonsCountItemModel {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategory(AvailableFailureCategory failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nonnull AvailableFailureCategory failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public AutoTestResultReasonsCountItemModel count(Integer count) {
+  public AutoTestResultReasonsCountItemModel count(@jakarta.annotation.Nonnull Integer count) {
     this.count = count;
     return this;
   }
@@ -90,7 +92,7 @@ public class AutoTestResultReasonsCountItemModel {
 
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCount(Integer count) {
+  public void setCount(@jakarta.annotation.Nonnull Integer count) {
     this.count = count;
   }
 

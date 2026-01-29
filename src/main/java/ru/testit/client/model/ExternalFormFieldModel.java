@@ -49,9 +49,10 @@ import ru.testit.client.invoker.JSON;
   ExternalFormFieldModel.JSON_PROPERTY_MIN,
   ExternalFormFieldModel.JSON_PROPERTY_MAX
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalFormFieldModel {
   public static final String JSON_PROPERTY_IS_CUSTOM_VALUE_ALLOWED = "isCustomValueAllowed";
+  @jakarta.annotation.Nonnull
   private Boolean isCustomValueAllowed;
 
   public static final String JSON_PROPERTY_FIELD_ID = "fieldId";
@@ -96,7 +97,7 @@ public class ExternalFormFieldModel {
   public ExternalFormFieldModel() { 
   }
 
-  public ExternalFormFieldModel isCustomValueAllowed(Boolean isCustomValueAllowed) {
+  public ExternalFormFieldModel isCustomValueAllowed(@jakarta.annotation.Nonnull Boolean isCustomValueAllowed) {
     this.isCustomValueAllowed = isCustomValueAllowed;
     return this;
   }
@@ -116,12 +117,12 @@ public class ExternalFormFieldModel {
 
   @JsonProperty(JSON_PROPERTY_IS_CUSTOM_VALUE_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsCustomValueAllowed(Boolean isCustomValueAllowed) {
+  public void setIsCustomValueAllowed(@jakarta.annotation.Nonnull Boolean isCustomValueAllowed) {
     this.isCustomValueAllowed = isCustomValueAllowed;
   }
 
 
-  public ExternalFormFieldModel fieldId(String fieldId) {
+  public ExternalFormFieldModel fieldId(@jakarta.annotation.Nullable String fieldId) {
     this.fieldId = JsonNullable.<String>of(fieldId);
     return this;
   }
@@ -149,12 +150,12 @@ public class ExternalFormFieldModel {
     this.fieldId = fieldId;
   }
 
-  public void setFieldId(String fieldId) {
+  public void setFieldId(@jakarta.annotation.Nullable String fieldId) {
     this.fieldId = JsonNullable.<String>of(fieldId);
   }
 
 
-  public ExternalFormFieldModel fieldName(String fieldName) {
+  public ExternalFormFieldModel fieldName(@jakarta.annotation.Nullable String fieldName) {
     this.fieldName = JsonNullable.<String>of(fieldName);
     return this;
   }
@@ -182,12 +183,12 @@ public class ExternalFormFieldModel {
     this.fieldName = fieldName;
   }
 
-  public void setFieldName(String fieldName) {
+  public void setFieldName(@jakarta.annotation.Nullable String fieldName) {
     this.fieldName = JsonNullable.<String>of(fieldName);
   }
 
 
-  public ExternalFormFieldModel helpText(String helpText) {
+  public ExternalFormFieldModel helpText(@jakarta.annotation.Nullable String helpText) {
     this.helpText = JsonNullable.<String>of(helpText);
     return this;
   }
@@ -215,12 +216,12 @@ public class ExternalFormFieldModel {
     this.helpText = helpText;
   }
 
-  public void setHelpText(String helpText) {
+  public void setHelpText(@jakarta.annotation.Nullable String helpText) {
     this.helpText = JsonNullable.<String>of(helpText);
   }
 
 
-  public ExternalFormFieldModel type(String type) {
+  public ExternalFormFieldModel type(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
     return this;
   }
@@ -248,12 +249,12 @@ public class ExternalFormFieldModel {
     this.type = type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
   }
 
 
-  public ExternalFormFieldModel arrayValuesType(String arrayValuesType) {
+  public ExternalFormFieldModel arrayValuesType(@jakarta.annotation.Nullable String arrayValuesType) {
     this.arrayValuesType = JsonNullable.<String>of(arrayValuesType);
     return this;
   }
@@ -281,12 +282,12 @@ public class ExternalFormFieldModel {
     this.arrayValuesType = arrayValuesType;
   }
 
-  public void setArrayValuesType(String arrayValuesType) {
+  public void setArrayValuesType(@jakarta.annotation.Nullable String arrayValuesType) {
     this.arrayValuesType = JsonNullable.<String>of(arrayValuesType);
   }
 
 
-  public ExternalFormFieldModel defaultValue(Object defaultValue) {
+  public ExternalFormFieldModel defaultValue(@jakarta.annotation.Nullable Object defaultValue) {
     this.defaultValue = JsonNullable.<Object>of(defaultValue);
     return this;
   }
@@ -314,12 +315,12 @@ public class ExternalFormFieldModel {
     this.defaultValue = defaultValue;
   }
 
-  public void setDefaultValue(Object defaultValue) {
+  public void setDefaultValue(@jakarta.annotation.Nullable Object defaultValue) {
     this.defaultValue = JsonNullable.<Object>of(defaultValue);
   }
 
 
-  public ExternalFormFieldModel autoCompleteUrl(String autoCompleteUrl) {
+  public ExternalFormFieldModel autoCompleteUrl(@jakarta.annotation.Nullable String autoCompleteUrl) {
     this.autoCompleteUrl = JsonNullable.<String>of(autoCompleteUrl);
     return this;
   }
@@ -347,12 +348,12 @@ public class ExternalFormFieldModel {
     this.autoCompleteUrl = autoCompleteUrl;
   }
 
-  public void setAutoCompleteUrl(String autoCompleteUrl) {
+  public void setAutoCompleteUrl(@jakarta.annotation.Nullable String autoCompleteUrl) {
     this.autoCompleteUrl = JsonNullable.<String>of(autoCompleteUrl);
   }
 
 
-  public ExternalFormFieldModel controlType(String controlType) {
+  public ExternalFormFieldModel controlType(@jakarta.annotation.Nullable String controlType) {
     this.controlType = JsonNullable.<String>of(controlType);
     return this;
   }
@@ -380,12 +381,12 @@ public class ExternalFormFieldModel {
     this.controlType = controlType;
   }
 
-  public void setControlType(String controlType) {
+  public void setControlType(@jakarta.annotation.Nullable String controlType) {
     this.controlType = JsonNullable.<String>of(controlType);
   }
 
 
-  public ExternalFormFieldModel minLength(Double minLength) {
+  public ExternalFormFieldModel minLength(@jakarta.annotation.Nullable Double minLength) {
     this.minLength = JsonNullable.<Double>of(minLength);
     return this;
   }
@@ -413,12 +414,12 @@ public class ExternalFormFieldModel {
     this.minLength = minLength;
   }
 
-  public void setMinLength(Double minLength) {
+  public void setMinLength(@jakarta.annotation.Nullable Double minLength) {
     this.minLength = JsonNullable.<Double>of(minLength);
   }
 
 
-  public ExternalFormFieldModel maxLength(Double maxLength) {
+  public ExternalFormFieldModel maxLength(@jakarta.annotation.Nullable Double maxLength) {
     this.maxLength = JsonNullable.<Double>of(maxLength);
     return this;
   }
@@ -446,12 +447,12 @@ public class ExternalFormFieldModel {
     this.maxLength = maxLength;
   }
 
-  public void setMaxLength(Double maxLength) {
+  public void setMaxLength(@jakarta.annotation.Nullable Double maxLength) {
     this.maxLength = JsonNullable.<Double>of(maxLength);
   }
 
 
-  public ExternalFormFieldModel isRequired(Boolean isRequired) {
+  public ExternalFormFieldModel isRequired(@jakarta.annotation.Nullable Boolean isRequired) {
     this.isRequired = JsonNullable.<Boolean>of(isRequired);
     return this;
   }
@@ -479,12 +480,12 @@ public class ExternalFormFieldModel {
     this.isRequired = isRequired;
   }
 
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@jakarta.annotation.Nullable Boolean isRequired) {
     this.isRequired = JsonNullable.<Boolean>of(isRequired);
   }
 
 
-  public ExternalFormFieldModel min(Object min) {
+  public ExternalFormFieldModel min(@jakarta.annotation.Nullable Object min) {
     this.min = JsonNullable.<Object>of(min);
     return this;
   }
@@ -512,12 +513,12 @@ public class ExternalFormFieldModel {
     this.min = min;
   }
 
-  public void setMin(Object min) {
+  public void setMin(@jakarta.annotation.Nullable Object min) {
     this.min = JsonNullable.<Object>of(min);
   }
 
 
-  public ExternalFormFieldModel max(Object max) {
+  public ExternalFormFieldModel max(@jakarta.annotation.Nullable Object max) {
     this.max = JsonNullable.<Object>of(max);
     return this;
   }
@@ -545,7 +546,7 @@ public class ExternalFormFieldModel {
     this.max = max;
   }
 
-  public void setMax(Object max) {
+  public void setMax(@jakarta.annotation.Nullable Object max) {
     this.max = JsonNullable.<Object>of(max);
   }
 

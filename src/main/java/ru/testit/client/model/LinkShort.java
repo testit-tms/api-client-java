@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   LinkShort.JSON_PROPERTY_NAME,
   LinkShort.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LinkShort {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public LinkShort() { 
   }
 
-  public LinkShort name(String name) {
+  public LinkShort name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -64,12 +66,12 @@ public class LinkShort {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public LinkShort url(String url) {
+  public LinkShort url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -89,7 +91,7 @@ public class LinkShort {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 

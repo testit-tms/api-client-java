@@ -44,7 +44,7 @@ import ru.testit.client.invoker.JSON;
   ParameterGroupsFilterApiModel.JSON_PROPERTY_IS_DELETED,
   ParameterGroupsFilterApiModel.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ParameterGroupsFilterApiModel {
   public static final String JSON_PROPERTY_PARAMETER_KEY_IDS = "parameterKeyIds";
   private JsonNullable<Set<UUID>> parameterKeyIds = JsonNullable.<Set<UUID>>undefined();
@@ -61,7 +61,7 @@ public class ParameterGroupsFilterApiModel {
   public ParameterGroupsFilterApiModel() { 
   }
 
-  public ParameterGroupsFilterApiModel parameterKeyIds(Set<UUID> parameterKeyIds) {
+  public ParameterGroupsFilterApiModel parameterKeyIds(@jakarta.annotation.Nullable Set<UUID> parameterKeyIds) {
     this.parameterKeyIds = JsonNullable.<Set<UUID>>of(parameterKeyIds);
     return this;
   }
@@ -101,12 +101,12 @@ public class ParameterGroupsFilterApiModel {
     this.parameterKeyIds = parameterKeyIds;
   }
 
-  public void setParameterKeyIds(Set<UUID> parameterKeyIds) {
+  public void setParameterKeyIds(@jakarta.annotation.Nullable Set<UUID> parameterKeyIds) {
     this.parameterKeyIds = JsonNullable.<Set<UUID>>of(parameterKeyIds);
   }
 
 
-  public ParameterGroupsFilterApiModel name(String name) {
+  public ParameterGroupsFilterApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -134,12 +134,12 @@ public class ParameterGroupsFilterApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public ParameterGroupsFilterApiModel isDeleted(Boolean isDeleted) {
+  public ParameterGroupsFilterApiModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -167,12 +167,12 @@ public class ParameterGroupsFilterApiModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public ParameterGroupsFilterApiModel projectIds(List<UUID> projectIds) {
+  public ParameterGroupsFilterApiModel projectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
@@ -212,7 +212,7 @@ public class ParameterGroupsFilterApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
   }
 

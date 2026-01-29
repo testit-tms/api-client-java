@@ -52,27 +52,34 @@ import ru.testit.client.invoker.JSON;
   FailureCategoryApiResult.JSON_PROPERTY_MODIFIED_DATE,
   FailureCategoryApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FailureCategoryApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  @jakarta.annotation.Nonnull
   private FailureCategory failureCategory;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_PROJECTS = "projects";
+  @jakarta.annotation.Nonnull
   private List<ProjectNameApiResult> projects = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FAILURE_CLASS_REGEXES = "failureClassRegexes";
+  @jakarta.annotation.Nonnull
   private List<FailureClassRegexApiResult> failureClassRegexes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
@@ -87,7 +94,7 @@ public class FailureCategoryApiResult {
   public FailureCategoryApiResult() { 
   }
 
-  public FailureCategoryApiResult id(UUID id) {
+  public FailureCategoryApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -107,12 +114,12 @@ public class FailureCategoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public FailureCategoryApiResult isDeleted(Boolean isDeleted) {
+  public FailureCategoryApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -132,12 +139,12 @@ public class FailureCategoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public FailureCategoryApiResult failureCategory(FailureCategory failureCategory) {
+  public FailureCategoryApiResult failureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -157,12 +164,12 @@ public class FailureCategoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategory(FailureCategory failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public FailureCategoryApiResult createdDate(OffsetDateTime createdDate) {
+  public FailureCategoryApiResult createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -182,12 +189,12 @@ public class FailureCategoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public FailureCategoryApiResult createdById(UUID createdById) {
+  public FailureCategoryApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -207,12 +214,12 @@ public class FailureCategoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public FailureCategoryApiResult projects(List<ProjectNameApiResult> projects) {
+  public FailureCategoryApiResult projects(@jakarta.annotation.Nonnull List<ProjectNameApiResult> projects) {
     this.projects = projects;
     return this;
   }
@@ -240,12 +247,12 @@ public class FailureCategoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjects(List<ProjectNameApiResult> projects) {
+  public void setProjects(@jakarta.annotation.Nonnull List<ProjectNameApiResult> projects) {
     this.projects = projects;
   }
 
 
-  public FailureCategoryApiResult failureClassRegexes(List<FailureClassRegexApiResult> failureClassRegexes) {
+  public FailureCategoryApiResult failureClassRegexes(@jakarta.annotation.Nonnull List<FailureClassRegexApiResult> failureClassRegexes) {
     this.failureClassRegexes = failureClassRegexes;
     return this;
   }
@@ -273,12 +280,12 @@ public class FailureCategoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_REGEXES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureClassRegexes(List<FailureClassRegexApiResult> failureClassRegexes) {
+  public void setFailureClassRegexes(@jakarta.annotation.Nonnull List<FailureClassRegexApiResult> failureClassRegexes) {
     this.failureClassRegexes = failureClassRegexes;
   }
 
 
-  public FailureCategoryApiResult name(String name) {
+  public FailureCategoryApiResult name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -306,12 +313,12 @@ public class FailureCategoryApiResult {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public FailureCategoryApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public FailureCategoryApiResult modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -339,12 +346,12 @@ public class FailureCategoryApiResult {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public FailureCategoryApiResult modifiedById(UUID modifiedById) {
+  public FailureCategoryApiResult modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -372,7 +379,7 @@ public class FailureCategoryApiResult {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

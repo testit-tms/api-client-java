@@ -68,7 +68,7 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsSearchApiModel.JSON_PROPERTY_WORK_ITEM_MODIFIED_DATE,
   TestPlanTestPointsSearchApiModel.JSON_PROPERTY_WORK_ITEM_MODIFIED_BY_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsSearchApiModel {
   public static final String JSON_PROPERTY_TEST_SUITE_IDS = "testSuiteIds";
   private JsonNullable<List<UUID>> testSuiteIds = JsonNullable.<List<UUID>>undefined();
@@ -143,7 +143,7 @@ public class TestPlanTestPointsSearchApiModel {
   public TestPlanTestPointsSearchApiModel() { 
   }
 
-  public TestPlanTestPointsSearchApiModel testSuiteIds(List<UUID> testSuiteIds) {
+  public TestPlanTestPointsSearchApiModel testSuiteIds(@jakarta.annotation.Nullable List<UUID> testSuiteIds) {
     this.testSuiteIds = JsonNullable.<List<UUID>>of(testSuiteIds);
     return this;
   }
@@ -183,12 +183,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.testSuiteIds = testSuiteIds;
   }
 
-  public void setTestSuiteIds(List<UUID> testSuiteIds) {
+  public void setTestSuiteIds(@jakarta.annotation.Nullable List<UUID> testSuiteIds) {
     this.testSuiteIds = JsonNullable.<List<UUID>>of(testSuiteIds);
   }
 
 
-  public TestPlanTestPointsSearchApiModel workItemGlobalIds(List<Long> workItemGlobalIds) {
+  public TestPlanTestPointsSearchApiModel workItemGlobalIds(@jakarta.annotation.Nullable List<Long> workItemGlobalIds) {
     this.workItemGlobalIds = JsonNullable.<List<Long>>of(workItemGlobalIds);
     return this;
   }
@@ -228,12 +228,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.workItemGlobalIds = workItemGlobalIds;
   }
 
-  public void setWorkItemGlobalIds(List<Long> workItemGlobalIds) {
+  public void setWorkItemGlobalIds(@jakarta.annotation.Nullable List<Long> workItemGlobalIds) {
     this.workItemGlobalIds = JsonNullable.<List<Long>>of(workItemGlobalIds);
   }
 
 
-  public TestPlanTestPointsSearchApiModel workItemMedianDuration(Int64RangeSelectorModel workItemMedianDuration) {
+  public TestPlanTestPointsSearchApiModel workItemMedianDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Int64RangeSelectorModel>of(workItemMedianDuration);
     return this;
   }
@@ -261,13 +261,13 @@ public class TestPlanTestPointsSearchApiModel {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(Int64RangeSelectorModel workItemMedianDuration) {
+  public void setWorkItemMedianDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Int64RangeSelectorModel>of(workItemMedianDuration);
   }
 
 
   @Deprecated
-  public TestPlanTestPointsSearchApiModel statuses(List<TestPointStatus> statuses) {
+  public TestPlanTestPointsSearchApiModel statuses(@jakarta.annotation.Nullable List<TestPointStatus> statuses) {
     this.statuses = JsonNullable.<List<TestPointStatus>>of(statuses);
     return this;
   }
@@ -310,12 +310,12 @@ public class TestPlanTestPointsSearchApiModel {
   }
 
   @Deprecated
-  public void setStatuses(List<TestPointStatus> statuses) {
+  public void setStatuses(@jakarta.annotation.Nullable List<TestPointStatus> statuses) {
     this.statuses = JsonNullable.<List<TestPointStatus>>of(statuses);
   }
 
 
-  public TestPlanTestPointsSearchApiModel statusCodes(List<String> statusCodes) {
+  public TestPlanTestPointsSearchApiModel statusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
     return this;
   }
@@ -355,12 +355,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.statusCodes = statusCodes;
   }
 
-  public void setStatusCodes(List<String> statusCodes) {
+  public void setStatusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
   }
 
 
-  public TestPlanTestPointsSearchApiModel priorities(List<WorkItemPriorityModel> priorities) {
+  public TestPlanTestPointsSearchApiModel priorities(@jakarta.annotation.Nullable List<WorkItemPriorityModel> priorities) {
     this.priorities = JsonNullable.<List<WorkItemPriorityModel>>of(priorities);
     return this;
   }
@@ -400,12 +400,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.priorities = priorities;
   }
 
-  public void setPriorities(List<WorkItemPriorityModel> priorities) {
+  public void setPriorities(@jakarta.annotation.Nullable List<WorkItemPriorityModel> priorities) {
     this.priorities = JsonNullable.<List<WorkItemPriorityModel>>of(priorities);
   }
 
 
-  public TestPlanTestPointsSearchApiModel isAutomated(Boolean isAutomated) {
+  public TestPlanTestPointsSearchApiModel isAutomated(@jakarta.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
     return this;
   }
@@ -433,12 +433,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.isAutomated = isAutomated;
   }
 
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nullable Boolean isAutomated) {
     this.isAutomated = JsonNullable.<Boolean>of(isAutomated);
   }
 
 
-  public TestPlanTestPointsSearchApiModel name(String name) {
+  public TestPlanTestPointsSearchApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -466,12 +466,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public TestPlanTestPointsSearchApiModel configurationIds(List<UUID> configurationIds) {
+  public TestPlanTestPointsSearchApiModel configurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
     return this;
   }
@@ -511,12 +511,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.configurationIds = configurationIds;
   }
 
-  public void setConfigurationIds(List<UUID> configurationIds) {
+  public void setConfigurationIds(@jakarta.annotation.Nullable List<UUID> configurationIds) {
     this.configurationIds = JsonNullable.<List<UUID>>of(configurationIds);
   }
 
 
-  public TestPlanTestPointsSearchApiModel testerIds(List<UUID> testerIds) {
+  public TestPlanTestPointsSearchApiModel testerIds(@jakarta.annotation.Nullable List<UUID> testerIds) {
     this.testerIds = JsonNullable.<List<UUID>>of(testerIds);
     return this;
   }
@@ -556,12 +556,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.testerIds = testerIds;
   }
 
-  public void setTesterIds(List<UUID> testerIds) {
+  public void setTesterIds(@jakarta.annotation.Nullable List<UUID> testerIds) {
     this.testerIds = JsonNullable.<List<UUID>>of(testerIds);
   }
 
 
-  public TestPlanTestPointsSearchApiModel duration(Int64RangeSelectorModel duration) {
+  public TestPlanTestPointsSearchApiModel duration(@jakarta.annotation.Nullable Int64RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
     return this;
   }
@@ -589,12 +589,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.duration = duration;
   }
 
-  public void setDuration(Int64RangeSelectorModel duration) {
+  public void setDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel duration) {
     this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
   }
 
 
-  public TestPlanTestPointsSearchApiModel sectionIds(List<UUID> sectionIds) {
+  public TestPlanTestPointsSearchApiModel sectionIds(@jakarta.annotation.Nullable List<UUID> sectionIds) {
     this.sectionIds = JsonNullable.<List<UUID>>of(sectionIds);
     return this;
   }
@@ -634,12 +634,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.sectionIds = sectionIds;
   }
 
-  public void setSectionIds(List<UUID> sectionIds) {
+  public void setSectionIds(@jakarta.annotation.Nullable List<UUID> sectionIds) {
     this.sectionIds = JsonNullable.<List<UUID>>of(sectionIds);
   }
 
 
-  public TestPlanTestPointsSearchApiModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public TestPlanTestPointsSearchApiModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -667,12 +667,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public TestPlanTestPointsSearchApiModel createdByIds(List<UUID> createdByIds) {
+  public TestPlanTestPointsSearchApiModel createdByIds(@jakarta.annotation.Nullable List<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<List<UUID>>of(createdByIds);
     return this;
   }
@@ -712,12 +712,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(List<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable List<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<List<UUID>>of(createdByIds);
   }
 
 
-  public TestPlanTestPointsSearchApiModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public TestPlanTestPointsSearchApiModel modifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
     return this;
   }
@@ -745,12 +745,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
   }
 
 
-  public TestPlanTestPointsSearchApiModel modifiedByIds(List<UUID> modifiedByIds) {
+  public TestPlanTestPointsSearchApiModel modifiedByIds(@jakarta.annotation.Nullable List<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<List<UUID>>of(modifiedByIds);
     return this;
   }
@@ -790,12 +790,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.modifiedByIds = modifiedByIds;
   }
 
-  public void setModifiedByIds(List<UUID> modifiedByIds) {
+  public void setModifiedByIds(@jakarta.annotation.Nullable List<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<List<UUID>>of(modifiedByIds);
   }
 
 
-  public TestPlanTestPointsSearchApiModel tags(List<String> tags) {
+  public TestPlanTestPointsSearchApiModel tags(@jakarta.annotation.Nullable List<String> tags) {
     this.tags = JsonNullable.<List<String>>of(tags);
     return this;
   }
@@ -835,12 +835,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.tags = tags;
   }
 
-  public void setTags(List<String> tags) {
+  public void setTags(@jakarta.annotation.Nullable List<String> tags) {
     this.tags = JsonNullable.<List<String>>of(tags);
   }
 
 
-  public TestPlanTestPointsSearchApiModel excludeTags(List<String> excludeTags) {
+  public TestPlanTestPointsSearchApiModel excludeTags(@jakarta.annotation.Nullable List<String> excludeTags) {
     this.excludeTags = JsonNullable.<List<String>>of(excludeTags);
     return this;
   }
@@ -880,12 +880,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.excludeTags = excludeTags;
   }
 
-  public void setExcludeTags(List<String> excludeTags) {
+  public void setExcludeTags(@jakarta.annotation.Nullable List<String> excludeTags) {
     this.excludeTags = JsonNullable.<List<String>>of(excludeTags);
   }
 
 
-  public TestPlanTestPointsSearchApiModel attributes(Map<String, Set<String>> attributes) {
+  public TestPlanTestPointsSearchApiModel attributes(@jakarta.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
     return this;
   }
@@ -925,12 +925,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Set<String>> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Set<String>> attributes) {
     this.attributes = JsonNullable.<Map<String, Set<String>>>of(attributes);
   }
 
 
-  public TestPlanTestPointsSearchApiModel workItemCreatedDate(DateTimeRangeSelectorModel workItemCreatedDate) {
+  public TestPlanTestPointsSearchApiModel workItemCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel workItemCreatedDate) {
     this.workItemCreatedDate = JsonNullable.<DateTimeRangeSelectorModel>of(workItemCreatedDate);
     return this;
   }
@@ -958,12 +958,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.workItemCreatedDate = workItemCreatedDate;
   }
 
-  public void setWorkItemCreatedDate(DateTimeRangeSelectorModel workItemCreatedDate) {
+  public void setWorkItemCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel workItemCreatedDate) {
     this.workItemCreatedDate = JsonNullable.<DateTimeRangeSelectorModel>of(workItemCreatedDate);
   }
 
 
-  public TestPlanTestPointsSearchApiModel workItemCreatedByIds(List<UUID> workItemCreatedByIds) {
+  public TestPlanTestPointsSearchApiModel workItemCreatedByIds(@jakarta.annotation.Nullable List<UUID> workItemCreatedByIds) {
     this.workItemCreatedByIds = JsonNullable.<List<UUID>>of(workItemCreatedByIds);
     return this;
   }
@@ -1003,12 +1003,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.workItemCreatedByIds = workItemCreatedByIds;
   }
 
-  public void setWorkItemCreatedByIds(List<UUID> workItemCreatedByIds) {
+  public void setWorkItemCreatedByIds(@jakarta.annotation.Nullable List<UUID> workItemCreatedByIds) {
     this.workItemCreatedByIds = JsonNullable.<List<UUID>>of(workItemCreatedByIds);
   }
 
 
-  public TestPlanTestPointsSearchApiModel workItemModifiedDate(DateTimeRangeSelectorModel workItemModifiedDate) {
+  public TestPlanTestPointsSearchApiModel workItemModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel workItemModifiedDate) {
     this.workItemModifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(workItemModifiedDate);
     return this;
   }
@@ -1036,12 +1036,12 @@ public class TestPlanTestPointsSearchApiModel {
     this.workItemModifiedDate = workItemModifiedDate;
   }
 
-  public void setWorkItemModifiedDate(DateTimeRangeSelectorModel workItemModifiedDate) {
+  public void setWorkItemModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel workItemModifiedDate) {
     this.workItemModifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(workItemModifiedDate);
   }
 
 
-  public TestPlanTestPointsSearchApiModel workItemModifiedByIds(List<UUID> workItemModifiedByIds) {
+  public TestPlanTestPointsSearchApiModel workItemModifiedByIds(@jakarta.annotation.Nullable List<UUID> workItemModifiedByIds) {
     this.workItemModifiedByIds = JsonNullable.<List<UUID>>of(workItemModifiedByIds);
     return this;
   }
@@ -1081,7 +1081,7 @@ public class TestPlanTestPointsSearchApiModel {
     this.workItemModifiedByIds = workItemModifiedByIds;
   }
 
-  public void setWorkItemModifiedByIds(List<UUID> workItemModifiedByIds) {
+  public void setWorkItemModifiedByIds(@jakarta.annotation.Nullable List<UUID> workItemModifiedByIds) {
     this.workItemModifiedByIds = JsonNullable.<List<UUID>>of(workItemModifiedByIds);
   }
 

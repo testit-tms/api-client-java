@@ -42,15 +42,18 @@ import ru.testit.client.invoker.JSON;
   UpdateParameterApiModel.JSON_PROPERTY_VALUE,
   UpdateParameterApiModel.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateParameterApiModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private String value;
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
@@ -59,7 +62,7 @@ public class UpdateParameterApiModel {
   public UpdateParameterApiModel() { 
   }
 
-  public UpdateParameterApiModel id(UUID id) {
+  public UpdateParameterApiModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -79,12 +82,12 @@ public class UpdateParameterApiModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public UpdateParameterApiModel name(String name) {
+  public UpdateParameterApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -104,12 +107,12 @@ public class UpdateParameterApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public UpdateParameterApiModel value(String value) {
+  public UpdateParameterApiModel value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
@@ -129,12 +132,12 @@ public class UpdateParameterApiModel {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 
 
-  public UpdateParameterApiModel projectIds(List<UUID> projectIds) {
+  public UpdateParameterApiModel projectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
@@ -174,7 +177,7 @@ public class UpdateParameterApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
   }
 

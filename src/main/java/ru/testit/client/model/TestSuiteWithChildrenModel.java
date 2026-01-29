@@ -45,18 +45,22 @@ import ru.testit.client.invoker.JSON;
   TestSuiteWithChildrenModel.JSON_PROPERTY_TESTER_ID,
   TestSuiteWithChildrenModel.JSON_PROPERTY_PARENT_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteWithChildrenModel {
   public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  @jakarta.annotation.Nonnull
   private UUID testPlanId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_CHILDREN = "children";
@@ -71,7 +75,7 @@ public class TestSuiteWithChildrenModel {
   public TestSuiteWithChildrenModel() { 
   }
 
-  public TestSuiteWithChildrenModel testPlanId(UUID testPlanId) {
+  public TestSuiteWithChildrenModel testPlanId(@jakarta.annotation.Nonnull UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -91,12 +95,12 @@ public class TestSuiteWithChildrenModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@jakarta.annotation.Nonnull UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestSuiteWithChildrenModel name(String name) {
+  public TestSuiteWithChildrenModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -116,12 +120,12 @@ public class TestSuiteWithChildrenModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestSuiteWithChildrenModel id(UUID id) {
+  public TestSuiteWithChildrenModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -141,12 +145,12 @@ public class TestSuiteWithChildrenModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteWithChildrenModel isDeleted(Boolean isDeleted) {
+  public TestSuiteWithChildrenModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -166,12 +170,12 @@ public class TestSuiteWithChildrenModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestSuiteWithChildrenModel children(List<TestSuiteWithChildrenModel> children) {
+  public TestSuiteWithChildrenModel children(@jakarta.annotation.Nullable List<TestSuiteWithChildrenModel> children) {
     this.children = JsonNullable.<List<TestSuiteWithChildrenModel>>of(children);
     return this;
   }
@@ -211,12 +215,12 @@ public class TestSuiteWithChildrenModel {
     this.children = children;
   }
 
-  public void setChildren(List<TestSuiteWithChildrenModel> children) {
+  public void setChildren(@jakarta.annotation.Nullable List<TestSuiteWithChildrenModel> children) {
     this.children = JsonNullable.<List<TestSuiteWithChildrenModel>>of(children);
   }
 
 
-  public TestSuiteWithChildrenModel testerId(UUID testerId) {
+  public TestSuiteWithChildrenModel testerId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
     return this;
   }
@@ -244,12 +248,12 @@ public class TestSuiteWithChildrenModel {
     this.testerId = testerId;
   }
 
-  public void setTesterId(UUID testerId) {
+  public void setTesterId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
   }
 
 
-  public TestSuiteWithChildrenModel parentId(UUID parentId) {
+  public TestSuiteWithChildrenModel parentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = JsonNullable.<UUID>of(parentId);
     return this;
   }
@@ -277,7 +281,7 @@ public class TestSuiteWithChildrenModel {
     this.parentId = parentId;
   }
 
-  public void setParentId(UUID parentId) {
+  public void setParentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = JsonNullable.<UUID>of(parentId);
   }
 

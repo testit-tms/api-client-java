@@ -59,7 +59,7 @@ import ru.testit.client.invoker.JSON;
   TestPlanChangedFieldsViewModel.JSON_PROPERTY_HAS_AUTOMATIC_DURATION_TIMER,
   TestPlanChangedFieldsViewModel.JSON_PROPERTY_ATTRIBUTES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanChangedFieldsViewModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<StringChangedFieldWithDiffsViewModel> name = JsonNullable.<StringChangedFieldWithDiffsViewModel>undefined();
@@ -103,7 +103,7 @@ public class TestPlanChangedFieldsViewModel {
   public TestPlanChangedFieldsViewModel() { 
   }
 
-  public TestPlanChangedFieldsViewModel name(StringChangedFieldWithDiffsViewModel name) {
+  public TestPlanChangedFieldsViewModel name(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(name);
     return this;
   }
@@ -131,12 +131,12 @@ public class TestPlanChangedFieldsViewModel {
     this.name = name;
   }
 
-  public void setName(StringChangedFieldWithDiffsViewModel name) {
+  public void setName(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(name);
   }
 
 
-  public TestPlanChangedFieldsViewModel description(StringChangedFieldWithDiffsViewModel description) {
+  public TestPlanChangedFieldsViewModel description(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
     this.description = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(description);
     return this;
   }
@@ -164,12 +164,12 @@ public class TestPlanChangedFieldsViewModel {
     this.description = description;
   }
 
-  public void setDescription(StringChangedFieldWithDiffsViewModel description) {
+  public void setDescription(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
     this.description = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(description);
   }
 
 
-  public TestPlanChangedFieldsViewModel productName(StringChangedFieldWithDiffsViewModel productName) {
+  public TestPlanChangedFieldsViewModel productName(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel productName) {
     this.productName = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(productName);
     return this;
   }
@@ -197,12 +197,12 @@ public class TestPlanChangedFieldsViewModel {
     this.productName = productName;
   }
 
-  public void setProductName(StringChangedFieldWithDiffsViewModel productName) {
+  public void setProductName(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel productName) {
     this.productName = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(productName);
   }
 
 
-  public TestPlanChangedFieldsViewModel build(StringChangedFieldWithDiffsViewModel build) {
+  public TestPlanChangedFieldsViewModel build(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel build) {
     this.build = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(build);
     return this;
   }
@@ -230,12 +230,12 @@ public class TestPlanChangedFieldsViewModel {
     this.build = build;
   }
 
-  public void setBuild(StringChangedFieldWithDiffsViewModel build) {
+  public void setBuild(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel build) {
     this.build = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(build);
   }
 
 
-  public TestPlanChangedFieldsViewModel period(PeriodViewModelChangedFieldViewModel period) {
+  public TestPlanChangedFieldsViewModel period(@jakarta.annotation.Nullable PeriodViewModelChangedFieldViewModel period) {
     this.period = JsonNullable.<PeriodViewModelChangedFieldViewModel>of(period);
     return this;
   }
@@ -263,12 +263,12 @@ public class TestPlanChangedFieldsViewModel {
     this.period = period;
   }
 
-  public void setPeriod(PeriodViewModelChangedFieldViewModel period) {
+  public void setPeriod(@jakarta.annotation.Nullable PeriodViewModelChangedFieldViewModel period) {
     this.period = JsonNullable.<PeriodViewModelChangedFieldViewModel>of(period);
   }
 
 
-  public TestPlanChangedFieldsViewModel status(StringChangedFieldWithDiffsViewModel status) {
+  public TestPlanChangedFieldsViewModel status(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel status) {
     this.status = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(status);
     return this;
   }
@@ -296,12 +296,12 @@ public class TestPlanChangedFieldsViewModel {
     this.status = status;
   }
 
-  public void setStatus(StringChangedFieldWithDiffsViewModel status) {
+  public void setStatus(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel status) {
     this.status = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(status);
   }
 
 
-  public TestPlanChangedFieldsViewModel tags(StringArrayChangedFieldViewModel tags) {
+  public TestPlanChangedFieldsViewModel tags(@jakarta.annotation.Nullable StringArrayChangedFieldViewModel tags) {
     this.tags = JsonNullable.<StringArrayChangedFieldViewModel>of(tags);
     return this;
   }
@@ -329,12 +329,12 @@ public class TestPlanChangedFieldsViewModel {
     this.tags = tags;
   }
 
-  public void setTags(StringArrayChangedFieldViewModel tags) {
+  public void setTags(@jakarta.annotation.Nullable StringArrayChangedFieldViewModel tags) {
     this.tags = JsonNullable.<StringArrayChangedFieldViewModel>of(tags);
   }
 
 
-  public TestPlanChangedFieldsViewModel testSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
+  public TestPlanChangedFieldsViewModel testSuite(@jakarta.annotation.Nullable TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
     this.testSuite = JsonNullable.<TestSuiteChangeViewModelChangedFieldViewModel>of(testSuite);
     return this;
   }
@@ -362,12 +362,12 @@ public class TestPlanChangedFieldsViewModel {
     this.testSuite = testSuite;
   }
 
-  public void setTestSuite(TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
+  public void setTestSuite(@jakarta.annotation.Nullable TestSuiteChangeViewModelChangedFieldViewModel testSuite) {
     this.testSuite = JsonNullable.<TestSuiteChangeViewModelChangedFieldViewModel>of(testSuite);
   }
 
 
-  public TestPlanChangedFieldsViewModel testPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
+  public TestPlanChangedFieldsViewModel testPoints(@jakarta.annotation.Nullable TestPointChangeViewModelChangedFieldViewModel testPoints) {
     this.testPoints = JsonNullable.<TestPointChangeViewModelChangedFieldViewModel>of(testPoints);
     return this;
   }
@@ -395,12 +395,12 @@ public class TestPlanChangedFieldsViewModel {
     this.testPoints = testPoints;
   }
 
-  public void setTestPoints(TestPointChangeViewModelChangedFieldViewModel testPoints) {
+  public void setTestPoints(@jakarta.annotation.Nullable TestPointChangeViewModelChangedFieldViewModel testPoints) {
     this.testPoints = JsonNullable.<TestPointChangeViewModelChangedFieldViewModel>of(testPoints);
   }
 
 
-  public TestPlanChangedFieldsViewModel testResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
+  public TestPlanChangedFieldsViewModel testResults(@jakarta.annotation.Nullable TestResultChangeViewModelChangedFieldViewModel testResults) {
     this.testResults = JsonNullable.<TestResultChangeViewModelChangedFieldViewModel>of(testResults);
     return this;
   }
@@ -428,12 +428,12 @@ public class TestPlanChangedFieldsViewModel {
     this.testResults = testResults;
   }
 
-  public void setTestResults(TestResultChangeViewModelChangedFieldViewModel testResults) {
+  public void setTestResults(@jakarta.annotation.Nullable TestResultChangeViewModelChangedFieldViewModel testResults) {
     this.testResults = JsonNullable.<TestResultChangeViewModelChangedFieldViewModel>of(testResults);
   }
 
 
-  public TestPlanChangedFieldsViewModel locking(BooleanChangedFieldViewModel locking) {
+  public TestPlanChangedFieldsViewModel locking(@jakarta.annotation.Nullable BooleanChangedFieldViewModel locking) {
     this.locking = JsonNullable.<BooleanChangedFieldViewModel>of(locking);
     return this;
   }
@@ -461,12 +461,12 @@ public class TestPlanChangedFieldsViewModel {
     this.locking = locking;
   }
 
-  public void setLocking(BooleanChangedFieldViewModel locking) {
+  public void setLocking(@jakarta.annotation.Nullable BooleanChangedFieldViewModel locking) {
     this.locking = JsonNullable.<BooleanChangedFieldViewModel>of(locking);
   }
 
 
-  public TestPlanChangedFieldsViewModel hasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
+  public TestPlanChangedFieldsViewModel hasAutomaticDurationTimer(@jakarta.annotation.Nullable BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = JsonNullable.<BooleanNullableChangedFieldViewModel>of(hasAutomaticDurationTimer);
     return this;
   }
@@ -494,12 +494,12 @@ public class TestPlanChangedFieldsViewModel {
     this.hasAutomaticDurationTimer = hasAutomaticDurationTimer;
   }
 
-  public void setHasAutomaticDurationTimer(BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
+  public void setHasAutomaticDurationTimer(@jakarta.annotation.Nullable BooleanNullableChangedFieldViewModel hasAutomaticDurationTimer) {
     this.hasAutomaticDurationTimer = JsonNullable.<BooleanNullableChangedFieldViewModel>of(hasAutomaticDurationTimer);
   }
 
 
-  public TestPlanChangedFieldsViewModel attributes(Map<String, CustomAttributeChangeModel> attributes) {
+  public TestPlanChangedFieldsViewModel attributes(@jakarta.annotation.Nullable Map<String, CustomAttributeChangeModel> attributes) {
     this.attributes = JsonNullable.<Map<String, CustomAttributeChangeModel>>of(attributes);
     return this;
   }
@@ -539,7 +539,7 @@ public class TestPlanChangedFieldsViewModel {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, CustomAttributeChangeModel> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, CustomAttributeChangeModel> attributes) {
     this.attributes = JsonNullable.<Map<String, CustomAttributeChangeModel>>of(attributes);
   }
 

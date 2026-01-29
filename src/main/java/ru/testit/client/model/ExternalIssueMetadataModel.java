@@ -45,12 +45,14 @@ import ru.testit.client.invoker.JSON;
   ExternalIssueMetadataModel.JSON_PROPERTY_TYPE,
   ExternalIssueMetadataModel.JSON_PROPERTY_PRIORITY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalIssueMetadataModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private String id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_CODE = "code";
@@ -74,7 +76,7 @@ public class ExternalIssueMetadataModel {
   public ExternalIssueMetadataModel() { 
   }
 
-  public ExternalIssueMetadataModel id(String id) {
+  public ExternalIssueMetadataModel id(@jakarta.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
@@ -94,12 +96,12 @@ public class ExternalIssueMetadataModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
+  public void setId(@jakarta.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public ExternalIssueMetadataModel title(String title) {
+  public ExternalIssueMetadataModel title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -119,12 +121,12 @@ public class ExternalIssueMetadataModel {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public ExternalIssueMetadataModel code(String code) {
+  public ExternalIssueMetadataModel code(@jakarta.annotation.Nullable String code) {
     this.code = JsonNullable.<String>of(code);
     return this;
   }
@@ -152,12 +154,12 @@ public class ExternalIssueMetadataModel {
     this.code = code;
   }
 
-  public void setCode(String code) {
+  public void setCode(@jakarta.annotation.Nullable String code) {
     this.code = JsonNullable.<String>of(code);
   }
 
 
-  public ExternalIssueMetadataModel description(String description) {
+  public ExternalIssueMetadataModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -185,12 +187,12 @@ public class ExternalIssueMetadataModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public ExternalIssueMetadataModel status(String status) {
+  public ExternalIssueMetadataModel status(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
     return this;
   }
@@ -218,12 +220,12 @@ public class ExternalIssueMetadataModel {
     this.status = status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
   }
 
 
-  public ExternalIssueMetadataModel assignee(String assignee) {
+  public ExternalIssueMetadataModel assignee(@jakarta.annotation.Nullable String assignee) {
     this.assignee = JsonNullable.<String>of(assignee);
     return this;
   }
@@ -251,12 +253,12 @@ public class ExternalIssueMetadataModel {
     this.assignee = assignee;
   }
 
-  public void setAssignee(String assignee) {
+  public void setAssignee(@jakarta.annotation.Nullable String assignee) {
     this.assignee = JsonNullable.<String>of(assignee);
   }
 
 
-  public ExternalIssueMetadataModel type(ExternalIssueTypeModel type) {
+  public ExternalIssueMetadataModel type(@jakarta.annotation.Nullable ExternalIssueTypeModel type) {
     this.type = JsonNullable.<ExternalIssueTypeModel>of(type);
     return this;
   }
@@ -284,12 +286,12 @@ public class ExternalIssueMetadataModel {
     this.type = type;
   }
 
-  public void setType(ExternalIssueTypeModel type) {
+  public void setType(@jakarta.annotation.Nullable ExternalIssueTypeModel type) {
     this.type = JsonNullable.<ExternalIssueTypeModel>of(type);
   }
 
 
-  public ExternalIssueMetadataModel priority(ExternalIssuePriorityModel priority) {
+  public ExternalIssueMetadataModel priority(@jakarta.annotation.Nullable ExternalIssuePriorityModel priority) {
     this.priority = JsonNullable.<ExternalIssuePriorityModel>of(priority);
     return this;
   }
@@ -317,7 +319,7 @@ public class ExternalIssueMetadataModel {
     this.priority = priority;
   }
 
-  public void setPriority(ExternalIssuePriorityModel priority) {
+  public void setPriority(@jakarta.annotation.Nullable ExternalIssuePriorityModel priority) {
     this.priority = JsonNullable.<ExternalIssuePriorityModel>of(priority);
   }
 

@@ -60,27 +60,34 @@ import ru.testit.client.invoker.JSON;
   AutoTestModelV2GetModel.JSON_PROPERTY_LABELS,
   AutoTestModelV2GetModel.JSON_PROPERTY_EXTERNAL_KEY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestModelV2GetModel {
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @jakarta.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_LINKS = "links";
@@ -119,7 +126,7 @@ public class AutoTestModelV2GetModel {
   public AutoTestModelV2GetModel() { 
   }
 
-  public AutoTestModelV2GetModel externalId(String externalId) {
+  public AutoTestModelV2GetModel externalId(@jakarta.annotation.Nonnull String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -139,12 +146,12 @@ public class AutoTestModelV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@jakarta.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
 
-  public AutoTestModelV2GetModel projectId(UUID projectId) {
+  public AutoTestModelV2GetModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -164,12 +171,12 @@ public class AutoTestModelV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public AutoTestModelV2GetModel name(String name) {
+  public AutoTestModelV2GetModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -189,12 +196,12 @@ public class AutoTestModelV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public AutoTestModelV2GetModel globalId(Long globalId) {
+  public AutoTestModelV2GetModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -214,12 +221,12 @@ public class AutoTestModelV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public AutoTestModelV2GetModel createdById(UUID createdById) {
+  public AutoTestModelV2GetModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -239,12 +246,12 @@ public class AutoTestModelV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AutoTestModelV2GetModel id(UUID id) {
+  public AutoTestModelV2GetModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -264,12 +271,12 @@ public class AutoTestModelV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestModelV2GetModel isDeleted(Boolean isDeleted) {
+  public AutoTestModelV2GetModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -289,12 +296,12 @@ public class AutoTestModelV2GetModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public AutoTestModelV2GetModel links(List<LinkModel> links) {
+  public AutoTestModelV2GetModel links(@jakarta.annotation.Nullable List<LinkModel> links) {
     this.links = JsonNullable.<List<LinkModel>>of(links);
     return this;
   }
@@ -334,12 +341,12 @@ public class AutoTestModelV2GetModel {
     this.links = links;
   }
 
-  public void setLinks(List<LinkModel> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<LinkModel> links) {
     this.links = JsonNullable.<List<LinkModel>>of(links);
   }
 
 
-  public AutoTestModelV2GetModel namespace(String namespace) {
+  public AutoTestModelV2GetModel namespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
     return this;
   }
@@ -367,12 +374,12 @@ public class AutoTestModelV2GetModel {
     this.namespace = namespace;
   }
 
-  public void setNamespace(String namespace) {
+  public void setNamespace(@jakarta.annotation.Nullable String namespace) {
     this.namespace = JsonNullable.<String>of(namespace);
   }
 
 
-  public AutoTestModelV2GetModel classname(String classname) {
+  public AutoTestModelV2GetModel classname(@jakarta.annotation.Nullable String classname) {
     this.classname = JsonNullable.<String>of(classname);
     return this;
   }
@@ -400,12 +407,12 @@ public class AutoTestModelV2GetModel {
     this.classname = classname;
   }
 
-  public void setClassname(String classname) {
+  public void setClassname(@jakarta.annotation.Nullable String classname) {
     this.classname = JsonNullable.<String>of(classname);
   }
 
 
-  public AutoTestModelV2GetModel steps(List<AutoTestStepModel> steps) {
+  public AutoTestModelV2GetModel steps(@jakarta.annotation.Nullable List<AutoTestStepModel> steps) {
     this.steps = JsonNullable.<List<AutoTestStepModel>>of(steps);
     return this;
   }
@@ -445,12 +452,12 @@ public class AutoTestModelV2GetModel {
     this.steps = steps;
   }
 
-  public void setSteps(List<AutoTestStepModel> steps) {
+  public void setSteps(@jakarta.annotation.Nullable List<AutoTestStepModel> steps) {
     this.steps = JsonNullable.<List<AutoTestStepModel>>of(steps);
   }
 
 
-  public AutoTestModelV2GetModel setup(List<AutoTestStepModel> setup) {
+  public AutoTestModelV2GetModel setup(@jakarta.annotation.Nullable List<AutoTestStepModel> setup) {
     this.setup = JsonNullable.<List<AutoTestStepModel>>of(setup);
     return this;
   }
@@ -490,12 +497,12 @@ public class AutoTestModelV2GetModel {
     this.setup = setup;
   }
 
-  public void setSetup(List<AutoTestStepModel> setup) {
+  public void setSetup(@jakarta.annotation.Nullable List<AutoTestStepModel> setup) {
     this.setup = JsonNullable.<List<AutoTestStepModel>>of(setup);
   }
 
 
-  public AutoTestModelV2GetModel teardown(List<AutoTestStepModel> teardown) {
+  public AutoTestModelV2GetModel teardown(@jakarta.annotation.Nullable List<AutoTestStepModel> teardown) {
     this.teardown = JsonNullable.<List<AutoTestStepModel>>of(teardown);
     return this;
   }
@@ -535,12 +542,12 @@ public class AutoTestModelV2GetModel {
     this.teardown = teardown;
   }
 
-  public void setTeardown(List<AutoTestStepModel> teardown) {
+  public void setTeardown(@jakarta.annotation.Nullable List<AutoTestStepModel> teardown) {
     this.teardown = JsonNullable.<List<AutoTestStepModel>>of(teardown);
   }
 
 
-  public AutoTestModelV2GetModel createdDate(OffsetDateTime createdDate) {
+  public AutoTestModelV2GetModel createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -568,12 +575,12 @@ public class AutoTestModelV2GetModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 
 
-  public AutoTestModelV2GetModel modifiedDate(OffsetDateTime modifiedDate) {
+  public AutoTestModelV2GetModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -601,12 +608,12 @@ public class AutoTestModelV2GetModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public AutoTestModelV2GetModel modifiedById(UUID modifiedById) {
+  public AutoTestModelV2GetModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -634,12 +641,12 @@ public class AutoTestModelV2GetModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public AutoTestModelV2GetModel labels(List<LabelShortModel> labels) {
+  public AutoTestModelV2GetModel labels(@jakarta.annotation.Nullable List<LabelShortModel> labels) {
     this.labels = JsonNullable.<List<LabelShortModel>>of(labels);
     return this;
   }
@@ -679,12 +686,12 @@ public class AutoTestModelV2GetModel {
     this.labels = labels;
   }
 
-  public void setLabels(List<LabelShortModel> labels) {
+  public void setLabels(@jakarta.annotation.Nullable List<LabelShortModel> labels) {
     this.labels = JsonNullable.<List<LabelShortModel>>of(labels);
   }
 
 
-  public AutoTestModelV2GetModel externalKey(String externalKey) {
+  public AutoTestModelV2GetModel externalKey(@jakarta.annotation.Nullable String externalKey) {
     this.externalKey = JsonNullable.<String>of(externalKey);
     return this;
   }
@@ -712,7 +719,7 @@ public class AutoTestModelV2GetModel {
     this.externalKey = externalKey;
   }
 
-  public void setExternalKey(String externalKey) {
+  public void setExternalKey(@jakarta.annotation.Nullable String externalKey) {
     this.externalKey = JsonNullable.<String>of(externalKey);
   }
 

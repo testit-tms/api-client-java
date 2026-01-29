@@ -44,12 +44,14 @@ import ru.testit.client.invoker.JSON;
   ProjectAttributesFilterModel.JSON_PROPERTY_IS_GLOBAL,
   ProjectAttributesFilterModel.JSON_PROPERTY_IS_ENABLED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectAttributesFilterModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPES = "types";
+  @jakarta.annotation.Nonnull
   private Set<CustomAttributeTypesEnum> types = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_IS_REQUIRED = "isRequired";
@@ -64,7 +66,7 @@ public class ProjectAttributesFilterModel {
   public ProjectAttributesFilterModel() { 
   }
 
-  public ProjectAttributesFilterModel name(String name) {
+  public ProjectAttributesFilterModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -84,12 +86,12 @@ public class ProjectAttributesFilterModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectAttributesFilterModel types(Set<CustomAttributeTypesEnum> types) {
+  public ProjectAttributesFilterModel types(@jakarta.annotation.Nonnull Set<CustomAttributeTypesEnum> types) {
     this.types = types;
     return this;
   }
@@ -118,12 +120,12 @@ public class ProjectAttributesFilterModel {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTypes(Set<CustomAttributeTypesEnum> types) {
+  public void setTypes(@jakarta.annotation.Nonnull Set<CustomAttributeTypesEnum> types) {
     this.types = types;
   }
 
 
-  public ProjectAttributesFilterModel isRequired(Boolean isRequired) {
+  public ProjectAttributesFilterModel isRequired(@jakarta.annotation.Nullable Boolean isRequired) {
     this.isRequired = JsonNullable.<Boolean>of(isRequired);
     return this;
   }
@@ -151,12 +153,12 @@ public class ProjectAttributesFilterModel {
     this.isRequired = isRequired;
   }
 
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@jakarta.annotation.Nullable Boolean isRequired) {
     this.isRequired = JsonNullable.<Boolean>of(isRequired);
   }
 
 
-  public ProjectAttributesFilterModel isGlobal(Boolean isGlobal) {
+  public ProjectAttributesFilterModel isGlobal(@jakarta.annotation.Nullable Boolean isGlobal) {
     this.isGlobal = JsonNullable.<Boolean>of(isGlobal);
     return this;
   }
@@ -184,12 +186,12 @@ public class ProjectAttributesFilterModel {
     this.isGlobal = isGlobal;
   }
 
-  public void setIsGlobal(Boolean isGlobal) {
+  public void setIsGlobal(@jakarta.annotation.Nullable Boolean isGlobal) {
     this.isGlobal = JsonNullable.<Boolean>of(isGlobal);
   }
 
 
-  public ProjectAttributesFilterModel isEnabled(Boolean isEnabled) {
+  public ProjectAttributesFilterModel isEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
     return this;
   }
@@ -217,7 +219,7 @@ public class ProjectAttributesFilterModel {
     this.isEnabled = isEnabled;
   }
 
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
   }
 

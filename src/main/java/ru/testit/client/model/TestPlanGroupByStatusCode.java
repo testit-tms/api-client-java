@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   TestPlanGroupByStatusCode.JSON_PROPERTY_STATUS_CODE,
   TestPlanGroupByStatusCode.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanGroupByStatusCode {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
+  @jakarta.annotation.Nonnull
   private String statusCode;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private Long value;
 
   public TestPlanGroupByStatusCode() { 
   }
 
-  public TestPlanGroupByStatusCode statusCode(String statusCode) {
+  public TestPlanGroupByStatusCode statusCode(@jakarta.annotation.Nonnull String statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -64,12 +66,12 @@ public class TestPlanGroupByStatusCode {
 
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusCode(String statusCode) {
+  public void setStatusCode(@jakarta.annotation.Nonnull String statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public TestPlanGroupByStatusCode value(Long value) {
+  public TestPlanGroupByStatusCode value(@jakarta.annotation.Nonnull Long value) {
     this.value = value;
     return this;
   }
@@ -89,7 +91,7 @@ public class TestPlanGroupByStatusCode {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Long value) {
+  public void setValue(@jakarta.annotation.Nonnull Long value) {
     this.value = value;
   }
 

@@ -39,12 +39,14 @@ import ru.testit.client.invoker.JSON;
   TestPointChangeViewModel.JSON_PROPERTY_TEST_POINT_COUNT,
   TestPointChangeViewModel.JSON_PROPERTY_USER_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointChangeViewModel {
   public static final String JSON_PROPERTY_USER_ID = "userId";
+  @jakarta.annotation.Nonnull
   private UUID userId;
 
   public static final String JSON_PROPERTY_TEST_POINT_COUNT = "testPointCount";
+  @jakarta.annotation.Nonnull
   private Long testPointCount;
 
   public static final String JSON_PROPERTY_USER_NAME = "userName";
@@ -53,7 +55,7 @@ public class TestPointChangeViewModel {
   public TestPointChangeViewModel() { 
   }
 
-  public TestPointChangeViewModel userId(UUID userId) {
+  public TestPointChangeViewModel userId(@jakarta.annotation.Nonnull UUID userId) {
     this.userId = userId;
     return this;
   }
@@ -73,12 +75,12 @@ public class TestPointChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_USER_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUserId(UUID userId) {
+  public void setUserId(@jakarta.annotation.Nonnull UUID userId) {
     this.userId = userId;
   }
 
 
-  public TestPointChangeViewModel testPointCount(Long testPointCount) {
+  public TestPointChangeViewModel testPointCount(@jakarta.annotation.Nonnull Long testPointCount) {
     this.testPointCount = testPointCount;
     return this;
   }
@@ -98,12 +100,12 @@ public class TestPointChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_POINT_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPointCount(Long testPointCount) {
+  public void setTestPointCount(@jakarta.annotation.Nonnull Long testPointCount) {
     this.testPointCount = testPointCount;
   }
 
 
-  public TestPointChangeViewModel userName(String userName) {
+  public TestPointChangeViewModel userName(@jakarta.annotation.Nullable String userName) {
     this.userName = JsonNullable.<String>of(userName);
     return this;
   }
@@ -131,7 +133,7 @@ public class TestPointChangeViewModel {
     this.userName = userName;
   }
 
-  public void setUserName(String userName) {
+  public void setUserName(@jakarta.annotation.Nullable String userName) {
     this.userName = JsonNullable.<String>of(userName);
   }
 

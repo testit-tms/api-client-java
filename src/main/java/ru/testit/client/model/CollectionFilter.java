@@ -36,15 +36,18 @@ import ru.testit.client.invoker.JSON;
   CollectionFilter.JSON_PROPERTY_FILTER,
   CollectionFilter.JSON_PROPERTY_FIELD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CollectionFilter {
   public static final String JSON_PROPERTY_OPERATOR = "operator";
+  @jakarta.annotation.Nonnull
   private CollectionOperator operator;
 
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private IFilter filter;
 
   public static final String JSON_PROPERTY_FIELD = "field";
+  @jakarta.annotation.Nonnull
   private String field;
 
   public CollectionFilter() { 
@@ -58,7 +61,7 @@ public class CollectionFilter {
     this.field = field;
   }
 
-  public CollectionFilter operator(CollectionOperator operator) {
+  public CollectionFilter operator(@jakarta.annotation.Nonnull CollectionOperator operator) {
     this.operator = operator;
     return this;
   }
@@ -78,12 +81,12 @@ public class CollectionFilter {
 
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOperator(CollectionOperator operator) {
+  public void setOperator(@jakarta.annotation.Nonnull CollectionOperator operator) {
     this.operator = operator;
   }
 
 
-  public CollectionFilter filter(IFilter filter) {
+  public CollectionFilter filter(@jakarta.annotation.Nonnull IFilter filter) {
     this.filter = filter;
     return this;
   }
@@ -103,7 +106,7 @@ public class CollectionFilter {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(IFilter filter) {
+  public void setFilter(@jakarta.annotation.Nonnull IFilter filter) {
     this.filter = filter;
   }
 

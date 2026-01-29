@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   Page.JSON_PROPERTY_SKIP,
   Page.JSON_PROPERTY_TAKE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Page {
   public static final String JSON_PROPERTY_SKIP = "skip";
+  @jakarta.annotation.Nonnull
   private Integer skip;
 
   public static final String JSON_PROPERTY_TAKE = "take";
+  @jakarta.annotation.Nonnull
   private Integer take;
 
   public Page() { 
   }
 
-  public Page skip(Integer skip) {
+  public Page skip(@jakarta.annotation.Nonnull Integer skip) {
     this.skip = skip;
     return this;
   }
@@ -66,12 +68,12 @@ public class Page {
 
   @JsonProperty(JSON_PROPERTY_SKIP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSkip(Integer skip) {
+  public void setSkip(@jakarta.annotation.Nonnull Integer skip) {
     this.skip = skip;
   }
 
 
-  public Page take(Integer take) {
+  public Page take(@jakarta.annotation.Nonnull Integer take) {
     this.take = take;
     return this;
   }
@@ -93,7 +95,7 @@ public class Page {
 
   @JsonProperty(JSON_PROPERTY_TAKE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTake(Integer take) {
+  public void setTake(@jakarta.annotation.Nonnull Integer take) {
     this.take = take;
   }
 

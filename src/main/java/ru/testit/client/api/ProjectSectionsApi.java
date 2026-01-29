@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectSectionsApi {
   private ApiClient apiClient;
 
@@ -50,7 +50,7 @@ public class ProjectSectionsApi {
 
   /**
    * Get project sections
-   *   Use case    User sets project internal or global identifier and runs method execution    System search project    System search all sections related to the project    System returns array of sections (listed in response)
+   *  Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -60,7 +60,8 @@ public class ProjectSectionsApi {
    * @return List&lt;SectionModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -77,7 +78,7 @@ public class ProjectSectionsApi {
 
   /**
    * Get project sections
-   *   Use case    User sets project internal or global identifier and runs method execution    System search project    System search all sections related to the project    System returns array of sections (listed in response)
+   *  Use case  User sets project internal or global identifier and runs method execution  System search project  System search all sections related to the project  System returns array of sections (listed in response)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -87,7 +88,8 @@ public class ProjectSectionsApi {
    * @return ApiResponse&lt;List&lt;SectionModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>

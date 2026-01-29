@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   Order.JSON_PROPERTY_FIELD,
   Order.JSON_PROPERTY_DIRECTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Order {
   public static final String JSON_PROPERTY_FIELD = "field";
+  @jakarta.annotation.Nonnull
   private String field;
 
   public static final String JSON_PROPERTY_DIRECTION = "direction";
+  @jakarta.annotation.Nonnull
   private ListSortDirection direction;
 
   public Order() { 
   }
 
-  public Order field(String field) {
+  public Order field(@jakarta.annotation.Nonnull String field) {
     this.field = field;
     return this;
   }
@@ -65,12 +67,12 @@ public class Order {
 
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setField(String field) {
+  public void setField(@jakarta.annotation.Nonnull String field) {
     this.field = field;
   }
 
 
-  public Order direction(ListSortDirection direction) {
+  public Order direction(@jakarta.annotation.Nonnull ListSortDirection direction) {
     this.direction = direction;
     return this;
   }
@@ -90,7 +92,7 @@ public class Order {
 
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDirection(ListSortDirection direction) {
+  public void setDirection(@jakarta.annotation.Nonnull ListSortDirection direction) {
     this.direction = direction;
   }
 

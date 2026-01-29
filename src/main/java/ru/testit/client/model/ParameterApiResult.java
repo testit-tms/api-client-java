@@ -49,30 +49,38 @@ import ru.testit.client.invoker.JSON;
   ParameterApiResult.JSON_PROPERTY_MODIFIED_DATE,
   ParameterApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ParameterApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_PARAMETER_KEY_ID = "parameterKeyId";
+  @jakarta.annotation.Nonnull
   private UUID parameterKeyId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private String value;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> projectIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
@@ -84,7 +92,7 @@ public class ParameterApiResult {
   public ParameterApiResult() { 
   }
 
-  public ParameterApiResult id(UUID id) {
+  public ParameterApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -104,12 +112,12 @@ public class ParameterApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ParameterApiResult parameterKeyId(UUID parameterKeyId) {
+  public ParameterApiResult parameterKeyId(@jakarta.annotation.Nonnull UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
     return this;
   }
@@ -129,12 +137,12 @@ public class ParameterApiResult {
 
   @JsonProperty(JSON_PROPERTY_PARAMETER_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameterKeyId(UUID parameterKeyId) {
+  public void setParameterKeyId(@jakarta.annotation.Nonnull UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
   }
 
 
-  public ParameterApiResult name(String name) {
+  public ParameterApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -154,12 +162,12 @@ public class ParameterApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ParameterApiResult value(String value) {
+  public ParameterApiResult value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
@@ -179,12 +187,12 @@ public class ParameterApiResult {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 
 
-  public ParameterApiResult createdDate(OffsetDateTime createdDate) {
+  public ParameterApiResult createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -204,12 +212,12 @@ public class ParameterApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public ParameterApiResult createdById(UUID createdById) {
+  public ParameterApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -229,12 +237,12 @@ public class ParameterApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public ParameterApiResult isDeleted(Boolean isDeleted) {
+  public ParameterApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -254,12 +262,12 @@ public class ParameterApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ParameterApiResult projectIds(List<UUID> projectIds) {
+  public ParameterApiResult projectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -287,12 +295,12 @@ public class ParameterApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 
 
-  public ParameterApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public ParameterApiResult modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -320,12 +328,12 @@ public class ParameterApiResult {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public ParameterApiResult modifiedById(UUID modifiedById) {
+  public ParameterApiResult modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -353,7 +361,7 @@ public class ParameterApiResult {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

@@ -36,18 +36,20 @@ import ru.testit.client.invoker.JSON;
   TestStatusApiResultReply.JSON_PROPERTY_DATA,
   TestStatusApiResultReply.JSON_PROPERTY_TOTAL_COUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestStatusApiResultReply {
   public static final String JSON_PROPERTY_DATA = "data";
+  @jakarta.annotation.Nonnull
   private List<TestStatusApiResult> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
+  @jakarta.annotation.Nonnull
   private Integer totalCount;
 
   public TestStatusApiResultReply() { 
   }
 
-  public TestStatusApiResultReply data(List<TestStatusApiResult> data) {
+  public TestStatusApiResultReply data(@jakarta.annotation.Nonnull List<TestStatusApiResult> data) {
     this.data = data;
     return this;
   }
@@ -75,12 +77,12 @@ public class TestStatusApiResultReply {
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<TestStatusApiResult> data) {
+  public void setData(@jakarta.annotation.Nonnull List<TestStatusApiResult> data) {
     this.data = data;
   }
 
 
-  public TestStatusApiResultReply totalCount(Integer totalCount) {
+  public TestStatusApiResultReply totalCount(@jakarta.annotation.Nonnull Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
@@ -100,7 +102,7 @@ public class TestStatusApiResultReply {
 
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTotalCount(Integer totalCount) {
+  public void setTotalCount(@jakarta.annotation.Nonnull Integer totalCount) {
     this.totalCount = totalCount;
   }
 

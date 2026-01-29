@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeTemplatesApi {
   private ApiClient apiClient;
 
@@ -62,7 +62,8 @@ public class CustomAttributeTemplatesApi {
    * @return CustomAttributeTemplateValidationResult
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -84,7 +85,8 @@ public class CustomAttributeTemplatesApi {
    * @return ApiResponse&lt;CustomAttributeTemplateValidationResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -111,12 +113,13 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Exclude CustomAttributes from CustomAttributeTemplate
-   *   Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System delete attributes from attributes tempalte
+   *  Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte
    * @param id Attribute template internal (UUID) identifier (required)
    * @param UUID  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -133,13 +136,14 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Exclude CustomAttributes from CustomAttributeTemplate
-   *   Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System delete attributes from attributes tempalte
+   *  Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte
    * @param id Attribute template internal (UUID) identifier (required)
    * @param UUID  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -169,12 +173,13 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Include CustomAttributes to CustomAttributeTemplate
-   *   Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System add attributes to attributes tempalte
+   *  Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte
    * @param id Attribute template internal (UUID) identifier (required)
    * @param UUID  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -191,13 +196,14 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Include CustomAttributes to CustomAttributeTemplate
-   *   Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System add attributes to attributes tempalte
+   *  Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte
    * @param id Attribute template internal (UUID) identifier (required)
    * @param UUID  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -227,11 +233,12 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Delete CustomAttributeTemplate
-   *   Use case    User sets attribute template internal identifier    User runs method execution    System search and delete attribute template    System returns no content response
+   *  Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response
    * @param id Attribute template internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -248,12 +255,13 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Delete CustomAttributeTemplate
-   *   Use case    User sets attribute template internal identifier    User runs method execution    System search and delete attribute template    System returns no content response
+   *  Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response
    * @param id Attribute template internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -283,12 +291,13 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Get CustomAttributeTemplate by ID
-   *   Use case    User sets attribute template internal identifier    User runs method execution    System return attribute template (listed in response example)
+   *  Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)
    * @param id CustomAttributeTemplate internal (UUID) identifier (required)
    * @return CustomAttributeTemplateModel
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -305,12 +314,13 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Get CustomAttributeTemplate by ID
-   *   Use case    User sets attribute template internal identifier    User runs method execution    System return attribute template (listed in response example)
+   *  Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)
    * @param id CustomAttributeTemplate internal (UUID) identifier (required)
    * @return ApiResponse&lt;CustomAttributeTemplateModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -341,12 +351,13 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Get CustomAttributeTemplate by name
-   *   Use case    User sets attribute template name    User runs method execution    System search and return list of attribute templates (listed in response example)
+   *  Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)
    * @param name CustomAttributeTemplate name for search (required)
    * @return CustomAttributeTemplateModel
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -363,12 +374,13 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Get CustomAttributeTemplate by name
-   *   Use case    User sets attribute template name    User runs method execution    System search and return list of attribute templates (listed in response example)
+   *  Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)
    * @param name CustomAttributeTemplate name for search (required)
    * @return ApiResponse&lt;CustomAttributeTemplateModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -399,12 +411,13 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Create CustomAttributeTemplate
-   *   Use case    User sets attribute template parameters (listed in request example)    User runs method execution    System creates attribute template    System returns attribute template model (example listed in response parameters)
+   *  Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)
    * @param customAttributeTemplatePostModel  (optional)
    * @return CustomAttributeTemplateModel
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -421,12 +434,13 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Create CustomAttributeTemplate
-   *   Use case    User sets attribute template parameters (listed in request example)    User runs method execution    System creates attribute template    System returns attribute template model (example listed in response parameters)
+   *  Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)
    * @param customAttributeTemplatePostModel  (optional)
    * @return ApiResponse&lt;CustomAttributeTemplateModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -452,7 +466,8 @@ public class CustomAttributeTemplatesApi {
    * @param customAttributeTemplatePutModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -474,7 +489,8 @@ public class CustomAttributeTemplatesApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -495,7 +511,7 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Search CustomAttributeTemplates
-   *   Use case    User sets search params model (listed in request example)    User runs method execution    System return attribute templates (listed in response example)
+   *  Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -505,7 +521,8 @@ public class CustomAttributeTemplatesApi {
    * @return List&lt;SearchCustomAttributeTemplateGetModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -522,7 +539,7 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Search CustomAttributeTemplates
-   *   Use case    User sets search params model (listed in request example)    User runs method execution    System return attribute templates (listed in response example)
+   *  Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -532,7 +549,8 @@ public class CustomAttributeTemplatesApi {
    * @return ApiResponse&lt;List&lt;SearchCustomAttributeTemplateGetModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-     <table summary="Response Details" border="1">
+     <table border="1">
+       <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>

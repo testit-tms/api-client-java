@@ -37,7 +37,7 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   ProjectExtractionModel.JSON_PROPERTY_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectExtractionModel {
   public static final String JSON_PROPERTY_IDS = "ids";
   private JsonNullable<GuidExtractionModel> ids = JsonNullable.<GuidExtractionModel>undefined();
@@ -45,7 +45,7 @@ public class ProjectExtractionModel {
   public ProjectExtractionModel() { 
   }
 
-  public ProjectExtractionModel ids(GuidExtractionModel ids) {
+  public ProjectExtractionModel ids(@jakarta.annotation.Nullable GuidExtractionModel ids) {
     this.ids = JsonNullable.<GuidExtractionModel>of(ids);
     return this;
   }
@@ -73,7 +73,7 @@ public class ProjectExtractionModel {
     this.ids = ids;
   }
 
-  public void setIds(GuidExtractionModel ids) {
+  public void setIds(@jakarta.annotation.Nullable GuidExtractionModel ids) {
     this.ids = JsonNullable.<GuidExtractionModel>of(ids);
   }
 

@@ -58,7 +58,7 @@ import ru.testit.client.invoker.JSON;
   TestResultUpdateV2Request.JSON_PROPERTY_MESSAGE,
   TestResultUpdateV2Request.JSON_PROPERTY_TRACE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultUpdateV2Request {
   public static final String JSON_PROPERTY_FAILURE_CLASS_IDS = "failureClassIds";
   private JsonNullable<List<UUID>> failureClassIds = JsonNullable.<List<UUID>>undefined();
@@ -107,7 +107,7 @@ public class TestResultUpdateV2Request {
   public TestResultUpdateV2Request() { 
   }
 
-  public TestResultUpdateV2Request failureClassIds(List<UUID> failureClassIds) {
+  public TestResultUpdateV2Request failureClassIds(@jakarta.annotation.Nullable List<UUID> failureClassIds) {
     this.failureClassIds = JsonNullable.<List<UUID>>of(failureClassIds);
     return this;
   }
@@ -147,13 +147,13 @@ public class TestResultUpdateV2Request {
     this.failureClassIds = failureClassIds;
   }
 
-  public void setFailureClassIds(List<UUID> failureClassIds) {
+  public void setFailureClassIds(@jakarta.annotation.Nullable List<UUID> failureClassIds) {
     this.failureClassIds = JsonNullable.<List<UUID>>of(failureClassIds);
   }
 
 
   @Deprecated
-  public TestResultUpdateV2Request outcome(TestResultOutcome outcome) {
+  public TestResultUpdateV2Request outcome(@jakarta.annotation.Nullable TestResultOutcome outcome) {
     this.outcome = JsonNullable.<TestResultOutcome>of(outcome);
     return this;
   }
@@ -184,12 +184,12 @@ public class TestResultUpdateV2Request {
   }
 
   @Deprecated
-  public void setOutcome(TestResultOutcome outcome) {
+  public void setOutcome(@jakarta.annotation.Nullable TestResultOutcome outcome) {
     this.outcome = JsonNullable.<TestResultOutcome>of(outcome);
   }
 
 
-  public TestResultUpdateV2Request statusCode(String statusCode) {
+  public TestResultUpdateV2Request statusCode(@jakarta.annotation.Nullable String statusCode) {
     this.statusCode = JsonNullable.<String>of(statusCode);
     return this;
   }
@@ -217,12 +217,12 @@ public class TestResultUpdateV2Request {
     this.statusCode = statusCode;
   }
 
-  public void setStatusCode(String statusCode) {
+  public void setStatusCode(@jakarta.annotation.Nullable String statusCode) {
     this.statusCode = JsonNullable.<String>of(statusCode);
   }
 
 
-  public TestResultUpdateV2Request comment(String comment) {
+  public TestResultUpdateV2Request comment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
     return this;
   }
@@ -250,12 +250,12 @@ public class TestResultUpdateV2Request {
     this.comment = comment;
   }
 
-  public void setComment(String comment) {
+  public void setComment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
   }
 
 
-  public TestResultUpdateV2Request links(List<Link> links) {
+  public TestResultUpdateV2Request links(@jakarta.annotation.Nullable List<Link> links) {
     this.links = JsonNullable.<List<Link>>of(links);
     return this;
   }
@@ -295,12 +295,12 @@ public class TestResultUpdateV2Request {
     this.links = links;
   }
 
-  public void setLinks(List<Link> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<Link> links) {
     this.links = JsonNullable.<List<Link>>of(links);
   }
 
 
-  public TestResultUpdateV2Request stepResults(List<StepResultApiModel> stepResults) {
+  public TestResultUpdateV2Request stepResults(@jakarta.annotation.Nullable List<StepResultApiModel> stepResults) {
     this.stepResults = JsonNullable.<List<StepResultApiModel>>of(stepResults);
     return this;
   }
@@ -340,12 +340,12 @@ public class TestResultUpdateV2Request {
     this.stepResults = stepResults;
   }
 
-  public void setStepResults(List<StepResultApiModel> stepResults) {
+  public void setStepResults(@jakarta.annotation.Nullable List<StepResultApiModel> stepResults) {
     this.stepResults = JsonNullable.<List<StepResultApiModel>>of(stepResults);
   }
 
 
-  public TestResultUpdateV2Request attachments(List<AttachmentUpdateRequest> attachments) {
+  public TestResultUpdateV2Request attachments(@jakarta.annotation.Nullable List<AttachmentUpdateRequest> attachments) {
     this.attachments = JsonNullable.<List<AttachmentUpdateRequest>>of(attachments);
     return this;
   }
@@ -385,13 +385,13 @@ public class TestResultUpdateV2Request {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AttachmentUpdateRequest> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<AttachmentUpdateRequest> attachments) {
     this.attachments = JsonNullable.<List<AttachmentUpdateRequest>>of(attachments);
   }
 
 
   @Deprecated
-  public TestResultUpdateV2Request durationInMs(Long durationInMs) {
+  public TestResultUpdateV2Request durationInMs(@jakarta.annotation.Nullable Long durationInMs) {
     this.durationInMs = JsonNullable.<Long>of(durationInMs);
     return this;
   }
@@ -424,12 +424,12 @@ public class TestResultUpdateV2Request {
   }
 
   @Deprecated
-  public void setDurationInMs(Long durationInMs) {
+  public void setDurationInMs(@jakarta.annotation.Nullable Long durationInMs) {
     this.durationInMs = JsonNullable.<Long>of(durationInMs);
   }
 
 
-  public TestResultUpdateV2Request duration(Long duration) {
+  public TestResultUpdateV2Request duration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
     return this;
   }
@@ -459,12 +459,12 @@ public class TestResultUpdateV2Request {
     this.duration = duration;
   }
 
-  public void setDuration(Long duration) {
+  public void setDuration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
   }
 
 
-  public TestResultUpdateV2Request stepComments(List<TestResultStepCommentUpdateRequest> stepComments) {
+  public TestResultUpdateV2Request stepComments(@jakarta.annotation.Nullable List<TestResultStepCommentUpdateRequest> stepComments) {
     this.stepComments = JsonNullable.<List<TestResultStepCommentUpdateRequest>>of(stepComments);
     return this;
   }
@@ -504,12 +504,12 @@ public class TestResultUpdateV2Request {
     this.stepComments = stepComments;
   }
 
-  public void setStepComments(List<TestResultStepCommentUpdateRequest> stepComments) {
+  public void setStepComments(@jakarta.annotation.Nullable List<TestResultStepCommentUpdateRequest> stepComments) {
     this.stepComments = JsonNullable.<List<TestResultStepCommentUpdateRequest>>of(stepComments);
   }
 
 
-  public TestResultUpdateV2Request setupResults(List<AutoTestStepResultUpdateRequest> setupResults) {
+  public TestResultUpdateV2Request setupResults(@jakarta.annotation.Nullable List<AutoTestStepResultUpdateRequest> setupResults) {
     this.setupResults = JsonNullable.<List<AutoTestStepResultUpdateRequest>>of(setupResults);
     return this;
   }
@@ -549,12 +549,12 @@ public class TestResultUpdateV2Request {
     this.setupResults = setupResults;
   }
 
-  public void setSetupResults(List<AutoTestStepResultUpdateRequest> setupResults) {
+  public void setSetupResults(@jakarta.annotation.Nullable List<AutoTestStepResultUpdateRequest> setupResults) {
     this.setupResults = JsonNullable.<List<AutoTestStepResultUpdateRequest>>of(setupResults);
   }
 
 
-  public TestResultUpdateV2Request teardownResults(List<AutoTestStepResultUpdateRequest> teardownResults) {
+  public TestResultUpdateV2Request teardownResults(@jakarta.annotation.Nullable List<AutoTestStepResultUpdateRequest> teardownResults) {
     this.teardownResults = JsonNullable.<List<AutoTestStepResultUpdateRequest>>of(teardownResults);
     return this;
   }
@@ -594,12 +594,12 @@ public class TestResultUpdateV2Request {
     this.teardownResults = teardownResults;
   }
 
-  public void setTeardownResults(List<AutoTestStepResultUpdateRequest> teardownResults) {
+  public void setTeardownResults(@jakarta.annotation.Nullable List<AutoTestStepResultUpdateRequest> teardownResults) {
     this.teardownResults = JsonNullable.<List<AutoTestStepResultUpdateRequest>>of(teardownResults);
   }
 
 
-  public TestResultUpdateV2Request message(String message) {
+  public TestResultUpdateV2Request message(@jakarta.annotation.Nullable String message) {
     this.message = JsonNullable.<String>of(message);
     return this;
   }
@@ -627,12 +627,12 @@ public class TestResultUpdateV2Request {
     this.message = message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = JsonNullable.<String>of(message);
   }
 
 
-  public TestResultUpdateV2Request trace(String trace) {
+  public TestResultUpdateV2Request trace(@jakarta.annotation.Nullable String trace) {
     this.trace = JsonNullable.<String>of(trace);
     return this;
   }
@@ -660,7 +660,7 @@ public class TestResultUpdateV2Request {
     this.trace = trace;
   }
 
-  public void setTrace(String trace) {
+  public void setTrace(@jakarta.annotation.Nullable String trace) {
     this.trace = JsonNullable.<String>of(trace);
   }
 

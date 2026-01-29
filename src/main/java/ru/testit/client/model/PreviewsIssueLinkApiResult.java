@@ -33,18 +33,20 @@ import ru.testit.client.invoker.JSON;
   PreviewsIssueLinkApiResult.JSON_PROPERTY_TITLE,
   PreviewsIssueLinkApiResult.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class PreviewsIssueLinkApiResult {
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public PreviewsIssueLinkApiResult() { 
   }
 
-  public PreviewsIssueLinkApiResult title(String title) {
+  public PreviewsIssueLinkApiResult title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -64,12 +66,12 @@ public class PreviewsIssueLinkApiResult {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public PreviewsIssueLinkApiResult url(String url) {
+  public PreviewsIssueLinkApiResult url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -89,7 +91,7 @@ public class PreviewsIssueLinkApiResult {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 

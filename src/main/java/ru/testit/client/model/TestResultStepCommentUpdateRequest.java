@@ -44,18 +44,22 @@ import ru.testit.client.invoker.JSON;
   TestResultStepCommentUpdateRequest.JSON_PROPERTY_ATTACHMENTS,
   TestResultStepCommentUpdateRequest.JSON_PROPERTY_PARENT_STEP_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultStepCommentUpdateRequest {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TEXT = "text";
+  @jakarta.annotation.Nonnull
   private String text;
 
   public static final String JSON_PROPERTY_STEP_ID = "stepId";
+  @jakarta.annotation.Nonnull
   private UUID stepId;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nonnull
   private List<AttachmentUpdateRequest> attachments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PARENT_STEP_ID = "parentStepId";
@@ -64,7 +68,7 @@ public class TestResultStepCommentUpdateRequest {
   public TestResultStepCommentUpdateRequest() { 
   }
 
-  public TestResultStepCommentUpdateRequest id(UUID id) {
+  public TestResultStepCommentUpdateRequest id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -84,12 +88,12 @@ public class TestResultStepCommentUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestResultStepCommentUpdateRequest text(String text) {
+  public TestResultStepCommentUpdateRequest text(@jakarta.annotation.Nonnull String text) {
     this.text = text;
     return this;
   }
@@ -109,12 +113,12 @@ public class TestResultStepCommentUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setText(String text) {
+  public void setText(@jakarta.annotation.Nonnull String text) {
     this.text = text;
   }
 
 
-  public TestResultStepCommentUpdateRequest stepId(UUID stepId) {
+  public TestResultStepCommentUpdateRequest stepId(@jakarta.annotation.Nonnull UUID stepId) {
     this.stepId = stepId;
     return this;
   }
@@ -134,12 +138,12 @@ public class TestResultStepCommentUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_STEP_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStepId(UUID stepId) {
+  public void setStepId(@jakarta.annotation.Nonnull UUID stepId) {
     this.stepId = stepId;
   }
 
 
-  public TestResultStepCommentUpdateRequest attachments(List<AttachmentUpdateRequest> attachments) {
+  public TestResultStepCommentUpdateRequest attachments(@jakarta.annotation.Nonnull List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -167,12 +171,12 @@ public class TestResultStepCommentUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttachments(List<AttachmentUpdateRequest> attachments) {
+  public void setAttachments(@jakarta.annotation.Nonnull List<AttachmentUpdateRequest> attachments) {
     this.attachments = attachments;
   }
 
 
-  public TestResultStepCommentUpdateRequest parentStepId(UUID parentStepId) {
+  public TestResultStepCommentUpdateRequest parentStepId(@jakarta.annotation.Nullable UUID parentStepId) {
     this.parentStepId = JsonNullable.<UUID>of(parentStepId);
     return this;
   }
@@ -200,7 +204,7 @@ public class TestResultStepCommentUpdateRequest {
     this.parentStepId = parentStepId;
   }
 
-  public void setParentStepId(UUID parentStepId) {
+  public void setParentStepId(@jakarta.annotation.Nullable UUID parentStepId) {
     this.parentStepId = JsonNullable.<UUID>of(parentStepId);
   }
 

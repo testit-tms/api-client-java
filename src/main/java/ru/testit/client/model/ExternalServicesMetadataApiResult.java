@@ -35,15 +35,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   ExternalServicesMetadataApiResult.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalServicesMetadataApiResult {
   public static final String JSON_PROPERTY_DATA = "data";
+  @jakarta.annotation.Nonnull
   private List<ExternalServiceMetadataApiResult> data = new ArrayList<>();
 
   public ExternalServicesMetadataApiResult() { 
   }
 
-  public ExternalServicesMetadataApiResult data(List<ExternalServiceMetadataApiResult> data) {
+  public ExternalServicesMetadataApiResult data(@jakarta.annotation.Nonnull List<ExternalServiceMetadataApiResult> data) {
     this.data = data;
     return this;
   }
@@ -71,7 +72,7 @@ public class ExternalServicesMetadataApiResult {
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<ExternalServiceMetadataApiResult> data) {
+  public void setData(@jakarta.annotation.Nonnull List<ExternalServiceMetadataApiResult> data) {
     this.data = data;
   }
 

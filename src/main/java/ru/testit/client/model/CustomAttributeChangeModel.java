@@ -40,7 +40,7 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeChangeModel.JSON_PROPERTY_OLD_VALUE,
   CustomAttributeChangeModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeChangeModel {
   public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
@@ -60,7 +60,7 @@ public class CustomAttributeChangeModel {
   public CustomAttributeChangeModel() { 
   }
 
-  public CustomAttributeChangeModel type(String type) {
+  public CustomAttributeChangeModel type(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
     return this;
   }
@@ -88,12 +88,12 @@ public class CustomAttributeChangeModel {
     this.type = type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
   }
 
 
-  public CustomAttributeChangeModel oldAttributeName(String oldAttributeName) {
+  public CustomAttributeChangeModel oldAttributeName(@jakarta.annotation.Nullable String oldAttributeName) {
     this.oldAttributeName = JsonNullable.<String>of(oldAttributeName);
     return this;
   }
@@ -121,12 +121,12 @@ public class CustomAttributeChangeModel {
     this.oldAttributeName = oldAttributeName;
   }
 
-  public void setOldAttributeName(String oldAttributeName) {
+  public void setOldAttributeName(@jakarta.annotation.Nullable String oldAttributeName) {
     this.oldAttributeName = JsonNullable.<String>of(oldAttributeName);
   }
 
 
-  public CustomAttributeChangeModel newAttributeName(String newAttributeName) {
+  public CustomAttributeChangeModel newAttributeName(@jakarta.annotation.Nullable String newAttributeName) {
     this.newAttributeName = JsonNullable.<String>of(newAttributeName);
     return this;
   }
@@ -154,12 +154,12 @@ public class CustomAttributeChangeModel {
     this.newAttributeName = newAttributeName;
   }
 
-  public void setNewAttributeName(String newAttributeName) {
+  public void setNewAttributeName(@jakarta.annotation.Nullable String newAttributeName) {
     this.newAttributeName = JsonNullable.<String>of(newAttributeName);
   }
 
 
-  public CustomAttributeChangeModel oldValue(Object oldValue) {
+  public CustomAttributeChangeModel oldValue(@jakarta.annotation.Nullable Object oldValue) {
     this.oldValue = JsonNullable.<Object>of(oldValue);
     return this;
   }
@@ -187,12 +187,12 @@ public class CustomAttributeChangeModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(Object oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable Object oldValue) {
     this.oldValue = JsonNullable.<Object>of(oldValue);
   }
 
 
-  public CustomAttributeChangeModel newValue(Object newValue) {
+  public CustomAttributeChangeModel newValue(@jakarta.annotation.Nullable Object newValue) {
     this.newValue = JsonNullable.<Object>of(newValue);
     return this;
   }
@@ -220,7 +220,7 @@ public class CustomAttributeChangeModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(Object newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable Object newValue) {
     this.newValue = JsonNullable.<Object>of(newValue);
   }
 

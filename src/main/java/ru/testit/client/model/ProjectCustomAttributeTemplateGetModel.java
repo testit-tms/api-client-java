@@ -39,24 +39,28 @@ import ru.testit.client.invoker.JSON;
   ProjectCustomAttributeTemplateGetModel.JSON_PROPERTY_NAME,
   ProjectCustomAttributeTemplateGetModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_MODELS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectCustomAttributeTemplateGetModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_CUSTOM_ATTRIBUTE_MODELS = "customAttributeModels";
+  @jakarta.annotation.Nonnull
   private List<CustomAttributeModel> customAttributeModels = new ArrayList<>();
 
   public ProjectCustomAttributeTemplateGetModel() { 
   }
 
-  public ProjectCustomAttributeTemplateGetModel id(UUID id) {
+  public ProjectCustomAttributeTemplateGetModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -76,12 +80,12 @@ public class ProjectCustomAttributeTemplateGetModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ProjectCustomAttributeTemplateGetModel isDeleted(Boolean isDeleted) {
+  public ProjectCustomAttributeTemplateGetModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -101,12 +105,12 @@ public class ProjectCustomAttributeTemplateGetModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ProjectCustomAttributeTemplateGetModel name(String name) {
+  public ProjectCustomAttributeTemplateGetModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -126,12 +130,12 @@ public class ProjectCustomAttributeTemplateGetModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ProjectCustomAttributeTemplateGetModel customAttributeModels(List<CustomAttributeModel> customAttributeModels) {
+  public ProjectCustomAttributeTemplateGetModel customAttributeModels(@jakarta.annotation.Nonnull List<CustomAttributeModel> customAttributeModels) {
     this.customAttributeModels = customAttributeModels;
     return this;
   }
@@ -159,7 +163,7 @@ public class ProjectCustomAttributeTemplateGetModel {
 
   @JsonProperty(JSON_PROPERTY_CUSTOM_ATTRIBUTE_MODELS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCustomAttributeModels(List<CustomAttributeModel> customAttributeModels) {
+  public void setCustomAttributeModels(@jakarta.annotation.Nonnull List<CustomAttributeModel> customAttributeModels) {
     this.customAttributeModels = customAttributeModels;
   }
 

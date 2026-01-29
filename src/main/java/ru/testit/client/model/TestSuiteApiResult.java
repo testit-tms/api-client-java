@@ -42,36 +42,44 @@ import ru.testit.client.invoker.JSON;
   TestSuiteApiResult.JSON_PROPERTY_PARENT_ID,
   TestSuiteApiResult.JSON_PROPERTY_TEST_PLAN_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private TestSuiteTypeApiResult type;
 
   public static final String JSON_PROPERTY_SAVE_STRUCTURE = "saveStructure";
+  @jakarta.annotation.Nullable
   private Boolean saveStructure;
 
   public static final String JSON_PROPERTY_AUTO_REFRESH = "autoRefresh";
+  @jakarta.annotation.Nullable
   private Boolean autoRefresh;
 
   public static final String JSON_PROPERTY_REFRESH_DATE = "refreshDate";
+  @jakarta.annotation.Nullable
   private OffsetDateTime refreshDate;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parentId";
+  @jakarta.annotation.Nullable
   private UUID parentId;
 
   public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  @jakarta.annotation.Nullable
   private UUID testPlanId;
 
   public TestSuiteApiResult() { 
   }
 
-  public TestSuiteApiResult id(UUID id) {
+  public TestSuiteApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -91,12 +99,12 @@ public class TestSuiteApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteApiResult name(String name) {
+  public TestSuiteApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -116,12 +124,12 @@ public class TestSuiteApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestSuiteApiResult type(TestSuiteTypeApiResult type) {
+  public TestSuiteApiResult type(@jakarta.annotation.Nonnull TestSuiteTypeApiResult type) {
     this.type = type;
     return this;
   }
@@ -141,12 +149,12 @@ public class TestSuiteApiResult {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TestSuiteTypeApiResult type) {
+  public void setType(@jakarta.annotation.Nonnull TestSuiteTypeApiResult type) {
     this.type = type;
   }
 
 
-  public TestSuiteApiResult saveStructure(Boolean saveStructure) {
+  public TestSuiteApiResult saveStructure(@jakarta.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = saveStructure;
     return this;
   }
@@ -166,12 +174,12 @@ public class TestSuiteApiResult {
 
   @JsonProperty(JSON_PROPERTY_SAVE_STRUCTURE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSaveStructure(Boolean saveStructure) {
+  public void setSaveStructure(@jakarta.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = saveStructure;
   }
 
 
-  public TestSuiteApiResult autoRefresh(Boolean autoRefresh) {
+  public TestSuiteApiResult autoRefresh(@jakarta.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
     return this;
   }
@@ -191,12 +199,12 @@ public class TestSuiteApiResult {
 
   @JsonProperty(JSON_PROPERTY_AUTO_REFRESH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutoRefresh(Boolean autoRefresh) {
+  public void setAutoRefresh(@jakarta.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
   }
 
 
-  public TestSuiteApiResult refreshDate(OffsetDateTime refreshDate) {
+  public TestSuiteApiResult refreshDate(@jakarta.annotation.Nullable OffsetDateTime refreshDate) {
     this.refreshDate = refreshDate;
     return this;
   }
@@ -216,12 +224,12 @@ public class TestSuiteApiResult {
 
   @JsonProperty(JSON_PROPERTY_REFRESH_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRefreshDate(OffsetDateTime refreshDate) {
+  public void setRefreshDate(@jakarta.annotation.Nullable OffsetDateTime refreshDate) {
     this.refreshDate = refreshDate;
   }
 
 
-  public TestSuiteApiResult parentId(UUID parentId) {
+  public TestSuiteApiResult parentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -241,12 +249,12 @@ public class TestSuiteApiResult {
 
   @JsonProperty(JSON_PROPERTY_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParentId(UUID parentId) {
+  public void setParentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public TestSuiteApiResult testPlanId(UUID testPlanId) {
+  public TestSuiteApiResult testPlanId(@jakarta.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -266,7 +274,7 @@ public class TestSuiteApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@jakarta.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 

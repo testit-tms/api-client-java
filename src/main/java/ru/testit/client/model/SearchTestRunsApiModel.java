@@ -47,7 +47,7 @@ import ru.testit.client.invoker.JSON;
   SearchTestRunsApiModel.JSON_PROPERTY_CREATED_BY_IDS,
   SearchTestRunsApiModel.JSON_PROPERTY_MODIFIED_BY_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SearchTestRunsApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -74,7 +74,7 @@ public class SearchTestRunsApiModel {
   public SearchTestRunsApiModel() { 
   }
 
-  public SearchTestRunsApiModel name(String name) {
+  public SearchTestRunsApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -102,13 +102,13 @@ public class SearchTestRunsApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
   @Deprecated
-  public SearchTestRunsApiModel states(Set<TestRunState> states) {
+  public SearchTestRunsApiModel states(@jakarta.annotation.Nullable Set<TestRunState> states) {
     this.states = JsonNullable.<Set<TestRunState>>of(states);
     return this;
   }
@@ -151,12 +151,12 @@ public class SearchTestRunsApiModel {
   }
 
   @Deprecated
-  public void setStates(Set<TestRunState> states) {
+  public void setStates(@jakarta.annotation.Nullable Set<TestRunState> states) {
     this.states = JsonNullable.<Set<TestRunState>>of(states);
   }
 
 
-  public SearchTestRunsApiModel statusCodes(Set<String> statusCodes) {
+  public SearchTestRunsApiModel statusCodes(@jakarta.annotation.Nullable Set<String> statusCodes) {
     this.statusCodes = JsonNullable.<Set<String>>of(statusCodes);
     return this;
   }
@@ -196,12 +196,12 @@ public class SearchTestRunsApiModel {
     this.statusCodes = statusCodes;
   }
 
-  public void setStatusCodes(Set<String> statusCodes) {
+  public void setStatusCodes(@jakarta.annotation.Nullable Set<String> statusCodes) {
     this.statusCodes = JsonNullable.<Set<String>>of(statusCodes);
   }
 
 
-  public SearchTestRunsApiModel startedDate(DateTimeRangeSelectorModel startedDate) {
+  public SearchTestRunsApiModel startedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startedDate) {
     this.startedDate = JsonNullable.<DateTimeRangeSelectorModel>of(startedDate);
     return this;
   }
@@ -229,12 +229,12 @@ public class SearchTestRunsApiModel {
     this.startedDate = startedDate;
   }
 
-  public void setStartedDate(DateTimeRangeSelectorModel startedDate) {
+  public void setStartedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startedDate) {
     this.startedDate = JsonNullable.<DateTimeRangeSelectorModel>of(startedDate);
   }
 
 
-  public SearchTestRunsApiModel completedDate(DateTimeRangeSelectorModel completedDate) {
+  public SearchTestRunsApiModel completedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel completedDate) {
     this.completedDate = JsonNullable.<DateTimeRangeSelectorModel>of(completedDate);
     return this;
   }
@@ -262,12 +262,12 @@ public class SearchTestRunsApiModel {
     this.completedDate = completedDate;
   }
 
-  public void setCompletedDate(DateTimeRangeSelectorModel completedDate) {
+  public void setCompletedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel completedDate) {
     this.completedDate = JsonNullable.<DateTimeRangeSelectorModel>of(completedDate);
   }
 
 
-  public SearchTestRunsApiModel createdByIds(Set<UUID> createdByIds) {
+  public SearchTestRunsApiModel createdByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
@@ -307,12 +307,12 @@ public class SearchTestRunsApiModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
-  public SearchTestRunsApiModel modifiedByIds(Set<UUID> modifiedByIds) {
+  public SearchTestRunsApiModel modifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
     return this;
   }
@@ -352,7 +352,7 @@ public class SearchTestRunsApiModel {
     this.modifiedByIds = modifiedByIds;
   }
 
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
   }
 

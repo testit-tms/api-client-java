@@ -45,12 +45,14 @@ import ru.testit.client.invoker.JSON;
   ExternalIssueApiMetadata.JSON_PROPERTY_TYPE,
   ExternalIssueApiMetadata.JSON_PROPERTY_PRIORITY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalIssueApiMetadata {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private String id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_CODE = "code";
@@ -74,7 +76,7 @@ public class ExternalIssueApiMetadata {
   public ExternalIssueApiMetadata() { 
   }
 
-  public ExternalIssueApiMetadata id(String id) {
+  public ExternalIssueApiMetadata id(@jakarta.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
@@ -94,12 +96,12 @@ public class ExternalIssueApiMetadata {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
+  public void setId(@jakarta.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public ExternalIssueApiMetadata title(String title) {
+  public ExternalIssueApiMetadata title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -119,12 +121,12 @@ public class ExternalIssueApiMetadata {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public ExternalIssueApiMetadata code(String code) {
+  public ExternalIssueApiMetadata code(@jakarta.annotation.Nullable String code) {
     this.code = JsonNullable.<String>of(code);
     return this;
   }
@@ -152,12 +154,12 @@ public class ExternalIssueApiMetadata {
     this.code = code;
   }
 
-  public void setCode(String code) {
+  public void setCode(@jakarta.annotation.Nullable String code) {
     this.code = JsonNullable.<String>of(code);
   }
 
 
-  public ExternalIssueApiMetadata description(String description) {
+  public ExternalIssueApiMetadata description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -185,12 +187,12 @@ public class ExternalIssueApiMetadata {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public ExternalIssueApiMetadata status(String status) {
+  public ExternalIssueApiMetadata status(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
     return this;
   }
@@ -218,12 +220,12 @@ public class ExternalIssueApiMetadata {
     this.status = status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
   }
 
 
-  public ExternalIssueApiMetadata assignee(String assignee) {
+  public ExternalIssueApiMetadata assignee(@jakarta.annotation.Nullable String assignee) {
     this.assignee = JsonNullable.<String>of(assignee);
     return this;
   }
@@ -251,12 +253,12 @@ public class ExternalIssueApiMetadata {
     this.assignee = assignee;
   }
 
-  public void setAssignee(String assignee) {
+  public void setAssignee(@jakarta.annotation.Nullable String assignee) {
     this.assignee = JsonNullable.<String>of(assignee);
   }
 
 
-  public ExternalIssueApiMetadata type(ExternalIssueApiType type) {
+  public ExternalIssueApiMetadata type(@jakarta.annotation.Nullable ExternalIssueApiType type) {
     this.type = JsonNullable.<ExternalIssueApiType>of(type);
     return this;
   }
@@ -284,12 +286,12 @@ public class ExternalIssueApiMetadata {
     this.type = type;
   }
 
-  public void setType(ExternalIssueApiType type) {
+  public void setType(@jakarta.annotation.Nullable ExternalIssueApiType type) {
     this.type = JsonNullable.<ExternalIssueApiType>of(type);
   }
 
 
-  public ExternalIssueApiMetadata priority(ExternalIssueApiPriority priority) {
+  public ExternalIssueApiMetadata priority(@jakarta.annotation.Nullable ExternalIssueApiPriority priority) {
     this.priority = JsonNullable.<ExternalIssueApiPriority>of(priority);
     return this;
   }
@@ -317,7 +319,7 @@ public class ExternalIssueApiMetadata {
     this.priority = priority;
   }
 
-  public void setPriority(ExternalIssueApiPriority priority) {
+  public void setPriority(@jakarta.annotation.Nullable ExternalIssueApiPriority priority) {
     this.priority = JsonNullable.<ExternalIssueApiPriority>of(priority);
   }
 

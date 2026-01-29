@@ -36,24 +36,28 @@ import ru.testit.client.invoker.JSON;
   FailureClassRegexApiResult.JSON_PROPERTY_REGEX_TEXT,
   FailureClassRegexApiResult.JSON_PROPERTY_FAILURE_CLASS_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FailureClassRegexApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_REGEX_TEXT = "regexText";
+  @jakarta.annotation.Nonnull
   private String regexText;
 
   public static final String JSON_PROPERTY_FAILURE_CLASS_ID = "failureClassId";
+  @jakarta.annotation.Nonnull
   private UUID failureClassId;
 
   public FailureClassRegexApiResult() { 
   }
 
-  public FailureClassRegexApiResult id(UUID id) {
+  public FailureClassRegexApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -73,12 +77,12 @@ public class FailureClassRegexApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public FailureClassRegexApiResult isDeleted(Boolean isDeleted) {
+  public FailureClassRegexApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -98,12 +102,12 @@ public class FailureClassRegexApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public FailureClassRegexApiResult regexText(String regexText) {
+  public FailureClassRegexApiResult regexText(@jakarta.annotation.Nonnull String regexText) {
     this.regexText = regexText;
     return this;
   }
@@ -123,12 +127,12 @@ public class FailureClassRegexApiResult {
 
   @JsonProperty(JSON_PROPERTY_REGEX_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRegexText(String regexText) {
+  public void setRegexText(@jakarta.annotation.Nonnull String regexText) {
     this.regexText = regexText;
   }
 
 
-  public FailureClassRegexApiResult failureClassId(UUID failureClassId) {
+  public FailureClassRegexApiResult failureClassId(@jakarta.annotation.Nonnull UUID failureClassId) {
     this.failureClassId = failureClassId;
     return this;
   }
@@ -148,7 +152,7 @@ public class FailureClassRegexApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CLASS_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureClassId(UUID failureClassId) {
+  public void setFailureClassId(@jakarta.annotation.Nonnull UUID failureClassId) {
     this.failureClassId = failureClassId;
   }
 

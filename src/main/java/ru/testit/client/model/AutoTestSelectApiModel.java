@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestSelectApiModel.JSON_PROPERTY_FILTER,
   AutoTestSelectApiModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestSelectApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<AutoTestFilterApiModel> filter = JsonNullable.<AutoTestFilterApiModel>undefined();
@@ -50,7 +50,7 @@ public class AutoTestSelectApiModel {
   public AutoTestSelectApiModel() { 
   }
 
-  public AutoTestSelectApiModel filter(AutoTestFilterApiModel filter) {
+  public AutoTestSelectApiModel filter(@jakarta.annotation.Nullable AutoTestFilterApiModel filter) {
     this.filter = JsonNullable.<AutoTestFilterApiModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class AutoTestSelectApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(AutoTestFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable AutoTestFilterApiModel filter) {
     this.filter = JsonNullable.<AutoTestFilterApiModel>of(filter);
   }
 
 
-  public AutoTestSelectApiModel extractionModel(AutoTestExtractionApiModel extractionModel) {
+  public AutoTestSelectApiModel extractionModel(@jakarta.annotation.Nullable AutoTestExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<AutoTestExtractionApiModel>of(extractionModel);
     return this;
   }
@@ -111,7 +111,7 @@ public class AutoTestSelectApiModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(AutoTestExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable AutoTestExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<AutoTestExtractionApiModel>of(extractionModel);
   }
 

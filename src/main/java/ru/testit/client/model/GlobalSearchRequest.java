@@ -39,15 +39,18 @@ import ru.testit.client.invoker.JSON;
   GlobalSearchRequest.JSON_PROPERTY_SKIP,
   GlobalSearchRequest.JSON_PROPERTY_RESOURCE_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GlobalSearchRequest {
   public static final String JSON_PROPERTY_QUERY = "query";
+  @jakarta.annotation.Nonnull
   private String query;
 
   public static final String JSON_PROPERTY_TAKE = "take";
+  @jakarta.annotation.Nonnull
   private Integer take;
 
   public static final String JSON_PROPERTY_SKIP = "skip";
+  @jakarta.annotation.Nonnull
   private Integer skip;
 
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resourceType";
@@ -56,7 +59,7 @@ public class GlobalSearchRequest {
   public GlobalSearchRequest() { 
   }
 
-  public GlobalSearchRequest query(String query) {
+  public GlobalSearchRequest query(@jakarta.annotation.Nonnull String query) {
     this.query = query;
     return this;
   }
@@ -76,12 +79,12 @@ public class GlobalSearchRequest {
 
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuery(String query) {
+  public void setQuery(@jakarta.annotation.Nonnull String query) {
     this.query = query;
   }
 
 
-  public GlobalSearchRequest take(Integer take) {
+  public GlobalSearchRequest take(@jakarta.annotation.Nonnull Integer take) {
     this.take = take;
     return this;
   }
@@ -101,12 +104,12 @@ public class GlobalSearchRequest {
 
   @JsonProperty(JSON_PROPERTY_TAKE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTake(Integer take) {
+  public void setTake(@jakarta.annotation.Nonnull Integer take) {
     this.take = take;
   }
 
 
-  public GlobalSearchRequest skip(Integer skip) {
+  public GlobalSearchRequest skip(@jakarta.annotation.Nonnull Integer skip) {
     this.skip = skip;
     return this;
   }
@@ -126,12 +129,12 @@ public class GlobalSearchRequest {
 
   @JsonProperty(JSON_PROPERTY_SKIP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSkip(Integer skip) {
+  public void setSkip(@jakarta.annotation.Nonnull Integer skip) {
     this.skip = skip;
   }
 
 
-  public GlobalSearchRequest resourceType(String resourceType) {
+  public GlobalSearchRequest resourceType(@jakarta.annotation.Nullable String resourceType) {
     this.resourceType = JsonNullable.<String>of(resourceType);
     return this;
   }
@@ -159,7 +162,7 @@ public class GlobalSearchRequest {
     this.resourceType = resourceType;
   }
 
-  public void setResourceType(String resourceType) {
+  public void setResourceType(@jakarta.annotation.Nullable String resourceType) {
     this.resourceType = JsonNullable.<String>of(resourceType);
   }
 

@@ -42,24 +42,28 @@ import ru.testit.client.invoker.JSON;
   ExternalFormCreateModel.JSON_PROPERTY_LINKS,
   ExternalFormCreateModel.JSON_PROPERTY_VALUES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalFormCreateModel {
   public static final String JSON_PROPERTY_POSSIBLE_VALUES = "possibleValues";
+  @jakarta.annotation.Nonnull
   private Map<String, List<ExternalFormAllowedValueModel>> possibleValues = new HashMap<>();
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
+  @jakarta.annotation.Nonnull
   private List<ExternalFormFieldModel> fields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKS = "links";
+  @jakarta.annotation.Nonnull
   private List<ExternalFormLinkModel> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_VALUES = "values";
+  @jakarta.annotation.Nonnull
   private Map<String, Object> values = new HashMap<>();
 
   public ExternalFormCreateModel() { 
   }
 
-  public ExternalFormCreateModel possibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public ExternalFormCreateModel possibleValues(@jakarta.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
     return this;
   }
@@ -87,12 +91,12 @@ public class ExternalFormCreateModel {
 
   @JsonProperty(JSON_PROPERTY_POSSIBLE_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPossibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public void setPossibleValues(@jakarta.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
   }
 
 
-  public ExternalFormCreateModel fields(List<ExternalFormFieldModel> fields) {
+  public ExternalFormCreateModel fields(@jakarta.annotation.Nonnull List<ExternalFormFieldModel> fields) {
     this.fields = fields;
     return this;
   }
@@ -120,12 +124,12 @@ public class ExternalFormCreateModel {
 
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFields(List<ExternalFormFieldModel> fields) {
+  public void setFields(@jakarta.annotation.Nonnull List<ExternalFormFieldModel> fields) {
     this.fields = fields;
   }
 
 
-  public ExternalFormCreateModel links(List<ExternalFormLinkModel> links) {
+  public ExternalFormCreateModel links(@jakarta.annotation.Nonnull List<ExternalFormLinkModel> links) {
     this.links = links;
     return this;
   }
@@ -153,12 +157,12 @@ public class ExternalFormCreateModel {
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(List<ExternalFormLinkModel> links) {
+  public void setLinks(@jakarta.annotation.Nonnull List<ExternalFormLinkModel> links) {
     this.links = links;
   }
 
 
-  public ExternalFormCreateModel values(Map<String, Object> values) {
+  public ExternalFormCreateModel values(@jakarta.annotation.Nonnull Map<String, Object> values) {
     this.values = values;
     return this;
   }
@@ -186,7 +190,7 @@ public class ExternalFormCreateModel {
 
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setValues(Map<String, Object> values) {
+  public void setValues(@jakarta.annotation.Nonnull Map<String, Object> values) {
     this.values = values;
   }
 

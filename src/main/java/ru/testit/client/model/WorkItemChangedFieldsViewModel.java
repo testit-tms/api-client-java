@@ -69,60 +69,78 @@ import ru.testit.client.invoker.JSON;
   WorkItemChangedFieldsViewModel.JSON_PROPERTY_NAME,
   WorkItemChangedFieldsViewModel.JSON_PROPERTY_DESCRIPTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemChangedFieldsViewModel {
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private BooleanChangedFieldViewModel isDeleted;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private GuidChangedFieldViewModel projectId;
 
   public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  @jakarta.annotation.Nonnull
   private BooleanChangedFieldViewModel isAutomated;
 
   public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  @jakarta.annotation.Nonnull
   private GuidChangedFieldViewModel sectionId;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @jakarta.annotation.Nonnull
   private StringChangedFieldViewModel state;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @jakarta.annotation.Nonnull
   private StringChangedFieldViewModel priority;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
+  @jakarta.annotation.Nonnull
   private Int32ChangedFieldViewModel duration;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  @jakarta.annotation.Nonnull
   private Map<String, WorkItemChangedAttributeViewModel> attributes = new HashMap<>();
 
   public static final String JSON_PROPERTY_STEPS = "steps";
+  @jakarta.annotation.Nonnull
   private WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel steps;
 
   public static final String JSON_PROPERTY_PRECONDITION_STEPS = "preconditionSteps";
+  @jakarta.annotation.Nonnull
   private WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel preconditionSteps;
 
   public static final String JSON_PROPERTY_POSTCONDITION_STEPS = "postconditionSteps";
+  @jakarta.annotation.Nonnull
   private WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel postconditionSteps;
 
   public static final String JSON_PROPERTY_AUTO_TESTS = "autoTests";
+  @jakarta.annotation.Nonnull
   private AutoTestChangeViewModelArrayChangedFieldViewModel autoTests;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  @jakarta.annotation.Nonnull
   private AttachmentChangeViewModelArrayChangedFieldViewModel attachments;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
+  @jakarta.annotation.Nonnull
   private StringArrayChangedFieldViewModel tags;
 
   public static final String JSON_PROPERTY_LINKS = "links";
+  @jakarta.annotation.Nonnull
   private WorkItemLinkChangeViewModelArrayChangedFieldViewModel links;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Int64ChangedFieldViewModel globalId;
 
   public static final String JSON_PROPERTY_VERSION_NUMBER = "versionNumber";
+  @jakarta.annotation.Nonnull
   private Int32ChangedFieldViewModel versionNumber;
 
   public static final String JSON_PROPERTY_ENTITY_TYPE_NAME = "entityTypeName";
+  @jakarta.annotation.Nonnull
   private StringChangedFieldViewModel entityTypeName;
 
   public static final String JSON_PROPERTY_NAME = "name";
@@ -134,7 +152,7 @@ public class WorkItemChangedFieldsViewModel {
   public WorkItemChangedFieldsViewModel() { 
   }
 
-  public WorkItemChangedFieldsViewModel isDeleted(BooleanChangedFieldViewModel isDeleted) {
+  public WorkItemChangedFieldsViewModel isDeleted(@jakarta.annotation.Nonnull BooleanChangedFieldViewModel isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -154,12 +172,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(BooleanChangedFieldViewModel isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull BooleanChangedFieldViewModel isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public WorkItemChangedFieldsViewModel projectId(GuidChangedFieldViewModel projectId) {
+  public WorkItemChangedFieldsViewModel projectId(@jakarta.annotation.Nonnull GuidChangedFieldViewModel projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -179,12 +197,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(GuidChangedFieldViewModel projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull GuidChangedFieldViewModel projectId) {
     this.projectId = projectId;
   }
 
 
-  public WorkItemChangedFieldsViewModel isAutomated(BooleanChangedFieldViewModel isAutomated) {
+  public WorkItemChangedFieldsViewModel isAutomated(@jakarta.annotation.Nonnull BooleanChangedFieldViewModel isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -204,12 +222,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsAutomated(BooleanChangedFieldViewModel isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nonnull BooleanChangedFieldViewModel isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public WorkItemChangedFieldsViewModel sectionId(GuidChangedFieldViewModel sectionId) {
+  public WorkItemChangedFieldsViewModel sectionId(@jakarta.annotation.Nonnull GuidChangedFieldViewModel sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -229,12 +247,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionId(GuidChangedFieldViewModel sectionId) {
+  public void setSectionId(@jakarta.annotation.Nonnull GuidChangedFieldViewModel sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public WorkItemChangedFieldsViewModel state(StringChangedFieldViewModel state) {
+  public WorkItemChangedFieldsViewModel state(@jakarta.annotation.Nonnull StringChangedFieldViewModel state) {
     this.state = state;
     return this;
   }
@@ -254,12 +272,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(StringChangedFieldViewModel state) {
+  public void setState(@jakarta.annotation.Nonnull StringChangedFieldViewModel state) {
     this.state = state;
   }
 
 
-  public WorkItemChangedFieldsViewModel priority(StringChangedFieldViewModel priority) {
+  public WorkItemChangedFieldsViewModel priority(@jakarta.annotation.Nonnull StringChangedFieldViewModel priority) {
     this.priority = priority;
     return this;
   }
@@ -279,12 +297,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPriority(StringChangedFieldViewModel priority) {
+  public void setPriority(@jakarta.annotation.Nonnull StringChangedFieldViewModel priority) {
     this.priority = priority;
   }
 
 
-  public WorkItemChangedFieldsViewModel duration(Int32ChangedFieldViewModel duration) {
+  public WorkItemChangedFieldsViewModel duration(@jakarta.annotation.Nonnull Int32ChangedFieldViewModel duration) {
     this.duration = duration;
     return this;
   }
@@ -304,12 +322,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(Int32ChangedFieldViewModel duration) {
+  public void setDuration(@jakarta.annotation.Nonnull Int32ChangedFieldViewModel duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemChangedFieldsViewModel attributes(Map<String, WorkItemChangedAttributeViewModel> attributes) {
+  public WorkItemChangedFieldsViewModel attributes(@jakarta.annotation.Nonnull Map<String, WorkItemChangedAttributeViewModel> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -337,12 +355,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(Map<String, WorkItemChangedAttributeViewModel> attributes) {
+  public void setAttributes(@jakarta.annotation.Nonnull Map<String, WorkItemChangedAttributeViewModel> attributes) {
     this.attributes = attributes;
   }
 
 
-  public WorkItemChangedFieldsViewModel steps(WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel steps) {
+  public WorkItemChangedFieldsViewModel steps(@jakarta.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel steps) {
     this.steps = steps;
     return this;
   }
@@ -362,12 +380,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSteps(WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel steps) {
+  public void setSteps(@jakarta.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel steps) {
     this.steps = steps;
   }
 
 
-  public WorkItemChangedFieldsViewModel preconditionSteps(WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel preconditionSteps) {
+  public WorkItemChangedFieldsViewModel preconditionSteps(@jakarta.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
     return this;
   }
@@ -387,12 +405,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_PRECONDITION_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPreconditionSteps(WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel preconditionSteps) {
+  public void setPreconditionSteps(@jakarta.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel preconditionSteps) {
     this.preconditionSteps = preconditionSteps;
   }
 
 
-  public WorkItemChangedFieldsViewModel postconditionSteps(WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel postconditionSteps) {
+  public WorkItemChangedFieldsViewModel postconditionSteps(@jakarta.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
     return this;
   }
@@ -412,12 +430,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_POSTCONDITION_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPostconditionSteps(WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel postconditionSteps) {
+  public void setPostconditionSteps(@jakarta.annotation.Nonnull WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel postconditionSteps) {
     this.postconditionSteps = postconditionSteps;
   }
 
 
-  public WorkItemChangedFieldsViewModel autoTests(AutoTestChangeViewModelArrayChangedFieldViewModel autoTests) {
+  public WorkItemChangedFieldsViewModel autoTests(@jakarta.annotation.Nonnull AutoTestChangeViewModelArrayChangedFieldViewModel autoTests) {
     this.autoTests = autoTests;
     return this;
   }
@@ -437,12 +455,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_AUTO_TESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutoTests(AutoTestChangeViewModelArrayChangedFieldViewModel autoTests) {
+  public void setAutoTests(@jakarta.annotation.Nonnull AutoTestChangeViewModelArrayChangedFieldViewModel autoTests) {
     this.autoTests = autoTests;
   }
 
 
-  public WorkItemChangedFieldsViewModel attachments(AttachmentChangeViewModelArrayChangedFieldViewModel attachments) {
+  public WorkItemChangedFieldsViewModel attachments(@jakarta.annotation.Nonnull AttachmentChangeViewModelArrayChangedFieldViewModel attachments) {
     this.attachments = attachments;
     return this;
   }
@@ -462,12 +480,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttachments(AttachmentChangeViewModelArrayChangedFieldViewModel attachments) {
+  public void setAttachments(@jakarta.annotation.Nonnull AttachmentChangeViewModelArrayChangedFieldViewModel attachments) {
     this.attachments = attachments;
   }
 
 
-  public WorkItemChangedFieldsViewModel tags(StringArrayChangedFieldViewModel tags) {
+  public WorkItemChangedFieldsViewModel tags(@jakarta.annotation.Nonnull StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
     return this;
   }
@@ -487,12 +505,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTags(StringArrayChangedFieldViewModel tags) {
+  public void setTags(@jakarta.annotation.Nonnull StringArrayChangedFieldViewModel tags) {
     this.tags = tags;
   }
 
 
-  public WorkItemChangedFieldsViewModel links(WorkItemLinkChangeViewModelArrayChangedFieldViewModel links) {
+  public WorkItemChangedFieldsViewModel links(@jakarta.annotation.Nonnull WorkItemLinkChangeViewModelArrayChangedFieldViewModel links) {
     this.links = links;
     return this;
   }
@@ -512,12 +530,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(WorkItemLinkChangeViewModelArrayChangedFieldViewModel links) {
+  public void setLinks(@jakarta.annotation.Nonnull WorkItemLinkChangeViewModelArrayChangedFieldViewModel links) {
     this.links = links;
   }
 
 
-  public WorkItemChangedFieldsViewModel globalId(Int64ChangedFieldViewModel globalId) {
+  public WorkItemChangedFieldsViewModel globalId(@jakarta.annotation.Nonnull Int64ChangedFieldViewModel globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -537,12 +555,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Int64ChangedFieldViewModel globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Int64ChangedFieldViewModel globalId) {
     this.globalId = globalId;
   }
 
 
-  public WorkItemChangedFieldsViewModel versionNumber(Int32ChangedFieldViewModel versionNumber) {
+  public WorkItemChangedFieldsViewModel versionNumber(@jakarta.annotation.Nonnull Int32ChangedFieldViewModel versionNumber) {
     this.versionNumber = versionNumber;
     return this;
   }
@@ -562,12 +580,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_VERSION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionNumber(Int32ChangedFieldViewModel versionNumber) {
+  public void setVersionNumber(@jakarta.annotation.Nonnull Int32ChangedFieldViewModel versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
-  public WorkItemChangedFieldsViewModel entityTypeName(StringChangedFieldViewModel entityTypeName) {
+  public WorkItemChangedFieldsViewModel entityTypeName(@jakarta.annotation.Nonnull StringChangedFieldViewModel entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -587,12 +605,12 @@ public class WorkItemChangedFieldsViewModel {
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEntityTypeName(StringChangedFieldViewModel entityTypeName) {
+  public void setEntityTypeName(@jakarta.annotation.Nonnull StringChangedFieldViewModel entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
-  public WorkItemChangedFieldsViewModel name(StringChangedFieldWithDiffsViewModel name) {
+  public WorkItemChangedFieldsViewModel name(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(name);
     return this;
   }
@@ -620,12 +638,12 @@ public class WorkItemChangedFieldsViewModel {
     this.name = name;
   }
 
-  public void setName(StringChangedFieldWithDiffsViewModel name) {
+  public void setName(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(name);
   }
 
 
-  public WorkItemChangedFieldsViewModel description(StringChangedFieldWithDiffsViewModel description) {
+  public WorkItemChangedFieldsViewModel description(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
     this.description = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(description);
     return this;
   }
@@ -653,7 +671,7 @@ public class WorkItemChangedFieldsViewModel {
     this.description = description;
   }
 
-  public void setDescription(StringChangedFieldWithDiffsViewModel description) {
+  public void setDescription(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel description) {
     this.description = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(description);
   }
 

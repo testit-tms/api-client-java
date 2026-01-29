@@ -41,12 +41,14 @@ import ru.testit.client.invoker.JSON;
   CreateLinkApiModel.JSON_PROPERTY_DESCRIPTION,
   CreateLinkApiModel.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateLinkApiModel {
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
+  @jakarta.annotation.Nonnull
   private Boolean hasInfo;
 
   public static final String JSON_PROPERTY_TITLE = "title";
@@ -61,7 +63,7 @@ public class CreateLinkApiModel {
   public CreateLinkApiModel() { 
   }
 
-  public CreateLinkApiModel url(String url) {
+  public CreateLinkApiModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -81,12 +83,12 @@ public class CreateLinkApiModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public CreateLinkApiModel hasInfo(Boolean hasInfo) {
+  public CreateLinkApiModel hasInfo(@jakarta.annotation.Nonnull Boolean hasInfo) {
     this.hasInfo = hasInfo;
     return this;
   }
@@ -106,12 +108,12 @@ public class CreateLinkApiModel {
 
   @JsonProperty(JSON_PROPERTY_HAS_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHasInfo(Boolean hasInfo) {
+  public void setHasInfo(@jakarta.annotation.Nonnull Boolean hasInfo) {
     this.hasInfo = hasInfo;
   }
 
 
-  public CreateLinkApiModel title(String title) {
+  public CreateLinkApiModel title(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
@@ -139,12 +141,12 @@ public class CreateLinkApiModel {
     this.title = title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
 
-  public CreateLinkApiModel description(String description) {
+  public CreateLinkApiModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -172,12 +174,12 @@ public class CreateLinkApiModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public CreateLinkApiModel type(LinkType type) {
+  public CreateLinkApiModel type(@jakarta.annotation.Nullable LinkType type) {
     this.type = JsonNullable.<LinkType>of(type);
     return this;
   }
@@ -205,7 +207,7 @@ public class CreateLinkApiModel {
     this.type = type;
   }
 
-  public void setType(LinkType type) {
+  public void setType(@jakarta.annotation.Nullable LinkType type) {
     this.type = JsonNullable.<LinkType>of(type);
   }
 

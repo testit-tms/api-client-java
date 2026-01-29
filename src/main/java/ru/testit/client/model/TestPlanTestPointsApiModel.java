@@ -41,7 +41,7 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsApiModel.JSON_PROPERTY_GROUP,
   TestPlanTestPointsApiModel.JSON_PROPERTY_INQUIRY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<TestPlanTestPointsSearchApiModel> filter = JsonNullable.<TestPlanTestPointsSearchApiModel>undefined();
@@ -55,7 +55,7 @@ public class TestPlanTestPointsApiModel {
   public TestPlanTestPointsApiModel() { 
   }
 
-  public TestPlanTestPointsApiModel filter(TestPlanTestPointsSearchApiModel filter) {
+  public TestPlanTestPointsApiModel filter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
     return this;
   }
@@ -83,12 +83,12 @@ public class TestPlanTestPointsApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(TestPlanTestPointsSearchApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
   }
 
 
-  public TestPlanTestPointsApiModel group(TestPlanTestPointsGroupApiModel group) {
+  public TestPlanTestPointsApiModel group(@jakarta.annotation.Nullable TestPlanTestPointsGroupApiModel group) {
     this.group = JsonNullable.<TestPlanTestPointsGroupApiModel>of(group);
     return this;
   }
@@ -116,12 +116,12 @@ public class TestPlanTestPointsApiModel {
     this.group = group;
   }
 
-  public void setGroup(TestPlanTestPointsGroupApiModel group) {
+  public void setGroup(@jakarta.annotation.Nullable TestPlanTestPointsGroupApiModel group) {
     this.group = JsonNullable.<TestPlanTestPointsGroupApiModel>of(group);
   }
 
 
-  public TestPlanTestPointsApiModel inquiry(TestPlanTestPointsInquiryApiModel inquiry) {
+  public TestPlanTestPointsApiModel inquiry(@jakarta.annotation.Nullable TestPlanTestPointsInquiryApiModel inquiry) {
     this.inquiry = JsonNullable.<TestPlanTestPointsInquiryApiModel>of(inquiry);
     return this;
   }
@@ -149,7 +149,7 @@ public class TestPlanTestPointsApiModel {
     this.inquiry = inquiry;
   }
 
-  public void setInquiry(TestPlanTestPointsInquiryApiModel inquiry) {
+  public void setInquiry(@jakarta.annotation.Nullable TestPlanTestPointsInquiryApiModel inquiry) {
     this.inquiry = JsonNullable.<TestPlanTestPointsInquiryApiModel>of(inquiry);
   }
 

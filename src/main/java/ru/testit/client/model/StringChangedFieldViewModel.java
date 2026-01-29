@@ -37,7 +37,7 @@ import ru.testit.client.invoker.JSON;
   StringChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   StringChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class StringChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private JsonNullable<String> oldValue = JsonNullable.<String>undefined();
@@ -48,7 +48,7 @@ public class StringChangedFieldViewModel {
   public StringChangedFieldViewModel() { 
   }
 
-  public StringChangedFieldViewModel oldValue(String oldValue) {
+  public StringChangedFieldViewModel oldValue(@jakarta.annotation.Nullable String oldValue) {
     this.oldValue = JsonNullable.<String>of(oldValue);
     return this;
   }
@@ -76,12 +76,12 @@ public class StringChangedFieldViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(String oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable String oldValue) {
     this.oldValue = JsonNullable.<String>of(oldValue);
   }
 
 
-  public StringChangedFieldViewModel newValue(String newValue) {
+  public StringChangedFieldViewModel newValue(@jakarta.annotation.Nullable String newValue) {
     this.newValue = JsonNullable.<String>of(newValue);
     return this;
   }
@@ -109,7 +109,7 @@ public class StringChangedFieldViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(String newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable String newValue) {
     this.newValue = JsonNullable.<String>of(newValue);
   }
 

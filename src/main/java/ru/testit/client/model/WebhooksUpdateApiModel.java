@@ -37,21 +37,24 @@ import ru.testit.client.invoker.JSON;
   WebhooksUpdateApiModel.JSON_PROPERTY_MODEL,
   WebhooksUpdateApiModel.JSON_PROPERTY_EXTRACTOR
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebhooksUpdateApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private WebhooksFilterApiModel filter;
 
   public static final String JSON_PROPERTY_MODEL = "model";
+  @jakarta.annotation.Nonnull
   private WebhookBulkUpdateApiModel model;
 
   public static final String JSON_PROPERTY_EXTRACTOR = "extractor";
+  @jakarta.annotation.Nonnull
   private WebhooksExtractionApiModel extractor;
 
   public WebhooksUpdateApiModel() { 
   }
 
-  public WebhooksUpdateApiModel filter(WebhooksFilterApiModel filter) {
+  public WebhooksUpdateApiModel filter(@jakarta.annotation.Nonnull WebhooksFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -71,12 +74,12 @@ public class WebhooksUpdateApiModel {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(WebhooksFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nonnull WebhooksFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public WebhooksUpdateApiModel model(WebhookBulkUpdateApiModel model) {
+  public WebhooksUpdateApiModel model(@jakarta.annotation.Nonnull WebhookBulkUpdateApiModel model) {
     this.model = model;
     return this;
   }
@@ -96,12 +99,12 @@ public class WebhooksUpdateApiModel {
 
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setModel(WebhookBulkUpdateApiModel model) {
+  public void setModel(@jakarta.annotation.Nonnull WebhookBulkUpdateApiModel model) {
     this.model = model;
   }
 
 
-  public WebhooksUpdateApiModel extractor(WebhooksExtractionApiModel extractor) {
+  public WebhooksUpdateApiModel extractor(@jakarta.annotation.Nonnull WebhooksExtractionApiModel extractor) {
     this.extractor = extractor;
     return this;
   }
@@ -121,7 +124,7 @@ public class WebhooksUpdateApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXTRACTOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExtractor(WebhooksExtractionApiModel extractor) {
+  public void setExtractor(@jakarta.annotation.Nonnull WebhooksExtractionApiModel extractor) {
     this.extractor = extractor;
   }
 

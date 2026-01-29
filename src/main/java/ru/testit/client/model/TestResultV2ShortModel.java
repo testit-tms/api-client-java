@@ -63,21 +63,26 @@ import ru.testit.client.invoker.JSON;
   TestResultV2ShortModel.JSON_PROPERTY_PARAMETERS,
   TestResultV2ShortModel.JSON_PROPERTY_PROPERTIES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultV2ShortModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
+  @jakarta.annotation.Nonnull
   private UUID configurationId;
 
   public static final String JSON_PROPERTY_WORK_ITEM_VERSION_ID = "workItemVersionId";
+  @jakarta.annotation.Nonnull
   private UUID workItemVersionId;
 
   public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
+  @jakarta.annotation.Nonnull
   private UUID testRunId;
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
+  @jakarta.annotation.Nonnull
   private String outcome;
 
   public static final String JSON_PROPERTY_AUTO_TEST_ID = "autoTestId";
@@ -125,7 +130,7 @@ public class TestResultV2ShortModel {
   public TestResultV2ShortModel() { 
   }
 
-  public TestResultV2ShortModel id(UUID id) {
+  public TestResultV2ShortModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -145,12 +150,12 @@ public class TestResultV2ShortModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestResultV2ShortModel configurationId(UUID configurationId) {
+  public TestResultV2ShortModel configurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -170,12 +175,12 @@ public class TestResultV2ShortModel {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public TestResultV2ShortModel workItemVersionId(UUID workItemVersionId) {
+  public TestResultV2ShortModel workItemVersionId(@jakarta.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -195,12 +200,12 @@ public class TestResultV2ShortModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemVersionId(UUID workItemVersionId) {
+  public void setWorkItemVersionId(@jakarta.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public TestResultV2ShortModel testRunId(UUID testRunId) {
+  public TestResultV2ShortModel testRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -220,12 +225,12 @@ public class TestResultV2ShortModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public TestResultV2ShortModel outcome(String outcome) {
+  public TestResultV2ShortModel outcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -245,12 +250,12 @@ public class TestResultV2ShortModel {
 
   @JsonProperty(JSON_PROPERTY_OUTCOME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOutcome(String outcome) {
+  public void setOutcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
   }
 
 
-  public TestResultV2ShortModel autoTestId(UUID autoTestId) {
+  public TestResultV2ShortModel autoTestId(@jakarta.annotation.Nullable UUID autoTestId) {
     this.autoTestId = JsonNullable.<UUID>of(autoTestId);
     return this;
   }
@@ -278,12 +283,12 @@ public class TestResultV2ShortModel {
     this.autoTestId = autoTestId;
   }
 
-  public void setAutoTestId(UUID autoTestId) {
+  public void setAutoTestId(@jakarta.annotation.Nullable UUID autoTestId) {
     this.autoTestId = JsonNullable.<UUID>of(autoTestId);
   }
 
 
-  public TestResultV2ShortModel message(String message) {
+  public TestResultV2ShortModel message(@jakarta.annotation.Nullable String message) {
     this.message = JsonNullable.<String>of(message);
     return this;
   }
@@ -311,12 +316,12 @@ public class TestResultV2ShortModel {
     this.message = message;
   }
 
-  public void setMessage(String message) {
+  public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = JsonNullable.<String>of(message);
   }
 
 
-  public TestResultV2ShortModel traces(String traces) {
+  public TestResultV2ShortModel traces(@jakarta.annotation.Nullable String traces) {
     this.traces = JsonNullable.<String>of(traces);
     return this;
   }
@@ -344,12 +349,12 @@ public class TestResultV2ShortModel {
     this.traces = traces;
   }
 
-  public void setTraces(String traces) {
+  public void setTraces(@jakarta.annotation.Nullable String traces) {
     this.traces = JsonNullable.<String>of(traces);
   }
 
 
-  public TestResultV2ShortModel startedOn(OffsetDateTime startedOn) {
+  public TestResultV2ShortModel startedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
     return this;
   }
@@ -377,12 +382,12 @@ public class TestResultV2ShortModel {
     this.startedOn = startedOn;
   }
 
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
   }
 
 
-  public TestResultV2ShortModel completedOn(OffsetDateTime completedOn) {
+  public TestResultV2ShortModel completedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
     return this;
   }
@@ -410,12 +415,12 @@ public class TestResultV2ShortModel {
     this.completedOn = completedOn;
   }
 
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
   }
 
 
-  public TestResultV2ShortModel runByUserId(UUID runByUserId) {
+  public TestResultV2ShortModel runByUserId(@jakarta.annotation.Nullable UUID runByUserId) {
     this.runByUserId = JsonNullable.<UUID>of(runByUserId);
     return this;
   }
@@ -443,12 +448,12 @@ public class TestResultV2ShortModel {
     this.runByUserId = runByUserId;
   }
 
-  public void setRunByUserId(UUID runByUserId) {
+  public void setRunByUserId(@jakarta.annotation.Nullable UUID runByUserId) {
     this.runByUserId = JsonNullable.<UUID>of(runByUserId);
   }
 
 
-  public TestResultV2ShortModel stoppedByUserId(UUID stoppedByUserId) {
+  public TestResultV2ShortModel stoppedByUserId(@jakarta.annotation.Nullable UUID stoppedByUserId) {
     this.stoppedByUserId = JsonNullable.<UUID>of(stoppedByUserId);
     return this;
   }
@@ -476,12 +481,12 @@ public class TestResultV2ShortModel {
     this.stoppedByUserId = stoppedByUserId;
   }
 
-  public void setStoppedByUserId(UUID stoppedByUserId) {
+  public void setStoppedByUserId(@jakarta.annotation.Nullable UUID stoppedByUserId) {
     this.stoppedByUserId = JsonNullable.<UUID>of(stoppedByUserId);
   }
 
 
-  public TestResultV2ShortModel testPointId(UUID testPointId) {
+  public TestResultV2ShortModel testPointId(@jakarta.annotation.Nullable UUID testPointId) {
     this.testPointId = JsonNullable.<UUID>of(testPointId);
     return this;
   }
@@ -509,12 +514,12 @@ public class TestResultV2ShortModel {
     this.testPointId = testPointId;
   }
 
-  public void setTestPointId(UUID testPointId) {
+  public void setTestPointId(@jakarta.annotation.Nullable UUID testPointId) {
     this.testPointId = JsonNullable.<UUID>of(testPointId);
   }
 
 
-  public TestResultV2ShortModel testPoint(TestPointShortModel testPoint) {
+  public TestResultV2ShortModel testPoint(@jakarta.annotation.Nullable TestPointShortModel testPoint) {
     this.testPoint = JsonNullable.<TestPointShortModel>of(testPoint);
     return this;
   }
@@ -542,12 +547,12 @@ public class TestResultV2ShortModel {
     this.testPoint = testPoint;
   }
 
-  public void setTestPoint(TestPointShortModel testPoint) {
+  public void setTestPoint(@jakarta.annotation.Nullable TestPointShortModel testPoint) {
     this.testPoint = JsonNullable.<TestPointShortModel>of(testPoint);
   }
 
 
-  public TestResultV2ShortModel comment(String comment) {
+  public TestResultV2ShortModel comment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
     return this;
   }
@@ -575,12 +580,12 @@ public class TestResultV2ShortModel {
     this.comment = comment;
   }
 
-  public void setComment(String comment) {
+  public void setComment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
   }
 
 
-  public TestResultV2ShortModel links(List<LinkModel> links) {
+  public TestResultV2ShortModel links(@jakarta.annotation.Nullable List<LinkModel> links) {
     this.links = JsonNullable.<List<LinkModel>>of(links);
     return this;
   }
@@ -620,12 +625,12 @@ public class TestResultV2ShortModel {
     this.links = links;
   }
 
-  public void setLinks(List<LinkModel> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<LinkModel> links) {
     this.links = JsonNullable.<List<LinkModel>>of(links);
   }
 
 
-  public TestResultV2ShortModel attachments(List<AttachmentModel> attachments) {
+  public TestResultV2ShortModel attachments(@jakarta.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
     return this;
   }
@@ -665,12 +670,12 @@ public class TestResultV2ShortModel {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AttachmentModel> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
   }
 
 
-  public TestResultV2ShortModel parameters(Map<String, String> parameters) {
+  public TestResultV2ShortModel parameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
     return this;
   }
@@ -710,12 +715,12 @@ public class TestResultV2ShortModel {
     this.parameters = parameters;
   }
 
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
   }
 
 
-  public TestResultV2ShortModel properties(Map<String, String> properties) {
+  public TestResultV2ShortModel properties(@jakarta.annotation.Nullable Map<String, String> properties) {
     this.properties = JsonNullable.<Map<String, String>>of(properties);
     return this;
   }
@@ -755,7 +760,7 @@ public class TestResultV2ShortModel {
     this.properties = properties;
   }
 
-  public void setProperties(Map<String, String> properties) {
+  public void setProperties(@jakarta.annotation.Nullable Map<String, String> properties) {
     this.properties = JsonNullable.<Map<String, String>>of(properties);
   }
 

@@ -37,7 +37,7 @@ import ru.testit.client.invoker.JSON;
   BooleanNullableChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   BooleanNullableChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class BooleanNullableChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private JsonNullable<Boolean> oldValue = JsonNullable.<Boolean>undefined();
@@ -48,7 +48,7 @@ public class BooleanNullableChangedFieldViewModel {
   public BooleanNullableChangedFieldViewModel() { 
   }
 
-  public BooleanNullableChangedFieldViewModel oldValue(Boolean oldValue) {
+  public BooleanNullableChangedFieldViewModel oldValue(@jakarta.annotation.Nullable Boolean oldValue) {
     this.oldValue = JsonNullable.<Boolean>of(oldValue);
     return this;
   }
@@ -76,12 +76,12 @@ public class BooleanNullableChangedFieldViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(Boolean oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable Boolean oldValue) {
     this.oldValue = JsonNullable.<Boolean>of(oldValue);
   }
 
 
-  public BooleanNullableChangedFieldViewModel newValue(Boolean newValue) {
+  public BooleanNullableChangedFieldViewModel newValue(@jakarta.annotation.Nullable Boolean newValue) {
     this.newValue = JsonNullable.<Boolean>of(newValue);
     return this;
   }
@@ -109,7 +109,7 @@ public class BooleanNullableChangedFieldViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(Boolean newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable Boolean newValue) {
     this.newValue = JsonNullable.<Boolean>of(newValue);
   }
 

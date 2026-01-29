@@ -41,9 +41,10 @@ import ru.testit.client.invoker.JSON;
   UpdateMultipleAttachmentsApiModel.JSON_PROPERTY_ACTION,
   UpdateMultipleAttachmentsApiModel.JSON_PROPERTY_ATTACHMENT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateMultipleAttachmentsApiModel {
   public static final String JSON_PROPERTY_ACTION = "action";
+  @jakarta.annotation.Nonnull
   private ActionUpdate action;
 
   public static final String JSON_PROPERTY_ATTACHMENT_IDS = "attachmentIds";
@@ -52,7 +53,7 @@ public class UpdateMultipleAttachmentsApiModel {
   public UpdateMultipleAttachmentsApiModel() { 
   }
 
-  public UpdateMultipleAttachmentsApiModel action(ActionUpdate action) {
+  public UpdateMultipleAttachmentsApiModel action(@jakarta.annotation.Nonnull ActionUpdate action) {
     this.action = action;
     return this;
   }
@@ -72,12 +73,12 @@ public class UpdateMultipleAttachmentsApiModel {
 
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAction(ActionUpdate action) {
+  public void setAction(@jakarta.annotation.Nonnull ActionUpdate action) {
     this.action = action;
   }
 
 
-  public UpdateMultipleAttachmentsApiModel attachmentIds(List<UUID> attachmentIds) {
+  public UpdateMultipleAttachmentsApiModel attachmentIds(@jakarta.annotation.Nullable List<UUID> attachmentIds) {
     this.attachmentIds = JsonNullable.<List<UUID>>of(attachmentIds);
     return this;
   }
@@ -117,7 +118,7 @@ public class UpdateMultipleAttachmentsApiModel {
     this.attachmentIds = attachmentIds;
   }
 
-  public void setAttachmentIds(List<UUID> attachmentIds) {
+  public void setAttachmentIds(@jakarta.annotation.Nullable List<UUID> attachmentIds) {
     this.attachmentIds = JsonNullable.<List<UUID>>of(attachmentIds);
   }
 

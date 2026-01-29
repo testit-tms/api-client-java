@@ -51,27 +51,34 @@ import ru.testit.client.invoker.JSON;
   ConfigurationModel.JSON_PROPERTY_MODIFIED_DATE,
   ConfigurationModel.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ConfigurationModel {
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
+  @jakarta.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -92,7 +99,7 @@ public class ConfigurationModel {
   public ConfigurationModel() { 
   }
 
-  public ConfigurationModel projectId(UUID projectId) {
+  public ConfigurationModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -112,12 +119,12 @@ public class ConfigurationModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public ConfigurationModel isDefault(Boolean isDefault) {
+  public ConfigurationModel isDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -137,12 +144,12 @@ public class ConfigurationModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDefault(Boolean isDefault) {
+  public void setIsDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public ConfigurationModel createdDate(OffsetDateTime createdDate) {
+  public ConfigurationModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -162,12 +169,12 @@ public class ConfigurationModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public ConfigurationModel createdById(UUID createdById) {
+  public ConfigurationModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -187,12 +194,12 @@ public class ConfigurationModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public ConfigurationModel globalId(Long globalId) {
+  public ConfigurationModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -212,12 +219,12 @@ public class ConfigurationModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public ConfigurationModel id(UUID id) {
+  public ConfigurationModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -237,12 +244,12 @@ public class ConfigurationModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ConfigurationModel isDeleted(Boolean isDeleted) {
+  public ConfigurationModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -262,12 +269,12 @@ public class ConfigurationModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public ConfigurationModel description(String description) {
+  public ConfigurationModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -295,12 +302,12 @@ public class ConfigurationModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public ConfigurationModel parameters(Map<String, String> parameters) {
+  public ConfigurationModel parameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
     return this;
   }
@@ -340,12 +347,12 @@ public class ConfigurationModel {
     this.parameters = parameters;
   }
 
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
   }
 
 
-  public ConfigurationModel name(String name) {
+  public ConfigurationModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -373,12 +380,12 @@ public class ConfigurationModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public ConfigurationModel modifiedDate(OffsetDateTime modifiedDate) {
+  public ConfigurationModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -406,12 +413,12 @@ public class ConfigurationModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public ConfigurationModel modifiedById(UUID modifiedById) {
+  public ConfigurationModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -439,7 +446,7 @@ public class ConfigurationModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

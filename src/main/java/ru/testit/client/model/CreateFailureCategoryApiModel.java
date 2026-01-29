@@ -44,12 +44,14 @@ import ru.testit.client.invoker.JSON;
   CreateFailureCategoryApiModel.JSON_PROPERTY_FAILURE_CLASS_REGEXES,
   CreateFailureCategoryApiModel.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateFailureCategoryApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_FAILURE_CATEGORY = "failureCategory";
+  @jakarta.annotation.Nonnull
   private FailureCategory failureCategory;
 
   public static final String JSON_PROPERTY_FAILURE_CLASS_REGEXES = "failureClassRegexes";
@@ -61,7 +63,7 @@ public class CreateFailureCategoryApiModel {
   public CreateFailureCategoryApiModel() { 
   }
 
-  public CreateFailureCategoryApiModel name(String name) {
+  public CreateFailureCategoryApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -81,12 +83,12 @@ public class CreateFailureCategoryApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CreateFailureCategoryApiModel failureCategory(FailureCategory failureCategory) {
+  public CreateFailureCategoryApiModel failureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
     return this;
   }
@@ -106,12 +108,12 @@ public class CreateFailureCategoryApiModel {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailureCategory(FailureCategory failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nonnull FailureCategory failureCategory) {
     this.failureCategory = failureCategory;
   }
 
 
-  public CreateFailureCategoryApiModel failureClassRegexes(List<CreateFailureClassRegexApiModel> failureClassRegexes) {
+  public CreateFailureCategoryApiModel failureClassRegexes(@jakarta.annotation.Nullable List<CreateFailureClassRegexApiModel> failureClassRegexes) {
     this.failureClassRegexes = JsonNullable.<List<CreateFailureClassRegexApiModel>>of(failureClassRegexes);
     return this;
   }
@@ -151,12 +153,12 @@ public class CreateFailureCategoryApiModel {
     this.failureClassRegexes = failureClassRegexes;
   }
 
-  public void setFailureClassRegexes(List<CreateFailureClassRegexApiModel> failureClassRegexes) {
+  public void setFailureClassRegexes(@jakarta.annotation.Nullable List<CreateFailureClassRegexApiModel> failureClassRegexes) {
     this.failureClassRegexes = JsonNullable.<List<CreateFailureClassRegexApiModel>>of(failureClassRegexes);
   }
 
 
-  public CreateFailureCategoryApiModel projectIds(List<UUID> projectIds) {
+  public CreateFailureCategoryApiModel projectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
@@ -196,7 +198,7 @@ public class CreateFailureCategoryApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
   }
 

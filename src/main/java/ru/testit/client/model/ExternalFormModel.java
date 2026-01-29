@@ -39,18 +39,20 @@ import ru.testit.client.invoker.JSON;
   ExternalFormModel.JSON_PROPERTY_FIELDS,
   ExternalFormModel.JSON_PROPERTY_POSSIBLE_VALUES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalFormModel {
   public static final String JSON_PROPERTY_FIELDS = "fields";
+  @jakarta.annotation.Nonnull
   private List<ExternalFormFieldModel> fields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_POSSIBLE_VALUES = "possibleValues";
+  @jakarta.annotation.Nonnull
   private Map<String, List<ExternalFormAllowedValueModel>> possibleValues = new HashMap<>();
 
   public ExternalFormModel() { 
   }
 
-  public ExternalFormModel fields(List<ExternalFormFieldModel> fields) {
+  public ExternalFormModel fields(@jakarta.annotation.Nonnull List<ExternalFormFieldModel> fields) {
     this.fields = fields;
     return this;
   }
@@ -78,12 +80,12 @@ public class ExternalFormModel {
 
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFields(List<ExternalFormFieldModel> fields) {
+  public void setFields(@jakarta.annotation.Nonnull List<ExternalFormFieldModel> fields) {
     this.fields = fields;
   }
 
 
-  public ExternalFormModel possibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public ExternalFormModel possibleValues(@jakarta.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
     return this;
   }
@@ -111,7 +113,7 @@ public class ExternalFormModel {
 
   @JsonProperty(JSON_PROPERTY_POSSIBLE_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPossibleValues(Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
+  public void setPossibleValues(@jakarta.annotation.Nonnull Map<String, List<ExternalFormAllowedValueModel>> possibleValues) {
     this.possibleValues = possibleValues;
   }
 

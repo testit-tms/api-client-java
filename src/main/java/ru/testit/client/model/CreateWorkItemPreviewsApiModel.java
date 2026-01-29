@@ -46,12 +46,14 @@ import ru.testit.client.invoker.JSON;
   CreateWorkItemPreviewsApiModel.JSON_PROPERTY_ATTRIBUTES,
   CreateWorkItemPreviewsApiModel.JSON_PROPERTY_LINK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateWorkItemPreviewsApiModel {
   public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  @jakarta.annotation.Nonnull
   private UUID sectionId;
 
   public static final String JSON_PROPERTY_PREVIEWS = "previews";
+  @jakarta.annotation.Nonnull
   private List<WorkItemPreviewApiModel> previews = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
@@ -63,7 +65,7 @@ public class CreateWorkItemPreviewsApiModel {
   public CreateWorkItemPreviewsApiModel() { 
   }
 
-  public CreateWorkItemPreviewsApiModel sectionId(UUID sectionId) {
+  public CreateWorkItemPreviewsApiModel sectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -83,12 +85,12 @@ public class CreateWorkItemPreviewsApiModel {
 
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionId(UUID sectionId) {
+  public void setSectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public CreateWorkItemPreviewsApiModel previews(List<WorkItemPreviewApiModel> previews) {
+  public CreateWorkItemPreviewsApiModel previews(@jakarta.annotation.Nonnull List<WorkItemPreviewApiModel> previews) {
     this.previews = previews;
     return this;
   }
@@ -116,12 +118,12 @@ public class CreateWorkItemPreviewsApiModel {
 
   @JsonProperty(JSON_PROPERTY_PREVIEWS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPreviews(List<WorkItemPreviewApiModel> previews) {
+  public void setPreviews(@jakarta.annotation.Nonnull List<WorkItemPreviewApiModel> previews) {
     this.previews = previews;
   }
 
 
-  public CreateWorkItemPreviewsApiModel attributes(Map<String, Object> attributes) {
+  public CreateWorkItemPreviewsApiModel attributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
     return this;
   }
@@ -161,12 +163,12 @@ public class CreateWorkItemPreviewsApiModel {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Object> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
   }
 
 
-  public CreateWorkItemPreviewsApiModel link(PreviewsIssueLinkApiModel link) {
+  public CreateWorkItemPreviewsApiModel link(@jakarta.annotation.Nullable PreviewsIssueLinkApiModel link) {
     this.link = JsonNullable.<PreviewsIssueLinkApiModel>of(link);
     return this;
   }
@@ -194,7 +196,7 @@ public class CreateWorkItemPreviewsApiModel {
     this.link = link;
   }
 
-  public void setLink(PreviewsIssueLinkApiModel link) {
+  public void setLink(@jakarta.annotation.Nullable PreviewsIssueLinkApiModel link) {
     this.link = JsonNullable.<PreviewsIssueLinkApiModel>of(link);
   }
 

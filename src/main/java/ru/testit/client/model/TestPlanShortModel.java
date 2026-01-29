@@ -35,21 +35,24 @@ import ru.testit.client.invoker.JSON;
   TestPlanShortModel.JSON_PROPERTY_PROJECT_ID,
   TestPlanShortModel.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanShortModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public TestPlanShortModel() { 
   }
 
-  public TestPlanShortModel id(UUID id) {
+  public TestPlanShortModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -69,12 +72,12 @@ public class TestPlanShortModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanShortModel projectId(UUID projectId) {
+  public TestPlanShortModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -94,12 +97,12 @@ public class TestPlanShortModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public TestPlanShortModel name(String name) {
+  public TestPlanShortModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -119,7 +122,7 @@ public class TestPlanShortModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 

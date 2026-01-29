@@ -40,9 +40,10 @@ import ru.testit.client.invoker.JSON;
   AutoTestStepApiResult.JSON_PROPERTY_DESCRIPTION,
   AutoTestStepApiResult.JSON_PROPERTY_STEPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestStepApiResult {
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -54,7 +55,7 @@ public class AutoTestStepApiResult {
   public AutoTestStepApiResult() { 
   }
 
-  public AutoTestStepApiResult title(String title) {
+  public AutoTestStepApiResult title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -74,12 +75,12 @@ public class AutoTestStepApiResult {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public AutoTestStepApiResult description(String description) {
+  public AutoTestStepApiResult description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -107,12 +108,12 @@ public class AutoTestStepApiResult {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public AutoTestStepApiResult steps(List<AutoTestStepApiResult> steps) {
+  public AutoTestStepApiResult steps(@jakarta.annotation.Nullable List<AutoTestStepApiResult> steps) {
     this.steps = JsonNullable.<List<AutoTestStepApiResult>>of(steps);
     return this;
   }
@@ -152,7 +153,7 @@ public class AutoTestStepApiResult {
     this.steps = steps;
   }
 
-  public void setSteps(List<AutoTestStepApiResult> steps) {
+  public void setSteps(@jakarta.annotation.Nullable List<AutoTestStepApiResult> steps) {
     this.steps = JsonNullable.<List<AutoTestStepApiResult>>of(steps);
   }
 

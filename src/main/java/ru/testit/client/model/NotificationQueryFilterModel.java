@@ -42,7 +42,7 @@ import ru.testit.client.invoker.JSON;
   NotificationQueryFilterModel.JSON_PROPERTY_IS_READ,
   NotificationQueryFilterModel.JSON_PROPERTY_CREATED_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class NotificationQueryFilterModel {
   public static final String JSON_PROPERTY_TYPES = "types";
   private JsonNullable<Set<NotificationTypeModel>> types = JsonNullable.<Set<NotificationTypeModel>>undefined();
@@ -56,7 +56,7 @@ public class NotificationQueryFilterModel {
   public NotificationQueryFilterModel() { 
   }
 
-  public NotificationQueryFilterModel types(Set<NotificationTypeModel> types) {
+  public NotificationQueryFilterModel types(@jakarta.annotation.Nullable Set<NotificationTypeModel> types) {
     this.types = JsonNullable.<Set<NotificationTypeModel>>of(types);
     return this;
   }
@@ -96,12 +96,12 @@ public class NotificationQueryFilterModel {
     this.types = types;
   }
 
-  public void setTypes(Set<NotificationTypeModel> types) {
+  public void setTypes(@jakarta.annotation.Nullable Set<NotificationTypeModel> types) {
     this.types = JsonNullable.<Set<NotificationTypeModel>>of(types);
   }
 
 
-  public NotificationQueryFilterModel isRead(Boolean isRead) {
+  public NotificationQueryFilterModel isRead(@jakarta.annotation.Nullable Boolean isRead) {
     this.isRead = JsonNullable.<Boolean>of(isRead);
     return this;
   }
@@ -129,12 +129,12 @@ public class NotificationQueryFilterModel {
     this.isRead = isRead;
   }
 
-  public void setIsRead(Boolean isRead) {
+  public void setIsRead(@jakarta.annotation.Nullable Boolean isRead) {
     this.isRead = JsonNullable.<Boolean>of(isRead);
   }
 
 
-  public NotificationQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public NotificationQueryFilterModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -162,7 +162,7 @@ public class NotificationQueryFilterModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 

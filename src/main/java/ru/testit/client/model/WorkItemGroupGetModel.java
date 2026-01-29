@@ -41,9 +41,10 @@ import ru.testit.client.invoker.JSON;
   WorkItemGroupGetModel.JSON_PROPERTY_SELECT_MODEL,
   WorkItemGroupGetModel.JSON_PROPERTY_CUSTOM_ATTRIBUTE_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemGroupGetModel {
   public static final String JSON_PROPERTY_GROUP_TYPE = "groupType";
+  @jakarta.annotation.Nonnull
   private WorkItemGroupType groupType;
 
   public static final String JSON_PROPERTY_SELECT_MODEL = "selectModel";
@@ -55,7 +56,7 @@ public class WorkItemGroupGetModel {
   public WorkItemGroupGetModel() { 
   }
 
-  public WorkItemGroupGetModel groupType(WorkItemGroupType groupType) {
+  public WorkItemGroupGetModel groupType(@jakarta.annotation.Nonnull WorkItemGroupType groupType) {
     this.groupType = groupType;
     return this;
   }
@@ -75,12 +76,12 @@ public class WorkItemGroupGetModel {
 
   @JsonProperty(JSON_PROPERTY_GROUP_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGroupType(WorkItemGroupType groupType) {
+  public void setGroupType(@jakarta.annotation.Nonnull WorkItemGroupType groupType) {
     this.groupType = groupType;
   }
 
 
-  public WorkItemGroupGetModel selectModel(WorkItemLocalSelectModel selectModel) {
+  public WorkItemGroupGetModel selectModel(@jakarta.annotation.Nullable WorkItemLocalSelectModel selectModel) {
     this.selectModel = JsonNullable.<WorkItemLocalSelectModel>of(selectModel);
     return this;
   }
@@ -108,12 +109,12 @@ public class WorkItemGroupGetModel {
     this.selectModel = selectModel;
   }
 
-  public void setSelectModel(WorkItemLocalSelectModel selectModel) {
+  public void setSelectModel(@jakarta.annotation.Nullable WorkItemLocalSelectModel selectModel) {
     this.selectModel = JsonNullable.<WorkItemLocalSelectModel>of(selectModel);
   }
 
 
-  public WorkItemGroupGetModel customAttributeId(UUID customAttributeId) {
+  public WorkItemGroupGetModel customAttributeId(@jakarta.annotation.Nullable UUID customAttributeId) {
     this.customAttributeId = JsonNullable.<UUID>of(customAttributeId);
     return this;
   }
@@ -141,7 +142,7 @@ public class WorkItemGroupGetModel {
     this.customAttributeId = customAttributeId;
   }
 
-  public void setCustomAttributeId(UUID customAttributeId) {
+  public void setCustomAttributeId(@jakarta.annotation.Nullable UUID customAttributeId) {
     this.customAttributeId = JsonNullable.<UUID>of(customAttributeId);
   }
 

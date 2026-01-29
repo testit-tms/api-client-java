@@ -46,27 +46,34 @@ import ru.testit.client.invoker.JSON;
   AttachmentModel.JSON_PROPERTY_MODIFIED_DATE,
   AttachmentModel.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AttachmentModel {
   public static final String JSON_PROPERTY_FILE_ID = "fileId";
+  @jakarta.annotation.Nonnull
   private String fileId;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type;
 
   public static final String JSON_PROPERTY_SIZE = "size";
+  @jakarta.annotation.Nonnull
   private Float size;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
@@ -78,7 +85,7 @@ public class AttachmentModel {
   public AttachmentModel() { 
   }
 
-  public AttachmentModel fileId(String fileId) {
+  public AttachmentModel fileId(@jakarta.annotation.Nonnull String fileId) {
     this.fileId = fileId;
     return this;
   }
@@ -98,12 +105,12 @@ public class AttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_FILE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFileId(String fileId) {
+  public void setFileId(@jakarta.annotation.Nonnull String fileId) {
     this.fileId = fileId;
   }
 
 
-  public AttachmentModel type(String type) {
+  public AttachmentModel type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -123,12 +130,12 @@ public class AttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public AttachmentModel size(Float size) {
+  public AttachmentModel size(@jakarta.annotation.Nonnull Float size) {
     this.size = size;
     return this;
   }
@@ -148,12 +155,12 @@ public class AttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSize(Float size) {
+  public void setSize(@jakarta.annotation.Nonnull Float size) {
     this.size = size;
   }
 
 
-  public AttachmentModel createdDate(OffsetDateTime createdDate) {
+  public AttachmentModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -173,12 +180,12 @@ public class AttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AttachmentModel createdById(UUID createdById) {
+  public AttachmentModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -198,12 +205,12 @@ public class AttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AttachmentModel name(String name) {
+  public AttachmentModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -223,12 +230,12 @@ public class AttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public AttachmentModel id(UUID id) {
+  public AttachmentModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -248,12 +255,12 @@ public class AttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AttachmentModel modifiedDate(OffsetDateTime modifiedDate) {
+  public AttachmentModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -281,12 +288,12 @@ public class AttachmentModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public AttachmentModel modifiedById(UUID modifiedById) {
+  public AttachmentModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -314,7 +321,7 @@ public class AttachmentModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

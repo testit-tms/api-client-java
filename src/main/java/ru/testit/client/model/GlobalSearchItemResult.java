@@ -41,18 +41,22 @@ import ru.testit.client.invoker.JSON;
   GlobalSearchItemResult.JSON_PROPERTY_PROJECT_GLOBAL_ID,
   GlobalSearchItemResult.JSON_PROPERTY_GLOBAL_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GlobalSearchItemResult {
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resourceType";
+  @jakarta.annotation.Nonnull
   private String resourceType;
 
   public static final String JSON_PROPERTY_RESOURCE_ID = "resourceId";
+  @jakarta.annotation.Nonnull
   private UUID resourceId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_PROJECT_GLOBAL_ID = "projectGlobalId";
+  @jakarta.annotation.Nonnull
   private Long projectGlobalId;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
@@ -61,7 +65,7 @@ public class GlobalSearchItemResult {
   public GlobalSearchItemResult() { 
   }
 
-  public GlobalSearchItemResult resourceType(String resourceType) {
+  public GlobalSearchItemResult resourceType(@jakarta.annotation.Nonnull String resourceType) {
     this.resourceType = resourceType;
     return this;
   }
@@ -81,12 +85,12 @@ public class GlobalSearchItemResult {
 
   @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResourceType(String resourceType) {
+  public void setResourceType(@jakarta.annotation.Nonnull String resourceType) {
     this.resourceType = resourceType;
   }
 
 
-  public GlobalSearchItemResult resourceId(UUID resourceId) {
+  public GlobalSearchItemResult resourceId(@jakarta.annotation.Nonnull UUID resourceId) {
     this.resourceId = resourceId;
     return this;
   }
@@ -106,12 +110,12 @@ public class GlobalSearchItemResult {
 
   @JsonProperty(JSON_PROPERTY_RESOURCE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResourceId(UUID resourceId) {
+  public void setResourceId(@jakarta.annotation.Nonnull UUID resourceId) {
     this.resourceId = resourceId;
   }
 
 
-  public GlobalSearchItemResult name(String name) {
+  public GlobalSearchItemResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -131,12 +135,12 @@ public class GlobalSearchItemResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public GlobalSearchItemResult projectGlobalId(Long projectGlobalId) {
+  public GlobalSearchItemResult projectGlobalId(@jakarta.annotation.Nonnull Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
     return this;
   }
@@ -156,12 +160,12 @@ public class GlobalSearchItemResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectGlobalId(Long projectGlobalId) {
+  public void setProjectGlobalId(@jakarta.annotation.Nonnull Long projectGlobalId) {
     this.projectGlobalId = projectGlobalId;
   }
 
 
-  public GlobalSearchItemResult globalId(Long globalId) {
+  public GlobalSearchItemResult globalId(@jakarta.annotation.Nullable Long globalId) {
     this.globalId = JsonNullable.<Long>of(globalId);
     return this;
   }
@@ -189,7 +193,7 @@ public class GlobalSearchItemResult {
     this.globalId = globalId;
   }
 
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nullable Long globalId) {
     this.globalId = JsonNullable.<Long>of(globalId);
   }
 

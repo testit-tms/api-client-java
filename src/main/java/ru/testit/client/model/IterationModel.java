@@ -41,9 +41,10 @@ import ru.testit.client.invoker.JSON;
   IterationModel.JSON_PROPERTY_ID,
   IterationModel.JSON_PROPERTY_PARAMETERS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class IterationModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
@@ -52,7 +53,7 @@ public class IterationModel {
   public IterationModel() { 
   }
 
-  public IterationModel id(UUID id) {
+  public IterationModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -72,12 +73,12 @@ public class IterationModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public IterationModel parameters(List<ParameterShortModel> parameters) {
+  public IterationModel parameters(@jakarta.annotation.Nullable List<ParameterShortModel> parameters) {
     this.parameters = JsonNullable.<List<ParameterShortModel>>of(parameters);
     return this;
   }
@@ -117,7 +118,7 @@ public class IterationModel {
     this.parameters = parameters;
   }
 
-  public void setParameters(List<ParameterShortModel> parameters) {
+  public void setParameters(@jakarta.annotation.Nullable List<ParameterShortModel> parameters) {
     this.parameters = JsonNullable.<List<ParameterShortModel>>of(parameters);
   }
 

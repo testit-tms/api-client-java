@@ -56,36 +56,46 @@ import ru.testit.client.invoker.JSON;
   WebhookLogApiResult.JSON_PROPERTY_MODIFIED_DATE,
   WebhookLogApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebhookLogApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_WEB_HOOK_NAME = "webHookName";
+  @jakarta.annotation.Nonnull
   private String webHookName;
 
   public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
+  @jakarta.annotation.Nonnull
   private WebHookEventType eventType;
 
   public static final String JSON_PROPERTY_WEB_HOOK_ID = "webHookId";
+  @jakarta.annotation.Nonnull
   private UUID webHookId;
 
   public static final String JSON_PROPERTY_RESPONSE_STATUS_CODE = "responseStatusCode";
+  @jakarta.annotation.Nonnull
   private Integer responseStatusCode;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
+  @jakarta.annotation.Nonnull
   private RequestType requestType;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_REQUEST_BODY = "requestBody";
@@ -112,7 +122,7 @@ public class WebhookLogApiResult {
   public WebhookLogApiResult() { 
   }
 
-  public WebhookLogApiResult id(UUID id) {
+  public WebhookLogApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -132,12 +142,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WebhookLogApiResult isDeleted(Boolean isDeleted) {
+  public WebhookLogApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -157,12 +167,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public WebhookLogApiResult webHookName(String webHookName) {
+  public WebhookLogApiResult webHookName(@jakarta.annotation.Nonnull String webHookName) {
     this.webHookName = webHookName;
     return this;
   }
@@ -182,12 +192,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_WEB_HOOK_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWebHookName(String webHookName) {
+  public void setWebHookName(@jakarta.annotation.Nonnull String webHookName) {
     this.webHookName = webHookName;
   }
 
 
-  public WebhookLogApiResult eventType(WebHookEventType eventType) {
+  public WebhookLogApiResult eventType(@jakarta.annotation.Nonnull WebHookEventType eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -207,12 +217,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEventType(WebHookEventType eventType) {
+  public void setEventType(@jakarta.annotation.Nonnull WebHookEventType eventType) {
     this.eventType = eventType;
   }
 
 
-  public WebhookLogApiResult webHookId(UUID webHookId) {
+  public WebhookLogApiResult webHookId(@jakarta.annotation.Nonnull UUID webHookId) {
     this.webHookId = webHookId;
     return this;
   }
@@ -232,12 +242,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_WEB_HOOK_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWebHookId(UUID webHookId) {
+  public void setWebHookId(@jakarta.annotation.Nonnull UUID webHookId) {
     this.webHookId = webHookId;
   }
 
 
-  public WebhookLogApiResult responseStatusCode(Integer responseStatusCode) {
+  public WebhookLogApiResult responseStatusCode(@jakarta.annotation.Nonnull Integer responseStatusCode) {
     this.responseStatusCode = responseStatusCode;
     return this;
   }
@@ -257,12 +267,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_RESPONSE_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResponseStatusCode(Integer responseStatusCode) {
+  public void setResponseStatusCode(@jakarta.annotation.Nonnull Integer responseStatusCode) {
     this.responseStatusCode = responseStatusCode;
   }
 
 
-  public WebhookLogApiResult projectId(UUID projectId) {
+  public WebhookLogApiResult projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -282,12 +292,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WebhookLogApiResult url(String url) {
+  public WebhookLogApiResult url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -307,12 +317,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public WebhookLogApiResult requestType(RequestType requestType) {
+  public WebhookLogApiResult requestType(@jakarta.annotation.Nonnull RequestType requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -332,12 +342,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequestType(RequestType requestType) {
+  public void setRequestType(@jakarta.annotation.Nonnull RequestType requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebhookLogApiResult createdById(UUID createdById) {
+  public WebhookLogApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -357,12 +367,12 @@ public class WebhookLogApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WebhookLogApiResult requestBody(String requestBody) {
+  public WebhookLogApiResult requestBody(@jakarta.annotation.Nullable String requestBody) {
     this.requestBody = JsonNullable.<String>of(requestBody);
     return this;
   }
@@ -390,12 +400,12 @@ public class WebhookLogApiResult {
     this.requestBody = requestBody;
   }
 
-  public void setRequestBody(String requestBody) {
+  public void setRequestBody(@jakarta.annotation.Nullable String requestBody) {
     this.requestBody = JsonNullable.<String>of(requestBody);
   }
 
 
-  public WebhookLogApiResult requestMeta(String requestMeta) {
+  public WebhookLogApiResult requestMeta(@jakarta.annotation.Nullable String requestMeta) {
     this.requestMeta = JsonNullable.<String>of(requestMeta);
     return this;
   }
@@ -423,12 +433,12 @@ public class WebhookLogApiResult {
     this.requestMeta = requestMeta;
   }
 
-  public void setRequestMeta(String requestMeta) {
+  public void setRequestMeta(@jakarta.annotation.Nullable String requestMeta) {
     this.requestMeta = JsonNullable.<String>of(requestMeta);
   }
 
 
-  public WebhookLogApiResult responseBody(String responseBody) {
+  public WebhookLogApiResult responseBody(@jakarta.annotation.Nullable String responseBody) {
     this.responseBody = JsonNullable.<String>of(responseBody);
     return this;
   }
@@ -456,12 +466,12 @@ public class WebhookLogApiResult {
     this.responseBody = responseBody;
   }
 
-  public void setResponseBody(String responseBody) {
+  public void setResponseBody(@jakarta.annotation.Nullable String responseBody) {
     this.responseBody = JsonNullable.<String>of(responseBody);
   }
 
 
-  public WebhookLogApiResult responseMeta(String responseMeta) {
+  public WebhookLogApiResult responseMeta(@jakarta.annotation.Nullable String responseMeta) {
     this.responseMeta = JsonNullable.<String>of(responseMeta);
     return this;
   }
@@ -489,12 +499,12 @@ public class WebhookLogApiResult {
     this.responseMeta = responseMeta;
   }
 
-  public void setResponseMeta(String responseMeta) {
+  public void setResponseMeta(@jakarta.annotation.Nullable String responseMeta) {
     this.responseMeta = JsonNullable.<String>of(responseMeta);
   }
 
 
-  public WebhookLogApiResult createdDate(OffsetDateTime createdDate) {
+  public WebhookLogApiResult createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -522,12 +532,12 @@ public class WebhookLogApiResult {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 
 
-  public WebhookLogApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public WebhookLogApiResult modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -555,12 +565,12 @@ public class WebhookLogApiResult {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public WebhookLogApiResult modifiedById(UUID modifiedById) {
+  public WebhookLogApiResult modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -588,7 +598,7 @@ public class WebhookLogApiResult {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

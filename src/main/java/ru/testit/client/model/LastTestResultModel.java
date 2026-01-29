@@ -47,15 +47,18 @@ import ru.testit.client.invoker.JSON;
   LastTestResultModel.JSON_PROPERTY_LINKS,
   LastTestResultModel.JSON_PROPERTY_ATTACHMENTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LastTestResultModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
+  @jakarta.annotation.Nonnull
   private UUID testRunId;
 
   public static final String JSON_PROPERTY_WORK_ITEM_VERSION_ID = "workItemVersionId";
+  @jakarta.annotation.Nonnull
   private UUID workItemVersionId;
 
   public static final String JSON_PROPERTY_AUTO_TEST_ID = "autoTestId";
@@ -73,7 +76,7 @@ public class LastTestResultModel {
   public LastTestResultModel() { 
   }
 
-  public LastTestResultModel id(UUID id) {
+  public LastTestResultModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -93,12 +96,12 @@ public class LastTestResultModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public LastTestResultModel testRunId(UUID testRunId) {
+  public LastTestResultModel testRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -118,12 +121,12 @@ public class LastTestResultModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public LastTestResultModel workItemVersionId(UUID workItemVersionId) {
+  public LastTestResultModel workItemVersionId(@jakarta.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
     return this;
   }
@@ -143,12 +146,12 @@ public class LastTestResultModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemVersionId(UUID workItemVersionId) {
+  public void setWorkItemVersionId(@jakarta.annotation.Nonnull UUID workItemVersionId) {
     this.workItemVersionId = workItemVersionId;
   }
 
 
-  public LastTestResultModel autoTestId(UUID autoTestId) {
+  public LastTestResultModel autoTestId(@jakarta.annotation.Nullable UUID autoTestId) {
     this.autoTestId = JsonNullable.<UUID>of(autoTestId);
     return this;
   }
@@ -176,12 +179,12 @@ public class LastTestResultModel {
     this.autoTestId = autoTestId;
   }
 
-  public void setAutoTestId(UUID autoTestId) {
+  public void setAutoTestId(@jakarta.annotation.Nullable UUID autoTestId) {
     this.autoTestId = JsonNullable.<UUID>of(autoTestId);
   }
 
 
-  public LastTestResultModel comment(String comment) {
+  public LastTestResultModel comment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
     return this;
   }
@@ -209,12 +212,12 @@ public class LastTestResultModel {
     this.comment = comment;
   }
 
-  public void setComment(String comment) {
+  public void setComment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
   }
 
 
-  public LastTestResultModel links(List<LinkModel> links) {
+  public LastTestResultModel links(@jakarta.annotation.Nullable List<LinkModel> links) {
     this.links = JsonNullable.<List<LinkModel>>of(links);
     return this;
   }
@@ -254,12 +257,12 @@ public class LastTestResultModel {
     this.links = links;
   }
 
-  public void setLinks(List<LinkModel> links) {
+  public void setLinks(@jakarta.annotation.Nullable List<LinkModel> links) {
     this.links = JsonNullable.<List<LinkModel>>of(links);
   }
 
 
-  public LastTestResultModel attachments(List<AttachmentModel> attachments) {
+  public LastTestResultModel attachments(@jakarta.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
     return this;
   }
@@ -299,7 +302,7 @@ public class LastTestResultModel {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AttachmentModel> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<AttachmentModel> attachments) {
     this.attachments = JsonNullable.<List<AttachmentModel>>of(attachments);
   }
 

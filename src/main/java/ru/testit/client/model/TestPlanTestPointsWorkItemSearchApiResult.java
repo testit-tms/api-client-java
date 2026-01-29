@@ -61,45 +61,58 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_ORDER_RANK,
   TestPlanTestPointsWorkItemSearchApiResult.JSON_PROPERTY_MODIFIED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsWorkItemSearchApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_VERSION_ID = "versionId";
+  @jakarta.annotation.Nonnull
   private UUID versionId;
 
   public static final String JSON_PROPERTY_VERSION_NUMBER = "versionNumber";
+  @jakarta.annotation.Nonnull
   private Integer versionNumber;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
+  @jakarta.annotation.Nonnull
   private Integer duration;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @jakarta.annotation.Nonnull
   private WorkItemState state;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
+  @jakarta.annotation.Nonnull
   private List<String> tags = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  @jakarta.annotation.Nonnull
   private Map<String, Object> attributes = new HashMap<>();
 
   public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  @jakarta.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @jakarta.annotation.Nonnull
   private WorkItemPriority priority;
 
   public static final String JSON_PROPERTY_SECTION = "section";
+  @jakarta.annotation.Nonnull
   private TestPlanTestPointsSectionSearchApiResult section;
 
   public static final String JSON_PROPERTY_CREATED = "created";
+  @jakarta.annotation.Nonnull
   private AuditApiResult created;
 
   public static final String JSON_PROPERTY_MEDIAN_DURATION = "medianDuration";
@@ -117,7 +130,7 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
   public TestPlanTestPointsWorkItemSearchApiResult() { 
   }
 
-  public TestPlanTestPointsWorkItemSearchApiResult id(UUID id) {
+  public TestPlanTestPointsWorkItemSearchApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -137,12 +150,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult globalId(Long globalId) {
+  public TestPlanTestPointsWorkItemSearchApiResult globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -162,12 +175,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult versionId(UUID versionId) {
+  public TestPlanTestPointsWorkItemSearchApiResult versionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -187,12 +200,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionId(UUID versionId) {
+  public void setVersionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult versionNumber(Integer versionNumber) {
+  public TestPlanTestPointsWorkItemSearchApiResult versionNumber(@jakarta.annotation.Nonnull Integer versionNumber) {
     this.versionNumber = versionNumber;
     return this;
   }
@@ -212,12 +225,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_VERSION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionNumber(Integer versionNumber) {
+  public void setVersionNumber(@jakarta.annotation.Nonnull Integer versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult duration(Integer duration) {
+  public TestPlanTestPointsWorkItemSearchApiResult duration(@jakarta.annotation.Nonnull Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -237,12 +250,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(Integer duration) {
+  public void setDuration(@jakarta.annotation.Nonnull Integer duration) {
     this.duration = duration;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult state(WorkItemState state) {
+  public TestPlanTestPointsWorkItemSearchApiResult state(@jakarta.annotation.Nonnull WorkItemState state) {
     this.state = state;
     return this;
   }
@@ -262,12 +275,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(WorkItemState state) {
+  public void setState(@jakarta.annotation.Nonnull WorkItemState state) {
     this.state = state;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult tags(List<String> tags) {
+  public TestPlanTestPointsWorkItemSearchApiResult tags(@jakarta.annotation.Nonnull List<String> tags) {
     this.tags = tags;
     return this;
   }
@@ -295,12 +308,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTags(List<String> tags) {
+  public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
     this.tags = tags;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult attributes(Map<String, Object> attributes) {
+  public TestPlanTestPointsWorkItemSearchApiResult attributes(@jakarta.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -328,12 +341,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(Map<String, Object> attributes) {
+  public void setAttributes(@jakarta.annotation.Nonnull Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult isAutomated(Boolean isAutomated) {
+  public TestPlanTestPointsWorkItemSearchApiResult isAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -353,12 +366,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult name(String name) {
+  public TestPlanTestPointsWorkItemSearchApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -378,12 +391,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult priority(WorkItemPriority priority) {
+  public TestPlanTestPointsWorkItemSearchApiResult priority(@jakarta.annotation.Nonnull WorkItemPriority priority) {
     this.priority = priority;
     return this;
   }
@@ -403,12 +416,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPriority(WorkItemPriority priority) {
+  public void setPriority(@jakarta.annotation.Nonnull WorkItemPriority priority) {
     this.priority = priority;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult section(TestPlanTestPointsSectionSearchApiResult section) {
+  public TestPlanTestPointsWorkItemSearchApiResult section(@jakarta.annotation.Nonnull TestPlanTestPointsSectionSearchApiResult section) {
     this.section = section;
     return this;
   }
@@ -428,12 +441,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_SECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSection(TestPlanTestPointsSectionSearchApiResult section) {
+  public void setSection(@jakarta.annotation.Nonnull TestPlanTestPointsSectionSearchApiResult section) {
     this.section = section;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult created(AuditApiResult created) {
+  public TestPlanTestPointsWorkItemSearchApiResult created(@jakarta.annotation.Nonnull AuditApiResult created) {
     this.created = created;
     return this;
   }
@@ -453,12 +466,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreated(AuditApiResult created) {
+  public void setCreated(@jakarta.annotation.Nonnull AuditApiResult created) {
     this.created = created;
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult medianDuration(Long medianDuration) {
+  public TestPlanTestPointsWorkItemSearchApiResult medianDuration(@jakarta.annotation.Nullable Long medianDuration) {
     this.medianDuration = JsonNullable.<Long>of(medianDuration);
     return this;
   }
@@ -486,12 +499,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
     this.medianDuration = medianDuration;
   }
 
-  public void setMedianDuration(Long medianDuration) {
+  public void setMedianDuration(@jakarta.annotation.Nullable Long medianDuration) {
     this.medianDuration = JsonNullable.<Long>of(medianDuration);
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult isDeleted(Boolean isDeleted) {
+  public TestPlanTestPointsWorkItemSearchApiResult isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -519,12 +532,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult orderRank(String orderRank) {
+  public TestPlanTestPointsWorkItemSearchApiResult orderRank(@jakarta.annotation.Nullable String orderRank) {
     this.orderRank = JsonNullable.<String>of(orderRank);
     return this;
   }
@@ -552,12 +565,12 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
     this.orderRank = orderRank;
   }
 
-  public void setOrderRank(String orderRank) {
+  public void setOrderRank(@jakarta.annotation.Nullable String orderRank) {
     this.orderRank = JsonNullable.<String>of(orderRank);
   }
 
 
-  public TestPlanTestPointsWorkItemSearchApiResult modified(AuditApiResult modified) {
+  public TestPlanTestPointsWorkItemSearchApiResult modified(@jakarta.annotation.Nullable AuditApiResult modified) {
     this.modified = JsonNullable.<AuditApiResult>of(modified);
     return this;
   }
@@ -585,7 +598,7 @@ public class TestPlanTestPointsWorkItemSearchApiResult {
     this.modified = modified;
   }
 
-  public void setModified(AuditApiResult modified) {
+  public void setModified(@jakarta.annotation.Nullable AuditApiResult modified) {
     this.modified = JsonNullable.<AuditApiResult>of(modified);
   }
 

@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**addGlobalAttributesToProject**](ProjectsApi.md#addGlobalAttributesToProject) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project |
+| [**apiV2ProjectsDemoPost**](ProjectsApi.md#apiV2ProjectsDemoPost) | **POST** /api/v2/projects/demo |  |
 | [**apiV2ProjectsIdDelete**](ProjectsApi.md#apiV2ProjectsIdDelete) | **DELETE** /api/v2/projects/{id} | Archive project |
 | [**apiV2ProjectsIdFailureClassesGet**](ProjectsApi.md#apiV2ProjectsIdFailureClassesGet) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes |
 | [**apiV2ProjectsIdFavoritePut**](ProjectsApi.md#apiV2ProjectsIdFavoritePut) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite |
@@ -14,7 +15,6 @@ All URIs are relative to *http://localhost*
 | [**apiV2ProjectsIdRestorePost**](ProjectsApi.md#apiV2ProjectsIdRestorePost) | **POST** /api/v2/projects/{id}/restore | Restore archived project |
 | [**apiV2ProjectsIdTestPlansAttributeAttributeIdDelete**](ProjectsApi.md#apiV2ProjectsIdTestPlansAttributeAttributeIdDelete) | **DELETE** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans |
 | [**apiV2ProjectsIdTestPlansAttributePut**](ProjectsApi.md#apiV2ProjectsIdTestPlansAttributePut) | **PUT** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans |
-| [**apiV2ProjectsIdTestRunsActiveGet**](ProjectsApi.md#apiV2ProjectsIdTestRunsActiveGet) | **GET** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns |
 | [**apiV2ProjectsIdTestRunsFullGet**](ProjectsApi.md#apiV2ProjectsIdTestRunsFullGet) | **GET** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models |
 | [**apiV2ProjectsNameNameExistsGet**](ProjectsApi.md#apiV2ProjectsNameNameExistsGet) | **GET** /api/v2/projects/name/{name}/exists |  |
 | [**apiV2ProjectsPurgeBulkPost**](ProjectsApi.md#apiV2ProjectsPurgeBulkPost) | **POST** /api/v2/projects/purge/bulk | Purge multiple projects |
@@ -112,10 +112,82 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** |   Attributes must be global |  -  |
+| **400** |  Attributes must be global |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Project admin permission for project settings is required |  -  |
 | **404** | Project with provided ID was not found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+
+## apiV2ProjectsDemoPost
+
+> DemoProjectApiResult apiV2ProjectsDemoPost()
+
+
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.ProjectsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        ProjectsApi apiInstance = new ProjectsApi(defaultClient);
+        try {
+            DemoProjectApiResult result = apiInstance.apiV2ProjectsDemoPost();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProjectsApi#apiV2ProjectsDemoPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DemoProjectApiResult**](DemoProjectApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 
@@ -840,91 +912,6 @@ null (empty response body)
 | **422** | Unprocessable Entity |  -  |
 
 
-## apiV2ProjectsIdTestRunsActiveGet
-
-> List&lt;PublicTestRunModel&gt; apiV2ProjectsIdTestRunsActiveGet(id)
-
-Get active Project TestRuns
-
-
-Use case
-
-User sets project internal or global identifier
-
-User runs method execution
-
-System returns active testruns
-
-### Example
-
-```java
-// Import classes:
-import ru.testit.client.invoker.ApiClient;
-import ru.testit.client.invoker.ApiException;
-import ru.testit.client.invoker.Configuration;
-import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
-import ru.testit.client.api.ProjectsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-        ProjectsApi apiInstance = new ProjectsApi(defaultClient);
-        String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
-        try {
-            List<PublicTestRunModel> result = apiInstance.apiV2ProjectsIdTestRunsActiveGet(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ProjectsApi#apiV2ProjectsIdTestRunsActiveGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Project internal (UUID) or global (integer) identifier | |
-
-### Return type
-
-[**List&lt;PublicTestRunModel&gt;**](PublicTestRunModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-
-
 ## apiV2ProjectsIdTestRunsFullGet
 
 > List&lt;TestRunApiResult&gt; apiV2ProjectsIdTestRunsFullGet(id, includeTestResults, mustAggregateTestResults, notStarted, inProgress, stopped, completed, createdDateFrom, createdDateTo, testPlanId, skip, take, orderBy, searchField, searchValue)
@@ -1443,7 +1430,7 @@ public class Example {
 
 ## createProject
 
-> ProjectModel createProject(createProjectApiModel)
+> ProjectApiResult createProject(createProjectApiModel)
 
 Create project
 
@@ -1481,7 +1468,7 @@ public class Example {
         ProjectsApi apiInstance = new ProjectsApi(defaultClient);
         CreateProjectApiModel createProjectApiModel = new CreateProjectApiModel(); // CreateProjectApiModel | 
         try {
-            ProjectModel result = apiInstance.createProject(createProjectApiModel);
+            ProjectApiResult result = apiInstance.createProject(createProjectApiModel);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProjectsApi#createProject");
@@ -1503,7 +1490,7 @@ public class Example {
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 
@@ -1704,7 +1691,7 @@ public class Example {
 
 ## getAutoTestsNamespaces
 
-> List&lt;AutoTestNamespaceModel&gt; getAutoTestsNamespaces(id)
+> List&lt;AutoTestNamespaceApiResult&gt; getAutoTestsNamespaces(id)
 
 Get namespaces of autotests in project
 
@@ -1744,7 +1731,7 @@ public class Example {
         ProjectsApi apiInstance = new ProjectsApi(defaultClient);
         String id = "id_example"; // String | Project internal (UUID) or global (integer) identifier
         try {
-            List<AutoTestNamespaceModel> result = apiInstance.getAutoTestsNamespaces(id);
+            List<AutoTestNamespaceApiResult> result = apiInstance.getAutoTestsNamespaces(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProjectsApi#getAutoTestsNamespaces");
@@ -1766,7 +1753,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;AutoTestNamespaceModel&gt;**](AutoTestNamespaceModel.md)
+[**List&lt;AutoTestNamespaceApiResult&gt;**](AutoTestNamespaceApiResult.md)
 
 ### Authorization
 
@@ -2162,7 +2149,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
-| **400** |   - ID is invalid    - Field is required |  -  |
+| **400** |  - ID is invalid  - Field is required |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Update permission for projects is required |  -  |
 | **404** | Project with provided ID was not found |  -  |

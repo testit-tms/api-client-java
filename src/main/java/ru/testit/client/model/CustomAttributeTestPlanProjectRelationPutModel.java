@@ -35,21 +35,24 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeTestPlanProjectRelationPutModel.JSON_PROPERTY_IS_ENABLED,
   CustomAttributeTestPlanProjectRelationPutModel.JSON_PROPERTY_IS_REQUIRED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeTestPlanProjectRelationPutModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  @jakarta.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_IS_REQUIRED = "isRequired";
+  @jakarta.annotation.Nonnull
   private Boolean isRequired;
 
   public CustomAttributeTestPlanProjectRelationPutModel() { 
   }
 
-  public CustomAttributeTestPlanProjectRelationPutModel id(UUID id) {
+  public CustomAttributeTestPlanProjectRelationPutModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -69,12 +72,12 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public CustomAttributeTestPlanProjectRelationPutModel isEnabled(Boolean isEnabled) {
+  public CustomAttributeTestPlanProjectRelationPutModel isEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -94,12 +97,12 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
 
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public CustomAttributeTestPlanProjectRelationPutModel isRequired(Boolean isRequired) {
+  public CustomAttributeTestPlanProjectRelationPutModel isRequired(@jakarta.annotation.Nonnull Boolean isRequired) {
     this.isRequired = isRequired;
     return this;
   }
@@ -119,7 +122,7 @@ public class CustomAttributeTestPlanProjectRelationPutModel {
 
   @JsonProperty(JSON_PROPERTY_IS_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@jakarta.annotation.Nonnull Boolean isRequired) {
     this.isRequired = isRequired;
   }
 

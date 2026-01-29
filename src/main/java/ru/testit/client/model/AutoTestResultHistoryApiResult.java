@@ -61,36 +61,46 @@ import ru.testit.client.invoker.JSON;
   AutoTestResultHistoryApiResult.JSON_PROPERTY_MODIFIED_DATE,
   AutoTestResultHistoryApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestResultHistoryApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
+  @jakarta.annotation.Nonnull
   private UUID testRunId;
 
   public static final String JSON_PROPERTY_CONFIGURATION_ID = "configurationId";
+  @jakarta.annotation.Nonnull
   private UUID configurationId;
 
   public static final String JSON_PROPERTY_CONFIGURATION_NAME = "configurationName";
+  @jakarta.annotation.Nonnull
   private String configurationName;
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
+  @jakarta.annotation.Nonnull
   private AutotestResultOutcome outcome;
 
   public static final String JSON_PROPERTY_STATUS = "status";
+  @jakarta.annotation.Nonnull
   private TestStatusApiResult status;
 
   public static final String JSON_PROPERTY_RERUN_COUNT = "rerunCount";
+  @jakarta.annotation.Nonnull
   private Integer rerunCount;
 
   public static final String JSON_PROPERTY_RERUN_TEST_RESULTS = "rerunTestResults";
+  @jakarta.annotation.Nonnull
   private List<RerunTestResultApiResult> rerunTestResults = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
@@ -123,7 +133,7 @@ public class AutoTestResultHistoryApiResult {
   public AutoTestResultHistoryApiResult() { 
   }
 
-  public AutoTestResultHistoryApiResult id(UUID id) {
+  public AutoTestResultHistoryApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -143,12 +153,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public AutoTestResultHistoryApiResult testRunId(UUID testRunId) {
+  public AutoTestResultHistoryApiResult testRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
     return this;
   }
@@ -168,12 +178,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_RUN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestRunId(UUID testRunId) {
+  public void setTestRunId(@jakarta.annotation.Nonnull UUID testRunId) {
     this.testRunId = testRunId;
   }
 
 
-  public AutoTestResultHistoryApiResult configurationId(UUID configurationId) {
+  public AutoTestResultHistoryApiResult configurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
     return this;
   }
@@ -193,12 +203,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nonnull UUID configurationId) {
     this.configurationId = configurationId;
   }
 
 
-  public AutoTestResultHistoryApiResult configurationName(String configurationName) {
+  public AutoTestResultHistoryApiResult configurationName(@jakarta.annotation.Nonnull String configurationName) {
     this.configurationName = configurationName;
     return this;
   }
@@ -218,12 +228,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConfigurationName(String configurationName) {
+  public void setConfigurationName(@jakarta.annotation.Nonnull String configurationName) {
     this.configurationName = configurationName;
   }
 
 
-  public AutoTestResultHistoryApiResult outcome(AutotestResultOutcome outcome) {
+  public AutoTestResultHistoryApiResult outcome(@jakarta.annotation.Nonnull AutotestResultOutcome outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -243,12 +253,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_OUTCOME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOutcome(AutotestResultOutcome outcome) {
+  public void setOutcome(@jakarta.annotation.Nonnull AutotestResultOutcome outcome) {
     this.outcome = outcome;
   }
 
 
-  public AutoTestResultHistoryApiResult status(TestStatusApiResult status) {
+  public AutoTestResultHistoryApiResult status(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
     return this;
   }
@@ -268,12 +278,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(TestStatusApiResult status) {
+  public void setStatus(@jakarta.annotation.Nonnull TestStatusApiResult status) {
     this.status = status;
   }
 
 
-  public AutoTestResultHistoryApiResult rerunCount(Integer rerunCount) {
+  public AutoTestResultHistoryApiResult rerunCount(@jakarta.annotation.Nonnull Integer rerunCount) {
     this.rerunCount = rerunCount;
     return this;
   }
@@ -293,12 +303,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_RERUN_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRerunCount(Integer rerunCount) {
+  public void setRerunCount(@jakarta.annotation.Nonnull Integer rerunCount) {
     this.rerunCount = rerunCount;
   }
 
 
-  public AutoTestResultHistoryApiResult rerunTestResults(List<RerunTestResultApiResult> rerunTestResults) {
+  public AutoTestResultHistoryApiResult rerunTestResults(@jakarta.annotation.Nonnull List<RerunTestResultApiResult> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
     return this;
   }
@@ -326,12 +336,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_RERUN_TEST_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRerunTestResults(List<RerunTestResultApiResult> rerunTestResults) {
+  public void setRerunTestResults(@jakarta.annotation.Nonnull List<RerunTestResultApiResult> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
   }
 
 
-  public AutoTestResultHistoryApiResult createdDate(OffsetDateTime createdDate) {
+  public AutoTestResultHistoryApiResult createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -351,12 +361,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public AutoTestResultHistoryApiResult createdById(UUID createdById) {
+  public AutoTestResultHistoryApiResult createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -376,12 +386,12 @@ public class AutoTestResultHistoryApiResult {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public AutoTestResultHistoryApiResult testPlanId(UUID testPlanId) {
+  public AutoTestResultHistoryApiResult testPlanId(@jakarta.annotation.Nullable UUID testPlanId) {
     this.testPlanId = JsonNullable.<UUID>of(testPlanId);
     return this;
   }
@@ -409,12 +419,12 @@ public class AutoTestResultHistoryApiResult {
     this.testPlanId = testPlanId;
   }
 
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@jakarta.annotation.Nullable UUID testPlanId) {
     this.testPlanId = JsonNullable.<UUID>of(testPlanId);
   }
 
 
-  public AutoTestResultHistoryApiResult testPlanGlobalId(Long testPlanGlobalId) {
+  public AutoTestResultHistoryApiResult testPlanGlobalId(@jakarta.annotation.Nullable Long testPlanGlobalId) {
     this.testPlanGlobalId = JsonNullable.<Long>of(testPlanGlobalId);
     return this;
   }
@@ -442,12 +452,12 @@ public class AutoTestResultHistoryApiResult {
     this.testPlanGlobalId = testPlanGlobalId;
   }
 
-  public void setTestPlanGlobalId(Long testPlanGlobalId) {
+  public void setTestPlanGlobalId(@jakarta.annotation.Nullable Long testPlanGlobalId) {
     this.testPlanGlobalId = JsonNullable.<Long>of(testPlanGlobalId);
   }
 
 
-  public AutoTestResultHistoryApiResult testPlanName(String testPlanName) {
+  public AutoTestResultHistoryApiResult testPlanName(@jakarta.annotation.Nullable String testPlanName) {
     this.testPlanName = JsonNullable.<String>of(testPlanName);
     return this;
   }
@@ -475,12 +485,12 @@ public class AutoTestResultHistoryApiResult {
     this.testPlanName = testPlanName;
   }
 
-  public void setTestPlanName(String testPlanName) {
+  public void setTestPlanName(@jakarta.annotation.Nullable String testPlanName) {
     this.testPlanName = JsonNullable.<String>of(testPlanName);
   }
 
 
-  public AutoTestResultHistoryApiResult duration(Long duration) {
+  public AutoTestResultHistoryApiResult duration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
     return this;
   }
@@ -508,12 +518,12 @@ public class AutoTestResultHistoryApiResult {
     this.duration = duration;
   }
 
-  public void setDuration(Long duration) {
+  public void setDuration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
   }
 
 
-  public AutoTestResultHistoryApiResult testRunName(String testRunName) {
+  public AutoTestResultHistoryApiResult testRunName(@jakarta.annotation.Nullable String testRunName) {
     this.testRunName = JsonNullable.<String>of(testRunName);
     return this;
   }
@@ -541,12 +551,12 @@ public class AutoTestResultHistoryApiResult {
     this.testRunName = testRunName;
   }
 
-  public void setTestRunName(String testRunName) {
+  public void setTestRunName(@jakarta.annotation.Nullable String testRunName) {
     this.testRunName = JsonNullable.<String>of(testRunName);
   }
 
 
-  public AutoTestResultHistoryApiResult launchSource(String launchSource) {
+  public AutoTestResultHistoryApiResult launchSource(@jakarta.annotation.Nullable String launchSource) {
     this.launchSource = JsonNullable.<String>of(launchSource);
     return this;
   }
@@ -574,12 +584,12 @@ public class AutoTestResultHistoryApiResult {
     this.launchSource = launchSource;
   }
 
-  public void setLaunchSource(String launchSource) {
+  public void setLaunchSource(@jakarta.annotation.Nullable String launchSource) {
     this.launchSource = JsonNullable.<String>of(launchSource);
   }
 
 
-  public AutoTestResultHistoryApiResult createdByName(String createdByName) {
+  public AutoTestResultHistoryApiResult createdByName(@jakarta.annotation.Nullable String createdByName) {
     this.createdByName = JsonNullable.<String>of(createdByName);
     return this;
   }
@@ -607,12 +617,12 @@ public class AutoTestResultHistoryApiResult {
     this.createdByName = createdByName;
   }
 
-  public void setCreatedByName(String createdByName) {
+  public void setCreatedByName(@jakarta.annotation.Nullable String createdByName) {
     this.createdByName = JsonNullable.<String>of(createdByName);
   }
 
 
-  public AutoTestResultHistoryApiResult modifiedDate(OffsetDateTime modifiedDate) {
+  public AutoTestResultHistoryApiResult modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -640,12 +650,12 @@ public class AutoTestResultHistoryApiResult {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public AutoTestResultHistoryApiResult modifiedById(UUID modifiedById) {
+  public AutoTestResultHistoryApiResult modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -673,7 +683,7 @@ public class AutoTestResultHistoryApiResult {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

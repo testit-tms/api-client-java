@@ -38,7 +38,7 @@ import ru.testit.client.invoker.JSON;
   DateTimeRangeSelectorModel.JSON_PROPERTY_FROM,
   DateTimeRangeSelectorModel.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class DateTimeRangeSelectorModel {
   public static final String JSON_PROPERTY_FROM = "from";
   private JsonNullable<OffsetDateTime> from = JsonNullable.<OffsetDateTime>undefined();
@@ -49,7 +49,7 @@ public class DateTimeRangeSelectorModel {
   public DateTimeRangeSelectorModel() { 
   }
 
-  public DateTimeRangeSelectorModel from(OffsetDateTime from) {
+  public DateTimeRangeSelectorModel from(@jakarta.annotation.Nullable OffsetDateTime from) {
     this.from = JsonNullable.<OffsetDateTime>of(from);
     return this;
   }
@@ -77,12 +77,12 @@ public class DateTimeRangeSelectorModel {
     this.from = from;
   }
 
-  public void setFrom(OffsetDateTime from) {
+  public void setFrom(@jakarta.annotation.Nullable OffsetDateTime from) {
     this.from = JsonNullable.<OffsetDateTime>of(from);
   }
 
 
-  public DateTimeRangeSelectorModel to(OffsetDateTime to) {
+  public DateTimeRangeSelectorModel to(@jakarta.annotation.Nullable OffsetDateTime to) {
     this.to = JsonNullable.<OffsetDateTime>of(to);
     return this;
   }
@@ -110,7 +110,7 @@ public class DateTimeRangeSelectorModel {
     this.to = to;
   }
 
-  public void setTo(OffsetDateTime to) {
+  public void setTo(@jakarta.annotation.Nullable OffsetDateTime to) {
     this.to = JsonNullable.<OffsetDateTime>of(to);
   }
 

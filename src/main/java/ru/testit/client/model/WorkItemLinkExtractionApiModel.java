@@ -40,7 +40,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemLinkExtractionApiModel.JSON_PROPERTY_WORK_ITEM_IDS,
   WorkItemLinkExtractionApiModel.JSON_PROPERTY_LINK_URLS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLinkExtractionApiModel {
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
   private JsonNullable<GuidExtractionModel> projectIds = JsonNullable.<GuidExtractionModel>undefined();
@@ -54,7 +54,7 @@ public class WorkItemLinkExtractionApiModel {
   public WorkItemLinkExtractionApiModel() { 
   }
 
-  public WorkItemLinkExtractionApiModel projectIds(GuidExtractionModel projectIds) {
+  public WorkItemLinkExtractionApiModel projectIds(@jakarta.annotation.Nullable GuidExtractionModel projectIds) {
     this.projectIds = JsonNullable.<GuidExtractionModel>of(projectIds);
     return this;
   }
@@ -82,12 +82,12 @@ public class WorkItemLinkExtractionApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(GuidExtractionModel projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable GuidExtractionModel projectIds) {
     this.projectIds = JsonNullable.<GuidExtractionModel>of(projectIds);
   }
 
 
-  public WorkItemLinkExtractionApiModel workItemIds(GuidExtractionModel workItemIds) {
+  public WorkItemLinkExtractionApiModel workItemIds(@jakarta.annotation.Nullable GuidExtractionModel workItemIds) {
     this.workItemIds = JsonNullable.<GuidExtractionModel>of(workItemIds);
     return this;
   }
@@ -115,12 +115,12 @@ public class WorkItemLinkExtractionApiModel {
     this.workItemIds = workItemIds;
   }
 
-  public void setWorkItemIds(GuidExtractionModel workItemIds) {
+  public void setWorkItemIds(@jakarta.annotation.Nullable GuidExtractionModel workItemIds) {
     this.workItemIds = JsonNullable.<GuidExtractionModel>of(workItemIds);
   }
 
 
-  public WorkItemLinkExtractionApiModel linkUrls(StringExtractionModel linkUrls) {
+  public WorkItemLinkExtractionApiModel linkUrls(@jakarta.annotation.Nullable StringExtractionModel linkUrls) {
     this.linkUrls = JsonNullable.<StringExtractionModel>of(linkUrls);
     return this;
   }
@@ -148,7 +148,7 @@ public class WorkItemLinkExtractionApiModel {
     this.linkUrls = linkUrls;
   }
 
-  public void setLinkUrls(StringExtractionModel linkUrls) {
+  public void setLinkUrls(@jakarta.annotation.Nullable StringExtractionModel linkUrls) {
     this.linkUrls = JsonNullable.<StringExtractionModel>of(linkUrls);
   }
 

@@ -35,18 +35,20 @@ import ru.testit.client.invoker.JSON;
   WebhooksDeleteApiModel.JSON_PROPERTY_FILTER,
   WebhooksDeleteApiModel.JSON_PROPERTY_EXTRACTOR
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebhooksDeleteApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private WebhooksDeleteFilterApiModel filter;
 
   public static final String JSON_PROPERTY_EXTRACTOR = "extractor";
+  @jakarta.annotation.Nonnull
   private WebhooksExtractionApiModel extractor;
 
   public WebhooksDeleteApiModel() { 
   }
 
-  public WebhooksDeleteApiModel filter(WebhooksDeleteFilterApiModel filter) {
+  public WebhooksDeleteApiModel filter(@jakarta.annotation.Nonnull WebhooksDeleteFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -66,12 +68,12 @@ public class WebhooksDeleteApiModel {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(WebhooksDeleteFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nonnull WebhooksDeleteFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public WebhooksDeleteApiModel extractor(WebhooksExtractionApiModel extractor) {
+  public WebhooksDeleteApiModel extractor(@jakarta.annotation.Nonnull WebhooksExtractionApiModel extractor) {
     this.extractor = extractor;
     return this;
   }
@@ -91,7 +93,7 @@ public class WebhooksDeleteApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXTRACTOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExtractor(WebhooksExtractionApiModel extractor) {
+  public void setExtractor(@jakarta.annotation.Nonnull WebhooksExtractionApiModel extractor) {
     this.extractor = extractor;
   }
 

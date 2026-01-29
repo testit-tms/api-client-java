@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   ConfigurationSelectModel.JSON_PROPERTY_FILTER,
   ConfigurationSelectModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ConfigurationSelectModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<ConfigurationFilterModel> filter = JsonNullable.<ConfigurationFilterModel>undefined();
@@ -50,7 +50,7 @@ public class ConfigurationSelectModel {
   public ConfigurationSelectModel() { 
   }
 
-  public ConfigurationSelectModel filter(ConfigurationFilterModel filter) {
+  public ConfigurationSelectModel filter(@jakarta.annotation.Nullable ConfigurationFilterModel filter) {
     this.filter = JsonNullable.<ConfigurationFilterModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class ConfigurationSelectModel {
     this.filter = filter;
   }
 
-  public void setFilter(ConfigurationFilterModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable ConfigurationFilterModel filter) {
     this.filter = JsonNullable.<ConfigurationFilterModel>of(filter);
   }
 
 
-  public ConfigurationSelectModel extractionModel(ConfigurationExtractionModel extractionModel) {
+  public ConfigurationSelectModel extractionModel(@jakarta.annotation.Nullable ConfigurationExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<ConfigurationExtractionModel>of(extractionModel);
     return this;
   }
@@ -111,7 +111,7 @@ public class ConfigurationSelectModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(ConfigurationExtractionModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable ConfigurationExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<ConfigurationExtractionModel>of(extractionModel);
   }
 

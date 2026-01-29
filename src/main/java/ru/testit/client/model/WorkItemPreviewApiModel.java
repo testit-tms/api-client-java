@@ -37,21 +37,24 @@ import ru.testit.client.invoker.JSON;
   WorkItemPreviewApiModel.JSON_PROPERTY_DESCRIPTION,
   WorkItemPreviewApiModel.JSON_PROPERTY_STEPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemPreviewApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @jakarta.annotation.Nonnull
   private String description;
 
   public static final String JSON_PROPERTY_STEPS = "steps";
+  @jakarta.annotation.Nonnull
   private List<WorkItemPreviewStepApiModel> steps = new ArrayList<>();
 
   public WorkItemPreviewApiModel() { 
   }
 
-  public WorkItemPreviewApiModel name(String name) {
+  public WorkItemPreviewApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -71,12 +74,12 @@ public class WorkItemPreviewApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public WorkItemPreviewApiModel description(String description) {
+  public WorkItemPreviewApiModel description(@jakarta.annotation.Nonnull String description) {
     this.description = description;
     return this;
   }
@@ -96,12 +99,12 @@ public class WorkItemPreviewApiModel {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nonnull String description) {
     this.description = description;
   }
 
 
-  public WorkItemPreviewApiModel steps(List<WorkItemPreviewStepApiModel> steps) {
+  public WorkItemPreviewApiModel steps(@jakarta.annotation.Nonnull List<WorkItemPreviewStepApiModel> steps) {
     this.steps = steps;
     return this;
   }
@@ -129,7 +132,7 @@ public class WorkItemPreviewApiModel {
 
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSteps(List<WorkItemPreviewStepApiModel> steps) {
+  public void setSteps(@jakarta.annotation.Nonnull List<WorkItemPreviewStepApiModel> steps) {
     this.steps = steps;
   }
 

@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemExtractionModel.JSON_PROPERTY_IDS,
   WorkItemExtractionModel.JSON_PROPERTY_SECTION_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemExtractionModel {
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
   private JsonNullable<GuidExtractionModel> projectIds = JsonNullable.<GuidExtractionModel>undefined();
@@ -53,7 +53,7 @@ public class WorkItemExtractionModel {
   public WorkItemExtractionModel() { 
   }
 
-  public WorkItemExtractionModel projectIds(GuidExtractionModel projectIds) {
+  public WorkItemExtractionModel projectIds(@jakarta.annotation.Nullable GuidExtractionModel projectIds) {
     this.projectIds = JsonNullable.<GuidExtractionModel>of(projectIds);
     return this;
   }
@@ -81,12 +81,12 @@ public class WorkItemExtractionModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(GuidExtractionModel projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable GuidExtractionModel projectIds) {
     this.projectIds = JsonNullable.<GuidExtractionModel>of(projectIds);
   }
 
 
-  public WorkItemExtractionModel ids(GuidExtractionModel ids) {
+  public WorkItemExtractionModel ids(@jakarta.annotation.Nullable GuidExtractionModel ids) {
     this.ids = JsonNullable.<GuidExtractionModel>of(ids);
     return this;
   }
@@ -114,12 +114,12 @@ public class WorkItemExtractionModel {
     this.ids = ids;
   }
 
-  public void setIds(GuidExtractionModel ids) {
+  public void setIds(@jakarta.annotation.Nullable GuidExtractionModel ids) {
     this.ids = JsonNullable.<GuidExtractionModel>of(ids);
   }
 
 
-  public WorkItemExtractionModel sectionIds(GuidExtractionModel sectionIds) {
+  public WorkItemExtractionModel sectionIds(@jakarta.annotation.Nullable GuidExtractionModel sectionIds) {
     this.sectionIds = JsonNullable.<GuidExtractionModel>of(sectionIds);
     return this;
   }
@@ -147,7 +147,7 @@ public class WorkItemExtractionModel {
     this.sectionIds = sectionIds;
   }
 
-  public void setSectionIds(GuidExtractionModel sectionIds) {
+  public void setSectionIds(@jakarta.annotation.Nullable GuidExtractionModel sectionIds) {
     this.sectionIds = JsonNullable.<GuidExtractionModel>of(sectionIds);
   }
 

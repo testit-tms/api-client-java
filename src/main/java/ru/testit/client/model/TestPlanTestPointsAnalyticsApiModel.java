@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsAnalyticsApiModel.JSON_PROPERTY_FILTER,
   TestPlanTestPointsAnalyticsApiModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsAnalyticsApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<TestPlanTestPointsSearchApiModel> filter = JsonNullable.<TestPlanTestPointsSearchApiModel>undefined();
@@ -50,7 +50,7 @@ public class TestPlanTestPointsAnalyticsApiModel {
   public TestPlanTestPointsAnalyticsApiModel() { 
   }
 
-  public TestPlanTestPointsAnalyticsApiModel filter(TestPlanTestPointsSearchApiModel filter) {
+  public TestPlanTestPointsAnalyticsApiModel filter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class TestPlanTestPointsAnalyticsApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(TestPlanTestPointsSearchApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable TestPlanTestPointsSearchApiModel filter) {
     this.filter = JsonNullable.<TestPlanTestPointsSearchApiModel>of(filter);
   }
 
 
-  public TestPlanTestPointsAnalyticsApiModel extractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+  public TestPlanTestPointsAnalyticsApiModel extractionModel(@jakarta.annotation.Nullable TestPlanTestPointsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
     return this;
   }
@@ -111,7 +111,7 @@ public class TestPlanTestPointsAnalyticsApiModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(TestPlanTestPointsExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable TestPlanTestPointsExtractionApiModel extractionModel) {
     this.extractionModel = JsonNullable.<TestPlanTestPointsExtractionApiModel>of(extractionModel);
   }
 

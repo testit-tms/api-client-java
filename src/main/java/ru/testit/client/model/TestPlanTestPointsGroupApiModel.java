@@ -37,9 +37,10 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsGroupApiModel.JSON_PROPERTY_FIELD,
   TestPlanTestPointsGroupApiModel.JSON_PROPERTY_DISPLAY_FIELD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsGroupApiModel {
   public static final String JSON_PROPERTY_FIELD = "field";
+  @jakarta.annotation.Nonnull
   private String field;
 
   public static final String JSON_PROPERTY_DISPLAY_FIELD = "displayField";
@@ -48,7 +49,7 @@ public class TestPlanTestPointsGroupApiModel {
   public TestPlanTestPointsGroupApiModel() { 
   }
 
-  public TestPlanTestPointsGroupApiModel field(String field) {
+  public TestPlanTestPointsGroupApiModel field(@jakarta.annotation.Nonnull String field) {
     this.field = field;
     return this;
   }
@@ -68,12 +69,12 @@ public class TestPlanTestPointsGroupApiModel {
 
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setField(String field) {
+  public void setField(@jakarta.annotation.Nonnull String field) {
     this.field = field;
   }
 
 
-  public TestPlanTestPointsGroupApiModel displayField(String displayField) {
+  public TestPlanTestPointsGroupApiModel displayField(@jakarta.annotation.Nullable String displayField) {
     this.displayField = JsonNullable.<String>of(displayField);
     return this;
   }
@@ -101,7 +102,7 @@ public class TestPlanTestPointsGroupApiModel {
     this.displayField = displayField;
   }
 
-  public void setDisplayField(String displayField) {
+  public void setDisplayField(@jakarta.annotation.Nullable String displayField) {
     this.displayField = JsonNullable.<String>of(displayField);
   }
 

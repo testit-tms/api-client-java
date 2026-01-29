@@ -33,15 +33,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   DemoProjectApiResult.JSON_PROPERTY_JOB_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class DemoProjectApiResult {
   public static final String JSON_PROPERTY_JOB_ID = "jobId";
+  @jakarta.annotation.Nonnull
   private UUID jobId;
 
   public DemoProjectApiResult() { 
   }
 
-  public DemoProjectApiResult jobId(UUID jobId) {
+  public DemoProjectApiResult jobId(@jakarta.annotation.Nonnull UUID jobId) {
     this.jobId = jobId;
     return this;
   }
@@ -61,7 +62,7 @@ public class DemoProjectApiResult {
 
   @JsonProperty(JSON_PROPERTY_JOB_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setJobId(UUID jobId) {
+  public void setJobId(@jakarta.annotation.Nonnull UUID jobId) {
     this.jobId = jobId;
   }
 

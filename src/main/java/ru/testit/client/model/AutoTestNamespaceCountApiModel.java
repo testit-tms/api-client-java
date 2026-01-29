@@ -41,12 +41,14 @@ import ru.testit.client.invoker.JSON;
   AutoTestNamespaceCountApiModel.JSON_PROPERTY_CLASSES,
   AutoTestNamespaceCountApiModel.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestNamespaceCountApiModel {
   public static final String JSON_PROPERTY_COUNT = "count";
+  @jakarta.annotation.Nonnull
   private Long count;
 
   public static final String JSON_PROPERTY_CLASSES = "classes";
+  @jakarta.annotation.Nonnull
   private List<AutoTestClassCountApiModel> classes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
@@ -55,7 +57,7 @@ public class AutoTestNamespaceCountApiModel {
   public AutoTestNamespaceCountApiModel() { 
   }
 
-  public AutoTestNamespaceCountApiModel count(Long count) {
+  public AutoTestNamespaceCountApiModel count(@jakarta.annotation.Nonnull Long count) {
     this.count = count;
     return this;
   }
@@ -75,12 +77,12 @@ public class AutoTestNamespaceCountApiModel {
 
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCount(Long count) {
+  public void setCount(@jakarta.annotation.Nonnull Long count) {
     this.count = count;
   }
 
 
-  public AutoTestNamespaceCountApiModel classes(List<AutoTestClassCountApiModel> classes) {
+  public AutoTestNamespaceCountApiModel classes(@jakarta.annotation.Nonnull List<AutoTestClassCountApiModel> classes) {
     this.classes = classes;
     return this;
   }
@@ -108,12 +110,12 @@ public class AutoTestNamespaceCountApiModel {
 
   @JsonProperty(JSON_PROPERTY_CLASSES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setClasses(List<AutoTestClassCountApiModel> classes) {
+  public void setClasses(@jakarta.annotation.Nonnull List<AutoTestClassCountApiModel> classes) {
     this.classes = classes;
   }
 
 
-  public AutoTestNamespaceCountApiModel name(String name) {
+  public AutoTestNamespaceCountApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -141,7 +143,7 @@ public class AutoTestNamespaceCountApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 

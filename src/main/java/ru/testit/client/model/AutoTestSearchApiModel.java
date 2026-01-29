@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestSearchApiModel.JSON_PROPERTY_FILTER,
   AutoTestSearchApiModel.JSON_PROPERTY_INCLUDES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestSearchApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<AutoTestFilterApiModel> filter = JsonNullable.<AutoTestFilterApiModel>undefined();
@@ -50,7 +50,7 @@ public class AutoTestSearchApiModel {
   public AutoTestSearchApiModel() { 
   }
 
-  public AutoTestSearchApiModel filter(AutoTestFilterApiModel filter) {
+  public AutoTestSearchApiModel filter(@jakarta.annotation.Nullable AutoTestFilterApiModel filter) {
     this.filter = JsonNullable.<AutoTestFilterApiModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class AutoTestSearchApiModel {
     this.filter = filter;
   }
 
-  public void setFilter(AutoTestFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable AutoTestFilterApiModel filter) {
     this.filter = JsonNullable.<AutoTestFilterApiModel>of(filter);
   }
 
 
-  public AutoTestSearchApiModel includes(AutoTestSearchIncludeApiModel includes) {
+  public AutoTestSearchApiModel includes(@jakarta.annotation.Nullable AutoTestSearchIncludeApiModel includes) {
     this.includes = JsonNullable.<AutoTestSearchIncludeApiModel>of(includes);
     return this;
   }
@@ -111,7 +111,7 @@ public class AutoTestSearchApiModel {
     this.includes = includes;
   }
 
-  public void setIncludes(AutoTestSearchIncludeApiModel includes) {
+  public void setIncludes(@jakarta.annotation.Nullable AutoTestSearchIncludeApiModel includes) {
     this.includes = JsonNullable.<AutoTestSearchIncludeApiModel>of(includes);
   }
 

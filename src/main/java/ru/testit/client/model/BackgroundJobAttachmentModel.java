@@ -36,24 +36,28 @@ import ru.testit.client.invoker.JSON;
   BackgroundJobAttachmentModel.JSON_PROPERTY_TYPE,
   BackgroundJobAttachmentModel.JSON_PROPERTY_SIZE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class BackgroundJobAttachmentModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private String type;
 
   public static final String JSON_PROPERTY_SIZE = "size";
+  @jakarta.annotation.Nonnull
   private Float size;
 
   public BackgroundJobAttachmentModel() { 
   }
 
-  public BackgroundJobAttachmentModel id(UUID id) {
+  public BackgroundJobAttachmentModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -73,12 +77,12 @@ public class BackgroundJobAttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public BackgroundJobAttachmentModel name(String name) {
+  public BackgroundJobAttachmentModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -98,12 +102,12 @@ public class BackgroundJobAttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public BackgroundJobAttachmentModel type(String type) {
+  public BackgroundJobAttachmentModel type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -123,12 +127,12 @@ public class BackgroundJobAttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
 
-  public BackgroundJobAttachmentModel size(Float size) {
+  public BackgroundJobAttachmentModel size(@jakarta.annotation.Nonnull Float size) {
     this.size = size;
     return this;
   }
@@ -148,7 +152,7 @@ public class BackgroundJobAttachmentModel {
 
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSize(Float size) {
+  public void setSize(@jakarta.annotation.Nonnull Float size) {
     this.size = size;
   }
 

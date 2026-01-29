@@ -40,9 +40,10 @@ import ru.testit.client.invoker.JSON;
   AutoTestStep.JSON_PROPERTY_DESCRIPTION,
   AutoTestStep.JSON_PROPERTY_STEPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestStep {
   public static final String JSON_PROPERTY_TITLE = "title";
+  @jakarta.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -54,7 +55,7 @@ public class AutoTestStep {
   public AutoTestStep() { 
   }
 
-  public AutoTestStep title(String title) {
+  public AutoTestStep title(@jakarta.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
@@ -74,12 +75,12 @@ public class AutoTestStep {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public AutoTestStep description(String description) {
+  public AutoTestStep description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -107,12 +108,12 @@ public class AutoTestStep {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public AutoTestStep steps(List<AutoTestStep> steps) {
+  public AutoTestStep steps(@jakarta.annotation.Nullable List<AutoTestStep> steps) {
     this.steps = JsonNullable.<List<AutoTestStep>>of(steps);
     return this;
   }
@@ -152,7 +153,7 @@ public class AutoTestStep {
     this.steps = steps;
   }
 
-  public void setSteps(List<AutoTestStep> steps) {
+  public void setSteps(@jakarta.annotation.Nullable List<AutoTestStep> steps) {
     this.steps = JsonNullable.<List<AutoTestStep>>of(steps);
   }
 

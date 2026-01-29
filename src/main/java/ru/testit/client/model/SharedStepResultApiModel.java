@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   SharedStepResultApiModel.JSON_PROPERTY_STEP_ID,
   SharedStepResultApiModel.JSON_PROPERTY_OUTCOME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SharedStepResultApiModel {
   public static final String JSON_PROPERTY_STEP_ID = "stepId";
+  @jakarta.annotation.Nonnull
   private UUID stepId;
 
   public static final String JSON_PROPERTY_OUTCOME = "outcome";
+  @jakarta.annotation.Nonnull
   private String outcome;
 
   public SharedStepResultApiModel() { 
   }
 
-  public SharedStepResultApiModel stepId(UUID stepId) {
+  public SharedStepResultApiModel stepId(@jakarta.annotation.Nonnull UUID stepId) {
     this.stepId = stepId;
     return this;
   }
@@ -65,12 +67,12 @@ public class SharedStepResultApiModel {
 
   @JsonProperty(JSON_PROPERTY_STEP_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStepId(UUID stepId) {
+  public void setStepId(@jakarta.annotation.Nonnull UUID stepId) {
     this.stepId = stepId;
   }
 
 
-  public SharedStepResultApiModel outcome(String outcome) {
+  public SharedStepResultApiModel outcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
     return this;
   }
@@ -90,7 +92,7 @@ public class SharedStepResultApiModel {
 
   @JsonProperty(JSON_PROPERTY_OUTCOME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOutcome(String outcome) {
+  public void setOutcome(@jakarta.annotation.Nonnull String outcome) {
     this.outcome = outcome;
   }
 

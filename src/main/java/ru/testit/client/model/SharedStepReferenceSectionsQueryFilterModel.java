@@ -44,7 +44,7 @@ import ru.testit.client.invoker.JSON;
   SharedStepReferenceSectionsQueryFilterModel.JSON_PROPERTY_CREATED_DATE,
   SharedStepReferenceSectionsQueryFilterModel.JSON_PROPERTY_MODIFIED_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SharedStepReferenceSectionsQueryFilterModel {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
@@ -64,7 +64,7 @@ public class SharedStepReferenceSectionsQueryFilterModel {
   public SharedStepReferenceSectionsQueryFilterModel() { 
   }
 
-  public SharedStepReferenceSectionsQueryFilterModel name(String name) {
+  public SharedStepReferenceSectionsQueryFilterModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -92,12 +92,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel createdByIds(Set<UUID> createdByIds) {
+  public SharedStepReferenceSectionsQueryFilterModel createdByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
     return this;
   }
@@ -137,12 +137,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(Set<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable Set<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<Set<UUID>>of(createdByIds);
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel modifiedByIds(Set<UUID> modifiedByIds) {
+  public SharedStepReferenceSectionsQueryFilterModel modifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
     return this;
   }
@@ -182,12 +182,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     this.modifiedByIds = modifiedByIds;
   }
 
-  public void setModifiedByIds(Set<UUID> modifiedByIds) {
+  public void setModifiedByIds(@jakarta.annotation.Nullable Set<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<Set<UUID>>of(modifiedByIds);
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public SharedStepReferenceSectionsQueryFilterModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -215,12 +215,12 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public SharedStepReferenceSectionsQueryFilterModel modifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public SharedStepReferenceSectionsQueryFilterModel modifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
     return this;
   }
@@ -248,7 +248,7 @@ public class SharedStepReferenceSectionsQueryFilterModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(DateTimeRangeSelectorModel modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel modifiedDate) {
     this.modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>of(modifiedDate);
   }
 

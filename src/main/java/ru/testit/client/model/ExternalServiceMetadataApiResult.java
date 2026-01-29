@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import ru.testit.client.model.ExternalServiceCategoryApiResult;
+import ru.testit.client.model.ApiExternalServiceCategory;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -36,24 +36,28 @@ import ru.testit.client.invoker.JSON;
   ExternalServiceMetadataApiResult.JSON_PROPERTY_ICON_URL,
   ExternalServiceMetadataApiResult.JSON_PROPERTY_CATEGORY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ExternalServiceMetadataApiResult {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_CODE = "code";
+  @jakarta.annotation.Nonnull
   private String code;
 
   public static final String JSON_PROPERTY_ICON_URL = "iconUrl";
+  @jakarta.annotation.Nonnull
   private String iconUrl;
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
-  private ExternalServiceCategoryApiResult category;
+  @jakarta.annotation.Nonnull
+  private ApiExternalServiceCategory category;
 
   public ExternalServiceMetadataApiResult() { 
   }
 
-  public ExternalServiceMetadataApiResult name(String name) {
+  public ExternalServiceMetadataApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -73,12 +77,12 @@ public class ExternalServiceMetadataApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ExternalServiceMetadataApiResult code(String code) {
+  public ExternalServiceMetadataApiResult code(@jakarta.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
@@ -98,12 +102,12 @@ public class ExternalServiceMetadataApiResult {
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCode(String code) {
+  public void setCode(@jakarta.annotation.Nonnull String code) {
     this.code = code;
   }
 
 
-  public ExternalServiceMetadataApiResult iconUrl(String iconUrl) {
+  public ExternalServiceMetadataApiResult iconUrl(@jakarta.annotation.Nonnull String iconUrl) {
     this.iconUrl = iconUrl;
     return this;
   }
@@ -123,12 +127,12 @@ public class ExternalServiceMetadataApiResult {
 
   @JsonProperty(JSON_PROPERTY_ICON_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIconUrl(String iconUrl) {
+  public void setIconUrl(@jakarta.annotation.Nonnull String iconUrl) {
     this.iconUrl = iconUrl;
   }
 
 
-  public ExternalServiceMetadataApiResult category(ExternalServiceCategoryApiResult category) {
+  public ExternalServiceMetadataApiResult category(@jakarta.annotation.Nonnull ApiExternalServiceCategory category) {
     this.category = category;
     return this;
   }
@@ -141,14 +145,14 @@ public class ExternalServiceMetadataApiResult {
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ExternalServiceCategoryApiResult getCategory() {
+  public ApiExternalServiceCategory getCategory() {
     return category;
   }
 
 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCategory(ExternalServiceCategoryApiResult category) {
+  public void setCategory(@jakarta.annotation.Nonnull ApiExternalServiceCategory category) {
     this.category = category;
   }
 

@@ -44,7 +44,7 @@ import ru.testit.client.invoker.JSON;
   ProblemDetails.JSON_PROPERTY_DETAIL,
   ProblemDetails.JSON_PROPERTY_INSTANCE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProblemDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
@@ -64,7 +64,7 @@ public class ProblemDetails {
   public ProblemDetails() { 
   }
 
-  public ProblemDetails type(String type) {
+  public ProblemDetails type(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
     return this;
   }
@@ -92,12 +92,12 @@ public class ProblemDetails {
     this.type = type;
   }
 
-  public void setType(String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = JsonNullable.<String>of(type);
   }
 
 
-  public ProblemDetails title(String title) {
+  public ProblemDetails title(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
@@ -125,12 +125,12 @@ public class ProblemDetails {
     this.title = title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
 
-  public ProblemDetails status(Integer status) {
+  public ProblemDetails status(@jakarta.annotation.Nullable Integer status) {
     this.status = JsonNullable.<Integer>of(status);
     return this;
   }
@@ -158,12 +158,12 @@ public class ProblemDetails {
     this.status = status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(@jakarta.annotation.Nullable Integer status) {
     this.status = JsonNullable.<Integer>of(status);
   }
 
 
-  public ProblemDetails detail(String detail) {
+  public ProblemDetails detail(@jakarta.annotation.Nullable String detail) {
     this.detail = JsonNullable.<String>of(detail);
     return this;
   }
@@ -191,12 +191,12 @@ public class ProblemDetails {
     this.detail = detail;
   }
 
-  public void setDetail(String detail) {
+  public void setDetail(@jakarta.annotation.Nullable String detail) {
     this.detail = JsonNullable.<String>of(detail);
   }
 
 
-  public ProblemDetails instance(String instance) {
+  public ProblemDetails instance(@jakarta.annotation.Nullable String instance) {
     this.instance = JsonNullable.<String>of(instance);
     return this;
   }
@@ -224,7 +224,7 @@ public class ProblemDetails {
     this.instance = instance;
   }
 
-  public void setInstance(String instance) {
+  public void setInstance(@jakarta.annotation.Nullable String instance) {
     this.instance = JsonNullable.<String>of(instance);
   }
 

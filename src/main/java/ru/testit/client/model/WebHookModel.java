@@ -62,48 +62,62 @@ import ru.testit.client.invoker.JSON;
   WebHookModel.JSON_PROPERTY_MODIFIED_DATE,
   WebHookModel.JSON_PROPERTY_MODIFIED_BY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebHookModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
+  @jakarta.annotation.Nonnull
   private WebHookEventTypeModel eventType;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @jakarta.annotation.Nonnull
   private String url;
 
   public static final String JSON_PROPERTY_REQUEST_TYPE = "requestType";
+  @jakarta.annotation.Nonnull
   private RequestTypeModel requestType;
 
   public static final String JSON_PROPERTY_SHOULD_SEND_BODY = "shouldSendBody";
+  @jakarta.annotation.Nonnull
   private Boolean shouldSendBody;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  @jakarta.annotation.Nonnull
   private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_SHOULD_SEND_CUSTOM_BODY = "shouldSendCustomBody";
+  @jakarta.annotation.Nonnull
   private Boolean shouldSendCustomBody;
 
   public static final String JSON_PROPERTY_SHOULD_REPLACE_PARAMETERS = "shouldReplaceParameters";
+  @jakarta.annotation.Nonnull
   private Boolean shouldReplaceParameters;
 
   public static final String JSON_PROPERTY_SHOULD_ESCAPE_PARAMETERS = "shouldEscapeParameters";
+  @jakarta.annotation.Nonnull
   private Boolean shouldEscapeParameters;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
+  @jakarta.annotation.Nonnull
   private OffsetDateTime createdDate;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -130,7 +144,7 @@ public class WebHookModel {
   public WebHookModel() { 
   }
 
-  public WebHookModel name(String name) {
+  public WebHookModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -150,12 +164,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public WebHookModel eventType(WebHookEventTypeModel eventType) {
+  public WebHookModel eventType(@jakarta.annotation.Nonnull WebHookEventTypeModel eventType) {
     this.eventType = eventType;
     return this;
   }
@@ -175,12 +189,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEventType(WebHookEventTypeModel eventType) {
+  public void setEventType(@jakarta.annotation.Nonnull WebHookEventTypeModel eventType) {
     this.eventType = eventType;
   }
 
 
-  public WebHookModel url(String url) {
+  public WebHookModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -200,12 +214,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(String url) {
+  public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public WebHookModel requestType(RequestTypeModel requestType) {
+  public WebHookModel requestType(@jakarta.annotation.Nonnull RequestTypeModel requestType) {
     this.requestType = requestType;
     return this;
   }
@@ -225,12 +239,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequestType(RequestTypeModel requestType) {
+  public void setRequestType(@jakarta.annotation.Nonnull RequestTypeModel requestType) {
     this.requestType = requestType;
   }
 
 
-  public WebHookModel shouldSendBody(Boolean shouldSendBody) {
+  public WebHookModel shouldSendBody(@jakarta.annotation.Nonnull Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
     return this;
   }
@@ -250,12 +264,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_BODY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setShouldSendBody(Boolean shouldSendBody) {
+  public void setShouldSendBody(@jakarta.annotation.Nonnull Boolean shouldSendBody) {
     this.shouldSendBody = shouldSendBody;
   }
 
 
-  public WebHookModel isEnabled(Boolean isEnabled) {
+  public WebHookModel isEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -275,12 +289,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
 
-  public WebHookModel shouldSendCustomBody(Boolean shouldSendCustomBody) {
+  public WebHookModel shouldSendCustomBody(@jakarta.annotation.Nonnull Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
     return this;
   }
@@ -300,12 +314,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_SHOULD_SEND_CUSTOM_BODY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setShouldSendCustomBody(Boolean shouldSendCustomBody) {
+  public void setShouldSendCustomBody(@jakarta.annotation.Nonnull Boolean shouldSendCustomBody) {
     this.shouldSendCustomBody = shouldSendCustomBody;
   }
 
 
-  public WebHookModel shouldReplaceParameters(Boolean shouldReplaceParameters) {
+  public WebHookModel shouldReplaceParameters(@jakarta.annotation.Nonnull Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
     return this;
   }
@@ -325,12 +339,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_SHOULD_REPLACE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setShouldReplaceParameters(Boolean shouldReplaceParameters) {
+  public void setShouldReplaceParameters(@jakarta.annotation.Nonnull Boolean shouldReplaceParameters) {
     this.shouldReplaceParameters = shouldReplaceParameters;
   }
 
 
-  public WebHookModel shouldEscapeParameters(Boolean shouldEscapeParameters) {
+  public WebHookModel shouldEscapeParameters(@jakarta.annotation.Nonnull Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
     return this;
   }
@@ -350,12 +364,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_SHOULD_ESCAPE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setShouldEscapeParameters(Boolean shouldEscapeParameters) {
+  public void setShouldEscapeParameters(@jakarta.annotation.Nonnull Boolean shouldEscapeParameters) {
     this.shouldEscapeParameters = shouldEscapeParameters;
   }
 
 
-  public WebHookModel createdDate(OffsetDateTime createdDate) {
+  public WebHookModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -375,12 +389,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
 
-  public WebHookModel createdById(UUID createdById) {
+  public WebHookModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -400,12 +414,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WebHookModel projectId(UUID projectId) {
+  public WebHookModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -425,12 +439,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WebHookModel id(UUID id) {
+  public WebHookModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -450,12 +464,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WebHookModel isDeleted(Boolean isDeleted) {
+  public WebHookModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -475,12 +489,12 @@ public class WebHookModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public WebHookModel description(String description) {
+  public WebHookModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -508,12 +522,12 @@ public class WebHookModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public WebHookModel headers(Map<String, String> headers) {
+  public WebHookModel headers(@jakarta.annotation.Nullable Map<String, String> headers) {
     this.headers = JsonNullable.<Map<String, String>>of(headers);
     return this;
   }
@@ -553,12 +567,12 @@ public class WebHookModel {
     this.headers = headers;
   }
 
-  public void setHeaders(Map<String, String> headers) {
+  public void setHeaders(@jakarta.annotation.Nullable Map<String, String> headers) {
     this.headers = JsonNullable.<Map<String, String>>of(headers);
   }
 
 
-  public WebHookModel queryParameters(Map<String, String> queryParameters) {
+  public WebHookModel queryParameters(@jakarta.annotation.Nullable Map<String, String> queryParameters) {
     this.queryParameters = JsonNullable.<Map<String, String>>of(queryParameters);
     return this;
   }
@@ -598,12 +612,12 @@ public class WebHookModel {
     this.queryParameters = queryParameters;
   }
 
-  public void setQueryParameters(Map<String, String> queryParameters) {
+  public void setQueryParameters(@jakarta.annotation.Nullable Map<String, String> queryParameters) {
     this.queryParameters = JsonNullable.<Map<String, String>>of(queryParameters);
   }
 
 
-  public WebHookModel customBody(String customBody) {
+  public WebHookModel customBody(@jakarta.annotation.Nullable String customBody) {
     this.customBody = JsonNullable.<String>of(customBody);
     return this;
   }
@@ -631,12 +645,12 @@ public class WebHookModel {
     this.customBody = customBody;
   }
 
-  public void setCustomBody(String customBody) {
+  public void setCustomBody(@jakarta.annotation.Nullable String customBody) {
     this.customBody = JsonNullable.<String>of(customBody);
   }
 
 
-  public WebHookModel customBodyMediaType(String customBodyMediaType) {
+  public WebHookModel customBodyMediaType(@jakarta.annotation.Nullable String customBodyMediaType) {
     this.customBodyMediaType = JsonNullable.<String>of(customBodyMediaType);
     return this;
   }
@@ -664,12 +678,12 @@ public class WebHookModel {
     this.customBodyMediaType = customBodyMediaType;
   }
 
-  public void setCustomBodyMediaType(String customBodyMediaType) {
+  public void setCustomBodyMediaType(@jakarta.annotation.Nullable String customBodyMediaType) {
     this.customBodyMediaType = JsonNullable.<String>of(customBodyMediaType);
   }
 
 
-  public WebHookModel modifiedDate(OffsetDateTime modifiedDate) {
+  public WebHookModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -697,12 +711,12 @@ public class WebHookModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public WebHookModel modifiedById(UUID modifiedById) {
+  public WebHookModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -730,7 +744,7 @@ public class WebHookModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 

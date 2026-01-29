@@ -40,9 +40,10 @@ import ru.testit.client.invoker.JSON;
   CreateProjectApiModel.JSON_PROPERTY_IS_FAVORITE,
   CreateProjectApiModel.JSON_PROPERTY_WORKFLOW_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateProjectApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
@@ -57,7 +58,7 @@ public class CreateProjectApiModel {
   public CreateProjectApiModel() { 
   }
 
-  public CreateProjectApiModel name(String name) {
+  public CreateProjectApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -77,12 +78,12 @@ public class CreateProjectApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public CreateProjectApiModel description(String description) {
+  public CreateProjectApiModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -110,12 +111,12 @@ public class CreateProjectApiModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public CreateProjectApiModel isFavorite(Boolean isFavorite) {
+  public CreateProjectApiModel isFavorite(@jakarta.annotation.Nullable Boolean isFavorite) {
     this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
     return this;
   }
@@ -143,12 +144,12 @@ public class CreateProjectApiModel {
     this.isFavorite = isFavorite;
   }
 
-  public void setIsFavorite(Boolean isFavorite) {
+  public void setIsFavorite(@jakarta.annotation.Nullable Boolean isFavorite) {
     this.isFavorite = JsonNullable.<Boolean>of(isFavorite);
   }
 
 
-  public CreateProjectApiModel workflowId(UUID workflowId) {
+  public CreateProjectApiModel workflowId(@jakarta.annotation.Nullable UUID workflowId) {
     this.workflowId = JsonNullable.<UUID>of(workflowId);
     return this;
   }
@@ -176,7 +177,7 @@ public class CreateProjectApiModel {
     this.workflowId = workflowId;
   }
 
-  public void setWorkflowId(UUID workflowId) {
+  public void setWorkflowId(@jakarta.annotation.Nullable UUID workflowId) {
     this.workflowId = JsonNullable.<UUID>of(workflowId);
   }
 

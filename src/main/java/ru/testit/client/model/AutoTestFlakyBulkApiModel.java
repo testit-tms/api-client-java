@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   AutoTestFlakyBulkApiModel.JSON_PROPERTY_AUTO_TEST_SELECT,
   AutoTestFlakyBulkApiModel.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestFlakyBulkApiModel {
   public static final String JSON_PROPERTY_AUTO_TEST_SELECT = "autoTestSelect";
+  @jakarta.annotation.Nonnull
   private AutoTestSelectApiModel autoTestSelect;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private Boolean value;
 
   public AutoTestFlakyBulkApiModel() { 
   }
 
-  public AutoTestFlakyBulkApiModel autoTestSelect(AutoTestSelectApiModel autoTestSelect) {
+  public AutoTestFlakyBulkApiModel autoTestSelect(@jakarta.annotation.Nonnull AutoTestSelectApiModel autoTestSelect) {
     this.autoTestSelect = autoTestSelect;
     return this;
   }
@@ -65,12 +67,12 @@ public class AutoTestFlakyBulkApiModel {
 
   @JsonProperty(JSON_PROPERTY_AUTO_TEST_SELECT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutoTestSelect(AutoTestSelectApiModel autoTestSelect) {
+  public void setAutoTestSelect(@jakarta.annotation.Nonnull AutoTestSelectApiModel autoTestSelect) {
     this.autoTestSelect = autoTestSelect;
   }
 
 
-  public AutoTestFlakyBulkApiModel value(Boolean value) {
+  public AutoTestFlakyBulkApiModel value(@jakarta.annotation.Nonnull Boolean value) {
     this.value = value;
     return this;
   }
@@ -90,7 +92,7 @@ public class AutoTestFlakyBulkApiModel {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Boolean value) {
+  public void setValue(@jakarta.annotation.Nonnull Boolean value) {
     this.value = value;
   }
 

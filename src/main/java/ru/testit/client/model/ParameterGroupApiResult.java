@@ -40,24 +40,28 @@ import ru.testit.client.invoker.JSON;
   ParameterGroupApiResult.JSON_PROPERTY_VALUES,
   ParameterGroupApiResult.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ParameterGroupApiResult {
   public static final String JSON_PROPERTY_PARAMETER_KEY_ID = "parameterKeyId";
+  @jakarta.annotation.Nonnull
   private UUID parameterKeyId;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_VALUES = "values";
+  @jakarta.annotation.Nonnull
   private Map<String, String> values = new HashMap<>();
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> projectIds = new ArrayList<>();
 
   public ParameterGroupApiResult() { 
   }
 
-  public ParameterGroupApiResult parameterKeyId(UUID parameterKeyId) {
+  public ParameterGroupApiResult parameterKeyId(@jakarta.annotation.Nonnull UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
     return this;
   }
@@ -77,12 +81,12 @@ public class ParameterGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_PARAMETER_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameterKeyId(UUID parameterKeyId) {
+  public void setParameterKeyId(@jakarta.annotation.Nonnull UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
   }
 
 
-  public ParameterGroupApiResult name(String name) {
+  public ParameterGroupApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -102,12 +106,12 @@ public class ParameterGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ParameterGroupApiResult values(Map<String, String> values) {
+  public ParameterGroupApiResult values(@jakarta.annotation.Nonnull Map<String, String> values) {
     this.values = values;
     return this;
   }
@@ -135,12 +139,12 @@ public class ParameterGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValues(Map<String, String> values) {
+  public void setValues(@jakarta.annotation.Nonnull Map<String, String> values) {
     this.values = values;
   }
 
 
-  public ParameterGroupApiResult projectIds(List<UUID> projectIds) {
+  public ParameterGroupApiResult projectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -168,7 +172,7 @@ public class ParameterGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 

@@ -34,18 +34,20 @@ import ru.testit.client.invoker.JSON;
   WorkItemCommentPutModel.JSON_PROPERTY_TEXT,
   WorkItemCommentPutModel.JSON_PROPERTY_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemCommentPutModel {
   public static final String JSON_PROPERTY_TEXT = "text";
+  @jakarta.annotation.Nonnull
   private String text;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public WorkItemCommentPutModel() { 
   }
 
-  public WorkItemCommentPutModel text(String text) {
+  public WorkItemCommentPutModel text(@jakarta.annotation.Nonnull String text) {
     this.text = text;
     return this;
   }
@@ -65,12 +67,12 @@ public class WorkItemCommentPutModel {
 
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setText(String text) {
+  public void setText(@jakarta.annotation.Nonnull String text) {
     this.text = text;
   }
 
 
-  public WorkItemCommentPutModel id(UUID id) {
+  public WorkItemCommentPutModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -90,7 +92,7 @@ public class WorkItemCommentPutModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 

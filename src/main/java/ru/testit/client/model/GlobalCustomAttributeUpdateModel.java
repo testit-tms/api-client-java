@@ -42,9 +42,10 @@ import ru.testit.client.invoker.JSON;
   GlobalCustomAttributeUpdateModel.JSON_PROPERTY_IS_ENABLED,
   GlobalCustomAttributeUpdateModel.JSON_PROPERTY_IS_REQUIRED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GlobalCustomAttributeUpdateModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
@@ -59,7 +60,7 @@ public class GlobalCustomAttributeUpdateModel {
   public GlobalCustomAttributeUpdateModel() { 
   }
 
-  public GlobalCustomAttributeUpdateModel name(String name) {
+  public GlobalCustomAttributeUpdateModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -79,12 +80,12 @@ public class GlobalCustomAttributeUpdateModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public GlobalCustomAttributeUpdateModel options(List<CustomAttributeOptionModel> options) {
+  public GlobalCustomAttributeUpdateModel options(@jakarta.annotation.Nullable List<CustomAttributeOptionModel> options) {
     this.options = JsonNullable.<List<CustomAttributeOptionModel>>of(options);
     return this;
   }
@@ -102,7 +103,7 @@ public class GlobalCustomAttributeUpdateModel {
   }
 
   /**
-   * Collection of attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
   @jakarta.annotation.Nullable
@@ -124,12 +125,12 @@ public class GlobalCustomAttributeUpdateModel {
     this.options = options;
   }
 
-  public void setOptions(List<CustomAttributeOptionModel> options) {
+  public void setOptions(@jakarta.annotation.Nullable List<CustomAttributeOptionModel> options) {
     this.options = JsonNullable.<List<CustomAttributeOptionModel>>of(options);
   }
 
 
-  public GlobalCustomAttributeUpdateModel isEnabled(Boolean isEnabled) {
+  public GlobalCustomAttributeUpdateModel isEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
     return this;
   }
@@ -157,12 +158,12 @@ public class GlobalCustomAttributeUpdateModel {
     this.isEnabled = isEnabled;
   }
 
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nullable Boolean isEnabled) {
     this.isEnabled = JsonNullable.<Boolean>of(isEnabled);
   }
 
 
-  public GlobalCustomAttributeUpdateModel isRequired(Boolean isRequired) {
+  public GlobalCustomAttributeUpdateModel isRequired(@jakarta.annotation.Nullable Boolean isRequired) {
     this.isRequired = JsonNullable.<Boolean>of(isRequired);
     return this;
   }
@@ -190,7 +191,7 @@ public class GlobalCustomAttributeUpdateModel {
     this.isRequired = isRequired;
   }
 
-  public void setIsRequired(Boolean isRequired) {
+  public void setIsRequired(@jakarta.annotation.Nullable Boolean isRequired) {
     this.isRequired = JsonNullable.<Boolean>of(isRequired);
   }
 

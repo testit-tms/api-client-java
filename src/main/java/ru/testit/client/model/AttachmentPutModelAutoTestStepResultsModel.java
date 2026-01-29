@@ -52,7 +52,7 @@ import ru.testit.client.invoker.JSON;
   AttachmentPutModelAutoTestStepResultsModel.JSON_PROPERTY_ATTACHMENTS,
   AttachmentPutModelAutoTestStepResultsModel.JSON_PROPERTY_PARAMETERS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AttachmentPutModelAutoTestStepResultsModel {
   public static final String JSON_PROPERTY_TITLE = "title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
@@ -87,7 +87,7 @@ public class AttachmentPutModelAutoTestStepResultsModel {
   public AttachmentPutModelAutoTestStepResultsModel() { 
   }
 
-  public AttachmentPutModelAutoTestStepResultsModel title(String title) {
+  public AttachmentPutModelAutoTestStepResultsModel title(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
@@ -115,12 +115,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.title = title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel description(String description) {
+  public AttachmentPutModelAutoTestStepResultsModel description(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
@@ -148,12 +148,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.description = description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel info(String info) {
+  public AttachmentPutModelAutoTestStepResultsModel info(@jakarta.annotation.Nullable String info) {
     this.info = JsonNullable.<String>of(info);
     return this;
   }
@@ -181,12 +181,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.info = info;
   }
 
-  public void setInfo(String info) {
+  public void setInfo(@jakarta.annotation.Nullable String info) {
     this.info = JsonNullable.<String>of(info);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel startedOn(OffsetDateTime startedOn) {
+  public AttachmentPutModelAutoTestStepResultsModel startedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
     return this;
   }
@@ -214,12 +214,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.startedOn = startedOn;
   }
 
-  public void setStartedOn(OffsetDateTime startedOn) {
+  public void setStartedOn(@jakarta.annotation.Nullable OffsetDateTime startedOn) {
     this.startedOn = JsonNullable.<OffsetDateTime>of(startedOn);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel completedOn(OffsetDateTime completedOn) {
+  public AttachmentPutModelAutoTestStepResultsModel completedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
     return this;
   }
@@ -247,12 +247,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.completedOn = completedOn;
   }
 
-  public void setCompletedOn(OffsetDateTime completedOn) {
+  public void setCompletedOn(@jakarta.annotation.Nullable OffsetDateTime completedOn) {
     this.completedOn = JsonNullable.<OffsetDateTime>of(completedOn);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel duration(Long duration) {
+  public AttachmentPutModelAutoTestStepResultsModel duration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
     return this;
   }
@@ -282,12 +282,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.duration = duration;
   }
 
-  public void setDuration(Long duration) {
+  public void setDuration(@jakarta.annotation.Nullable Long duration) {
     this.duration = JsonNullable.<Long>of(duration);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel outcome(AvailableTestResultOutcome outcome) {
+  public AttachmentPutModelAutoTestStepResultsModel outcome(@jakarta.annotation.Nullable AvailableTestResultOutcome outcome) {
     this.outcome = JsonNullable.<AvailableTestResultOutcome>of(outcome);
     return this;
   }
@@ -315,12 +315,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.outcome = outcome;
   }
 
-  public void setOutcome(AvailableTestResultOutcome outcome) {
+  public void setOutcome(@jakarta.annotation.Nullable AvailableTestResultOutcome outcome) {
     this.outcome = JsonNullable.<AvailableTestResultOutcome>of(outcome);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel stepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+  public AttachmentPutModelAutoTestStepResultsModel stepResults(@jakarta.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
     this.stepResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(stepResults);
     return this;
   }
@@ -360,12 +360,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.stepResults = stepResults;
   }
 
-  public void setStepResults(List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
+  public void setStepResults(@jakarta.annotation.Nullable List<AttachmentPutModelAutoTestStepResultsModel> stepResults) {
     this.stepResults = JsonNullable.<List<AttachmentPutModelAutoTestStepResultsModel>>of(stepResults);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel attachments(List<AttachmentPutModel> attachments) {
+  public AttachmentPutModelAutoTestStepResultsModel attachments(@jakarta.annotation.Nullable List<AttachmentPutModel> attachments) {
     this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
     return this;
   }
@@ -383,7 +383,7 @@ public class AttachmentPutModelAutoTestStepResultsModel {
   }
 
   /**
-   * /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt;
+   * /// &lt;summary&gt; Specifies an attachment GUID. Multiple values can be sent. &lt;/summary&gt;
    * @return attachments
    */
   @jakarta.annotation.Nullable
@@ -405,12 +405,12 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.attachments = attachments;
   }
 
-  public void setAttachments(List<AttachmentPutModel> attachments) {
+  public void setAttachments(@jakarta.annotation.Nullable List<AttachmentPutModel> attachments) {
     this.attachments = JsonNullable.<List<AttachmentPutModel>>of(attachments);
   }
 
 
-  public AttachmentPutModelAutoTestStepResultsModel parameters(Map<String, String> parameters) {
+  public AttachmentPutModelAutoTestStepResultsModel parameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
     return this;
   }
@@ -450,7 +450,7 @@ public class AttachmentPutModelAutoTestStepResultsModel {
     this.parameters = parameters;
   }
 
-  public void setParameters(Map<String, String> parameters) {
+  public void setParameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
     this.parameters = JsonNullable.<Map<String, String>>of(parameters);
   }
 

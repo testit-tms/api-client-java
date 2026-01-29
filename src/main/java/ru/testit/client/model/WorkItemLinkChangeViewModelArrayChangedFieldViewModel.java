@@ -40,7 +40,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemLinkChangeViewModelArrayChangedFieldViewModel.JSON_PROPERTY_OLD_VALUE,
   WorkItemLinkChangeViewModelArrayChangedFieldViewModel.JSON_PROPERTY_NEW_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
   public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
   private JsonNullable<List<WorkItemLinkChangeViewModel>> oldValue = JsonNullable.<List<WorkItemLinkChangeViewModel>>undefined();
@@ -51,7 +51,7 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
   public WorkItemLinkChangeViewModelArrayChangedFieldViewModel() { 
   }
 
-  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel oldValue(List<WorkItemLinkChangeViewModel> oldValue) {
+  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel oldValue(@jakarta.annotation.Nullable List<WorkItemLinkChangeViewModel> oldValue) {
     this.oldValue = JsonNullable.<List<WorkItemLinkChangeViewModel>>of(oldValue);
     return this;
   }
@@ -91,12 +91,12 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
     this.oldValue = oldValue;
   }
 
-  public void setOldValue(List<WorkItemLinkChangeViewModel> oldValue) {
+  public void setOldValue(@jakarta.annotation.Nullable List<WorkItemLinkChangeViewModel> oldValue) {
     this.oldValue = JsonNullable.<List<WorkItemLinkChangeViewModel>>of(oldValue);
   }
 
 
-  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel newValue(List<WorkItemLinkChangeViewModel> newValue) {
+  public WorkItemLinkChangeViewModelArrayChangedFieldViewModel newValue(@jakarta.annotation.Nullable List<WorkItemLinkChangeViewModel> newValue) {
     this.newValue = JsonNullable.<List<WorkItemLinkChangeViewModel>>of(newValue);
     return this;
   }
@@ -136,7 +136,7 @@ public class WorkItemLinkChangeViewModelArrayChangedFieldViewModel {
     this.newValue = newValue;
   }
 
-  public void setNewValue(List<WorkItemLinkChangeViewModel> newValue) {
+  public void setNewValue(@jakarta.annotation.Nullable List<WorkItemLinkChangeViewModel> newValue) {
     this.newValue = JsonNullable.<List<WorkItemLinkChangeViewModel>>of(newValue);
   }
 

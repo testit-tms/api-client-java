@@ -39,9 +39,10 @@ import ru.testit.client.invoker.JSON;
   AutoTestSelectModel.JSON_PROPERTY_FILTER,
   AutoTestSelectModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestSelectModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private AutoTestFilterModel filter;
 
   public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
@@ -50,7 +51,7 @@ public class AutoTestSelectModel {
   public AutoTestSelectModel() { 
   }
 
-  public AutoTestSelectModel filter(AutoTestFilterModel filter) {
+  public AutoTestSelectModel filter(@jakarta.annotation.Nonnull AutoTestFilterModel filter) {
     this.filter = filter;
     return this;
   }
@@ -70,12 +71,12 @@ public class AutoTestSelectModel {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(AutoTestFilterModel filter) {
+  public void setFilter(@jakarta.annotation.Nonnull AutoTestFilterModel filter) {
     this.filter = filter;
   }
 
 
-  public AutoTestSelectModel extractionModel(AutoTestsExtractionModel extractionModel) {
+  public AutoTestSelectModel extractionModel(@jakarta.annotation.Nullable AutoTestsExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<AutoTestsExtractionModel>of(extractionModel);
     return this;
   }
@@ -103,7 +104,7 @@ public class AutoTestSelectModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(AutoTestsExtractionModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable AutoTestsExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<AutoTestsExtractionModel>of(extractionModel);
   }
 

@@ -39,27 +39,32 @@ import ru.testit.client.invoker.JSON;
   ParameterShortModel.JSON_PROPERTY_NAME,
   ParameterShortModel.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ParameterShortModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_PARAMETER_KEY_ID = "parameterKeyId";
+  @jakarta.annotation.Nonnull
   private UUID parameterKeyId;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private String value;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> projectIds = new ArrayList<>();
 
   public ParameterShortModel() { 
   }
 
-  public ParameterShortModel id(UUID id) {
+  public ParameterShortModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -79,12 +84,12 @@ public class ParameterShortModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public ParameterShortModel parameterKeyId(UUID parameterKeyId) {
+  public ParameterShortModel parameterKeyId(@jakarta.annotation.Nonnull UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
     return this;
   }
@@ -104,12 +109,12 @@ public class ParameterShortModel {
 
   @JsonProperty(JSON_PROPERTY_PARAMETER_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameterKeyId(UUID parameterKeyId) {
+  public void setParameterKeyId(@jakarta.annotation.Nonnull UUID parameterKeyId) {
     this.parameterKeyId = parameterKeyId;
   }
 
 
-  public ParameterShortModel value(String value) {
+  public ParameterShortModel value(@jakarta.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
@@ -129,12 +134,12 @@ public class ParameterShortModel {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@jakarta.annotation.Nonnull String value) {
     this.value = value;
   }
 
 
-  public ParameterShortModel name(String name) {
+  public ParameterShortModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -154,12 +159,12 @@ public class ParameterShortModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public ParameterShortModel projectIds(List<UUID> projectIds) {
+  public ParameterShortModel projectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -187,7 +192,7 @@ public class ParameterShortModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 

@@ -70,60 +70,78 @@ import ru.testit.client.invoker.JSON;
   WorkItemShortModel.JSON_PROPERTY_MODIFIED_DATE,
   WorkItemShortModel.JSON_PROPERTY_TAG_NAMES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemShortModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_VERSION_ID = "versionId";
+  @jakarta.annotation.Nonnull
   private UUID versionId;
 
   public static final String JSON_PROPERTY_VERSION_NUMBER = "versionNumber";
+  @jakarta.annotation.Nonnull
   private Integer versionNumber;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_ENTITY_TYPE_NAME = "entityTypeName";
+  @jakarta.annotation.Nonnull
   private String entityTypeName;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
+  @jakarta.annotation.Nonnull
   private UUID projectId;
 
   public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
+  @jakarta.annotation.Nonnull
   private UUID sectionId;
 
   public static final String JSON_PROPERTY_SECTION_NAME = "sectionName";
+  @jakarta.annotation.Nonnull
   private String sectionName;
 
   public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
+  @jakarta.annotation.Nonnull
   private Boolean isAutomated;
 
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
+  @jakarta.annotation.Nonnull
   private Long globalId;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
+  @jakarta.annotation.Nonnull
   private Integer duration;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
+  @jakarta.annotation.Nonnull
   private UUID createdById;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @jakarta.annotation.Nonnull
   private WorkItemStates state;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @jakarta.annotation.Nonnull
   private WorkItemPriorityModel priority;
 
   public static final String JSON_PROPERTY_SOURCE_TYPE = "sourceType";
+  @jakarta.annotation.Nonnull
   private WorkItemSourceTypeModel sourceType;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_ITERATIONS = "iterations";
+  @jakarta.annotation.Nonnull
   private List<IterationModel> iterations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKS = "links";
+  @jakarta.annotation.Nonnull
   private List<LinkShortModel> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MEDIAN_DURATION = "medianDuration";
@@ -147,7 +165,7 @@ public class WorkItemShortModel {
   public WorkItemShortModel() { 
   }
 
-  public WorkItemShortModel id(UUID id) {
+  public WorkItemShortModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -167,12 +185,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public WorkItemShortModel versionId(UUID versionId) {
+  public WorkItemShortModel versionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
     return this;
   }
@@ -192,12 +210,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_VERSION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionId(UUID versionId) {
+  public void setVersionId(@jakarta.annotation.Nonnull UUID versionId) {
     this.versionId = versionId;
   }
 
 
-  public WorkItemShortModel versionNumber(Integer versionNumber) {
+  public WorkItemShortModel versionNumber(@jakarta.annotation.Nonnull Integer versionNumber) {
     this.versionNumber = versionNumber;
     return this;
   }
@@ -217,12 +235,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_VERSION_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersionNumber(Integer versionNumber) {
+  public void setVersionNumber(@jakarta.annotation.Nonnull Integer versionNumber) {
     this.versionNumber = versionNumber;
   }
 
 
-  public WorkItemShortModel name(String name) {
+  public WorkItemShortModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -242,12 +260,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public WorkItemShortModel entityTypeName(String entityTypeName) {
+  public WorkItemShortModel entityTypeName(@jakarta.annotation.Nonnull String entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -267,12 +285,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEntityTypeName(String entityTypeName) {
+  public void setEntityTypeName(@jakarta.annotation.Nonnull String entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
 
-  public WorkItemShortModel projectId(UUID projectId) {
+  public WorkItemShortModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
     return this;
   }
@@ -292,12 +310,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(UUID projectId) {
+  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
   }
 
 
-  public WorkItemShortModel sectionId(UUID sectionId) {
+  public WorkItemShortModel sectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
     return this;
   }
@@ -317,12 +335,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_SECTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionId(UUID sectionId) {
+  public void setSectionId(@jakarta.annotation.Nonnull UUID sectionId) {
     this.sectionId = sectionId;
   }
 
 
-  public WorkItemShortModel sectionName(String sectionName) {
+  public WorkItemShortModel sectionName(@jakarta.annotation.Nonnull String sectionName) {
     this.sectionName = sectionName;
     return this;
   }
@@ -342,12 +360,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_SECTION_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionName(String sectionName) {
+  public void setSectionName(@jakarta.annotation.Nonnull String sectionName) {
     this.sectionName = sectionName;
   }
 
 
-  public WorkItemShortModel isAutomated(Boolean isAutomated) {
+  public WorkItemShortModel isAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
     return this;
   }
@@ -367,12 +385,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_IS_AUTOMATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsAutomated(Boolean isAutomated) {
+  public void setIsAutomated(@jakarta.annotation.Nonnull Boolean isAutomated) {
     this.isAutomated = isAutomated;
   }
 
 
-  public WorkItemShortModel globalId(Long globalId) {
+  public WorkItemShortModel globalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
     return this;
   }
@@ -392,12 +410,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_GLOBAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGlobalId(Long globalId) {
+  public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
   }
 
 
-  public WorkItemShortModel duration(Integer duration) {
+  public WorkItemShortModel duration(@jakarta.annotation.Nonnull Integer duration) {
     this.duration = duration;
     return this;
   }
@@ -417,12 +435,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(Integer duration) {
+  public void setDuration(@jakarta.annotation.Nonnull Integer duration) {
     this.duration = duration;
   }
 
 
-  public WorkItemShortModel createdById(UUID createdById) {
+  public WorkItemShortModel createdById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
     return this;
   }
@@ -442,12 +460,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedById(UUID createdById) {
+  public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
   }
 
 
-  public WorkItemShortModel state(WorkItemStates state) {
+  public WorkItemShortModel state(@jakarta.annotation.Nonnull WorkItemStates state) {
     this.state = state;
     return this;
   }
@@ -467,12 +485,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(WorkItemStates state) {
+  public void setState(@jakarta.annotation.Nonnull WorkItemStates state) {
     this.state = state;
   }
 
 
-  public WorkItemShortModel priority(WorkItemPriorityModel priority) {
+  public WorkItemShortModel priority(@jakarta.annotation.Nonnull WorkItemPriorityModel priority) {
     this.priority = priority;
     return this;
   }
@@ -492,12 +510,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPriority(WorkItemPriorityModel priority) {
+  public void setPriority(@jakarta.annotation.Nonnull WorkItemPriorityModel priority) {
     this.priority = priority;
   }
 
 
-  public WorkItemShortModel sourceType(WorkItemSourceTypeModel sourceType) {
+  public WorkItemShortModel sourceType(@jakarta.annotation.Nonnull WorkItemSourceTypeModel sourceType) {
     this.sourceType = sourceType;
     return this;
   }
@@ -517,12 +535,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_SOURCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSourceType(WorkItemSourceTypeModel sourceType) {
+  public void setSourceType(@jakarta.annotation.Nonnull WorkItemSourceTypeModel sourceType) {
     this.sourceType = sourceType;
   }
 
 
-  public WorkItemShortModel isDeleted(Boolean isDeleted) {
+  public WorkItemShortModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -542,12 +560,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public WorkItemShortModel iterations(List<IterationModel> iterations) {
+  public WorkItemShortModel iterations(@jakarta.annotation.Nonnull List<IterationModel> iterations) {
     this.iterations = iterations;
     return this;
   }
@@ -575,12 +593,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_ITERATIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIterations(List<IterationModel> iterations) {
+  public void setIterations(@jakarta.annotation.Nonnull List<IterationModel> iterations) {
     this.iterations = iterations;
   }
 
 
-  public WorkItemShortModel links(List<LinkShortModel> links) {
+  public WorkItemShortModel links(@jakarta.annotation.Nonnull List<LinkShortModel> links) {
     this.links = links;
     return this;
   }
@@ -608,12 +626,12 @@ public class WorkItemShortModel {
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(List<LinkShortModel> links) {
+  public void setLinks(@jakarta.annotation.Nonnull List<LinkShortModel> links) {
     this.links = links;
   }
 
 
-  public WorkItemShortModel medianDuration(Long medianDuration) {
+  public WorkItemShortModel medianDuration(@jakarta.annotation.Nullable Long medianDuration) {
     this.medianDuration = JsonNullable.<Long>of(medianDuration);
     return this;
   }
@@ -641,12 +659,12 @@ public class WorkItemShortModel {
     this.medianDuration = medianDuration;
   }
 
-  public void setMedianDuration(Long medianDuration) {
+  public void setMedianDuration(@jakarta.annotation.Nullable Long medianDuration) {
     this.medianDuration = JsonNullable.<Long>of(medianDuration);
   }
 
 
-  public WorkItemShortModel attributes(Map<String, Object> attributes) {
+  public WorkItemShortModel attributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
     return this;
   }
@@ -686,12 +704,12 @@ public class WorkItemShortModel {
     this.attributes = attributes;
   }
 
-  public void setAttributes(Map<String, Object> attributes) {
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
     this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
   }
 
 
-  public WorkItemShortModel modifiedById(UUID modifiedById) {
+  public WorkItemShortModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
     return this;
   }
@@ -719,12 +737,12 @@ public class WorkItemShortModel {
     this.modifiedById = modifiedById;
   }
 
-  public void setModifiedById(UUID modifiedById) {
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
     this.modifiedById = JsonNullable.<UUID>of(modifiedById);
   }
 
 
-  public WorkItemShortModel createdDate(OffsetDateTime createdDate) {
+  public WorkItemShortModel createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
     return this;
   }
@@ -752,12 +770,12 @@ public class WorkItemShortModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
     this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
   }
 
 
-  public WorkItemShortModel modifiedDate(OffsetDateTime modifiedDate) {
+  public WorkItemShortModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
     return this;
   }
@@ -785,12 +803,12 @@ public class WorkItemShortModel {
     this.modifiedDate = modifiedDate;
   }
 
-  public void setModifiedDate(OffsetDateTime modifiedDate) {
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
     this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
-  public WorkItemShortModel tagNames(List<String> tagNames) {
+  public WorkItemShortModel tagNames(@jakarta.annotation.Nullable List<String> tagNames) {
     this.tagNames = JsonNullable.<List<String>>of(tagNames);
     return this;
   }
@@ -830,7 +848,7 @@ public class WorkItemShortModel {
     this.tagNames = tagNames;
   }
 
-  public void setTagNames(List<String> tagNames) {
+  public void setTagNames(@jakarta.annotation.Nullable List<String> tagNames) {
     this.tagNames = JsonNullable.<List<String>>of(tagNames);
   }
 

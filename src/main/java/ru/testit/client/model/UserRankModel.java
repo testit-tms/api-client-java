@@ -40,42 +40,51 @@ import ru.testit.client.invoker.JSON;
   UserRankModel.JSON_PROPERTY_SUCCEEDED_TEST_POINTS,
   UserRankModel.JSON_PROPERTY_INCOMPLETE_TEST_POINTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UserRankModel {
   public static final String JSON_PROPERTY_SCORE = "score";
+  @jakarta.annotation.Nonnull
   private Integer score;
 
   public static final String JSON_PROPERTY_WORK_ITEMS_CREATED = "workItemsCreated";
+  @jakarta.annotation.Nonnull
   private Integer workItemsCreated;
 
   public static final String JSON_PROPERTY_PASSED_TEST_POINTS = "passedTestPoints";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private Integer passedTestPoints;
 
   public static final String JSON_PROPERTY_FAILED_TEST_POINTS = "failedTestPoints";
+  @jakarta.annotation.Nonnull
   private Integer failedTestPoints;
 
   public static final String JSON_PROPERTY_SKIPPED_TEST_POINTS = "skippedTestPoints";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private Integer skippedTestPoints;
 
   public static final String JSON_PROPERTY_BLOCKED_TEST_POINTS = "blockedTestPoints";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private Integer blockedTestPoints;
 
   public static final String JSON_PROPERTY_LEVEL_AVATAR_ENABLED = "levelAvatarEnabled";
+  @jakarta.annotation.Nonnull
   private Boolean levelAvatarEnabled;
 
   public static final String JSON_PROPERTY_SUCCEEDED_TEST_POINTS = "succeededTestPoints";
+  @jakarta.annotation.Nonnull
   private Integer succeededTestPoints;
 
   public static final String JSON_PROPERTY_INCOMPLETE_TEST_POINTS = "incompleteTestPoints";
+  @jakarta.annotation.Nonnull
   private Integer incompleteTestPoints;
 
   public UserRankModel() { 
   }
 
-  public UserRankModel score(Integer score) {
+  public UserRankModel score(@jakarta.annotation.Nonnull Integer score) {
     this.score = score;
     return this;
   }
@@ -95,12 +104,12 @@ public class UserRankModel {
 
   @JsonProperty(JSON_PROPERTY_SCORE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setScore(Integer score) {
+  public void setScore(@jakarta.annotation.Nonnull Integer score) {
     this.score = score;
   }
 
 
-  public UserRankModel workItemsCreated(Integer workItemsCreated) {
+  public UserRankModel workItemsCreated(@jakarta.annotation.Nonnull Integer workItemsCreated) {
     this.workItemsCreated = workItemsCreated;
     return this;
   }
@@ -120,13 +129,13 @@ public class UserRankModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEMS_CREATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemsCreated(Integer workItemsCreated) {
+  public void setWorkItemsCreated(@jakarta.annotation.Nonnull Integer workItemsCreated) {
     this.workItemsCreated = workItemsCreated;
   }
 
 
   @Deprecated
-  public UserRankModel passedTestPoints(Integer passedTestPoints) {
+  public UserRankModel passedTestPoints(@jakarta.annotation.Nonnull Integer passedTestPoints) {
     this.passedTestPoints = passedTestPoints;
     return this;
   }
@@ -149,12 +158,12 @@ public class UserRankModel {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_PASSED_TEST_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPassedTestPoints(Integer passedTestPoints) {
+  public void setPassedTestPoints(@jakarta.annotation.Nonnull Integer passedTestPoints) {
     this.passedTestPoints = passedTestPoints;
   }
 
 
-  public UserRankModel failedTestPoints(Integer failedTestPoints) {
+  public UserRankModel failedTestPoints(@jakarta.annotation.Nonnull Integer failedTestPoints) {
     this.failedTestPoints = failedTestPoints;
     return this;
   }
@@ -174,13 +183,13 @@ public class UserRankModel {
 
   @JsonProperty(JSON_PROPERTY_FAILED_TEST_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailedTestPoints(Integer failedTestPoints) {
+  public void setFailedTestPoints(@jakarta.annotation.Nonnull Integer failedTestPoints) {
     this.failedTestPoints = failedTestPoints;
   }
 
 
   @Deprecated
-  public UserRankModel skippedTestPoints(Integer skippedTestPoints) {
+  public UserRankModel skippedTestPoints(@jakarta.annotation.Nonnull Integer skippedTestPoints) {
     this.skippedTestPoints = skippedTestPoints;
     return this;
   }
@@ -203,13 +212,13 @@ public class UserRankModel {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_SKIPPED_TEST_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSkippedTestPoints(Integer skippedTestPoints) {
+  public void setSkippedTestPoints(@jakarta.annotation.Nonnull Integer skippedTestPoints) {
     this.skippedTestPoints = skippedTestPoints;
   }
 
 
   @Deprecated
-  public UserRankModel blockedTestPoints(Integer blockedTestPoints) {
+  public UserRankModel blockedTestPoints(@jakarta.annotation.Nonnull Integer blockedTestPoints) {
     this.blockedTestPoints = blockedTestPoints;
     return this;
   }
@@ -232,12 +241,12 @@ public class UserRankModel {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_BLOCKED_TEST_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBlockedTestPoints(Integer blockedTestPoints) {
+  public void setBlockedTestPoints(@jakarta.annotation.Nonnull Integer blockedTestPoints) {
     this.blockedTestPoints = blockedTestPoints;
   }
 
 
-  public UserRankModel levelAvatarEnabled(Boolean levelAvatarEnabled) {
+  public UserRankModel levelAvatarEnabled(@jakarta.annotation.Nonnull Boolean levelAvatarEnabled) {
     this.levelAvatarEnabled = levelAvatarEnabled;
     return this;
   }
@@ -257,12 +266,12 @@ public class UserRankModel {
 
   @JsonProperty(JSON_PROPERTY_LEVEL_AVATAR_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLevelAvatarEnabled(Boolean levelAvatarEnabled) {
+  public void setLevelAvatarEnabled(@jakarta.annotation.Nonnull Boolean levelAvatarEnabled) {
     this.levelAvatarEnabled = levelAvatarEnabled;
   }
 
 
-  public UserRankModel succeededTestPoints(Integer succeededTestPoints) {
+  public UserRankModel succeededTestPoints(@jakarta.annotation.Nonnull Integer succeededTestPoints) {
     this.succeededTestPoints = succeededTestPoints;
     return this;
   }
@@ -282,12 +291,12 @@ public class UserRankModel {
 
   @JsonProperty(JSON_PROPERTY_SUCCEEDED_TEST_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSucceededTestPoints(Integer succeededTestPoints) {
+  public void setSucceededTestPoints(@jakarta.annotation.Nonnull Integer succeededTestPoints) {
     this.succeededTestPoints = succeededTestPoints;
   }
 
 
-  public UserRankModel incompleteTestPoints(Integer incompleteTestPoints) {
+  public UserRankModel incompleteTestPoints(@jakarta.annotation.Nonnull Integer incompleteTestPoints) {
     this.incompleteTestPoints = incompleteTestPoints;
     return this;
   }
@@ -307,7 +316,7 @@ public class UserRankModel {
 
   @JsonProperty(JSON_PROPERTY_INCOMPLETE_TEST_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncompleteTestPoints(Integer incompleteTestPoints) {
+  public void setIncompleteTestPoints(@jakarta.annotation.Nonnull Integer incompleteTestPoints) {
     this.incompleteTestPoints = incompleteTestPoints;
   }
 

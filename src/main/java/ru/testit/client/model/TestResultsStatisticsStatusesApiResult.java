@@ -38,36 +38,43 @@ import ru.testit.client.invoker.JSON;
   TestResultsStatisticsStatusesApiResult.JSON_PROPERTY_BLOCKED,
   TestResultsStatisticsStatusesApiResult.JSON_PROPERTY_INCOMPLETE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestResultsStatisticsStatusesApiResult {
   public static final String JSON_PROPERTY_IN_PROGRESS = "inProgress";
+  @jakarta.annotation.Nonnull
   private Integer inProgress;
 
   public static final String JSON_PROPERTY_PASSED = "passed";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private Integer passed;
 
   public static final String JSON_PROPERTY_SUCCEEDED = "succeeded";
+  @jakarta.annotation.Nonnull
   private Integer succeeded;
 
   public static final String JSON_PROPERTY_FAILED = "failed";
+  @jakarta.annotation.Nonnull
   private Integer failed;
 
   public static final String JSON_PROPERTY_SKIPPED = "skipped";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private Integer skipped;
 
   public static final String JSON_PROPERTY_BLOCKED = "blocked";
   @Deprecated
+  @jakarta.annotation.Nonnull
   private Integer blocked;
 
   public static final String JSON_PROPERTY_INCOMPLETE = "incomplete";
+  @jakarta.annotation.Nonnull
   private Integer incomplete;
 
   public TestResultsStatisticsStatusesApiResult() { 
   }
 
-  public TestResultsStatisticsStatusesApiResult inProgress(Integer inProgress) {
+  public TestResultsStatisticsStatusesApiResult inProgress(@jakarta.annotation.Nonnull Integer inProgress) {
     this.inProgress = inProgress;
     return this;
   }
@@ -87,13 +94,13 @@ public class TestResultsStatisticsStatusesApiResult {
 
   @JsonProperty(JSON_PROPERTY_IN_PROGRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInProgress(Integer inProgress) {
+  public void setInProgress(@jakarta.annotation.Nonnull Integer inProgress) {
     this.inProgress = inProgress;
   }
 
 
   @Deprecated
-  public TestResultsStatisticsStatusesApiResult passed(Integer passed) {
+  public TestResultsStatisticsStatusesApiResult passed(@jakarta.annotation.Nonnull Integer passed) {
     this.passed = passed;
     return this;
   }
@@ -116,12 +123,12 @@ public class TestResultsStatisticsStatusesApiResult {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_PASSED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPassed(Integer passed) {
+  public void setPassed(@jakarta.annotation.Nonnull Integer passed) {
     this.passed = passed;
   }
 
 
-  public TestResultsStatisticsStatusesApiResult succeeded(Integer succeeded) {
+  public TestResultsStatisticsStatusesApiResult succeeded(@jakarta.annotation.Nonnull Integer succeeded) {
     this.succeeded = succeeded;
     return this;
   }
@@ -141,12 +148,12 @@ public class TestResultsStatisticsStatusesApiResult {
 
   @JsonProperty(JSON_PROPERTY_SUCCEEDED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSucceeded(Integer succeeded) {
+  public void setSucceeded(@jakarta.annotation.Nonnull Integer succeeded) {
     this.succeeded = succeeded;
   }
 
 
-  public TestResultsStatisticsStatusesApiResult failed(Integer failed) {
+  public TestResultsStatisticsStatusesApiResult failed(@jakarta.annotation.Nonnull Integer failed) {
     this.failed = failed;
     return this;
   }
@@ -166,13 +173,13 @@ public class TestResultsStatisticsStatusesApiResult {
 
   @JsonProperty(JSON_PROPERTY_FAILED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFailed(Integer failed) {
+  public void setFailed(@jakarta.annotation.Nonnull Integer failed) {
     this.failed = failed;
   }
 
 
   @Deprecated
-  public TestResultsStatisticsStatusesApiResult skipped(Integer skipped) {
+  public TestResultsStatisticsStatusesApiResult skipped(@jakarta.annotation.Nonnull Integer skipped) {
     this.skipped = skipped;
     return this;
   }
@@ -195,13 +202,13 @@ public class TestResultsStatisticsStatusesApiResult {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_SKIPPED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSkipped(Integer skipped) {
+  public void setSkipped(@jakarta.annotation.Nonnull Integer skipped) {
     this.skipped = skipped;
   }
 
 
   @Deprecated
-  public TestResultsStatisticsStatusesApiResult blocked(Integer blocked) {
+  public TestResultsStatisticsStatusesApiResult blocked(@jakarta.annotation.Nonnull Integer blocked) {
     this.blocked = blocked;
     return this;
   }
@@ -224,12 +231,12 @@ public class TestResultsStatisticsStatusesApiResult {
   @Deprecated
   @JsonProperty(JSON_PROPERTY_BLOCKED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBlocked(Integer blocked) {
+  public void setBlocked(@jakarta.annotation.Nonnull Integer blocked) {
     this.blocked = blocked;
   }
 
 
-  public TestResultsStatisticsStatusesApiResult incomplete(Integer incomplete) {
+  public TestResultsStatisticsStatusesApiResult incomplete(@jakarta.annotation.Nonnull Integer incomplete) {
     this.incomplete = incomplete;
     return this;
   }
@@ -249,7 +256,7 @@ public class TestResultsStatisticsStatusesApiResult {
 
   @JsonProperty(JSON_PROPERTY_INCOMPLETE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIncomplete(Integer incomplete) {
+  public void setIncomplete(@jakarta.annotation.Nonnull Integer incomplete) {
     this.incomplete = incomplete;
   }
 

@@ -44,7 +44,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemLinkFilterModel.JSON_PROPERTY_URLS,
   WorkItemLinkFilterModel.JSON_PROPERTY_ONLY_WITHOUT_LINKS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLinkFilterModel {
   public static final String JSON_PROPERTY_TYPES = "types";
   private JsonNullable<List<LinkType>> types = JsonNullable.<List<LinkType>>undefined();
@@ -61,7 +61,7 @@ public class WorkItemLinkFilterModel {
   public WorkItemLinkFilterModel() { 
   }
 
-  public WorkItemLinkFilterModel types(List<LinkType> types) {
+  public WorkItemLinkFilterModel types(@jakarta.annotation.Nullable List<LinkType> types) {
     this.types = JsonNullable.<List<LinkType>>of(types);
     return this;
   }
@@ -101,12 +101,12 @@ public class WorkItemLinkFilterModel {
     this.types = types;
   }
 
-  public void setTypes(List<LinkType> types) {
+  public void setTypes(@jakarta.annotation.Nullable List<LinkType> types) {
     this.types = JsonNullable.<List<LinkType>>of(types);
   }
 
 
-  public WorkItemLinkFilterModel title(String title) {
+  public WorkItemLinkFilterModel title(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
     return this;
   }
@@ -134,12 +134,12 @@ public class WorkItemLinkFilterModel {
     this.title = title;
   }
 
-  public void setTitle(String title) {
+  public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = JsonNullable.<String>of(title);
   }
 
 
-  public WorkItemLinkFilterModel urls(Set<String> urls) {
+  public WorkItemLinkFilterModel urls(@jakarta.annotation.Nullable Set<String> urls) {
     this.urls = JsonNullable.<Set<String>>of(urls);
     return this;
   }
@@ -179,12 +179,12 @@ public class WorkItemLinkFilterModel {
     this.urls = urls;
   }
 
-  public void setUrls(Set<String> urls) {
+  public void setUrls(@jakarta.annotation.Nullable Set<String> urls) {
     this.urls = JsonNullable.<Set<String>>of(urls);
   }
 
 
-  public WorkItemLinkFilterModel onlyWithoutLinks(Boolean onlyWithoutLinks) {
+  public WorkItemLinkFilterModel onlyWithoutLinks(@jakarta.annotation.Nullable Boolean onlyWithoutLinks) {
     this.onlyWithoutLinks = JsonNullable.<Boolean>of(onlyWithoutLinks);
     return this;
   }
@@ -212,7 +212,7 @@ public class WorkItemLinkFilterModel {
     this.onlyWithoutLinks = onlyWithoutLinks;
   }
 
-  public void setOnlyWithoutLinks(Boolean onlyWithoutLinks) {
+  public void setOnlyWithoutLinks(@jakarta.annotation.Nullable Boolean onlyWithoutLinks) {
     this.onlyWithoutLinks = JsonNullable.<Boolean>of(onlyWithoutLinks);
   }
 

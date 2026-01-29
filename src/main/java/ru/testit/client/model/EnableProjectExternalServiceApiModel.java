@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -36,16 +32,17 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   EnableProjectExternalServiceApiModel.JSON_PROPERTY_SETTINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class EnableProjectExternalServiceApiModel {
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private JsonNullable<Object> settings = JsonNullable.<Object>of(null);
+  @jakarta.annotation.Nullable
+  private Object settings = null;
 
   public EnableProjectExternalServiceApiModel() { 
   }
 
-  public EnableProjectExternalServiceApiModel settings(Object settings) {
-    this.settings = JsonNullable.<Object>of(settings);
+  public EnableProjectExternalServiceApiModel settings(@jakarta.annotation.Nullable Object settings) {
+    this.settings = settings;
     return this;
   }
 
@@ -54,26 +51,18 @@ public class EnableProjectExternalServiceApiModel {
    * @return settings
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Object getSettings() {
-        return settings.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Object> getSettings_JsonNullable() {
     return settings;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
-  public void setSettings_JsonNullable(JsonNullable<Object> settings) {
-    this.settings = settings;
-  }
 
-  public void setSettings(Object settings) {
-    this.settings = JsonNullable.<Object>of(settings);
+
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSettings(@jakarta.annotation.Nullable Object settings) {
+    this.settings = settings;
   }
 
 
@@ -89,23 +78,12 @@ public class EnableProjectExternalServiceApiModel {
       return false;
     }
     EnableProjectExternalServiceApiModel enableProjectExternalServiceApiModel = (EnableProjectExternalServiceApiModel) o;
-    return equalsNullable(this.settings, enableProjectExternalServiceApiModel.settings);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.settings, enableProjectExternalServiceApiModel.settings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(settings));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(settings);
   }
 
   @Override

@@ -39,12 +39,14 @@ import ru.testit.client.invoker.JSON;
   TestPlanGroupByTesterAndStatusCode.JSON_PROPERTY_VALUE,
   TestPlanGroupByTesterAndStatusCode.JSON_PROPERTY_USER_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanGroupByTesterAndStatusCode {
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
+  @jakarta.annotation.Nonnull
   private String statusCode;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
   private Long value;
 
   public static final String JSON_PROPERTY_USER_ID = "userId";
@@ -53,7 +55,7 @@ public class TestPlanGroupByTesterAndStatusCode {
   public TestPlanGroupByTesterAndStatusCode() { 
   }
 
-  public TestPlanGroupByTesterAndStatusCode statusCode(String statusCode) {
+  public TestPlanGroupByTesterAndStatusCode statusCode(@jakarta.annotation.Nonnull String statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -73,12 +75,12 @@ public class TestPlanGroupByTesterAndStatusCode {
 
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusCode(String statusCode) {
+  public void setStatusCode(@jakarta.annotation.Nonnull String statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public TestPlanGroupByTesterAndStatusCode value(Long value) {
+  public TestPlanGroupByTesterAndStatusCode value(@jakarta.annotation.Nonnull Long value) {
     this.value = value;
     return this;
   }
@@ -98,12 +100,12 @@ public class TestPlanGroupByTesterAndStatusCode {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Long value) {
+  public void setValue(@jakarta.annotation.Nonnull Long value) {
     this.value = value;
   }
 
 
-  public TestPlanGroupByTesterAndStatusCode userId(UUID userId) {
+  public TestPlanGroupByTesterAndStatusCode userId(@jakarta.annotation.Nullable UUID userId) {
     this.userId = JsonNullable.<UUID>of(userId);
     return this;
   }
@@ -131,7 +133,7 @@ public class TestPlanGroupByTesterAndStatusCode {
     this.userId = userId;
   }
 
-  public void setUserId(UUID userId) {
+  public void setUserId(@jakarta.annotation.Nullable UUID userId) {
     this.userId = JsonNullable.<UUID>of(userId);
   }
 

@@ -44,24 +44,30 @@ import ru.testit.client.invoker.JSON;
   WorkItemStepChangeViewModel.JSON_PROPERTY_WORK_ITEM,
   WorkItemStepChangeViewModel.JSON_PROPERTY_WORK_ITEM_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemStepChangeViewModel {
   public static final String JSON_PROPERTY_ACTION = "action";
+  @jakarta.annotation.Nonnull
   private String action;
 
   public static final String JSON_PROPERTY_EXPECTED = "expected";
+  @jakarta.annotation.Nonnull
   private String expected;
 
   public static final String JSON_PROPERTY_COMMENTS = "comments";
+  @jakarta.annotation.Nonnull
   private String comments;
 
   public static final String JSON_PROPERTY_TEST_DATA = "testData";
+  @jakarta.annotation.Nonnull
   private String testData;
 
   public static final String JSON_PROPERTY_INDEX = "index";
+  @jakarta.annotation.Nonnull
   private Integer index;
 
   public static final String JSON_PROPERTY_WORK_ITEM = "workItem";
+  @jakarta.annotation.Nonnull
   private SharedStepChangeViewModel workItem;
 
   public static final String JSON_PROPERTY_WORK_ITEM_ID = "workItemId";
@@ -70,7 +76,7 @@ public class WorkItemStepChangeViewModel {
   public WorkItemStepChangeViewModel() { 
   }
 
-  public WorkItemStepChangeViewModel action(String action) {
+  public WorkItemStepChangeViewModel action(@jakarta.annotation.Nonnull String action) {
     this.action = action;
     return this;
   }
@@ -90,12 +96,12 @@ public class WorkItemStepChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAction(String action) {
+  public void setAction(@jakarta.annotation.Nonnull String action) {
     this.action = action;
   }
 
 
-  public WorkItemStepChangeViewModel expected(String expected) {
+  public WorkItemStepChangeViewModel expected(@jakarta.annotation.Nonnull String expected) {
     this.expected = expected;
     return this;
   }
@@ -115,12 +121,12 @@ public class WorkItemStepChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_EXPECTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExpected(String expected) {
+  public void setExpected(@jakarta.annotation.Nonnull String expected) {
     this.expected = expected;
   }
 
 
-  public WorkItemStepChangeViewModel comments(String comments) {
+  public WorkItemStepChangeViewModel comments(@jakarta.annotation.Nonnull String comments) {
     this.comments = comments;
     return this;
   }
@@ -140,12 +146,12 @@ public class WorkItemStepChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_COMMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setComments(String comments) {
+  public void setComments(@jakarta.annotation.Nonnull String comments) {
     this.comments = comments;
   }
 
 
-  public WorkItemStepChangeViewModel testData(String testData) {
+  public WorkItemStepChangeViewModel testData(@jakarta.annotation.Nonnull String testData) {
     this.testData = testData;
     return this;
   }
@@ -165,12 +171,12 @@ public class WorkItemStepChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_TEST_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestData(String testData) {
+  public void setTestData(@jakarta.annotation.Nonnull String testData) {
     this.testData = testData;
   }
 
 
-  public WorkItemStepChangeViewModel index(Integer index) {
+  public WorkItemStepChangeViewModel index(@jakarta.annotation.Nonnull Integer index) {
     this.index = index;
     return this;
   }
@@ -190,12 +196,12 @@ public class WorkItemStepChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIndex(Integer index) {
+  public void setIndex(@jakarta.annotation.Nonnull Integer index) {
     this.index = index;
   }
 
 
-  public WorkItemStepChangeViewModel workItem(SharedStepChangeViewModel workItem) {
+  public WorkItemStepChangeViewModel workItem(@jakarta.annotation.Nonnull SharedStepChangeViewModel workItem) {
     this.workItem = workItem;
     return this;
   }
@@ -215,12 +221,12 @@ public class WorkItemStepChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItem(SharedStepChangeViewModel workItem) {
+  public void setWorkItem(@jakarta.annotation.Nonnull SharedStepChangeViewModel workItem) {
     this.workItem = workItem;
   }
 
 
-  public WorkItemStepChangeViewModel workItemId(UUID workItemId) {
+  public WorkItemStepChangeViewModel workItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
     return this;
   }
@@ -248,7 +254,7 @@ public class WorkItemStepChangeViewModel {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
   }
 

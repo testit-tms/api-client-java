@@ -32,15 +32,16 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   WebhookBulkUpdateApiModel.JSON_PROPERTY_IS_ENABLED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WebhookBulkUpdateApiModel {
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
+  @jakarta.annotation.Nonnull
   private Boolean isEnabled;
 
   public WebhookBulkUpdateApiModel() { 
   }
 
-  public WebhookBulkUpdateApiModel isEnabled(Boolean isEnabled) {
+  public WebhookBulkUpdateApiModel isEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -60,7 +61,7 @@ public class WebhookBulkUpdateApiModel {
 
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsEnabled(Boolean isEnabled) {
+  public void setIsEnabled(@jakarta.annotation.Nonnull Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 

@@ -35,18 +35,20 @@ import ru.testit.client.invoker.JSON;
   WorkItemLinkUrlApiModel.JSON_PROPERTY_FILTER,
   WorkItemLinkUrlApiModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLinkUrlApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private WorkItemLinkUrlFilterApiModel filter;
 
   public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
+  @jakarta.annotation.Nonnull
   private WorkItemLinkExtractionApiModel extractionModel;
 
   public WorkItemLinkUrlApiModel() { 
   }
 
-  public WorkItemLinkUrlApiModel filter(WorkItemLinkUrlFilterApiModel filter) {
+  public WorkItemLinkUrlApiModel filter(@jakarta.annotation.Nonnull WorkItemLinkUrlFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -66,12 +68,12 @@ public class WorkItemLinkUrlApiModel {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(WorkItemLinkUrlFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nonnull WorkItemLinkUrlFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public WorkItemLinkUrlApiModel extractionModel(WorkItemLinkExtractionApiModel extractionModel) {
+  public WorkItemLinkUrlApiModel extractionModel(@jakarta.annotation.Nonnull WorkItemLinkExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -91,7 +93,7 @@ public class WorkItemLinkUrlApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExtractionModel(WorkItemLinkExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nonnull WorkItemLinkExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

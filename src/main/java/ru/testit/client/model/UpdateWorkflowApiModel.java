@@ -39,24 +39,28 @@ import ru.testit.client.invoker.JSON;
   UpdateWorkflowApiModel.JSON_PROPERTY_STATUSES,
   UpdateWorkflowApiModel.JSON_PROPERTY_PROJECT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateWorkflowApiModel {
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_IS_DEFAULT = "isDefault";
+  @jakarta.annotation.Nonnull
   private Boolean isDefault;
 
   public static final String JSON_PROPERTY_STATUSES = "statuses";
+  @jakarta.annotation.Nonnull
   private List<WorkflowStatusApiModel> statuses = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
+  @jakarta.annotation.Nonnull
   private List<UUID> projectIds = new ArrayList<>();
 
   public UpdateWorkflowApiModel() { 
   }
 
-  public UpdateWorkflowApiModel name(String name) {
+  public UpdateWorkflowApiModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -76,12 +80,12 @@ public class UpdateWorkflowApiModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public UpdateWorkflowApiModel isDefault(Boolean isDefault) {
+  public UpdateWorkflowApiModel isDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
@@ -101,12 +105,12 @@ public class UpdateWorkflowApiModel {
 
   @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDefault(Boolean isDefault) {
+  public void setIsDefault(@jakarta.annotation.Nonnull Boolean isDefault) {
     this.isDefault = isDefault;
   }
 
 
-  public UpdateWorkflowApiModel statuses(List<WorkflowStatusApiModel> statuses) {
+  public UpdateWorkflowApiModel statuses(@jakarta.annotation.Nonnull List<WorkflowStatusApiModel> statuses) {
     this.statuses = statuses;
     return this;
   }
@@ -134,12 +138,12 @@ public class UpdateWorkflowApiModel {
 
   @JsonProperty(JSON_PROPERTY_STATUSES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatuses(List<WorkflowStatusApiModel> statuses) {
+  public void setStatuses(@jakarta.annotation.Nonnull List<WorkflowStatusApiModel> statuses) {
     this.statuses = statuses;
   }
 
 
-  public UpdateWorkflowApiModel projectIds(List<UUID> projectIds) {
+  public UpdateWorkflowApiModel projectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
     return this;
   }
@@ -167,7 +171,7 @@ public class UpdateWorkflowApiModel {
 
   @JsonProperty(JSON_PROPERTY_PROJECT_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nonnull List<UUID> projectIds) {
     this.projectIds = projectIds;
   }
 

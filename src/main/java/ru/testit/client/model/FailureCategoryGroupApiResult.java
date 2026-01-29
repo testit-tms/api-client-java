@@ -38,9 +38,10 @@ import ru.testit.client.invoker.JSON;
   FailureCategoryGroupApiResult.JSON_PROPERTY_FIELD_VALUE,
   FailureCategoryGroupApiResult.JSON_PROPERTY_DISPLAY_FIELD_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FailureCategoryGroupApiResult {
   public static final String JSON_PROPERTY_COUNT = "count";
+  @jakarta.annotation.Nonnull
   private Integer count;
 
   public static final String JSON_PROPERTY_FIELD_VALUE = "fieldValue";
@@ -52,7 +53,7 @@ public class FailureCategoryGroupApiResult {
   public FailureCategoryGroupApiResult() { 
   }
 
-  public FailureCategoryGroupApiResult count(Integer count) {
+  public FailureCategoryGroupApiResult count(@jakarta.annotation.Nonnull Integer count) {
     this.count = count;
     return this;
   }
@@ -72,12 +73,12 @@ public class FailureCategoryGroupApiResult {
 
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCount(Integer count) {
+  public void setCount(@jakarta.annotation.Nonnull Integer count) {
     this.count = count;
   }
 
 
-  public FailureCategoryGroupApiResult fieldValue(Object fieldValue) {
+  public FailureCategoryGroupApiResult fieldValue(@jakarta.annotation.Nullable Object fieldValue) {
     this.fieldValue = JsonNullable.<Object>of(fieldValue);
     return this;
   }
@@ -105,12 +106,12 @@ public class FailureCategoryGroupApiResult {
     this.fieldValue = fieldValue;
   }
 
-  public void setFieldValue(Object fieldValue) {
+  public void setFieldValue(@jakarta.annotation.Nullable Object fieldValue) {
     this.fieldValue = JsonNullable.<Object>of(fieldValue);
   }
 
 
-  public FailureCategoryGroupApiResult displayFieldValue(Object displayFieldValue) {
+  public FailureCategoryGroupApiResult displayFieldValue(@jakarta.annotation.Nullable Object displayFieldValue) {
     this.displayFieldValue = JsonNullable.<Object>of(displayFieldValue);
     return this;
   }
@@ -138,7 +139,7 @@ public class FailureCategoryGroupApiResult {
     this.displayFieldValue = displayFieldValue;
   }
 
-  public void setDisplayFieldValue(Object displayFieldValue) {
+  public void setDisplayFieldValue(@jakarta.annotation.Nullable Object displayFieldValue) {
     this.displayFieldValue = JsonNullable.<Object>of(displayFieldValue);
   }
 

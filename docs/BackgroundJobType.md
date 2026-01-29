@@ -11,6 +11,8 @@
 
 * `EXPORT_XLSX_TEST_POINTS_BY_TEST_PLAN` (value: `"ExportXlsxTestPointsByTestPlan"`)
 
+* `EXPORT_XLSX_WORK_ITEM_LINKS` (value: `"ExportXlsxWorkItemLinks"`)
+
 * `EXPORT_JSON_PROJECT` (value: `"ExportJsonProject"`)
 
 * `EXPORT_ZIP_PROJECT` (value: `"ExportZipProject"`)
@@ -36,6 +38,10 @@
 * `PURGE_ENTITIES` (value: `"PurgeEntities"`)
 
 * `DELETE_COMPLETED_JOBS` (value: `"DeleteCompletedJobs"`)
+
+* `COPY_SECTIONS` (value: `"CopySections"`)
+
+* `DELETE_SECTION` (value: `"DeleteSection"`)
 
 * `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
 

@@ -45,7 +45,7 @@ import ru.testit.client.invoker.JSON;
   TestRunTestResultsPartialBulkSetModel.JSON_PROPERTY_COMMENT,
   TestRunTestResultsPartialBulkSetModel.JSON_PROPERTY_ATTACHMENT_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunTestResultsPartialBulkSetModel {
   public static final String JSON_PROPERTY_SELECTOR = "selector";
   private JsonNullable<TestRunTestResultsSelectModel> selector = JsonNullable.<TestRunTestResultsSelectModel>undefined();
@@ -65,7 +65,7 @@ public class TestRunTestResultsPartialBulkSetModel {
   public TestRunTestResultsPartialBulkSetModel() { 
   }
 
-  public TestRunTestResultsPartialBulkSetModel selector(TestRunTestResultsSelectModel selector) {
+  public TestRunTestResultsPartialBulkSetModel selector(@jakarta.annotation.Nullable TestRunTestResultsSelectModel selector) {
     this.selector = JsonNullable.<TestRunTestResultsSelectModel>of(selector);
     return this;
   }
@@ -93,12 +93,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     this.selector = selector;
   }
 
-  public void setSelector(TestRunTestResultsSelectModel selector) {
+  public void setSelector(@jakarta.annotation.Nullable TestRunTestResultsSelectModel selector) {
     this.selector = JsonNullable.<TestRunTestResultsSelectModel>of(selector);
   }
 
 
-  public TestRunTestResultsPartialBulkSetModel resultReasonIds(Set<UUID> resultReasonIds) {
+  public TestRunTestResultsPartialBulkSetModel resultReasonIds(@jakarta.annotation.Nullable Set<UUID> resultReasonIds) {
     this.resultReasonIds = JsonNullable.<Set<UUID>>of(resultReasonIds);
     return this;
   }
@@ -138,12 +138,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     this.resultReasonIds = resultReasonIds;
   }
 
-  public void setResultReasonIds(Set<UUID> resultReasonIds) {
+  public void setResultReasonIds(@jakarta.annotation.Nullable Set<UUID> resultReasonIds) {
     this.resultReasonIds = JsonNullable.<Set<UUID>>of(resultReasonIds);
   }
 
 
-  public TestRunTestResultsPartialBulkSetModel links(Set<LinkPostModel> links) {
+  public TestRunTestResultsPartialBulkSetModel links(@jakarta.annotation.Nullable Set<LinkPostModel> links) {
     this.links = JsonNullable.<Set<LinkPostModel>>of(links);
     return this;
   }
@@ -183,12 +183,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     this.links = links;
   }
 
-  public void setLinks(Set<LinkPostModel> links) {
+  public void setLinks(@jakarta.annotation.Nullable Set<LinkPostModel> links) {
     this.links = JsonNullable.<Set<LinkPostModel>>of(links);
   }
 
 
-  public TestRunTestResultsPartialBulkSetModel comment(String comment) {
+  public TestRunTestResultsPartialBulkSetModel comment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
     return this;
   }
@@ -216,12 +216,12 @@ public class TestRunTestResultsPartialBulkSetModel {
     this.comment = comment;
   }
 
-  public void setComment(String comment) {
+  public void setComment(@jakarta.annotation.Nullable String comment) {
     this.comment = JsonNullable.<String>of(comment);
   }
 
 
-  public TestRunTestResultsPartialBulkSetModel attachmentIds(Set<UUID> attachmentIds) {
+  public TestRunTestResultsPartialBulkSetModel attachmentIds(@jakarta.annotation.Nullable Set<UUID> attachmentIds) {
     this.attachmentIds = JsonNullable.<Set<UUID>>of(attachmentIds);
     return this;
   }
@@ -261,7 +261,7 @@ public class TestRunTestResultsPartialBulkSetModel {
     this.attachmentIds = attachmentIds;
   }
 
-  public void setAttachmentIds(Set<UUID> attachmentIds) {
+  public void setAttachmentIds(@jakarta.annotation.Nullable Set<UUID> attachmentIds) {
     this.attachmentIds = JsonNullable.<Set<UUID>>of(attachmentIds);
   }
 

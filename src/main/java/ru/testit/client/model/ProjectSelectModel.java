@@ -39,7 +39,7 @@ import ru.testit.client.invoker.JSON;
   ProjectSelectModel.JSON_PROPERTY_FILTER,
   ProjectSelectModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectSelectModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<ProjectsFilterModel> filter = JsonNullable.<ProjectsFilterModel>undefined();
@@ -50,7 +50,7 @@ public class ProjectSelectModel {
   public ProjectSelectModel() { 
   }
 
-  public ProjectSelectModel filter(ProjectsFilterModel filter) {
+  public ProjectSelectModel filter(@jakarta.annotation.Nullable ProjectsFilterModel filter) {
     this.filter = JsonNullable.<ProjectsFilterModel>of(filter);
     return this;
   }
@@ -78,12 +78,12 @@ public class ProjectSelectModel {
     this.filter = filter;
   }
 
-  public void setFilter(ProjectsFilterModel filter) {
+  public void setFilter(@jakarta.annotation.Nullable ProjectsFilterModel filter) {
     this.filter = JsonNullable.<ProjectsFilterModel>of(filter);
   }
 
 
-  public ProjectSelectModel extractionModel(ProjectExtractionModel extractionModel) {
+  public ProjectSelectModel extractionModel(@jakarta.annotation.Nullable ProjectExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<ProjectExtractionModel>of(extractionModel);
     return this;
   }
@@ -111,7 +111,7 @@ public class ProjectSelectModel {
     this.extractionModel = extractionModel;
   }
 
-  public void setExtractionModel(ProjectExtractionModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nullable ProjectExtractionModel extractionModel) {
     this.extractionModel = JsonNullable.<ProjectExtractionModel>of(extractionModel);
   }
 

@@ -27,3 +27,8 @@ secring.gpg
 .gradle.properties
 .env
 out
+new/
+*.bak
+!.vendor/*.jar
+.swagger
+README-NEW.md

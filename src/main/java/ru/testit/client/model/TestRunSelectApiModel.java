@@ -35,18 +35,20 @@ import ru.testit.client.invoker.JSON;
   TestRunSelectApiModel.JSON_PROPERTY_FILTER,
   TestRunSelectApiModel.JSON_PROPERTY_EXTRACTION_MODEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunSelectApiModel {
   public static final String JSON_PROPERTY_FILTER = "filter";
+  @jakarta.annotation.Nonnull
   private TestRunFilterApiModel filter;
 
   public static final String JSON_PROPERTY_EXTRACTION_MODEL = "extractionModel";
+  @jakarta.annotation.Nonnull
   private TestRunExtractionApiModel extractionModel;
 
   public TestRunSelectApiModel() { 
   }
 
-  public TestRunSelectApiModel filter(TestRunFilterApiModel filter) {
+  public TestRunSelectApiModel filter(@jakarta.annotation.Nonnull TestRunFilterApiModel filter) {
     this.filter = filter;
     return this;
   }
@@ -66,12 +68,12 @@ public class TestRunSelectApiModel {
 
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilter(TestRunFilterApiModel filter) {
+  public void setFilter(@jakarta.annotation.Nonnull TestRunFilterApiModel filter) {
     this.filter = filter;
   }
 
 
-  public TestRunSelectApiModel extractionModel(TestRunExtractionApiModel extractionModel) {
+  public TestRunSelectApiModel extractionModel(@jakarta.annotation.Nonnull TestRunExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
     return this;
   }
@@ -91,7 +93,7 @@ public class TestRunSelectApiModel {
 
   @JsonProperty(JSON_PROPERTY_EXTRACTION_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExtractionModel(TestRunExtractionApiModel extractionModel) {
+  public void setExtractionModel(@jakarta.annotation.Nonnull TestRunExtractionApiModel extractionModel) {
     this.extractionModel = extractionModel;
   }
 

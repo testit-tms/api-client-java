@@ -38,7 +38,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestSearchIncludeApiModel.JSON_PROPERTY_INCLUDE_LINKS,
   AutoTestSearchIncludeApiModel.JSON_PROPERTY_INCLUDE_LABELS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestSearchIncludeApiModel {
   public static final String JSON_PROPERTY_INCLUDE_STEPS = "includeSteps";
   private JsonNullable<Boolean> includeSteps = JsonNullable.<Boolean>undefined();
@@ -52,7 +52,7 @@ public class AutoTestSearchIncludeApiModel {
   public AutoTestSearchIncludeApiModel() { 
   }
 
-  public AutoTestSearchIncludeApiModel includeSteps(Boolean includeSteps) {
+  public AutoTestSearchIncludeApiModel includeSteps(@jakarta.annotation.Nullable Boolean includeSteps) {
     this.includeSteps = JsonNullable.<Boolean>of(includeSteps);
     return this;
   }
@@ -80,12 +80,12 @@ public class AutoTestSearchIncludeApiModel {
     this.includeSteps = includeSteps;
   }
 
-  public void setIncludeSteps(Boolean includeSteps) {
+  public void setIncludeSteps(@jakarta.annotation.Nullable Boolean includeSteps) {
     this.includeSteps = JsonNullable.<Boolean>of(includeSteps);
   }
 
 
-  public AutoTestSearchIncludeApiModel includeLinks(Boolean includeLinks) {
+  public AutoTestSearchIncludeApiModel includeLinks(@jakarta.annotation.Nullable Boolean includeLinks) {
     this.includeLinks = JsonNullable.<Boolean>of(includeLinks);
     return this;
   }
@@ -113,12 +113,12 @@ public class AutoTestSearchIncludeApiModel {
     this.includeLinks = includeLinks;
   }
 
-  public void setIncludeLinks(Boolean includeLinks) {
+  public void setIncludeLinks(@jakarta.annotation.Nullable Boolean includeLinks) {
     this.includeLinks = JsonNullable.<Boolean>of(includeLinks);
   }
 
 
-  public AutoTestSearchIncludeApiModel includeLabels(Boolean includeLabels) {
+  public AutoTestSearchIncludeApiModel includeLabels(@jakarta.annotation.Nullable Boolean includeLabels) {
     this.includeLabels = JsonNullable.<Boolean>of(includeLabels);
     return this;
   }
@@ -146,7 +146,7 @@ public class AutoTestSearchIncludeApiModel {
     this.includeLabels = includeLabels;
   }
 
-  public void setIncludeLabels(Boolean includeLabels) {
+  public void setIncludeLabels(@jakarta.annotation.Nullable Boolean includeLabels) {
     this.includeLabels = JsonNullable.<Boolean>of(includeLabels);
   }
 

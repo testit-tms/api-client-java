@@ -49,30 +49,38 @@ import ru.testit.client.invoker.JSON;
   TestSuiteHierarchyApiResult.JSON_PROPERTY_TEST_PLAN_ID,
   TestSuiteHierarchyApiResult.JSON_PROPERTY_CHILDREN
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteHierarchyApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
   private TestSuiteTypeApiResult type;
 
   public static final String JSON_PROPERTY_SAVE_STRUCTURE = "saveStructure";
+  @jakarta.annotation.Nullable
   private Boolean saveStructure;
 
   public static final String JSON_PROPERTY_AUTO_REFRESH = "autoRefresh";
+  @jakarta.annotation.Nullable
   private Boolean autoRefresh;
 
   public static final String JSON_PROPERTY_REFRESH_DATE = "refreshDate";
+  @jakarta.annotation.Nullable
   private OffsetDateTime refreshDate;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parentId";
+  @jakarta.annotation.Nullable
   private UUID parentId;
 
   public static final String JSON_PROPERTY_TEST_PLAN_ID = "testPlanId";
+  @jakarta.annotation.Nullable
   private UUID testPlanId;
 
   public static final String JSON_PROPERTY_CHILDREN = "children";
@@ -81,7 +89,7 @@ public class TestSuiteHierarchyApiResult {
   public TestSuiteHierarchyApiResult() { 
   }
 
-  public TestSuiteHierarchyApiResult id(UUID id) {
+  public TestSuiteHierarchyApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -101,12 +109,12 @@ public class TestSuiteHierarchyApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteHierarchyApiResult name(String name) {
+  public TestSuiteHierarchyApiResult name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -126,12 +134,12 @@ public class TestSuiteHierarchyApiResult {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestSuiteHierarchyApiResult type(TestSuiteTypeApiResult type) {
+  public TestSuiteHierarchyApiResult type(@jakarta.annotation.Nonnull TestSuiteTypeApiResult type) {
     this.type = type;
     return this;
   }
@@ -151,12 +159,12 @@ public class TestSuiteHierarchyApiResult {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TestSuiteTypeApiResult type) {
+  public void setType(@jakarta.annotation.Nonnull TestSuiteTypeApiResult type) {
     this.type = type;
   }
 
 
-  public TestSuiteHierarchyApiResult saveStructure(Boolean saveStructure) {
+  public TestSuiteHierarchyApiResult saveStructure(@jakarta.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = saveStructure;
     return this;
   }
@@ -176,12 +184,12 @@ public class TestSuiteHierarchyApiResult {
 
   @JsonProperty(JSON_PROPERTY_SAVE_STRUCTURE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSaveStructure(Boolean saveStructure) {
+  public void setSaveStructure(@jakarta.annotation.Nullable Boolean saveStructure) {
     this.saveStructure = saveStructure;
   }
 
 
-  public TestSuiteHierarchyApiResult autoRefresh(Boolean autoRefresh) {
+  public TestSuiteHierarchyApiResult autoRefresh(@jakarta.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
     return this;
   }
@@ -201,12 +209,12 @@ public class TestSuiteHierarchyApiResult {
 
   @JsonProperty(JSON_PROPERTY_AUTO_REFRESH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutoRefresh(Boolean autoRefresh) {
+  public void setAutoRefresh(@jakarta.annotation.Nullable Boolean autoRefresh) {
     this.autoRefresh = autoRefresh;
   }
 
 
-  public TestSuiteHierarchyApiResult refreshDate(OffsetDateTime refreshDate) {
+  public TestSuiteHierarchyApiResult refreshDate(@jakarta.annotation.Nullable OffsetDateTime refreshDate) {
     this.refreshDate = refreshDate;
     return this;
   }
@@ -226,12 +234,12 @@ public class TestSuiteHierarchyApiResult {
 
   @JsonProperty(JSON_PROPERTY_REFRESH_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRefreshDate(OffsetDateTime refreshDate) {
+  public void setRefreshDate(@jakarta.annotation.Nullable OffsetDateTime refreshDate) {
     this.refreshDate = refreshDate;
   }
 
 
-  public TestSuiteHierarchyApiResult parentId(UUID parentId) {
+  public TestSuiteHierarchyApiResult parentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -251,12 +259,12 @@ public class TestSuiteHierarchyApiResult {
 
   @JsonProperty(JSON_PROPERTY_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParentId(UUID parentId) {
+  public void setParentId(@jakarta.annotation.Nullable UUID parentId) {
     this.parentId = parentId;
   }
 
 
-  public TestSuiteHierarchyApiResult testPlanId(UUID testPlanId) {
+  public TestSuiteHierarchyApiResult testPlanId(@jakarta.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
     return this;
   }
@@ -276,12 +284,12 @@ public class TestSuiteHierarchyApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_PLAN_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestPlanId(UUID testPlanId) {
+  public void setTestPlanId(@jakarta.annotation.Nullable UUID testPlanId) {
     this.testPlanId = testPlanId;
   }
 
 
-  public TestSuiteHierarchyApiResult children(List<TestSuiteHierarchyApiResult> children) {
+  public TestSuiteHierarchyApiResult children(@jakarta.annotation.Nullable List<TestSuiteHierarchyApiResult> children) {
     this.children = JsonNullable.<List<TestSuiteHierarchyApiResult>>of(children);
     return this;
   }
@@ -321,7 +329,7 @@ public class TestSuiteHierarchyApiResult {
     this.children = children;
   }
 
-  public void setChildren(List<TestSuiteHierarchyApiResult> children) {
+  public void setChildren(@jakarta.annotation.Nullable List<TestSuiteHierarchyApiResult> children) {
     this.children = JsonNullable.<List<TestSuiteHierarchyApiResult>>of(children);
   }
 

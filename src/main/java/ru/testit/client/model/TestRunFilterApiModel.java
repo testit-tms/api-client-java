@@ -58,7 +58,7 @@ import ru.testit.client.invoker.JSON;
   TestRunFilterApiModel.JSON_PROPERTY_COMPLETED_DATE,
   TestRunFilterApiModel.JSON_PROPERTY_TEST_RESULTS_CONFIGURATION_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunFilterApiModel {
   public static final String JSON_PROPERTY_PROJECT_IDS = "projectIds";
   private JsonNullable<List<UUID>> projectIds = JsonNullable.<List<UUID>>undefined();
@@ -110,7 +110,7 @@ public class TestRunFilterApiModel {
   public TestRunFilterApiModel() { 
   }
 
-  public TestRunFilterApiModel projectIds(List<UUID> projectIds) {
+  public TestRunFilterApiModel projectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
     return this;
   }
@@ -150,12 +150,12 @@ public class TestRunFilterApiModel {
     this.projectIds = projectIds;
   }
 
-  public void setProjectIds(List<UUID> projectIds) {
+  public void setProjectIds(@jakarta.annotation.Nullable List<UUID> projectIds) {
     this.projectIds = JsonNullable.<List<UUID>>of(projectIds);
   }
 
 
-  public TestRunFilterApiModel name(String name) {
+  public TestRunFilterApiModel name(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
@@ -183,13 +183,13 @@ public class TestRunFilterApiModel {
     this.name = name;
   }
 
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nullable String name) {
     this.name = JsonNullable.<String>of(name);
   }
 
 
   @Deprecated
-  public TestRunFilterApiModel states(List<TestRunState> states) {
+  public TestRunFilterApiModel states(@jakarta.annotation.Nullable List<TestRunState> states) {
     this.states = JsonNullable.<List<TestRunState>>of(states);
     return this;
   }
@@ -232,12 +232,12 @@ public class TestRunFilterApiModel {
   }
 
   @Deprecated
-  public void setStates(List<TestRunState> states) {
+  public void setStates(@jakarta.annotation.Nullable List<TestRunState> states) {
     this.states = JsonNullable.<List<TestRunState>>of(states);
   }
 
 
-  public TestRunFilterApiModel statusCodes(List<String> statusCodes) {
+  public TestRunFilterApiModel statusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
     return this;
   }
@@ -277,12 +277,12 @@ public class TestRunFilterApiModel {
     this.statusCodes = statusCodes;
   }
 
-  public void setStatusCodes(List<String> statusCodes) {
+  public void setStatusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
   }
 
 
-  public TestRunFilterApiModel createdDate(DateTimeRangeSelectorModel createdDate) {
+  public TestRunFilterApiModel createdDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
     return this;
   }
@@ -310,12 +310,12 @@ public class TestRunFilterApiModel {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(DateTimeRangeSelectorModel createdDate) {
+  public void setCreatedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel createdDate) {
     this.createdDate = JsonNullable.<DateTimeRangeSelectorModel>of(createdDate);
   }
 
 
-  public TestRunFilterApiModel startedDate(DateTimeRangeSelectorModel startedDate) {
+  public TestRunFilterApiModel startedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startedDate) {
     this.startedDate = JsonNullable.<DateTimeRangeSelectorModel>of(startedDate);
     return this;
   }
@@ -343,12 +343,12 @@ public class TestRunFilterApiModel {
     this.startedDate = startedDate;
   }
 
-  public void setStartedDate(DateTimeRangeSelectorModel startedDate) {
+  public void setStartedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel startedDate) {
     this.startedDate = JsonNullable.<DateTimeRangeSelectorModel>of(startedDate);
   }
 
 
-  public TestRunFilterApiModel createdByIds(List<UUID> createdByIds) {
+  public TestRunFilterApiModel createdByIds(@jakarta.annotation.Nullable List<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<List<UUID>>of(createdByIds);
     return this;
   }
@@ -388,12 +388,12 @@ public class TestRunFilterApiModel {
     this.createdByIds = createdByIds;
   }
 
-  public void setCreatedByIds(List<UUID> createdByIds) {
+  public void setCreatedByIds(@jakarta.annotation.Nullable List<UUID> createdByIds) {
     this.createdByIds = JsonNullable.<List<UUID>>of(createdByIds);
   }
 
 
-  public TestRunFilterApiModel modifiedByIds(List<UUID> modifiedByIds) {
+  public TestRunFilterApiModel modifiedByIds(@jakarta.annotation.Nullable List<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<List<UUID>>of(modifiedByIds);
     return this;
   }
@@ -433,12 +433,12 @@ public class TestRunFilterApiModel {
     this.modifiedByIds = modifiedByIds;
   }
 
-  public void setModifiedByIds(List<UUID> modifiedByIds) {
+  public void setModifiedByIds(@jakarta.annotation.Nullable List<UUID> modifiedByIds) {
     this.modifiedByIds = JsonNullable.<List<UUID>>of(modifiedByIds);
   }
 
 
-  public TestRunFilterApiModel isDeleted(Boolean isDeleted) {
+  public TestRunFilterApiModel isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
     return this;
   }
@@ -466,12 +466,12 @@ public class TestRunFilterApiModel {
     this.isDeleted = isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = JsonNullable.<Boolean>of(isDeleted);
   }
 
 
-  public TestRunFilterApiModel autoTestsCount(Int32RangeSelectorModel autoTestsCount) {
+  public TestRunFilterApiModel autoTestsCount(@jakarta.annotation.Nullable Int32RangeSelectorModel autoTestsCount) {
     this.autoTestsCount = JsonNullable.<Int32RangeSelectorModel>of(autoTestsCount);
     return this;
   }
@@ -499,13 +499,13 @@ public class TestRunFilterApiModel {
     this.autoTestsCount = autoTestsCount;
   }
 
-  public void setAutoTestsCount(Int32RangeSelectorModel autoTestsCount) {
+  public void setAutoTestsCount(@jakarta.annotation.Nullable Int32RangeSelectorModel autoTestsCount) {
     this.autoTestsCount = JsonNullable.<Int32RangeSelectorModel>of(autoTestsCount);
   }
 
 
   @Deprecated
-  public TestRunFilterApiModel testResultsOutcome(List<TestResultOutcome> testResultsOutcome) {
+  public TestRunFilterApiModel testResultsOutcome(@jakarta.annotation.Nullable List<TestResultOutcome> testResultsOutcome) {
     this.testResultsOutcome = JsonNullable.<List<TestResultOutcome>>of(testResultsOutcome);
     return this;
   }
@@ -548,12 +548,12 @@ public class TestRunFilterApiModel {
   }
 
   @Deprecated
-  public void setTestResultsOutcome(List<TestResultOutcome> testResultsOutcome) {
+  public void setTestResultsOutcome(@jakarta.annotation.Nullable List<TestResultOutcome> testResultsOutcome) {
     this.testResultsOutcome = JsonNullable.<List<TestResultOutcome>>of(testResultsOutcome);
   }
 
 
-  public TestRunFilterApiModel testResultsStatusCodes(List<String> testResultsStatusCodes) {
+  public TestRunFilterApiModel testResultsStatusCodes(@jakarta.annotation.Nullable List<String> testResultsStatusCodes) {
     this.testResultsStatusCodes = JsonNullable.<List<String>>of(testResultsStatusCodes);
     return this;
   }
@@ -593,12 +593,12 @@ public class TestRunFilterApiModel {
     this.testResultsStatusCodes = testResultsStatusCodes;
   }
 
-  public void setTestResultsStatusCodes(List<String> testResultsStatusCodes) {
+  public void setTestResultsStatusCodes(@jakarta.annotation.Nullable List<String> testResultsStatusCodes) {
     this.testResultsStatusCodes = JsonNullable.<List<String>>of(testResultsStatusCodes);
   }
 
 
-  public TestRunFilterApiModel failureCategory(List<FailureCategory> failureCategory) {
+  public TestRunFilterApiModel failureCategory(@jakarta.annotation.Nullable List<FailureCategory> failureCategory) {
     this.failureCategory = JsonNullable.<List<FailureCategory>>of(failureCategory);
     return this;
   }
@@ -638,12 +638,12 @@ public class TestRunFilterApiModel {
     this.failureCategory = failureCategory;
   }
 
-  public void setFailureCategory(List<FailureCategory> failureCategory) {
+  public void setFailureCategory(@jakarta.annotation.Nullable List<FailureCategory> failureCategory) {
     this.failureCategory = JsonNullable.<List<FailureCategory>>of(failureCategory);
   }
 
 
-  public TestRunFilterApiModel completedDate(DateTimeRangeSelectorModel completedDate) {
+  public TestRunFilterApiModel completedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel completedDate) {
     this.completedDate = JsonNullable.<DateTimeRangeSelectorModel>of(completedDate);
     return this;
   }
@@ -671,12 +671,12 @@ public class TestRunFilterApiModel {
     this.completedDate = completedDate;
   }
 
-  public void setCompletedDate(DateTimeRangeSelectorModel completedDate) {
+  public void setCompletedDate(@jakarta.annotation.Nullable DateTimeRangeSelectorModel completedDate) {
     this.completedDate = JsonNullable.<DateTimeRangeSelectorModel>of(completedDate);
   }
 
 
-  public TestRunFilterApiModel testResultsConfigurationIds(List<UUID> testResultsConfigurationIds) {
+  public TestRunFilterApiModel testResultsConfigurationIds(@jakarta.annotation.Nullable List<UUID> testResultsConfigurationIds) {
     this.testResultsConfigurationIds = JsonNullable.<List<UUID>>of(testResultsConfigurationIds);
     return this;
   }
@@ -716,7 +716,7 @@ public class TestRunFilterApiModel {
     this.testResultsConfigurationIds = testResultsConfigurationIds;
   }
 
-  public void setTestResultsConfigurationIds(List<UUID> testResultsConfigurationIds) {
+  public void setTestResultsConfigurationIds(@jakarta.annotation.Nullable List<UUID> testResultsConfigurationIds) {
     this.testResultsConfigurationIds = JsonNullable.<List<UUID>>of(testResultsConfigurationIds);
   }
 

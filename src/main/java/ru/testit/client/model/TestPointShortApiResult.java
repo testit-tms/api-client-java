@@ -48,21 +48,26 @@ import ru.testit.client.invoker.JSON;
   TestPointShortApiResult.JSON_PROPERTY_LAST_TEST_RESULT_ID,
   TestPointShortApiResult.JSON_PROPERTY_WORK_ITEM_MEDIAN_DURATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPointShortApiResult {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  @jakarta.annotation.Nonnull
   private Boolean isDeleted;
 
   public static final String JSON_PROPERTY_STATUS_MODEL = "statusModel";
+  @jakarta.annotation.Nonnull
   private TestStatusApiResult statusModel;
 
   public static final String JSON_PROPERTY_ITERATION_ID = "iterationId";
+  @jakarta.annotation.Nonnull
   private UUID iterationId;
 
   public static final String JSON_PROPERTY_TEST_SUITE_ID = "testSuiteId";
+  @jakarta.annotation.Nonnull
   private UUID testSuiteId;
 
   public static final String JSON_PROPERTY_TESTER_ID = "testerId";
@@ -87,7 +92,7 @@ public class TestPointShortApiResult {
   public TestPointShortApiResult() { 
   }
 
-  public TestPointShortApiResult id(UUID id) {
+  public TestPointShortApiResult id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -107,12 +112,12 @@ public class TestPointShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestPointShortApiResult isDeleted(Boolean isDeleted) {
+  public TestPointShortApiResult isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -132,12 +137,12 @@ public class TestPointShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_IS_DELETED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public TestPointShortApiResult statusModel(TestStatusApiResult statusModel) {
+  public TestPointShortApiResult statusModel(@jakarta.annotation.Nonnull TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
     return this;
   }
@@ -157,12 +162,12 @@ public class TestPointShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_STATUS_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusModel(TestStatusApiResult statusModel) {
+  public void setStatusModel(@jakarta.annotation.Nonnull TestStatusApiResult statusModel) {
     this.statusModel = statusModel;
   }
 
 
-  public TestPointShortApiResult iterationId(UUID iterationId) {
+  public TestPointShortApiResult iterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
     return this;
   }
@@ -182,12 +187,12 @@ public class TestPointShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_ITERATION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIterationId(UUID iterationId) {
+  public void setIterationId(@jakarta.annotation.Nonnull UUID iterationId) {
     this.iterationId = iterationId;
   }
 
 
-  public TestPointShortApiResult testSuiteId(UUID testSuiteId) {
+  public TestPointShortApiResult testSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
     return this;
   }
@@ -207,12 +212,12 @@ public class TestPointShortApiResult {
 
   @JsonProperty(JSON_PROPERTY_TEST_SUITE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTestSuiteId(UUID testSuiteId) {
+  public void setTestSuiteId(@jakarta.annotation.Nonnull UUID testSuiteId) {
     this.testSuiteId = testSuiteId;
   }
 
 
-  public TestPointShortApiResult testerId(UUID testerId) {
+  public TestPointShortApiResult testerId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
     return this;
   }
@@ -240,12 +245,12 @@ public class TestPointShortApiResult {
     this.testerId = testerId;
   }
 
-  public void setTesterId(UUID testerId) {
+  public void setTesterId(@jakarta.annotation.Nullable UUID testerId) {
     this.testerId = JsonNullable.<UUID>of(testerId);
   }
 
 
-  public TestPointShortApiResult workItemId(UUID workItemId) {
+  public TestPointShortApiResult workItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
     return this;
   }
@@ -273,12 +278,12 @@ public class TestPointShortApiResult {
     this.workItemId = workItemId;
   }
 
-  public void setWorkItemId(UUID workItemId) {
+  public void setWorkItemId(@jakarta.annotation.Nullable UUID workItemId) {
     this.workItemId = JsonNullable.<UUID>of(workItemId);
   }
 
 
-  public TestPointShortApiResult configurationId(UUID configurationId) {
+  public TestPointShortApiResult configurationId(@jakarta.annotation.Nullable UUID configurationId) {
     this.configurationId = JsonNullable.<UUID>of(configurationId);
     return this;
   }
@@ -306,19 +311,19 @@ public class TestPointShortApiResult {
     this.configurationId = configurationId;
   }
 
-  public void setConfigurationId(UUID configurationId) {
+  public void setConfigurationId(@jakarta.annotation.Nullable UUID configurationId) {
     this.configurationId = JsonNullable.<UUID>of(configurationId);
   }
 
 
   @Deprecated
-  public TestPointShortApiResult status(String status) {
+  public TestPointShortApiResult status(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
     return this;
   }
 
   /**
-   * Test point status    Applies one of these values: Blocked, NoResults, Failed, Passed
+   * Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed
    * @return status
    * @deprecated
    */
@@ -343,12 +348,12 @@ public class TestPointShortApiResult {
   }
 
   @Deprecated
-  public void setStatus(String status) {
+  public void setStatus(@jakarta.annotation.Nullable String status) {
     this.status = JsonNullable.<String>of(status);
   }
 
 
-  public TestPointShortApiResult lastTestResultId(UUID lastTestResultId) {
+  public TestPointShortApiResult lastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
     return this;
   }
@@ -376,12 +381,12 @@ public class TestPointShortApiResult {
     this.lastTestResultId = lastTestResultId;
   }
 
-  public void setLastTestResultId(UUID lastTestResultId) {
+  public void setLastTestResultId(@jakarta.annotation.Nullable UUID lastTestResultId) {
     this.lastTestResultId = JsonNullable.<UUID>of(lastTestResultId);
   }
 
 
-  public TestPointShortApiResult workItemMedianDuration(Long workItemMedianDuration) {
+  public TestPointShortApiResult workItemMedianDuration(@jakarta.annotation.Nullable Long workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
     return this;
   }
@@ -409,7 +414,7 @@ public class TestPointShortApiResult {
     this.workItemMedianDuration = workItemMedianDuration;
   }
 
-  public void setWorkItemMedianDuration(Long workItemMedianDuration) {
+  public void setWorkItemMedianDuration(@jakarta.annotation.Nullable Long workItemMedianDuration) {
     this.workItemMedianDuration = JsonNullable.<Long>of(workItemMedianDuration);
   }
 

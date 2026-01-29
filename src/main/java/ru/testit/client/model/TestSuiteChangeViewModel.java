@@ -43,15 +43,18 @@ import ru.testit.client.invoker.JSON;
   TestSuiteChangeViewModel.JSON_PROPERTY_WORK_ITEM_COUNT,
   TestSuiteChangeViewModel.JSON_PROPERTY_CONFIGURATIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestSuiteChangeViewModel {
   public static final String JSON_PROPERTY_ID = "id";
+  @jakarta.annotation.Nonnull
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_WORK_ITEM_COUNT = "workItemCount";
+  @jakarta.annotation.Nonnull
   private Long workItemCount;
 
   public static final String JSON_PROPERTY_CONFIGURATIONS = "configurations";
@@ -60,7 +63,7 @@ public class TestSuiteChangeViewModel {
   public TestSuiteChangeViewModel() { 
   }
 
-  public TestSuiteChangeViewModel id(UUID id) {
+  public TestSuiteChangeViewModel id(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
     return this;
   }
@@ -80,12 +83,12 @@ public class TestSuiteChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
+  public void setId(@jakarta.annotation.Nonnull UUID id) {
     this.id = id;
   }
 
 
-  public TestSuiteChangeViewModel name(String name) {
+  public TestSuiteChangeViewModel name(@jakarta.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -105,12 +108,12 @@ public class TestSuiteChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
   }
 
 
-  public TestSuiteChangeViewModel workItemCount(Long workItemCount) {
+  public TestSuiteChangeViewModel workItemCount(@jakarta.annotation.Nonnull Long workItemCount) {
     this.workItemCount = workItemCount;
     return this;
   }
@@ -130,12 +133,12 @@ public class TestSuiteChangeViewModel {
 
   @JsonProperty(JSON_PROPERTY_WORK_ITEM_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setWorkItemCount(Long workItemCount) {
+  public void setWorkItemCount(@jakarta.annotation.Nonnull Long workItemCount) {
     this.workItemCount = workItemCount;
   }
 
 
-  public TestSuiteChangeViewModel configurations(List<ShortConfiguration> configurations) {
+  public TestSuiteChangeViewModel configurations(@jakarta.annotation.Nullable List<ShortConfiguration> configurations) {
     this.configurations = JsonNullable.<List<ShortConfiguration>>of(configurations);
     return this;
   }
@@ -175,7 +178,7 @@ public class TestSuiteChangeViewModel {
     this.configurations = configurations;
   }
 
-  public void setConfigurations(List<ShortConfiguration> configurations) {
+  public void setConfigurations(@jakarta.annotation.Nullable List<ShortConfiguration> configurations) {
     this.configurations = JsonNullable.<List<ShortConfiguration>>of(configurations);
   }
 
