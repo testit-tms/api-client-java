@@ -297,7 +297,7 @@ public class AttachmentsApi {
   }
   /**
    * Upload new attachment file
-   * File size is restricted to 50 MB (52 428 800 bytes)
+   * File size is restricted to 1 GB (1 073 741 824 bytes)
    * @param _file  (optional)
    * @return AttachmentModel
    * @throws ApiException if fails to make API call
@@ -320,7 +320,7 @@ public class AttachmentsApi {
 
   /**
    * Upload new attachment file
-   * File size is restricted to 50 MB (52 428 800 bytes)
+   * File size is restricted to 1 GB (1 073 741 824 bytes)
    * @param _file  (optional)
    * @return ApiResponse&lt;AttachmentModel&gt;
    * @throws ApiException if fails to make API call

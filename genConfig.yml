@@ -1,7 +1,7 @@
 apiPackage: "ru.testit.client.api"
 artifactId: "testit-api-client"
 artifactUrl: "https://github.com/testit-tms/api-client-java"
-artifactVersion: 2.3.0
+artifactVersion: 2.3.1-TMS-5.6
 developerEmail: "integrations@testit.software"
 developerName: "Integration Team"
 developerOrganization: "Test IT"
