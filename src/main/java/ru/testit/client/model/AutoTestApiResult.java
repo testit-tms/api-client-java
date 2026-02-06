@@ -71,7 +71,8 @@ import ru.testit.client.invoker.JSON;
   AutoTestApiResult.JSON_PROPERTY_LAST_TEST_RESULT_STATUS,
   AutoTestApiResult.JSON_PROPERTY_STABILITY_PERCENTAGE,
   AutoTestApiResult.JSON_PROPERTY_LINKS,
-  AutoTestApiResult.JSON_PROPERTY_LABELS
+  AutoTestApiResult.JSON_PROPERTY_LABELS,
+  AutoTestApiResult.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestApiResult {
@@ -170,6 +171,9 @@ public class AutoTestApiResult {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private JsonNullable<List<LabelApiResult>> labels = JsonNullable.<List<LabelApiResult>>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public AutoTestApiResult() { 
   }
@@ -1119,6 +1123,51 @@ public class AutoTestApiResult {
   }
 
 
+  public AutoTestApiResult tags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+    return this;
+  }
+
+  public AutoTestApiResult addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Get tags
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
+
   /**
    * Return true if this AutoTestApiResult object is equal to o.
    */
@@ -1159,7 +1208,8 @@ public class AutoTestApiResult {
         equalsNullable(this.lastTestResultStatus, autoTestApiResult.lastTestResultStatus) &&
         equalsNullable(this.stabilityPercentage, autoTestApiResult.stabilityPercentage) &&
         equalsNullable(this.links, autoTestApiResult.links) &&
-        equalsNullable(this.labels, autoTestApiResult.labels);
+        equalsNullable(this.labels, autoTestApiResult.labels) &&
+        equalsNullable(this.tags, autoTestApiResult.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1168,7 +1218,7 @@ public class AutoTestApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, projectId, name, isFlaky, globalId, isDeleted, mustBeApproved, createdDate, createdById, hashCodeNullable(externalId), hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(externalKey), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(lastTestRunId), hashCodeNullable(lastTestRunName), hashCodeNullable(lastTestResultId), hashCodeNullable(lastTestResultConfiguration), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(lastTestResultStatus), hashCodeNullable(stabilityPercentage), hashCodeNullable(links), hashCodeNullable(labels));
+    return Objects.hash(id, projectId, name, isFlaky, globalId, isDeleted, mustBeApproved, createdDate, createdById, hashCodeNullable(externalId), hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(externalKey), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(lastTestRunId), hashCodeNullable(lastTestRunName), hashCodeNullable(lastTestResultId), hashCodeNullable(lastTestResultConfiguration), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(lastTestResultStatus), hashCodeNullable(stabilityPercentage), hashCodeNullable(links), hashCodeNullable(labels), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1211,6 +1261,7 @@ public class AutoTestApiResult {
     sb.append("    stabilityPercentage: ").append(toIndentedString(stabilityPercentage)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

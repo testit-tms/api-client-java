@@ -13,6 +13,8 @@
 |**flakyTestRunCount** | **Integer** | Last test run count for autotest flaky computing |  |
 |**rerunEnabled** | **Boolean** | Auto rerun enabled |  |
 |**rerunAttemptsCount** | **Integer** | Auto rerun attempt count |  |
+|**workItemUpdatingEnabled** | **Boolean** | Autotest to work item updating enabled |  |
+|**workItemUpdatingFields** | [**WorkItemUpdatingFieldsApiResult**](WorkItemUpdatingFieldsApiResult.md) | Autotest to work item updating fields |  |
 
 
 

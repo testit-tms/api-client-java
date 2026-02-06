@@ -59,7 +59,8 @@ import ru.testit.client.invoker.JSON;
   AutoTestFilterModel.JSON_PROPERTY_LAST_TEST_RESULT_OUTCOME,
   AutoTestFilterModel.JSON_PROPERTY_LAST_TEST_RESULT_STATUS_CODES,
   AutoTestFilterModel.JSON_PROPERTY_EXTERNAL_KEY,
-  AutoTestFilterModel.JSON_PROPERTY_LAST_TEST_RESULT_CONFIGURATION_IDS
+  AutoTestFilterModel.JSON_PROPERTY_LAST_TEST_RESULT_CONFIGURATION_IDS,
+  AutoTestFilterModel.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestFilterModel {
@@ -122,6 +123,9 @@ public class AutoTestFilterModel {
 
   public static final String JSON_PROPERTY_LAST_TEST_RESULT_CONFIGURATION_IDS = "lastTestResultConfigurationIds";
   private JsonNullable<List<UUID>> lastTestResultConfigurationIds = JsonNullable.<List<UUID>>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public AutoTestFilterModel() { 
   }
@@ -870,6 +874,51 @@ public class AutoTestFilterModel {
   }
 
 
+  public AutoTestFilterModel tags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+    return this;
+  }
+
+  public AutoTestFilterModel addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Get tags
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
+
   /**
    * Return true if this AutoTestFilterModel object is equal to o.
    */
@@ -901,7 +950,8 @@ public class AutoTestFilterModel {
         equalsNullable(this.lastTestResultOutcome, autoTestFilterModel.lastTestResultOutcome) &&
         equalsNullable(this.lastTestResultStatusCodes, autoTestFilterModel.lastTestResultStatusCodes) &&
         equalsNullable(this.externalKey, autoTestFilterModel.externalKey) &&
-        equalsNullable(this.lastTestResultConfigurationIds, autoTestFilterModel.lastTestResultConfigurationIds);
+        equalsNullable(this.lastTestResultConfigurationIds, autoTestFilterModel.lastTestResultConfigurationIds) &&
+        equalsNullable(this.tags, autoTestFilterModel.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -910,7 +960,7 @@ public class AutoTestFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(externalIds), hashCodeNullable(globalIds), hashCodeNullable(name), hashCodeNullable(isFlaky), hashCodeNullable(mustBeApproved), hashCodeNullable(stabilityPercentage), hashCodeNullable(createdDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedByIds), hashCodeNullable(isDeleted), hashCodeNullable(namespace), hashCodeNullable(isEmptyNamespace), hashCodeNullable(className), hashCodeNullable(isEmptyClassName), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(lastTestResultStatusCodes), hashCodeNullable(externalKey), hashCodeNullable(lastTestResultConfigurationIds));
+    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(externalIds), hashCodeNullable(globalIds), hashCodeNullable(name), hashCodeNullable(isFlaky), hashCodeNullable(mustBeApproved), hashCodeNullable(stabilityPercentage), hashCodeNullable(createdDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedByIds), hashCodeNullable(isDeleted), hashCodeNullable(namespace), hashCodeNullable(isEmptyNamespace), hashCodeNullable(className), hashCodeNullable(isEmptyClassName), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(lastTestResultStatusCodes), hashCodeNullable(externalKey), hashCodeNullable(lastTestResultConfigurationIds), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -944,6 +994,7 @@ public class AutoTestFilterModel {
     sb.append("    lastTestResultStatusCodes: ").append(toIndentedString(lastTestResultStatusCodes)).append("\n");
     sb.append("    externalKey: ").append(toIndentedString(externalKey)).append("\n");
     sb.append("    lastTestResultConfigurationIds: ").append(toIndentedString(lastTestResultConfigurationIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

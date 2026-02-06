@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
+import ru.testit.client.model.WorkItemUpdatingFieldsApiResult;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -36,7 +37,9 @@ import ru.testit.client.invoker.JSON;
   AutoTestProjectSettingsApiResult.JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE,
   AutoTestProjectSettingsApiResult.JSON_PROPERTY_FLAKY_TEST_RUN_COUNT,
   AutoTestProjectSettingsApiResult.JSON_PROPERTY_RERUN_ENABLED,
-  AutoTestProjectSettingsApiResult.JSON_PROPERTY_RERUN_ATTEMPTS_COUNT
+  AutoTestProjectSettingsApiResult.JSON_PROPERTY_RERUN_ATTEMPTS_COUNT,
+  AutoTestProjectSettingsApiResult.JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED,
+  AutoTestProjectSettingsApiResult.JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestProjectSettingsApiResult {
@@ -63,6 +66,14 @@ public class AutoTestProjectSettingsApiResult {
   public static final String JSON_PROPERTY_RERUN_ATTEMPTS_COUNT = "rerunAttemptsCount";
   @jakarta.annotation.Nonnull
   private Integer rerunAttemptsCount;
+
+  public static final String JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED = "workItemUpdatingEnabled";
+  @jakarta.annotation.Nonnull
+  private Boolean workItemUpdatingEnabled;
+
+  public static final String JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS = "workItemUpdatingFields";
+  @jakarta.annotation.Nonnull
+  private WorkItemUpdatingFieldsApiResult workItemUpdatingFields;
 
   public AutoTestProjectSettingsApiResult() { 
   }
@@ -217,6 +228,56 @@ public class AutoTestProjectSettingsApiResult {
   }
 
 
+  public AutoTestProjectSettingsApiResult workItemUpdatingEnabled(@jakarta.annotation.Nonnull Boolean workItemUpdatingEnabled) {
+    this.workItemUpdatingEnabled = workItemUpdatingEnabled;
+    return this;
+  }
+
+  /**
+   * Autotest to work item updating enabled
+   * @return workItemUpdatingEnabled
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getWorkItemUpdatingEnabled() {
+    return workItemUpdatingEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setWorkItemUpdatingEnabled(@jakarta.annotation.Nonnull Boolean workItemUpdatingEnabled) {
+    this.workItemUpdatingEnabled = workItemUpdatingEnabled;
+  }
+
+
+  public AutoTestProjectSettingsApiResult workItemUpdatingFields(@jakarta.annotation.Nonnull WorkItemUpdatingFieldsApiResult workItemUpdatingFields) {
+    this.workItemUpdatingFields = workItemUpdatingFields;
+    return this;
+  }
+
+  /**
+   * Autotest to work item updating fields
+   * @return workItemUpdatingFields
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public WorkItemUpdatingFieldsApiResult getWorkItemUpdatingFields() {
+    return workItemUpdatingFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setWorkItemUpdatingFields(@jakarta.annotation.Nonnull WorkItemUpdatingFieldsApiResult workItemUpdatingFields) {
+    this.workItemUpdatingFields = workItemUpdatingFields;
+  }
+
+
   /**
    * Return true if this AutoTestProjectSettingsApiResult object is equal to o.
    */
@@ -234,12 +295,14 @@ public class AutoTestProjectSettingsApiResult {
         Objects.equals(this.flakyStabilityPercentage, autoTestProjectSettingsApiResult.flakyStabilityPercentage) &&
         Objects.equals(this.flakyTestRunCount, autoTestProjectSettingsApiResult.flakyTestRunCount) &&
         Objects.equals(this.rerunEnabled, autoTestProjectSettingsApiResult.rerunEnabled) &&
-        Objects.equals(this.rerunAttemptsCount, autoTestProjectSettingsApiResult.rerunAttemptsCount);
+        Objects.equals(this.rerunAttemptsCount, autoTestProjectSettingsApiResult.rerunAttemptsCount) &&
+        Objects.equals(this.workItemUpdatingEnabled, autoTestProjectSettingsApiResult.workItemUpdatingEnabled) &&
+        Objects.equals(this.workItemUpdatingFields, autoTestProjectSettingsApiResult.workItemUpdatingFields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount, rerunEnabled, rerunAttemptsCount);
+    return Objects.hash(projectId, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount, rerunEnabled, rerunAttemptsCount, workItemUpdatingEnabled, workItemUpdatingFields);
   }
 
   @Override
@@ -252,6 +315,8 @@ public class AutoTestProjectSettingsApiResult {
     sb.append("    flakyTestRunCount: ").append(toIndentedString(flakyTestRunCount)).append("\n");
     sb.append("    rerunEnabled: ").append(toIndentedString(rerunEnabled)).append("\n");
     sb.append("    rerunAttemptsCount: ").append(toIndentedString(rerunAttemptsCount)).append("\n");
+    sb.append("    workItemUpdatingEnabled: ").append(toIndentedString(workItemUpdatingEnabled)).append("\n");
+    sb.append("    workItemUpdatingFields: ").append(toIndentedString(workItemUpdatingFields)).append("\n");
     sb.append("}");
     return sb.toString();
   }

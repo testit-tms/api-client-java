@@ -26,7 +26,7 @@
 |**steps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  |
 |**preconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  |
 |**postconditionSteps** | [**List&lt;StepModel&gt;**](StepModel.md) |  |  |
-|**duration** | **Integer** |  |  |
+|**duration** | **Long** |  |  |
 |**attributes** | **Map&lt;String, Object&gt;** |  |  |
 |**tags** | [**List&lt;TagModel&gt;**](TagModel.md) |  |  |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) |  |  |
