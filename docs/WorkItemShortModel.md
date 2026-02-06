@@ -17,7 +17,7 @@
 |**sectionName** | **String** | Section name of Work Item |  |
 |**isAutomated** | **Boolean** | Boolean flag determining whether Work Item is automated |  |
 |**globalId** | **Long** | Work Item global identifier |  |
-|**duration** | **Integer** | Work Item duration |  |
+|**duration** | **Long** | Work Item duration |  |
 |**createdById** | **UUID** | Unique identifier of user who created Work Item |  |
 |**state** | **WorkItemStates** | The current state of Work Item |  |
 |**priority** | **WorkItemPriorityModel** | Work Item priority level |  |

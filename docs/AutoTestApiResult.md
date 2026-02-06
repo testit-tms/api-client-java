@@ -36,6 +36,7 @@
 |**stabilityPercentage** | **Long** |  |  [optional] |
 |**links** | [**List&lt;LinkApiResult&gt;**](LinkApiResult.md) |  |  [optional] |
 |**labels** | [**List&lt;LabelApiResult&gt;**](LabelApiResult.md) |  |  [optional] |
+|**tags** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

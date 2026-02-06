@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import ru.testit.client.model.WorkItemUpdatingFieldsApiModel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -32,9 +33,11 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_RERUN_ENABLED,
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_RERUN_ATTEMPTS_COUNT,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS,
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_IS_FLAKY_AUTO,
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE,
-  AutoTestProjectSettingsApiModel.JSON_PROPERTY_FLAKY_TEST_RUN_COUNT
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_FLAKY_TEST_RUN_COUNT,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestProjectSettingsApiModel {
@@ -45,6 +48,10 @@ public class AutoTestProjectSettingsApiModel {
   public static final String JSON_PROPERTY_RERUN_ATTEMPTS_COUNT = "rerunAttemptsCount";
   @jakarta.annotation.Nonnull
   private Integer rerunAttemptsCount;
+
+  public static final String JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS = "workItemUpdatingFields";
+  @jakarta.annotation.Nonnull
+  private WorkItemUpdatingFieldsApiModel workItemUpdatingFields;
 
   public static final String JSON_PROPERTY_IS_FLAKY_AUTO = "isFlakyAuto";
   @jakarta.annotation.Nullable
@@ -57,6 +64,10 @@ public class AutoTestProjectSettingsApiModel {
   public static final String JSON_PROPERTY_FLAKY_TEST_RUN_COUNT = "flakyTestRunCount";
   @jakarta.annotation.Nullable
   private Integer flakyTestRunCount = 100;
+
+  public static final String JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED = "workItemUpdatingEnabled";
+  @jakarta.annotation.Nullable
+  private Boolean workItemUpdatingEnabled = false;
 
   public AutoTestProjectSettingsApiModel() { 
   }
@@ -110,6 +121,31 @@ public class AutoTestProjectSettingsApiModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRerunAttemptsCount(@jakarta.annotation.Nonnull Integer rerunAttemptsCount) {
     this.rerunAttemptsCount = rerunAttemptsCount;
+  }
+
+
+  public AutoTestProjectSettingsApiModel workItemUpdatingFields(@jakarta.annotation.Nonnull WorkItemUpdatingFieldsApiModel workItemUpdatingFields) {
+    this.workItemUpdatingFields = workItemUpdatingFields;
+    return this;
+  }
+
+  /**
+   * Autotest to work item updating fields
+   * @return workItemUpdatingFields
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public WorkItemUpdatingFieldsApiModel getWorkItemUpdatingFields() {
+    return workItemUpdatingFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setWorkItemUpdatingFields(@jakarta.annotation.Nonnull WorkItemUpdatingFieldsApiModel workItemUpdatingFields) {
+    this.workItemUpdatingFields = workItemUpdatingFields;
   }
 
 
@@ -192,6 +228,31 @@ public class AutoTestProjectSettingsApiModel {
   }
 
 
+  public AutoTestProjectSettingsApiModel workItemUpdatingEnabled(@jakarta.annotation.Nullable Boolean workItemUpdatingEnabled) {
+    this.workItemUpdatingEnabled = workItemUpdatingEnabled;
+    return this;
+  }
+
+  /**
+   * Autotest to work item updating enabled
+   * @return workItemUpdatingEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getWorkItemUpdatingEnabled() {
+    return workItemUpdatingEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWorkItemUpdatingEnabled(@jakarta.annotation.Nullable Boolean workItemUpdatingEnabled) {
+    this.workItemUpdatingEnabled = workItemUpdatingEnabled;
+  }
+
+
   /**
    * Return true if this AutoTestProjectSettingsApiModel object is equal to o.
    */
@@ -206,14 +267,16 @@ public class AutoTestProjectSettingsApiModel {
     AutoTestProjectSettingsApiModel autoTestProjectSettingsApiModel = (AutoTestProjectSettingsApiModel) o;
     return Objects.equals(this.rerunEnabled, autoTestProjectSettingsApiModel.rerunEnabled) &&
         Objects.equals(this.rerunAttemptsCount, autoTestProjectSettingsApiModel.rerunAttemptsCount) &&
+        Objects.equals(this.workItemUpdatingFields, autoTestProjectSettingsApiModel.workItemUpdatingFields) &&
         Objects.equals(this.isFlakyAuto, autoTestProjectSettingsApiModel.isFlakyAuto) &&
         Objects.equals(this.flakyStabilityPercentage, autoTestProjectSettingsApiModel.flakyStabilityPercentage) &&
-        Objects.equals(this.flakyTestRunCount, autoTestProjectSettingsApiModel.flakyTestRunCount);
+        Objects.equals(this.flakyTestRunCount, autoTestProjectSettingsApiModel.flakyTestRunCount) &&
+        Objects.equals(this.workItemUpdatingEnabled, autoTestProjectSettingsApiModel.workItemUpdatingEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rerunEnabled, rerunAttemptsCount, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount);
+    return Objects.hash(rerunEnabled, rerunAttemptsCount, workItemUpdatingFields, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount, workItemUpdatingEnabled);
   }
 
   @Override
@@ -222,9 +285,11 @@ public class AutoTestProjectSettingsApiModel {
     sb.append("class AutoTestProjectSettingsApiModel {\n");
     sb.append("    rerunEnabled: ").append(toIndentedString(rerunEnabled)).append("\n");
     sb.append("    rerunAttemptsCount: ").append(toIndentedString(rerunAttemptsCount)).append("\n");
+    sb.append("    workItemUpdatingFields: ").append(toIndentedString(workItemUpdatingFields)).append("\n");
     sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("    flakyStabilityPercentage: ").append(toIndentedString(flakyStabilityPercentage)).append("\n");
     sb.append("    flakyTestRunCount: ").append(toIndentedString(flakyTestRunCount)).append("\n");
+    sb.append("    workItemUpdatingEnabled: ").append(toIndentedString(workItemUpdatingEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

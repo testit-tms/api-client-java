@@ -1,34 +1,35 @@
-# AttachmentsApi
+# TestStatusesApi
 
 All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**apiV2AttachmentsIdDelete**](AttachmentsApi.md#apiV2AttachmentsIdDelete) | **DELETE** /api/v2/attachments/{id} | Delete attachment file |
-| [**apiV2AttachmentsIdGet**](AttachmentsApi.md#apiV2AttachmentsIdGet) | **GET** /api/v2/attachments/{id} | Download attachment file |
-| [**apiV2AttachmentsIdMetadataGet**](AttachmentsApi.md#apiV2AttachmentsIdMetadataGet) | **GET** /api/v2/attachments/{id}/metadata | Get attachment metadata |
-| [**apiV2AttachmentsOccupiedFileStorageSizeGet**](AttachmentsApi.md#apiV2AttachmentsOccupiedFileStorageSizeGet) | **GET** /api/v2/attachments/occupiedFileStorageSize | Get size of attachments storage in bytes |
-| [**apiV2AttachmentsPost**](AttachmentsApi.md#apiV2AttachmentsPost) | **POST** /api/v2/attachments | Upload new attachment file |
+| [**apiV2TestStatusesCodeCodeExistsGet**](TestStatusesApi.md#apiV2TestStatusesCodeCodeExistsGet) | **GET** /api/v2/testStatuses/code/{code}/exists |  |
+| [**apiV2TestStatusesIdDelete**](TestStatusesApi.md#apiV2TestStatusesIdDelete) | **DELETE** /api/v2/testStatuses/{id} |  |
+| [**apiV2TestStatusesIdGet**](TestStatusesApi.md#apiV2TestStatusesIdGet) | **GET** /api/v2/testStatuses/{id} |  |
+| [**apiV2TestStatusesIdPut**](TestStatusesApi.md#apiV2TestStatusesIdPut) | **PUT** /api/v2/testStatuses/{id} |  |
+| [**apiV2TestStatusesNameNameExistsGet**](TestStatusesApi.md#apiV2TestStatusesNameNameExistsGet) | **GET** /api/v2/testStatuses/name/{name}/exists |  |
+| [**apiV2TestStatusesPost**](TestStatusesApi.md#apiV2TestStatusesPost) | **POST** /api/v2/testStatuses |  |
+| [**apiV2TestStatusesSearchPost**](TestStatusesApi.md#apiV2TestStatusesSearchPost) | **POST** /api/v2/testStatuses/search |  |
 
 
 
-## apiV2AttachmentsIdDelete
+## apiV2TestStatusesCodeCodeExistsGet
 
-> apiV2AttachmentsIdDelete(id)
+> Boolean apiV2TestStatusesCodeCodeExistsGet(code)
 
-Delete attachment file
+
 
 ### Example
 
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
 import ru.testit.client.invoker.model.*;
-import ru.testit.client.api.AttachmentsApi;
+import ru.testit.client.api.TestStatusesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -41,12 +42,89 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
+        TestStatusesApi apiInstance = new TestStatusesApi(defaultClient);
+        String code = "code_example"; // String | 
+        try {
+            Boolean result = apiInstance.apiV2TestStatusesCodeCodeExistsGet(code);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestStatusesApi#apiV2TestStatusesCodeCodeExistsGet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **code** | **String**|  | |
+
+### Return type
+
+**Boolean**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+
+## apiV2TestStatusesIdDelete
+
+> apiV2TestStatusesIdDelete(id)
+
+
+
+### Example
+
+```java
+import java.util.UUID;
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestStatusesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestStatusesApi apiInstance = new TestStatusesApi(defaultClient);
         UUID id = UUID.randomUUID(); // UUID | 
         try {
-            apiInstance.apiV2AttachmentsIdDelete(id);
+            apiInstance.apiV2TestStatusesIdDelete(id);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsIdDelete");
+            System.err.println("Exception when calling TestStatusesApi#apiV2TestStatusesIdDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -79,20 +157,20 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Attachment file was deleted successfully |  -  |
+| **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
-| **422** | Attachment file is already in use |  -  |
+| **422** | Unprocessable Entity |  -  |
 
 
-## apiV2AttachmentsIdGet
+## apiV2TestStatusesIdGet
 
-> apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview)
+> TestStatusApiResult apiV2TestStatusesIdGet(id)
 
-Download attachment file
+
 
 ### Example
 
@@ -104,7 +182,7 @@ import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
 import ru.testit.client.invoker.model.*;
-import ru.testit.client.api.AttachmentsApi;
+import ru.testit.client.api.TestStatusesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -117,17 +195,13 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
+        TestStatusesApi apiInstance = new TestStatusesApi(defaultClient);
         UUID id = UUID.randomUUID(); // UUID | 
-        Integer width = 56; // Integer | Width of the result image
-        Integer height = 56; // Integer | Height of the result image
-        ImageResizeType resizeType = ImageResizeType.fromValue("Crop"); // ImageResizeType | Type of resizing to apply to the result image
-        String backgroundColor = "backgroundColor_example"; // String | Color of the background if the `resizeType` is `AddBackgroundStripes`
-        Boolean preview = true; // Boolean | If image must be converted to a preview (lower quality, no animation)
         try {
-            apiInstance.apiV2AttachmentsIdGet(id, width, height, resizeType, backgroundColor, preview);
+            TestStatusApiResult result = apiInstance.apiV2TestStatusesIdGet(id);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsIdGet");
+            System.err.println("Exception when calling TestStatusesApi#apiV2TestStatusesIdGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -143,11 +217,84 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **width** | **Integer**| Width of the result image | [optional] |
-| **height** | **Integer**| Height of the result image | [optional] |
-| **resizeType** | **ImageResizeType**| Type of resizing to apply to the result image | [optional] [enum: Crop, AddBackgroundStripes] |
-| **backgroundColor** | **String**| Color of the background if the &#x60;resizeType&#x60; is &#x60;AddBackgroundStripes&#x60; | [optional] |
-| **preview** | **Boolean**| If image must be converted to a preview (lower quality, no animation) | [optional] |
+
+### Return type
+
+[**TestStatusApiResult**](TestStatusApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+
+## apiV2TestStatusesIdPut
+
+> apiV2TestStatusesIdPut(id, updateTestStatusApiModel)
+
+
+
+### Example
+
+```java
+import java.util.UUID;
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestStatusesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestStatusesApi apiInstance = new TestStatusesApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateTestStatusApiModel updateTestStatusApiModel = new UpdateTestStatusApiModel(); // UpdateTestStatusApiModel | 
+        try {
+            apiInstance.apiV2TestStatusesIdPut(id, updateTestStatusApiModel);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestStatusesApi#apiV2TestStatusesIdPut");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateTestStatusApiModel** | [**UpdateTestStatusApiModel**](UpdateTestStatusApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -159,13 +306,13 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
@@ -174,23 +321,22 @@ null (empty response body)
 | **422** | Unprocessable Entity |  -  |
 
 
-## apiV2AttachmentsIdMetadataGet
+## apiV2TestStatusesNameNameExistsGet
 
-> AttachmentModel apiV2AttachmentsIdMetadataGet(id)
+> Boolean apiV2TestStatusesNameNameExistsGet(name)
 
-Get attachment metadata
+
 
 ### Example
 
 ```java
-import java.util.UUID;
 // Import classes:
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
 import ru.testit.client.invoker.model.*;
-import ru.testit.client.api.AttachmentsApi;
+import ru.testit.client.api.TestStatusesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -203,13 +349,13 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
+        TestStatusesApi apiInstance = new TestStatusesApi(defaultClient);
+        String name = "name_example"; // String | 
         try {
-            AttachmentModel result = apiInstance.apiV2AttachmentsIdMetadataGet(id);
+            Boolean result = apiInstance.apiV2TestStatusesNameNameExistsGet(name);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsIdMetadataGet");
+            System.err.println("Exception when calling TestStatusesApi#apiV2TestStatusesNameNameExistsGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -224,11 +370,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **name** | **String**|  | |
 
 ### Return type
 
-[**AttachmentModel**](AttachmentModel.md)
+**Boolean**
 
 ### Authorization
 
@@ -237,7 +383,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -251,11 +397,11 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 
 
-## apiV2AttachmentsOccupiedFileStorageSizeGet
+## apiV2TestStatusesPost
 
-> Long apiV2AttachmentsOccupiedFileStorageSizeGet()
+> TestStatusApiResult apiV2TestStatusesPost(createTestStatusApiModel)
 
-Get size of attachments storage in bytes
+
 
 ### Example
 
@@ -266,7 +412,7 @@ import ru.testit.client.invoker.ApiException;
 import ru.testit.client.invoker.Configuration;
 import ru.testit.client.invoker.auth.*;
 import ru.testit.client.invoker.model.*;
-import ru.testit.client.api.AttachmentsApi;
+import ru.testit.client.api.TestStatusesApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -279,88 +425,13 @@ public class Example {
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
-        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
+        TestStatusesApi apiInstance = new TestStatusesApi(defaultClient);
+        CreateTestStatusApiModel createTestStatusApiModel = new CreateTestStatusApiModel(); // CreateTestStatusApiModel | 
         try {
-            Long result = apiInstance.apiV2AttachmentsOccupiedFileStorageSizeGet();
+            TestStatusApiResult result = apiInstance.apiV2TestStatusesPost(createTestStatusApiModel);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsOccupiedFileStorageSizeGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-**Long**
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-
-
-## apiV2AttachmentsPost
-
-> AttachmentModel apiV2AttachmentsPost(_file)
-
-Upload new attachment file
-
-File size is restricted to 50 MB (52 428 800 bytes)
-
-### Example
-
-```java
-import java.io.File;
-// Import classes:
-import ru.testit.client.invoker.ApiClient;
-import ru.testit.client.invoker.ApiException;
-import ru.testit.client.invoker.Configuration;
-import ru.testit.client.invoker.auth.*;
-import ru.testit.client.invoker.model.*;
-import ru.testit.client.api.AttachmentsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("http://localhost");
-        
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
-
-        AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
-        File _file = new File("/path/to/file"); // File | 
-        try {
-            AttachmentModel result = apiInstance.apiV2AttachmentsPost(_file);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AttachmentsApi#apiV2AttachmentsPost");
+            System.err.println("Exception when calling TestStatusesApi#apiV2TestStatusesPost");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -375,11 +446,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **_file** | **File**|  | [optional] |
+| **createTestStatusApiModel** | [**CreateTestStatusApiModel**](CreateTestStatusApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**AttachmentModel**](AttachmentModel.md)
+[**TestStatusApiResult**](TestStatusApiResult.md)
 
 ### Authorization
 
@@ -387,14 +458,90 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
-| **400** |  - Invalid file contents  - Invalid HTTP headers |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+
+
+## apiV2TestStatusesSearchPost
+
+> TestStatusApiResultReply apiV2TestStatusesSearchPost(searchTestStatusesApiModel)
+
+
+
+### Example
+
+```java
+// Import classes:
+import ru.testit.client.invoker.ApiClient;
+import ru.testit.client.invoker.ApiException;
+import ru.testit.client.invoker.Configuration;
+import ru.testit.client.invoker.auth.*;
+import ru.testit.client.invoker.model.*;
+import ru.testit.client.api.TestStatusesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://localhost");
+        
+        // Configure API key authorization: Bearer or PrivateToken
+        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
+        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+
+        TestStatusesApi apiInstance = new TestStatusesApi(defaultClient);
+        SearchTestStatusesApiModel searchTestStatusesApiModel = new SearchTestStatusesApiModel(); // SearchTestStatusesApiModel | 
+        try {
+            TestStatusApiResultReply result = apiInstance.apiV2TestStatusesSearchPost(searchTestStatusesApiModel);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling TestStatusesApi#apiV2TestStatusesSearchPost");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **searchTestStatusesApiModel** | [**SearchTestStatusesApiModel**](SearchTestStatusesApiModel.md)|  | [optional] |
+
+### Return type
+
+[**TestStatusApiResultReply**](TestStatusApiResultReply.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |

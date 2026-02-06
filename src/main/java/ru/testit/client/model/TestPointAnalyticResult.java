@@ -27,7 +27,6 @@ import java.util.List;
 import ru.testit.client.model.TestPlanGroupByStatus;
 import ru.testit.client.model.TestPlanGroupByStatusCode;
 import ru.testit.client.model.TestPlanGroupByStatusType;
-import ru.testit.client.model.TestPlanGroupByTestSuite;
 import ru.testit.client.model.TestPlanGroupByTester;
 import ru.testit.client.model.TestPlanGroupByTesterAndStatus;
 import ru.testit.client.model.TestPlanGroupByTesterAndStatusCode;
@@ -42,7 +41,6 @@ import ru.testit.client.invoker.JSON;
   TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_STATUS,
   TestPointAnalyticResult.JSON_PROPERTY_SUM_GROUP_BY_TESTER,
   TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER,
-  TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE,
   TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS,
   TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_STATUS_CODE,
   TestPointAnalyticResult.JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS_CODE,
@@ -62,10 +60,6 @@ public class TestPointAnalyticResult {
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER = "countGroupByTester";
   @jakarta.annotation.Nonnull
   private List<TestPlanGroupByTester> countGroupByTester = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE = "countGroupByTestSuite";
-  @jakarta.annotation.Nonnull
-  private List<TestPlanGroupByTestSuite> countGroupByTestSuite = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COUNT_GROUP_BY_TESTER_AND_STATUS = "countGroupByTesterAndStatus";
   @Deprecated
@@ -187,39 +181,6 @@ public class TestPointAnalyticResult {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCountGroupByTester(@jakarta.annotation.Nonnull List<TestPlanGroupByTester> countGroupByTester) {
     this.countGroupByTester = countGroupByTester;
-  }
-
-
-  public TestPointAnalyticResult countGroupByTestSuite(@jakarta.annotation.Nonnull List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
-    this.countGroupByTestSuite = countGroupByTestSuite;
-    return this;
-  }
-
-  public TestPointAnalyticResult addCountGroupByTestSuiteItem(TestPlanGroupByTestSuite countGroupByTestSuiteItem) {
-    if (this.countGroupByTestSuite == null) {
-      this.countGroupByTestSuite = new ArrayList<>();
-    }
-    this.countGroupByTestSuite.add(countGroupByTestSuiteItem);
-    return this;
-  }
-
-  /**
-   * Get countGroupByTestSuite
-   * @return countGroupByTestSuite
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<TestPlanGroupByTestSuite> getCountGroupByTestSuite() {
-    return countGroupByTestSuite;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_COUNT_GROUP_BY_TEST_SUITE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountGroupByTestSuite(@jakarta.annotation.Nonnull List<TestPlanGroupByTestSuite> countGroupByTestSuite) {
-    this.countGroupByTestSuite = countGroupByTestSuite;
   }
 
 
@@ -374,7 +335,6 @@ public class TestPointAnalyticResult {
     return Objects.equals(this.countGroupByStatus, testPointAnalyticResult.countGroupByStatus) &&
         Objects.equals(this.sumGroupByTester, testPointAnalyticResult.sumGroupByTester) &&
         Objects.equals(this.countGroupByTester, testPointAnalyticResult.countGroupByTester) &&
-        Objects.equals(this.countGroupByTestSuite, testPointAnalyticResult.countGroupByTestSuite) &&
         Objects.equals(this.countGroupByTesterAndStatus, testPointAnalyticResult.countGroupByTesterAndStatus) &&
         Objects.equals(this.countGroupByStatusCode, testPointAnalyticResult.countGroupByStatusCode) &&
         Objects.equals(this.countGroupByTesterAndStatusCode, testPointAnalyticResult.countGroupByTesterAndStatusCode) &&
@@ -383,7 +343,7 @@ public class TestPointAnalyticResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countGroupByStatus, sumGroupByTester, countGroupByTester, countGroupByTestSuite, countGroupByTesterAndStatus, countGroupByStatusCode, countGroupByTesterAndStatusCode, countGroupByStatusType);
+    return Objects.hash(countGroupByStatus, sumGroupByTester, countGroupByTester, countGroupByTesterAndStatus, countGroupByStatusCode, countGroupByTesterAndStatusCode, countGroupByStatusType);
   }
 
   @Override
@@ -393,7 +353,6 @@ public class TestPointAnalyticResult {
     sb.append("    countGroupByStatus: ").append(toIndentedString(countGroupByStatus)).append("\n");
     sb.append("    sumGroupByTester: ").append(toIndentedString(sumGroupByTester)).append("\n");
     sb.append("    countGroupByTester: ").append(toIndentedString(countGroupByTester)).append("\n");
-    sb.append("    countGroupByTestSuite: ").append(toIndentedString(countGroupByTestSuite)).append("\n");
     sb.append("    countGroupByTesterAndStatus: ").append(toIndentedString(countGroupByTesterAndStatus)).append("\n");
     sb.append("    countGroupByStatusCode: ").append(toIndentedString(countGroupByStatusCode)).append("\n");
     sb.append("    countGroupByTesterAndStatusCode: ").append(toIndentedString(countGroupByTesterAndStatusCode)).append("\n");

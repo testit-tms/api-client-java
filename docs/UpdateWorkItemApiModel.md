@@ -14,7 +14,7 @@
 |**steps** | [**List&lt;UpdateStepApiModel&gt;**](UpdateStepApiModel.md) | Collection of workitem steps |  |
 |**preconditionSteps** | [**List&lt;UpdateStepApiModel&gt;**](UpdateStepApiModel.md) | Collection of workitem precondtion steps |  |
 |**postconditionSteps** | [**List&lt;UpdateStepApiModel&gt;**](UpdateStepApiModel.md) | Collection of workitem postcondition steps |  |
-|**duration** | **Integer** | Workitem duration in milliseconds |  |
+|**duration** | **Long** | Workitem duration in milliseconds |  |
 |**attributes** | **Map&lt;String, Object&gt;** | Key value pair of custom workitem attributes |  |
 |**tags** | [**List&lt;TagModel&gt;**](TagModel.md) | Collection of workitem tags |  |
 |**links** | [**List&lt;UpdateLinkApiModel&gt;**](UpdateLinkApiModel.md) | Collection of workitem links |  |

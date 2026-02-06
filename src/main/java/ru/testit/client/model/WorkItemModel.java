@@ -164,7 +164,7 @@ public class WorkItemModel {
 
   public static final String JSON_PROPERTY_DURATION = "duration";
   @jakarta.annotation.Nonnull
-  private Integer duration;
+  private Long duration;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   @jakarta.annotation.Nonnull
@@ -716,7 +716,7 @@ public class WorkItemModel {
   }
 
 
-  public WorkItemModel duration(@jakarta.annotation.Nonnull Integer duration) {
+  public WorkItemModel duration(@jakarta.annotation.Nonnull Long duration) {
     this.duration = duration;
     return this;
   }
@@ -731,14 +731,14 @@ public class WorkItemModel {
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getDuration() {
+  public Long getDuration() {
     return duration;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(@jakarta.annotation.Nonnull Integer duration) {
+  public void setDuration(@jakarta.annotation.Nonnull Long duration) {
     this.duration = duration;
   }
 

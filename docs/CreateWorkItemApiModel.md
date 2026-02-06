@@ -10,7 +10,7 @@
 |**projectId** | **UUID** | Unique identifier of the project |  |
 |**name** | **String** | Name of the work item |  |
 |**entityTypeName** | **WorkItemEntityTypeApiModel** | Type of entity associated with this work item |  |
-|**duration** | **Integer** | Duration of the work item in milliseconds |  |
+|**duration** | **Long** | Duration of the work item in milliseconds |  |
 |**state** | **WorkItemStateApiModel** | State of the work item |  |
 |**priority** | **WorkItemPriorityApiModel** | Priority level of the work item |  |
 |**attributes** | **Map&lt;String, Object&gt;** | Set of custom attributes associated with the work item |  |

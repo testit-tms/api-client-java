@@ -27,6 +27,7 @@
 |**lastTestResultStatusCodes** | **Set&lt;String&gt;** | Specifies an autotest status codes of the last test result to search for |  [optional] |
 |**externalKey** | **String** | Specifies an autotest external key to search for |  [optional] |
 |**lastTestResultConfigurationIds** | **Set&lt;UUID&gt;** | Specifies an autotest configuration IDs of the last test result to search for |  [optional] |
+|**tags** | **Set&lt;String&gt;** | Specifies an autotest tags to search for |  [optional] |
 
 
 

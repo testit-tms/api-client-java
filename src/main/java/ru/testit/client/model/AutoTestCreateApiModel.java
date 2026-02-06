@@ -42,34 +42,35 @@ import ru.testit.client.invoker.JSON;
  * AutoTestCreateApiModel
  */
 @JsonPropertyOrder({
-  AutoTestCreateApiModel.JSON_PROPERTY_EXTERNAL_ID,
   AutoTestCreateApiModel.JSON_PROPERTY_PROJECT_ID,
+  AutoTestCreateApiModel.JSON_PROPERTY_EXTERNAL_ID,
   AutoTestCreateApiModel.JSON_PROPERTY_NAME,
   AutoTestCreateApiModel.JSON_PROPERTY_EXTERNAL_KEY,
   AutoTestCreateApiModel.JSON_PROPERTY_NAMESPACE,
   AutoTestCreateApiModel.JSON_PROPERTY_CLASSNAME,
+  AutoTestCreateApiModel.JSON_PROPERTY_TITLE,
+  AutoTestCreateApiModel.JSON_PROPERTY_DESCRIPTION,
+  AutoTestCreateApiModel.JSON_PROPERTY_IS_FLAKY,
   AutoTestCreateApiModel.JSON_PROPERTY_STEPS,
   AutoTestCreateApiModel.JSON_PROPERTY_SETUP,
   AutoTestCreateApiModel.JSON_PROPERTY_TEARDOWN,
-  AutoTestCreateApiModel.JSON_PROPERTY_TITLE,
-  AutoTestCreateApiModel.JSON_PROPERTY_DESCRIPTION,
+  AutoTestCreateApiModel.JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM,
+  AutoTestCreateApiModel.JSON_PROPERTY_WORK_ITEM_IDS,
+  AutoTestCreateApiModel.JSON_PROPERTY_ATTRIBUTES,
+  AutoTestCreateApiModel.JSON_PROPERTY_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST,
   AutoTestCreateApiModel.JSON_PROPERTY_LABELS,
   AutoTestCreateApiModel.JSON_PROPERTY_LINKS,
-  AutoTestCreateApiModel.JSON_PROPERTY_IS_FLAKY,
-  AutoTestCreateApiModel.JSON_PROPERTY_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST,
-  AutoTestCreateApiModel.JSON_PROPERTY_WORK_ITEM_IDS,
-  AutoTestCreateApiModel.JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM,
-  AutoTestCreateApiModel.JSON_PROPERTY_ATTRIBUTES
+  AutoTestCreateApiModel.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestCreateApiModel {
-  public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
-  @jakarta.annotation.Nonnull
-  private String externalId;
-
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   @jakarta.annotation.Nonnull
   private UUID projectId;
+
+  public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @jakarta.annotation.Nonnull
+  private String externalId;
 
   public static final String JSON_PROPERTY_NAME = "name";
   @jakarta.annotation.Nonnull
@@ -84,6 +85,15 @@ public class AutoTestCreateApiModel {
   public static final String JSON_PROPERTY_CLASSNAME = "classname";
   private JsonNullable<String> classname = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_IS_FLAKY = "isFlaky";
+  private JsonNullable<Boolean> isFlaky = JsonNullable.<Boolean>undefined();
+
   public static final String JSON_PROPERTY_STEPS = "steps";
   private JsonNullable<List<AutoTestStepApiModel>> steps = JsonNullable.<List<AutoTestStepApiModel>>undefined();
 
@@ -93,11 +103,18 @@ public class AutoTestCreateApiModel {
   public static final String JSON_PROPERTY_TEARDOWN = "teardown";
   private JsonNullable<List<AutoTestStepApiModel>> teardown = JsonNullable.<List<AutoTestStepApiModel>>undefined();
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private JsonNullable<String> title = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM = "shouldCreateWorkItem";
+  private JsonNullable<Boolean> shouldCreateWorkItem = JsonNullable.<Boolean>undefined();
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_WORK_ITEM_IDS = "workItemIds";
+  private JsonNullable<List<UUID>> workItemIds = JsonNullable.<List<UUID>>undefined();
+
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private JsonNullable<Map<String, Object>> attributes = JsonNullable.<Map<String, Object>>undefined();
+
+  public static final String JSON_PROPERTY_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST = "workItemIdsForLinkWithAutoTest";
+  @Deprecated
+  private JsonNullable<List<UUID>> workItemIdsForLinkWithAutoTest = JsonNullable.<List<UUID>>undefined();
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private JsonNullable<List<LabelApiModel>> labels = JsonNullable.<List<LabelApiModel>>undefined();
@@ -105,49 +122,11 @@ public class AutoTestCreateApiModel {
   public static final String JSON_PROPERTY_LINKS = "links";
   private JsonNullable<List<LinkCreateApiModel>> links = JsonNullable.<List<LinkCreateApiModel>>undefined();
 
-  public static final String JSON_PROPERTY_IS_FLAKY = "isFlaky";
-  private JsonNullable<Boolean> isFlaky = JsonNullable.<Boolean>undefined();
-
-  public static final String JSON_PROPERTY_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST = "workItemIdsForLinkWithAutoTest";
-  @Deprecated
-  private JsonNullable<List<UUID>> workItemIdsForLinkWithAutoTest = JsonNullable.<List<UUID>>undefined();
-
-  public static final String JSON_PROPERTY_WORK_ITEM_IDS = "workItemIds";
-  private JsonNullable<List<UUID>> workItemIds = JsonNullable.<List<UUID>>undefined();
-
-  public static final String JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM = "shouldCreateWorkItem";
-  private JsonNullable<Boolean> shouldCreateWorkItem = JsonNullable.<Boolean>undefined();
-
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private JsonNullable<Map<String, Object>> attributes = JsonNullable.<Map<String, Object>>undefined();
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public AutoTestCreateApiModel() { 
   }
-
-  public AutoTestCreateApiModel externalId(@jakarta.annotation.Nonnull String externalId) {
-    this.externalId = externalId;
-    return this;
-  }
-
-  /**
-   * External ID of the autotest
-   * @return externalId
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getExternalId() {
-    return externalId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(@jakarta.annotation.Nonnull String externalId) {
-    this.externalId = externalId;
-  }
-
 
   public AutoTestCreateApiModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
@@ -171,6 +150,31 @@ public class AutoTestCreateApiModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
     this.projectId = projectId;
+  }
+
+
+  public AutoTestCreateApiModel externalId(@jakarta.annotation.Nonnull String externalId) {
+    this.externalId = externalId;
+    return this;
+  }
+
+  /**
+   * External ID of the autotest
+   * @return externalId
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setExternalId(@jakarta.annotation.Nonnull String externalId) {
+    this.externalId = externalId;
   }
 
 
@@ -295,6 +299,105 @@ public class AutoTestCreateApiModel {
 
   public void setClassname(@jakarta.annotation.Nullable String classname) {
     this.classname = JsonNullable.<String>of(classname);
+  }
+
+
+  public AutoTestCreateApiModel title(@jakarta.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
+    return this;
+  }
+
+  /**
+   * Name of the autotest in autotest&#39;s card
+   * @return title
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getTitle() {
+        return title.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
+    this.title = title;
+  }
+
+  public void setTitle(@jakarta.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
+  }
+
+
+  public AutoTestCreateApiModel description(@jakarta.annotation.Nullable String description) {
+    this.description = JsonNullable.<String>of(description);
+    return this;
+  }
+
+  /**
+   * Description of the autotest in autotest&#39;s card
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
+    this.description = description;
+  }
+
+  public void setDescription(@jakarta.annotation.Nullable String description) {
+    this.description = JsonNullable.<String>of(description);
+  }
+
+
+  public AutoTestCreateApiModel isFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
+    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
+    return this;
+  }
+
+  /**
+   * Indicates if the autotest is marked as flaky
+   * @return isFlaky
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Boolean getIsFlaky() {
+        return isFlaky.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getIsFlaky_JsonNullable() {
+    return isFlaky;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
+  public void setIsFlaky_JsonNullable(JsonNullable<Boolean> isFlaky) {
+    this.isFlaky = isFlaky;
+  }
+
+  public void setIsFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
+    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
   }
 
 
@@ -433,69 +536,175 @@ public class AutoTestCreateApiModel {
   }
 
 
-  public AutoTestCreateApiModel title(@jakarta.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
+  public AutoTestCreateApiModel shouldCreateWorkItem(@jakarta.annotation.Nullable Boolean shouldCreateWorkItem) {
+    this.shouldCreateWorkItem = JsonNullable.<Boolean>of(shouldCreateWorkItem);
     return this;
   }
 
   /**
-   * Name of the autotest in autotest&#39;s card
-   * @return title
+   * Creates a test case linked to the autotest.
+   * @return shouldCreateWorkItem
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public String getTitle() {
-        return title.orElse(null);
+  public Boolean getShouldCreateWorkItem() {
+        return shouldCreateWorkItem.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getTitle_JsonNullable() {
-    return title;
+  public JsonNullable<Boolean> getShouldCreateWorkItem_JsonNullable() {
+    return shouldCreateWorkItem;
   }
   
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<String> title) {
-    this.title = title;
+  @JsonProperty(JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM)
+  public void setShouldCreateWorkItem_JsonNullable(JsonNullable<Boolean> shouldCreateWorkItem) {
+    this.shouldCreateWorkItem = shouldCreateWorkItem;
   }
 
-  public void setTitle(@jakarta.annotation.Nullable String title) {
-    this.title = JsonNullable.<String>of(title);
+  public void setShouldCreateWorkItem(@jakarta.annotation.Nullable Boolean shouldCreateWorkItem) {
+    this.shouldCreateWorkItem = JsonNullable.<Boolean>of(shouldCreateWorkItem);
   }
 
 
-  public AutoTestCreateApiModel description(@jakarta.annotation.Nullable String description) {
-    this.description = JsonNullable.<String>of(description);
+  public AutoTestCreateApiModel workItemIds(@jakarta.annotation.Nullable List<UUID> workItemIds) {
+    this.workItemIds = JsonNullable.<List<UUID>>of(workItemIds);
+    return this;
+  }
+
+  public AutoTestCreateApiModel addWorkItemIdsItem(UUID workItemIdsItem) {
+    if (this.workItemIds == null || !this.workItemIds.isPresent()) {
+      this.workItemIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.workItemIds.get().add(workItemIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
   /**
-   * Description of the autotest in autotest&#39;s card
-   * @return description
+   * Specifies the IDs of work items to link your autotest to. You can specify several IDs.
+   * @return workItemIds
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public String getDescription() {
-        return description.orElse(null);
+  public List<UUID> getWorkItemIds() {
+        return workItemIds.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getDescription_JsonNullable() {
-    return description;
+  public JsonNullable<List<UUID>> getWorkItemIds_JsonNullable() {
+    return workItemIds;
   }
   
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
+  public void setWorkItemIds_JsonNullable(JsonNullable<List<UUID>> workItemIds) {
+    this.workItemIds = workItemIds;
   }
 
-  public void setDescription(@jakarta.annotation.Nullable String description) {
-    this.description = JsonNullable.<String>of(description);
+  public void setWorkItemIds(@jakarta.annotation.Nullable List<UUID> workItemIds) {
+    this.workItemIds = JsonNullable.<List<UUID>>of(workItemIds);
+  }
+
+
+  public AutoTestCreateApiModel attributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
+    return this;
+  }
+
+  public AutoTestCreateApiModel putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null || !this.attributes.isPresent()) {
+      this.attributes = JsonNullable.<Map<String, Object>>of(new HashMap<>());
+    }
+    try {
+      this.attributes.get().put(key, attributesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Key value pair of custom work item attributes
+   * @return attributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Map<String, Object> getAttributes() {
+        return attributes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, Object>> getAttributes_JsonNullable() {
+    return attributes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  public void setAttributes_JsonNullable(JsonNullable<Map<String, Object>> attributes) {
+    this.attributes = attributes;
+  }
+
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
+  }
+
+
+  @Deprecated
+  public AutoTestCreateApiModel workItemIdsForLinkWithAutoTest(@jakarta.annotation.Nullable List<UUID> workItemIdsForLinkWithAutoTest) {
+    this.workItemIdsForLinkWithAutoTest = JsonNullable.<List<UUID>>of(workItemIdsForLinkWithAutoTest);
+    return this;
+  }
+
+  public AutoTestCreateApiModel addWorkItemIdsForLinkWithAutoTestItem(UUID workItemIdsForLinkWithAutoTestItem) {
+    if (this.workItemIdsForLinkWithAutoTest == null || !this.workItemIdsForLinkWithAutoTest.isPresent()) {
+      this.workItemIdsForLinkWithAutoTest = JsonNullable.<List<UUID>>of(new ArrayList<>());
+    }
+    try {
+      this.workItemIdsForLinkWithAutoTest.get().add(workItemIdsForLinkWithAutoTestItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Specifies the IDs of work items to link your autotest to. You can specify several IDs.
+   * @return workItemIdsForLinkWithAutoTest
+   * @deprecated
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<UUID> getWorkItemIdsForLinkWithAutoTest() {
+        return workItemIdsForLinkWithAutoTest.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<UUID>> getWorkItemIdsForLinkWithAutoTest_JsonNullable() {
+    return workItemIdsForLinkWithAutoTest;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST)
+  public void setWorkItemIdsForLinkWithAutoTest_JsonNullable(JsonNullable<List<UUID>> workItemIdsForLinkWithAutoTest) {
+    this.workItemIdsForLinkWithAutoTest = workItemIdsForLinkWithAutoTest;
+  }
+
+  @Deprecated
+  public void setWorkItemIdsForLinkWithAutoTest(@jakarta.annotation.Nullable List<UUID> workItemIdsForLinkWithAutoTest) {
+    this.workItemIdsForLinkWithAutoTest = JsonNullable.<List<UUID>>of(workItemIdsForLinkWithAutoTest);
   }
 
 
@@ -589,51 +798,17 @@ public class AutoTestCreateApiModel {
   }
 
 
-  public AutoTestCreateApiModel isFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
-    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
+  public AutoTestCreateApiModel tags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
     return this;
   }
 
-  /**
-   * Indicates if the autotest is marked as flaky
-   * @return isFlaky
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Boolean getIsFlaky() {
-        return isFlaky.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsFlaky_JsonNullable() {
-    return isFlaky;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY)
-  public void setIsFlaky_JsonNullable(JsonNullable<Boolean> isFlaky) {
-    this.isFlaky = isFlaky;
-  }
-
-  public void setIsFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
-    this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
-  }
-
-
-  @Deprecated
-  public AutoTestCreateApiModel workItemIdsForLinkWithAutoTest(@jakarta.annotation.Nullable List<UUID> workItemIdsForLinkWithAutoTest) {
-    this.workItemIdsForLinkWithAutoTest = JsonNullable.<List<UUID>>of(workItemIdsForLinkWithAutoTest);
-    return this;
-  }
-
-  public AutoTestCreateApiModel addWorkItemIdsForLinkWithAutoTestItem(UUID workItemIdsForLinkWithAutoTestItem) {
-    if (this.workItemIdsForLinkWithAutoTest == null || !this.workItemIdsForLinkWithAutoTest.isPresent()) {
-      this.workItemIdsForLinkWithAutoTest = JsonNullable.<List<UUID>>of(new ArrayList<>());
+  public AutoTestCreateApiModel addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
     }
     try {
-      this.workItemIdsForLinkWithAutoTest.get().add(workItemIdsForLinkWithAutoTestItem);
+      this.tags.get().add(tagsItem);
     } catch (java.util.NoSuchElementException e) {
       // this can never happen, as we make sure above that the value is present
     }
@@ -641,156 +816,30 @@ public class AutoTestCreateApiModel {
   }
 
   /**
-   * Specifies the IDs of work items to link your autotest to. You can specify several IDs.
-   * @return workItemIdsForLinkWithAutoTest
-   * @deprecated
+   * Collection of the autotest tags
+   * @return tags
    */
-  @Deprecated
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public List<UUID> getWorkItemIdsForLinkWithAutoTest() {
-        return workItemIdsForLinkWithAutoTest.orElse(null);
+  public List<String> getTags() {
+        return tags.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST)
+  @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<UUID>> getWorkItemIdsForLinkWithAutoTest_JsonNullable() {
-    return workItemIdsForLinkWithAutoTest;
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
   }
   
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS_FOR_LINK_WITH_AUTO_TEST)
-  public void setWorkItemIdsForLinkWithAutoTest_JsonNullable(JsonNullable<List<UUID>> workItemIdsForLinkWithAutoTest) {
-    this.workItemIdsForLinkWithAutoTest = workItemIdsForLinkWithAutoTest;
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
   }
 
-  @Deprecated
-  public void setWorkItemIdsForLinkWithAutoTest(@jakarta.annotation.Nullable List<UUID> workItemIdsForLinkWithAutoTest) {
-    this.workItemIdsForLinkWithAutoTest = JsonNullable.<List<UUID>>of(workItemIdsForLinkWithAutoTest);
-  }
-
-
-  public AutoTestCreateApiModel workItemIds(@jakarta.annotation.Nullable List<UUID> workItemIds) {
-    this.workItemIds = JsonNullable.<List<UUID>>of(workItemIds);
-    return this;
-  }
-
-  public AutoTestCreateApiModel addWorkItemIdsItem(UUID workItemIdsItem) {
-    if (this.workItemIds == null || !this.workItemIds.isPresent()) {
-      this.workItemIds = JsonNullable.<List<UUID>>of(new ArrayList<>());
-    }
-    try {
-      this.workItemIds.get().add(workItemIdsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
-    return this;
-  }
-
-  /**
-   * Specifies the IDs of work items to link your autotest to. You can specify several IDs.
-   * @return workItemIds
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public List<UUID> getWorkItemIds() {
-        return workItemIds.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<UUID>> getWorkItemIds_JsonNullable() {
-    return workItemIds;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_WORK_ITEM_IDS)
-  public void setWorkItemIds_JsonNullable(JsonNullable<List<UUID>> workItemIds) {
-    this.workItemIds = workItemIds;
-  }
-
-  public void setWorkItemIds(@jakarta.annotation.Nullable List<UUID> workItemIds) {
-    this.workItemIds = JsonNullable.<List<UUID>>of(workItemIds);
-  }
-
-
-  public AutoTestCreateApiModel shouldCreateWorkItem(@jakarta.annotation.Nullable Boolean shouldCreateWorkItem) {
-    this.shouldCreateWorkItem = JsonNullable.<Boolean>of(shouldCreateWorkItem);
-    return this;
-  }
-
-  /**
-   * Creates a test case linked to the autotest.
-   * @return shouldCreateWorkItem
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Boolean getShouldCreateWorkItem() {
-        return shouldCreateWorkItem.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getShouldCreateWorkItem_JsonNullable() {
-    return shouldCreateWorkItem;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_SHOULD_CREATE_WORK_ITEM)
-  public void setShouldCreateWorkItem_JsonNullable(JsonNullable<Boolean> shouldCreateWorkItem) {
-    this.shouldCreateWorkItem = shouldCreateWorkItem;
-  }
-
-  public void setShouldCreateWorkItem(@jakarta.annotation.Nullable Boolean shouldCreateWorkItem) {
-    this.shouldCreateWorkItem = JsonNullable.<Boolean>of(shouldCreateWorkItem);
-  }
-
-
-  public AutoTestCreateApiModel attributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
-    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
-    return this;
-  }
-
-  public AutoTestCreateApiModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null || !this.attributes.isPresent()) {
-      this.attributes = JsonNullable.<Map<String, Object>>of(new HashMap<>());
-    }
-    try {
-      this.attributes.get().put(key, attributesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
-    return this;
-  }
-
-  /**
-   * Key value pair of custom work item attributes
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Map<String, Object> getAttributes() {
-        return attributes.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Map<String, Object>> getAttributes_JsonNullable() {
-    return attributes;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  public void setAttributes_JsonNullable(JsonNullable<Map<String, Object>> attributes) {
-    this.attributes = attributes;
-  }
-
-  public void setAttributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
-    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
+  public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
   }
 
 
@@ -806,24 +855,25 @@ public class AutoTestCreateApiModel {
       return false;
     }
     AutoTestCreateApiModel autoTestCreateApiModel = (AutoTestCreateApiModel) o;
-    return Objects.equals(this.externalId, autoTestCreateApiModel.externalId) &&
-        Objects.equals(this.projectId, autoTestCreateApiModel.projectId) &&
+    return Objects.equals(this.projectId, autoTestCreateApiModel.projectId) &&
+        Objects.equals(this.externalId, autoTestCreateApiModel.externalId) &&
         Objects.equals(this.name, autoTestCreateApiModel.name) &&
         equalsNullable(this.externalKey, autoTestCreateApiModel.externalKey) &&
         equalsNullable(this.namespace, autoTestCreateApiModel.namespace) &&
         equalsNullable(this.classname, autoTestCreateApiModel.classname) &&
+        equalsNullable(this.title, autoTestCreateApiModel.title) &&
+        equalsNullable(this.description, autoTestCreateApiModel.description) &&
+        equalsNullable(this.isFlaky, autoTestCreateApiModel.isFlaky) &&
         equalsNullable(this.steps, autoTestCreateApiModel.steps) &&
         equalsNullable(this.setup, autoTestCreateApiModel.setup) &&
         equalsNullable(this.teardown, autoTestCreateApiModel.teardown) &&
-        equalsNullable(this.title, autoTestCreateApiModel.title) &&
-        equalsNullable(this.description, autoTestCreateApiModel.description) &&
+        equalsNullable(this.shouldCreateWorkItem, autoTestCreateApiModel.shouldCreateWorkItem) &&
+        equalsNullable(this.workItemIds, autoTestCreateApiModel.workItemIds) &&
+        equalsNullable(this.attributes, autoTestCreateApiModel.attributes) &&
+        equalsNullable(this.workItemIdsForLinkWithAutoTest, autoTestCreateApiModel.workItemIdsForLinkWithAutoTest) &&
         equalsNullable(this.labels, autoTestCreateApiModel.labels) &&
         equalsNullable(this.links, autoTestCreateApiModel.links) &&
-        equalsNullable(this.isFlaky, autoTestCreateApiModel.isFlaky) &&
-        equalsNullable(this.workItemIdsForLinkWithAutoTest, autoTestCreateApiModel.workItemIdsForLinkWithAutoTest) &&
-        equalsNullable(this.workItemIds, autoTestCreateApiModel.workItemIds) &&
-        equalsNullable(this.shouldCreateWorkItem, autoTestCreateApiModel.shouldCreateWorkItem) &&
-        equalsNullable(this.attributes, autoTestCreateApiModel.attributes);
+        equalsNullable(this.tags, autoTestCreateApiModel.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -832,7 +882,7 @@ public class AutoTestCreateApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalId, projectId, name, hashCodeNullable(externalKey), hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(labels), hashCodeNullable(links), hashCodeNullable(isFlaky), hashCodeNullable(workItemIdsForLinkWithAutoTest), hashCodeNullable(workItemIds), hashCodeNullable(shouldCreateWorkItem), hashCodeNullable(attributes));
+    return Objects.hash(projectId, externalId, name, hashCodeNullable(externalKey), hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(isFlaky), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(shouldCreateWorkItem), hashCodeNullable(workItemIds), hashCodeNullable(attributes), hashCodeNullable(workItemIdsForLinkWithAutoTest), hashCodeNullable(labels), hashCodeNullable(links), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -846,24 +896,25 @@ public class AutoTestCreateApiModel {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoTestCreateApiModel {\n");
-    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    externalKey: ").append(toIndentedString(externalKey)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    classname: ").append(toIndentedString(classname)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    isFlaky: ").append(toIndentedString(isFlaky)).append("\n");
     sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("    setup: ").append(toIndentedString(setup)).append("\n");
     sb.append("    teardown: ").append(toIndentedString(teardown)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    shouldCreateWorkItem: ").append(toIndentedString(shouldCreateWorkItem)).append("\n");
+    sb.append("    workItemIds: ").append(toIndentedString(workItemIds)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    workItemIdsForLinkWithAutoTest: ").append(toIndentedString(workItemIdsForLinkWithAutoTest)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    isFlaky: ").append(toIndentedString(isFlaky)).append("\n");
-    sb.append("    workItemIdsForLinkWithAutoTest: ").append(toIndentedString(workItemIdsForLinkWithAutoTest)).append("\n");
-    sb.append("    workItemIds: ").append(toIndentedString(workItemIds)).append("\n");
-    sb.append("    shouldCreateWorkItem: ").append(toIndentedString(shouldCreateWorkItem)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

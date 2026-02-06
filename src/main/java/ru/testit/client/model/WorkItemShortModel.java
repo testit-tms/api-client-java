@@ -114,7 +114,7 @@ public class WorkItemShortModel {
 
   public static final String JSON_PROPERTY_DURATION = "duration";
   @jakarta.annotation.Nonnull
-  private Integer duration;
+  private Long duration;
 
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   @jakarta.annotation.Nonnull
@@ -415,7 +415,7 @@ public class WorkItemShortModel {
   }
 
 
-  public WorkItemShortModel duration(@jakarta.annotation.Nonnull Integer duration) {
+  public WorkItemShortModel duration(@jakarta.annotation.Nonnull Long duration) {
     this.duration = duration;
     return this;
   }
@@ -428,14 +428,14 @@ public class WorkItemShortModel {
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getDuration() {
+  public Long getDuration() {
     return duration;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDuration(@jakarta.annotation.Nonnull Integer duration) {
+  public void setDuration(@jakarta.annotation.Nonnull Long duration) {
     this.duration = duration;
   }
 
