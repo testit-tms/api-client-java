@@ -29,6 +29,8 @@ Collection of filters to apply to search
 |**excludeTags** | **Set&lt;String&gt;** | Collection of tags to exclude |  [optional] |
 |**autoTestIds** | **Set&lt;UUID&gt;** | Collection of identifiers of linked autotests |  [optional] |
 |**workItemVersionIds** | **List&lt;UUID&gt;** | Collection of identifiers work items versions. |  [optional] |
+|**links** | [**WorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links |  [optional] |
+|**externalMetadata** | [**WorkItemExternalMetadataFilterModel**](WorkItemExternalMetadataFilterModel.md) | Specifies work item filter by its external metadata |  [optional] |
 
 
 

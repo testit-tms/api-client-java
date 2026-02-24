@@ -24,32 +24,32 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import ru.testit.client.model.RerunTestResultModel;
+import ru.testit.client.model.RerunTestResultApiResult;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
 
 /**
- * RerunsModel
+ * RerunsApiResult
  */
 @JsonPropertyOrder({
-  RerunsModel.JSON_PROPERTY_RERUN_COUNT,
-  RerunsModel.JSON_PROPERTY_RERUN_TEST_RESULTS
+  RerunsApiResult.JSON_PROPERTY_RERUN_COUNT,
+  RerunsApiResult.JSON_PROPERTY_RERUN_TEST_RESULTS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
-public class RerunsModel {
+public class RerunsApiResult {
   public static final String JSON_PROPERTY_RERUN_COUNT = "rerunCount";
   @jakarta.annotation.Nonnull
   private Integer rerunCount;
 
   public static final String JSON_PROPERTY_RERUN_TEST_RESULTS = "rerunTestResults";
   @jakarta.annotation.Nonnull
-  private List<RerunTestResultModel> rerunTestResults = new ArrayList<>();
+  private List<RerunTestResultApiResult> rerunTestResults = new ArrayList<>();
 
-  public RerunsModel() { 
+  public RerunsApiResult() { 
   }
 
-  public RerunsModel rerunCount(@jakarta.annotation.Nonnull Integer rerunCount) {
+  public RerunsApiResult rerunCount(@jakarta.annotation.Nonnull Integer rerunCount) {
     this.rerunCount = rerunCount;
     return this;
   }
@@ -74,12 +74,12 @@ public class RerunsModel {
   }
 
 
-  public RerunsModel rerunTestResults(@jakarta.annotation.Nonnull List<RerunTestResultModel> rerunTestResults) {
+  public RerunsApiResult rerunTestResults(@jakarta.annotation.Nonnull List<RerunTestResultApiResult> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
     return this;
   }
 
-  public RerunsModel addRerunTestResultsItem(RerunTestResultModel rerunTestResultsItem) {
+  public RerunsApiResult addRerunTestResultsItem(RerunTestResultApiResult rerunTestResultsItem) {
     if (this.rerunTestResults == null) {
       this.rerunTestResults = new ArrayList<>();
     }
@@ -95,20 +95,20 @@ public class RerunsModel {
   @JsonProperty(JSON_PROPERTY_RERUN_TEST_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<RerunTestResultModel> getRerunTestResults() {
+  public List<RerunTestResultApiResult> getRerunTestResults() {
     return rerunTestResults;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RERUN_TEST_RESULTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRerunTestResults(@jakarta.annotation.Nonnull List<RerunTestResultModel> rerunTestResults) {
+  public void setRerunTestResults(@jakarta.annotation.Nonnull List<RerunTestResultApiResult> rerunTestResults) {
     this.rerunTestResults = rerunTestResults;
   }
 
 
   /**
-   * Return true if this RerunsModel object is equal to o.
+   * Return true if this RerunsApiResult object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -118,9 +118,9 @@ public class RerunsModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RerunsModel rerunsModel = (RerunsModel) o;
-    return Objects.equals(this.rerunCount, rerunsModel.rerunCount) &&
-        Objects.equals(this.rerunTestResults, rerunsModel.rerunTestResults);
+    RerunsApiResult rerunsApiResult = (RerunsApiResult) o;
+    return Objects.equals(this.rerunCount, rerunsApiResult.rerunCount) &&
+        Objects.equals(this.rerunTestResults, rerunsApiResult.rerunTestResults);
   }
 
   @Override
@@ -131,7 +131,7 @@ public class RerunsModel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RerunsModel {\n");
+    sb.append("class RerunsApiResult {\n");
     sb.append("    rerunCount: ").append(toIndentedString(rerunCount)).append("\n");
     sb.append("    rerunTestResults: ").append(toIndentedString(rerunTestResults)).append("\n");
     sb.append("}");

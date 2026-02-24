@@ -45,6 +45,7 @@ import ru.testit.client.invoker.JSON;
   TestResultShortResponse.JSON_PROPERTY_ID,
   TestResultShortResponse.JSON_PROPERTY_NAME,
   TestResultShortResponse.JSON_PROPERTY_AUTOTEST_GLOBAL_ID,
+  TestResultShortResponse.JSON_PROPERTY_AUTO_TEST_TAGS,
   TestResultShortResponse.JSON_PROPERTY_TEST_RUN_ID,
   TestResultShortResponse.JSON_PROPERTY_CONFIGURATION_ID,
   TestResultShortResponse.JSON_PROPERTY_CONFIGURATION_NAME,
@@ -76,6 +77,10 @@ public class TestResultShortResponse {
   public static final String JSON_PROPERTY_AUTOTEST_GLOBAL_ID = "autotestGlobalId";
   @jakarta.annotation.Nonnull
   private Long autotestGlobalId;
+
+  public static final String JSON_PROPERTY_AUTO_TEST_TAGS = "autoTestTags";
+  @jakarta.annotation.Nonnull
+  private List<String> autoTestTags = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TEST_RUN_ID = "testRunId";
   @jakarta.annotation.Nonnull
@@ -215,6 +220,39 @@ public class TestResultShortResponse {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAutotestGlobalId(@jakarta.annotation.Nonnull Long autotestGlobalId) {
     this.autotestGlobalId = autotestGlobalId;
+  }
+
+
+  public TestResultShortResponse autoTestTags(@jakarta.annotation.Nonnull List<String> autoTestTags) {
+    this.autoTestTags = autoTestTags;
+    return this;
+  }
+
+  public TestResultShortResponse addAutoTestTagsItem(String autoTestTagsItem) {
+    if (this.autoTestTags == null) {
+      this.autoTestTags = new ArrayList<>();
+    }
+    this.autoTestTags.add(autoTestTagsItem);
+    return this;
+  }
+
+  /**
+   * Tags of the autotest represented by the test result
+   * @return autoTestTags
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getAutoTestTags() {
+    return autoTestTags;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AUTO_TEST_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setAutoTestTags(@jakarta.annotation.Nonnull List<String> autoTestTags) {
+    this.autoTestTags = autoTestTags;
   }
 
 
@@ -746,6 +784,7 @@ public class TestResultShortResponse {
     return Objects.equals(this.id, testResultShortResponse.id) &&
         Objects.equals(this.name, testResultShortResponse.name) &&
         Objects.equals(this.autotestGlobalId, testResultShortResponse.autotestGlobalId) &&
+        Objects.equals(this.autoTestTags, testResultShortResponse.autoTestTags) &&
         Objects.equals(this.testRunId, testResultShortResponse.testRunId) &&
         Objects.equals(this.configurationId, testResultShortResponse.configurationId) &&
         Objects.equals(this.configurationName, testResultShortResponse.configurationName) &&
@@ -771,7 +810,7 @@ public class TestResultShortResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, autotestGlobalId, testRunId, configurationId, configurationName, status, resultReasons, date, createdDate, links, attachments, rerunCompletedCount, hashCodeNullable(autotestExternalId), hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(modifiedDate), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration));
+    return Objects.hash(id, name, autotestGlobalId, autoTestTags, testRunId, configurationId, configurationName, status, resultReasons, date, createdDate, links, attachments, rerunCompletedCount, hashCodeNullable(autotestExternalId), hashCodeNullable(outcome), hashCodeNullable(comment), hashCodeNullable(modifiedDate), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -788,6 +827,7 @@ public class TestResultShortResponse {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    autotestGlobalId: ").append(toIndentedString(autotestGlobalId)).append("\n");
+    sb.append("    autoTestTags: ").append(toIndentedString(autoTestTags)).append("\n");
     sb.append("    testRunId: ").append(toIndentedString(testRunId)).append("\n");
     sb.append("    configurationId: ").append(toIndentedString(configurationId)).append("\n");
     sb.append("    configurationName: ").append(toIndentedString(configurationName)).append("\n");

@@ -8,7 +8,6 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**projectIds** | **Set&lt;UUID&gt;** | Collection of project identifiers |  [optional] |
-|**links** | [**WorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links |  [optional] |
 |**name** | **String** | Name of work item |  [optional] |
 |**ids** | **Set&lt;UUID&gt;** | Specifies a work item unique IDs to search for |  [optional] |
 |**globalIds** | **Set&lt;Long&gt;** | Collection of global (integer) identifiers |  [optional] |
@@ -30,6 +29,8 @@
 |**excludeTags** | **Set&lt;String&gt;** | Collection of tags to exclude |  [optional] |
 |**autoTestIds** | **Set&lt;UUID&gt;** | Collection of identifiers of linked autotests |  [optional] |
 |**workItemVersionIds** | **List&lt;UUID&gt;** | Collection of identifiers work items versions. |  [optional] |
+|**links** | [**WorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links |  [optional] |
+|**externalMetadata** | [**WorkItemExternalMetadataFilterModel**](WorkItemExternalMetadataFilterModel.md) | Specifies work item filter by its external metadata |  [optional] |
 
 
 

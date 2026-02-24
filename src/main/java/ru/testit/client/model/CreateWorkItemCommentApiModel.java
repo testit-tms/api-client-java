@@ -28,26 +28,51 @@ import ru.testit.client.invoker.JSON;
 
 
 /**
- * WorkItemCommentPutModel
+ * CreateWorkItemCommentApiModel
  */
 @JsonPropertyOrder({
-  WorkItemCommentPutModel.JSON_PROPERTY_TEXT,
-  WorkItemCommentPutModel.JSON_PROPERTY_ID
+  CreateWorkItemCommentApiModel.JSON_PROPERTY_WORK_ITEM_ID,
+  CreateWorkItemCommentApiModel.JSON_PROPERTY_TEXT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
-public class WorkItemCommentPutModel {
+public class CreateWorkItemCommentApiModel {
+  public static final String JSON_PROPERTY_WORK_ITEM_ID = "workItemId";
+  @jakarta.annotation.Nonnull
+  private UUID workItemId;
+
   public static final String JSON_PROPERTY_TEXT = "text";
   @jakarta.annotation.Nonnull
   private String text;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  @jakarta.annotation.Nonnull
-  private UUID id;
-
-  public WorkItemCommentPutModel() { 
+  public CreateWorkItemCommentApiModel() { 
   }
 
-  public WorkItemCommentPutModel text(@jakarta.annotation.Nonnull String text) {
+  public CreateWorkItemCommentApiModel workItemId(@jakarta.annotation.Nonnull UUID workItemId) {
+    this.workItemId = workItemId;
+    return this;
+  }
+
+  /**
+   * ID of work item to comment
+   * @return workItemId
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getWorkItemId() {
+    return workItemId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEM_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setWorkItemId(@jakarta.annotation.Nonnull UUID workItemId) {
+    this.workItemId = workItemId;
+  }
+
+
+  public CreateWorkItemCommentApiModel text(@jakarta.annotation.Nonnull String text) {
     this.text = text;
     return this;
   }
@@ -72,33 +97,8 @@ public class WorkItemCommentPutModel {
   }
 
 
-  public WorkItemCommentPutModel id(@jakarta.annotation.Nonnull UUID id) {
-    this.id = id;
-    return this;
-  }
-
   /**
-   * Unique ID of the comment
-   * @return id
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(@jakarta.annotation.Nonnull UUID id) {
-    this.id = id;
-  }
-
-
-  /**
-   * Return true if this WorkItemCommentPutModel object is equal to o.
+   * Return true if this CreateWorkItemCommentApiModel object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -108,22 +108,22 @@ public class WorkItemCommentPutModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WorkItemCommentPutModel workItemCommentPutModel = (WorkItemCommentPutModel) o;
-    return Objects.equals(this.text, workItemCommentPutModel.text) &&
-        Objects.equals(this.id, workItemCommentPutModel.id);
+    CreateWorkItemCommentApiModel createWorkItemCommentApiModel = (CreateWorkItemCommentApiModel) o;
+    return Objects.equals(this.workItemId, createWorkItemCommentApiModel.workItemId) &&
+        Objects.equals(this.text, createWorkItemCommentApiModel.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text, id);
+    return Objects.hash(workItemId, text);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WorkItemCommentPutModel {\n");
+    sb.append("class CreateWorkItemCommentApiModel {\n");
+    sb.append("    workItemId: ").append(toIndentedString(workItemId)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

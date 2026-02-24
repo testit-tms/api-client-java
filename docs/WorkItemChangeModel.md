@@ -13,7 +13,9 @@
 |**newVersionId** | **UUID** |  |  |
 |**workItemChangedFields** | [**WorkItemChangedFieldsViewModel**](WorkItemChangedFieldsViewModel.md) |  |  |
 |**createdById** | **UUID** |  |  |
-|**createdDate** | **OffsetDateTime** |  |  [optional] |
+|**createdDate** | **OffsetDateTime** |  |  |
+|**modifiedById** | **UUID** |  |  [optional] |
+|**modifiedDate** | **OffsetDateTime** |  |  [optional] |
 
 
 

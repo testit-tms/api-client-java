@@ -43,7 +43,9 @@ import ru.testit.client.invoker.JSON;
   WorkItemChangeModel.JSON_PROPERTY_NEW_VERSION_ID,
   WorkItemChangeModel.JSON_PROPERTY_WORK_ITEM_CHANGED_FIELDS,
   WorkItemChangeModel.JSON_PROPERTY_CREATED_BY_ID,
-  WorkItemChangeModel.JSON_PROPERTY_CREATED_DATE
+  WorkItemChangeModel.JSON_PROPERTY_CREATED_DATE,
+  WorkItemChangeModel.JSON_PROPERTY_MODIFIED_BY_ID,
+  WorkItemChangeModel.JSON_PROPERTY_MODIFIED_DATE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemChangeModel {
@@ -72,7 +74,14 @@ public class WorkItemChangeModel {
   private UUID createdById;
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
-  private JsonNullable<OffsetDateTime> createdDate = JsonNullable.<OffsetDateTime>undefined();
+  @jakarta.annotation.Nonnull
+  private OffsetDateTime createdDate;
+
+  public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
+  private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
+
+  public static final String JSON_PROPERTY_MODIFIED_DATE = "modifiedDate";
+  private JsonNullable<OffsetDateTime> modifiedDate = JsonNullable.<OffsetDateTime>undefined();
 
   public WorkItemChangeModel() { 
   }
@@ -227,8 +236,8 @@ public class WorkItemChangeModel {
   }
 
 
-  public WorkItemChangeModel createdDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+  public WorkItemChangeModel createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
+    this.createdDate = createdDate;
     return this;
   }
 
@@ -236,27 +245,85 @@ public class WorkItemChangeModel {
    * Get createdDate
    * @return createdDate
    */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getCreatedDate() {
-        return createdDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<OffsetDateTime> getCreatedDate_JsonNullable() {
     return createdDate;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_CREATED_DATE)
-  public void setCreatedDate_JsonNullable(JsonNullable<OffsetDateTime> createdDate) {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCreatedDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
   }
 
-  public void setCreatedDate(@jakarta.annotation.Nullable OffsetDateTime createdDate) {
-    this.createdDate = JsonNullable.<OffsetDateTime>of(createdDate);
+
+  public WorkItemChangeModel modifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+    return this;
+  }
+
+  /**
+   * Get modifiedById
+   * @return modifiedById
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getModifiedById() {
+        return modifiedById.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getModifiedById_JsonNullable() {
+    return modifiedById;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY_ID)
+  public void setModifiedById_JsonNullable(JsonNullable<UUID> modifiedById) {
+    this.modifiedById = modifiedById;
+  }
+
+  public void setModifiedById(@jakarta.annotation.Nullable UUID modifiedById) {
+    this.modifiedById = JsonNullable.<UUID>of(modifiedById);
+  }
+
+
+  public WorkItemChangeModel modifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
+    return this;
+  }
+
+  /**
+   * Get modifiedDate
+   * @return modifiedDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public OffsetDateTime getModifiedDate() {
+        return modifiedDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<OffsetDateTime> getModifiedDate_JsonNullable() {
+    return modifiedDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODIFIED_DATE)
+  public void setModifiedDate_JsonNullable(JsonNullable<OffsetDateTime> modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
+  public void setModifiedDate(@jakarta.annotation.Nullable OffsetDateTime modifiedDate) {
+    this.modifiedDate = JsonNullable.<OffsetDateTime>of(modifiedDate);
   }
 
 
@@ -278,7 +345,9 @@ public class WorkItemChangeModel {
         Objects.equals(this.newVersionId, workItemChangeModel.newVersionId) &&
         Objects.equals(this.workItemChangedFields, workItemChangeModel.workItemChangedFields) &&
         Objects.equals(this.createdById, workItemChangeModel.createdById) &&
-        equalsNullable(this.createdDate, workItemChangeModel.createdDate);
+        Objects.equals(this.createdDate, workItemChangeModel.createdDate) &&
+        equalsNullable(this.modifiedById, workItemChangeModel.modifiedById) &&
+        equalsNullable(this.modifiedDate, workItemChangeModel.modifiedDate);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -287,7 +356,7 @@ public class WorkItemChangeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, workItemId, oldVersionId, newVersionId, workItemChangedFields, createdById, hashCodeNullable(createdDate));
+    return Objects.hash(id, workItemId, oldVersionId, newVersionId, workItemChangedFields, createdById, createdDate, hashCodeNullable(modifiedById), hashCodeNullable(modifiedDate));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -308,6 +377,8 @@ public class WorkItemChangeModel {
     sb.append("    workItemChangedFields: ").append(toIndentedString(workItemChangedFields)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

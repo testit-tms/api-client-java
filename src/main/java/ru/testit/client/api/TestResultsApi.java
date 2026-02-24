@@ -15,7 +15,7 @@ import java.io.File;
 import ru.testit.client.model.GetExternalFormApiResult;
 import ru.testit.client.model.ImageResizeType;
 import ru.testit.client.model.ProblemDetails;
-import ru.testit.client.model.RerunsModel;
+import ru.testit.client.model.RerunsApiResult;
 import ru.testit.client.model.TestResultResponse;
 import ru.testit.client.model.TestResultShortResponse;
 import ru.testit.client.model.TestResultUpdateV2Request;
@@ -497,7 +497,7 @@ public class TestResultsApi {
    * Get reruns
    * 
    * @param id Test result unique ID (required)
-   * @return RerunsModel
+   * @return RerunsApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -512,7 +512,7 @@ public class TestResultsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public RerunsModel apiV2TestResultsIdRerunsGet(UUID id) throws ApiException {
+  public RerunsApiResult apiV2TestResultsIdRerunsGet(UUID id) throws ApiException {
     return apiV2TestResultsIdRerunsGetWithHttpInfo(id).getData();
   }
 
@@ -520,7 +520,7 @@ public class TestResultsApi {
    * Get reruns
    * 
    * @param id Test result unique ID (required)
-   * @return ApiResponse&lt;RerunsModel&gt;
+   * @return ApiResponse&lt;RerunsApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -535,7 +535,7 @@ public class TestResultsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<RerunsModel> apiV2TestResultsIdRerunsGetWithHttpInfo(UUID id) throws ApiException {
+  public ApiResponse<RerunsApiResult> apiV2TestResultsIdRerunsGetWithHttpInfo(UUID id) throws ApiException {
     // Check required parameters
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2TestResultsIdRerunsGet");
@@ -548,7 +548,7 @@ public class TestResultsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<RerunsModel> localVarReturnType = new GenericType<RerunsModel>() {};
+    GenericType<RerunsApiResult> localVarReturnType = new GenericType<RerunsApiResult>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdRerunsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);

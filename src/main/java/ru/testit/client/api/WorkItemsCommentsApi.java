@@ -8,12 +8,12 @@ import ru.testit.client.invoker.Pair;
 
 import jakarta.ws.rs.core.GenericType;
 
+import ru.testit.client.model.CreateWorkItemCommentApiModel;
 import ru.testit.client.model.ProblemDetails;
 import java.util.UUID;
+import ru.testit.client.model.UpdateWorkItemCommentApiModel;
 import ru.testit.client.model.ValidationProblemDetails;
-import ru.testit.client.model.WorkItemCommentModel;
-import ru.testit.client.model.WorkItemCommentPostModel;
-import ru.testit.client.model.WorkItemCommentPutModel;
+import ru.testit.client.model.WorkItemCommentApiResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -112,8 +112,8 @@ public class WorkItemsCommentsApi {
   /**
    * Create WorkItem comment
    *  Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
-   * @param workItemCommentPostModel  (optional)
-   * @return WorkItemCommentModel
+   * @param createWorkItemCommentApiModel  (optional)
+   * @return WorkItemCommentApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -128,15 +128,15 @@ public class WorkItemsCommentsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public WorkItemCommentModel apiV2WorkItemsCommentsPost(WorkItemCommentPostModel workItemCommentPostModel) throws ApiException {
-    return apiV2WorkItemsCommentsPostWithHttpInfo(workItemCommentPostModel).getData();
+  public WorkItemCommentApiResult apiV2WorkItemsCommentsPost(CreateWorkItemCommentApiModel createWorkItemCommentApiModel) throws ApiException {
+    return apiV2WorkItemsCommentsPostWithHttpInfo(createWorkItemCommentApiModel).getData();
   }
 
   /**
    * Create WorkItem comment
    *  Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
-   * @param workItemCommentPostModel  (optional)
-   * @return ApiResponse&lt;WorkItemCommentModel&gt;
+   * @param createWorkItemCommentApiModel  (optional)
+   * @return ApiResponse&lt;WorkItemCommentApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -151,19 +151,19 @@ public class WorkItemsCommentsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<WorkItemCommentModel> apiV2WorkItemsCommentsPostWithHttpInfo(WorkItemCommentPostModel workItemCommentPostModel) throws ApiException {
+  public ApiResponse<WorkItemCommentApiResult> apiV2WorkItemsCommentsPostWithHttpInfo(CreateWorkItemCommentApiModel createWorkItemCommentApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<WorkItemCommentModel> localVarReturnType = new GenericType<WorkItemCommentModel>() {};
-    return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsPost", "/api/v2/workItems/comments", "POST", new ArrayList<>(), workItemCommentPostModel,
+    GenericType<WorkItemCommentApiResult> localVarReturnType = new GenericType<WorkItemCommentApiResult>() {};
+    return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsPost", "/api/v2/workItems/comments", "POST", new ArrayList<>(), createWorkItemCommentApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Update work item comment
    * 
-   * @param workItemCommentPutModel  (optional)
+   * @param updateWorkItemCommentApiModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -178,14 +178,14 @@ public class WorkItemsCommentsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public void apiV2WorkItemsCommentsPut(WorkItemCommentPutModel workItemCommentPutModel) throws ApiException {
-    apiV2WorkItemsCommentsPutWithHttpInfo(workItemCommentPutModel);
+  public void apiV2WorkItemsCommentsPut(UpdateWorkItemCommentApiModel updateWorkItemCommentApiModel) throws ApiException {
+    apiV2WorkItemsCommentsPutWithHttpInfo(updateWorkItemCommentApiModel);
   }
 
   /**
    * Update work item comment
    * 
-   * @param workItemCommentPutModel  (optional)
+   * @param updateWorkItemCommentApiModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -201,11 +201,11 @@ public class WorkItemsCommentsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> apiV2WorkItemsCommentsPutWithHttpInfo(WorkItemCommentPutModel workItemCommentPutModel) throws ApiException {
+  public ApiResponse<Void> apiV2WorkItemsCommentsPutWithHttpInfo(UpdateWorkItemCommentApiModel updateWorkItemCommentApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsPut", "/api/v2/workItems/comments", "PUT", new ArrayList<>(), workItemCommentPutModel,
+    return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsPut", "/api/v2/workItems/comments", "PUT", new ArrayList<>(), updateWorkItemCommentApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -273,7 +273,7 @@ public class WorkItemsCommentsApi {
    * Get work item comments
    * 
    * @param id Unique or global ID of the work item (required)
-   * @return List&lt;WorkItemCommentModel&gt;
+   * @return List&lt;WorkItemCommentApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -288,7 +288,7 @@ public class WorkItemsCommentsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public List<WorkItemCommentModel> apiV2WorkItemsIdCommentsGet(String id) throws ApiException {
+  public List<WorkItemCommentApiResult> apiV2WorkItemsIdCommentsGet(String id) throws ApiException {
     return apiV2WorkItemsIdCommentsGetWithHttpInfo(id).getData();
   }
 
@@ -296,7 +296,7 @@ public class WorkItemsCommentsApi {
    * Get work item comments
    * 
    * @param id Unique or global ID of the work item (required)
-   * @return ApiResponse&lt;List&lt;WorkItemCommentModel&gt;&gt;
+   * @return ApiResponse&lt;List&lt;WorkItemCommentApiResult&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -311,7 +311,7 @@ public class WorkItemsCommentsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<List<WorkItemCommentModel>> apiV2WorkItemsIdCommentsGetWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<List<WorkItemCommentApiResult>> apiV2WorkItemsIdCommentsGetWithHttpInfo(String id) throws ApiException {
     // Check required parameters
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2WorkItemsIdCommentsGet");
@@ -324,7 +324,7 @@ public class WorkItemsCommentsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<List<WorkItemCommentModel>> localVarReturnType = new GenericType<List<WorkItemCommentModel>>() {};
+    GenericType<List<WorkItemCommentApiResult>> localVarReturnType = new GenericType<List<WorkItemCommentApiResult>>() {};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsIdCommentsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);

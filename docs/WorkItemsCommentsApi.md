@@ -101,7 +101,7 @@ null (empty response body)
 
 ## apiV2WorkItemsCommentsPost
 
-> WorkItemCommentModel apiV2WorkItemsCommentsPost(workItemCommentPostModel)
+> WorkItemCommentApiResult apiV2WorkItemsCommentsPost(createWorkItemCommentApiModel)
 
 Create WorkItem comment
 
@@ -139,9 +139,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsCommentsApi apiInstance = new WorkItemsCommentsApi(defaultClient);
-        WorkItemCommentPostModel workItemCommentPostModel = new WorkItemCommentPostModel(); // WorkItemCommentPostModel | 
+        CreateWorkItemCommentApiModel createWorkItemCommentApiModel = new CreateWorkItemCommentApiModel(); // CreateWorkItemCommentApiModel | 
         try {
-            WorkItemCommentModel result = apiInstance.apiV2WorkItemsCommentsPost(workItemCommentPostModel);
+            WorkItemCommentApiResult result = apiInstance.apiV2WorkItemsCommentsPost(createWorkItemCommentApiModel);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WorkItemsCommentsApi#apiV2WorkItemsCommentsPost");
@@ -159,11 +159,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **workItemCommentPostModel** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md)|  | [optional] |
+| **createWorkItemCommentApiModel** | [**CreateWorkItemCommentApiModel**](CreateWorkItemCommentApiModel.md)|  | [optional] |
 
 ### Return type
 
-[**WorkItemCommentModel**](WorkItemCommentModel.md)
+[**WorkItemCommentApiResult**](WorkItemCommentApiResult.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ public class Example {
 
 ## apiV2WorkItemsCommentsPut
 
-> apiV2WorkItemsCommentsPut(workItemCommentPutModel)
+> apiV2WorkItemsCommentsPut(updateWorkItemCommentApiModel)
 
 Update work item comment
 
@@ -215,9 +215,9 @@ public class Example {
         //Bearer or PrivateToken.setApiKeyPrefix("Token");
 
         WorkItemsCommentsApi apiInstance = new WorkItemsCommentsApi(defaultClient);
-        WorkItemCommentPutModel workItemCommentPutModel = new WorkItemCommentPutModel(); // WorkItemCommentPutModel | 
+        UpdateWorkItemCommentApiModel updateWorkItemCommentApiModel = new UpdateWorkItemCommentApiModel(); // UpdateWorkItemCommentApiModel | 
         try {
-            apiInstance.apiV2WorkItemsCommentsPut(workItemCommentPutModel);
+            apiInstance.apiV2WorkItemsCommentsPut(updateWorkItemCommentApiModel);
         } catch (ApiException e) {
             System.err.println("Exception when calling WorkItemsCommentsApi#apiV2WorkItemsCommentsPut");
             System.err.println("Status code: " + e.getCode());
@@ -234,7 +234,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **workItemCommentPutModel** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md)|  | [optional] |
+| **updateWorkItemCommentApiModel** | [**UpdateWorkItemCommentApiModel**](UpdateWorkItemCommentApiModel.md)|  | [optional] |
 
 ### Return type
 
@@ -339,7 +339,7 @@ public class Example {
 
 ## apiV2WorkItemsIdCommentsGet
 
-> List&lt;WorkItemCommentModel&gt; apiV2WorkItemsIdCommentsGet(id)
+> List&lt;WorkItemCommentApiResult&gt; apiV2WorkItemsIdCommentsGet(id)
 
 Get work item comments
 
@@ -368,7 +368,7 @@ public class Example {
         WorkItemsCommentsApi apiInstance = new WorkItemsCommentsApi(defaultClient);
         String id = "id_example"; // String | Unique or global ID of the work item
         try {
-            List<WorkItemCommentModel> result = apiInstance.apiV2WorkItemsIdCommentsGet(id);
+            List<WorkItemCommentApiResult> result = apiInstance.apiV2WorkItemsIdCommentsGet(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WorkItemsCommentsApi#apiV2WorkItemsIdCommentsGet");
@@ -390,7 +390,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;WorkItemCommentModel&gt;**](WorkItemCommentModel.md)
+[**List&lt;WorkItemCommentApiResult&gt;**](WorkItemCommentApiResult.md)
 
 ### Authorization
 

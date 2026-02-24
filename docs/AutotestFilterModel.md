@@ -28,6 +28,7 @@
 |**externalKey** | **String** |  |  [optional] |
 |**lastTestResultConfigurationIds** | **List&lt;UUID&gt;** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
+|**excludeTags** | **List&lt;String&gt;** |  |  [optional] |
 
 
 
