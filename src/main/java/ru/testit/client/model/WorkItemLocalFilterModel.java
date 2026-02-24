@@ -34,6 +34,8 @@ import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.WorkItemEntityTypes;
+import ru.testit.client.model.WorkItemExternalMetadataFilterModel;
+import ru.testit.client.model.WorkItemLinkFilterModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
@@ -68,7 +70,9 @@ import ru.testit.client.invoker.JSON;
   WorkItemLocalFilterModel.JSON_PROPERTY_TAGS,
   WorkItemLocalFilterModel.JSON_PROPERTY_EXCLUDE_TAGS,
   WorkItemLocalFilterModel.JSON_PROPERTY_AUTO_TEST_IDS,
-  WorkItemLocalFilterModel.JSON_PROPERTY_WORK_ITEM_VERSION_IDS
+  WorkItemLocalFilterModel.JSON_PROPERTY_WORK_ITEM_VERSION_IDS,
+  WorkItemLocalFilterModel.JSON_PROPERTY_LINKS,
+  WorkItemLocalFilterModel.JSON_PROPERTY_EXTERNAL_METADATA
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLocalFilterModel {
@@ -134,6 +138,12 @@ public class WorkItemLocalFilterModel {
 
   public static final String JSON_PROPERTY_WORK_ITEM_VERSION_IDS = "workItemVersionIds";
   private JsonNullable<List<UUID>> workItemVersionIds = JsonNullable.<List<UUID>>undefined();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private JsonNullable<WorkItemLinkFilterModel> links = JsonNullable.<WorkItemLinkFilterModel>undefined();
+
+  public static final String JSON_PROPERTY_EXTERNAL_METADATA = "externalMetadata";
+  private JsonNullable<WorkItemExternalMetadataFilterModel> externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterModel>undefined();
 
   public WorkItemLocalFilterModel() { 
   }
@@ -999,6 +1009,72 @@ public class WorkItemLocalFilterModel {
   }
 
 
+  public WorkItemLocalFilterModel links(@jakarta.annotation.Nullable WorkItemLinkFilterModel links) {
+    this.links = JsonNullable.<WorkItemLinkFilterModel>of(links);
+    return this;
+  }
+
+  /**
+   * Specifies a work item filter by its links
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public WorkItemLinkFilterModel getLinks() {
+        return links.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<WorkItemLinkFilterModel> getLinks_JsonNullable() {
+    return links;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  public void setLinks_JsonNullable(JsonNullable<WorkItemLinkFilterModel> links) {
+    this.links = links;
+  }
+
+  public void setLinks(@jakarta.annotation.Nullable WorkItemLinkFilterModel links) {
+    this.links = JsonNullable.<WorkItemLinkFilterModel>of(links);
+  }
+
+
+  public WorkItemLocalFilterModel externalMetadata(@jakarta.annotation.Nullable WorkItemExternalMetadataFilterModel externalMetadata) {
+    this.externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterModel>of(externalMetadata);
+    return this;
+  }
+
+  /**
+   * Specifies work item filter by its external metadata
+   * @return externalMetadata
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public WorkItemExternalMetadataFilterModel getExternalMetadata() {
+        return externalMetadata.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<WorkItemExternalMetadataFilterModel> getExternalMetadata_JsonNullable() {
+    return externalMetadata;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_METADATA)
+  public void setExternalMetadata_JsonNullable(JsonNullable<WorkItemExternalMetadataFilterModel> externalMetadata) {
+    this.externalMetadata = externalMetadata;
+  }
+
+  public void setExternalMetadata(@jakarta.annotation.Nullable WorkItemExternalMetadataFilterModel externalMetadata) {
+    this.externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterModel>of(externalMetadata);
+  }
+
+
   /**
    * Return true if this WorkItemLocalFilterModel object is equal to o.
    */
@@ -1031,7 +1107,9 @@ public class WorkItemLocalFilterModel {
         equalsNullable(this.tags, workItemLocalFilterModel.tags) &&
         equalsNullable(this.excludeTags, workItemLocalFilterModel.excludeTags) &&
         equalsNullable(this.autoTestIds, workItemLocalFilterModel.autoTestIds) &&
-        equalsNullable(this.workItemVersionIds, workItemLocalFilterModel.workItemVersionIds);
+        equalsNullable(this.workItemVersionIds, workItemLocalFilterModel.workItemVersionIds) &&
+        equalsNullable(this.links, workItemLocalFilterModel.links) &&
+        equalsNullable(this.externalMetadata, workItemLocalFilterModel.externalMetadata);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1040,7 +1118,7 @@ public class WorkItemLocalFilterModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(excludeTags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds));
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(excludeTags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds), hashCodeNullable(links), hashCodeNullable(externalMetadata));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1075,6 +1153,8 @@ public class WorkItemLocalFilterModel {
     sb.append("    excludeTags: ").append(toIndentedString(excludeTags)).append("\n");
     sb.append("    autoTestIds: ").append(toIndentedString(autoTestIds)).append("\n");
     sb.append("    workItemVersionIds: ").append(toIndentedString(workItemVersionIds)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    externalMetadata: ").append(toIndentedString(externalMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

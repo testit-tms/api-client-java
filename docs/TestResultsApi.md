@@ -569,7 +569,7 @@ null (empty response body)
 
 ## apiV2TestResultsIdRerunsGet
 
-> RerunsModel apiV2TestResultsIdRerunsGet(id)
+> RerunsApiResult apiV2TestResultsIdRerunsGet(id)
 
 Get reruns
 
@@ -599,7 +599,7 @@ public class Example {
         TestResultsApi apiInstance = new TestResultsApi(defaultClient);
         UUID id = UUID.randomUUID(); // UUID | Test result unique ID
         try {
-            RerunsModel result = apiInstance.apiV2TestResultsIdRerunsGet(id);
+            RerunsApiResult result = apiInstance.apiV2TestResultsIdRerunsGet(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TestResultsApi#apiV2TestResultsIdRerunsGet");
@@ -621,7 +621,7 @@ public class Example {
 
 ### Return type
 
-[**RerunsModel**](RerunsModel.md)
+[**RerunsApiResult**](RerunsApiResult.md)
 
 ### Authorization
 
