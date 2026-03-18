@@ -17,6 +17,7 @@
 |**autoTestsCount** | **Integer** | Number of AutoTests run in the test run |  |
 |**statistics** | [**TestResultsStatisticsApiResult**](TestResultsStatisticsApiResult.md) | Statistics of the test run |  |
 |**testResultsConfigurations** | [**List&lt;ConfigurationShortApiResult&gt;**](ConfigurationShortApiResult.md) | Test results configurations |  |
+|**tags** | **List&lt;String&gt;** | Collection of tags associated with the test run |  |
 |**startedDate** | **OffsetDateTime** | Date when the test run was started |  [optional] |
 |**completedDate** | **OffsetDateTime** | Completion date of the test run |  [optional] |
 |**modifiedById** | **UUID** | Unique ID of user who modified the test run last time |  [optional] |

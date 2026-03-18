@@ -58,6 +58,7 @@ import ru.testit.client.invoker.JSON;
   TestRunApiResult.JSON_PROPERTY_TEST_RESULTS,
   TestRunApiResult.JSON_PROPERTY_CREATED_DATE,
   TestRunApiResult.JSON_PROPERTY_CREATED_BY_ID,
+  TestRunApiResult.JSON_PROPERTY_TAGS,
   TestRunApiResult.JSON_PROPERTY_STARTED_DATE,
   TestRunApiResult.JSON_PROPERTY_COMPLETED_DATE,
   TestRunApiResult.JSON_PROPERTY_DESCRIPTION,
@@ -129,6 +130,10 @@ public class TestRunApiResult {
   public static final String JSON_PROPERTY_CREATED_BY_ID = "createdById";
   @jakarta.annotation.Nonnull
   private UUID createdById;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  @jakarta.annotation.Nonnull
+  private List<String> tags = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STARTED_DATE = "startedDate";
   private JsonNullable<OffsetDateTime> startedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -544,6 +549,39 @@ public class TestRunApiResult {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedById(@jakarta.annotation.Nonnull UUID createdById) {
     this.createdById = createdById;
+  }
+
+
+  public TestRunApiResult tags(@jakarta.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public TestRunApiResult addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Get tags
+   * @return tags
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
   }
 
 
@@ -969,6 +1007,7 @@ public class TestRunApiResult {
         Objects.equals(this.testResults, testRunApiResult.testResults) &&
         Objects.equals(this.createdDate, testRunApiResult.createdDate) &&
         Objects.equals(this.createdById, testRunApiResult.createdById) &&
+        Objects.equals(this.tags, testRunApiResult.tags) &&
         equalsNullable(this.startedDate, testRunApiResult.startedDate) &&
         equalsNullable(this.completedDate, testRunApiResult.completedDate) &&
         equalsNullable(this.description, testRunApiResult.description) &&
@@ -989,7 +1028,7 @@ public class TestRunApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, isDeleted, build, stateName, status, projectId, autoTests, autoTestsCount, testSuiteIds, isAutomated, analytic, testResults, createdDate, createdById, hashCodeNullable(startedDate), hashCodeNullable(completedDate), hashCodeNullable(description), hashCodeNullable(testPlanId), hashCodeNullable(runByUserId), hashCodeNullable(stoppedByUserId), hashCodeNullable(name), hashCodeNullable(launchSource), hashCodeNullable(testPlan), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName));
+    return Objects.hash(id, isDeleted, build, stateName, status, projectId, autoTests, autoTestsCount, testSuiteIds, isAutomated, analytic, testResults, createdDate, createdById, tags, hashCodeNullable(startedDate), hashCodeNullable(completedDate), hashCodeNullable(description), hashCodeNullable(testPlanId), hashCodeNullable(runByUserId), hashCodeNullable(stoppedByUserId), hashCodeNullable(name), hashCodeNullable(launchSource), hashCodeNullable(testPlan), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1017,6 +1056,7 @@ public class TestRunApiResult {
     sb.append("    testResults: ").append(toIndentedString(testResults)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    startedDate: ").append(toIndentedString(startedDate)).append("\n");
     sb.append("    completedDate: ").append(toIndentedString(completedDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

@@ -26,6 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.TestRunSelectApiModel;
 import ru.testit.client.model.UpdateMultipleAttachmentsApiModel;
 import ru.testit.client.model.UpdateMultipleLinksApiModel;
+import ru.testit.client.model.UpdateMultipleTagsApiModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -40,7 +41,8 @@ import ru.testit.client.invoker.JSON;
   UpdateMultipleTestRunsApiModel.JSON_PROPERTY_SELECT_MODEL,
   UpdateMultipleTestRunsApiModel.JSON_PROPERTY_DESCRIPTION,
   UpdateMultipleTestRunsApiModel.JSON_PROPERTY_ATTACHMENT_UPDATE_SCHEME,
-  UpdateMultipleTestRunsApiModel.JSON_PROPERTY_LINK_UPDATE_SCHEME
+  UpdateMultipleTestRunsApiModel.JSON_PROPERTY_LINK_UPDATE_SCHEME,
+  UpdateMultipleTestRunsApiModel.JSON_PROPERTY_TAG_UPDATE_SCHEME
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateMultipleTestRunsApiModel {
@@ -56,6 +58,9 @@ public class UpdateMultipleTestRunsApiModel {
 
   public static final String JSON_PROPERTY_LINK_UPDATE_SCHEME = "linkUpdateScheme";
   private JsonNullable<UpdateMultipleLinksApiModel> linkUpdateScheme = JsonNullable.<UpdateMultipleLinksApiModel>undefined();
+
+  public static final String JSON_PROPERTY_TAG_UPDATE_SCHEME = "tagUpdateScheme";
+  private JsonNullable<UpdateMultipleTagsApiModel> tagUpdateScheme = JsonNullable.<UpdateMultipleTagsApiModel>undefined();
 
   public UpdateMultipleTestRunsApiModel() { 
   }
@@ -184,6 +189,39 @@ public class UpdateMultipleTestRunsApiModel {
   }
 
 
+  public UpdateMultipleTestRunsApiModel tagUpdateScheme(@jakarta.annotation.Nullable UpdateMultipleTagsApiModel tagUpdateScheme) {
+    this.tagUpdateScheme = JsonNullable.<UpdateMultipleTagsApiModel>of(tagUpdateScheme);
+    return this;
+  }
+
+  /**
+   * Set of tags
+   * @return tagUpdateScheme
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UpdateMultipleTagsApiModel getTagUpdateScheme() {
+        return tagUpdateScheme.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAG_UPDATE_SCHEME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UpdateMultipleTagsApiModel> getTagUpdateScheme_JsonNullable() {
+    return tagUpdateScheme;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAG_UPDATE_SCHEME)
+  public void setTagUpdateScheme_JsonNullable(JsonNullable<UpdateMultipleTagsApiModel> tagUpdateScheme) {
+    this.tagUpdateScheme = tagUpdateScheme;
+  }
+
+  public void setTagUpdateScheme(@jakarta.annotation.Nullable UpdateMultipleTagsApiModel tagUpdateScheme) {
+    this.tagUpdateScheme = JsonNullable.<UpdateMultipleTagsApiModel>of(tagUpdateScheme);
+  }
+
+
   /**
    * Return true if this UpdateMultipleTestRunsApiModel object is equal to o.
    */
@@ -199,7 +237,8 @@ public class UpdateMultipleTestRunsApiModel {
     return Objects.equals(this.selectModel, updateMultipleTestRunsApiModel.selectModel) &&
         equalsNullable(this.description, updateMultipleTestRunsApiModel.description) &&
         equalsNullable(this.attachmentUpdateScheme, updateMultipleTestRunsApiModel.attachmentUpdateScheme) &&
-        equalsNullable(this.linkUpdateScheme, updateMultipleTestRunsApiModel.linkUpdateScheme);
+        equalsNullable(this.linkUpdateScheme, updateMultipleTestRunsApiModel.linkUpdateScheme) &&
+        equalsNullable(this.tagUpdateScheme, updateMultipleTestRunsApiModel.tagUpdateScheme);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -208,7 +247,7 @@ public class UpdateMultipleTestRunsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(selectModel, hashCodeNullable(description), hashCodeNullable(attachmentUpdateScheme), hashCodeNullable(linkUpdateScheme));
+    return Objects.hash(selectModel, hashCodeNullable(description), hashCodeNullable(attachmentUpdateScheme), hashCodeNullable(linkUpdateScheme), hashCodeNullable(tagUpdateScheme));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -226,6 +265,7 @@ public class UpdateMultipleTestRunsApiModel {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    attachmentUpdateScheme: ").append(toIndentedString(attachmentUpdateScheme)).append("\n");
     sb.append("    linkUpdateScheme: ").append(toIndentedString(linkUpdateScheme)).append("\n");
+    sb.append("    tagUpdateScheme: ").append(toIndentedString(tagUpdateScheme)).append("\n");
     sb.append("}");
     return sb.toString();
   }

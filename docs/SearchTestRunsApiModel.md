@@ -14,6 +14,8 @@
 |**completedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  |  [optional] |
 |**createdByIds** | **Set&lt;UUID&gt;** |  |  [optional] |
 |**modifiedByIds** | **Set&lt;UUID&gt;** |  |  [optional] |
+|**tags** | **Set&lt;String&gt;** |  |  [optional] |
+|**excludeTags** | **Set&lt;String&gt;** |  |  [optional] |
 
 
 

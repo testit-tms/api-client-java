@@ -12,6 +12,7 @@
 |**filter** | [**TestPlanTestPointsSearchApiModel**](TestPlanTestPointsSearchApiModel.md) | Test points filters. |  [optional] |
 |**extractionModel** | [**TestPlanTestPointsExtractionApiModel**](TestPlanTestPointsExtractionApiModel.md) | Test points extraction model. |  [optional] |
 |**build** | **String** | Specifies the test run build. |  [optional] |
+|**tags** | **List&lt;String&gt;** | Tags of the test run. |  [optional] |
 
 
 

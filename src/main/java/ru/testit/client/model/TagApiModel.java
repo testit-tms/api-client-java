@@ -47,7 +47,7 @@ public class TagApiModel {
   }
 
   /**
-   * Tag name
+   * Name of the tag
    * @return name
    */
   @jakarta.annotation.Nonnull

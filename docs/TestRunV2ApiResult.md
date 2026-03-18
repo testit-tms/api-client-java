@@ -18,6 +18,7 @@
 |**links** | [**List&lt;LinkApiResult&gt;**](LinkApiResult.md) | Collection of links related to the test run |  |
 |**webhooks** | [**List&lt;NamedEntityApiModel&gt;**](NamedEntityApiModel.md) | Enabled webhooks |  |
 |**runCount** | **Integer** | Run count |  |
+|**tags** | **List&lt;String&gt;** | Collection of tags associated with the test run |  |
 |**description** | **String** | Test run description |  [optional] |
 |**launchSource** | **String** | Test run launch source              Once launch source is specified it cannot be updated. |  [optional] |
 |**startedOn** | **OffsetDateTime** | Date and time of test run start |  [optional] |

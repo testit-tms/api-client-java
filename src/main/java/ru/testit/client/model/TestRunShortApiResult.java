@@ -52,6 +52,7 @@ import ru.testit.client.invoker.JSON;
   TestRunShortApiResult.JSON_PROPERTY_AUTO_TESTS_COUNT,
   TestRunShortApiResult.JSON_PROPERTY_STATISTICS,
   TestRunShortApiResult.JSON_PROPERTY_TEST_RESULTS_CONFIGURATIONS,
+  TestRunShortApiResult.JSON_PROPERTY_TAGS,
   TestRunShortApiResult.JSON_PROPERTY_STARTED_DATE,
   TestRunShortApiResult.JSON_PROPERTY_COMPLETED_DATE,
   TestRunShortApiResult.JSON_PROPERTY_MODIFIED_BY_ID
@@ -98,6 +99,10 @@ public class TestRunShortApiResult {
   public static final String JSON_PROPERTY_TEST_RESULTS_CONFIGURATIONS = "testResultsConfigurations";
   @jakarta.annotation.Nonnull
   private List<ConfigurationShortApiResult> testResultsConfigurations = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  @jakarta.annotation.Nonnull
+  private List<String> tags = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STARTED_DATE = "startedDate";
   private JsonNullable<OffsetDateTime> startedDate = JsonNullable.<OffsetDateTime>undefined();
@@ -373,6 +378,39 @@ public class TestRunShortApiResult {
   }
 
 
+  public TestRunShortApiResult tags(@jakarta.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public TestRunShortApiResult addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Collection of tags associated with the test run
+   * @return tags
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
+  }
+
+
   public TestRunShortApiResult startedDate(@jakarta.annotation.Nullable OffsetDateTime startedDate) {
     this.startedDate = JsonNullable.<OffsetDateTime>of(startedDate);
     return this;
@@ -494,6 +532,7 @@ public class TestRunShortApiResult {
         Objects.equals(this.autoTestsCount, testRunShortApiResult.autoTestsCount) &&
         Objects.equals(this.statistics, testRunShortApiResult.statistics) &&
         Objects.equals(this.testResultsConfigurations, testRunShortApiResult.testResultsConfigurations) &&
+        Objects.equals(this.tags, testRunShortApiResult.tags) &&
         equalsNullable(this.startedDate, testRunShortApiResult.startedDate) &&
         equalsNullable(this.completedDate, testRunShortApiResult.completedDate) &&
         equalsNullable(this.modifiedById, testRunShortApiResult.modifiedById);
@@ -505,7 +544,7 @@ public class TestRunShortApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, state, status, createdDate, createdById, isDeleted, autoTestsCount, statistics, testResultsConfigurations, hashCodeNullable(startedDate), hashCodeNullable(completedDate), hashCodeNullable(modifiedById));
+    return Objects.hash(id, name, state, status, createdDate, createdById, isDeleted, autoTestsCount, statistics, testResultsConfigurations, tags, hashCodeNullable(startedDate), hashCodeNullable(completedDate), hashCodeNullable(modifiedById));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -529,6 +568,7 @@ public class TestRunShortApiResult {
     sb.append("    autoTestsCount: ").append(toIndentedString(autoTestsCount)).append("\n");
     sb.append("    statistics: ").append(toIndentedString(statistics)).append("\n");
     sb.append("    testResultsConfigurations: ").append(toIndentedString(testResultsConfigurations)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    startedDate: ").append(toIndentedString(startedDate)).append("\n");
     sb.append("    completedDate: ").append(toIndentedString(completedDate)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");

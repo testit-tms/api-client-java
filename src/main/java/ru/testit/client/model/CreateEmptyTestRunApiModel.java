@@ -44,7 +44,8 @@ import ru.testit.client.invoker.JSON;
   CreateEmptyTestRunApiModel.JSON_PROPERTY_DESCRIPTION,
   CreateEmptyTestRunApiModel.JSON_PROPERTY_LAUNCH_SOURCE,
   CreateEmptyTestRunApiModel.JSON_PROPERTY_ATTACHMENTS,
-  CreateEmptyTestRunApiModel.JSON_PROPERTY_LINKS
+  CreateEmptyTestRunApiModel.JSON_PROPERTY_LINKS,
+  CreateEmptyTestRunApiModel.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateEmptyTestRunApiModel {
@@ -66,6 +67,9 @@ public class CreateEmptyTestRunApiModel {
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private JsonNullable<List<CreateLinkApiModel>> links = JsonNullable.<List<CreateLinkApiModel>>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public CreateEmptyTestRunApiModel() { 
   }
@@ -284,6 +288,51 @@ public class CreateEmptyTestRunApiModel {
   }
 
 
+  public CreateEmptyTestRunApiModel tags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+    return this;
+  }
+
+  public CreateEmptyTestRunApiModel addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Collection of tags to assign to the test run
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
+
   /**
    * Return true if this CreateEmptyTestRunApiModel object is equal to o.
    */
@@ -301,7 +350,8 @@ public class CreateEmptyTestRunApiModel {
         equalsNullable(this.description, createEmptyTestRunApiModel.description) &&
         equalsNullable(this.launchSource, createEmptyTestRunApiModel.launchSource) &&
         equalsNullable(this.attachments, createEmptyTestRunApiModel.attachments) &&
-        equalsNullable(this.links, createEmptyTestRunApiModel.links);
+        equalsNullable(this.links, createEmptyTestRunApiModel.links) &&
+        equalsNullable(this.tags, createEmptyTestRunApiModel.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -310,7 +360,7 @@ public class CreateEmptyTestRunApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links));
+    return Objects.hash(projectId, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -330,6 +380,7 @@ public class CreateEmptyTestRunApiModel {
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

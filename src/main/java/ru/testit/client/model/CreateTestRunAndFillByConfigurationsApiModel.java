@@ -47,7 +47,8 @@ import ru.testit.client.invoker.JSON;
   CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_DESCRIPTION,
   CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_LAUNCH_SOURCE,
   CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_ATTACHMENTS,
-  CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_LINKS
+  CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_LINKS,
+  CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateTestRunAndFillByConfigurationsApiModel {
@@ -77,6 +78,9 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private JsonNullable<List<CreateLinkApiModel>> links = JsonNullable.<List<CreateLinkApiModel>>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public CreateTestRunAndFillByConfigurationsApiModel() { 
   }
@@ -353,6 +357,51 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
   }
 
 
+  public CreateTestRunAndFillByConfigurationsApiModel tags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+    return this;
+  }
+
+  public CreateTestRunAndFillByConfigurationsApiModel addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Collection of tags to assign to the test run
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
+
   /**
    * Return true if this CreateTestRunAndFillByConfigurationsApiModel object is equal to o.
    */
@@ -372,7 +421,8 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
         equalsNullable(this.description, createTestRunAndFillByConfigurationsApiModel.description) &&
         equalsNullable(this.launchSource, createTestRunAndFillByConfigurationsApiModel.launchSource) &&
         equalsNullable(this.attachments, createTestRunAndFillByConfigurationsApiModel.attachments) &&
-        equalsNullable(this.links, createTestRunAndFillByConfigurationsApiModel.links);
+        equalsNullable(this.links, createTestRunAndFillByConfigurationsApiModel.links) &&
+        equalsNullable(this.tags, createTestRunAndFillByConfigurationsApiModel.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -381,7 +431,7 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, testPlanId, testPointSelectors, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links));
+    return Objects.hash(projectId, testPlanId, testPointSelectors, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -403,6 +453,7 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

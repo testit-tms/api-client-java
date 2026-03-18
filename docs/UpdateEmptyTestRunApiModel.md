@@ -13,6 +13,7 @@
 |**launchSource** | **String** | Test run launch source              Once launch source is specified it cannot be updated |  [optional] |
 |**attachments** | [**List&lt;AssignAttachmentApiModel&gt;**](AssignAttachmentApiModel.md) | Collection of attachments related to the test run |  [optional] |
 |**links** | [**List&lt;UpdateLinkApiModel&gt;**](UpdateLinkApiModel.md) | Collection of links related to the test run |  [optional] |
+|**tags** | **List&lt;String&gt;** | Collection of tags to assign to the test run |  [optional] |
 
 
 
