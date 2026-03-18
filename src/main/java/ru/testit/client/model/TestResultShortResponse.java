@@ -29,7 +29,7 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentApiResult;
 import ru.testit.client.model.AutoTestResultReasonShort;
-import ru.testit.client.model.LinkShort;
+import ru.testit.client.model.TestResultLinkApiResult;
 import ru.testit.client.model.TestStatusApiResult;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -113,7 +113,7 @@ public class TestResultShortResponse {
 
   public static final String JSON_PROPERTY_LINKS = "links";
   @jakarta.annotation.Nonnull
-  private List<LinkShort> links = new ArrayList<>();
+  private List<TestResultLinkApiResult> links = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   @jakarta.annotation.Nonnull
@@ -443,12 +443,12 @@ public class TestResultShortResponse {
   }
 
 
-  public TestResultShortResponse links(@jakarta.annotation.Nonnull List<LinkShort> links) {
+  public TestResultShortResponse links(@jakarta.annotation.Nonnull List<TestResultLinkApiResult> links) {
     this.links = links;
     return this;
   }
 
-  public TestResultShortResponse addLinksItem(LinkShort linksItem) {
+  public TestResultShortResponse addLinksItem(TestResultLinkApiResult linksItem) {
     if (this.links == null) {
       this.links = new ArrayList<>();
     }
@@ -464,14 +464,14 @@ public class TestResultShortResponse {
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<LinkShort> getLinks() {
+  public List<TestResultLinkApiResult> getLinks() {
     return links;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(@jakarta.annotation.Nonnull List<LinkShort> links) {
+  public void setLinks(@jakarta.annotation.Nonnull List<TestResultLinkApiResult> links) {
     this.links = links;
   }
 

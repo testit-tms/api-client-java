@@ -18,7 +18,7 @@
 |**resultReasons** | [**List&lt;AutoTestResultReasonShort&gt;**](AutoTestResultReasonShort.md) | Collection of result reasons which the test result have |  |
 |**date** | **OffsetDateTime** | Date when the test result was completed or started or created |  |
 |**createdDate** | **OffsetDateTime** | Date when the test result has been created |  |
-|**links** | [**List&lt;LinkShort&gt;**](LinkShort.md) | Collection of links attached to the test result |  |
+|**links** | [**List&lt;TestResultLinkApiResult&gt;**](TestResultLinkApiResult.md) | Collection of links attached to the test result |  |
 |**attachments** | [**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md) | Collection of files attached to the test result |  |
 |**rerunCompletedCount** | **Integer** | Run count |  |
 |**autotestExternalId** | **String** | External ID of autotest represented by the test result |  [optional] |

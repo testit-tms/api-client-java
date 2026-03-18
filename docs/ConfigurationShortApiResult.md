@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  |
-|**name** | **String** |  |  |
+|**id** | **UUID** | Identifier of the configuration. |  |
+|**name** | **String** | Name of the configuration. |  |
 
 
 

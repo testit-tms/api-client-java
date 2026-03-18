@@ -34,6 +34,7 @@ import ru.testit.client.model.AttachmentPutModelAutoTestStepResultsModel;
 import ru.testit.client.model.AvailableTestResultOutcome;
 import ru.testit.client.model.FailureCategoryModel;
 import ru.testit.client.model.LinkPostModel;
+import ru.testit.client.model.TestStatusType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -51,6 +52,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestResultsForTestRunModel.JSON_PROPERTY_FAILURE_REASON_NAMES,
   AutoTestResultsForTestRunModel.JSON_PROPERTY_OUTCOME,
   AutoTestResultsForTestRunModel.JSON_PROPERTY_STATUS_CODE,
+  AutoTestResultsForTestRunModel.JSON_PROPERTY_STATUS_TYPE,
   AutoTestResultsForTestRunModel.JSON_PROPERTY_MESSAGE,
   AutoTestResultsForTestRunModel.JSON_PROPERTY_TRACES,
   AutoTestResultsForTestRunModel.JSON_PROPERTY_STARTED_ON,
@@ -85,6 +87,9 @@ public class AutoTestResultsForTestRunModel {
 
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   private JsonNullable<String> statusCode = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_STATUS_TYPE = "statusType";
+  private JsonNullable<TestStatusType> statusType = JsonNullable.<TestStatusType>undefined();
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private JsonNullable<String> message = JsonNullable.<String>undefined();
@@ -305,7 +310,7 @@ public class AutoTestResultsForTestRunModel {
   }
 
   /**
-   * Specifies the result of the autotest execution.
+   * Specifies code of result status of the autotest execution.
    * @return statusCode
    */
   @jakarta.annotation.Nullable
@@ -329,6 +334,39 @@ public class AutoTestResultsForTestRunModel {
 
   public void setStatusCode(@jakarta.annotation.Nullable String statusCode) {
     this.statusCode = JsonNullable.<String>of(statusCode);
+  }
+
+
+  public AutoTestResultsForTestRunModel statusType(@jakarta.annotation.Nullable TestStatusType statusType) {
+    this.statusType = JsonNullable.<TestStatusType>of(statusType);
+    return this;
+  }
+
+  /**
+   * Specifies type of result status of the autotest execution.
+   * @return statusType
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestStatusType getStatusType() {
+        return statusType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATUS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestStatusType> getStatusType_JsonNullable() {
+    return statusType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUS_TYPE)
+  public void setStatusType_JsonNullable(JsonNullable<TestStatusType> statusType) {
+    this.statusType = statusType;
+  }
+
+  public void setStatusType(@jakarta.annotation.Nullable TestStatusType statusType) {
+    this.statusType = JsonNullable.<TestStatusType>of(statusType);
   }
 
 
@@ -787,6 +825,7 @@ public class AutoTestResultsForTestRunModel {
         equalsNullable(this.failureReasonNames, autoTestResultsForTestRunModel.failureReasonNames) &&
         equalsNullable(this.outcome, autoTestResultsForTestRunModel.outcome) &&
         equalsNullable(this.statusCode, autoTestResultsForTestRunModel.statusCode) &&
+        equalsNullable(this.statusType, autoTestResultsForTestRunModel.statusType) &&
         equalsNullable(this.message, autoTestResultsForTestRunModel.message) &&
         equalsNullable(this.traces, autoTestResultsForTestRunModel.traces) &&
         equalsNullable(this.startedOn, autoTestResultsForTestRunModel.startedOn) &&
@@ -806,7 +845,7 @@ public class AutoTestResultsForTestRunModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationId, autoTestExternalId, hashCodeNullable(links), hashCodeNullable(failureReasonNames), hashCodeNullable(outcome), hashCodeNullable(statusCode), hashCodeNullable(message), hashCodeNullable(traces), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration), hashCodeNullable(attachments), hashCodeNullable(parameters), hashCodeNullable(properties), hashCodeNullable(stepResults), hashCodeNullable(setupResults), hashCodeNullable(teardownResults));
+    return Objects.hash(configurationId, autoTestExternalId, hashCodeNullable(links), hashCodeNullable(failureReasonNames), hashCodeNullable(outcome), hashCodeNullable(statusCode), hashCodeNullable(statusType), hashCodeNullable(message), hashCodeNullable(traces), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration), hashCodeNullable(attachments), hashCodeNullable(parameters), hashCodeNullable(properties), hashCodeNullable(stepResults), hashCodeNullable(setupResults), hashCodeNullable(teardownResults));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -826,6 +865,7 @@ public class AutoTestResultsForTestRunModel {
     sb.append("    failureReasonNames: ").append(toIndentedString(failureReasonNames)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("    statusType: ").append(toIndentedString(statusType)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    traces: ").append(toIndentedString(traces)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");

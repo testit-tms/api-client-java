@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** |  |  |
-|**outcome** | **String** |  |  |
-|**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  |  |
-|**runNumber** | **Integer** |  |  |
+|**id** | **UUID** | Identifier of the rerun result. |  |
+|**outcome** | **String** | Status of the autotest run. |  |
+|**status** | [**TestStatusShortApiResult**](TestStatusShortApiResult.md) | Status of the autotest run. |  |
+|**runNumber** | **Integer** | Number of the run (e.g., 1 for the first attempt). |  |
 
 
 

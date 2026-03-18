@@ -33,8 +33,8 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   TestStatusShortApiResult.JSON_PROPERTY_ID,
-  TestStatusShortApiResult.JSON_PROPERTY_NAME,
   TestStatusShortApiResult.JSON_PROPERTY_CODE,
+  TestStatusShortApiResult.JSON_PROPERTY_NAME,
   TestStatusShortApiResult.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
@@ -43,13 +43,13 @@ public class TestStatusShortApiResult {
   @jakarta.annotation.Nonnull
   private UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  @jakarta.annotation.Nonnull
-  private String name;
-
   public static final String JSON_PROPERTY_CODE = "code";
   @jakarta.annotation.Nonnull
   private String code;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  @jakarta.annotation.Nonnull
+  private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nonnull
@@ -64,7 +64,7 @@ public class TestStatusShortApiResult {
   }
 
   /**
-   * Get id
+   * Identifier of the test status.
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -83,38 +83,13 @@ public class TestStatusShortApiResult {
   }
 
 
-  public TestStatusShortApiResult name(@jakarta.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Get name
-   * @return name
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(@jakarta.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
-
   public TestStatusShortApiResult code(@jakarta.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
 
   /**
-   * Get code
+   * Code representing the test status.
    * @return code
    */
   @jakarta.annotation.Nonnull
@@ -133,13 +108,38 @@ public class TestStatusShortApiResult {
   }
 
 
+  public TestStatusShortApiResult name(@jakarta.annotation.Nonnull String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the test status.
+   * @return name
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setName(@jakarta.annotation.Nonnull String name) {
+    this.name = name;
+  }
+
+
   public TestStatusShortApiResult type(@jakarta.annotation.Nonnull TestStatusApiType type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Collection of possible status types
+   * Type of the test status (e.g., Passed, Failed).
    * @return type
    */
   @jakarta.annotation.Nonnull
@@ -171,14 +171,14 @@ public class TestStatusShortApiResult {
     }
     TestStatusShortApiResult testStatusShortApiResult = (TestStatusShortApiResult) o;
     return Objects.equals(this.id, testStatusShortApiResult.id) &&
-        Objects.equals(this.name, testStatusShortApiResult.name) &&
         Objects.equals(this.code, testStatusShortApiResult.code) &&
+        Objects.equals(this.name, testStatusShortApiResult.name) &&
         Objects.equals(this.type, testStatusShortApiResult.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, code, type);
+    return Objects.hash(id, code, name, type);
   }
 
   @Override
@@ -186,8 +186,8 @@ public class TestStatusShortApiResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestStatusShortApiResult {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
