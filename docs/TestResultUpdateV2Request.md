@@ -10,6 +10,7 @@
 |**failureClassIds** | **List&lt;UUID&gt;** |  |  [optional] |
 |**outcome** | **TestResultOutcome** |  |  [optional] |
 |**statusCode** | **String** |  |  [optional] |
+|**statusType** | **TestStatusType** |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**links** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
 |**stepResults** | [**List&lt;StepResultApiModel&gt;**](StepResultApiModel.md) |  |  [optional] |

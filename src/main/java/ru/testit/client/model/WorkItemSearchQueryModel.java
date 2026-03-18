@@ -31,7 +31,6 @@ import java.util.Set;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
-import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemExternalMetadataFilterModel;
@@ -123,7 +122,7 @@ public class WorkItemSearchQueryModel {
   private JsonNullable<DateTimeRangeSelectorModel> modifiedDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
 
   public static final String JSON_PROPERTY_DURATION = "duration";
-  private JsonNullable<Int32RangeSelectorModel> duration = JsonNullable.<Int32RangeSelectorModel>undefined();
+  private JsonNullable<Int64RangeSelectorModel> duration = JsonNullable.<Int64RangeSelectorModel>undefined();
 
   public static final String JSON_PROPERTY_MEDIAN_DURATION = "medianDuration";
   private JsonNullable<Int64RangeSelectorModel> medianDuration = JsonNullable.<Int64RangeSelectorModel>undefined();
@@ -779,8 +778,8 @@ public class WorkItemSearchQueryModel {
   }
 
 
-  public WorkItemSearchQueryModel duration(@jakarta.annotation.Nullable Int32RangeSelectorModel duration) {
-    this.duration = JsonNullable.<Int32RangeSelectorModel>of(duration);
+  public WorkItemSearchQueryModel duration(@jakarta.annotation.Nullable Int64RangeSelectorModel duration) {
+    this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
     return this;
   }
 
@@ -791,24 +790,24 @@ public class WorkItemSearchQueryModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Int32RangeSelectorModel getDuration() {
+  public Int64RangeSelectorModel getDuration() {
         return duration.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Int32RangeSelectorModel> getDuration_JsonNullable() {
+  public JsonNullable<Int64RangeSelectorModel> getDuration_JsonNullable() {
     return duration;
   }
   
   @JsonProperty(JSON_PROPERTY_DURATION)
-  public void setDuration_JsonNullable(JsonNullable<Int32RangeSelectorModel> duration) {
+  public void setDuration_JsonNullable(JsonNullable<Int64RangeSelectorModel> duration) {
     this.duration = duration;
   }
 
-  public void setDuration(@jakarta.annotation.Nullable Int32RangeSelectorModel duration) {
-    this.duration = JsonNullable.<Int32RangeSelectorModel>of(duration);
+  public void setDuration(@jakarta.annotation.Nullable Int64RangeSelectorModel duration) {
+    this.duration = JsonNullable.<Int64RangeSelectorModel>of(duration);
   }
 
 

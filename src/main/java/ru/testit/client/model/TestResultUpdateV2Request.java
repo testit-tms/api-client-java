@@ -32,6 +32,7 @@ import ru.testit.client.model.Link;
 import ru.testit.client.model.StepResultApiModel;
 import ru.testit.client.model.TestResultOutcome;
 import ru.testit.client.model.TestResultStepCommentUpdateRequest;
+import ru.testit.client.model.TestStatusType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -46,6 +47,7 @@ import ru.testit.client.invoker.JSON;
   TestResultUpdateV2Request.JSON_PROPERTY_FAILURE_CLASS_IDS,
   TestResultUpdateV2Request.JSON_PROPERTY_OUTCOME,
   TestResultUpdateV2Request.JSON_PROPERTY_STATUS_CODE,
+  TestResultUpdateV2Request.JSON_PROPERTY_STATUS_TYPE,
   TestResultUpdateV2Request.JSON_PROPERTY_COMMENT,
   TestResultUpdateV2Request.JSON_PROPERTY_LINKS,
   TestResultUpdateV2Request.JSON_PROPERTY_STEP_RESULTS,
@@ -69,6 +71,9 @@ public class TestResultUpdateV2Request {
 
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
   private JsonNullable<String> statusCode = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_STATUS_TYPE = "statusType";
+  private JsonNullable<TestStatusType> statusType = JsonNullable.<TestStatusType>undefined();
 
   public static final String JSON_PROPERTY_COMMENT = "comment";
   private JsonNullable<String> comment = JsonNullable.<String>undefined();
@@ -219,6 +224,39 @@ public class TestResultUpdateV2Request {
 
   public void setStatusCode(@jakarta.annotation.Nullable String statusCode) {
     this.statusCode = JsonNullable.<String>of(statusCode);
+  }
+
+
+  public TestResultUpdateV2Request statusType(@jakarta.annotation.Nullable TestStatusType statusType) {
+    this.statusType = JsonNullable.<TestStatusType>of(statusType);
+    return this;
+  }
+
+  /**
+   * Get statusType
+   * @return statusType
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestStatusType getStatusType() {
+        return statusType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATUS_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestStatusType> getStatusType_JsonNullable() {
+    return statusType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUS_TYPE)
+  public void setStatusType_JsonNullable(JsonNullable<TestStatusType> statusType) {
+    this.statusType = statusType;
+  }
+
+  public void setStatusType(@jakarta.annotation.Nullable TestStatusType statusType) {
+    this.statusType = JsonNullable.<TestStatusType>of(statusType);
   }
 
 
@@ -680,6 +718,7 @@ public class TestResultUpdateV2Request {
     return equalsNullable(this.failureClassIds, testResultUpdateV2Request.failureClassIds) &&
         equalsNullable(this.outcome, testResultUpdateV2Request.outcome) &&
         equalsNullable(this.statusCode, testResultUpdateV2Request.statusCode) &&
+        equalsNullable(this.statusType, testResultUpdateV2Request.statusType) &&
         equalsNullable(this.comment, testResultUpdateV2Request.comment) &&
         equalsNullable(this.links, testResultUpdateV2Request.links) &&
         equalsNullable(this.stepResults, testResultUpdateV2Request.stepResults) &&
@@ -699,7 +738,7 @@ public class TestResultUpdateV2Request {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(failureClassIds), hashCodeNullable(outcome), hashCodeNullable(statusCode), hashCodeNullable(comment), hashCodeNullable(links), hashCodeNullable(stepResults), hashCodeNullable(attachments), hashCodeNullable(durationInMs), hashCodeNullable(duration), hashCodeNullable(stepComments), hashCodeNullable(setupResults), hashCodeNullable(teardownResults), hashCodeNullable(message), hashCodeNullable(trace));
+    return Objects.hash(hashCodeNullable(failureClassIds), hashCodeNullable(outcome), hashCodeNullable(statusCode), hashCodeNullable(statusType), hashCodeNullable(comment), hashCodeNullable(links), hashCodeNullable(stepResults), hashCodeNullable(attachments), hashCodeNullable(durationInMs), hashCodeNullable(duration), hashCodeNullable(stepComments), hashCodeNullable(setupResults), hashCodeNullable(teardownResults), hashCodeNullable(message), hashCodeNullable(trace));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -716,6 +755,7 @@ public class TestResultUpdateV2Request {
     sb.append("    failureClassIds: ").append(toIndentedString(failureClassIds)).append("\n");
     sb.append("    outcome: ").append(toIndentedString(outcome)).append("\n");
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("    statusType: ").append(toIndentedString(statusType)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    stepResults: ").append(toIndentedString(stepResults)).append("\n");

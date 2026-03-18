@@ -11,7 +11,7 @@
 |**globalId** | **Long** |  |  |
 |**versionId** | **UUID** |  |  |
 |**versionNumber** | **Integer** |  |  |
-|**duration** | **Integer** |  |  |
+|**duration** | **Long** |  |  |
 |**state** | **WorkItemState** |  |  |
 |**tags** | **List&lt;String&gt;** |  |  |
 |**attributes** | **Map&lt;String, Object&gt;** |  |  |

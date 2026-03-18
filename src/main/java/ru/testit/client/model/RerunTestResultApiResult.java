@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
-import ru.testit.client.model.TestStatusApiResult;
+import ru.testit.client.model.TestStatusShortApiResult;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -49,7 +49,7 @@ public class RerunTestResultApiResult {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   @jakarta.annotation.Nonnull
-  private TestStatusApiResult status;
+  private TestStatusShortApiResult status;
 
   public static final String JSON_PROPERTY_RUN_NUMBER = "runNumber";
   @jakarta.annotation.Nonnull
@@ -64,7 +64,7 @@ public class RerunTestResultApiResult {
   }
 
   /**
-   * Get id
+   * Identifier of the rerun result.
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -89,7 +89,7 @@ public class RerunTestResultApiResult {
   }
 
   /**
-   * Get outcome
+   * Status of the autotest run.
    * @return outcome
    */
   @jakarta.annotation.Nonnull
@@ -108,27 +108,27 @@ public class RerunTestResultApiResult {
   }
 
 
-  public RerunTestResultApiResult status(@jakarta.annotation.Nonnull TestStatusApiResult status) {
+  public RerunTestResultApiResult status(@jakarta.annotation.Nonnull TestStatusShortApiResult status) {
     this.status = status;
     return this;
   }
 
   /**
-   * Get status
+   * Status of the autotest run.
    * @return status
    */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TestStatusApiResult getStatus() {
+  public TestStatusShortApiResult getStatus() {
     return status;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatus(@jakarta.annotation.Nonnull TestStatusApiResult status) {
+  public void setStatus(@jakarta.annotation.Nonnull TestStatusShortApiResult status) {
     this.status = status;
   }
 
@@ -139,7 +139,7 @@ public class RerunTestResultApiResult {
   }
 
   /**
-   * Get runNumber
+   * Number of the run (e.g., 1 for the first attempt).
    * @return runNumber
    */
   @jakarta.annotation.Nonnull

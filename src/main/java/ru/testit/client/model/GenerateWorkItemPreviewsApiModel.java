@@ -23,6 +23,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -32,24 +36,17 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_EXTERNAL_SERVICE_ID,
-  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_TASK_KEY,
-  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_SECTION_ID,
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_TEMPERATURE,
-  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_PREVIEW_LIMIT
+  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_PREVIEW_LIMIT,
+  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_TASK_KEY,
+  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_ISSUE_KEY,
+  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_USER_CONTEXT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class GenerateWorkItemPreviewsApiModel {
   public static final String JSON_PROPERTY_EXTERNAL_SERVICE_ID = "externalServiceId";
   @jakarta.annotation.Nonnull
   private UUID externalServiceId;
-
-  public static final String JSON_PROPERTY_TASK_KEY = "taskKey";
-  @jakarta.annotation.Nonnull
-  private String taskKey;
-
-  public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
-  @jakarta.annotation.Nonnull
-  private UUID sectionId;
 
   public static final String JSON_PROPERTY_TEMPERATURE = "temperature";
   @jakarta.annotation.Nonnull
@@ -58,6 +55,16 @@ public class GenerateWorkItemPreviewsApiModel {
   public static final String JSON_PROPERTY_PREVIEW_LIMIT = "previewLimit";
   @jakarta.annotation.Nonnull
   private Integer previewLimit;
+
+  public static final String JSON_PROPERTY_TASK_KEY = "taskKey";
+  @Deprecated
+  private JsonNullable<String> taskKey = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_ISSUE_KEY = "issueKey";
+  private JsonNullable<String> issueKey = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_USER_CONTEXT = "userContext";
+  private JsonNullable<String> userContext = JsonNullable.<String>undefined();
 
   public GenerateWorkItemPreviewsApiModel() { 
   }
@@ -68,7 +75,7 @@ public class GenerateWorkItemPreviewsApiModel {
   }
 
   /**
-   * Get externalServiceId
+   * The ID of the external AI service to be used for generation.
    * @return externalServiceId
    */
   @jakarta.annotation.Nonnull
@@ -87,63 +94,13 @@ public class GenerateWorkItemPreviewsApiModel {
   }
 
 
-  public GenerateWorkItemPreviewsApiModel taskKey(@jakarta.annotation.Nonnull String taskKey) {
-    this.taskKey = taskKey;
-    return this;
-  }
-
-  /**
-   * Get taskKey
-   * @return taskKey
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TASK_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTaskKey() {
-    return taskKey;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TASK_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTaskKey(@jakarta.annotation.Nonnull String taskKey) {
-    this.taskKey = taskKey;
-  }
-
-
-  public GenerateWorkItemPreviewsApiModel sectionId(@jakarta.annotation.Nonnull UUID sectionId) {
-    this.sectionId = sectionId;
-    return this;
-  }
-
-  /**
-   * Get sectionId
-   * @return sectionId
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SECTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UUID getSectionId() {
-    return sectionId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SECTION_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSectionId(@jakarta.annotation.Nonnull UUID sectionId) {
-    this.sectionId = sectionId;
-  }
-
-
   public GenerateWorkItemPreviewsApiModel temperature(@jakarta.annotation.Nonnull Float temperature) {
     this.temperature = temperature;
     return this;
   }
 
   /**
-   * Get temperature
+   * Controls randomness of the AI model output.
    * minimum: 0
    * maximum: 1
    * @return temperature
@@ -170,7 +127,7 @@ public class GenerateWorkItemPreviewsApiModel {
   }
 
   /**
-   * Get previewLimit
+   * Number of work item previews to generate.
    * minimum: 1
    * maximum: 30
    * @return previewLimit
@@ -191,6 +148,109 @@ public class GenerateWorkItemPreviewsApiModel {
   }
 
 
+  @Deprecated
+  public GenerateWorkItemPreviewsApiModel taskKey(@jakarta.annotation.Nullable String taskKey) {
+    this.taskKey = JsonNullable.<String>of(taskKey);
+    return this;
+  }
+
+  /**
+   * The key of the issue in an issue tracker (e.g., JIRA-123).
+   * @return taskKey
+   * @deprecated
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getTaskKey() {
+        return taskKey.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TASK_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTaskKey_JsonNullable() {
+    return taskKey;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_KEY)
+  public void setTaskKey_JsonNullable(JsonNullable<String> taskKey) {
+    this.taskKey = taskKey;
+  }
+
+  @Deprecated
+  public void setTaskKey(@jakarta.annotation.Nullable String taskKey) {
+    this.taskKey = JsonNullable.<String>of(taskKey);
+  }
+
+
+  public GenerateWorkItemPreviewsApiModel issueKey(@jakarta.annotation.Nullable String issueKey) {
+    this.issueKey = JsonNullable.<String>of(issueKey);
+    return this;
+  }
+
+  /**
+   * The key of the issue in an issue tracker (e.g., JIRA-123).
+   * @return issueKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getIssueKey() {
+        return issueKey.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ISSUE_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIssueKey_JsonNullable() {
+    return issueKey;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISSUE_KEY)
+  public void setIssueKey_JsonNullable(JsonNullable<String> issueKey) {
+    this.issueKey = issueKey;
+  }
+
+  public void setIssueKey(@jakarta.annotation.Nullable String issueKey) {
+    this.issueKey = JsonNullable.<String>of(issueKey);
+  }
+
+
+  public GenerateWorkItemPreviewsApiModel userContext(@jakarta.annotation.Nullable String userContext) {
+    this.userContext = JsonNullable.<String>of(userContext);
+    return this;
+  }
+
+  /**
+   * Additional user context or description of the issue if no issue key is provided.
+   * @return userContext
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getUserContext() {
+        return userContext.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_USER_CONTEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getUserContext_JsonNullable() {
+    return userContext;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_USER_CONTEXT)
+  public void setUserContext_JsonNullable(JsonNullable<String> userContext) {
+    this.userContext = userContext;
+  }
+
+  public void setUserContext(@jakarta.annotation.Nullable String userContext) {
+    this.userContext = JsonNullable.<String>of(userContext);
+  }
+
+
   /**
    * Return true if this GenerateWorkItemPreviewsApiModel object is equal to o.
    */
@@ -204,15 +264,27 @@ public class GenerateWorkItemPreviewsApiModel {
     }
     GenerateWorkItemPreviewsApiModel generateWorkItemPreviewsApiModel = (GenerateWorkItemPreviewsApiModel) o;
     return Objects.equals(this.externalServiceId, generateWorkItemPreviewsApiModel.externalServiceId) &&
-        Objects.equals(this.taskKey, generateWorkItemPreviewsApiModel.taskKey) &&
-        Objects.equals(this.sectionId, generateWorkItemPreviewsApiModel.sectionId) &&
         Objects.equals(this.temperature, generateWorkItemPreviewsApiModel.temperature) &&
-        Objects.equals(this.previewLimit, generateWorkItemPreviewsApiModel.previewLimit);
+        Objects.equals(this.previewLimit, generateWorkItemPreviewsApiModel.previewLimit) &&
+        equalsNullable(this.taskKey, generateWorkItemPreviewsApiModel.taskKey) &&
+        equalsNullable(this.issueKey, generateWorkItemPreviewsApiModel.issueKey) &&
+        equalsNullable(this.userContext, generateWorkItemPreviewsApiModel.userContext);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalServiceId, taskKey, sectionId, temperature, previewLimit);
+    return Objects.hash(externalServiceId, temperature, previewLimit, hashCodeNullable(taskKey), hashCodeNullable(issueKey), hashCodeNullable(userContext));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -220,10 +292,11 @@ public class GenerateWorkItemPreviewsApiModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class GenerateWorkItemPreviewsApiModel {\n");
     sb.append("    externalServiceId: ").append(toIndentedString(externalServiceId)).append("\n");
-    sb.append("    taskKey: ").append(toIndentedString(taskKey)).append("\n");
-    sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
     sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
     sb.append("    previewLimit: ").append(toIndentedString(previewLimit)).append("\n");
+    sb.append("    taskKey: ").append(toIndentedString(taskKey)).append("\n");
+    sb.append("    issueKey: ").append(toIndentedString(issueKey)).append("\n");
+    sb.append("    userContext: ").append(toIndentedString(userContext)).append("\n");
     sb.append("}");
     return sb.toString();
   }

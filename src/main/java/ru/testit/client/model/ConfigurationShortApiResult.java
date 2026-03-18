@@ -53,7 +53,7 @@ public class ConfigurationShortApiResult {
   }
 
   /**
-   * Get id
+   * Identifier of the configuration.
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -78,7 +78,7 @@ public class ConfigurationShortApiResult {
   }
 
   /**
-   * Get name
+   * Name of the configuration.
    * @return name
    */
   @jakarta.annotation.Nonnull
