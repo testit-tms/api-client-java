@@ -43,7 +43,8 @@ import ru.testit.client.invoker.JSON;
   TestPlanTestPointsAutoTestsRunApiModel.JSON_PROPERTY_RESET_NOT_ACTUAL_AUTOMATED_TEST_POINTS,
   TestPlanTestPointsAutoTestsRunApiModel.JSON_PROPERTY_FILTER,
   TestPlanTestPointsAutoTestsRunApiModel.JSON_PROPERTY_EXTRACTION_MODEL,
-  TestPlanTestPointsAutoTestsRunApiModel.JSON_PROPERTY_BUILD
+  TestPlanTestPointsAutoTestsRunApiModel.JSON_PROPERTY_BUILD,
+  TestPlanTestPointsAutoTestsRunApiModel.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestPlanTestPointsAutoTestsRunApiModel {
@@ -63,6 +64,9 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
 
   public static final String JSON_PROPERTY_BUILD = "build";
   private JsonNullable<String> build = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public TestPlanTestPointsAutoTestsRunApiModel() { 
   }
@@ -224,6 +228,51 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
   }
 
 
+  public TestPlanTestPointsAutoTestsRunApiModel tags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+    return this;
+  }
+
+  public TestPlanTestPointsAutoTestsRunApiModel addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Tags of the test run.
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
+
   /**
    * Return true if this TestPlanTestPointsAutoTestsRunApiModel object is equal to o.
    */
@@ -240,7 +289,8 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
         Objects.equals(this.resetNotActualAutomatedTestPoints, testPlanTestPointsAutoTestsRunApiModel.resetNotActualAutomatedTestPoints) &&
         equalsNullable(this.filter, testPlanTestPointsAutoTestsRunApiModel.filter) &&
         equalsNullable(this.extractionModel, testPlanTestPointsAutoTestsRunApiModel.extractionModel) &&
-        equalsNullable(this.build, testPlanTestPointsAutoTestsRunApiModel.build);
+        equalsNullable(this.build, testPlanTestPointsAutoTestsRunApiModel.build) &&
+        equalsNullable(this.tags, testPlanTestPointsAutoTestsRunApiModel.tags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -249,7 +299,7 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(webhookIds, resetNotActualAutomatedTestPoints, hashCodeNullable(filter), hashCodeNullable(extractionModel), hashCodeNullable(build));
+    return Objects.hash(webhookIds, resetNotActualAutomatedTestPoints, hashCodeNullable(filter), hashCodeNullable(extractionModel), hashCodeNullable(build), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -268,6 +318,7 @@ public class TestPlanTestPointsAutoTestsRunApiModel {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    extractionModel: ").append(toIndentedString(extractionModel)).append("\n");
     sb.append("    build: ").append(toIndentedString(build)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

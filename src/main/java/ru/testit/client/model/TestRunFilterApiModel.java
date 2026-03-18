@@ -56,7 +56,9 @@ import ru.testit.client.invoker.JSON;
   TestRunFilterApiModel.JSON_PROPERTY_TEST_RESULTS_STATUS_CODES,
   TestRunFilterApiModel.JSON_PROPERTY_FAILURE_CATEGORY,
   TestRunFilterApiModel.JSON_PROPERTY_COMPLETED_DATE,
-  TestRunFilterApiModel.JSON_PROPERTY_TEST_RESULTS_CONFIGURATION_IDS
+  TestRunFilterApiModel.JSON_PROPERTY_TEST_RESULTS_CONFIGURATION_IDS,
+  TestRunFilterApiModel.JSON_PROPERTY_TAGS,
+  TestRunFilterApiModel.JSON_PROPERTY_EXCLUDE_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class TestRunFilterApiModel {
@@ -106,6 +108,12 @@ public class TestRunFilterApiModel {
 
   public static final String JSON_PROPERTY_TEST_RESULTS_CONFIGURATION_IDS = "testResultsConfigurationIds";
   private JsonNullable<List<UUID>> testResultsConfigurationIds = JsonNullable.<List<UUID>>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_EXCLUDE_TAGS = "excludeTags";
+  private JsonNullable<List<String>> excludeTags = JsonNullable.<List<String>>undefined();
 
   public TestRunFilterApiModel() { 
   }
@@ -721,6 +729,96 @@ public class TestRunFilterApiModel {
   }
 
 
+  public TestRunFilterApiModel tags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+    return this;
+  }
+
+  public TestRunFilterApiModel addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Specifies a test run tags to search for
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
+
+  public TestRunFilterApiModel excludeTags(@jakarta.annotation.Nullable List<String> excludeTags) {
+    this.excludeTags = JsonNullable.<List<String>>of(excludeTags);
+    return this;
+  }
+
+  public TestRunFilterApiModel addExcludeTagsItem(String excludeTagsItem) {
+    if (this.excludeTags == null || !this.excludeTags.isPresent()) {
+      this.excludeTags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.excludeTags.get().add(excludeTagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Specifies a test run excluded tags to search for
+   * @return excludeTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<String> getExcludeTags() {
+        return excludeTags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<String>> getExcludeTags_JsonNullable() {
+    return excludeTags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  public void setExcludeTags_JsonNullable(JsonNullable<List<String>> excludeTags) {
+    this.excludeTags = excludeTags;
+  }
+
+  public void setExcludeTags(@jakarta.annotation.Nullable List<String> excludeTags) {
+    this.excludeTags = JsonNullable.<List<String>>of(excludeTags);
+  }
+
+
   /**
    * Return true if this TestRunFilterApiModel object is equal to o.
    */
@@ -747,7 +845,9 @@ public class TestRunFilterApiModel {
         equalsNullable(this.testResultsStatusCodes, testRunFilterApiModel.testResultsStatusCodes) &&
         equalsNullable(this.failureCategory, testRunFilterApiModel.failureCategory) &&
         equalsNullable(this.completedDate, testRunFilterApiModel.completedDate) &&
-        equalsNullable(this.testResultsConfigurationIds, testRunFilterApiModel.testResultsConfigurationIds);
+        equalsNullable(this.testResultsConfigurationIds, testRunFilterApiModel.testResultsConfigurationIds) &&
+        equalsNullable(this.tags, testRunFilterApiModel.tags) &&
+        equalsNullable(this.excludeTags, testRunFilterApiModel.excludeTags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -756,7 +856,7 @@ public class TestRunFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(states), hashCodeNullable(statusCodes), hashCodeNullable(createdDate), hashCodeNullable(startedDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(isDeleted), hashCodeNullable(autoTestsCount), hashCodeNullable(testResultsOutcome), hashCodeNullable(testResultsStatusCodes), hashCodeNullable(failureCategory), hashCodeNullable(completedDate), hashCodeNullable(testResultsConfigurationIds));
+    return Objects.hash(hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(states), hashCodeNullable(statusCodes), hashCodeNullable(createdDate), hashCodeNullable(startedDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(isDeleted), hashCodeNullable(autoTestsCount), hashCodeNullable(testResultsOutcome), hashCodeNullable(testResultsStatusCodes), hashCodeNullable(failureCategory), hashCodeNullable(completedDate), hashCodeNullable(testResultsConfigurationIds), hashCodeNullable(tags), hashCodeNullable(excludeTags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -785,6 +885,8 @@ public class TestRunFilterApiModel {
     sb.append("    failureCategory: ").append(toIndentedString(failureCategory)).append("\n");
     sb.append("    completedDate: ").append(toIndentedString(completedDate)).append("\n");
     sb.append("    testResultsConfigurationIds: ").append(toIndentedString(testResultsConfigurationIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    excludeTags: ").append(toIndentedString(excludeTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

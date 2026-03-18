@@ -45,7 +45,9 @@ import ru.testit.client.invoker.JSON;
   SearchTestRunsApiModel.JSON_PROPERTY_STARTED_DATE,
   SearchTestRunsApiModel.JSON_PROPERTY_COMPLETED_DATE,
   SearchTestRunsApiModel.JSON_PROPERTY_CREATED_BY_IDS,
-  SearchTestRunsApiModel.JSON_PROPERTY_MODIFIED_BY_IDS
+  SearchTestRunsApiModel.JSON_PROPERTY_MODIFIED_BY_IDS,
+  SearchTestRunsApiModel.JSON_PROPERTY_TAGS,
+  SearchTestRunsApiModel.JSON_PROPERTY_EXCLUDE_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class SearchTestRunsApiModel {
@@ -70,6 +72,12 @@ public class SearchTestRunsApiModel {
 
   public static final String JSON_PROPERTY_MODIFIED_BY_IDS = "modifiedByIds";
   private JsonNullable<Set<UUID>> modifiedByIds = JsonNullable.<Set<UUID>>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<Set<String>> tags = JsonNullable.<Set<String>>undefined();
+
+  public static final String JSON_PROPERTY_EXCLUDE_TAGS = "excludeTags";
+  private JsonNullable<Set<String>> excludeTags = JsonNullable.<Set<String>>undefined();
 
   public SearchTestRunsApiModel() { 
   }
@@ -357,6 +365,96 @@ public class SearchTestRunsApiModel {
   }
 
 
+  public SearchTestRunsApiModel tags(@jakarta.annotation.Nullable Set<String> tags) {
+    this.tags = JsonNullable.<Set<String>>of(tags);
+    return this;
+  }
+
+  public SearchTestRunsApiModel addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Get tags
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<Set<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@jakarta.annotation.Nullable Set<String> tags) {
+    this.tags = JsonNullable.<Set<String>>of(tags);
+  }
+
+
+  public SearchTestRunsApiModel excludeTags(@jakarta.annotation.Nullable Set<String> excludeTags) {
+    this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
+    return this;
+  }
+
+  public SearchTestRunsApiModel addExcludeTagsItem(String excludeTagsItem) {
+    if (this.excludeTags == null || !this.excludeTags.isPresent()) {
+      this.excludeTags = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.excludeTags.get().add(excludeTagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Get excludeTags
+   * @return excludeTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getExcludeTags() {
+        return excludeTags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getExcludeTags_JsonNullable() {
+    return excludeTags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS)
+  public void setExcludeTags_JsonNullable(JsonNullable<Set<String>> excludeTags) {
+    this.excludeTags = excludeTags;
+  }
+
+  public void setExcludeTags(@jakarta.annotation.Nullable Set<String> excludeTags) {
+    this.excludeTags = JsonNullable.<Set<String>>of(excludeTags);
+  }
+
+
   /**
    * Return true if this SearchTestRunsApiModel object is equal to o.
    */
@@ -375,7 +473,9 @@ public class SearchTestRunsApiModel {
         equalsNullable(this.startedDate, searchTestRunsApiModel.startedDate) &&
         equalsNullable(this.completedDate, searchTestRunsApiModel.completedDate) &&
         equalsNullable(this.createdByIds, searchTestRunsApiModel.createdByIds) &&
-        equalsNullable(this.modifiedByIds, searchTestRunsApiModel.modifiedByIds);
+        equalsNullable(this.modifiedByIds, searchTestRunsApiModel.modifiedByIds) &&
+        equalsNullable(this.tags, searchTestRunsApiModel.tags) &&
+        equalsNullable(this.excludeTags, searchTestRunsApiModel.excludeTags);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -384,7 +484,7 @@ public class SearchTestRunsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(states), hashCodeNullable(statusCodes), hashCodeNullable(startedDate), hashCodeNullable(completedDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds));
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(states), hashCodeNullable(statusCodes), hashCodeNullable(startedDate), hashCodeNullable(completedDate), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(tags), hashCodeNullable(excludeTags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -405,6 +505,8 @@ public class SearchTestRunsApiModel {
     sb.append("    completedDate: ").append(toIndentedString(completedDate)).append("\n");
     sb.append("    createdByIds: ").append(toIndentedString(createdByIds)).append("\n");
     sb.append("    modifiedByIds: ").append(toIndentedString(modifiedByIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    excludeTags: ").append(toIndentedString(excludeTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

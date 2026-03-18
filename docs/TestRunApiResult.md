@@ -21,6 +21,7 @@
 |**testResults** | [**List&lt;TestResultApiResult&gt;**](TestResultApiResult.md) |  |  |
 |**createdDate** | **OffsetDateTime** |  |  |
 |**createdById** | **UUID** |  |  |
+|**tags** | **List&lt;String&gt;** |  |  |
 |**startedDate** | **OffsetDateTime** |  |  [optional] |
 |**completedDate** | **OffsetDateTime** |  |  [optional] |
 |**description** | **String** |  |  [optional] |

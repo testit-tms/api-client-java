@@ -22,6 +22,8 @@
 |**failureCategory** | **List&lt;FailureCategory&gt;** | Specifies failure categories |  [optional] |
 |**completedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test run range of completed date to search for |  [optional] |
 |**testResultsConfigurationIds** | **List&lt;UUID&gt;** | Specifies a test result configuration IDs to search for |  [optional] |
+|**tags** | **List&lt;String&gt;** | Specifies a test run tags to search for |  [optional] |
+|**excludeTags** | **List&lt;String&gt;** | Specifies a test run excluded tags to search for |  [optional] |
 
 
 

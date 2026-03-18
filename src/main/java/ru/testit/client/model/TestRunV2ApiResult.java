@@ -57,6 +57,7 @@ import ru.testit.client.invoker.JSON;
   TestRunV2ApiResult.JSON_PROPERTY_LINKS,
   TestRunV2ApiResult.JSON_PROPERTY_WEBHOOKS,
   TestRunV2ApiResult.JSON_PROPERTY_RUN_COUNT,
+  TestRunV2ApiResult.JSON_PROPERTY_TAGS,
   TestRunV2ApiResult.JSON_PROPERTY_DESCRIPTION,
   TestRunV2ApiResult.JSON_PROPERTY_LAUNCH_SOURCE,
   TestRunV2ApiResult.JSON_PROPERTY_STARTED_ON,
@@ -114,6 +115,10 @@ public class TestRunV2ApiResult {
   public static final String JSON_PROPERTY_RUN_COUNT = "runCount";
   @jakarta.annotation.Nonnull
   private Integer runCount;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  @jakarta.annotation.Nonnull
+  private List<String> tags = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
@@ -448,6 +453,39 @@ public class TestRunV2ApiResult {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRunCount(@jakarta.annotation.Nonnull Integer runCount) {
     this.runCount = runCount;
+  }
+
+
+  public TestRunV2ApiResult tags(@jakarta.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public TestRunV2ApiResult addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Collection of tags associated with the test run
+   * @return tags
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
   }
 
 
@@ -828,6 +866,7 @@ public class TestRunV2ApiResult {
         Objects.equals(this.links, testRunV2ApiResult.links) &&
         Objects.equals(this.webhooks, testRunV2ApiResult.webhooks) &&
         Objects.equals(this.runCount, testRunV2ApiResult.runCount) &&
+        Objects.equals(this.tags, testRunV2ApiResult.tags) &&
         equalsNullable(this.description, testRunV2ApiResult.description) &&
         equalsNullable(this.launchSource, testRunV2ApiResult.launchSource) &&
         equalsNullable(this.startedOn, testRunV2ApiResult.startedOn) &&
@@ -846,7 +885,7 @@ public class TestRunV2ApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, stateName, status, projectId, createdDate, createdById, attachments, links, webhooks, runCount, hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(testPlanId), hashCodeNullable(testResults), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName), hashCodeNullable(customParameters));
+    return Objects.hash(id, name, stateName, status, projectId, createdDate, createdById, attachments, links, webhooks, runCount, tags, hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(testPlanId), hashCodeNullable(testResults), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(createdByUserName), hashCodeNullable(customParameters));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -871,6 +910,7 @@ public class TestRunV2ApiResult {
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
     sb.append("    runCount: ").append(toIndentedString(runCount)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    launchSource: ").append(toIndentedString(launchSource)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");

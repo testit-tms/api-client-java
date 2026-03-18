@@ -13,6 +13,7 @@
 |**launchSource** | **String** | Test run launch source |  [optional] |
 |**attachments** | [**List&lt;AssignAttachmentApiModel&gt;**](AssignAttachmentApiModel.md) | Collection of attachments to relate to the test run |  [optional] |
 |**links** | [**List&lt;CreateLinkApiModel&gt;**](CreateLinkApiModel.md) | Collection of links to relate to the test run |  [optional] |
+|**tags** | **List&lt;String&gt;** | Collection of tags to assign to the test run |  [optional] |
 
 
 
