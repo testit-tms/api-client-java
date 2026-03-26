@@ -24,6 +24,7 @@
 |**iterations** | [**List&lt;AssignIterationApiModel&gt;**](AssignIterationApiModel.md) | Associated iterations linked to the work item |  [optional] |
 |**autoTests** | [**List&lt;AutoTestIdModel&gt;**](AutoTestIdModel.md) | Automated tests associated with the work item |  [optional] |
 |**attachments** | [**List&lt;AssignAttachmentApiModel&gt;**](AssignAttachmentApiModel.md) | Files attached to the work item |  [optional] |
+|**parameters** | [**List&lt;WorkItemParameterKeyApiModel&gt;**](WorkItemParameterKeyApiModel.md) | Set of parameter keys related to the work item |  [optional] |
 
 
 

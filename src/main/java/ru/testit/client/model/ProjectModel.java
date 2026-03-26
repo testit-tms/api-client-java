@@ -333,7 +333,7 @@ public class ProjectModel {
   }
 
   /**
-   * Get workflowId
+   * Identifier of current workflow
    * @return workflowId
    */
   @jakarta.annotation.Nonnull

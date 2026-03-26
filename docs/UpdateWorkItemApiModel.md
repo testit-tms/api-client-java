@@ -24,6 +24,7 @@
 |**sourceType** | **WorkItemSourceTypeModel** |  |  [optional] |
 |**iterations** | [**List&lt;AssignIterationApiModel&gt;**](AssignIterationApiModel.md) | Collection of parameter id sets |  [optional] |
 |**autoTests** | [**List&lt;AutoTestIdModel&gt;**](AutoTestIdModel.md) | Collection of autotest internal ids |  [optional] |
+|**parameters** | [**List&lt;WorkItemParameterKeyApiModel&gt;**](WorkItemParameterKeyApiModel.md) | Set of parameter keys related to the work item |  [optional] |
 
 
 

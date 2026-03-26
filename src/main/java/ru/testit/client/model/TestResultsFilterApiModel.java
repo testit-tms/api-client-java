@@ -30,6 +30,7 @@ import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.FailureCategoryModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
 import ru.testit.client.model.TestResultOutcome;
+import ru.testit.client.model.TestStatusApiType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -44,6 +45,7 @@ import ru.testit.client.invoker.JSON;
   TestResultsFilterApiModel.JSON_PROPERTY_CONFIGURATION_IDS,
   TestResultsFilterApiModel.JSON_PROPERTY_OUTCOMES,
   TestResultsFilterApiModel.JSON_PROPERTY_STATUS_CODES,
+  TestResultsFilterApiModel.JSON_PROPERTY_STATUS_TYPES,
   TestResultsFilterApiModel.JSON_PROPERTY_FAILURE_CATEGORIES,
   TestResultsFilterApiModel.JSON_PROPERTY_NAMESPACE,
   TestResultsFilterApiModel.JSON_PROPERTY_CLASS_NAME,
@@ -70,6 +72,9 @@ public class TestResultsFilterApiModel {
 
   public static final String JSON_PROPERTY_STATUS_CODES = "statusCodes";
   private JsonNullable<List<String>> statusCodes = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_STATUS_TYPES = "statusTypes";
+  private JsonNullable<List<TestStatusApiType>> statusTypes = JsonNullable.<List<TestStatusApiType>>undefined();
 
   public static final String JSON_PROPERTY_FAILURE_CATEGORIES = "failureCategories";
   private JsonNullable<List<FailureCategoryModel>> failureCategories = JsonNullable.<List<FailureCategoryModel>>undefined();
@@ -252,6 +257,51 @@ public class TestResultsFilterApiModel {
 
   public void setStatusCodes(@jakarta.annotation.Nullable List<String> statusCodes) {
     this.statusCodes = JsonNullable.<List<String>>of(statusCodes);
+  }
+
+
+  public TestResultsFilterApiModel statusTypes(@jakarta.annotation.Nullable List<TestStatusApiType> statusTypes) {
+    this.statusTypes = JsonNullable.<List<TestStatusApiType>>of(statusTypes);
+    return this;
+  }
+
+  public TestResultsFilterApiModel addStatusTypesItem(TestStatusApiType statusTypesItem) {
+    if (this.statusTypes == null || !this.statusTypes.isPresent()) {
+      this.statusTypes = JsonNullable.<List<TestStatusApiType>>of(new ArrayList<>());
+    }
+    try {
+      this.statusTypes.get().add(statusTypesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Specifies a test result status types to search for
+   * @return statusTypes
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<TestStatusApiType> getStatusTypes() {
+        return statusTypes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATUS_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<TestStatusApiType>> getStatusTypes_JsonNullable() {
+    return statusTypes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUS_TYPES)
+  public void setStatusTypes_JsonNullable(JsonNullable<List<TestStatusApiType>> statusTypes) {
+    this.statusTypes = statusTypes;
+  }
+
+  public void setStatusTypes(@jakarta.annotation.Nullable List<TestStatusApiType> statusTypes) {
+    this.statusTypes = JsonNullable.<List<TestStatusApiType>>of(statusTypes);
   }
 
 
@@ -804,6 +854,7 @@ public class TestResultsFilterApiModel {
     return equalsNullable(this.configurationIds, testResultsFilterApiModel.configurationIds) &&
         equalsNullable(this.outcomes, testResultsFilterApiModel.outcomes) &&
         equalsNullable(this.statusCodes, testResultsFilterApiModel.statusCodes) &&
+        equalsNullable(this.statusTypes, testResultsFilterApiModel.statusTypes) &&
         equalsNullable(this.failureCategories, testResultsFilterApiModel.failureCategories) &&
         equalsNullable(this.namespace, testResultsFilterApiModel.namespace) &&
         equalsNullable(this.className, testResultsFilterApiModel.className) &&
@@ -826,7 +877,7 @@ public class TestResultsFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(configurationIds), hashCodeNullable(outcomes), hashCodeNullable(statusCodes), hashCodeNullable(failureCategories), hashCodeNullable(namespace), hashCodeNullable(className), hashCodeNullable(autoTestGlobalIds), hashCodeNullable(autoTestTags), hashCodeNullable(excludeAutoTestTags), hashCodeNullable(name), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration), hashCodeNullable(resultReasons), hashCodeNullable(testRunIds));
+    return Objects.hash(hashCodeNullable(configurationIds), hashCodeNullable(outcomes), hashCodeNullable(statusCodes), hashCodeNullable(statusTypes), hashCodeNullable(failureCategories), hashCodeNullable(namespace), hashCodeNullable(className), hashCodeNullable(autoTestGlobalIds), hashCodeNullable(autoTestTags), hashCodeNullable(excludeAutoTestTags), hashCodeNullable(name), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(startedOn), hashCodeNullable(completedOn), hashCodeNullable(duration), hashCodeNullable(resultReasons), hashCodeNullable(testRunIds));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -843,6 +894,7 @@ public class TestResultsFilterApiModel {
     sb.append("    configurationIds: ").append(toIndentedString(configurationIds)).append("\n");
     sb.append("    outcomes: ").append(toIndentedString(outcomes)).append("\n");
     sb.append("    statusCodes: ").append(toIndentedString(statusCodes)).append("\n");
+    sb.append("    statusTypes: ").append(toIndentedString(statusTypes)).append("\n");
     sb.append("    failureCategories: ").append(toIndentedString(failureCategories)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    className: ").append(toIndentedString(className)).append("\n");

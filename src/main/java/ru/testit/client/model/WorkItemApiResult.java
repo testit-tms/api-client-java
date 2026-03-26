@@ -37,6 +37,7 @@ import ru.testit.client.model.LinkModel;
 import ru.testit.client.model.StepModel;
 import ru.testit.client.model.TagModel;
 import ru.testit.client.model.WorkItemEntityTypeApiModel;
+import ru.testit.client.model.WorkItemParameterKeyApiResult;
 import ru.testit.client.model.WorkItemPriorityApiModel;
 import ru.testit.client.model.WorkItemSourceTypeApiModel;
 import ru.testit.client.model.WorkItemStateApiModel;
@@ -77,6 +78,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemApiResult.JSON_PROPERTY_ATTACHMENTS,
   WorkItemApiResult.JSON_PROPERTY_LINKS,
   WorkItemApiResult.JSON_PROPERTY_EXTERNAL_ISSUES,
+  WorkItemApiResult.JSON_PROPERTY_PARAMETERS,
   WorkItemApiResult.JSON_PROPERTY_CREATED_DATE,
   WorkItemApiResult.JSON_PROPERTY_CREATED_BY_ID,
   WorkItemApiResult.JSON_PROPERTY_IS_DELETED,
@@ -189,6 +191,10 @@ public class WorkItemApiResult {
   public static final String JSON_PROPERTY_EXTERNAL_ISSUES = "externalIssues";
   @jakarta.annotation.Nonnull
   private List<ExternalIssueApiResult> externalIssues = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  @jakarta.annotation.Nonnull
+  private List<WorkItemParameterKeyApiResult> parameters = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   @jakarta.annotation.Nonnull
@@ -960,6 +966,39 @@ public class WorkItemApiResult {
   }
 
 
+  public WorkItemApiResult parameters(@jakarta.annotation.Nonnull List<WorkItemParameterKeyApiResult> parameters) {
+    this.parameters = parameters;
+    return this;
+  }
+
+  public WorkItemApiResult addParametersItem(WorkItemParameterKeyApiResult parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<>();
+    }
+    this.parameters.add(parametersItem);
+    return this;
+  }
+
+  /**
+   * Set of parameters related to the work item
+   * @return parameters
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<WorkItemParameterKeyApiResult> getParameters() {
+    return parameters;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setParameters(@jakarta.annotation.Nonnull List<WorkItemParameterKeyApiResult> parameters) {
+    this.parameters = parameters;
+  }
+
+
   public WorkItemApiResult createdDate(@jakarta.annotation.Nonnull OffsetDateTime createdDate) {
     this.createdDate = createdDate;
     return this;
@@ -1172,6 +1211,7 @@ public class WorkItemApiResult {
         Objects.equals(this.attachments, workItemApiResult.attachments) &&
         Objects.equals(this.links, workItemApiResult.links) &&
         Objects.equals(this.externalIssues, workItemApiResult.externalIssues) &&
+        Objects.equals(this.parameters, workItemApiResult.parameters) &&
         Objects.equals(this.createdDate, workItemApiResult.createdDate) &&
         Objects.equals(this.createdById, workItemApiResult.createdById) &&
         Objects.equals(this.isDeleted, workItemApiResult.isDeleted) &&
@@ -1186,7 +1226,7 @@ public class WorkItemApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, globalId, versionId, versionNumber, projectId, sectionId, name, sourceType, entityTypeName, duration, medianDuration, state, priority, isAutomated, attributes, tags, sectionPreconditionSteps, sectionPostconditionSteps, preconditionSteps, steps, postconditionSteps, iterations, autoTests, attachments, links, externalIssues, createdDate, createdById, isDeleted, hashCodeNullable(description), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
+    return Objects.hash(id, globalId, versionId, versionNumber, projectId, sectionId, name, sourceType, entityTypeName, duration, medianDuration, state, priority, isAutomated, attributes, tags, sectionPreconditionSteps, sectionPostconditionSteps, preconditionSteps, steps, postconditionSteps, iterations, autoTests, attachments, links, externalIssues, parameters, createdDate, createdById, isDeleted, hashCodeNullable(description), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1226,6 +1266,7 @@ public class WorkItemApiResult {
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    externalIssues: ").append(toIndentedString(externalIssues)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
