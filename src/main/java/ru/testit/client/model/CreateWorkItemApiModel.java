@@ -35,6 +35,7 @@ import ru.testit.client.model.CreateLinkApiModel;
 import ru.testit.client.model.CreateStepApiModel;
 import ru.testit.client.model.TagModel;
 import ru.testit.client.model.WorkItemEntityTypeApiModel;
+import ru.testit.client.model.WorkItemParameterKeyApiModel;
 import ru.testit.client.model.WorkItemPriorityApiModel;
 import ru.testit.client.model.WorkItemStateApiModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -64,7 +65,8 @@ import ru.testit.client.invoker.JSON;
   CreateWorkItemApiModel.JSON_PROPERTY_DESCRIPTION,
   CreateWorkItemApiModel.JSON_PROPERTY_ITERATIONS,
   CreateWorkItemApiModel.JSON_PROPERTY_AUTO_TESTS,
-  CreateWorkItemApiModel.JSON_PROPERTY_ATTACHMENTS
+  CreateWorkItemApiModel.JSON_PROPERTY_ATTACHMENTS,
+  CreateWorkItemApiModel.JSON_PROPERTY_PARAMETERS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateWorkItemApiModel {
@@ -130,6 +132,9 @@ public class CreateWorkItemApiModel {
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private JsonNullable<List<AssignAttachmentApiModel>> attachments = JsonNullable.<List<AssignAttachmentApiModel>>undefined();
+
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  private JsonNullable<List<WorkItemParameterKeyApiModel>> parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>undefined();
 
   public CreateWorkItemApiModel() { 
   }
@@ -685,6 +690,51 @@ public class CreateWorkItemApiModel {
   }
 
 
+  public CreateWorkItemApiModel parameters(@jakarta.annotation.Nullable List<WorkItemParameterKeyApiModel> parameters) {
+    this.parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>of(parameters);
+    return this;
+  }
+
+  public CreateWorkItemApiModel addParametersItem(WorkItemParameterKeyApiModel parametersItem) {
+    if (this.parameters == null || !this.parameters.isPresent()) {
+      this.parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>of(new ArrayList<>());
+    }
+    try {
+      this.parameters.get().add(parametersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Set of parameter keys related to the work item
+   * @return parameters
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<WorkItemParameterKeyApiModel> getParameters() {
+        return parameters.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<WorkItemParameterKeyApiModel>> getParameters_JsonNullable() {
+    return parameters;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  public void setParameters_JsonNullable(JsonNullable<List<WorkItemParameterKeyApiModel>> parameters) {
+    this.parameters = parameters;
+  }
+
+  public void setParameters(@jakarta.annotation.Nullable List<WorkItemParameterKeyApiModel> parameters) {
+    this.parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>of(parameters);
+  }
+
+
   /**
    * Return true if this CreateWorkItemApiModel object is equal to o.
    */
@@ -713,7 +763,8 @@ public class CreateWorkItemApiModel {
         equalsNullable(this.description, createWorkItemApiModel.description) &&
         equalsNullable(this.iterations, createWorkItemApiModel.iterations) &&
         equalsNullable(this.autoTests, createWorkItemApiModel.autoTests) &&
-        equalsNullable(this.attachments, createWorkItemApiModel.attachments);
+        equalsNullable(this.attachments, createWorkItemApiModel.attachments) &&
+        equalsNullable(this.parameters, createWorkItemApiModel.parameters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -722,7 +773,7 @@ public class CreateWorkItemApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, name, entityTypeName, duration, state, priority, attributes, tags, preconditionSteps, steps, postconditionSteps, links, hashCodeNullable(sectionId), hashCodeNullable(description), hashCodeNullable(iterations), hashCodeNullable(autoTests), hashCodeNullable(attachments));
+    return Objects.hash(projectId, name, entityTypeName, duration, state, priority, attributes, tags, preconditionSteps, steps, postconditionSteps, links, hashCodeNullable(sectionId), hashCodeNullable(description), hashCodeNullable(iterations), hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(parameters));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -753,6 +804,7 @@ public class CreateWorkItemApiModel {
     sb.append("    iterations: ").append(toIndentedString(iterations)).append("\n");
     sb.append("    autoTests: ").append(toIndentedString(autoTests)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -15,7 +15,7 @@
 |**createdById** | **UUID** | Unique ID of the project creator |  |
 |**globalId** | **Long** | Global ID of the project |  |
 |**type** | **ProjectTypeModel** | Type of the project |  |
-|**workflowId** | **UUID** |  |  |
+|**workflowId** | **UUID** | Identifier of current workflow |  |
 |**description** | **String** | Description of the project |  [optional] |
 |**attributesScheme** | [**List&lt;CustomAttributeModel&gt;**](CustomAttributeModel.md) | Collection of the project attributes |  [optional] |
 |**testPlansAttributesScheme** | [**List&lt;CustomAttributeModel&gt;**](CustomAttributeModel.md) | Collection of the project test plans attributes |  [optional] |

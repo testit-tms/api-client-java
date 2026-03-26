@@ -33,6 +33,7 @@
 |**attachments** | [**List&lt;AttachmentModel&gt;**](AttachmentModel.md) | Files attached to the work item |  |
 |**links** | [**List&lt;LinkModel&gt;**](LinkModel.md) | Set of links related to the work item |  |
 |**externalIssues** | [**List&lt;ExternalIssueApiResult&gt;**](ExternalIssueApiResult.md) | Set of external issues related to the work item |  |
+|**parameters** | [**List&lt;WorkItemParameterKeyApiResult&gt;**](WorkItemParameterKeyApiResult.md) | Set of parameters related to the work item |  |
 |**createdDate** | **OffsetDateTime** | Creation date of the work item |  |
 |**createdById** | **UUID** | Unique identifier of the work item creator |  |
 |**isDeleted** | **Boolean** | Indicates whether the work item is marked as deleted |  |

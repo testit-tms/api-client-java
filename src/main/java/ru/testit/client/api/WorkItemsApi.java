@@ -1411,7 +1411,7 @@ public class WorkItemsApi {
    * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
-   * @return WorkItemModel
+   * @return WorkItemApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1426,7 +1426,7 @@ public class WorkItemsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public WorkItemModel getWorkItemById(String id, UUID versionId, Integer versionNumber) throws ApiException {
+  public WorkItemApiResult getWorkItemById(String id, UUID versionId, Integer versionNumber) throws ApiException {
     return getWorkItemByIdWithHttpInfo(id, versionId, versionNumber).getData();
   }
 
@@ -1436,7 +1436,7 @@ public class WorkItemsApi {
    * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
-   * @return ApiResponse&lt;WorkItemModel&gt;
+   * @return ApiResponse&lt;WorkItemApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1451,7 +1451,7 @@ public class WorkItemsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<WorkItemModel> getWorkItemByIdWithHttpInfo(String id, UUID versionId, Integer versionNumber) throws ApiException {
+  public ApiResponse<WorkItemApiResult> getWorkItemByIdWithHttpInfo(String id, UUID versionId, Integer versionNumber) throws ApiException {
     // Check required parameters
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getWorkItemById");
@@ -1470,7 +1470,7 @@ public class WorkItemsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<WorkItemModel> localVarReturnType = new GenericType<WorkItemModel>() {};
+    GenericType<WorkItemApiResult> localVarReturnType = new GenericType<WorkItemApiResult>() {};
     return apiClient.invokeAPI("WorkItemsApi.getWorkItemById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);

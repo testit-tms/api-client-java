@@ -1815,7 +1815,7 @@ public class Example {
 
 ## getWorkItemById
 
-> WorkItemModel getWorkItemById(id, versionId, versionNumber)
+> WorkItemApiResult getWorkItemById(id, versionId, versionNumber)
 
 Get Test Case, Checklist or Shared Step by Id or GlobalId
 
@@ -1868,7 +1868,7 @@ public class Example {
         UUID versionId = UUID.fromString("00000000-0000-0000-0000-000000000000"); // UUID | WorkItem version (guid format) identifier\"
         Integer versionNumber = 0; // Integer | WorkItem version number (0 is the last version)\"
         try {
-            WorkItemModel result = apiInstance.getWorkItemById(id, versionId, versionNumber);
+            WorkItemApiResult result = apiInstance.getWorkItemById(id, versionId, versionNumber);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WorkItemsApi#getWorkItemById");
@@ -1892,7 +1892,7 @@ public class Example {
 
 ### Return type
 
-[**WorkItemModel**](WorkItemModel.md)
+[**WorkItemApiResult**](WorkItemApiResult.md)
 
 ### Authorization
 

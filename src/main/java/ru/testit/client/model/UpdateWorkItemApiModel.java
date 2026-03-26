@@ -34,6 +34,7 @@ import ru.testit.client.model.AutoTestIdModel;
 import ru.testit.client.model.TagModel;
 import ru.testit.client.model.UpdateLinkApiModel;
 import ru.testit.client.model.UpdateStepApiModel;
+import ru.testit.client.model.WorkItemParameterKeyApiModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
@@ -64,7 +65,8 @@ import ru.testit.client.invoker.JSON;
   UpdateWorkItemApiModel.JSON_PROPERTY_DESCRIPTION,
   UpdateWorkItemApiModel.JSON_PROPERTY_SOURCE_TYPE,
   UpdateWorkItemApiModel.JSON_PROPERTY_ITERATIONS,
-  UpdateWorkItemApiModel.JSON_PROPERTY_AUTO_TESTS
+  UpdateWorkItemApiModel.JSON_PROPERTY_AUTO_TESTS,
+  UpdateWorkItemApiModel.JSON_PROPERTY_PARAMETERS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateWorkItemApiModel {
@@ -131,6 +133,9 @@ public class UpdateWorkItemApiModel {
 
   public static final String JSON_PROPERTY_AUTO_TESTS = "autoTests";
   private JsonNullable<List<AutoTestIdModel>> autoTests = JsonNullable.<List<AutoTestIdModel>>undefined();
+
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  private JsonNullable<List<WorkItemParameterKeyApiModel>> parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>undefined();
 
   public UpdateWorkItemApiModel() { 
   }
@@ -674,6 +679,51 @@ public class UpdateWorkItemApiModel {
   }
 
 
+  public UpdateWorkItemApiModel parameters(@jakarta.annotation.Nullable List<WorkItemParameterKeyApiModel> parameters) {
+    this.parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>of(parameters);
+    return this;
+  }
+
+  public UpdateWorkItemApiModel addParametersItem(WorkItemParameterKeyApiModel parametersItem) {
+    if (this.parameters == null || !this.parameters.isPresent()) {
+      this.parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>of(new ArrayList<>());
+    }
+    try {
+      this.parameters.get().add(parametersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Set of parameter keys related to the work item
+   * @return parameters
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<WorkItemParameterKeyApiModel> getParameters() {
+        return parameters.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<WorkItemParameterKeyApiModel>> getParameters_JsonNullable() {
+    return parameters;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  public void setParameters_JsonNullable(JsonNullable<List<WorkItemParameterKeyApiModel>> parameters) {
+    this.parameters = parameters;
+  }
+
+  public void setParameters(@jakarta.annotation.Nullable List<WorkItemParameterKeyApiModel> parameters) {
+    this.parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>of(parameters);
+  }
+
+
   /**
    * Return true if this UpdateWorkItemApiModel object is equal to o.
    */
@@ -702,7 +752,8 @@ public class UpdateWorkItemApiModel {
         equalsNullable(this.description, updateWorkItemApiModel.description) &&
         equalsNullable(this.sourceType, updateWorkItemApiModel.sourceType) &&
         equalsNullable(this.iterations, updateWorkItemApiModel.iterations) &&
-        equalsNullable(this.autoTests, updateWorkItemApiModel.autoTests);
+        equalsNullable(this.autoTests, updateWorkItemApiModel.autoTests) &&
+        equalsNullable(this.parameters, updateWorkItemApiModel.parameters);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -711,7 +762,7 @@ public class UpdateWorkItemApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, sectionId, state, priority, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name, attachments, hashCodeNullable(description), hashCodeNullable(sourceType), hashCodeNullable(iterations), hashCodeNullable(autoTests));
+    return Objects.hash(id, sectionId, state, priority, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name, attachments, hashCodeNullable(description), hashCodeNullable(sourceType), hashCodeNullable(iterations), hashCodeNullable(autoTests), hashCodeNullable(parameters));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -742,6 +793,7 @@ public class UpdateWorkItemApiModel {
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    iterations: ").append(toIndentedString(iterations)).append("\n");
     sb.append("    autoTests: ").append(toIndentedString(autoTests)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

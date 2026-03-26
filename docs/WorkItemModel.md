@@ -18,6 +18,7 @@
 |**createdById** | **UUID** |  |  |
 |**globalId** | **Long** |  |  |
 |**externalIssues** | [**List&lt;ExternalIssueModel&gt;**](ExternalIssueModel.md) |  |  |
+|**parameters** | [**List&lt;WorkItemParameterKeyModel&gt;**](WorkItemParameterKeyModel.md) |  |  |
 |**id** | **UUID** |  |  |
 |**sectionId** | **UUID** |  |  |
 |**state** | **WorkItemStates** |  |  |

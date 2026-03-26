@@ -37,6 +37,7 @@ import ru.testit.client.model.LinkModel;
 import ru.testit.client.model.StepModel;
 import ru.testit.client.model.TagModel;
 import ru.testit.client.model.WorkItemEntityTypes;
+import ru.testit.client.model.WorkItemParameterKeyModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
@@ -62,6 +63,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemModel.JSON_PROPERTY_CREATED_BY_ID,
   WorkItemModel.JSON_PROPERTY_GLOBAL_ID,
   WorkItemModel.JSON_PROPERTY_EXTERNAL_ISSUES,
+  WorkItemModel.JSON_PROPERTY_PARAMETERS,
   WorkItemModel.JSON_PROPERTY_ID,
   WorkItemModel.JSON_PROPERTY_SECTION_ID,
   WorkItemModel.JSON_PROPERTY_STATE,
@@ -129,6 +131,10 @@ public class WorkItemModel {
   public static final String JSON_PROPERTY_EXTERNAL_ISSUES = "externalIssues";
   @jakarta.annotation.Nonnull
   private List<ExternalIssueModel> externalIssues = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  @jakarta.annotation.Nonnull
+  private List<WorkItemParameterKeyModel> parameters = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -489,6 +495,39 @@ public class WorkItemModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExternalIssues(@jakarta.annotation.Nonnull List<ExternalIssueModel> externalIssues) {
     this.externalIssues = externalIssues;
+  }
+
+
+  public WorkItemModel parameters(@jakarta.annotation.Nonnull List<WorkItemParameterKeyModel> parameters) {
+    this.parameters = parameters;
+    return this;
+  }
+
+  public WorkItemModel addParametersItem(WorkItemParameterKeyModel parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<>();
+    }
+    this.parameters.add(parametersItem);
+    return this;
+  }
+
+  /**
+   * Get parameters
+   * @return parameters
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<WorkItemParameterKeyModel> getParameters() {
+    return parameters;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setParameters(@jakarta.annotation.Nonnull List<WorkItemParameterKeyModel> parameters) {
+    this.parameters = parameters;
   }
 
 
@@ -1214,6 +1253,7 @@ public class WorkItemModel {
         Objects.equals(this.createdById, workItemModel.createdById) &&
         Objects.equals(this.globalId, workItemModel.globalId) &&
         Objects.equals(this.externalIssues, workItemModel.externalIssues) &&
+        Objects.equals(this.parameters, workItemModel.parameters) &&
         Objects.equals(this.id, workItemModel.id) &&
         Objects.equals(this.sectionId, workItemModel.sectionId) &&
         Objects.equals(this.state, workItemModel.state) &&
@@ -1243,7 +1283,7 @@ public class WorkItemModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(versionId, medianDuration, isDeleted, projectId, entityTypeName, isAutomated, versionNumber, createdDate, createdById, globalId, externalIssues, id, sectionId, state, priority, sourceType, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name, hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(sectionPreconditionSteps), hashCodeNullable(sectionPostconditionSteps), hashCodeNullable(iterations), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(description));
+    return Objects.hash(versionId, medianDuration, isDeleted, projectId, entityTypeName, isAutomated, versionNumber, createdDate, createdById, globalId, externalIssues, parameters, id, sectionId, state, priority, sourceType, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name, hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(sectionPreconditionSteps), hashCodeNullable(sectionPostconditionSteps), hashCodeNullable(iterations), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(description));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1268,6 +1308,7 @@ public class WorkItemModel {
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
     sb.append("    externalIssues: ").append(toIndentedString(externalIssues)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
