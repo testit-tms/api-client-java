@@ -23,6 +23,7 @@
 | 5.4.1   | 2.2.2-TMS-5.4.1 |
 | 5.5     | 2.2.5-TMS-5.5   |
 | 5.6     | 2.3.1-TMS-5.6   |
+| 5.7     | 2.4.5-TMS-5.7   |
 | Cloud   | 2.4.0 +         |
 
 1. For current versions, see the releases tab. 
