@@ -23,6 +23,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -31,13 +35,17 @@ import ru.testit.client.invoker.JSON;
  * ParameterIterationModel
  */
 @JsonPropertyOrder({
-  ParameterIterationModel.JSON_PROPERTY_ID
+  ParameterIterationModel.JSON_PROPERTY_ID,
+  ParameterIterationModel.JSON_PROPERTY_SHARED_STEP_ID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ParameterIterationModel {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
   private UUID id;
+
+  public static final String JSON_PROPERTY_SHARED_STEP_ID = "sharedStepId";
+  private JsonNullable<UUID> sharedStepId = JsonNullable.<UUID>undefined();
 
   public ParameterIterationModel() { 
   }
@@ -67,6 +75,39 @@ public class ParameterIterationModel {
   }
 
 
+  public ParameterIterationModel sharedStepId(@jakarta.annotation.Nullable UUID sharedStepId) {
+    this.sharedStepId = JsonNullable.<UUID>of(sharedStepId);
+    return this;
+  }
+
+  /**
+   * Get sharedStepId
+   * @return sharedStepId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getSharedStepId() {
+        return sharedStepId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SHARED_STEP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getSharedStepId_JsonNullable() {
+    return sharedStepId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHARED_STEP_ID)
+  public void setSharedStepId_JsonNullable(JsonNullable<UUID> sharedStepId) {
+    this.sharedStepId = sharedStepId;
+  }
+
+  public void setSharedStepId(@jakarta.annotation.Nullable UUID sharedStepId) {
+    this.sharedStepId = JsonNullable.<UUID>of(sharedStepId);
+  }
+
+
   /**
    * Return true if this ParameterIterationModel object is equal to o.
    */
@@ -79,12 +120,24 @@ public class ParameterIterationModel {
       return false;
     }
     ParameterIterationModel parameterIterationModel = (ParameterIterationModel) o;
-    return Objects.equals(this.id, parameterIterationModel.id);
+    return Objects.equals(this.id, parameterIterationModel.id) &&
+        equalsNullable(this.sharedStepId, parameterIterationModel.sharedStepId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, hashCodeNullable(sharedStepId));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -92,6 +145,7 @@ public class ParameterIterationModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class ParameterIterationModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sharedStepId: ").append(toIndentedString(sharedStepId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

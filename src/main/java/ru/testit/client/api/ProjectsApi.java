@@ -11,7 +11,6 @@ import jakarta.ws.rs.core.GenericType;
 import ru.testit.client.model.AutoTestNamespaceApiResult;
 import ru.testit.client.model.CreateProjectApiModel;
 import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
-import ru.testit.client.model.DemoProjectApiResult;
 import ru.testit.client.model.FailureCategoryApiResult;
 import ru.testit.client.model.FilterModel;
 import ru.testit.client.model.GetShortProjectsApiModel;
@@ -127,55 +126,6 @@ public class ProjectsApi {
     return apiClient.invokeAPI("ProjectsApi.addGlobalAttributesToProject", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
-  }
-  /**
-   * 
-   * 
-   * @return DemoProjectApiResult
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-   */
-  public DemoProjectApiResult apiV2ProjectsDemoPost() throws ApiException {
-    return apiV2ProjectsDemoPostWithHttpInfo().getData();
-  }
-
-  /**
-   * 
-   * 
-   * @return ApiResponse&lt;DemoProjectApiResult&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<DemoProjectApiResult> apiV2ProjectsDemoPostWithHttpInfo() throws ApiException {
-    String localVarAccept = apiClient.selectHeaderAccept("application/json");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<DemoProjectApiResult> localVarReturnType = new GenericType<DemoProjectApiResult>() {};
-    return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsDemoPost", "/api/v2/projects/demo", "POST", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Archive project

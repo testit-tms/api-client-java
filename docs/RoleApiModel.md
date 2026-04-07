@@ -1,13 +1,15 @@
 
 
-# DemoProjectApiResult
+# RoleApiModel
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**jobId** | **UUID** | Job ID |  |
+|**id** | **UUID** |  |  |
+|**name** | **String** |  |  |
+|**isSystem** | **Boolean** |  |  |
 
 
 

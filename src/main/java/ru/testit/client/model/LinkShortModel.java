@@ -36,8 +36,8 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   LinkShortModel.JSON_PROPERTY_ID,
-  LinkShortModel.JSON_PROPERTY_TITLE,
   LinkShortModel.JSON_PROPERTY_URL,
+  LinkShortModel.JSON_PROPERTY_TITLE,
   LinkShortModel.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
@@ -46,13 +46,12 @@ public class LinkShortModel {
   @jakarta.annotation.Nonnull
   private UUID id;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  @jakarta.annotation.Nonnull
-  private String title;
-
   public static final String JSON_PROPERTY_URL = "url";
   @jakarta.annotation.Nonnull
   private String url;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
@@ -85,31 +84,6 @@ public class LinkShortModel {
   }
 
 
-  public LinkShortModel title(@jakarta.annotation.Nonnull String title) {
-    this.title = title;
-    return this;
-  }
-
-  /**
-   * Get title
-   * @return title
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTitle() {
-    return title;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
-    this.title = title;
-  }
-
-
   public LinkShortModel url(@jakarta.annotation.Nonnull String url) {
     this.url = url;
     return this;
@@ -132,6 +106,39 @@ public class LinkShortModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
+  }
+
+
+  public LinkShortModel title(@jakarta.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
+    return this;
+  }
+
+  /**
+   * Get title
+   * @return title
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getTitle() {
+        return title.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
+    this.title = title;
+  }
+
+  public void setTitle(@jakarta.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
   }
 
 
@@ -181,8 +188,8 @@ public class LinkShortModel {
     }
     LinkShortModel linkShortModel = (LinkShortModel) o;
     return Objects.equals(this.id, linkShortModel.id) &&
-        Objects.equals(this.title, linkShortModel.title) &&
         Objects.equals(this.url, linkShortModel.url) &&
+        equalsNullable(this.title, linkShortModel.title) &&
         equalsNullable(this.type, linkShortModel.type);
   }
 
@@ -192,7 +199,7 @@ public class LinkShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, url, hashCodeNullable(type));
+    return Objects.hash(id, url, hashCodeNullable(title), hashCodeNullable(type));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -207,8 +214,8 @@ public class LinkShortModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class LinkShortModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

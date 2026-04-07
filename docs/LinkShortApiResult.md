@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
-|**title** | **String** |  |  |
 |**url** | **String** |  |  |
-|**type** | **String** |  |  |
+|**title** | **String** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
 
 
 
