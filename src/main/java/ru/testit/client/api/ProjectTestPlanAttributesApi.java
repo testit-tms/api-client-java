@@ -55,7 +55,7 @@ public class ProjectTestPlanAttributesApi {
 
   /**
    * Add attributes to project&#39;s test plans
-   *  Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
+   *   Use case    User sets project internal or global identifier and attributes identifiers    User runs method execution    System updates project and add attributes to project for test plans    System returns no content response
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param UUID  (optional)
    * @throws ApiException if fails to make API call
@@ -64,7 +64,7 @@ public class ProjectTestPlanAttributesApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   Attributes must be global </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -78,7 +78,7 @@ public class ProjectTestPlanAttributesApi {
 
   /**
    * Add attributes to project&#39;s test plans
-   *  Use case  User sets project internal or global identifier and attributes identifiers  User runs method execution  System updates project and add attributes to project for test plans  System returns no content response
+   *   Use case    User sets project internal or global identifier and attributes identifiers    User runs method execution    System updates project and add attributes to project for test plans    System returns no content response
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param UUID  (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -88,7 +88,7 @@ public class ProjectTestPlanAttributesApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  Attributes must be global </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   Attributes must be global </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for project settings is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -108,14 +108,14 @@ public class ProjectTestPlanAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("ProjectTestPlanAttributesApi.createCustomAttributeTestPlanProjectRelations", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Delete attribute from project&#39;s test plans
-   *  Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
+   *   Use case    User sets project internal or global identifier and attribute identifier    User runs method execution    System updates project and delete attribute from project for test plans    System returns no content response
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param attributeId  (required)
    * @throws ApiException if fails to make API call
@@ -138,7 +138,7 @@ public class ProjectTestPlanAttributesApi {
 
   /**
    * Delete attribute from project&#39;s test plans
-   *  Use case  User sets project internal or global identifier and attribute identifier  User runs method execution  System updates project and delete attribute from project for test plans  System returns no content response
+   *   Use case    User sets project internal or global identifier and attribute identifier    User runs method execution    System updates project and delete attribute from project for test plans    System returns no content response
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param attributeId  (required)
    * @return ApiResponse&lt;Void&gt;
@@ -172,14 +172,14 @@ public class ProjectTestPlanAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("ProjectTestPlanAttributesApi.deleteCustomAttributeTestPlanProjectRelations", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Get project&#39;s test plan attributes
-   *  Use case  User runs method execution  System returns project for test plans attributes by project identifier
+   *   Use case    User runs method execution    System returns project for test plans attributes by project identifier
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @return List&lt;CustomAttributeModel&gt;
    * @throws ApiException if fails to make API call
@@ -202,7 +202,7 @@ public class ProjectTestPlanAttributesApi {
 
   /**
    * Get project&#39;s test plan attributes
-   *  Use case  User runs method execution  System returns project for test plans attributes by project identifier
+   *   Use case    User runs method execution    System returns project for test plans attributes by project identifier
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -231,7 +231,7 @@ public class ProjectTestPlanAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<CustomAttributeModel>> localVarReturnType = new GenericType<List<CustomAttributeModel>>() {};
     return apiClient.invokeAPI("ProjectTestPlanAttributesApi.getCustomAttributeTestPlanProjectRelations", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -312,7 +312,7 @@ public class ProjectTestPlanAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<CustomAttributeGetModel>> localVarReturnType = new GenericType<List<CustomAttributeGetModel>>() {};
     return apiClient.invokeAPI("ProjectTestPlanAttributesApi.searchTestPlanAttributesInProject", localVarPath, "POST", localVarQueryParams, projectAttributesFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -320,7 +320,7 @@ public class ProjectTestPlanAttributesApi {
   }
   /**
    * Update attribute of project&#39;s test plans
-   *  Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
+   *   Use case    User sets project internal or global identifier and attribute model    User runs method execution    System updates project and project attribute for test plan    System returns no content response
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param customAttributeTestPlanProjectRelationPutModel  (optional)
    * @throws ApiException if fails to make API call
@@ -343,7 +343,7 @@ public class ProjectTestPlanAttributesApi {
 
   /**
    * Update attribute of project&#39;s test plans
-   *  Use case  User sets project internal or global identifier and attribute model  User runs method execution  System updates project and project attribute for test plan  System returns no content response
+   *   Use case    User sets project internal or global identifier and attribute model    User runs method execution    System updates project and project attribute for test plan    System returns no content response
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param customAttributeTestPlanProjectRelationPutModel  (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -373,7 +373,7 @@ public class ProjectTestPlanAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("ProjectTestPlanAttributesApi.updateCustomAttributeTestPlanProjectRelations", localVarPath, "PUT", new ArrayList<>(), customAttributeTestPlanProjectRelationPutModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

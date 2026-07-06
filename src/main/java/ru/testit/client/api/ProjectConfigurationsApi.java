@@ -50,7 +50,7 @@ public class ProjectConfigurationsApi {
 
   /**
    * Get project configurations
-   *  Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
+   *   Use case    User sets project internal or global identifier    User runs method execution    System search project    System search all configurations related to project    System returns array of found configurations (listed in response model)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @return List&lt;ConfigurationModel&gt;
    * @throws ApiException if fails to make API call
@@ -73,7 +73,7 @@ public class ProjectConfigurationsApi {
 
   /**
    * Get project configurations
-   *  Use case  User sets project internal or global identifier  User runs method execution  System search project  System search all configurations related to project  System returns array of found configurations (listed in response model)
+   *   Use case    User sets project internal or global identifier    User runs method execution    System search project    System search all configurations related to project    System returns array of found configurations (listed in response model)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -102,7 +102,7 @@ public class ProjectConfigurationsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<ConfigurationModel>> localVarReturnType = new GenericType<List<ConfigurationModel>>() {};
     return apiClient.invokeAPI("ProjectConfigurationsApi.getConfigurationsByProjectId", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

@@ -13,6 +13,7 @@ import ru.testit.client.model.CreateWorkItemApiModel;
 import java.io.File;
 import ru.testit.client.model.IterationModel;
 import java.time.OffsetDateTime;
+import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.SearchWorkItemLinkUrlsApiResult;
 import ru.testit.client.model.SharedStepReferenceModel;
@@ -73,7 +74,7 @@ public class WorkItemsApi {
 
   /**
    * Upload and link attachment to WorkItem
-   *  Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
+   *   Use case    User sets workItemId    User attaches a file    System creates attachment and links it to the work item    System returns attachment identifier
    * @param id Work item internal identifier (guid format) (required)
    * @param _file Select file (optional)
    * @throws ApiException if fails to make API call
@@ -97,7 +98,7 @@ public class WorkItemsApi {
 
   /**
    * Upload and link attachment to WorkItem
-   *  Use case  User sets workItemId  User attaches a file  System creates attachment and links it to the work item  System returns attachment identifier
+   *   Use case    User sets workItemId    User attaches a file    System creates attachment and links it to the work item    System returns attachment identifier
    * @param id Work item internal identifier (guid format) (required)
    * @param _file Select file (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -134,14 +135,14 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdAttachmentsPost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Transform CheckList to TestCase
-   *  Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
+   *   Use case    User sets checklist identifier    User runs method execution    System transform CheckList to TestCase
    * @param id  (required)
    * @return WorkItemModel
    * @throws ApiException if fails to make API call
@@ -164,7 +165,7 @@ public class WorkItemsApi {
 
   /**
    * Transform CheckList to TestCase
-   *  Use case  User sets checklist identifier  User runs method execution  System transform CheckList to TestCase
+   *   Use case    User sets checklist identifier    User runs method execution    System transform CheckList to TestCase
    * @param id  (required)
    * @return ApiResponse&lt;WorkItemModel&gt;
    * @throws ApiException if fails to make API call
@@ -193,7 +194,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WorkItemModel> localVarReturnType = new GenericType<WorkItemModel>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdCheckListTransformToTestCasePost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -201,7 +202,7 @@ public class WorkItemsApi {
   }
   /**
    * Get change history of WorkItem
-   *  Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
+   *   Use case    User sets work item identifier    User runs method execution    System return change history of WorkItem
    * @param id  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -229,7 +230,7 @@ public class WorkItemsApi {
 
   /**
    * Get change history of WorkItem
-   *  Use case  User sets work item identifier  User runs method execution  System return change history of WorkItem
+   *   Use case    User sets work item identifier    User runs method execution    System return change history of WorkItem
    * @param id  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -272,7 +273,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemChangeModel>> localVarReturnType = new GenericType<List<WorkItemChangeModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdHistoryGet", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -280,7 +281,7 @@ public class WorkItemsApi {
   }
   /**
    * Delete like from WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System delete like from WorkItem
    * @param id  (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -302,7 +303,7 @@ public class WorkItemsApi {
 
   /**
    * Delete like from WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System delete like from WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System delete like from WorkItem
    * @param id  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -331,14 +332,14 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdLikeDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Set like to WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System set like to WorkItem
    * @param id  (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -360,7 +361,7 @@ public class WorkItemsApi {
 
   /**
    * Set like to WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System set like to WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System set like to WorkItem
    * @param id  (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -389,14 +390,14 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdLikePost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Get likes count of WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System return likes count of WorkItem
    * @param id  (required)
    * @return Integer
    * @throws ApiException if fails to make API call
@@ -419,7 +420,7 @@ public class WorkItemsApi {
 
   /**
    * Get likes count of WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System return likes count of WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System return likes count of WorkItem
    * @param id  (required)
    * @return ApiResponse&lt;Integer&gt;
    * @throws ApiException if fails to make API call
@@ -448,7 +449,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdLikesCountGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -456,7 +457,7 @@ public class WorkItemsApi {
   }
   /**
    * Get likes of WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System return likes of WorkItem
    * @param id  (required)
    * @return List&lt;WorkItemLikeModel&gt;
    * @throws ApiException if fails to make API call
@@ -479,7 +480,7 @@ public class WorkItemsApi {
 
   /**
    * Get likes of WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System return likes of WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System return likes of WorkItem
    * @param id  (required)
    * @return ApiResponse&lt;List&lt;WorkItemLikeModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -508,15 +509,75 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemLikeModel>> localVarReturnType = new GenericType<List<WorkItemLikeModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdLikesGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Patch Test Case, Checklist or Shared Step
+   * See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   * @param operation  (optional)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public void apiV2WorkItemsIdPatch(String id, List<Operation> operation) throws ApiException {
+    apiV2WorkItemsIdPatchWithHttpInfo(id, operation);
+  }
+
+  /**
+   * Patch Test Case, Checklist or Shared Step
+   * See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   * @param operation  (optional)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> apiV2WorkItemsIdPatchWithHttpInfo(String id, List<Operation> operation) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2WorkItemsIdPatch");
+    }
+
+    // Path parameters
+    String localVarPath = "/api/v2/workItems/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
+    return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdPatch", localVarPath, "PATCH", new ArrayList<>(), operation,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
    * Get test results history of WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System return test results history of WorkItem
    * @param id  (required)
    * @param from Take results from this date (optional)
    * @param to Take results until this date (optional)
@@ -554,7 +615,7 @@ public class WorkItemsApi {
 
   /**
    * Get test results history of WorkItem
-   *  Use case  User sets WorkItem identifier  User runs method execution  System return test results history of WorkItem
+   *   Use case    User sets WorkItem identifier    User runs method execution    System return test results history of WorkItem
    * @param id  (required)
    * @param from Take results from this date (optional)
    * @param to Take results until this date (optional)
@@ -617,7 +678,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<TestResultHistoryReportApiResult>> localVarReturnType = new GenericType<List<TestResultHistoryReportApiResult>>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdTestResultsHistoryGet", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -625,7 +686,7 @@ public class WorkItemsApi {
   }
   /**
    * Set WorkItem as actual
-   *  Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
+   *   Use case    User sets work item identifier    User runs method execution    System set WorkItem as actual
    * @param id  (required)
    * @param versionId  (required)
    * @return WorkItemModel
@@ -649,7 +710,7 @@ public class WorkItemsApi {
 
   /**
    * Set WorkItem as actual
-   *  Use case  User sets work item identifier  User runs method execution  System set WorkItem as actual
+   *   Use case    User sets work item identifier    User runs method execution    System set WorkItem as actual
    * @param id  (required)
    * @param versionId  (required)
    * @return ApiResponse&lt;WorkItemModel&gt;
@@ -683,7 +744,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WorkItemModel> localVarReturnType = new GenericType<WorkItemModel>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsIdVersionVersionIdActualPost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -753,7 +814,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<SearchWorkItemLinkUrlsApiResult> localVarReturnType = new GenericType<SearchWorkItemLinkUrlsApiResult>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsLinksUrlsSearchPost", "/api/v2/workItems/links/urls/search", "POST", localVarQueryParams, workItemLinkUrlApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -761,7 +822,7 @@ public class WorkItemsApi {
   }
   /**
    * Move WorkItem to another section
-   *  Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
+   *   Use case    User sets WorkItem identifier    User runs method execution    System move WorkItem to another section
    * @param workItemMovePostModel  (optional)
    * @return WorkItemShortModel
    * @throws ApiException if fails to make API call
@@ -784,7 +845,7 @@ public class WorkItemsApi {
 
   /**
    * Move WorkItem to another section
-   *  Use case  User sets WorkItem identifier  User runs method execution  System move WorkItem to another section
+   *   Use case    User sets WorkItem identifier    User runs method execution    System move WorkItem to another section
    * @param workItemMovePostModel  (optional)
    * @return ApiResponse&lt;WorkItemShortModel&gt;
    * @throws ApiException if fails to make API call
@@ -804,7 +865,7 @@ public class WorkItemsApi {
   public ApiResponse<WorkItemShortModel> apiV2WorkItemsMovePostWithHttpInfo(WorkItemMovePostModel workItemMovePostModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WorkItemShortModel> localVarReturnType = new GenericType<WorkItemShortModel>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsMovePost", "/api/v2/workItems/move", "POST", new ArrayList<>(), workItemMovePostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -855,11 +916,60 @@ public class WorkItemsApi {
   public ApiResponse<WorkItemApiResult> apiV2WorkItemsPostWithHttpInfo(CreateWorkItemApiModel createWorkItemApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WorkItemApiResult> localVarReturnType = new GenericType<WorkItemApiResult>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsPost", "/api/v2/workItems", "POST", new ArrayList<>(), createWorkItemApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Update Test Case, Checklist or Shared Step
+   *   Use case    User sets work item properties (listed in request parameters)    User runs method execution    System updates work item by identifier    System returns updated work item model (listed in response parameters)
+   * @param updateWorkItemApiModel  (optional)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   Field is required    Priority is not a valid    duration should be a positive number    should be empty for CheckList    There is no option in ProjectAttributesScheme with such Id    Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   WorkItem not found    Can&#39;t find section    Can&#39;t attributesScheme    Can&#39;t attribute    AutoTestIds not exist in project </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public void apiV2WorkItemsPut(UpdateWorkItemApiModel updateWorkItemApiModel) throws ApiException {
+    apiV2WorkItemsPutWithHttpInfo(updateWorkItemApiModel);
+  }
+
+  /**
+   * Update Test Case, Checklist or Shared Step
+   *   Use case    User sets work item properties (listed in request parameters)    User runs method execution    System updates work item by identifier    System returns updated work item model (listed in response parameters)
+   * @param updateWorkItemApiModel  (optional)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   Field is required    Priority is not a valid    duration should be a positive number    should be empty for CheckList    There is no option in ProjectAttributesScheme with such Id    Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   WorkItem not found    Can&#39;t find section    Can&#39;t attributesScheme    Can&#39;t attribute    AutoTestIds not exist in project </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> apiV2WorkItemsPutWithHttpInfo(UpdateWorkItemApiModel updateWorkItemApiModel) throws ApiException {
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
+    return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsPut", "/api/v2/workItems", "PUT", new ArrayList<>(), updateWorkItemApiModel,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
   }
   /**
    * Search for work items
@@ -925,7 +1035,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemShortApiResult>> localVarReturnType = new GenericType<List<WorkItemShortApiResult>>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsSearchPost", "/api/v2/workItems/search", "POST", localVarQueryParams, workItemSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -933,7 +1043,7 @@ public class WorkItemsApi {
   }
   /**
    * Get SharedStep references in sections
-   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
    * @param sharedStepId  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -962,7 +1072,7 @@ public class WorkItemsApi {
 
   /**
    * Get SharedStep references in sections
-   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
    * @param sharedStepId  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -1006,7 +1116,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<SharedStepReferenceSectionModel>> localVarReturnType = new GenericType<List<SharedStepReferenceSectionModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsSharedStepIdReferencesSectionsPost", localVarPath, "POST", localVarQueryParams, sharedStepReferenceSectionsQueryFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1014,7 +1124,7 @@ public class WorkItemsApi {
   }
   /**
    * Get SharedStep references in work items
-   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
    * @param sharedStepId  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -1043,7 +1153,7 @@ public class WorkItemsApi {
 
   /**
    * Get SharedStep references in work items
-   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
    * @param sharedStepId  (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -1087,7 +1197,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<SharedStepReferenceModel>> localVarReturnType = new GenericType<List<SharedStepReferenceModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsSharedStepIdReferencesWorkItemsPost", localVarPath, "POST", localVarQueryParams, sharedStepReferencesQueryFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1095,7 +1205,7 @@ public class WorkItemsApi {
   }
   /**
    * Get SharedStep references
-   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
    * @param sharedStepId  (required)
    * @return List&lt;SharedStepReferenceModel&gt;
    * @throws ApiException if fails to make API call
@@ -1120,7 +1230,7 @@ public class WorkItemsApi {
 
   /**
    * Get SharedStep references
-   *  Use case  User sets SharedStep identifier  User runs method execution  System return SharedStep references
+   *   Use case    User sets SharedStep identifier    User runs method execution    System return SharedStep references
    * @param sharedStepId  (required)
    * @return ApiResponse&lt;List&lt;SharedStepReferenceModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -1151,7 +1261,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<SharedStepReferenceModel>> localVarReturnType = new GenericType<List<SharedStepReferenceModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.apiV2WorkItemsSharedStepsSharedStepIdReferencesGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1159,8 +1269,8 @@ public class WorkItemsApi {
   }
   /**
    * Delete all links AutoTests from WorkItem by Id or GlobalId
-   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search and delete all autotests, related to found work item    System returns no content response
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1182,8 +1292,8 @@ public class WorkItemsApi {
 
   /**
    * Delete all links AutoTests from WorkItem by Id or GlobalId
-   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search and delete all autotests, related to found work item  System returns no content response
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search and delete all autotests, related to found work item    System returns no content response
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1212,15 +1322,15 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsApi.deleteAllWorkItemsFromAutoTest", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Delete Test Case, Checklist or Shared Step by Id or GlobalId
-   *  Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   *   Use case    User sets work item identifier    User runs method execution    System deletes work item    System returns no content response
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1241,8 +1351,8 @@ public class WorkItemsApi {
 
   /**
    * Delete Test Case, Checklist or Shared Step by Id or GlobalId
-   *  Use case  User sets work item identifier  User runs method execution  System deletes work item  System returns no content response
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   *   Use case    User sets work item identifier    User runs method execution    System deletes work item    System returns no content response
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1270,15 +1380,15 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsApi.deleteWorkItem", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Get all AutoTests linked to WorkItem by Id or GlobalId
-   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search all autotests, related to found work item    System returns list of found autotests
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @return List&lt;AutoTestModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1300,8 +1410,8 @@ public class WorkItemsApi {
 
   /**
    * Get all AutoTests linked to WorkItem by Id or GlobalId
-   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search all autotests, related to found work item  System returns list of found autotests
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search all autotests, related to found work item    System returns list of found autotests
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @return ApiResponse&lt;List&lt;AutoTestModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1329,7 +1439,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<AutoTestModel>> localVarReturnType = new GenericType<List<AutoTestModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.getAutoTestsForWorkItem", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1338,7 +1448,7 @@ public class WorkItemsApi {
   /**
    * Get iterations by work item Id or GlobalId
    * 
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
    * @return List&lt;IterationModel&gt;
@@ -1363,7 +1473,7 @@ public class WorkItemsApi {
   /**
    * Get iterations by work item Id or GlobalId
    * 
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
    * @return ApiResponse&lt;List&lt;IterationModel&gt;&gt;
@@ -1399,7 +1509,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<IterationModel>> localVarReturnType = new GenericType<List<IterationModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.getIterations", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1407,8 +1517,8 @@ public class WorkItemsApi {
   }
   /**
    * Get Test Case, Checklist or Shared Step by Id or GlobalId
-   *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   *   Use case    User sets work item identifier    [Optional] User sets work item version identifier    [Optional] User sets work item version number    User runs method execution    System search work item by identifier    [Optional] if User sets work item version identifier, system search work item version by identifier.    [Optional] if user sets work item version number, system search work item version by number    Otherwise, system search last work item version    System returns work item
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
    * @return WorkItemApiResult
@@ -1432,8 +1542,8 @@ public class WorkItemsApi {
 
   /**
    * Get Test Case, Checklist or Shared Step by Id or GlobalId
-   *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  [Optional] User sets work item version number  User runs method execution  System search work item by identifier  [Optional] if User sets work item version identifier, system search work item version by identifier.  [Optional] if user sets work item version number, system search work item version by number  Otherwise, system search last work item version  System returns work item
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
+   *   Use case    User sets work item identifier    [Optional] User sets work item version identifier    [Optional] User sets work item version number    User runs method execution    System search work item by identifier    [Optional] if User sets work item version identifier, system search work item version by identifier.    [Optional] if user sets work item version number, system search work item version by number    Otherwise, system search last work item version    System returns work item
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
    * @param versionId WorkItem version (guid format) identifier\&quot; (optional)
    * @param versionNumber WorkItem version number (0 is the last version)\&quot; (optional)
    * @return ApiResponse&lt;WorkItemApiResult&gt;
@@ -1469,7 +1579,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WorkItemApiResult> localVarReturnType = new GenericType<WorkItemApiResult>() {};
     return apiClient.invokeAPI("WorkItemsApi.getWorkItemById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1477,7 +1587,7 @@ public class WorkItemsApi {
   }
   /**
    * Get WorkItem chronology by Id or GlobalId
-   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
+   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search test results of all autotests, related to found work item    System sort results by CompletedOn ascending, then by CreatedDate ascending    System returns sorted collection of test results
    * @param id Internal (UUID) or global (integer) identifier (required)
    * @return List&lt;TestResultChronologyModel&gt;
    * @throws ApiException if fails to make API call
@@ -1502,7 +1612,7 @@ public class WorkItemsApi {
 
   /**
    * Get WorkItem chronology by Id or GlobalId
-   *  Use case  User sets work item identifier  User runs method execution  System search work item by identifier  System search test results of all autotests, related to found work item  System sort results by CompletedOn ascending, then by CreatedDate ascending  System returns sorted collection of test results
+   *   Use case    User sets work item identifier    User runs method execution    System search work item by identifier    System search test results of all autotests, related to found work item    System sort results by CompletedOn ascending, then by CreatedDate ascending    System returns sorted collection of test results
    * @param id Internal (UUID) or global (integer) identifier (required)
    * @return ApiResponse&lt;List&lt;TestResultChronologyModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -1533,7 +1643,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<TestResultChronologyModel>> localVarReturnType = new GenericType<List<TestResultChronologyModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.getWorkItemChronology", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1541,10 +1651,10 @@ public class WorkItemsApi {
   }
   /**
    * Get WorkItem versions
-   *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
-   * @param workItemVersionId WorkItem version (guid format) identifier\&quot; (optional)
-   * @param versionNumber WorkItem version (integer format) number\&quot; (optional)
+   *   Use case    User sets work item identifier    [Optional] User sets work item version identifier    User runs method execution    System search work item by identifier    [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item    System returns array of work item version models (listed in response example)
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
+   * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
    * @return List&lt;WorkItemVersionModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1566,10 +1676,10 @@ public class WorkItemsApi {
 
   /**
    * Get WorkItem versions
-   *  Use case  User sets work item identifier  [Optional] User sets work item version identifier  User runs method execution  System search work item by identifier  [Optional] If User set work item version identifier, System search work item version by version identifier                     Otherwise, system search all version of work item  System returns array of work item version models (listed in response example)
-   * @param id WorkItem internal (guid format) or global(integer format) identifier\&quot; (required)
-   * @param workItemVersionId WorkItem version (guid format) identifier\&quot; (optional)
-   * @param versionNumber WorkItem version (integer format) number\&quot; (optional)
+   *   Use case    User sets work item identifier    [Optional] User sets work item version identifier    User runs method execution    System search work item by identifier    [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item    System returns array of work item version models (listed in response example)
+   * @param id WorkItem internal (guid format) or  global(integer format) identifier\&quot; (required)
+   * @param workItemVersionId WorkItem version (guid format)  identifier\&quot; (optional)
+   * @param versionNumber WorkItem version (integer format)  number\&quot; (optional)
    * @return ApiResponse&lt;List&lt;WorkItemVersionModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1603,7 +1713,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemVersionModel>> localVarReturnType = new GenericType<List<WorkItemVersionModel>>() {};
     return apiClient.invokeAPI("WorkItemsApi.getWorkItemVersions", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1662,7 +1772,7 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsApi.purgeWorkItem", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -1720,57 +1830,8 @@ public class WorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsApi.restoreWorkItem", localVarPath, "POST", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
-   * Update Test Case, Checklist or Shared Step
-   *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
-   * @param updateWorkItemApiModel  (optional)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-   */
-  public void updateWorkItem(UpdateWorkItemApiModel updateWorkItemApiModel) throws ApiException {
-    updateWorkItemWithHttpInfo(updateWorkItemApiModel);
-  }
-
-  /**
-   * Update Test Case, Checklist or Shared Step
-   *  Use case  User sets work item properties (listed in request parameters)  User runs method execution  System updates work item by identifier  System returns updated work item model (listed in response parameters)
-   * @param updateWorkItemApiModel  (optional)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  Field is required  Priority is not a valid  duration should be a positive number  should be empty for CheckList  There is no option in ProjectAttributesScheme with such Id  Attribute value must be a valid guid for options scheme </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  WorkItem not found  Can&#39;t find section  Can&#39;t attributesScheme  Can&#39;t attribute  AutoTestIds not exist in project </td><td>  -  </td></tr>
-       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateWorkItemWithHttpInfo(UpdateWorkItemApiModel updateWorkItemApiModel) throws ApiException {
-    String localVarAccept = apiClient.selectHeaderAccept("application/json");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    return apiClient.invokeAPI("WorkItemsApi.updateWorkItem", "/api/v2/workItems", "PUT", new ArrayList<>(), updateWorkItemApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

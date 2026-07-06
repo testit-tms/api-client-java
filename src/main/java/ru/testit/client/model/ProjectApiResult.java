@@ -22,12 +22,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.CustomAttributeApiResult;
 import ru.testit.client.model.ProjectType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -43,6 +40,7 @@ import ru.testit.client.invoker.JSON;
   ProjectApiResult.JSON_PROPERTY_ID,
   ProjectApiResult.JSON_PROPERTY_NAME,
   ProjectApiResult.JSON_PROPERTY_IS_FAVORITE,
+  ProjectApiResult.JSON_PROPERTY_WORK_ITEMS_COUNT,
   ProjectApiResult.JSON_PROPERTY_IS_DELETED,
   ProjectApiResult.JSON_PROPERTY_CREATED_DATE,
   ProjectApiResult.JSON_PROPERTY_CREATED_BY_ID,
@@ -50,15 +48,12 @@ import ru.testit.client.invoker.JSON;
   ProjectApiResult.JSON_PROPERTY_TYPE,
   ProjectApiResult.JSON_PROPERTY_WORKFLOW_ID,
   ProjectApiResult.JSON_PROPERTY_DESCRIPTION,
-  ProjectApiResult.JSON_PROPERTY_ATTRIBUTES_SCHEME,
-  ProjectApiResult.JSON_PROPERTY_TEST_PLANS_ATTRIBUTES_SCHEME,
   ProjectApiResult.JSON_PROPERTY_TEST_CASES_COUNT,
   ProjectApiResult.JSON_PROPERTY_SHARED_STEPS_COUNT,
   ProjectApiResult.JSON_PROPERTY_CHECK_LISTS_COUNT,
   ProjectApiResult.JSON_PROPERTY_AUTO_TESTS_COUNT,
   ProjectApiResult.JSON_PROPERTY_MODIFIED_DATE,
-  ProjectApiResult.JSON_PROPERTY_MODIFIED_BY_ID,
-  ProjectApiResult.JSON_PROPERTY_IS_FLAKY_AUTO
+  ProjectApiResult.JSON_PROPERTY_MODIFIED_BY_ID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ProjectApiResult {
@@ -73,6 +68,10 @@ public class ProjectApiResult {
   public static final String JSON_PROPERTY_IS_FAVORITE = "isFavorite";
   @jakarta.annotation.Nonnull
   private Boolean isFavorite;
+
+  public static final String JSON_PROPERTY_WORK_ITEMS_COUNT = "workItemsCount";
+  @jakarta.annotation.Nonnull
+  private Integer workItemsCount;
 
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   @jakarta.annotation.Nonnull
@@ -101,12 +100,6 @@ public class ProjectApiResult {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ATTRIBUTES_SCHEME = "attributesScheme";
-  private JsonNullable<List<CustomAttributeApiResult>> attributesScheme = JsonNullable.<List<CustomAttributeApiResult>>undefined();
-
-  public static final String JSON_PROPERTY_TEST_PLANS_ATTRIBUTES_SCHEME = "testPlansAttributesScheme";
-  private JsonNullable<List<CustomAttributeApiResult>> testPlansAttributesScheme = JsonNullable.<List<CustomAttributeApiResult>>undefined();
-
   public static final String JSON_PROPERTY_TEST_CASES_COUNT = "testCasesCount";
   private JsonNullable<Integer> testCasesCount = JsonNullable.<Integer>undefined();
 
@@ -124,10 +117,6 @@ public class ProjectApiResult {
 
   public static final String JSON_PROPERTY_MODIFIED_BY_ID = "modifiedById";
   private JsonNullable<UUID> modifiedById = JsonNullable.<UUID>undefined();
-
-  public static final String JSON_PROPERTY_IS_FLAKY_AUTO = "isFlakyAuto";
-  @Deprecated
-  private JsonNullable<Boolean> isFlakyAuto = JsonNullable.<Boolean>undefined();
 
   public ProjectApiResult() { 
   }
@@ -204,6 +193,31 @@ public class ProjectApiResult {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsFavorite(@jakarta.annotation.Nonnull Boolean isFavorite) {
     this.isFavorite = isFavorite;
+  }
+
+
+  public ProjectApiResult workItemsCount(@jakarta.annotation.Nonnull Integer workItemsCount) {
+    this.workItemsCount = workItemsCount;
+    return this;
+  }
+
+  /**
+   * Number of work items in the project
+   * @return workItemsCount
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_WORK_ITEMS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getWorkItemsCount() {
+    return workItemsCount;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WORK_ITEMS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setWorkItemsCount(@jakarta.annotation.Nonnull Integer workItemsCount) {
+    this.workItemsCount = workItemsCount;
   }
 
 
@@ -387,96 +401,6 @@ public class ProjectApiResult {
 
   public void setDescription(@jakarta.annotation.Nullable String description) {
     this.description = JsonNullable.<String>of(description);
-  }
-
-
-  public ProjectApiResult attributesScheme(@jakarta.annotation.Nullable List<CustomAttributeApiResult> attributesScheme) {
-    this.attributesScheme = JsonNullable.<List<CustomAttributeApiResult>>of(attributesScheme);
-    return this;
-  }
-
-  public ProjectApiResult addAttributesSchemeItem(CustomAttributeApiResult attributesSchemeItem) {
-    if (this.attributesScheme == null || !this.attributesScheme.isPresent()) {
-      this.attributesScheme = JsonNullable.<List<CustomAttributeApiResult>>of(new ArrayList<>());
-    }
-    try {
-      this.attributesScheme.get().add(attributesSchemeItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
-    return this;
-  }
-
-  /**
-   * Collection of the project attributes
-   * @return attributesScheme
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public List<CustomAttributeApiResult> getAttributesScheme() {
-        return attributesScheme.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES_SCHEME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<CustomAttributeApiResult>> getAttributesScheme_JsonNullable() {
-    return attributesScheme;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES_SCHEME)
-  public void setAttributesScheme_JsonNullable(JsonNullable<List<CustomAttributeApiResult>> attributesScheme) {
-    this.attributesScheme = attributesScheme;
-  }
-
-  public void setAttributesScheme(@jakarta.annotation.Nullable List<CustomAttributeApiResult> attributesScheme) {
-    this.attributesScheme = JsonNullable.<List<CustomAttributeApiResult>>of(attributesScheme);
-  }
-
-
-  public ProjectApiResult testPlansAttributesScheme(@jakarta.annotation.Nullable List<CustomAttributeApiResult> testPlansAttributesScheme) {
-    this.testPlansAttributesScheme = JsonNullable.<List<CustomAttributeApiResult>>of(testPlansAttributesScheme);
-    return this;
-  }
-
-  public ProjectApiResult addTestPlansAttributesSchemeItem(CustomAttributeApiResult testPlansAttributesSchemeItem) {
-    if (this.testPlansAttributesScheme == null || !this.testPlansAttributesScheme.isPresent()) {
-      this.testPlansAttributesScheme = JsonNullable.<List<CustomAttributeApiResult>>of(new ArrayList<>());
-    }
-    try {
-      this.testPlansAttributesScheme.get().add(testPlansAttributesSchemeItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
-    return this;
-  }
-
-  /**
-   * Collection of the project test plans attributes
-   * @return testPlansAttributesScheme
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public List<CustomAttributeApiResult> getTestPlansAttributesScheme() {
-        return testPlansAttributesScheme.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TEST_PLANS_ATTRIBUTES_SCHEME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<List<CustomAttributeApiResult>> getTestPlansAttributesScheme_JsonNullable() {
-    return testPlansAttributesScheme;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TEST_PLANS_ATTRIBUTES_SCHEME)
-  public void setTestPlansAttributesScheme_JsonNullable(JsonNullable<List<CustomAttributeApiResult>> testPlansAttributesScheme) {
-    this.testPlansAttributesScheme = testPlansAttributesScheme;
-  }
-
-  public void setTestPlansAttributesScheme(@jakarta.annotation.Nullable List<CustomAttributeApiResult> testPlansAttributesScheme) {
-    this.testPlansAttributesScheme = JsonNullable.<List<CustomAttributeApiResult>>of(testPlansAttributesScheme);
   }
 
 
@@ -678,43 +602,6 @@ public class ProjectApiResult {
   }
 
 
-  @Deprecated
-  public ProjectApiResult isFlakyAuto(@jakarta.annotation.Nullable Boolean isFlakyAuto) {
-    this.isFlakyAuto = JsonNullable.<Boolean>of(isFlakyAuto);
-    return this;
-  }
-
-  /**
-   * Indicates if the status \&quot;Flaky/Stable\&quot; inits automatically
-   * @return isFlakyAuto
-   * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Boolean getIsFlakyAuto() {
-        return isFlakyAuto.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Boolean> getIsFlakyAuto_JsonNullable() {
-    return isFlakyAuto;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_IS_FLAKY_AUTO)
-  public void setIsFlakyAuto_JsonNullable(JsonNullable<Boolean> isFlakyAuto) {
-    this.isFlakyAuto = isFlakyAuto;
-  }
-
-  @Deprecated
-  public void setIsFlakyAuto(@jakarta.annotation.Nullable Boolean isFlakyAuto) {
-    this.isFlakyAuto = JsonNullable.<Boolean>of(isFlakyAuto);
-  }
-
-
   /**
    * Return true if this ProjectApiResult object is equal to o.
    */
@@ -730,6 +617,7 @@ public class ProjectApiResult {
     return Objects.equals(this.id, projectApiResult.id) &&
         Objects.equals(this.name, projectApiResult.name) &&
         Objects.equals(this.isFavorite, projectApiResult.isFavorite) &&
+        Objects.equals(this.workItemsCount, projectApiResult.workItemsCount) &&
         Objects.equals(this.isDeleted, projectApiResult.isDeleted) &&
         Objects.equals(this.createdDate, projectApiResult.createdDate) &&
         Objects.equals(this.createdById, projectApiResult.createdById) &&
@@ -737,15 +625,12 @@ public class ProjectApiResult {
         Objects.equals(this.type, projectApiResult.type) &&
         Objects.equals(this.workflowId, projectApiResult.workflowId) &&
         equalsNullable(this.description, projectApiResult.description) &&
-        equalsNullable(this.attributesScheme, projectApiResult.attributesScheme) &&
-        equalsNullable(this.testPlansAttributesScheme, projectApiResult.testPlansAttributesScheme) &&
         equalsNullable(this.testCasesCount, projectApiResult.testCasesCount) &&
         equalsNullable(this.sharedStepsCount, projectApiResult.sharedStepsCount) &&
         equalsNullable(this.checkListsCount, projectApiResult.checkListsCount) &&
         equalsNullable(this.autoTestsCount, projectApiResult.autoTestsCount) &&
         equalsNullable(this.modifiedDate, projectApiResult.modifiedDate) &&
-        equalsNullable(this.modifiedById, projectApiResult.modifiedById) &&
-        equalsNullable(this.isFlakyAuto, projectApiResult.isFlakyAuto);
+        equalsNullable(this.modifiedById, projectApiResult.modifiedById);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -754,7 +639,7 @@ public class ProjectApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isFavorite, isDeleted, createdDate, createdById, globalId, type, workflowId, hashCodeNullable(description), hashCodeNullable(attributesScheme), hashCodeNullable(testPlansAttributesScheme), hashCodeNullable(testCasesCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(checkListsCount), hashCodeNullable(autoTestsCount), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(isFlakyAuto));
+    return Objects.hash(id, name, isFavorite, workItemsCount, isDeleted, createdDate, createdById, globalId, type, workflowId, hashCodeNullable(description), hashCodeNullable(testCasesCount), hashCodeNullable(sharedStepsCount), hashCodeNullable(checkListsCount), hashCodeNullable(autoTestsCount), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -771,6 +656,7 @@ public class ProjectApiResult {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
+    sb.append("    workItemsCount: ").append(toIndentedString(workItemsCount)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
@@ -778,15 +664,12 @@ public class ProjectApiResult {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    attributesScheme: ").append(toIndentedString(attributesScheme)).append("\n");
-    sb.append("    testPlansAttributesScheme: ").append(toIndentedString(testPlansAttributesScheme)).append("\n");
     sb.append("    testCasesCount: ").append(toIndentedString(testCasesCount)).append("\n");
     sb.append("    sharedStepsCount: ").append(toIndentedString(sharedStepsCount)).append("\n");
     sb.append("    checkListsCount: ").append(toIndentedString(checkListsCount)).append("\n");
     sb.append("    autoTestsCount: ").append(toIndentedString(autoTestsCount)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    modifiedById: ").append(toIndentedString(modifiedById)).append("\n");
-    sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("}");
     return sb.toString();
   }

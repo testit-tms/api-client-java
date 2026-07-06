@@ -125,7 +125,7 @@ public class ProjectAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<ProjectCustomAttributeTemplateGetModel>> localVarReturnType = new GenericType<List<ProjectCustomAttributeTemplateGetModel>>() {};
     return apiClient.invokeAPI("ProjectAttributeTemplatesApi.apiV2ProjectsProjectIdAttributesTemplatesSearchPost", localVarPath, "POST", localVarQueryParams, projectCustomAttributesTemplatesFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -133,7 +133,7 @@ public class ProjectAttributeTemplatesApi {
   }
   /**
    * Delete CustomAttributeTemplate from Project
-   *  Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
+   *   Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System delete attribute template from project
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
@@ -156,7 +156,7 @@ public class ProjectAttributeTemplatesApi {
 
   /**
    * Delete CustomAttributeTemplate from Project
-   *  Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System delete attribute template from project
+   *   Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System delete attribute template from project
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
@@ -190,14 +190,14 @@ public class ProjectAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("ProjectAttributeTemplatesApi.apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Add CustomAttributeTemplate to Project
-   *  Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
+   *   Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System add attribute template to project
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
@@ -220,7 +220,7 @@ public class ProjectAttributeTemplatesApi {
 
   /**
    * Add CustomAttributeTemplate to Project
-   *  Use case  User sets project internal or global identifier  User sets attribute template internal identifier  User runs method execution  System add attribute template to project
+   *   Use case    User sets project internal or global identifier    User sets attribute template internal identifier    User runs method execution    System add attribute template to project
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param templateId CustomAttributeTemplate internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
@@ -254,7 +254,7 @@ public class ProjectAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("ProjectAttributeTemplatesApi.apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

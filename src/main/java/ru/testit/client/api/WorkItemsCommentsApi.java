@@ -53,7 +53,7 @@ public class WorkItemsCommentsApi {
 
   /**
    * Delete WorkItem comment
-   *  Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
+   *   Use case    User sets comment identifier    User runs method execution    System delete comment    System returns success status code
    * @param commentId Comment internal (guid format) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -75,7 +75,7 @@ public class WorkItemsCommentsApi {
 
   /**
    * Delete WorkItem comment
-   *  Use case  User sets comment identifier  User runs method execution  System delete comment  System returns success status code
+   *   Use case    User sets comment identifier    User runs method execution    System delete comment    System returns success status code
    * @param commentId Comment internal (guid format) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -104,14 +104,14 @@ public class WorkItemsCommentsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsCommentIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Create WorkItem comment
-   *  Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
+   *   Use case    User sets comment properties (listed in request parameters)    User runs method execution    System creates comment    System returns comment model (listed in response parameters)
    * @param createWorkItemCommentApiModel  (optional)
    * @return WorkItemCommentApiResult
    * @throws ApiException if fails to make API call
@@ -134,7 +134,7 @@ public class WorkItemsCommentsApi {
 
   /**
    * Create WorkItem comment
-   *  Use case  User sets comment properties (listed in request parameters)  User runs method execution  System creates comment  System returns comment model (listed in response parameters)
+   *   Use case    User sets comment properties (listed in request parameters)    User runs method execution    System creates comment    System returns comment model (listed in response parameters)
    * @param createWorkItemCommentApiModel  (optional)
    * @return ApiResponse&lt;WorkItemCommentApiResult&gt;
    * @throws ApiException if fails to make API call
@@ -154,7 +154,7 @@ public class WorkItemsCommentsApi {
   public ApiResponse<WorkItemCommentApiResult> apiV2WorkItemsCommentsPostWithHttpInfo(CreateWorkItemCommentApiModel createWorkItemCommentApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WorkItemCommentApiResult> localVarReturnType = new GenericType<WorkItemCommentApiResult>() {};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsPost", "/api/v2/workItems/comments", "POST", new ArrayList<>(), createWorkItemCommentApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -204,7 +204,7 @@ public class WorkItemsCommentsApi {
   public ApiResponse<Void> apiV2WorkItemsCommentsPutWithHttpInfo(UpdateWorkItemCommentApiModel updateWorkItemCommentApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsPut", "/api/v2/workItems/comments", "PUT", new ArrayList<>(), updateWorkItemCommentApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -263,7 +263,7 @@ public class WorkItemsCommentsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsIdCommentsCountGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -323,7 +323,7 @@ public class WorkItemsCommentsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemCommentApiResult>> localVarReturnType = new GenericType<List<WorkItemCommentApiResult>>() {};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsIdCommentsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

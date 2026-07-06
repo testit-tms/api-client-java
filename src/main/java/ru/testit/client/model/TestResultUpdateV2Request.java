@@ -28,7 +28,7 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AttachmentUpdateRequest;
 import ru.testit.client.model.AutoTestStepResultUpdateRequest;
-import ru.testit.client.model.Link;
+import ru.testit.client.model.CreateLinkApiModel;
 import ru.testit.client.model.StepResultApiModel;
 import ru.testit.client.model.TestResultOutcome;
 import ru.testit.client.model.TestResultStepCommentUpdateRequest;
@@ -79,7 +79,7 @@ public class TestResultUpdateV2Request {
   private JsonNullable<String> comment = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LINKS = "links";
-  private JsonNullable<List<Link>> links = JsonNullable.<List<Link>>undefined();
+  private JsonNullable<List<CreateLinkApiModel>> links = JsonNullable.<List<CreateLinkApiModel>>undefined();
 
   public static final String JSON_PROPERTY_STEP_RESULTS = "stepResults";
   private JsonNullable<List<StepResultApiModel>> stepResults = JsonNullable.<List<StepResultApiModel>>undefined();
@@ -293,14 +293,14 @@ public class TestResultUpdateV2Request {
   }
 
 
-  public TestResultUpdateV2Request links(@jakarta.annotation.Nullable List<Link> links) {
-    this.links = JsonNullable.<List<Link>>of(links);
+  public TestResultUpdateV2Request links(@jakarta.annotation.Nullable List<CreateLinkApiModel> links) {
+    this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
     return this;
   }
 
-  public TestResultUpdateV2Request addLinksItem(Link linksItem) {
+  public TestResultUpdateV2Request addLinksItem(CreateLinkApiModel linksItem) {
     if (this.links == null || !this.links.isPresent()) {
-      this.links = JsonNullable.<List<Link>>of(new ArrayList<>());
+      this.links = JsonNullable.<List<CreateLinkApiModel>>of(new ArrayList<>());
     }
     try {
       this.links.get().add(linksItem);
@@ -317,24 +317,24 @@ public class TestResultUpdateV2Request {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public List<Link> getLinks() {
+  public List<CreateLinkApiModel> getLinks() {
         return links.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<Link>> getLinks_JsonNullable() {
+  public JsonNullable<List<CreateLinkApiModel>> getLinks_JsonNullable() {
     return links;
   }
   
   @JsonProperty(JSON_PROPERTY_LINKS)
-  public void setLinks_JsonNullable(JsonNullable<List<Link>> links) {
+  public void setLinks_JsonNullable(JsonNullable<List<CreateLinkApiModel>> links) {
     this.links = links;
   }
 
-  public void setLinks(@jakarta.annotation.Nullable List<Link> links) {
-    this.links = JsonNullable.<List<Link>>of(links);
+  public void setLinks(@jakarta.annotation.Nullable List<CreateLinkApiModel> links) {
+    this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
   }
 
 

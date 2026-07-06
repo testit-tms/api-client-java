@@ -39,9 +39,11 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeSearchResponseModel.JSON_PROPERTY_WORK_ITEM_USAGE,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_TEST_PLAN_USAGE,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_ID,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_TARGETS,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_OPTIONS,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_TYPE,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_DELETED,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_SYSTEM,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_NAME,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_ENABLED,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_REQUIRED,
@@ -61,6 +63,10 @@ public class CustomAttributeSearchResponseModel {
   @jakarta.annotation.Nonnull
   private UUID id;
 
+  public static final String JSON_PROPERTY_TARGETS = "targets";
+  @jakarta.annotation.Nonnull
+  private List<String> targets = new ArrayList<>();
+
   public static final String JSON_PROPERTY_OPTIONS = "options";
   @jakarta.annotation.Nonnull
   private List<CustomAttributeOptionModel> options = new ArrayList<>();
@@ -72,6 +78,10 @@ public class CustomAttributeSearchResponseModel {
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   @jakarta.annotation.Nonnull
   private Boolean isDeleted;
+
+  public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
+  @jakarta.annotation.Nonnull
+  private Boolean isSystem;
 
   public static final String JSON_PROPERTY_NAME = "name";
   @jakarta.annotation.Nonnull
@@ -183,6 +193,39 @@ public class CustomAttributeSearchResponseModel {
   }
 
 
+  public CustomAttributeSearchResponseModel targets(@jakarta.annotation.Nonnull List<String> targets) {
+    this.targets = targets;
+    return this;
+  }
+
+  public CustomAttributeSearchResponseModel addTargetsItem(String targetsItem) {
+    if (this.targets == null) {
+      this.targets = new ArrayList<>();
+    }
+    this.targets.add(targetsItem);
+    return this;
+  }
+
+  /**
+   * Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+   * @return targets
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getTargets() {
+    return targets;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTargets(@jakarta.annotation.Nonnull List<String> targets) {
+    this.targets = targets;
+  }
+
+
   public CustomAttributeSearchResponseModel options(@jakarta.annotation.Nonnull List<CustomAttributeOptionModel> options) {
     this.options = options;
     return this;
@@ -197,7 +240,7 @@ public class CustomAttributeSearchResponseModel {
   }
 
   /**
-   * Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
   @jakarta.annotation.Nonnull
@@ -263,6 +306,31 @@ public class CustomAttributeSearchResponseModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
+  }
+
+
+  public CustomAttributeSearchResponseModel isSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
+    return this;
+  }
+
+  /**
+   * Indicates if the attribute is system
+   * @return isSystem
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsSystem() {
+    return isSystem;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
   }
 
 
@@ -381,9 +449,11 @@ public class CustomAttributeSearchResponseModel {
     return Objects.equals(this.workItemUsage, customAttributeSearchResponseModel.workItemUsage) &&
         Objects.equals(this.testPlanUsage, customAttributeSearchResponseModel.testPlanUsage) &&
         Objects.equals(this.id, customAttributeSearchResponseModel.id) &&
+        Objects.equals(this.targets, customAttributeSearchResponseModel.targets) &&
         Objects.equals(this.options, customAttributeSearchResponseModel.options) &&
         Objects.equals(this.type, customAttributeSearchResponseModel.type) &&
         Objects.equals(this.isDeleted, customAttributeSearchResponseModel.isDeleted) &&
+        Objects.equals(this.isSystem, customAttributeSearchResponseModel.isSystem) &&
         Objects.equals(this.name, customAttributeSearchResponseModel.name) &&
         Objects.equals(this.isEnabled, customAttributeSearchResponseModel.isEnabled) &&
         Objects.equals(this.isRequired, customAttributeSearchResponseModel.isRequired) &&
@@ -392,7 +462,7 @@ public class CustomAttributeSearchResponseModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(workItemUsage, testPlanUsage, id, options, type, isDeleted, name, isEnabled, isRequired, isGlobal);
+    return Objects.hash(workItemUsage, testPlanUsage, id, targets, options, type, isDeleted, isSystem, name, isEnabled, isRequired, isGlobal);
   }
 
   @Override
@@ -402,9 +472,11 @@ public class CustomAttributeSearchResponseModel {
     sb.append("    workItemUsage: ").append(toIndentedString(workItemUsage)).append("\n");
     sb.append("    testPlanUsage: ").append(toIndentedString(testPlanUsage)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    isRequired: ").append(toIndentedString(isRequired)).append("\n");

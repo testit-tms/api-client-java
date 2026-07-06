@@ -111,14 +111,14 @@ public class SectionsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("SectionsApi.apiV2SectionsIdPatch", localVarPath, "PATCH", new ArrayList<>(), operation,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Create section
-   *  Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)
+   *   Use case    User sets section properties (listed in request example)    User runs method execution    System creates section property values    System returns section (listed in response example)
    * @param sectionPostModel  (optional)
    * @return SectionWithStepsModel
    * @throws ApiException if fails to make API call
@@ -141,7 +141,7 @@ public class SectionsApi {
 
   /**
    * Create section
-   *  Use case  User sets section properties (listed in request example)  User runs method execution  System creates section property values  System returns section (listed in response example)
+   *   Use case    User sets section properties (listed in request example)    User runs method execution    System creates section property values    System returns section (listed in response example)
    * @param sectionPostModel  (optional)
    * @return ApiResponse&lt;SectionWithStepsModel&gt;
    * @throws ApiException if fails to make API call
@@ -161,7 +161,7 @@ public class SectionsApi {
   public ApiResponse<SectionWithStepsModel> createSectionWithHttpInfo(SectionPostModel sectionPostModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<SectionWithStepsModel> localVarReturnType = new GenericType<SectionWithStepsModel>() {};
     return apiClient.invokeAPI("SectionsApi.createSection", "/api/v2/sections", "POST", new ArrayList<>(), sectionPostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -169,7 +169,7 @@ public class SectionsApi {
   }
   /**
    * Delete section
-   *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response
+   *   Use case    User sets section identifier    User runs method execution    System search section by the identifier    System search and delete nested sections of the found section    System search and delete workitems related to the found nested sections    System deletes initial section and related workitem    System returns no content response
    * @param id Section internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -193,7 +193,7 @@ public class SectionsApi {
 
   /**
    * Delete section
-   *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search and delete nested sections of the found section  System search and delete workitems related to the found nested sections  System deletes initial section and related workitem  System returns no content response
+   *   Use case    User sets section identifier    User runs method execution    System search section by the identifier    System search and delete nested sections of the found section    System search and delete workitems related to the found nested sections    System deletes initial section and related workitem    System returns no content response
    * @param id Section internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -224,14 +224,14 @@ public class SectionsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("SectionsApi.deleteSection", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Get section
-   *  Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section
+   *   Use case    User sets section internal (guid format) identifier    User runs method execution    System search section by the section identifier    [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.    System returns section
    * @param id Section internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @return SectionWithStepsModel
@@ -255,7 +255,7 @@ public class SectionsApi {
 
   /**
    * Get section
-   *  Use case  User sets section internal (guid format) identifier  User runs method execution  System search section by the section identifier  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns section
+   *   Use case    User sets section internal (guid format) identifier    User runs method execution    System search section by the section identifier    [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.    System returns section
    * @param id Section internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @return ApiResponse&lt;SectionWithStepsModel&gt;
@@ -290,7 +290,7 @@ public class SectionsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<SectionWithStepsModel> localVarReturnType = new GenericType<SectionWithStepsModel>() {};
     return apiClient.invokeAPI("SectionsApi.getSectionById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -298,7 +298,7 @@ public class SectionsApi {
   }
   /**
    * Get section work items
-   *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection
+   *   Use case    User sets section identifier    User runs method execution    System search section by the identifier    System search work items related to the section    [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.    System returns work item collection
    * @param id Section internal (UUID) identifier (required)
    * @param isDeleted Requested section is deleted (optional, default to false)
    * @param tagNames List of work item tags (optional)
@@ -315,7 +315,7 @@ public class SectionsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols    - &#x60;orderBy&#x60; statement has invalid length    - &#x60;orderBy&#x60; statement must have UUID as attribute key    - Search field was not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -331,7 +331,7 @@ public class SectionsApi {
 
   /**
    * Get section work items
-   *  Use case  User sets section identifier  User runs method execution  System search section by the identifier  System search work items related to the section  [Optional] If isDeleted flag equals false, deleted work items are not being searched.             If true, deleted work items are also being searched, null for all work items.  System returns work item collection
+   *   Use case    User sets section identifier    User runs method execution    System search section by the identifier    System search work items related to the section    [Optional] If isDeleted flag equals false, deleted work items are not being searched.              If true, deleted work items are also being searched, null for all work items.    System returns work item collection
    * @param id Section internal (UUID) identifier (required)
    * @param isDeleted Requested section is deleted (optional, default to false)
    * @param tagNames List of work item tags (optional)
@@ -348,7 +348,7 @@ public class SectionsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols    - &#x60;orderBy&#x60; statement has invalid length    - &#x60;orderBy&#x60; statement must have UUID as attribute key    - Search field was not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Section with provided ID was not found </td><td>  -  </td></tr>
@@ -382,7 +382,7 @@ public class SectionsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemShortModel>> localVarReturnType = new GenericType<List<WorkItemShortModel>>() {};
     return apiClient.invokeAPI("SectionsApi.getWorkItemsBySectionId", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -432,14 +432,14 @@ public class SectionsApi {
   public ApiResponse<Void> moveWithHttpInfo(SectionMoveModel sectionMoveModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("SectionsApi.move", "/api/v2/sections/move", "POST", new ArrayList<>(), sectionMoveModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Rename section
-   *  Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response
+   *   Use case    User sets section identifier and new name (listed in request example)    User runs method execution    System search section by the identifier    System updates section name using the new name    System returns no content response
    * @param sectionRenameModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -461,7 +461,7 @@ public class SectionsApi {
 
   /**
    * Rename section
-   *  Use case  User sets section identifier and new name (listed in request example)  User runs method execution  System search section by the identifier  System updates section name using the new name  System returns no content response
+   *   Use case    User sets section identifier and new name (listed in request example)    User runs method execution    System search section by the identifier    System updates section name using the new name    System returns no content response
    * @param sectionRenameModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -481,14 +481,14 @@ public class SectionsApi {
   public ApiResponse<Void> renameWithHttpInfo(SectionRenameModel sectionRenameModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("SectionsApi.rename", "/api/v2/sections/rename", "POST", new ArrayList<>(), sectionRenameModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Update section
-   *  Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response
+   *   Use case    User sets section properties (listed in request example)    User runs method execution    System search section by the identifier    System updates section using the property values    System returns no content response
    * @param sectionPutModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -496,12 +496,12 @@ public class SectionsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - ID is invalid  - Root section cannot be create </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - ID is invalid    - Root section cannot be create </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Section cannot be found  - Parent section cannot be found  - Project cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Section cannot be found    - Parent section cannot be found    - Project cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Root section cannot be edited  - Parent ID cannot be changed  - Project ID cannot be changed </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Root section cannot be edited    - Parent ID cannot be changed    - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
    */
   public void updateSection(SectionPutModel sectionPutModel) throws ApiException {
@@ -510,7 +510,7 @@ public class SectionsApi {
 
   /**
    * Update section
-   *  Use case  User sets section properties (listed in request example)  User runs method execution  System search section by the identifier  System updates section using the property values  System returns no content response
+   *   Use case    User sets section properties (listed in request example)    User runs method execution    System search section by the identifier    System updates section using the property values    System returns no content response
    * @param sectionPutModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -519,18 +519,18 @@ public class SectionsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - ID is invalid  - Root section cannot be create </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - ID is invalid    - Root section cannot be create </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test library is required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  - Section cannot be found  - Parent section cannot be found  - Project cannot be found </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   - Section cannot be found    - Parent section cannot be found    - Project cannot be found </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Section with the same name already exists in the parent section </td><td>  -  </td></tr>
-       <tr><td> 422 </td><td>  - Root section cannot be edited  - Parent ID cannot be changed  - Project ID cannot be changed </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td>   - Root section cannot be edited    - Parent ID cannot be changed    - Project ID cannot be changed </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<Void> updateSectionWithHttpInfo(SectionPutModel sectionPutModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("SectionsApi.updateSection", "/api/v2/sections", "PUT", new ArrayList<>(), sectionPutModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

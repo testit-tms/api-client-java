@@ -8,6 +8,9 @@ import ru.testit.client.invoker.Pair;
 
 import jakarta.ws.rs.core.GenericType;
 
+import ru.testit.client.model.CreateWorkItemPreviewsApiModel;
+import ru.testit.client.model.GenerateWorkItemPreviewsApiModel;
+import ru.testit.client.model.GenerateWorkItemPreviewsApiResult;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TagShortApiResult;
 import java.util.UUID;
@@ -56,6 +59,128 @@ public class ProjectWorkItemsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * 
+   * 
+   * @param projectId Internal (UUID) or global (integer) identifier (required)
+   * @param createWorkItemPreviewsApiModel  (optional)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public void apiV2ProjectsProjectIdWorkItemsPreviewsBulkPost(String projectId, CreateWorkItemPreviewsApiModel createWorkItemPreviewsApiModel) throws ApiException {
+    apiV2ProjectsProjectIdWorkItemsPreviewsBulkPostWithHttpInfo(projectId, createWorkItemPreviewsApiModel);
+  }
+
+  /**
+   * 
+   * 
+   * @param projectId Internal (UUID) or global (integer) identifier (required)
+   * @param createWorkItemPreviewsApiModel  (optional)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> apiV2ProjectsProjectIdWorkItemsPreviewsBulkPostWithHttpInfo(String projectId, CreateWorkItemPreviewsApiModel createWorkItemPreviewsApiModel) throws ApiException {
+    // Check required parameters
+    if (projectId == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdWorkItemsPreviewsBulkPost");
+    }
+
+    // Path parameters
+    String localVarPath = "/api/v2/projects/{projectId}/work-items/previews/bulk"
+            .replaceAll("\\{projectId}", apiClient.escapeString(projectId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
+    return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsPreviewsBulkPost", localVarPath, "POST", new ArrayList<>(), createWorkItemPreviewsApiModel,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * 
+   * 
+   * @param projectId Internal (UUID) or global (integer) identifier (required)
+   * @param generateWorkItemPreviewsApiModel  (optional)
+   * @return GenerateWorkItemPreviewsApiResult
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public GenerateWorkItemPreviewsApiResult apiV2ProjectsProjectIdWorkItemsPreviewsPost(String projectId, GenerateWorkItemPreviewsApiModel generateWorkItemPreviewsApiModel) throws ApiException {
+    return apiV2ProjectsProjectIdWorkItemsPreviewsPostWithHttpInfo(projectId, generateWorkItemPreviewsApiModel).getData();
+  }
+
+  /**
+   * 
+   * 
+   * @param projectId Internal (UUID) or global (integer) identifier (required)
+   * @param generateWorkItemPreviewsApiModel  (optional)
+   * @return ApiResponse&lt;GenerateWorkItemPreviewsApiResult&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<GenerateWorkItemPreviewsApiResult> apiV2ProjectsProjectIdWorkItemsPreviewsPostWithHttpInfo(String projectId, GenerateWorkItemPreviewsApiModel generateWorkItemPreviewsApiModel) throws ApiException {
+    // Check required parameters
+    if (projectId == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectId' when calling apiV2ProjectsProjectIdWorkItemsPreviewsPost");
+    }
+
+    // Path parameters
+    String localVarPath = "/api/v2/projects/{projectId}/work-items/previews"
+            .replaceAll("\\{projectId}", apiClient.escapeString(projectId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
+    GenericType<GenerateWorkItemPreviewsApiResult> localVarReturnType = new GenericType<GenerateWorkItemPreviewsApiResult>() {};
+    return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsPreviewsPost", localVarPath, "POST", new ArrayList<>(), generateWorkItemPreviewsApiModel,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
   /**
    * Search for work items and group results by attribute
    * 
@@ -131,7 +256,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemGroupModel>> localVarReturnType = new GenericType<List<WorkItemGroupModel>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchGroupedPost", localVarPath, "POST", localVarQueryParams, workItemGroupGetModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -212,7 +337,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<UUID>> localVarReturnType = new GenericType<List<UUID>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchIdPost", localVarPath, "POST", localVarQueryParams, workItemSelectModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -293,7 +418,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemShortApiResult>> localVarReturnType = new GenericType<List<WorkItemShortApiResult>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchPost", localVarPath, "POST", localVarQueryParams, workItemSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -380,7 +505,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WorkItemIndexApiResult> localVarReturnType = new GenericType<WorkItemIndexApiResult>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost", localVarPath, "POST", localVarQueryParams, workItemSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -388,7 +513,7 @@ public class ProjectWorkItemsApi {
   }
   /**
    * Get WorkItems Tags
-   *  Use case  User sets project internal identifier  User runs method execution  System returns work items tags
+   *   Use case    User sets project internal identifier    User runs method execution    System returns work items tags
    * @param projectId Project internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @return List&lt;TagShortApiResult&gt;
@@ -412,7 +537,7 @@ public class ProjectWorkItemsApi {
 
   /**
    * Get WorkItems Tags
-   *  Use case  User sets project internal identifier  User runs method execution  System returns work items tags
+   *   Use case    User sets project internal identifier    User runs method execution    System returns work items tags
    * @param projectId Project internal (UUID) identifier (required)
    * @param isDeleted  (optional)
    * @return ApiResponse&lt;List&lt;TagShortApiResult&gt;&gt;
@@ -447,7 +572,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<TagShortApiResult>> localVarReturnType = new GenericType<List<TagShortApiResult>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsTagsGet", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -455,7 +580,7 @@ public class ProjectWorkItemsApi {
   }
   /**
    * Get project work items
-   *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
+   *   Use case    User sets project internal or global identifier    [Optional] User sets isDeleted field value    User runs method execution    System search project    [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project    [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted    If User did not set isDeleted field value, System search all  workitems related to project    System returns array of found workitems (listed in response model)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
    * @param tagNames List of tags to filter by (optional)
@@ -472,7 +597,7 @@ public class ProjectWorkItemsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters    - &#x60;orderBy&#x60; statement has invalid length    - &#x60;orderBy&#x60; statement must have UUID as attribute key    - Search field was not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -488,7 +613,7 @@ public class ProjectWorkItemsApi {
 
   /**
    * Get project work items
-   *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project  [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted  If User did not set isDeleted field value, System search all  workitems related to project  System returns array of found workitems (listed in response model)
+   *   Use case    User sets project internal or global identifier    [Optional] User sets isDeleted field value    User runs method execution    System search project    [Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project    [Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted    If User did not set isDeleted field value, System search all  workitems related to project    System returns array of found workitems (listed in response model)
    * @param projectId Project internal (UUID) or global (integer) identifier (required)
    * @param isDeleted If result must consist of only actual/deleted work items (optional, default to false)
    * @param tagNames List of tags to filter by (optional)
@@ -505,7 +630,7 @@ public class ProjectWorkItemsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters  - &#x60;orderBy&#x60; statement has invalid length  - &#x60;orderBy&#x60; statement must have UUID as attribute key  - Search field was not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; characters    - &#x60;orderBy&#x60; statement has invalid length    - &#x60;orderBy&#x60; statement must have UUID as attribute key    - Search field was not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test library is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Project with provided ID was not found </td><td>  -  </td></tr>
@@ -539,7 +664,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemShortModel>> localVarReturnType = new GenericType<List<WorkItemShortModel>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.getWorkItemsByProjectId", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

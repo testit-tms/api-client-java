@@ -34,6 +34,7 @@ import ru.testit.client.model.LinkShortModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
+import ru.testit.client.model.WorkItemTypeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -90,7 +91,7 @@ public class WorkItemShortModel {
 
   public static final String JSON_PROPERTY_ENTITY_TYPE_NAME = "entityTypeName";
   @jakarta.annotation.Nonnull
-  private String entityTypeName;
+  private WorkItemTypeModel entityTypeName;
 
   public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
   @jakarta.annotation.Nonnull
@@ -265,7 +266,7 @@ public class WorkItemShortModel {
   }
 
 
-  public WorkItemShortModel entityTypeName(@jakarta.annotation.Nonnull String entityTypeName) {
+  public WorkItemShortModel entityTypeName(@jakarta.annotation.Nonnull WorkItemTypeModel entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -278,14 +279,14 @@ public class WorkItemShortModel {
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getEntityTypeName() {
+  public WorkItemTypeModel getEntityTypeName() {
     return entityTypeName;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEntityTypeName(@jakarta.annotation.Nonnull String entityTypeName) {
+  public void setEntityTypeName(@jakarta.annotation.Nonnull WorkItemTypeModel entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 

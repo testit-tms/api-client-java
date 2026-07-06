@@ -54,7 +54,7 @@ public class TagsApi {
 
   /**
    * Delete tags
-   *  Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags
+   *   Use case    User sets collection of tags internal (guid format) identifiers    System searches and deletes a collection of tags
    * @param selectTagsApiModel  (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -62,7 +62,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - ID is not valid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
@@ -76,7 +76,7 @@ public class TagsApi {
 
   /**
    * Delete tags
-   *  Use case  User sets collection of tags internal (guid format) identifiers  System searches and deletes a collection of tags
+   *   Use case    User sets collection of tags internal (guid format) identifiers    System searches and deletes a collection of tags
    * @param selectTagsApiModel  (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -85,7 +85,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - ID is not valid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> No tags with provided IDs were found </td><td>  -  </td></tr>
@@ -96,14 +96,14 @@ public class TagsApi {
   public ApiResponse<Void> apiV2TagsDeleteWithHttpInfo(SelectTagsApiModel selectTagsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json-patch+json", "application/json", "text/json", "application/*+json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TagsApi.apiV2TagsDelete", "/api/v2/tags", "DELETE", new ArrayList<>(), selectTagsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Delete tag
-   *  Use case  User sets tag internal (guid format) identifier  System search and delete tag
+   *   Use case    User sets tag internal (guid format) identifier    System search and delete tag
    * @param id Tag internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -111,7 +111,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - ID is not valid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
@@ -125,7 +125,7 @@ public class TagsApi {
 
   /**
    * Delete tag
-   *  Use case  User sets tag internal (guid format) identifier  System search and delete tag
+   *   Use case    User sets tag internal (guid format) identifier    System search and delete tag
    * @param id Tag internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -134,7 +134,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - ID is not valid </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - ID is not valid </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> System administrator role is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
@@ -154,14 +154,14 @@ public class TagsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TagsApi.apiV2TagsIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Create tag
-   *  Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)
+   *   Use case    User sets tag model (listed in the request example)    User runs method execution    System creates tag    System returns tag model (listed in the response example)
    * @param createTagApiModel  (optional)
    * @return TagApiResult
    * @throws ApiException if fails to make API call
@@ -170,7 +170,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - Name already in use    - Name must be no more than 30 characters long </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -184,7 +184,7 @@ public class TagsApi {
 
   /**
    * Create tag
-   *  Use case  User sets tag model (listed in the request example)  User runs method execution  System creates tag  System returns tag model (listed in the response example)
+   *   Use case    User sets tag model (listed in the request example)    User runs method execution    System creates tag    System returns tag model (listed in the response example)
    * @param createTagApiModel  (optional)
    * @return ApiResponse&lt;TagApiResult&gt;
    * @throws ApiException if fails to make API call
@@ -193,7 +193,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 201 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - Name cannot be empty or contain only white space characters    - Name already in use    - Name must be no more than 30 characters long </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -204,7 +204,7 @@ public class TagsApi {
   public ApiResponse<TagApiResult> apiV2TagsPostWithHttpInfo(CreateTagApiModel createTagApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json-patch+json", "application/json", "text/json", "application/*+json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<TagApiResult> localVarReturnType = new GenericType<TagApiResult>() {};
     return apiClient.invokeAPI("TagsApi.apiV2TagsPost", "/api/v2/tags", "POST", new ArrayList<>(), createTagApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -212,7 +212,7 @@ public class TagsApi {
   }
   /**
    * Update tag
-   *  Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)
+   *   Use case    User sets tag ID and model (listed in the request example)    User runs method execution    System updates tag    System returns tag model (listed in the response example)
    * @param id  (optional)
    * @param updateTagApiModel  (optional)
    * @return TagApiResult
@@ -222,7 +222,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - ID is not valid  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - ID is not valid    - Name cannot be empty or contain only white space characters    - Name already in use    - Name must be no more than 30 characters long </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Project creator role is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
@@ -236,7 +236,7 @@ public class TagsApi {
 
   /**
    * Update tag
-   *  Use case  User sets tag ID and model (listed in the request example)  User runs method execution  System updates tag  System returns tag model (listed in the response example)
+   *   Use case    User sets tag ID and model (listed in the request example)    User runs method execution    System updates tag    System returns tag model (listed in the response example)
    * @param id  (optional)
    * @param updateTagApiModel  (optional)
    * @return ApiResponse&lt;TagApiResult&gt;
@@ -246,7 +246,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  - ID is not valid  - Name cannot be empty or contain only white space characters  - Name already in use  - Name must be no more than 30 characters long </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   - ID is not valid    - Name cannot be empty or contain only white space characters    - Name already in use    - Name must be no more than 30 characters long </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Project creator role is required </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Tag with provided ID cannot be found </td><td>  -  </td></tr>
@@ -262,7 +262,7 @@ public class TagsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json-patch+json", "application/json", "text/json", "application/*+json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<TagApiResult> localVarReturnType = new GenericType<TagApiResult>() {};
     return apiClient.invokeAPI("TagsApi.apiV2TagsPut", "/api/v2/tags", "PUT", localVarQueryParams, updateTagApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -270,7 +270,7 @@ public class TagsApi {
   }
   /**
    * Search tags
-   *  Use case  User runs method execution  System returns collection of tags (listed in the response example)
+   *   Use case    User runs method execution    System returns collection of tags (listed in the response example)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -283,7 +283,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -297,7 +297,7 @@ public class TagsApi {
 
   /**
    * Search tags
-   *  Use case  User runs method execution  System returns collection of tags (listed in the response example)
+   *   Use case    User runs method execution    System returns collection of tags (listed in the response example)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -310,7 +310,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -330,7 +330,7 @@ public class TagsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<TagApiResult>> localVarReturnType = new GenericType<List<TagApiResult>>() {};
     return apiClient.invokeAPI("TagsApi.apiV2TagsSearchGet", "/api/v2/tags/search", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -338,7 +338,7 @@ public class TagsApi {
   }
   /**
    * Get all Tags that are used in TestPlans
-   *  Use case  User runs method execution  System returns tags (listed in the response example)
+   *   Use case    User runs method execution    System returns tags (listed in the response example)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -351,7 +351,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -365,7 +365,7 @@ public class TagsApi {
 
   /**
    * Get all Tags that are used in TestPlans
-   *  Use case  User runs method execution  System returns tags (listed in the response example)
+   *   Use case    User runs method execution    System returns tags (listed in the response example)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -378,7 +378,7 @@ public class TagsApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful operation </td><td>  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  </td></tr>
-       <tr><td> 400 </td><td>  orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols  orderByStatement has invalid length  orderByStatement must have uuid as attribute key  Search field not found </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   orderByStatement must have one &#39;.&#39; and no &#39;,&#39; symbols    orderByStatement has invalid length    orderByStatement must have uuid as attribute key    Search field not found </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -398,7 +398,7 @@ public class TagsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<TagApiResult>> localVarReturnType = new GenericType<List<TagApiResult>>() {};
     return apiClient.invokeAPI("TagsApi.apiV2TagsTestPlansTagsGet", "/api/v2/tags/testPlansTags", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

@@ -8,7 +8,7 @@ import ru.testit.client.invoker.Pair;
 
 import jakarta.ws.rs.core.GenericType;
 
-import ru.testit.client.model.ExternalIssueApiFieldSuggestionReply;
+import ru.testit.client.model.ExternalIssueApiFieldSuggestionIReply;
 import ru.testit.client.model.GetExternalIssueSuggestionsApiModel;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.ValidationProblemDetails;
@@ -53,7 +53,7 @@ public class ExternalIssuesApi {
    * Returns list of suggestions from available external issues
    * 
    * @param getExternalIssueSuggestionsApiModel  (optional)
-   * @return ExternalIssueApiFieldSuggestionReply
+   * @return ExternalIssueApiFieldSuggestionIReply
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -68,7 +68,7 @@ public class ExternalIssuesApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ExternalIssueApiFieldSuggestionReply apiV2ExternalIssuesSuggestionsPost(GetExternalIssueSuggestionsApiModel getExternalIssueSuggestionsApiModel) throws ApiException {
+  public ExternalIssueApiFieldSuggestionIReply apiV2ExternalIssuesSuggestionsPost(GetExternalIssueSuggestionsApiModel getExternalIssueSuggestionsApiModel) throws ApiException {
     return apiV2ExternalIssuesSuggestionsPostWithHttpInfo(getExternalIssueSuggestionsApiModel).getData();
   }
 
@@ -76,7 +76,7 @@ public class ExternalIssuesApi {
    * Returns list of suggestions from available external issues
    * 
    * @param getExternalIssueSuggestionsApiModel  (optional)
-   * @return ApiResponse&lt;ExternalIssueApiFieldSuggestionReply&gt;
+   * @return ApiResponse&lt;ExternalIssueApiFieldSuggestionIReply&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -91,11 +91,11 @@ public class ExternalIssuesApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ExternalIssueApiFieldSuggestionReply> apiV2ExternalIssuesSuggestionsPostWithHttpInfo(GetExternalIssueSuggestionsApiModel getExternalIssueSuggestionsApiModel) throws ApiException {
+  public ApiResponse<ExternalIssueApiFieldSuggestionIReply> apiV2ExternalIssuesSuggestionsPostWithHttpInfo(GetExternalIssueSuggestionsApiModel getExternalIssueSuggestionsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<ExternalIssueApiFieldSuggestionReply> localVarReturnType = new GenericType<ExternalIssueApiFieldSuggestionReply>() {};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
+    GenericType<ExternalIssueApiFieldSuggestionIReply> localVarReturnType = new GenericType<ExternalIssueApiFieldSuggestionIReply>() {};
     return apiClient.invokeAPI("ExternalIssuesApi.apiV2ExternalIssuesSuggestionsPost", "/api/v2/external-issues/suggestions", "POST", new ArrayList<>(), getExternalIssueSuggestionsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);

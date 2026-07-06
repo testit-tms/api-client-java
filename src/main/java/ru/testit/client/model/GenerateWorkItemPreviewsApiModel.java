@@ -38,7 +38,6 @@ import ru.testit.client.invoker.JSON;
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_EXTERNAL_SERVICE_ID,
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_TEMPERATURE,
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_PREVIEW_LIMIT,
-  GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_TASK_KEY,
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_ISSUE_KEY,
   GenerateWorkItemPreviewsApiModel.JSON_PROPERTY_USER_CONTEXT
 })
@@ -55,10 +54,6 @@ public class GenerateWorkItemPreviewsApiModel {
   public static final String JSON_PROPERTY_PREVIEW_LIMIT = "previewLimit";
   @jakarta.annotation.Nonnull
   private Integer previewLimit;
-
-  public static final String JSON_PROPERTY_TASK_KEY = "taskKey";
-  @Deprecated
-  private JsonNullable<String> taskKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ISSUE_KEY = "issueKey";
   private JsonNullable<String> issueKey = JsonNullable.<String>undefined();
@@ -148,43 +143,6 @@ public class GenerateWorkItemPreviewsApiModel {
   }
 
 
-  @Deprecated
-  public GenerateWorkItemPreviewsApiModel taskKey(@jakarta.annotation.Nullable String taskKey) {
-    this.taskKey = JsonNullable.<String>of(taskKey);
-    return this;
-  }
-
-  /**
-   * The key of the issue in an issue tracker (e.g., JIRA-123).
-   * @return taskKey
-   * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public String getTaskKey() {
-        return taskKey.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TASK_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getTaskKey_JsonNullable() {
-    return taskKey;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TASK_KEY)
-  public void setTaskKey_JsonNullable(JsonNullable<String> taskKey) {
-    this.taskKey = taskKey;
-  }
-
-  @Deprecated
-  public void setTaskKey(@jakarta.annotation.Nullable String taskKey) {
-    this.taskKey = JsonNullable.<String>of(taskKey);
-  }
-
-
   public GenerateWorkItemPreviewsApiModel issueKey(@jakarta.annotation.Nullable String issueKey) {
     this.issueKey = JsonNullable.<String>of(issueKey);
     return this;
@@ -266,7 +224,6 @@ public class GenerateWorkItemPreviewsApiModel {
     return Objects.equals(this.externalServiceId, generateWorkItemPreviewsApiModel.externalServiceId) &&
         Objects.equals(this.temperature, generateWorkItemPreviewsApiModel.temperature) &&
         Objects.equals(this.previewLimit, generateWorkItemPreviewsApiModel.previewLimit) &&
-        equalsNullable(this.taskKey, generateWorkItemPreviewsApiModel.taskKey) &&
         equalsNullable(this.issueKey, generateWorkItemPreviewsApiModel.issueKey) &&
         equalsNullable(this.userContext, generateWorkItemPreviewsApiModel.userContext);
   }
@@ -277,7 +234,7 @@ public class GenerateWorkItemPreviewsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalServiceId, temperature, previewLimit, hashCodeNullable(taskKey), hashCodeNullable(issueKey), hashCodeNullable(userContext));
+    return Objects.hash(externalServiceId, temperature, previewLimit, hashCodeNullable(issueKey), hashCodeNullable(userContext));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -294,7 +251,6 @@ public class GenerateWorkItemPreviewsApiModel {
     sb.append("    externalServiceId: ").append(toIndentedString(externalServiceId)).append("\n");
     sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
     sb.append("    previewLimit: ").append(toIndentedString(previewLimit)).append("\n");
-    sb.append("    taskKey: ").append(toIndentedString(taskKey)).append("\n");
     sb.append("    issueKey: ").append(toIndentedString(issueKey)).append("\n");
     sb.append("    userContext: ").append(toIndentedString(userContext)).append("\n");
     sb.append("}");

@@ -36,9 +36,11 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   CustomAttributeModel.JSON_PROPERTY_ID,
+  CustomAttributeModel.JSON_PROPERTY_TARGETS,
   CustomAttributeModel.JSON_PROPERTY_OPTIONS,
   CustomAttributeModel.JSON_PROPERTY_TYPE,
   CustomAttributeModel.JSON_PROPERTY_IS_DELETED,
+  CustomAttributeModel.JSON_PROPERTY_IS_SYSTEM,
   CustomAttributeModel.JSON_PROPERTY_NAME,
   CustomAttributeModel.JSON_PROPERTY_IS_ENABLED,
   CustomAttributeModel.JSON_PROPERTY_IS_REQUIRED,
@@ -49,6 +51,10 @@ public class CustomAttributeModel {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
   private UUID id;
+
+  public static final String JSON_PROPERTY_TARGETS = "targets";
+  @jakarta.annotation.Nonnull
+  private List<String> targets = new ArrayList<>();
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
   @jakarta.annotation.Nonnull
@@ -61,6 +67,10 @@ public class CustomAttributeModel {
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   @jakarta.annotation.Nonnull
   private Boolean isDeleted;
+
+  public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
+  @jakarta.annotation.Nonnull
+  private Boolean isSystem;
 
   public static final String JSON_PROPERTY_NAME = "name";
   @jakarta.annotation.Nonnull
@@ -106,6 +116,39 @@ public class CustomAttributeModel {
   }
 
 
+  public CustomAttributeModel targets(@jakarta.annotation.Nonnull List<String> targets) {
+    this.targets = targets;
+    return this;
+  }
+
+  public CustomAttributeModel addTargetsItem(String targetsItem) {
+    if (this.targets == null) {
+      this.targets = new ArrayList<>();
+    }
+    this.targets.add(targetsItem);
+    return this;
+  }
+
+  /**
+   * Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+   * @return targets
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getTargets() {
+    return targets;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTargets(@jakarta.annotation.Nonnull List<String> targets) {
+    this.targets = targets;
+  }
+
+
   public CustomAttributeModel options(@jakarta.annotation.Nonnull List<CustomAttributeOptionModel> options) {
     this.options = options;
     return this;
@@ -120,7 +163,7 @@ public class CustomAttributeModel {
   }
 
   /**
-   * Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
   @jakarta.annotation.Nonnull
@@ -186,6 +229,31 @@ public class CustomAttributeModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
+  }
+
+
+  public CustomAttributeModel isSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
+    return this;
+  }
+
+  /**
+   * Indicates if the attribute is system
+   * @return isSystem
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsSystem() {
+    return isSystem;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
   }
 
 
@@ -302,9 +370,11 @@ public class CustomAttributeModel {
     }
     CustomAttributeModel customAttributeModel = (CustomAttributeModel) o;
     return Objects.equals(this.id, customAttributeModel.id) &&
+        Objects.equals(this.targets, customAttributeModel.targets) &&
         Objects.equals(this.options, customAttributeModel.options) &&
         Objects.equals(this.type, customAttributeModel.type) &&
         Objects.equals(this.isDeleted, customAttributeModel.isDeleted) &&
+        Objects.equals(this.isSystem, customAttributeModel.isSystem) &&
         Objects.equals(this.name, customAttributeModel.name) &&
         Objects.equals(this.isEnabled, customAttributeModel.isEnabled) &&
         Objects.equals(this.isRequired, customAttributeModel.isRequired) &&
@@ -313,7 +383,7 @@ public class CustomAttributeModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, options, type, isDeleted, name, isEnabled, isRequired, isGlobal);
+    return Objects.hash(id, targets, options, type, isDeleted, isSystem, name, isEnabled, isRequired, isGlobal);
   }
 
   @Override
@@ -321,9 +391,11 @@ public class CustomAttributeModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomAttributeModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    isRequired: ").append(toIndentedString(isRequired)).append("\n");

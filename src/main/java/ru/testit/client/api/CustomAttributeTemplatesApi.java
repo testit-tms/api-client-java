@@ -105,7 +105,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<CustomAttributeTemplateValidationResult> localVarReturnType = new GenericType<CustomAttributeTemplateValidationResult>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesExistsGet", "/api/v2/customAttributes/templates/exists", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -113,7 +113,7 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Exclude CustomAttributes from CustomAttributeTemplate
-   *  Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte
+   *   Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System delete attributes from attributes tempalte
    * @param id Attribute template internal (UUID) identifier (required)
    * @param UUID  (optional)
    * @throws ApiException if fails to make API call
@@ -136,7 +136,7 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Exclude CustomAttributes from CustomAttributeTemplate
-   *  Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System delete attributes from attributes tempalte
+   *   Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System delete attributes from attributes tempalte
    * @param id Attribute template internal (UUID) identifier (required)
    * @param UUID  (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -166,14 +166,14 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Include CustomAttributes to CustomAttributeTemplate
-   *  Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte
+   *   Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System add attributes to attributes tempalte
    * @param id Attribute template internal (UUID) identifier (required)
    * @param UUID  (optional)
    * @throws ApiException if fails to make API call
@@ -196,7 +196,7 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Include CustomAttributes to CustomAttributeTemplate
-   *  Use case  User sets attribute template internal identifier  User sets attribute internal identifiers  User runs method execution  System add attributes to attributes tempalte
+   *   Use case    User sets attribute template internal identifier    User sets attribute internal identifiers    User runs method execution    System add attributes to attributes tempalte
    * @param id Attribute template internal (UUID) identifier (required)
    * @param UUID  (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -226,14 +226,14 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Delete CustomAttributeTemplate
-   *  Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response
+   *   Use case    User sets attribute template internal identifier    User runs method execution    System search and delete attribute template    System returns no content response
    * @param id Attribute template internal (UUID) identifier (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -255,7 +255,7 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Delete CustomAttributeTemplate
-   *  Use case  User sets attribute template internal identifier  User runs method execution  System search and delete attribute template  System returns no content response
+   *   Use case    User sets attribute template internal identifier    User runs method execution    System search and delete attribute template    System returns no content response
    * @param id Attribute template internal (UUID) identifier (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -284,14 +284,14 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Get CustomAttributeTemplate by ID
-   *  Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)
+   *   Use case    User sets attribute template internal identifier    User runs method execution    System return attribute template (listed in response example)
    * @param id CustomAttributeTemplate internal (UUID) identifier (required)
    * @return CustomAttributeTemplateModel
    * @throws ApiException if fails to make API call
@@ -314,7 +314,7 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Get CustomAttributeTemplate by ID
-   *  Use case  User sets attribute template internal identifier  User runs method execution  System return attribute template (listed in response example)
+   *   Use case    User sets attribute template internal identifier    User runs method execution    System return attribute template (listed in response example)
    * @param id CustomAttributeTemplate internal (UUID) identifier (required)
    * @return ApiResponse&lt;CustomAttributeTemplateModel&gt;
    * @throws ApiException if fails to make API call
@@ -343,7 +343,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<CustomAttributeTemplateModel> localVarReturnType = new GenericType<CustomAttributeTemplateModel>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesIdGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -351,7 +351,7 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Get CustomAttributeTemplate by name
-   *  Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)
+   *   Use case    User sets attribute template name    User runs method execution    System search and return list of attribute templates (listed in response example)
    * @param name CustomAttributeTemplate name for search (required)
    * @return CustomAttributeTemplateModel
    * @throws ApiException if fails to make API call
@@ -374,7 +374,7 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Get CustomAttributeTemplate by name
-   *  Use case  User sets attribute template name  User runs method execution  System search and return list of attribute templates (listed in response example)
+   *   Use case    User sets attribute template name    User runs method execution    System search and return list of attribute templates (listed in response example)
    * @param name CustomAttributeTemplate name for search (required)
    * @return ApiResponse&lt;CustomAttributeTemplateModel&gt;
    * @throws ApiException if fails to make API call
@@ -403,7 +403,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<CustomAttributeTemplateModel> localVarReturnType = new GenericType<CustomAttributeTemplateModel>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesNameGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -411,7 +411,7 @@ public class CustomAttributeTemplatesApi {
   }
   /**
    * Create CustomAttributeTemplate
-   *  Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)
+   *   Use case    User sets attribute template parameters (listed in request example)    User runs method execution    System creates attribute template    System returns attribute template model (example listed in response parameters)
    * @param customAttributeTemplatePostModel  (optional)
    * @return CustomAttributeTemplateModel
    * @throws ApiException if fails to make API call
@@ -434,7 +434,7 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Create CustomAttributeTemplate
-   *  Use case  User sets attribute template parameters (listed in request example)  User runs method execution  System creates attribute template  System returns attribute template model (example listed in response parameters)
+   *   Use case    User sets attribute template parameters (listed in request example)    User runs method execution    System creates attribute template    System returns attribute template model (example listed in response parameters)
    * @param customAttributeTemplatePostModel  (optional)
    * @return ApiResponse&lt;CustomAttributeTemplateModel&gt;
    * @throws ApiException if fails to make API call
@@ -454,7 +454,7 @@ public class CustomAttributeTemplatesApi {
   public ApiResponse<CustomAttributeTemplateModel> apiV2CustomAttributesTemplatesPostWithHttpInfo(CustomAttributeTemplatePostModel customAttributeTemplatePostModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<CustomAttributeTemplateModel> localVarReturnType = new GenericType<CustomAttributeTemplateModel>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesPost", "/api/v2/customAttributes/templates", "POST", new ArrayList<>(), customAttributeTemplatePostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -504,14 +504,14 @@ public class CustomAttributeTemplatesApi {
   public ApiResponse<Void> apiV2CustomAttributesTemplatesPutWithHttpInfo(CustomAttributeTemplatePutModel customAttributeTemplatePutModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesPut", "/api/v2/customAttributes/templates", "PUT", new ArrayList<>(), customAttributeTemplatePutModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Search CustomAttributeTemplates
-   *  Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)
+   *   Use case    User sets search params model (listed in request example)    User runs method execution    System return attribute templates (listed in response example)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -539,7 +539,7 @@ public class CustomAttributeTemplatesApi {
 
   /**
    * Search CustomAttributeTemplates
-   *  Use case  User sets search params model (listed in request example)  User runs method execution  System return attribute templates (listed in response example)
+   *   Use case    User sets search params model (listed in request example)    User runs method execution    System return attribute templates (listed in response example)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -573,7 +573,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<SearchCustomAttributeTemplateGetModel>> localVarReturnType = new GenericType<List<SearchCustomAttributeTemplateGetModel>>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesSearchPost", "/api/v2/customAttributes/templates/search", "POST", localVarQueryParams, customAttributeTemplateSearchQueryModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

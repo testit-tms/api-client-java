@@ -8,11 +8,11 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**url** | **String** | Address can be specified without protocol, but necessarily with the domain. |  |
+|**type** | **LinkType** | Specifies the type of the link. |  |
 |**hasInfo** | **Boolean** | Flag defines if link relates to integrated external service |  |
 |**id** | **UUID** | Link unique identifier |  [optional] |
 |**title** | **String** | Link name. |  [optional] |
 |**description** | **String** | Link description. |  [optional] |
-|**type** | **LinkType** | Specifies the type of the link. |  [optional] |
 
 
 

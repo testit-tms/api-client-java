@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CompositeFilter;
+import ru.testit.client.model.Group;
 import ru.testit.client.model.Order;
 import ru.testit.client.model.Page;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -40,6 +41,7 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   Inquiry.JSON_PROPERTY_ORDER,
+  Inquiry.JSON_PROPERTY_GROUP,
   Inquiry.JSON_PROPERTY_FILTER,
   Inquiry.JSON_PROPERTY_PAGE
 })
@@ -48,6 +50,9 @@ public class Inquiry {
   public static final String JSON_PROPERTY_ORDER = "order";
   @jakarta.annotation.Nonnull
   private List<Order> order = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_GROUP = "group";
+  private JsonNullable<Group> group = JsonNullable.<Group>undefined();
 
   public static final String JSON_PROPERTY_FILTER = "filter";
   private JsonNullable<CompositeFilter> filter = JsonNullable.<CompositeFilter>undefined();
@@ -88,6 +93,39 @@ public class Inquiry {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOrder(@jakarta.annotation.Nonnull List<Order> order) {
     this.order = order;
+  }
+
+
+  public Inquiry group(@jakarta.annotation.Nullable Group group) {
+    this.group = JsonNullable.<Group>of(group);
+    return this;
+  }
+
+  /**
+   * Get group
+   * @return group
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Group getGroup() {
+        return group.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Group> getGroup_JsonNullable() {
+    return group;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  public void setGroup_JsonNullable(JsonNullable<Group> group) {
+    this.group = group;
+  }
+
+  public void setGroup(@jakarta.annotation.Nullable Group group) {
+    this.group = JsonNullable.<Group>of(group);
   }
 
 
@@ -170,6 +208,7 @@ public class Inquiry {
     }
     Inquiry inquiry = (Inquiry) o;
     return Objects.equals(this.order, inquiry.order) &&
+        equalsNullable(this.group, inquiry.group) &&
         equalsNullable(this.filter, inquiry.filter) &&
         equalsNullable(this.page, inquiry.page);
   }
@@ -180,7 +219,7 @@ public class Inquiry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(order, hashCodeNullable(filter), hashCodeNullable(page));
+    return Objects.hash(order, hashCodeNullable(group), hashCodeNullable(filter), hashCodeNullable(page));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -195,6 +234,7 @@ public class Inquiry {
     StringBuilder sb = new StringBuilder();
     sb.append("class Inquiry {\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");

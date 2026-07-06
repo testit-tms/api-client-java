@@ -16,7 +16,7 @@
 |**id** | **UUID** | Unique ID of the autotest |  |
 |**createdDate** | **OffsetDateTime** | Creation date of the autotest |  |
 |**createdById** | **UUID** | Unique ID of the project creator |  |
-|**links** | [**List&lt;Link&gt;**](Link.md) | Collection of the autotest links |  [optional] |
+|**links** | [**List&lt;LinkApiResult&gt;**](LinkApiResult.md) | Collection of the autotest links |  [optional] |
 |**namespace** | **String** | Name of the autotest namespace |  [optional] |
 |**classname** | **String** | Name of the autotest class |  [optional] |
 |**steps** | [**List&lt;AutoTestStep&gt;**](AutoTestStep.md) | Collection of the autotest steps |  [optional] |

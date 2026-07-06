@@ -263,7 +263,7 @@ public class TestRunV2ApiResult {
   }
 
   /**
-   * Project unique identifier              This property is used to link test run with project.
+   * Project unique identifier                This property is used to link test run with project.
    * @return projectId
    */
   @jakarta.annotation.Nonnull
@@ -528,7 +528,7 @@ public class TestRunV2ApiResult {
   }
 
   /**
-   * Test run launch source              Once launch source is specified it cannot be updated.
+   * Test run launch source                Once launch source is specified it cannot be updated.
    * @return launchSource
    */
   @jakarta.annotation.Nullable
@@ -627,7 +627,7 @@ public class TestRunV2ApiResult {
   }
 
   /**
-   * Test plan unique identifier              This property is used to link test run with test plan.
+   * Test plan unique identifier                This property is used to link test run with test plan.
    * @return testPlanId
    */
   @jakarta.annotation.Nullable

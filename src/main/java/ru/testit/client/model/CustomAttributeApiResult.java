@@ -42,7 +42,9 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeApiResult.JSON_PROPERTY_NAME,
   CustomAttributeApiResult.JSON_PROPERTY_IS_ENABLED,
   CustomAttributeApiResult.JSON_PROPERTY_IS_REQUIRED,
-  CustomAttributeApiResult.JSON_PROPERTY_IS_GLOBAL
+  CustomAttributeApiResult.JSON_PROPERTY_IS_GLOBAL,
+  CustomAttributeApiResult.JSON_PROPERTY_IS_SYSTEM,
+  CustomAttributeApiResult.JSON_PROPERTY_TARGETS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeApiResult {
@@ -77,6 +79,14 @@ public class CustomAttributeApiResult {
   public static final String JSON_PROPERTY_IS_GLOBAL = "isGlobal";
   @jakarta.annotation.Nonnull
   private Boolean isGlobal;
+
+  public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
+  @jakarta.annotation.Nonnull
+  private Boolean isSystem;
+
+  public static final String JSON_PROPERTY_TARGETS = "targets";
+  @jakarta.annotation.Nonnull
+  private List<String> targets = new ArrayList<>();
 
   public CustomAttributeApiResult() { 
   }
@@ -120,7 +130,7 @@ public class CustomAttributeApiResult {
   }
 
   /**
-   * Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
+   * Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
    * @return options
    */
   @jakarta.annotation.Nonnull
@@ -289,6 +299,64 @@ public class CustomAttributeApiResult {
   }
 
 
+  public CustomAttributeApiResult isSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
+    return this;
+  }
+
+  /**
+   * Indicates if the attribute is system
+   * @return isSystem
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsSystem() {
+    return isSystem;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
+  }
+
+
+  public CustomAttributeApiResult targets(@jakarta.annotation.Nonnull List<String> targets) {
+    this.targets = targets;
+    return this;
+  }
+
+  public CustomAttributeApiResult addTargetsItem(String targetsItem) {
+    if (this.targets == null) {
+      this.targets = new ArrayList<>();
+    }
+    this.targets.add(targetsItem);
+    return this;
+  }
+
+  /**
+   * Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+   * @return targets
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getTargets() {
+    return targets;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTargets(@jakarta.annotation.Nonnull List<String> targets) {
+    this.targets = targets;
+  }
+
+
   /**
    * Return true if this CustomAttributeApiResult object is equal to o.
    */
@@ -308,12 +376,14 @@ public class CustomAttributeApiResult {
         Objects.equals(this.name, customAttributeApiResult.name) &&
         Objects.equals(this.isEnabled, customAttributeApiResult.isEnabled) &&
         Objects.equals(this.isRequired, customAttributeApiResult.isRequired) &&
-        Objects.equals(this.isGlobal, customAttributeApiResult.isGlobal);
+        Objects.equals(this.isGlobal, customAttributeApiResult.isGlobal) &&
+        Objects.equals(this.isSystem, customAttributeApiResult.isSystem) &&
+        Objects.equals(this.targets, customAttributeApiResult.targets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, options, type, isDeleted, name, isEnabled, isRequired, isGlobal);
+    return Objects.hash(id, options, type, isDeleted, name, isEnabled, isRequired, isGlobal, isSystem, targets);
   }
 
   @Override
@@ -328,6 +398,8 @@ public class CustomAttributeApiResult {
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    isRequired: ").append(toIndentedString(isRequired)).append("\n");
     sb.append("    isGlobal: ").append(toIndentedString(isGlobal)).append("\n");
+    sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

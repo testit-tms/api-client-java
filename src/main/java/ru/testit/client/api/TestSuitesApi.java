@@ -115,7 +115,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TestSuitesApi.addTestPointsToTestSuite", localVarPath, "POST", new ArrayList<>(), workItemSelectModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -175,7 +175,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TestSuitesApi.apiV2TestSuitesIdPatch", localVarPath, "PATCH", new ArrayList<>(), operation,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -233,7 +233,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TestSuitesApi.apiV2TestSuitesIdRefreshPost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -293,7 +293,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TestSuitesApi.apiV2TestSuitesIdWorkItemsPost", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -343,7 +343,7 @@ public class TestSuitesApi {
   public ApiResponse<TestSuiteV2GetModel> apiV2TestSuitesPostWithHttpInfo(TestSuiteV2PostModel testSuiteV2PostModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<TestSuiteV2GetModel> localVarReturnType = new GenericType<TestSuiteV2GetModel>() {};
     return apiClient.invokeAPI("TestSuitesApi.apiV2TestSuitesPost", "/api/v2/testSuites", "POST", new ArrayList<>(), testSuiteV2PostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -393,14 +393,14 @@ public class TestSuitesApi {
   public ApiResponse<Void> apiV2TestSuitesPutWithHttpInfo(TestSuiteV2PutModel testSuiteV2PutModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TestSuitesApi.apiV2TestSuitesPut", "/api/v2/testSuites", "PUT", new ArrayList<>(), testSuiteV2PutModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Delete TestSuite
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System deletes test suite    System returns no content response
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -411,7 +411,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -422,7 +422,7 @@ public class TestSuitesApi {
 
   /**
    * Delete TestSuite
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System deletes test suite  System returns no content response
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System deletes test suite    System returns no content response
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -434,7 +434,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Delete permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -451,14 +451,14 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TestSuitesApi.deleteTestSuite", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
    * Get Configurations By Id
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configurations related to the test points    System returns configurations array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return List&lt;ConfigurationModel&gt;
    * @throws ApiException if fails to make API call
@@ -470,7 +470,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -481,7 +481,7 @@ public class TestSuitesApi {
 
   /**
    * Get Configurations By Id
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configurations related to the test points  System returns configurations array
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configurations related to the test points    System returns configurations array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;List&lt;ConfigurationModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -493,7 +493,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -510,7 +510,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<ConfigurationModel>> localVarReturnType = new GenericType<List<ConfigurationModel>>() {};
     return apiClient.invokeAPI("TestSuitesApi.getConfigurationsByTestSuiteId", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -518,7 +518,7 @@ public class TestSuitesApi {
   }
   /**
    * Get TestPoints By Id
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System returns test points array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return List&lt;TestPointByTestSuiteModel&gt;
    * @throws ApiException if fails to make API call
@@ -530,7 +530,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -541,7 +541,7 @@ public class TestSuitesApi {
 
   /**
    * Get TestPoints By Id
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System returns test points array
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System returns test points array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;List&lt;TestPointByTestSuiteModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -553,7 +553,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -570,7 +570,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<TestPointByTestSuiteModel>> localVarReturnType = new GenericType<List<TestPointByTestSuiteModel>>() {};
     return apiClient.invokeAPI("TestSuitesApi.getTestPointsById", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -578,7 +578,7 @@ public class TestSuitesApi {
   }
   /**
    * Get TestResults By Id
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search test results related to the test points    System returns test results array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return List&lt;TestResultV2ShortModel&gt;
    * @throws ApiException if fails to make API call
@@ -590,7 +590,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -601,7 +601,7 @@ public class TestSuitesApi {
 
   /**
    * Get TestResults By Id
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search test results related to the test points  System returns test results array
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search test results related to the test points    System returns test results array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;List&lt;TestResultV2ShortModel&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -613,7 +613,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -630,7 +630,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<TestResultV2ShortModel>> localVarReturnType = new GenericType<List<TestResultV2ShortModel>>() {};
     return apiClient.invokeAPI("TestSuitesApi.getTestResultsById", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -638,7 +638,7 @@ public class TestSuitesApi {
   }
   /**
    * Get TestSuite by Id
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System returns test suite
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return TestSuiteApiResult
    * @throws ApiException if fails to make API call
@@ -650,7 +650,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -661,7 +661,7 @@ public class TestSuitesApi {
 
   /**
    * Get TestSuite by Id
-   *  Use case  User sets test suite identifier  User runs method execution  System search test suite by identifier  System returns test suite
+   *   Use case    User sets test suite identifier    User runs method execution    System search test suite by identifier    System returns test suite
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @return ApiResponse&lt;TestSuiteApiResult&gt;
    * @throws ApiException if fails to make API call
@@ -673,7 +673,7 @@ public class TestSuitesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Read permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id! </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -690,7 +690,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<TestSuiteApiResult> localVarReturnType = new GenericType<TestSuiteApiResult>() {};
     return apiClient.invokeAPI("TestSuitesApi.getTestSuiteById", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -698,7 +698,7 @@ public class TestSuitesApi {
   }
   /**
    * Search WorkItems
-   *  Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
+   *   Use case    User sets test suite identifier    [Optional] User sets filter    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search work items related to the test points    [Optional] User sets filter, system applies filter    System returns work items array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -729,7 +729,7 @@ public class TestSuitesApi {
 
   /**
    * Search WorkItems
-   *  Use case  User sets test suite identifier  [Optional] User sets filter  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search work items related to the test points  [Optional] User sets filter, system applies filter  System returns work items array
+   *   Use case    User sets test suite identifier    [Optional] User sets filter    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search work items related to the test points    [Optional] User sets filter, system applies filter    System returns work items array
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @param skip Amount of items to be skipped (offset) (optional)
    * @param take Amount of items to be taken (limit) (optional)
@@ -775,7 +775,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WorkItemShortModel>> localVarReturnType = new GenericType<List<WorkItemShortModel>>() {};
     return apiClient.invokeAPI("TestSuitesApi.searchWorkItems", localVarPath, "POST", localVarQueryParams, testSuiteWorkItemsSearchModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -783,7 +783,7 @@ public class TestSuitesApi {
   }
   /**
    * Set Configurations By TestSuite Id
-   *  Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
+   *   Use case    User sets test suite identifier    User sets collection of configuration identifiers    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configuration    System restores(if exist) or creates test points with listed configuration    System returns no content response
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @param UUID Collection of configuration identifiers\&quot; (optional)
    * @throws ApiException if fails to make API call
@@ -792,10 +792,10 @@ public class TestSuitesApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -806,7 +806,7 @@ public class TestSuitesApi {
 
   /**
    * Set Configurations By TestSuite Id
-   *  Use case  User sets test suite identifier  User sets collection of configuration identifiers  User runs method execution  System search test suite by identifier  System search test points related to the test suite  System search configuration  System restores(if exist) or creates test points with listed configuration  System returns no content response
+   *   Use case    User sets test suite identifier    User sets collection of configuration identifiers    User runs method execution    System search test suite by identifier    System search test points related to the test suite    System search configuration    System restores(if exist) or creates test points with listed configuration    System returns no content response
    * @param id Test suite internal (guid format) identifier\&quot; (required)
    * @param UUID Collection of configuration identifiers\&quot; (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -816,10 +816,10 @@ public class TestSuitesApi {
        <caption>Response Details</caption>
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 204 </td><td> Successful operation </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td>  Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td>   Some of Configurations do not exist in the project, or they are not active </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Update permission for test plan required </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td>  Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td>   Can&#39;t find a TestSuite with id </td><td>  -  </td></tr>
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
@@ -836,7 +836,7 @@ public class TestSuitesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("TestSuitesApi.setConfigurationsByTestSuiteId", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

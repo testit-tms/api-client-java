@@ -102,7 +102,7 @@ public class WebhooksApi {
   public ApiResponse<Void> apiV2WebhooksDeleteWithHttpInfo(WebhooksDeleteApiModel webhooksDeleteApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksDelete", "/api/v2/webhooks", "DELETE", new ArrayList<>(), webhooksDeleteApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -157,7 +157,7 @@ public class WebhooksApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WebHookModel>> localVarReturnType = new GenericType<List<WebHookModel>>() {};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksGet", "/api/v2/webhooks", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -216,7 +216,7 @@ public class WebhooksApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -275,7 +275,7 @@ public class WebhooksApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WebHookModel> localVarReturnType = new GenericType<WebHookModel>() {};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksIdGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -337,7 +337,7 @@ public class WebhooksApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WebHookModel> localVarReturnType = new GenericType<WebHookModel>() {};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksIdPut", localVarPath, "PUT", new ArrayList<>(), webHookPostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -388,7 +388,7 @@ public class WebhooksApi {
   public ApiResponse<WebHookModel> apiV2WebhooksPostWithHttpInfo(WebHookPostModel webHookPostModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WebHookModel> localVarReturnType = new GenericType<WebHookModel>() {};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksPost", "/api/v2/webhooks", "POST", new ArrayList<>(), webHookPostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -439,7 +439,7 @@ public class WebhooksApi {
   public ApiResponse<WebhooksUpdateApiResult> apiV2WebhooksPutWithHttpInfo(WebhooksUpdateApiModel webhooksUpdateApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WebhooksUpdateApiResult> localVarReturnType = new GenericType<WebhooksUpdateApiResult>() {};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksPut", "/api/v2/webhooks", "PUT", new ArrayList<>(), webhooksUpdateApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -509,7 +509,7 @@ public class WebhooksApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<WebHookModel>> localVarReturnType = new GenericType<List<WebHookModel>>() {};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksSearchPost", "/api/v2/webhooks/search", "POST", localVarQueryParams, searchWebhooksQueryModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -568,7 +568,7 @@ public class WebhooksApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksSpecialVariablesGet", "/api/v2/webhooks/specialVariables", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -619,7 +619,7 @@ public class WebhooksApi {
   public ApiResponse<WebhookResponse> apiV2WebhooksTestPostWithHttpInfo(WebHookTestModel webHookTestModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<WebhookResponse> localVarReturnType = new GenericType<WebhookResponse>() {};
     return apiClient.invokeAPI("WebhooksApi.apiV2WebhooksTestPost", "/api/v2/webhooks/test", "POST", new ArrayList<>(), webHookTestModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

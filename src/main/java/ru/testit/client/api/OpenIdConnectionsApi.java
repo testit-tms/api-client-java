@@ -91,7 +91,7 @@ public class OpenIdConnectionsApi {
   public ApiResponse<List<OpenIdConnectionClientShortModel>> apiV2OpenidConnectionsGetWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Cookies"};
     GenericType<List<OpenIdConnectionClientShortModel>> localVarReturnType = new GenericType<List<OpenIdConnectionClientShortModel>>() {};
     return apiClient.invokeAPI("OpenIdConnectionsApi.apiV2OpenidConnectionsGet", "/api/v2/openid-connections", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
