@@ -83,7 +83,7 @@ import ru.testit.client.invoker.auth.ApiKeyAuth;
 /**
  * <p>ApiClient class.</p>
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
@@ -142,18 +142,26 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/2.2.1/java");
+    setUserAgent("OpenAPI-Generator/2.5.0-TMS-5.8/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<>();
     Authentication auth = null;
     if (authMap != null) {
-      auth = authMap.get("Bearer or PrivateToken");
+      auth = authMap.get("PrivateToken");
     }
     if (auth instanceof ApiKeyAuth) {
-      authentications.put("Bearer or PrivateToken", auth);
+      authentications.put("PrivateToken", auth);
     } else {
-      authentications.put("Bearer or PrivateToken", new ApiKeyAuth("header", "Authorization"));
+      authentications.put("PrivateToken", new ApiKeyAuth("header", "Authorization"));
+    }
+    if (authMap != null) {
+      auth = authMap.get("Cookies");
+    }
+    if (auth instanceof ApiKeyAuth) {
+      authentications.put("Cookies", auth);
+    } else {
+      authentications.put("Cookies", new ApiKeyAuth("query", "session"));
     }
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
@@ -779,8 +787,8 @@ public class ApiClient extends JavaTimeFormatter {
     if (contentType.startsWith("multipart/form-data")) {
       MultiPart multiPart = new MultiPart();
       for (Entry<String, Object> param: formParams.entrySet()) {
-        if (param.getValue() instanceof Iterable) {
-          ((Iterable)param.getValue()).forEach(v -> addParamToMultipart(v, param.getKey(), multiPart));
+        if (param.getValue() instanceof Iterable<?>) {
+          ((Iterable<?>)param.getValue()).forEach(v -> addParamToMultipart(v, param.getKey(), multiPart));
         } else {
           addParamToMultipart(param.getValue(), param.getKey(), multiPart);
         }
