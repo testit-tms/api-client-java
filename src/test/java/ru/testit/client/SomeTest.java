@@ -6,7 +6,7 @@ import ru.testit.client.api.ProjectsApi;
 import ru.testit.client.invoker.ApiClient;
 import ru.testit.client.invoker.ApiException;
 import ru.testit.client.model.CustomAttributeModel;
-import ru.testit.client.model.ProjectModel;
+import ru.testit.client.model.DetailedProjectApiResult;
 
 import java.util.List;
 
