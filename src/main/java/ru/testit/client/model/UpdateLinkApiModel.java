@@ -37,17 +37,21 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   UpdateLinkApiModel.JSON_PROPERTY_URL,
+  UpdateLinkApiModel.JSON_PROPERTY_TYPE,
   UpdateLinkApiModel.JSON_PROPERTY_HAS_INFO,
   UpdateLinkApiModel.JSON_PROPERTY_ID,
   UpdateLinkApiModel.JSON_PROPERTY_TITLE,
-  UpdateLinkApiModel.JSON_PROPERTY_DESCRIPTION,
-  UpdateLinkApiModel.JSON_PROPERTY_TYPE
+  UpdateLinkApiModel.JSON_PROPERTY_DESCRIPTION
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class UpdateLinkApiModel {
   public static final String JSON_PROPERTY_URL = "url";
   @jakarta.annotation.Nonnull
   private String url;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
+  private LinkType type;
 
   public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
   @jakarta.annotation.Nonnull
@@ -61,9 +65,6 @@ public class UpdateLinkApiModel {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<LinkType> type = JsonNullable.<LinkType>undefined();
 
   public UpdateLinkApiModel() { 
   }
@@ -90,6 +91,31 @@ public class UpdateLinkApiModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
+  }
+
+
+  public UpdateLinkApiModel type(@jakarta.annotation.Nonnull LinkType type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Specifies the type of the link.
+   * @return type
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LinkType getType() {
+    return type;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(@jakarta.annotation.Nonnull LinkType type) {
+    this.type = type;
   }
 
 
@@ -217,39 +243,6 @@ public class UpdateLinkApiModel {
   }
 
 
-  public UpdateLinkApiModel type(@jakarta.annotation.Nullable LinkType type) {
-    this.type = JsonNullable.<LinkType>of(type);
-    return this;
-  }
-
-  /**
-   * Specifies the type of the link.
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public LinkType getType() {
-        return type.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<LinkType> getType_JsonNullable() {
-    return type;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<LinkType> type) {
-    this.type = type;
-  }
-
-  public void setType(@jakarta.annotation.Nullable LinkType type) {
-    this.type = JsonNullable.<LinkType>of(type);
-  }
-
-
   /**
    * Return true if this UpdateLinkApiModel object is equal to o.
    */
@@ -263,11 +256,11 @@ public class UpdateLinkApiModel {
     }
     UpdateLinkApiModel updateLinkApiModel = (UpdateLinkApiModel) o;
     return Objects.equals(this.url, updateLinkApiModel.url) &&
+        Objects.equals(this.type, updateLinkApiModel.type) &&
         Objects.equals(this.hasInfo, updateLinkApiModel.hasInfo) &&
         equalsNullable(this.id, updateLinkApiModel.id) &&
         equalsNullable(this.title, updateLinkApiModel.title) &&
-        equalsNullable(this.description, updateLinkApiModel.description) &&
-        equalsNullable(this.type, updateLinkApiModel.type);
+        equalsNullable(this.description, updateLinkApiModel.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -276,7 +269,7 @@ public class UpdateLinkApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, hasInfo, hashCodeNullable(id), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(type));
+    return Objects.hash(url, type, hasInfo, hashCodeNullable(id), hashCodeNullable(title), hashCodeNullable(description));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -291,11 +284,11 @@ public class UpdateLinkApiModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateLinkApiModel {\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    hasInfo: ").append(toIndentedString(hasInfo)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

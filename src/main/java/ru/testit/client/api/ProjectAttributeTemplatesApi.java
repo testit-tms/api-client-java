@@ -125,7 +125,7 @@ public class ProjectAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<ProjectCustomAttributeTemplateGetModel>> localVarReturnType = new GenericType<List<ProjectCustomAttributeTemplateGetModel>>() {};
     return apiClient.invokeAPI("ProjectAttributeTemplatesApi.apiV2ProjectsProjectIdAttributesTemplatesSearchPost", localVarPath, "POST", localVarQueryParams, projectCustomAttributesTemplatesFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -190,7 +190,7 @@ public class ProjectAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectAttributeTemplatesApi.apiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -254,7 +254,7 @@ public class ProjectAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectAttributeTemplatesApi.apiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

@@ -101,7 +101,7 @@ public class ConfigurationsApi {
   public ApiResponse<List<UUID>> apiV2ConfigurationsCreateByParametersPostWithHttpInfo(ConfigurationByParametersModel configurationByParametersModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<UUID>> localVarReturnType = new GenericType<List<UUID>>() {};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsCreateByParametersPost", "/api/v2/configurations/createByParameters", "POST", new ArrayList<>(), configurationByParametersModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -152,7 +152,7 @@ public class ConfigurationsApi {
   public ApiResponse<Integer> apiV2ConfigurationsDeleteBulkPostWithHttpInfo(ConfigurationSelectApiModel configurationSelectApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsDeleteBulkPost", "/api/v2/configurations/delete/bulk", "POST", new ArrayList<>(), configurationSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -211,7 +211,7 @@ public class ConfigurationsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -271,7 +271,7 @@ public class ConfigurationsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsIdPatch", localVarPath, "PATCH", new ArrayList<>(), operation,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -329,7 +329,7 @@ public class ConfigurationsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsIdPurgePost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -387,7 +387,7 @@ public class ConfigurationsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsIdRestorePost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -437,7 +437,7 @@ public class ConfigurationsApi {
   public ApiResponse<Integer> apiV2ConfigurationsPurgeBulkPostWithHttpInfo(ConfigurationSelectModel configurationSelectModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsPurgeBulkPost", "/api/v2/configurations/purge/bulk", "POST", new ArrayList<>(), configurationSelectModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -487,7 +487,7 @@ public class ConfigurationsApi {
   public ApiResponse<Void> apiV2ConfigurationsPutWithHttpInfo(ConfigurationPutModel configurationPutModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsPut", "/api/v2/configurations", "PUT", new ArrayList<>(), configurationPutModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -537,7 +537,7 @@ public class ConfigurationsApi {
   public ApiResponse<Integer> apiV2ConfigurationsRestoreBulkPostWithHttpInfo(ConfigurationSelectModel configurationSelectModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsRestoreBulkPost", "/api/v2/configurations/restore/bulk", "POST", new ArrayList<>(), configurationSelectModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -607,7 +607,7 @@ public class ConfigurationsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<ConfigurationModel>> localVarReturnType = new GenericType<List<ConfigurationModel>>() {};
     return apiClient.invokeAPI("ConfigurationsApi.apiV2ConfigurationsSearchPost", "/api/v2/configurations/search", "POST", localVarQueryParams, configurationFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -658,7 +658,7 @@ public class ConfigurationsApi {
   public ApiResponse<ConfigurationModel> createConfigurationWithHttpInfo(ConfigurationPostModel configurationPostModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<ConfigurationModel> localVarReturnType = new GenericType<ConfigurationModel>() {};
     return apiClient.invokeAPI("ConfigurationsApi.createConfiguration", "/api/v2/configurations", "POST", new ArrayList<>(), configurationPostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -718,7 +718,7 @@ public class ConfigurationsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<ConfigurationModel> localVarReturnType = new GenericType<ConfigurationModel>() {};
     return apiClient.invokeAPI("ConfigurationsApi.getConfigurationById", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

@@ -34,6 +34,7 @@
 |**lastTestResultOutcome** | **String** |  |  [optional] |
 |**lastTestResultStatus** | [**TestStatusApiResult**](TestStatusApiResult.md) |  |  [optional] |
 |**stabilityPercentage** | **Long** |  |  [optional] |
+|**layer** | [**LayerApiResult**](LayerApiResult.md) | Model of auto test layer for use in responses. |  [optional] |
 |**links** | [**List&lt;LinkApiResult&gt;**](LinkApiResult.md) |  |  [optional] |
 |**labels** | [**List&lt;LabelApiResult&gt;**](LabelApiResult.md) |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |

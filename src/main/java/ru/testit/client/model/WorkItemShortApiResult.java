@@ -31,6 +31,7 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.IterationApiResult;
 import ru.testit.client.model.LinkShortApiResult;
+import ru.testit.client.model.WorkItemLayerApiResult;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
@@ -68,7 +69,8 @@ import ru.testit.client.invoker.JSON;
   WorkItemShortApiResult.JSON_PROPERTY_MODIFIED_BY_ID,
   WorkItemShortApiResult.JSON_PROPERTY_CREATED_DATE,
   WorkItemShortApiResult.JSON_PROPERTY_MODIFIED_DATE,
-  WorkItemShortApiResult.JSON_PROPERTY_TAG_NAMES
+  WorkItemShortApiResult.JSON_PROPERTY_TAG_NAMES,
+  WorkItemShortApiResult.JSON_PROPERTY_LAYER
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemShortApiResult {
@@ -161,6 +163,9 @@ public class WorkItemShortApiResult {
 
   public static final String JSON_PROPERTY_TAG_NAMES = "tagNames";
   private JsonNullable<List<String>> tagNames = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_LAYER = "layer";
+  private JsonNullable<WorkItemLayerApiResult> layer = JsonNullable.<WorkItemLayerApiResult>undefined();
 
   public WorkItemShortApiResult() { 
   }
@@ -853,6 +858,39 @@ public class WorkItemShortApiResult {
   }
 
 
+  public WorkItemShortApiResult layer(@jakarta.annotation.Nullable WorkItemLayerApiResult layer) {
+    this.layer = JsonNullable.<WorkItemLayerApiResult>of(layer);
+    return this;
+  }
+
+  /**
+   * Test pyramid layer of Work Item
+   * @return layer
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public WorkItemLayerApiResult getLayer() {
+        return layer.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAYER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<WorkItemLayerApiResult> getLayer_JsonNullable() {
+    return layer;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAYER)
+  public void setLayer_JsonNullable(JsonNullable<WorkItemLayerApiResult> layer) {
+    this.layer = layer;
+  }
+
+  public void setLayer(@jakarta.annotation.Nullable WorkItemLayerApiResult layer) {
+    this.layer = JsonNullable.<WorkItemLayerApiResult>of(layer);
+  }
+
+
   /**
    * Return true if this WorkItemShortApiResult object is equal to o.
    */
@@ -888,7 +926,8 @@ public class WorkItemShortApiResult {
         equalsNullable(this.modifiedById, workItemShortApiResult.modifiedById) &&
         equalsNullable(this.createdDate, workItemShortApiResult.createdDate) &&
         equalsNullable(this.modifiedDate, workItemShortApiResult.modifiedDate) &&
-        equalsNullable(this.tagNames, workItemShortApiResult.tagNames);
+        equalsNullable(this.tagNames, workItemShortApiResult.tagNames) &&
+        equalsNullable(this.layer, workItemShortApiResult.layer);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -897,7 +936,7 @@ public class WorkItemShortApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, versionId, versionNumber, name, entityTypeName, projectId, sectionId, sectionName, isAutomated, globalId, duration, createdById, state, priority, sourceType, isDeleted, iterations, links, hashCodeNullable(medianDuration), hashCodeNullable(attributes), hashCodeNullable(modifiedById), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(tagNames));
+    return Objects.hash(id, versionId, versionNumber, name, entityTypeName, projectId, sectionId, sectionName, isAutomated, globalId, duration, createdById, state, priority, sourceType, isDeleted, iterations, links, hashCodeNullable(medianDuration), hashCodeNullable(attributes), hashCodeNullable(modifiedById), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(tagNames), hashCodeNullable(layer));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -935,6 +974,7 @@ public class WorkItemShortApiResult {
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
+    sb.append("    layer: ").append(toIndentedString(layer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

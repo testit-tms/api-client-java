@@ -45,11 +45,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         ProjectTestPlanAttributesApi apiInstance = new ProjectTestPlanAttributesApi(defaultClient);
         String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
@@ -81,7 +87,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -134,11 +140,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         ProjectTestPlanAttributesApi apiInstance = new ProjectTestPlanAttributesApi(defaultClient);
         String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
@@ -170,7 +182,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -218,11 +230,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         ProjectTestPlanAttributesApi apiInstance = new ProjectTestPlanAttributesApi(defaultClient);
         String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
@@ -253,7 +271,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -274,7 +292,7 @@ public class Example {
 
 ## searchTestPlanAttributesInProject
 
-> List&lt;CustomAttributeGetModel&gt; searchTestPlanAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel)
+> List&lt;CustomAttributeModel&gt; searchTestPlanAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel)
 
 Search for attributes used in the project test plans
 
@@ -294,11 +312,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         ProjectTestPlanAttributesApi apiInstance = new ProjectTestPlanAttributesApi(defaultClient);
         String projectId = "projectId_example"; // String | Unique or global project ID
@@ -309,7 +333,7 @@ public class Example {
         String searchValue = "searchValue_example"; // String | Value for searching
         ProjectAttributesFilterModel projectAttributesFilterModel = new ProjectAttributesFilterModel(); // ProjectAttributesFilterModel | 
         try {
-            List<CustomAttributeGetModel> result = apiInstance.searchTestPlanAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
+            List<CustomAttributeModel> result = apiInstance.searchTestPlanAttributesInProject(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProjectTestPlanAttributesApi#searchTestPlanAttributesInProject");
@@ -337,11 +361,11 @@ public class Example {
 
 ### Return type
 
-[**List&lt;CustomAttributeGetModel&gt;**](CustomAttributeGetModel.md)
+[**List&lt;CustomAttributeModel&gt;**](CustomAttributeModel.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -393,11 +417,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         ProjectTestPlanAttributesApi apiInstance = new ProjectTestPlanAttributesApi(defaultClient);
         String projectId = "projectId_example"; // String | Project internal (UUID) or global (integer) identifier
@@ -429,7 +459,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 

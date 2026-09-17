@@ -104,7 +104,7 @@ public class ParametersApi {
   public ApiResponse<List<ParameterApiResult>> apiV2ParametersBulkPostWithHttpInfo(List<CreateParameterApiModel> createParameterApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<ParameterApiResult>> localVarReturnType = new GenericType<List<ParameterApiResult>>() {};
     return apiClient.invokeAPI("ParametersApi.apiV2ParametersBulkPost", "/api/v2/parameters/bulk", "POST", new ArrayList<>(), createParameterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -158,7 +158,7 @@ public class ParametersApi {
   public ApiResponse<Void> apiV2ParametersBulkPutWithHttpInfo(List<UpdateParameterApiModel> updateParameterApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ParametersApi.apiV2ParametersBulkPut", "/api/v2/parameters/bulk", "PUT", new ArrayList<>(), updateParameterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -241,7 +241,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<ParameterGroupApiResult>> localVarReturnType = new GenericType<List<ParameterGroupApiResult>>() {};
     return apiClient.invokeAPI("ParametersApi.apiV2ParametersGroupsGet", "/api/v2/parameters/groups", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -305,7 +305,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Boolean> localVarReturnType = new GenericType<Boolean>() {};
     return apiClient.invokeAPI("ParametersApi.apiV2ParametersKeyNameNameExistsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -369,7 +369,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
     return apiClient.invokeAPI("ParametersApi.apiV2ParametersKeyValuesGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -444,7 +444,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
     return apiClient.invokeAPI("ParametersApi.apiV2ParametersKeysGet", "/api/v2/parameters/keys", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -518,7 +518,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<ParameterGroupApiResult>> localVarReturnType = new GenericType<List<ParameterGroupApiResult>>() {};
     return apiClient.invokeAPI("ParametersApi.apiV2ParametersSearchGroupsPost", "/api/v2/parameters/search/groups", "POST", localVarQueryParams, parameterGroupsFilterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -592,7 +592,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<ParameterApiResult>> localVarReturnType = new GenericType<List<ParameterApiResult>>() {};
     return apiClient.invokeAPI("ParametersApi.apiV2ParametersSearchPost", "/api/v2/parameters/search", "POST", localVarQueryParams, parametersFilterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -647,7 +647,7 @@ public class ParametersApi {
   public ApiResponse<ParameterApiResult> createParameterWithHttpInfo(CreateParameterApiModel createParameterApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<ParameterApiResult> localVarReturnType = new GenericType<ParameterApiResult>() {};
     return apiClient.invokeAPI("ParametersApi.createParameter", "/api/v2/parameters", "POST", new ArrayList<>(), createParameterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -710,7 +710,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ParametersApi.deleteByName", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -772,7 +772,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ParametersApi.deleteByParameterKeyId", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -834,7 +834,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ParametersApi.deleteParameter", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -908,7 +908,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<ParameterApiResult>> localVarReturnType = new GenericType<List<ParameterApiResult>>() {};
     return apiClient.invokeAPI("ParametersApi.getAllParameters", "/api/v2/parameters", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -972,7 +972,7 @@ public class ParametersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<ParameterApiResult> localVarReturnType = new GenericType<ParameterApiResult>() {};
     return apiClient.invokeAPI("ParametersApi.getParameterById", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1026,7 +1026,7 @@ public class ParametersApi {
   public ApiResponse<Void> updateParameterWithHttpInfo(UpdateParameterApiModel updateParameterApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ParametersApi.updateParameter", "/api/v2/parameters", "PUT", new ArrayList<>(), updateParameterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

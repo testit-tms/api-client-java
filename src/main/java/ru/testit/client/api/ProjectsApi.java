@@ -12,6 +12,7 @@ import ru.testit.client.model.AutoTestNamespaceApiResult;
 import ru.testit.client.model.CreateProjectApiModel;
 import ru.testit.client.model.CustomAttributeTestPlanProjectRelationPutModel;
 import ru.testit.client.model.DemoProjectApiResult;
+import ru.testit.client.model.DetailedProjectApiResult;
 import ru.testit.client.model.FailureCategoryApiResult;
 import ru.testit.client.model.FilterModel;
 import ru.testit.client.model.GetShortProjectsApiModel;
@@ -19,10 +20,8 @@ import java.time.OffsetDateTime;
 import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.ProjectApiResult;
-import ru.testit.client.model.ProjectModel;
 import ru.testit.client.model.ProjectSelectModel;
-import ru.testit.client.model.ProjectShortApiResultReply;
-import ru.testit.client.model.ProjectShortModel;
+import ru.testit.client.model.ProjectShortApiResultIReply;
 import ru.testit.client.model.ProjectsFilterModel;
 import java.util.Set;
 import ru.testit.client.model.TestPlanModel;
@@ -123,7 +122,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.addGlobalAttributesToProject", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -171,7 +170,7 @@ public class ProjectsApi {
   public ApiResponse<DemoProjectApiResult> apiV2ProjectsDemoPostWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<DemoProjectApiResult> localVarReturnType = new GenericType<DemoProjectApiResult>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsDemoPost", "/api/v2/projects/demo", "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -230,7 +229,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -300,7 +299,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<FailureCategoryApiResult>> localVarReturnType = new GenericType<List<FailureCategoryApiResult>>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdFailureClassesGet", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -359,7 +358,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdFavoritePut", localVarPath, "PUT", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -418,7 +417,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<FilterModel>> localVarReturnType = new GenericType<List<FilterModel>>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdFiltersGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -479,7 +478,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdPatch", localVarPath, "PATCH", new ArrayList<>(), operation,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -537,7 +536,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdPurgePost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -595,7 +594,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdRestorePost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -663,7 +662,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdTestPlansAttributeAttributeIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -727,7 +726,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdTestPlansAttributePut", localVarPath, "PUT", new ArrayList<>(), customAttributeTestPlanProjectRelationPutModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -832,7 +831,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TestRunApiResult>> localVarReturnType = new GenericType<List<TestRunApiResult>>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsIdTestRunsFullGet", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -892,7 +891,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Boolean> localVarReturnType = new GenericType<Boolean>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsNameNameExistsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -943,7 +942,7 @@ public class ProjectsApi {
   public ApiResponse<Long> apiV2ProjectsPurgeBulkPostWithHttpInfo(ProjectSelectModel projectSelectModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Long> localVarReturnType = new GenericType<Long>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsPurgeBulkPost", "/api/v2/projects/purge/bulk", "POST", new ArrayList<>(), projectSelectModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -994,7 +993,7 @@ public class ProjectsApi {
   public ApiResponse<Long> apiV2ProjectsRestoreBulkPostWithHttpInfo(ProjectSelectModel projectSelectModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Long> localVarReturnType = new GenericType<Long>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsRestoreBulkPost", "/api/v2/projects/restore/bulk", "POST", new ArrayList<>(), projectSelectModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1009,7 +1008,7 @@ public class ProjectsApi {
    * @param searchField Property name for searching (optional)
    * @param searchValue Value for searching (optional)
    * @param projectsFilterModel  (optional)
-   * @return List&lt;ProjectShortModel&gt;
+   * @return List&lt;ProjectApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1024,7 +1023,7 @@ public class ProjectsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public List<ProjectShortModel> apiV2ProjectsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
+  public List<ProjectApiResult> apiV2ProjectsSearchPost(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
     return apiV2ProjectsSearchPostWithHttpInfo(skip, take, orderBy, searchField, searchValue, projectsFilterModel).getData();
   }
 
@@ -1037,7 +1036,7 @@ public class ProjectsApi {
    * @param searchField Property name for searching (optional)
    * @param searchValue Value for searching (optional)
    * @param projectsFilterModel  (optional)
-   * @return ApiResponse&lt;List&lt;ProjectShortModel&gt;&gt;
+   * @return ApiResponse&lt;List&lt;ProjectApiResult&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1052,7 +1051,7 @@ public class ProjectsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<List<ProjectShortModel>> apiV2ProjectsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
+  public ApiResponse<List<ProjectApiResult>> apiV2ProjectsSearchPostWithHttpInfo(Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectsFilterModel projectsFilterModel) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "Skip", skip)
@@ -1064,8 +1063,8 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<List<ProjectShortModel>> localVarReturnType = new GenericType<List<ProjectShortModel>>() {};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    GenericType<List<ProjectApiResult>> localVarReturnType = new GenericType<List<ProjectApiResult>>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsSearchPost", "/api/v2/projects/search", "POST", localVarQueryParams, projectsFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
@@ -1074,7 +1073,7 @@ public class ProjectsApi {
    * Get projects short models
    *  Use case  User sets query params  User runs method execution  System return projects short models
    * @param getShortProjectsApiModel  (optional)
-   * @return ProjectShortApiResultReply
+   * @return ProjectShortApiResultIReply
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1089,7 +1088,7 @@ public class ProjectsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectShortApiResultReply apiV2ProjectsShortsPost(GetShortProjectsApiModel getShortProjectsApiModel) throws ApiException {
+  public ProjectShortApiResultIReply apiV2ProjectsShortsPost(GetShortProjectsApiModel getShortProjectsApiModel) throws ApiException {
     return apiV2ProjectsShortsPostWithHttpInfo(getShortProjectsApiModel).getData();
   }
 
@@ -1097,7 +1096,7 @@ public class ProjectsApi {
    * Get projects short models
    *  Use case  User sets query params  User runs method execution  System return projects short models
    * @param getShortProjectsApiModel  (optional)
-   * @return ApiResponse&lt;ProjectShortApiResultReply&gt;
+   * @return ApiResponse&lt;ProjectShortApiResultIReply&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1112,11 +1111,11 @@ public class ProjectsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectShortApiResultReply> apiV2ProjectsShortsPostWithHttpInfo(GetShortProjectsApiModel getShortProjectsApiModel) throws ApiException {
+  public ApiResponse<ProjectShortApiResultIReply> apiV2ProjectsShortsPostWithHttpInfo(GetShortProjectsApiModel getShortProjectsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<ProjectShortApiResultReply> localVarReturnType = new GenericType<ProjectShortApiResultReply>() {};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    GenericType<ProjectShortApiResultIReply> localVarReturnType = new GenericType<ProjectShortApiResultIReply>() {};
     return apiClient.invokeAPI("ProjectsApi.apiV2ProjectsShortsPost", "/api/v2/projects/shorts", "POST", new ArrayList<>(), getShortProjectsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
@@ -1166,7 +1165,7 @@ public class ProjectsApi {
   public ApiResponse<ProjectApiResult> createProjectWithHttpInfo(CreateProjectApiModel createProjectApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<ProjectApiResult> localVarReturnType = new GenericType<ProjectApiResult>() {};
     return apiClient.invokeAPI("ProjectsApi.createProject", "/api/v2/projects", "POST", new ArrayList<>(), createProjectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1225,7 +1224,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.deleteProjectAutoTests", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -1240,7 +1239,7 @@ public class ProjectsApi {
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
    * @param searchField Property name for searching (optional)
    * @param searchValue Value for searching (optional)
-   * @return List&lt;ProjectShortModel&gt;
+   * @return List&lt;ProjectApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1257,7 +1256,7 @@ public class ProjectsApi {
    * @deprecated
    */
   @Deprecated
-  public List<ProjectShortModel> getAllProjects(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+  public List<ProjectApiResult> getAllProjects(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
     return getAllProjectsWithHttpInfo(isDeleted, projectName, skip, take, orderBy, searchField, searchValue).getData();
   }
 
@@ -1271,7 +1270,7 @@ public class ProjectsApi {
    * @param orderBy SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
    * @param searchField Property name for searching (optional)
    * @param searchValue Value for searching (optional)
-   * @return ApiResponse&lt;List&lt;ProjectShortModel&gt;&gt;
+   * @return ApiResponse&lt;List&lt;ProjectApiResult&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1288,7 +1287,7 @@ public class ProjectsApi {
    * @deprecated
    */
   @Deprecated
-  public ApiResponse<List<ProjectShortModel>> getAllProjectsWithHttpInfo(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
+  public ApiResponse<List<ProjectApiResult>> getAllProjectsWithHttpInfo(Boolean isDeleted, String projectName, Integer skip, Integer take, String orderBy, String searchField, String searchValue) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "isDeleted", isDeleted)
@@ -1302,8 +1301,8 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<List<ProjectShortModel>> localVarReturnType = new GenericType<List<ProjectShortModel>>() {};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    GenericType<List<ProjectApiResult>> localVarReturnType = new GenericType<List<ProjectApiResult>>() {};
     return apiClient.invokeAPI("ProjectsApi.getAllProjects", "/api/v2/projects", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
@@ -1362,7 +1361,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<AutoTestNamespaceApiResult>> localVarReturnType = new GenericType<List<AutoTestNamespaceApiResult>>() {};
     return apiClient.invokeAPI("ProjectsApi.getAutoTestsNamespaces", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1372,7 +1371,7 @@ public class ProjectsApi {
    * Get project by ID
    *  Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
    * @param id Project internal (UUID) or global (integer) identifier (required)
-   * @return ProjectModel
+   * @return DetailedProjectApiResult
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1387,7 +1386,7 @@ public class ProjectsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectModel getProjectById(String id) throws ApiException {
+  public DetailedProjectApiResult getProjectById(String id) throws ApiException {
     return getProjectByIdWithHttpInfo(id).getData();
   }
 
@@ -1395,7 +1394,7 @@ public class ProjectsApi {
    * Get project by ID
    *  Use case  User sets project internal or global identifier and runs method execution  System search project  System returns project (example listed in response parameters)
    * @param id Project internal (UUID) or global (integer) identifier (required)
-   * @return ApiResponse&lt;ProjectModel&gt;
+   * @return ApiResponse&lt;DetailedProjectApiResult&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -1410,7 +1409,7 @@ public class ProjectsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectModel> getProjectByIdWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<DetailedProjectApiResult> getProjectByIdWithHttpInfo(String id) throws ApiException {
     // Check required parameters
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getProjectById");
@@ -1422,15 +1421,15 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<ProjectModel> localVarReturnType = new GenericType<ProjectModel>() {};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    GenericType<DetailedProjectApiResult> localVarReturnType = new GenericType<DetailedProjectApiResult>() {};
     return apiClient.invokeAPI("ProjectsApi.getProjectById", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Get project test plans
-   *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
+   *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                     project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                     are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
    * @param id Project internal (UUID) or global (integer) identifier (required)
    * @param isDeleted If result must consist of only actual/archived test plans (optional)
    * @return List&lt;TestPlanModel&gt;
@@ -1454,7 +1453,7 @@ public class ProjectsApi {
 
   /**
    * Get project test plans
-   *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
+   *  Use case  User sets project internal or global identifier  [Optional] User sets isDeleted field value  User runs method execution  System search project  [Optional] If User sets isDeleted field value as true, System search all deleted test plans related to                     project  [Optional] If User sets isDeleted field value as false, System search all test plans related to project which                     are not deleted  [Optional] If User did not set isDeleted field value, System search all v related to project  System returns array of found test plans (listed in response model)
    * @param id Project internal (UUID) or global (integer) identifier (required)
    * @param isDeleted If result must consist of only actual/archived test plans (optional)
    * @return ApiResponse&lt;List&lt;TestPlanModel&gt;&gt;
@@ -1489,7 +1488,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TestPlanModel>> localVarReturnType = new GenericType<List<TestPlanModel>>() {};
     return apiClient.invokeAPI("ProjectsApi.getTestPlansByProjectId", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1601,7 +1600,7 @@ public class ProjectsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TestRunV2ApiResult>> localVarReturnType = new GenericType<List<TestRunV2ApiResult>>() {};
     return apiClient.invokeAPI("ProjectsApi.getTestRunsByProjectId", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1651,7 +1650,7 @@ public class ProjectsApi {
   public ApiResponse<Void> updateProjectWithHttpInfo(UpdateProjectApiModel updateProjectApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectsApi.updateProject", "/api/v2/projects", "PUT", new ArrayList<>(), updateProjectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

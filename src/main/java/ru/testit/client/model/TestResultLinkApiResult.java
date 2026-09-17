@@ -37,11 +37,11 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   TestResultLinkApiResult.JSON_PROPERTY_URL,
+  TestResultLinkApiResult.JSON_PROPERTY_TYPE,
   TestResultLinkApiResult.JSON_PROPERTY_HAS_INFO,
   TestResultLinkApiResult.JSON_PROPERTY_ID,
   TestResultLinkApiResult.JSON_PROPERTY_TITLE,
   TestResultLinkApiResult.JSON_PROPERTY_DESCRIPTION,
-  TestResultLinkApiResult.JSON_PROPERTY_TYPE,
   TestResultLinkApiResult.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
@@ -49,6 +49,10 @@ public class TestResultLinkApiResult {
   public static final String JSON_PROPERTY_URL = "url";
   @jakarta.annotation.Nonnull
   private String url;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
+  private LinkType type;
 
   public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
   @jakarta.annotation.Nonnull
@@ -62,9 +66,6 @@ public class TestResultLinkApiResult {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<LinkType> type = JsonNullable.<LinkType>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   @Deprecated
@@ -103,6 +104,31 @@ public class TestResultLinkApiResult {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
+  }
+
+
+  public TestResultLinkApiResult type(@jakarta.annotation.Nonnull LinkType type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Specifies the type of the link.
+   * @return type
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LinkType getType() {
+    return type;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(@jakarta.annotation.Nonnull LinkType type) {
+    this.type = type;
   }
 
 
@@ -230,39 +256,6 @@ public class TestResultLinkApiResult {
   }
 
 
-  public TestResultLinkApiResult type(@jakarta.annotation.Nullable LinkType type) {
-    this.type = JsonNullable.<LinkType>of(type);
-    return this;
-  }
-
-  /**
-   * Specifies the type of the link.
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public LinkType getType() {
-        return type.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<LinkType> getType_JsonNullable() {
-    return type;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<LinkType> type) {
-    this.type = type;
-  }
-
-  public void setType(@jakarta.annotation.Nullable LinkType type) {
-    this.type = JsonNullable.<LinkType>of(type);
-  }
-
-
   /**
    * Link name. Backward compatibility.
    * @return name
@@ -307,11 +300,11 @@ public class TestResultLinkApiResult {
     }
     TestResultLinkApiResult testResultLinkApiResult = (TestResultLinkApiResult) o;
     return Objects.equals(this.url, testResultLinkApiResult.url) &&
+        Objects.equals(this.type, testResultLinkApiResult.type) &&
         Objects.equals(this.hasInfo, testResultLinkApiResult.hasInfo) &&
         equalsNullable(this.id, testResultLinkApiResult.id) &&
         equalsNullable(this.title, testResultLinkApiResult.title) &&
         equalsNullable(this.description, testResultLinkApiResult.description) &&
-        equalsNullable(this.type, testResultLinkApiResult.type) &&
         equalsNullable(this.name, testResultLinkApiResult.name);
   }
 
@@ -321,7 +314,7 @@ public class TestResultLinkApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, hasInfo, hashCodeNullable(id), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(type), hashCodeNullable(name));
+    return Objects.hash(url, type, hasInfo, hashCodeNullable(id), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(name));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -336,11 +329,11 @@ public class TestResultLinkApiResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class TestResultLinkApiResult {\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    hasInfo: ").append(toIndentedString(hasInfo)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();

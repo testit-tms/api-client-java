@@ -22,7 +22,7 @@
 |**states** | **Set&lt;WorkItemStates&gt;** | Collection of states of work item |  [optional] |
 |**priorities** | **Set&lt;WorkItemPriorityModel&gt;** | Collection of priorities of work item |  [optional] |
 |**sourceTypes** | **Set&lt;WorkItemSourceTypeModel&gt;** | Source type of work item (manual creation or AI generated) |  [optional] |
-|**types** | **Set&lt;WorkItemEntityTypes&gt;** | Collection of types of work item |  [optional] |
+|**types** | **Set&lt;WorkItemTypeModel&gt;** | Collection of types of work item |  [optional] |
 |**createdDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for |  [optional] |
 |**modifiedDate** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for |  [optional] |
 |**duration** | [**Int32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a work item duration range to search for |  [optional] |
@@ -34,6 +34,7 @@
 |**workItemVersionIds** | **List&lt;UUID&gt;** | Collection of identifiers work items versions. |  [optional] |
 |**links** | [**WorkItemLinkFilterApiModel**](WorkItemLinkFilterApiModel.md) | Specifies a work item filter by its links |  [optional] |
 |**externalMetadata** | [**WorkItemExternalMetadataFilterApiModel**](WorkItemExternalMetadataFilterApiModel.md) | Specifies work item filter by its external metadata |  [optional] |
+|**layers** | **Set&lt;String&gt;** | Specifies auto test case layers to search for |  [optional] |
 
 
 

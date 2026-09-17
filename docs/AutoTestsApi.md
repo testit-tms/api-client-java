@@ -49,11 +49,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         AutoTestBulkDeleteApiModel autoTestBulkDeleteApiModel = new AutoTestBulkDeleteApiModel(); // AutoTestBulkDeleteApiModel | 
@@ -84,7 +90,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -131,11 +137,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         Integer skip = 56; // Integer | Amount of items to be skipped (offset)
@@ -175,7 +187,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -219,11 +231,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         UUID id = UUID.randomUUID(); // UUID | Global Id of auto test
@@ -255,7 +273,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -309,11 +327,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest identifier
@@ -356,7 +380,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -404,11 +428,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         UUID id = UUID.randomUUID(); // UUID | 
@@ -439,7 +469,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -487,11 +517,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         UUID id = UUID.randomUUID(); // UUID | 
@@ -523,7 +559,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -564,11 +600,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         Integer skip = 56; // Integer | Amount of items to be skipped (offset)
@@ -609,7 +651,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -657,11 +699,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         AutoTestCreateApiModel autoTestCreateApiModel = new AutoTestCreateApiModel(); // AutoTestCreateApiModel | 
@@ -692,7 +740,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -752,11 +800,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         List<AutoTestCreateApiModel> autoTestCreateApiModel = Arrays.asList(); // List<AutoTestCreateApiModel> | 
@@ -787,7 +841,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -837,11 +891,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
@@ -871,7 +931,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -930,11 +990,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
@@ -966,7 +1032,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1008,11 +1074,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         UUID projectId = UUID.randomUUID(); // UUID | Project internal ID
@@ -1093,7 +1165,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1145,11 +1217,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
@@ -1180,7 +1258,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1228,11 +1306,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
@@ -1263,7 +1347,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1317,11 +1401,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
@@ -1352,7 +1442,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1404,11 +1494,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
@@ -1439,7 +1535,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1493,11 +1589,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
@@ -1532,7 +1634,7 @@ public class Example {
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1588,11 +1690,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         String id = "id_example"; // String | Autotest internal (UUID) or global (integer) identifier
@@ -1624,7 +1732,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1691,11 +1799,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         AutoTestUpdateApiModel autoTestUpdateApiModel = new AutoTestUpdateApiModel(); // AutoTestUpdateApiModel | 
@@ -1725,7 +1839,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1793,11 +1907,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         AutoTestsApi apiInstance = new AutoTestsApi(defaultClient);
         List<AutoTestUpdateApiModel> autoTestUpdateApiModel = Arrays.asList(); // List<AutoTestUpdateApiModel> | 
@@ -1827,7 +1947,7 @@ null (empty response body)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 

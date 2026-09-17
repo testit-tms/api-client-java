@@ -104,7 +104,7 @@ public class WorkItemsCommentsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsCommentIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -154,7 +154,7 @@ public class WorkItemsCommentsApi {
   public ApiResponse<WorkItemCommentApiResult> apiV2WorkItemsCommentsPostWithHttpInfo(CreateWorkItemCommentApiModel createWorkItemCommentApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<WorkItemCommentApiResult> localVarReturnType = new GenericType<WorkItemCommentApiResult>() {};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsPost", "/api/v2/workItems/comments", "POST", new ArrayList<>(), createWorkItemCommentApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -204,7 +204,7 @@ public class WorkItemsCommentsApi {
   public ApiResponse<Void> apiV2WorkItemsCommentsPutWithHttpInfo(UpdateWorkItemCommentApiModel updateWorkItemCommentApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsCommentsPut", "/api/v2/workItems/comments", "PUT", new ArrayList<>(), updateWorkItemCommentApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -263,7 +263,7 @@ public class WorkItemsCommentsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsIdCommentsCountGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -323,7 +323,7 @@ public class WorkItemsCommentsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<WorkItemCommentApiResult>> localVarReturnType = new GenericType<List<WorkItemCommentApiResult>>() {};
     return apiClient.invokeAPI("WorkItemsCommentsApi.apiV2WorkItemsIdCommentsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

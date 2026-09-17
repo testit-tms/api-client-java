@@ -29,6 +29,7 @@ import ru.testit.client.model.AttachmentChangeViewModelArrayChangedFieldViewMode
 import ru.testit.client.model.AutoTestChangeViewModelArrayChangedFieldViewModel;
 import ru.testit.client.model.BooleanChangedFieldViewModel;
 import ru.testit.client.model.GuidChangedFieldViewModel;
+import ru.testit.client.model.GuidNullableChangedFieldViewModel;
 import ru.testit.client.model.Int32ChangedFieldViewModel;
 import ru.testit.client.model.Int64ChangedFieldViewModel;
 import ru.testit.client.model.StringArrayChangedFieldViewModel;
@@ -66,6 +67,7 @@ import ru.testit.client.invoker.JSON;
   WorkItemChangedFieldsViewModel.JSON_PROPERTY_GLOBAL_ID,
   WorkItemChangedFieldsViewModel.JSON_PROPERTY_VERSION_NUMBER,
   WorkItemChangedFieldsViewModel.JSON_PROPERTY_ENTITY_TYPE_NAME,
+  WorkItemChangedFieldsViewModel.JSON_PROPERTY_PARENT_ID,
   WorkItemChangedFieldsViewModel.JSON_PROPERTY_NAME,
   WorkItemChangedFieldsViewModel.JSON_PROPERTY_DESCRIPTION
 })
@@ -142,6 +144,10 @@ public class WorkItemChangedFieldsViewModel {
   public static final String JSON_PROPERTY_ENTITY_TYPE_NAME = "entityTypeName";
   @jakarta.annotation.Nonnull
   private StringChangedFieldViewModel entityTypeName;
+
+  public static final String JSON_PROPERTY_PARENT_ID = "parentId";
+  @jakarta.annotation.Nonnull
+  private GuidNullableChangedFieldViewModel parentId;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<StringChangedFieldWithDiffsViewModel> name = JsonNullable.<StringChangedFieldWithDiffsViewModel>undefined();
@@ -610,6 +616,31 @@ public class WorkItemChangedFieldsViewModel {
   }
 
 
+  public WorkItemChangedFieldsViewModel parentId(@jakarta.annotation.Nonnull GuidNullableChangedFieldViewModel parentId) {
+    this.parentId = parentId;
+    return this;
+  }
+
+  /**
+   * Get parentId
+   * @return parentId
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public GuidNullableChangedFieldViewModel getParentId() {
+    return parentId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PARENT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setParentId(@jakarta.annotation.Nonnull GuidNullableChangedFieldViewModel parentId) {
+    this.parentId = parentId;
+  }
+
+
   public WorkItemChangedFieldsViewModel name(@jakarta.annotation.Nullable StringChangedFieldWithDiffsViewModel name) {
     this.name = JsonNullable.<StringChangedFieldWithDiffsViewModel>of(name);
     return this;
@@ -706,6 +737,7 @@ public class WorkItemChangedFieldsViewModel {
         Objects.equals(this.globalId, workItemChangedFieldsViewModel.globalId) &&
         Objects.equals(this.versionNumber, workItemChangedFieldsViewModel.versionNumber) &&
         Objects.equals(this.entityTypeName, workItemChangedFieldsViewModel.entityTypeName) &&
+        Objects.equals(this.parentId, workItemChangedFieldsViewModel.parentId) &&
         equalsNullable(this.name, workItemChangedFieldsViewModel.name) &&
         equalsNullable(this.description, workItemChangedFieldsViewModel.description);
   }
@@ -716,7 +748,7 @@ public class WorkItemChangedFieldsViewModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isDeleted, projectId, isAutomated, sectionId, state, priority, duration, attributes, steps, preconditionSteps, postconditionSteps, autoTests, attachments, tags, links, globalId, versionNumber, entityTypeName, hashCodeNullable(name), hashCodeNullable(description));
+    return Objects.hash(isDeleted, projectId, isAutomated, sectionId, state, priority, duration, attributes, steps, preconditionSteps, postconditionSteps, autoTests, attachments, tags, links, globalId, versionNumber, entityTypeName, parentId, hashCodeNullable(name), hashCodeNullable(description));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -748,6 +780,7 @@ public class WorkItemChangedFieldsViewModel {
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
     sb.append("    versionNumber: ").append(toIndentedString(versionNumber)).append("\n");
     sb.append("    entityTypeName: ").append(toIndentedString(entityTypeName)).append("\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");

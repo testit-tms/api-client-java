@@ -106,7 +106,7 @@ public class TestPointsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TestRunApiResult>> localVarReturnType = new GenericType<List<TestRunApiResult>>() {};
     return apiClient.invokeAPI("TestPointsApi.apiV2TestPointsIdTestRunsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -166,7 +166,7 @@ public class TestPointsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<WorkItemModel> localVarReturnType = new GenericType<WorkItemModel>() {};
     return apiClient.invokeAPI("TestPointsApi.apiV2TestPointsIdWorkItemGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -236,7 +236,7 @@ public class TestPointsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<UUID>> localVarReturnType = new GenericType<List<UUID>>() {};
     return apiClient.invokeAPI("TestPointsApi.apiV2TestPointsSearchIdPost", "/api/v2/testPoints/search/id", "POST", localVarQueryParams, testPointFilterRequestModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -306,7 +306,7 @@ public class TestPointsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TestPointShortResponseModel>> localVarReturnType = new GenericType<List<TestPointShortResponseModel>>() {};
     return apiClient.invokeAPI("TestPointsApi.apiV2TestPointsSearchPost", "/api/v2/testPoints/search", "POST", localVarQueryParams, testPointFilterRequestModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

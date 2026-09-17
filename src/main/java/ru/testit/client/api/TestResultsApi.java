@@ -14,6 +14,7 @@ import ru.testit.client.model.DefectApiModel;
 import java.io.File;
 import ru.testit.client.model.GetExternalFormApiResult;
 import ru.testit.client.model.ImageResizeType;
+import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.RerunsApiResult;
 import ru.testit.client.model.TestResultResponse;
@@ -80,7 +81,9 @@ public class TestResultsApi {
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+   * @deprecated
    */
+  @Deprecated
   public GetExternalFormApiResult apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(UUID externalProjectId, TestResultsSelectApiModel testResultsSelectApiModel) throws ApiException {
     return apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostWithHttpInfo(externalProjectId, testResultsSelectApiModel).getData();
   }
@@ -104,7 +107,9 @@ public class TestResultsApi {
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<GetExternalFormApiResult> apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostWithHttpInfo(UUID externalProjectId, TestResultsSelectApiModel testResultsSelectApiModel) throws ApiException {
     // Check required parameters
     if (externalProjectId == null) {
@@ -117,7 +122,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<GetExternalFormApiResult> localVarReturnType = new GenericType<GetExternalFormApiResult>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost", localVarPath, "POST", new ArrayList<>(), testResultsSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -142,7 +147,9 @@ public class TestResultsApi {
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+   * @deprecated
    */
+  @Deprecated
   public DefectApiModel apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(UUID externalProjectId, CreateDefectApiModel createDefectApiModel) throws ApiException {
     return apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostWithHttpInfo(externalProjectId, createDefectApiModel).getData();
   }
@@ -166,7 +173,9 @@ public class TestResultsApi {
        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<DefectApiModel> apiV2TestResultsExternalProjectsExternalProjectIdDefectsPostWithHttpInfo(UUID externalProjectId, CreateDefectApiModel createDefectApiModel) throws ApiException {
     // Check required parameters
     if (externalProjectId == null) {
@@ -179,7 +188,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<DefectApiModel> localVarReturnType = new GenericType<DefectApiModel>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsExternalProjectsExternalProjectIdDefectsPost", localVarPath, "POST", new ArrayList<>(), createDefectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -243,7 +252,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestResultResponse> localVarReturnType = new GenericType<TestResultResponse>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdAggregatedGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -308,7 +317,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdAttachmentsAttachmentIdPut", localVarPath, "PUT", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -367,7 +376,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<AttachmentApiResult>> localVarReturnType = new GenericType<List<AttachmentApiResult>>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdAttachmentsInfoGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -427,11 +436,71 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestResultResponse> localVarReturnType = new GenericType<TestResultResponse>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Patch test result by ID
+   * See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+   * @param id Test result unique ID (required)
+   * @param operation  (optional)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public void apiV2TestResultsIdPatch(UUID id, List<Operation> operation) throws ApiException {
+    apiV2TestResultsIdPatchWithHttpInfo(id, operation);
+  }
+
+  /**
+   * Patch test result by ID
+   * See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+   * @param id Test result unique ID (required)
+   * @param operation  (optional)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Only edits from assigned user are allowed </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> apiV2TestResultsIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2TestResultsIdPatch");
+    }
+
+    // Path parameters
+    String localVarPath = "/api/v2/testResults/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdPatch", localVarPath, "PATCH", new ArrayList<>(), operation,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
   }
   /**
    * Edit test result by ID
@@ -488,7 +557,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdPut", localVarPath, "PUT", new ArrayList<>(), testResultUpdateV2Request,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -547,7 +616,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<RerunsApiResult> localVarReturnType = new GenericType<RerunsApiResult>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsIdRerunsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -617,7 +686,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TestResultShortResponse>> localVarReturnType = new GenericType<List<TestResultShortResponse>>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsSearchPost", "/api/v2/testResults/search", "POST", localVarQueryParams, testResultsFilterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -668,7 +737,7 @@ public class TestResultsApi {
   public ApiResponse<TestResultsStatisticsApiResult> apiV2TestResultsStatisticsFilterPostWithHttpInfo(TestResultsFilterApiModel testResultsFilterApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestResultsStatisticsApiResult> localVarReturnType = new GenericType<TestResultsStatisticsApiResult>() {};
     return apiClient.invokeAPI("TestResultsApi.apiV2TestResultsStatisticsFilterPost", "/api/v2/testResults/statistics/filter", "POST", new ArrayList<>(), testResultsFilterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -737,7 +806,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestResultsApi.createAttachment", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -801,7 +870,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestResultsApi.deleteAttachment", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -884,7 +953,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestResultsApi.downloadAttachment", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -949,7 +1018,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<AttachmentApiResult> localVarReturnType = new GenericType<AttachmentApiResult>() {};
     return apiClient.invokeAPI("TestResultsApi.getAttachment", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1009,7 +1078,7 @@ public class TestResultsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<AttachmentApiResult>> localVarReturnType = new GenericType<List<AttachmentApiResult>>() {};
     return apiClient.invokeAPI("TestResultsApi.getAttachments", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

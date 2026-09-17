@@ -25,9 +25,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CustomAttributeOptionModel;
 import ru.testit.client.model.CustomAttributeTypesEnum;
 import ru.testit.client.model.ProjectShortestModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -39,13 +43,17 @@ import ru.testit.client.invoker.JSON;
   CustomAttributeSearchResponseModel.JSON_PROPERTY_WORK_ITEM_USAGE,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_TEST_PLAN_USAGE,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_ID,
-  CustomAttributeSearchResponseModel.JSON_PROPERTY_OPTIONS,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_TYPE,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_OPTIONS,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_TARGETS,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_READ_ONLY,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_DELETED,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_SYSTEM,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_NAME,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_ENABLED,
   CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_REQUIRED,
-  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_GLOBAL
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_IS_GLOBAL,
+  CustomAttributeSearchResponseModel.JSON_PROPERTY_CODE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CustomAttributeSearchResponseModel {
@@ -61,17 +69,29 @@ public class CustomAttributeSearchResponseModel {
   @jakarta.annotation.Nonnull
   private UUID id;
 
-  public static final String JSON_PROPERTY_OPTIONS = "options";
-  @jakarta.annotation.Nonnull
-  private List<CustomAttributeOptionModel> options = new ArrayList<>();
-
   public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nonnull
   private CustomAttributeTypesEnum type;
 
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  @jakarta.annotation.Nonnull
+  private List<CustomAttributeOptionModel> options = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_TARGETS = "targets";
+  @jakarta.annotation.Nonnull
+  private List<String> targets = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_IS_READ_ONLY = "isReadOnly";
+  @jakarta.annotation.Nonnull
+  private Boolean isReadOnly;
+
   public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
   @jakarta.annotation.Nonnull
   private Boolean isDeleted;
+
+  public static final String JSON_PROPERTY_IS_SYSTEM = "isSystem";
+  @jakarta.annotation.Nonnull
+  private Boolean isSystem;
 
   public static final String JSON_PROPERTY_NAME = "name";
   @jakarta.annotation.Nonnull
@@ -88,6 +108,9 @@ public class CustomAttributeSearchResponseModel {
   public static final String JSON_PROPERTY_IS_GLOBAL = "isGlobal";
   @jakarta.annotation.Nonnull
   private Boolean isGlobal;
+
+  public static final String JSON_PROPERTY_CODE = "code";
+  private JsonNullable<String> code = JsonNullable.<String>undefined();
 
   public CustomAttributeSearchResponseModel() { 
   }
@@ -164,7 +187,7 @@ public class CustomAttributeSearchResponseModel {
   }
 
   /**
-   * Unique ID of the attribute
+   * Unique ID of the attribute.
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -183,46 +206,13 @@ public class CustomAttributeSearchResponseModel {
   }
 
 
-  public CustomAttributeSearchResponseModel options(@jakarta.annotation.Nonnull List<CustomAttributeOptionModel> options) {
-    this.options = options;
-    return this;
-  }
-
-  public CustomAttributeSearchResponseModel addOptionsItem(CustomAttributeOptionModel optionsItem) {
-    if (this.options == null) {
-      this.options = new ArrayList<>();
-    }
-    this.options.add(optionsItem);
-    return this;
-  }
-
-  /**
-   * Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only
-   * @return options
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<CustomAttributeOptionModel> getOptions() {
-    return options;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOptions(@jakarta.annotation.Nonnull List<CustomAttributeOptionModel> options) {
-    this.options = options;
-  }
-
-
   public CustomAttributeSearchResponseModel type(@jakarta.annotation.Nonnull CustomAttributeTypesEnum type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Type of the attribute
+   * Type of the attribute.
    * @return type
    */
   @jakarta.annotation.Nonnull
@@ -241,13 +231,104 @@ public class CustomAttributeSearchResponseModel {
   }
 
 
+  public CustomAttributeSearchResponseModel options(@jakarta.annotation.Nonnull List<CustomAttributeOptionModel> options) {
+    this.options = options;
+    return this;
+  }
+
+  public CustomAttributeSearchResponseModel addOptionsItem(CustomAttributeOptionModel optionsItem) {
+    if (this.options == null) {
+      this.options = new ArrayList<>();
+    }
+    this.options.add(optionsItem);
+    return this;
+  }
+
+  /**
+   * Collection of the attribute options.
+   * @return options
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<CustomAttributeOptionModel> getOptions() {
+    return options;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setOptions(@jakarta.annotation.Nonnull List<CustomAttributeOptionModel> options) {
+    this.options = options;
+  }
+
+
+  public CustomAttributeSearchResponseModel targets(@jakarta.annotation.Nonnull List<String> targets) {
+    this.targets = targets;
+    return this;
+  }
+
+  public CustomAttributeSearchResponseModel addTargetsItem(String targetsItem) {
+    if (this.targets == null) {
+      this.targets = new ArrayList<>();
+    }
+    this.targets.add(targetsItem);
+    return this;
+  }
+
+  /**
+   * Collection of the attribute targets.   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans).
+   * @return targets
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<String> getTargets() {
+    return targets;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TARGETS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTargets(@jakarta.annotation.Nonnull List<String> targets) {
+    this.targets = targets;
+  }
+
+
+  public CustomAttributeSearchResponseModel isReadOnly(@jakarta.annotation.Nonnull Boolean isReadOnly) {
+    this.isReadOnly = isReadOnly;
+    return this;
+  }
+
+  /**
+   * Indicates if the attribute is read-only.
+   * @return isReadOnly
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsReadOnly() {
+    return isReadOnly;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsReadOnly(@jakarta.annotation.Nonnull Boolean isReadOnly) {
+    this.isReadOnly = isReadOnly;
+  }
+
+
   public CustomAttributeSearchResponseModel isDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
   /**
-   * Indicates if the attribute is deleted
+   * Indicates if the attribute is deleted.
    * @return isDeleted
    */
   @jakarta.annotation.Nonnull
@@ -263,6 +344,31 @@ public class CustomAttributeSearchResponseModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsDeleted(@jakarta.annotation.Nonnull Boolean isDeleted) {
     this.isDeleted = isDeleted;
+  }
+
+
+  public CustomAttributeSearchResponseModel isSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
+    return this;
+  }
+
+  /**
+   * Indicates if the attribute is system.
+   * @return isSystem
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsSystem() {
+    return isSystem;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_SYSTEM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsSystem(@jakarta.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
   }
 
 
@@ -366,6 +472,39 @@ public class CustomAttributeSearchResponseModel {
   }
 
 
+  public CustomAttributeSearchResponseModel code(@jakarta.annotation.Nullable String code) {
+    this.code = JsonNullable.<String>of(code);
+    return this;
+  }
+
+  /**
+   * Optional code identifier for the attribute.
+   * @return code
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public String getCode() {
+        return code.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCode_JsonNullable() {
+    return code;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CODE)
+  public void setCode_JsonNullable(JsonNullable<String> code) {
+    this.code = code;
+  }
+
+  public void setCode(@jakarta.annotation.Nullable String code) {
+    this.code = JsonNullable.<String>of(code);
+  }
+
+
   /**
    * Return true if this CustomAttributeSearchResponseModel object is equal to o.
    */
@@ -381,18 +520,33 @@ public class CustomAttributeSearchResponseModel {
     return Objects.equals(this.workItemUsage, customAttributeSearchResponseModel.workItemUsage) &&
         Objects.equals(this.testPlanUsage, customAttributeSearchResponseModel.testPlanUsage) &&
         Objects.equals(this.id, customAttributeSearchResponseModel.id) &&
-        Objects.equals(this.options, customAttributeSearchResponseModel.options) &&
         Objects.equals(this.type, customAttributeSearchResponseModel.type) &&
+        Objects.equals(this.options, customAttributeSearchResponseModel.options) &&
+        Objects.equals(this.targets, customAttributeSearchResponseModel.targets) &&
+        Objects.equals(this.isReadOnly, customAttributeSearchResponseModel.isReadOnly) &&
         Objects.equals(this.isDeleted, customAttributeSearchResponseModel.isDeleted) &&
+        Objects.equals(this.isSystem, customAttributeSearchResponseModel.isSystem) &&
         Objects.equals(this.name, customAttributeSearchResponseModel.name) &&
         Objects.equals(this.isEnabled, customAttributeSearchResponseModel.isEnabled) &&
         Objects.equals(this.isRequired, customAttributeSearchResponseModel.isRequired) &&
-        Objects.equals(this.isGlobal, customAttributeSearchResponseModel.isGlobal);
+        Objects.equals(this.isGlobal, customAttributeSearchResponseModel.isGlobal) &&
+        equalsNullable(this.code, customAttributeSearchResponseModel.code);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workItemUsage, testPlanUsage, id, options, type, isDeleted, name, isEnabled, isRequired, isGlobal);
+    return Objects.hash(workItemUsage, testPlanUsage, id, type, options, targets, isReadOnly, isDeleted, isSystem, name, isEnabled, isRequired, isGlobal, hashCodeNullable(code));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -402,13 +556,17 @@ public class CustomAttributeSearchResponseModel {
     sb.append("    workItemUsage: ").append(toIndentedString(workItemUsage)).append("\n");
     sb.append("    testPlanUsage: ").append(toIndentedString(testPlanUsage)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
+    sb.append("    isReadOnly: ").append(toIndentedString(isReadOnly)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    isRequired: ").append(toIndentedString(isRequired)).append("\n");
     sb.append("    isGlobal: ").append(toIndentedString(isGlobal)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("}");
     return sb.toString();
   }

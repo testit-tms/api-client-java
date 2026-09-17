@@ -17,6 +17,7 @@
 |**attachments** | [**List&lt;AssignAttachmentApiModel&gt;**](AssignAttachmentApiModel.md) | Collection of attachment ids to relate to the test run |  [optional] |
 |**links** | [**List&lt;CreateLinkApiModel&gt;**](CreateLinkApiModel.md) | Collection of links to relate to the test run |  [optional] |
 |**tags** | **List&lt;String&gt;** | Collection of tags to assign to the test run |  [optional] |
+|**option** | [**TestRunLaunchOptionApiModel**](TestRunLaunchOptionApiModel.md) | Test run launching options. |  [optional] |
 
 
 

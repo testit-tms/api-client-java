@@ -36,16 +36,20 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   LinkCreateApiModel.JSON_PROPERTY_URL,
+  LinkCreateApiModel.JSON_PROPERTY_TYPE,
   LinkCreateApiModel.JSON_PROPERTY_HAS_INFO,
   LinkCreateApiModel.JSON_PROPERTY_TITLE,
-  LinkCreateApiModel.JSON_PROPERTY_DESCRIPTION,
-  LinkCreateApiModel.JSON_PROPERTY_TYPE
+  LinkCreateApiModel.JSON_PROPERTY_DESCRIPTION
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LinkCreateApiModel {
   public static final String JSON_PROPERTY_URL = "url";
   @jakarta.annotation.Nonnull
   private String url;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @jakarta.annotation.Nonnull
+  private LinkType type;
 
   public static final String JSON_PROPERTY_HAS_INFO = "hasInfo";
   @Deprecated
@@ -57,9 +61,6 @@ public class LinkCreateApiModel {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<LinkType> type = JsonNullable.<LinkType>undefined();
 
   public LinkCreateApiModel() { 
   }
@@ -86,6 +87,31 @@ public class LinkCreateApiModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUrl(@jakarta.annotation.Nonnull String url) {
     this.url = url;
+  }
+
+
+  public LinkCreateApiModel type(@jakarta.annotation.Nonnull LinkType type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Specifies the type of the link.
+   * @return type
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LinkType getType() {
+    return type;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(@jakarta.annotation.Nonnull LinkType type) {
+    this.type = type;
   }
 
 
@@ -184,39 +210,6 @@ public class LinkCreateApiModel {
   }
 
 
-  public LinkCreateApiModel type(@jakarta.annotation.Nullable LinkType type) {
-    this.type = JsonNullable.<LinkType>of(type);
-    return this;
-  }
-
-  /**
-   * Specifies the type of the link.
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public LinkType getType() {
-        return type.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<LinkType> getType_JsonNullable() {
-    return type;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<LinkType> type) {
-    this.type = type;
-  }
-
-  public void setType(@jakarta.annotation.Nullable LinkType type) {
-    this.type = JsonNullable.<LinkType>of(type);
-  }
-
-
   /**
    * Return true if this LinkCreateApiModel object is equal to o.
    */
@@ -230,10 +223,10 @@ public class LinkCreateApiModel {
     }
     LinkCreateApiModel linkCreateApiModel = (LinkCreateApiModel) o;
     return Objects.equals(this.url, linkCreateApiModel.url) &&
+        Objects.equals(this.type, linkCreateApiModel.type) &&
         Objects.equals(this.hasInfo, linkCreateApiModel.hasInfo) &&
         equalsNullable(this.title, linkCreateApiModel.title) &&
-        equalsNullable(this.description, linkCreateApiModel.description) &&
-        equalsNullable(this.type, linkCreateApiModel.type);
+        equalsNullable(this.description, linkCreateApiModel.description);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +235,7 @@ public class LinkCreateApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, hasInfo, hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(type));
+    return Objects.hash(url, type, hasInfo, hashCodeNullable(title), hashCodeNullable(description));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -257,10 +250,10 @@ public class LinkCreateApiModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class LinkCreateApiModel {\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    hasInfo: ").append(toIndentedString(hasInfo)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

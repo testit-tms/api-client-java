@@ -32,12 +32,12 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
-import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemExternalMetadataFilterModel;
 import ru.testit.client.model.WorkItemLinkFilterModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
+import ru.testit.client.model.WorkItemTypeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -85,7 +85,7 @@ public class TestSuiteWorkItemsSearchModel {
   private JsonNullable<Set<String>> tagNames = JsonNullable.<Set<String>>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_TYPES = "entityTypes";
-  private JsonNullable<Set<WorkItemEntityTypes>> entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>undefined();
+  private JsonNullable<Set<WorkItemTypeModel>> entityTypes = JsonNullable.<Set<WorkItemTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_NAME_OR_ID = "nameOrId";
   private JsonNullable<String> nameOrId = JsonNullable.<String>undefined();
@@ -133,7 +133,7 @@ public class TestSuiteWorkItemsSearchModel {
   private JsonNullable<Set<WorkItemSourceTypeModel>> sourceTypes = JsonNullable.<Set<WorkItemSourceTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_TYPES = "types";
-  private JsonNullable<Set<WorkItemEntityTypes>> types = JsonNullable.<Set<WorkItemEntityTypes>>undefined();
+  private JsonNullable<Set<WorkItemTypeModel>> types = JsonNullable.<Set<WorkItemTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
@@ -216,14 +216,14 @@ public class TestSuiteWorkItemsSearchModel {
   }
 
 
-  public TestSuiteWorkItemsSearchModel entityTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> entityTypes) {
-    this.entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>of(entityTypes);
+  public TestSuiteWorkItemsSearchModel entityTypes(@jakarta.annotation.Nullable Set<WorkItemTypeModel> entityTypes) {
+    this.entityTypes = JsonNullable.<Set<WorkItemTypeModel>>of(entityTypes);
     return this;
   }
 
-  public TestSuiteWorkItemsSearchModel addEntityTypesItem(WorkItemEntityTypes entityTypesItem) {
+  public TestSuiteWorkItemsSearchModel addEntityTypesItem(WorkItemTypeModel entityTypesItem) {
     if (this.entityTypes == null || !this.entityTypes.isPresent()) {
-      this.entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>of(new LinkedHashSet<>());
+      this.entityTypes = JsonNullable.<Set<WorkItemTypeModel>>of(new LinkedHashSet<>());
     }
     try {
       this.entityTypes.get().add(entityTypesItem);
@@ -240,24 +240,24 @@ public class TestSuiteWorkItemsSearchModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Set<WorkItemEntityTypes> getEntityTypes() {
+  public Set<WorkItemTypeModel> getEntityTypes() {
         return entityTypes.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<WorkItemEntityTypes>> getEntityTypes_JsonNullable() {
+  public JsonNullable<Set<WorkItemTypeModel>> getEntityTypes_JsonNullable() {
     return entityTypes;
   }
   
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
-  public void setEntityTypes_JsonNullable(JsonNullable<Set<WorkItemEntityTypes>> entityTypes) {
+  public void setEntityTypes_JsonNullable(JsonNullable<Set<WorkItemTypeModel>> entityTypes) {
     this.entityTypes = entityTypes;
   }
 
-  public void setEntityTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> entityTypes) {
-    this.entityTypes = JsonNullable.<Set<WorkItemEntityTypes>>of(entityTypes);
+  public void setEntityTypes(@jakarta.annotation.Nullable Set<WorkItemTypeModel> entityTypes) {
+    this.entityTypes = JsonNullable.<Set<WorkItemTypeModel>>of(entityTypes);
   }
 
 
@@ -900,14 +900,14 @@ public class TestSuiteWorkItemsSearchModel {
   }
 
 
-  public TestSuiteWorkItemsSearchModel types(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
-    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
+  public TestSuiteWorkItemsSearchModel types(@jakarta.annotation.Nullable Set<WorkItemTypeModel> types) {
+    this.types = JsonNullable.<Set<WorkItemTypeModel>>of(types);
     return this;
   }
 
-  public TestSuiteWorkItemsSearchModel addTypesItem(WorkItemEntityTypes typesItem) {
+  public TestSuiteWorkItemsSearchModel addTypesItem(WorkItemTypeModel typesItem) {
     if (this.types == null || !this.types.isPresent()) {
-      this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(new LinkedHashSet<>());
+      this.types = JsonNullable.<Set<WorkItemTypeModel>>of(new LinkedHashSet<>());
     }
     try {
       this.types.get().add(typesItem);
@@ -924,24 +924,24 @@ public class TestSuiteWorkItemsSearchModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Set<WorkItemEntityTypes> getTypes() {
+  public Set<WorkItemTypeModel> getTypes() {
         return types.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<WorkItemEntityTypes>> getTypes_JsonNullable() {
+  public JsonNullable<Set<WorkItemTypeModel>> getTypes_JsonNullable() {
     return types;
   }
   
   @JsonProperty(JSON_PROPERTY_TYPES)
-  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemEntityTypes>> types) {
+  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemTypeModel>> types) {
     this.types = types;
   }
 
-  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
-    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
+  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemTypeModel> types) {
+    this.types = JsonNullable.<Set<WorkItemTypeModel>>of(types);
   }
 
 

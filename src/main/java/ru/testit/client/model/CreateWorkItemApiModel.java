@@ -55,17 +55,17 @@ import ru.testit.client.invoker.JSON;
   CreateWorkItemApiModel.JSON_PROPERTY_DURATION,
   CreateWorkItemApiModel.JSON_PROPERTY_STATE,
   CreateWorkItemApiModel.JSON_PROPERTY_PRIORITY,
+  CreateWorkItemApiModel.JSON_PROPERTY_SECTION_ID,
+  CreateWorkItemApiModel.JSON_PROPERTY_DESCRIPTION,
   CreateWorkItemApiModel.JSON_PROPERTY_ATTRIBUTES,
   CreateWorkItemApiModel.JSON_PROPERTY_TAGS,
   CreateWorkItemApiModel.JSON_PROPERTY_PRECONDITION_STEPS,
   CreateWorkItemApiModel.JSON_PROPERTY_STEPS,
   CreateWorkItemApiModel.JSON_PROPERTY_POSTCONDITION_STEPS,
-  CreateWorkItemApiModel.JSON_PROPERTY_LINKS,
-  CreateWorkItemApiModel.JSON_PROPERTY_SECTION_ID,
-  CreateWorkItemApiModel.JSON_PROPERTY_DESCRIPTION,
   CreateWorkItemApiModel.JSON_PROPERTY_ITERATIONS,
   CreateWorkItemApiModel.JSON_PROPERTY_AUTO_TESTS,
   CreateWorkItemApiModel.JSON_PROPERTY_ATTACHMENTS,
+  CreateWorkItemApiModel.JSON_PROPERTY_LINKS,
   CreateWorkItemApiModel.JSON_PROPERTY_PARAMETERS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
@@ -94,35 +94,26 @@ public class CreateWorkItemApiModel {
   @jakarta.annotation.Nonnull
   private WorkItemPriorityApiModel priority;
 
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  @jakarta.annotation.Nonnull
-  private Map<String, Object> attributes = new HashMap<>();
-
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  @jakarta.annotation.Nonnull
-  private List<TagModel> tags = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_PRECONDITION_STEPS = "preconditionSteps";
-  @jakarta.annotation.Nonnull
-  private List<CreateStepApiModel> preconditionSteps = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_STEPS = "steps";
-  @jakarta.annotation.Nonnull
-  private List<CreateStepApiModel> steps = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_POSTCONDITION_STEPS = "postconditionSteps";
-  @jakarta.annotation.Nonnull
-  private List<CreateStepApiModel> postconditionSteps = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_LINKS = "links";
-  @jakarta.annotation.Nonnull
-  private List<CreateLinkApiModel> links = new ArrayList<>();
-
   public static final String JSON_PROPERTY_SECTION_ID = "sectionId";
   private JsonNullable<UUID> sectionId = JsonNullable.<UUID>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private JsonNullable<Map<String, Object>> attributes = JsonNullable.<Map<String, Object>>undefined();
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<TagModel>> tags = JsonNullable.<List<TagModel>>undefined();
+
+  public static final String JSON_PROPERTY_PRECONDITION_STEPS = "preconditionSteps";
+  private JsonNullable<List<CreateStepApiModel>> preconditionSteps = JsonNullable.<List<CreateStepApiModel>>undefined();
+
+  public static final String JSON_PROPERTY_STEPS = "steps";
+  private JsonNullable<List<CreateStepApiModel>> steps = JsonNullable.<List<CreateStepApiModel>>undefined();
+
+  public static final String JSON_PROPERTY_POSTCONDITION_STEPS = "postconditionSteps";
+  private JsonNullable<List<CreateStepApiModel>> postconditionSteps = JsonNullable.<List<CreateStepApiModel>>undefined();
 
   public static final String JSON_PROPERTY_ITERATIONS = "iterations";
   private JsonNullable<List<AssignIterationApiModel>> iterations = JsonNullable.<List<AssignIterationApiModel>>undefined();
@@ -132,6 +123,9 @@ public class CreateWorkItemApiModel {
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private JsonNullable<List<AssignAttachmentApiModel>> attachments = JsonNullable.<List<AssignAttachmentApiModel>>undefined();
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private JsonNullable<List<CreateLinkApiModel>> links = JsonNullable.<List<CreateLinkApiModel>>undefined();
 
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
   private JsonNullable<List<WorkItemParameterKeyApiModel>> parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>undefined();
@@ -247,7 +241,7 @@ public class CreateWorkItemApiModel {
   }
 
   /**
-   * State of the work item
+   * Current state of the work item
    * @return state
    */
   @jakarta.annotation.Nonnull
@@ -272,7 +266,7 @@ public class CreateWorkItemApiModel {
   }
 
   /**
-   * Priority level of the work item
+   * Priority level assigned to the work item
    * @return priority
    */
   @jakarta.annotation.Nonnull
@@ -288,204 +282,6 @@ public class CreateWorkItemApiModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPriority(@jakarta.annotation.Nonnull WorkItemPriorityApiModel priority) {
     this.priority = priority;
-  }
-
-
-  public CreateWorkItemApiModel attributes(@jakarta.annotation.Nonnull Map<String, Object> attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-  public CreateWorkItemApiModel putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
-    this.attributes.put(key, attributesItem);
-    return this;
-  }
-
-  /**
-   * Set of custom attributes associated with the work item
-   * @return attributes
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-
-  public Map<String, Object> getAttributes() {
-    return attributes;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(@jakarta.annotation.Nonnull Map<String, Object> attributes) {
-    this.attributes = attributes;
-  }
-
-
-  public CreateWorkItemApiModel tags(@jakarta.annotation.Nonnull List<TagModel> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CreateWorkItemApiModel addTagsItem(TagModel tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * Set of tags applied to the work item
-   * @return tags
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<TagModel> getTags() {
-    return tags;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTags(@jakarta.annotation.Nonnull List<TagModel> tags) {
-    this.tags = tags;
-  }
-
-
-  public CreateWorkItemApiModel preconditionSteps(@jakarta.annotation.Nonnull List<CreateStepApiModel> preconditionSteps) {
-    this.preconditionSteps = preconditionSteps;
-    return this;
-  }
-
-  public CreateWorkItemApiModel addPreconditionStepsItem(CreateStepApiModel preconditionStepsItem) {
-    if (this.preconditionSteps == null) {
-      this.preconditionSteps = new ArrayList<>();
-    }
-    this.preconditionSteps.add(preconditionStepsItem);
-    return this;
-  }
-
-  /**
-   * Set of precondition steps that need to be executed before starting the main steps
-   * @return preconditionSteps
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PRECONDITION_STEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<CreateStepApiModel> getPreconditionSteps() {
-    return preconditionSteps;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PRECONDITION_STEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPreconditionSteps(@jakarta.annotation.Nonnull List<CreateStepApiModel> preconditionSteps) {
-    this.preconditionSteps = preconditionSteps;
-  }
-
-
-  public CreateWorkItemApiModel steps(@jakarta.annotation.Nonnull List<CreateStepApiModel> steps) {
-    this.steps = steps;
-    return this;
-  }
-
-  public CreateWorkItemApiModel addStepsItem(CreateStepApiModel stepsItem) {
-    if (this.steps == null) {
-      this.steps = new ArrayList<>();
-    }
-    this.steps.add(stepsItem);
-    return this;
-  }
-
-  /**
-   * Main steps or actions defined for the work item
-   * @return steps
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<CreateStepApiModel> getSteps() {
-    return steps;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSteps(@jakarta.annotation.Nonnull List<CreateStepApiModel> steps) {
-    this.steps = steps;
-  }
-
-
-  public CreateWorkItemApiModel postconditionSteps(@jakarta.annotation.Nonnull List<CreateStepApiModel> postconditionSteps) {
-    this.postconditionSteps = postconditionSteps;
-    return this;
-  }
-
-  public CreateWorkItemApiModel addPostconditionStepsItem(CreateStepApiModel postconditionStepsItem) {
-    if (this.postconditionSteps == null) {
-      this.postconditionSteps = new ArrayList<>();
-    }
-    this.postconditionSteps.add(postconditionStepsItem);
-    return this;
-  }
-
-  /**
-   * Set of postcondition steps that are executed after completing the main steps
-   * @return postconditionSteps
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_POSTCONDITION_STEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<CreateStepApiModel> getPostconditionSteps() {
-    return postconditionSteps;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_POSTCONDITION_STEPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPostconditionSteps(@jakarta.annotation.Nonnull List<CreateStepApiModel> postconditionSteps) {
-    this.postconditionSteps = postconditionSteps;
-  }
-
-
-  public CreateWorkItemApiModel links(@jakarta.annotation.Nonnull List<CreateLinkApiModel> links) {
-    this.links = links;
-    return this;
-  }
-
-  public CreateWorkItemApiModel addLinksItem(CreateLinkApiModel linksItem) {
-    if (this.links == null) {
-      this.links = new ArrayList<>();
-    }
-    this.links.add(linksItem);
-    return this;
-  }
-
-  /**
-   * Set of links related to the work item
-   * @return links
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<CreateLinkApiModel> getLinks() {
-    return links;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLinks(@jakarta.annotation.Nonnull List<CreateLinkApiModel> links) {
-    this.links = links;
   }
 
 
@@ -555,6 +351,231 @@ public class CreateWorkItemApiModel {
   }
 
 
+  public CreateWorkItemApiModel attributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
+    return this;
+  }
+
+  public CreateWorkItemApiModel putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null || !this.attributes.isPresent()) {
+      this.attributes = JsonNullable.<Map<String, Object>>of(new HashMap<>());
+    }
+    try {
+      this.attributes.get().put(key, attributesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Set of custom attributes associated with the work item
+   * @return attributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Map<String, Object> getAttributes() {
+        return attributes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Map<String, Object>> getAttributes_JsonNullable() {
+    return attributes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  public void setAttributes_JsonNullable(JsonNullable<Map<String, Object>> attributes) {
+    this.attributes = attributes;
+  }
+
+  public void setAttributes(@jakarta.annotation.Nullable Map<String, Object> attributes) {
+    this.attributes = JsonNullable.<Map<String, Object>>of(attributes);
+  }
+
+
+  public CreateWorkItemApiModel tags(@jakarta.annotation.Nullable List<TagModel> tags) {
+    this.tags = JsonNullable.<List<TagModel>>of(tags);
+    return this;
+  }
+
+  public CreateWorkItemApiModel addTagsItem(TagModel tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<TagModel>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Set of tags applied to the work item
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<TagModel> getTags() {
+        return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<TagModel>> getTags_JsonNullable() {
+    return tags;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<TagModel>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(@jakarta.annotation.Nullable List<TagModel> tags) {
+    this.tags = JsonNullable.<List<TagModel>>of(tags);
+  }
+
+
+  public CreateWorkItemApiModel preconditionSteps(@jakarta.annotation.Nullable List<CreateStepApiModel> preconditionSteps) {
+    this.preconditionSteps = JsonNullable.<List<CreateStepApiModel>>of(preconditionSteps);
+    return this;
+  }
+
+  public CreateWorkItemApiModel addPreconditionStepsItem(CreateStepApiModel preconditionStepsItem) {
+    if (this.preconditionSteps == null || !this.preconditionSteps.isPresent()) {
+      this.preconditionSteps = JsonNullable.<List<CreateStepApiModel>>of(new ArrayList<>());
+    }
+    try {
+      this.preconditionSteps.get().add(preconditionStepsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Set of precondition steps that must be executed before the main steps
+   * @return preconditionSteps
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<CreateStepApiModel> getPreconditionSteps() {
+        return preconditionSteps.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PRECONDITION_STEPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<CreateStepApiModel>> getPreconditionSteps_JsonNullable() {
+    return preconditionSteps;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRECONDITION_STEPS)
+  public void setPreconditionSteps_JsonNullable(JsonNullable<List<CreateStepApiModel>> preconditionSteps) {
+    this.preconditionSteps = preconditionSteps;
+  }
+
+  public void setPreconditionSteps(@jakarta.annotation.Nullable List<CreateStepApiModel> preconditionSteps) {
+    this.preconditionSteps = JsonNullable.<List<CreateStepApiModel>>of(preconditionSteps);
+  }
+
+
+  public CreateWorkItemApiModel steps(@jakarta.annotation.Nullable List<CreateStepApiModel> steps) {
+    this.steps = JsonNullable.<List<CreateStepApiModel>>of(steps);
+    return this;
+  }
+
+  public CreateWorkItemApiModel addStepsItem(CreateStepApiModel stepsItem) {
+    if (this.steps == null || !this.steps.isPresent()) {
+      this.steps = JsonNullable.<List<CreateStepApiModel>>of(new ArrayList<>());
+    }
+    try {
+      this.steps.get().add(stepsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Set of main steps or actions defined for the work item
+   * @return steps
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<CreateStepApiModel> getSteps() {
+        return steps.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STEPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<CreateStepApiModel>> getSteps_JsonNullable() {
+    return steps;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STEPS)
+  public void setSteps_JsonNullable(JsonNullable<List<CreateStepApiModel>> steps) {
+    this.steps = steps;
+  }
+
+  public void setSteps(@jakarta.annotation.Nullable List<CreateStepApiModel> steps) {
+    this.steps = JsonNullable.<List<CreateStepApiModel>>of(steps);
+  }
+
+
+  public CreateWorkItemApiModel postconditionSteps(@jakarta.annotation.Nullable List<CreateStepApiModel> postconditionSteps) {
+    this.postconditionSteps = JsonNullable.<List<CreateStepApiModel>>of(postconditionSteps);
+    return this;
+  }
+
+  public CreateWorkItemApiModel addPostconditionStepsItem(CreateStepApiModel postconditionStepsItem) {
+    if (this.postconditionSteps == null || !this.postconditionSteps.isPresent()) {
+      this.postconditionSteps = JsonNullable.<List<CreateStepApiModel>>of(new ArrayList<>());
+    }
+    try {
+      this.postconditionSteps.get().add(postconditionStepsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Set of postcondition steps that are executed after completing the main steps
+   * @return postconditionSteps
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<CreateStepApiModel> getPostconditionSteps() {
+        return postconditionSteps.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_POSTCONDITION_STEPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<CreateStepApiModel>> getPostconditionSteps_JsonNullable() {
+    return postconditionSteps;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_POSTCONDITION_STEPS)
+  public void setPostconditionSteps_JsonNullable(JsonNullable<List<CreateStepApiModel>> postconditionSteps) {
+    this.postconditionSteps = postconditionSteps;
+  }
+
+  public void setPostconditionSteps(@jakarta.annotation.Nullable List<CreateStepApiModel> postconditionSteps) {
+    this.postconditionSteps = JsonNullable.<List<CreateStepApiModel>>of(postconditionSteps);
+  }
+
+
   public CreateWorkItemApiModel iterations(@jakarta.annotation.Nullable List<AssignIterationApiModel> iterations) {
     this.iterations = JsonNullable.<List<AssignIterationApiModel>>of(iterations);
     return this;
@@ -573,7 +594,7 @@ public class CreateWorkItemApiModel {
   }
 
   /**
-   * Associated iterations linked to the work item
+   * Set of iterations associated with the work item
    * @return iterations
    */
   @jakarta.annotation.Nullable
@@ -618,7 +639,7 @@ public class CreateWorkItemApiModel {
   }
 
   /**
-   * Automated tests associated with the work item
+   * Set of automated tests linked to the work item
    * @return autoTests
    */
   @jakarta.annotation.Nullable
@@ -663,7 +684,7 @@ public class CreateWorkItemApiModel {
   }
 
   /**
-   * Files attached to the work item
+   * Set of files attached to the work item
    * @return attachments
    */
   @jakarta.annotation.Nullable
@@ -690,6 +711,51 @@ public class CreateWorkItemApiModel {
   }
 
 
+  public CreateWorkItemApiModel links(@jakarta.annotation.Nullable List<CreateLinkApiModel> links) {
+    this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
+    return this;
+  }
+
+  public CreateWorkItemApiModel addLinksItem(CreateLinkApiModel linksItem) {
+    if (this.links == null || !this.links.isPresent()) {
+      this.links = JsonNullable.<List<CreateLinkApiModel>>of(new ArrayList<>());
+    }
+    try {
+      this.links.get().add(linksItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Set of links related to the work item
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public List<CreateLinkApiModel> getLinks() {
+        return links.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<List<CreateLinkApiModel>> getLinks_JsonNullable() {
+    return links;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  public void setLinks_JsonNullable(JsonNullable<List<CreateLinkApiModel>> links) {
+    this.links = links;
+  }
+
+  public void setLinks(@jakarta.annotation.Nullable List<CreateLinkApiModel> links) {
+    this.links = JsonNullable.<List<CreateLinkApiModel>>of(links);
+  }
+
+
   public CreateWorkItemApiModel parameters(@jakarta.annotation.Nullable List<WorkItemParameterKeyApiModel> parameters) {
     this.parameters = JsonNullable.<List<WorkItemParameterKeyApiModel>>of(parameters);
     return this;
@@ -708,7 +774,7 @@ public class CreateWorkItemApiModel {
   }
 
   /**
-   * Set of parameter keys related to the work item
+   * Set of parameter keys associated with the work item
    * @return parameters
    */
   @jakarta.annotation.Nullable
@@ -753,17 +819,17 @@ public class CreateWorkItemApiModel {
         Objects.equals(this.duration, createWorkItemApiModel.duration) &&
         Objects.equals(this.state, createWorkItemApiModel.state) &&
         Objects.equals(this.priority, createWorkItemApiModel.priority) &&
-        Objects.equals(this.attributes, createWorkItemApiModel.attributes) &&
-        Objects.equals(this.tags, createWorkItemApiModel.tags) &&
-        Objects.equals(this.preconditionSteps, createWorkItemApiModel.preconditionSteps) &&
-        Objects.equals(this.steps, createWorkItemApiModel.steps) &&
-        Objects.equals(this.postconditionSteps, createWorkItemApiModel.postconditionSteps) &&
-        Objects.equals(this.links, createWorkItemApiModel.links) &&
         equalsNullable(this.sectionId, createWorkItemApiModel.sectionId) &&
         equalsNullable(this.description, createWorkItemApiModel.description) &&
+        equalsNullable(this.attributes, createWorkItemApiModel.attributes) &&
+        equalsNullable(this.tags, createWorkItemApiModel.tags) &&
+        equalsNullable(this.preconditionSteps, createWorkItemApiModel.preconditionSteps) &&
+        equalsNullable(this.steps, createWorkItemApiModel.steps) &&
+        equalsNullable(this.postconditionSteps, createWorkItemApiModel.postconditionSteps) &&
         equalsNullable(this.iterations, createWorkItemApiModel.iterations) &&
         equalsNullable(this.autoTests, createWorkItemApiModel.autoTests) &&
         equalsNullable(this.attachments, createWorkItemApiModel.attachments) &&
+        equalsNullable(this.links, createWorkItemApiModel.links) &&
         equalsNullable(this.parameters, createWorkItemApiModel.parameters);
   }
 
@@ -773,7 +839,7 @@ public class CreateWorkItemApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, name, entityTypeName, duration, state, priority, attributes, tags, preconditionSteps, steps, postconditionSteps, links, hashCodeNullable(sectionId), hashCodeNullable(description), hashCodeNullable(iterations), hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(parameters));
+    return Objects.hash(projectId, name, entityTypeName, duration, state, priority, hashCodeNullable(sectionId), hashCodeNullable(description), hashCodeNullable(attributes), hashCodeNullable(tags), hashCodeNullable(preconditionSteps), hashCodeNullable(steps), hashCodeNullable(postconditionSteps), hashCodeNullable(iterations), hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(links), hashCodeNullable(parameters));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -793,17 +859,17 @@ public class CreateWorkItemApiModel {
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    preconditionSteps: ").append(toIndentedString(preconditionSteps)).append("\n");
     sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("    postconditionSteps: ").append(toIndentedString(postconditionSteps)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    iterations: ").append(toIndentedString(iterations)).append("\n");
     sb.append("    autoTests: ").append(toIndentedString(autoTests)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();

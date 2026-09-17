@@ -32,12 +32,12 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
-import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemExternalMetadataFilterModel;
 import ru.testit.client.model.WorkItemLinkFilterModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
+import ru.testit.client.model.WorkItemTypeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -125,7 +125,7 @@ public class WorkItemFilterModel {
   private JsonNullable<Set<WorkItemSourceTypeModel>> sourceTypes = JsonNullable.<Set<WorkItemSourceTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_TYPES = "types";
-  private JsonNullable<Set<WorkItemEntityTypes>> types = JsonNullable.<Set<WorkItemEntityTypes>>undefined();
+  private JsonNullable<Set<WorkItemTypeModel>> types = JsonNullable.<Set<WorkItemTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
@@ -802,14 +802,14 @@ public class WorkItemFilterModel {
   }
 
 
-  public WorkItemFilterModel types(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
-    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
+  public WorkItemFilterModel types(@jakarta.annotation.Nullable Set<WorkItemTypeModel> types) {
+    this.types = JsonNullable.<Set<WorkItemTypeModel>>of(types);
     return this;
   }
 
-  public WorkItemFilterModel addTypesItem(WorkItemEntityTypes typesItem) {
+  public WorkItemFilterModel addTypesItem(WorkItemTypeModel typesItem) {
     if (this.types == null || !this.types.isPresent()) {
-      this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(new LinkedHashSet<>());
+      this.types = JsonNullable.<Set<WorkItemTypeModel>>of(new LinkedHashSet<>());
     }
     try {
       this.types.get().add(typesItem);
@@ -826,24 +826,24 @@ public class WorkItemFilterModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Set<WorkItemEntityTypes> getTypes() {
+  public Set<WorkItemTypeModel> getTypes() {
         return types.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<WorkItemEntityTypes>> getTypes_JsonNullable() {
+  public JsonNullable<Set<WorkItemTypeModel>> getTypes_JsonNullable() {
     return types;
   }
   
   @JsonProperty(JSON_PROPERTY_TYPES)
-  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemEntityTypes>> types) {
+  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemTypeModel>> types) {
     this.types = types;
   }
 
-  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
-    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
+  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemTypeModel> types) {
+    this.types = JsonNullable.<Set<WorkItemTypeModel>>of(types);
   }
 
 

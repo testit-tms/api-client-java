@@ -43,6 +43,8 @@
 
 * `DELETE_SECTION` (value: `"DeleteSection"`)
 
+* `IMPORT_AUTO_TESTS_REPORT` (value: `"ImportAutoTestsReport"`)
+
 * `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
 
 

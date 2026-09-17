@@ -11,14 +11,14 @@
 |**medianDuration** | **Long** | used for getting a median duration of all autotests related to this workitem |  |
 |**isDeleted** | **Boolean** |  |  |
 |**projectId** | **UUID** |  |  |
-|**entityTypeName** | **WorkItemEntityTypes** |  |  |
+|**entityTypeName** | **WorkItemTypeModel** |  |  |
 |**isAutomated** | **Boolean** |  |  |
 |**versionNumber** | **Integer** | used for define chronology of workitem state in each version |  |
+|**externalIssues** | [**List&lt;ExternalIssueModel&gt;**](ExternalIssueModel.md) |  |  |
+|**parameters** | [**List&lt;WorkItemParameterKeyModel&gt;**](WorkItemParameterKeyModel.md) |  |  |
 |**createdDate** | **OffsetDateTime** |  |  |
 |**createdById** | **UUID** |  |  |
 |**globalId** | **Long** |  |  |
-|**externalIssues** | [**List&lt;ExternalIssueModel&gt;**](ExternalIssueModel.md) |  |  |
-|**parameters** | [**List&lt;WorkItemParameterKeyModel&gt;**](WorkItemParameterKeyModel.md) |  |  |
 |**id** | **UUID** |  |  |
 |**sectionId** | **UUID** |  |  |
 |**state** | **WorkItemStates** |  |  |

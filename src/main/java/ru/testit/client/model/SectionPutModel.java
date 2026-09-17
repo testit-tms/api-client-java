@@ -41,7 +41,6 @@ import ru.testit.client.invoker.JSON;
 @JsonPropertyOrder({
   SectionPutModel.JSON_PROPERTY_ID,
   SectionPutModel.JSON_PROPERTY_NAME,
-  SectionPutModel.JSON_PROPERTY_PROJECT_ID,
   SectionPutModel.JSON_PROPERTY_ATTACHMENTS,
   SectionPutModel.JSON_PROPERTY_PARENT_ID,
   SectionPutModel.JSON_PROPERTY_PRECONDITION_STEPS,
@@ -56,10 +55,6 @@ public class SectionPutModel {
   public static final String JSON_PROPERTY_NAME = "name";
   @jakarta.annotation.Nonnull
   private String name;
-
-  public static final String JSON_PROPERTY_PROJECT_ID = "projectId";
-  @jakarta.annotation.Nonnull
-  private UUID projectId;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   @jakarta.annotation.Nonnull
@@ -124,31 +119,6 @@ public class SectionPutModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
-  }
-
-
-  public SectionPutModel projectId(@jakarta.annotation.Nonnull UUID projectId) {
-    this.projectId = projectId;
-    return this;
-  }
-
-  /**
-   * Get projectId
-   * @return projectId
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UUID getProjectId() {
-    return projectId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProjectId(@jakarta.annotation.Nonnull UUID projectId) {
-    this.projectId = projectId;
   }
 
 
@@ -322,7 +292,6 @@ public class SectionPutModel {
     SectionPutModel sectionPutModel = (SectionPutModel) o;
     return Objects.equals(this.id, sectionPutModel.id) &&
         Objects.equals(this.name, sectionPutModel.name) &&
-        Objects.equals(this.projectId, sectionPutModel.projectId) &&
         Objects.equals(this.attachments, sectionPutModel.attachments) &&
         equalsNullable(this.parentId, sectionPutModel.parentId) &&
         equalsNullable(this.preconditionSteps, sectionPutModel.preconditionSteps) &&
@@ -335,7 +304,7 @@ public class SectionPutModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, projectId, attachments, hashCodeNullable(parentId), hashCodeNullable(preconditionSteps), hashCodeNullable(postconditionSteps));
+    return Objects.hash(id, name, attachments, hashCodeNullable(parentId), hashCodeNullable(preconditionSteps), hashCodeNullable(postconditionSteps));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -351,7 +320,6 @@ public class SectionPutModel {
     sb.append("class SectionPutModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    preconditionSteps: ").append(toIndentedString(preconditionSteps)).append("\n");

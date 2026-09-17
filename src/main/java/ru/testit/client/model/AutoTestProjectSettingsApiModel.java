@@ -34,10 +34,14 @@ import ru.testit.client.invoker.JSON;
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_RERUN_ENABLED,
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_RERUN_ATTEMPTS_COUNT,
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_ARCHIVE_OUTDATED_TEST_RUNS_ENABLED,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_TEST_RUNS_ARCHIVE_LIMIT_ENABLED,
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_IS_FLAKY_AUTO,
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_FLAKY_STABILITY_PERCENTAGE,
   AutoTestProjectSettingsApiModel.JSON_PROPERTY_FLAKY_TEST_RUN_COUNT,
-  AutoTestProjectSettingsApiModel.JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_TEST_RUNS_RETENTION_PERIOD_DAYS,
+  AutoTestProjectSettingsApiModel.JSON_PROPERTY_MAX_ACTIVE_TEST_RUNS_COUNT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class AutoTestProjectSettingsApiModel {
@@ -52,6 +56,14 @@ public class AutoTestProjectSettingsApiModel {
   public static final String JSON_PROPERTY_WORK_ITEM_UPDATING_FIELDS = "workItemUpdatingFields";
   @jakarta.annotation.Nonnull
   private WorkItemUpdatingFieldsApiModel workItemUpdatingFields;
+
+  public static final String JSON_PROPERTY_ARCHIVE_OUTDATED_TEST_RUNS_ENABLED = "archiveOutdatedTestRunsEnabled";
+  @jakarta.annotation.Nonnull
+  private Boolean archiveOutdatedTestRunsEnabled;
+
+  public static final String JSON_PROPERTY_TEST_RUNS_ARCHIVE_LIMIT_ENABLED = "testRunsArchiveLimitEnabled";
+  @jakarta.annotation.Nonnull
+  private Boolean testRunsArchiveLimitEnabled;
 
   public static final String JSON_PROPERTY_IS_FLAKY_AUTO = "isFlakyAuto";
   @jakarta.annotation.Nullable
@@ -68,6 +80,14 @@ public class AutoTestProjectSettingsApiModel {
   public static final String JSON_PROPERTY_WORK_ITEM_UPDATING_ENABLED = "workItemUpdatingEnabled";
   @jakarta.annotation.Nullable
   private Boolean workItemUpdatingEnabled = false;
+
+  public static final String JSON_PROPERTY_TEST_RUNS_RETENTION_PERIOD_DAYS = "testRunsRetentionPeriodDays";
+  @jakarta.annotation.Nullable
+  private Integer testRunsRetentionPeriodDays = 180;
+
+  public static final String JSON_PROPERTY_MAX_ACTIVE_TEST_RUNS_COUNT = "maxActiveTestRunsCount";
+  @jakarta.annotation.Nullable
+  private Integer maxActiveTestRunsCount = 500;
 
   public AutoTestProjectSettingsApiModel() { 
   }
@@ -146,6 +166,56 @@ public class AutoTestProjectSettingsApiModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWorkItemUpdatingFields(@jakarta.annotation.Nonnull WorkItemUpdatingFieldsApiModel workItemUpdatingFields) {
     this.workItemUpdatingFields = workItemUpdatingFields;
+  }
+
+
+  public AutoTestProjectSettingsApiModel archiveOutdatedTestRunsEnabled(@jakarta.annotation.Nonnull Boolean archiveOutdatedTestRunsEnabled) {
+    this.archiveOutdatedTestRunsEnabled = archiveOutdatedTestRunsEnabled;
+    return this;
+  }
+
+  /**
+   * Indicates whether archiving of outdated test runs is enabled for the project.
+   * @return archiveOutdatedTestRunsEnabled
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ARCHIVE_OUTDATED_TEST_RUNS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getArchiveOutdatedTestRunsEnabled() {
+    return archiveOutdatedTestRunsEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ARCHIVE_OUTDATED_TEST_RUNS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setArchiveOutdatedTestRunsEnabled(@jakarta.annotation.Nonnull Boolean archiveOutdatedTestRunsEnabled) {
+    this.archiveOutdatedTestRunsEnabled = archiveOutdatedTestRunsEnabled;
+  }
+
+
+  public AutoTestProjectSettingsApiModel testRunsArchiveLimitEnabled(@jakarta.annotation.Nonnull Boolean testRunsArchiveLimitEnabled) {
+    this.testRunsArchiveLimitEnabled = testRunsArchiveLimitEnabled;
+    return this;
+  }
+
+  /**
+   * Indicates whether a limit is enforced on the number of archived test runs.
+   * @return testRunsArchiveLimitEnabled
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TEST_RUNS_ARCHIVE_LIMIT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getTestRunsArchiveLimitEnabled() {
+    return testRunsArchiveLimitEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEST_RUNS_ARCHIVE_LIMIT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTestRunsArchiveLimitEnabled(@jakarta.annotation.Nonnull Boolean testRunsArchiveLimitEnabled) {
+    this.testRunsArchiveLimitEnabled = testRunsArchiveLimitEnabled;
   }
 
 
@@ -253,6 +323,60 @@ public class AutoTestProjectSettingsApiModel {
   }
 
 
+  public AutoTestProjectSettingsApiModel testRunsRetentionPeriodDays(@jakarta.annotation.Nullable Integer testRunsRetentionPeriodDays) {
+    this.testRunsRetentionPeriodDays = testRunsRetentionPeriodDays;
+    return this;
+  }
+
+  /**
+   *  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings
+   * minimum: 0
+   * maximum: 1000
+   * @return testRunsRetentionPeriodDays
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEST_RUNS_RETENTION_PERIOD_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getTestRunsRetentionPeriodDays() {
+    return testRunsRetentionPeriodDays;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEST_RUNS_RETENTION_PERIOD_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTestRunsRetentionPeriodDays(@jakarta.annotation.Nullable Integer testRunsRetentionPeriodDays) {
+    this.testRunsRetentionPeriodDays = testRunsRetentionPeriodDays;
+  }
+
+
+  public AutoTestProjectSettingsApiModel maxActiveTestRunsCount(@jakarta.annotation.Nullable Integer maxActiveTestRunsCount) {
+    this.maxActiveTestRunsCount = maxActiveTestRunsCount;
+    return this;
+  }
+
+  /**
+   * Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived
+   * minimum: 0
+   * maximum: 10000
+   * @return maxActiveTestRunsCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_ACTIVE_TEST_RUNS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMaxActiveTestRunsCount() {
+    return maxActiveTestRunsCount;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_ACTIVE_TEST_RUNS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxActiveTestRunsCount(@jakarta.annotation.Nullable Integer maxActiveTestRunsCount) {
+    this.maxActiveTestRunsCount = maxActiveTestRunsCount;
+  }
+
+
   /**
    * Return true if this AutoTestProjectSettingsApiModel object is equal to o.
    */
@@ -268,15 +392,19 @@ public class AutoTestProjectSettingsApiModel {
     return Objects.equals(this.rerunEnabled, autoTestProjectSettingsApiModel.rerunEnabled) &&
         Objects.equals(this.rerunAttemptsCount, autoTestProjectSettingsApiModel.rerunAttemptsCount) &&
         Objects.equals(this.workItemUpdatingFields, autoTestProjectSettingsApiModel.workItemUpdatingFields) &&
+        Objects.equals(this.archiveOutdatedTestRunsEnabled, autoTestProjectSettingsApiModel.archiveOutdatedTestRunsEnabled) &&
+        Objects.equals(this.testRunsArchiveLimitEnabled, autoTestProjectSettingsApiModel.testRunsArchiveLimitEnabled) &&
         Objects.equals(this.isFlakyAuto, autoTestProjectSettingsApiModel.isFlakyAuto) &&
         Objects.equals(this.flakyStabilityPercentage, autoTestProjectSettingsApiModel.flakyStabilityPercentage) &&
         Objects.equals(this.flakyTestRunCount, autoTestProjectSettingsApiModel.flakyTestRunCount) &&
-        Objects.equals(this.workItemUpdatingEnabled, autoTestProjectSettingsApiModel.workItemUpdatingEnabled);
+        Objects.equals(this.workItemUpdatingEnabled, autoTestProjectSettingsApiModel.workItemUpdatingEnabled) &&
+        Objects.equals(this.testRunsRetentionPeriodDays, autoTestProjectSettingsApiModel.testRunsRetentionPeriodDays) &&
+        Objects.equals(this.maxActiveTestRunsCount, autoTestProjectSettingsApiModel.maxActiveTestRunsCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rerunEnabled, rerunAttemptsCount, workItemUpdatingFields, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount, workItemUpdatingEnabled);
+    return Objects.hash(rerunEnabled, rerunAttemptsCount, workItemUpdatingFields, archiveOutdatedTestRunsEnabled, testRunsArchiveLimitEnabled, isFlakyAuto, flakyStabilityPercentage, flakyTestRunCount, workItemUpdatingEnabled, testRunsRetentionPeriodDays, maxActiveTestRunsCount);
   }
 
   @Override
@@ -286,10 +414,14 @@ public class AutoTestProjectSettingsApiModel {
     sb.append("    rerunEnabled: ").append(toIndentedString(rerunEnabled)).append("\n");
     sb.append("    rerunAttemptsCount: ").append(toIndentedString(rerunAttemptsCount)).append("\n");
     sb.append("    workItemUpdatingFields: ").append(toIndentedString(workItemUpdatingFields)).append("\n");
+    sb.append("    archiveOutdatedTestRunsEnabled: ").append(toIndentedString(archiveOutdatedTestRunsEnabled)).append("\n");
+    sb.append("    testRunsArchiveLimitEnabled: ").append(toIndentedString(testRunsArchiveLimitEnabled)).append("\n");
     sb.append("    isFlakyAuto: ").append(toIndentedString(isFlakyAuto)).append("\n");
     sb.append("    flakyStabilityPercentage: ").append(toIndentedString(flakyStabilityPercentage)).append("\n");
     sb.append("    flakyTestRunCount: ").append(toIndentedString(flakyTestRunCount)).append("\n");
     sb.append("    workItemUpdatingEnabled: ").append(toIndentedString(workItemUpdatingEnabled)).append("\n");
+    sb.append("    testRunsRetentionPeriodDays: ").append(toIndentedString(testRunsRetentionPeriodDays)).append("\n");
+    sb.append("    maxActiveTestRunsCount: ").append(toIndentedString(maxActiveTestRunsCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 ## apiV2ExternalIssuesSuggestionsPost
 
-> ExternalIssueApiFieldSuggestionReply apiV2ExternalIssuesSuggestionsPost(getExternalIssueSuggestionsApiModel)
+> ExternalIssueApiFieldSuggestionIReply apiV2ExternalIssuesSuggestionsPost(getExternalIssueSuggestionsApiModel)
 
 Returns list of suggestions from available external issues
 
@@ -30,16 +30,22 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://localhost");
         
-        // Configure API key authorization: Bearer or PrivateToken
-        ApiKeyAuth Bearer or PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("Bearer or PrivateToken");
-        Bearer or PrivateToken.setApiKey("YOUR API KEY");
+        // Configure API key authorization: PrivateToken
+        ApiKeyAuth PrivateToken = (ApiKeyAuth) defaultClient.getAuthentication("PrivateToken");
+        PrivateToken.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //Bearer or PrivateToken.setApiKeyPrefix("Token");
+        //PrivateToken.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: Identity.Application
+        ApiKeyAuth Identity.Application = (ApiKeyAuth) defaultClient.getAuthentication("Identity.Application");
+        Identity.Application.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //Identity.Application.setApiKeyPrefix("Token");
 
         ExternalIssuesApi apiInstance = new ExternalIssuesApi(defaultClient);
         GetExternalIssueSuggestionsApiModel getExternalIssueSuggestionsApiModel = new GetExternalIssueSuggestionsApiModel(); // GetExternalIssueSuggestionsApiModel | 
         try {
-            ExternalIssueApiFieldSuggestionReply result = apiInstance.apiV2ExternalIssuesSuggestionsPost(getExternalIssueSuggestionsApiModel);
+            ExternalIssueApiFieldSuggestionIReply result = apiInstance.apiV2ExternalIssuesSuggestionsPost(getExternalIssueSuggestionsApiModel);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExternalIssuesApi#apiV2ExternalIssuesSuggestionsPost");
@@ -61,11 +67,11 @@ public class Example {
 
 ### Return type
 
-[**ExternalIssueApiFieldSuggestionReply**](ExternalIssueApiFieldSuggestionReply.md)
+[**ExternalIssueApiFieldSuggestionIReply**](ExternalIssueApiFieldSuggestionIReply.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 

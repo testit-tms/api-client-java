@@ -25,6 +25,7 @@
 |**globalId** | [**Int64ChangedFieldViewModel**](Int64ChangedFieldViewModel.md) |  |  |
 |**versionNumber** | [**Int32ChangedFieldViewModel**](Int32ChangedFieldViewModel.md) |  |  |
 |**entityTypeName** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  |  |
+|**parentId** | [**GuidNullableChangedFieldViewModel**](GuidNullableChangedFieldViewModel.md) |  |  |
 |**name** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
 |**description** | [**StringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  |  [optional] |
 

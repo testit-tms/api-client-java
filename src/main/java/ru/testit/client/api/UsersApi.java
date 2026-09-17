@@ -98,7 +98,7 @@ public class UsersApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<UserCustomNameValidationResponse> localVarReturnType = new GenericType<UserCustomNameValidationResponse>() {};
     return apiClient.invokeAPI("UsersApi.apiV2UsersExistsGet", "/api/v2/users/exists", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

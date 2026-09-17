@@ -24,14 +24,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.CollectionFilter;
 import ru.testit.client.model.CollectionOperator;
 import ru.testit.client.model.CompositeFilter;
 import ru.testit.client.model.Filter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import ru.testit.client.model.JsonElement;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 

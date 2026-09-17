@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AssignAttachmentApiModel;
 import ru.testit.client.model.CreateLinkApiModel;
 import ru.testit.client.model.TestPointSelector;
+import ru.testit.client.model.TestRunLaunchOptionApiModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -48,7 +49,8 @@ import ru.testit.client.invoker.JSON;
   CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_LAUNCH_SOURCE,
   CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_ATTACHMENTS,
   CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_LINKS,
-  CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_TAGS
+  CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_TAGS,
+  CreateTestRunAndFillByConfigurationsApiModel.JSON_PROPERTY_OPTION
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateTestRunAndFillByConfigurationsApiModel {
@@ -81,6 +83,9 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_OPTION = "option";
+  private JsonNullable<TestRunLaunchOptionApiModel> option = JsonNullable.<TestRunLaunchOptionApiModel>undefined();
 
   public CreateTestRunAndFillByConfigurationsApiModel() { 
   }
@@ -402,6 +407,39 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
   }
 
 
+  public CreateTestRunAndFillByConfigurationsApiModel option(@jakarta.annotation.Nullable TestRunLaunchOptionApiModel option) {
+    this.option = JsonNullable.<TestRunLaunchOptionApiModel>of(option);
+    return this;
+  }
+
+  /**
+   * Test run launching options.
+   * @return option
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestRunLaunchOptionApiModel getOption() {
+        return option.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestRunLaunchOptionApiModel> getOption_JsonNullable() {
+    return option;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPTION)
+  public void setOption_JsonNullable(JsonNullable<TestRunLaunchOptionApiModel> option) {
+    this.option = option;
+  }
+
+  public void setOption(@jakarta.annotation.Nullable TestRunLaunchOptionApiModel option) {
+    this.option = JsonNullable.<TestRunLaunchOptionApiModel>of(option);
+  }
+
+
   /**
    * Return true if this CreateTestRunAndFillByConfigurationsApiModel object is equal to o.
    */
@@ -422,7 +460,8 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
         equalsNullable(this.launchSource, createTestRunAndFillByConfigurationsApiModel.launchSource) &&
         equalsNullable(this.attachments, createTestRunAndFillByConfigurationsApiModel.attachments) &&
         equalsNullable(this.links, createTestRunAndFillByConfigurationsApiModel.links) &&
-        equalsNullable(this.tags, createTestRunAndFillByConfigurationsApiModel.tags);
+        equalsNullable(this.tags, createTestRunAndFillByConfigurationsApiModel.tags) &&
+        equalsNullable(this.option, createTestRunAndFillByConfigurationsApiModel.option);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -431,7 +470,7 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, testPlanId, testPointSelectors, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links), hashCodeNullable(tags));
+    return Objects.hash(projectId, testPlanId, testPointSelectors, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links), hashCodeNullable(tags), hashCodeNullable(option));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -454,6 +493,7 @@ public class CreateTestRunAndFillByConfigurationsApiModel {
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    option: ").append(toIndentedString(option)).append("\n");
     sb.append("}");
     return sb.toString();
   }

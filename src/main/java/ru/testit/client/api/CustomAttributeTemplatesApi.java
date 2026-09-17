@@ -105,7 +105,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<CustomAttributeTemplateValidationResult> localVarReturnType = new GenericType<CustomAttributeTemplateValidationResult>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesExistsGet", "/api/v2/customAttributes/templates/exists", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -166,7 +166,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesIdCustomAttributesExcludePost", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -226,7 +226,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesIdCustomAttributesIncludePost", localVarPath, "POST", new ArrayList<>(), UUID,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -284,7 +284,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -343,7 +343,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<CustomAttributeTemplateModel> localVarReturnType = new GenericType<CustomAttributeTemplateModel>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesIdGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -403,7 +403,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<CustomAttributeTemplateModel> localVarReturnType = new GenericType<CustomAttributeTemplateModel>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesNameGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -454,7 +454,7 @@ public class CustomAttributeTemplatesApi {
   public ApiResponse<CustomAttributeTemplateModel> apiV2CustomAttributesTemplatesPostWithHttpInfo(CustomAttributeTemplatePostModel customAttributeTemplatePostModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<CustomAttributeTemplateModel> localVarReturnType = new GenericType<CustomAttributeTemplateModel>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesPost", "/api/v2/customAttributes/templates", "POST", new ArrayList<>(), customAttributeTemplatePostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -504,7 +504,7 @@ public class CustomAttributeTemplatesApi {
   public ApiResponse<Void> apiV2CustomAttributesTemplatesPutWithHttpInfo(CustomAttributeTemplatePutModel customAttributeTemplatePutModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesPut", "/api/v2/customAttributes/templates", "PUT", new ArrayList<>(), customAttributeTemplatePutModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -573,7 +573,7 @@ public class CustomAttributeTemplatesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<SearchCustomAttributeTemplateGetModel>> localVarReturnType = new GenericType<List<SearchCustomAttributeTemplateGetModel>>() {};
     return apiClient.invokeAPI("CustomAttributeTemplatesApi.apiV2CustomAttributesTemplatesSearchPost", "/api/v2/customAttributes/templates/search", "POST", localVarQueryParams, customAttributeTemplateSearchQueryModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
