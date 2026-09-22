@@ -22,11 +22,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.FilterOperator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import ru.testit.client.model.JsonElement;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import ru.testit.client.invoker.JSON;
 
@@ -36,8 +33,8 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   Filter.JSON_PROPERTY_OPERATOR,
-  Filter.JSON_PROPERTY_FIELD,
-  Filter.JSON_PROPERTY_VALUE
+  Filter.JSON_PROPERTY_VALUE,
+  Filter.JSON_PROPERTY_FIELD
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class Filter {
@@ -45,12 +42,13 @@ public class Filter {
   @jakarta.annotation.Nonnull
   private FilterOperator operator;
 
+  public static final String JSON_PROPERTY_VALUE = "value";
+  @jakarta.annotation.Nonnull
+  private JsonElement value;
+
   public static final String JSON_PROPERTY_FIELD = "field";
   @jakarta.annotation.Nonnull
   private String field;
-
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private JsonNullable<String> value = JsonNullable.<String>undefined();
 
   public Filter() { 
   }
@@ -88,6 +86,31 @@ public class Filter {
   }
 
 
+  public Filter value(@jakarta.annotation.Nonnull JsonElement value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * Get value
+   * @return value
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public JsonElement getValue() {
+    return value;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setValue(@jakarta.annotation.Nonnull JsonElement value) {
+    this.value = value;
+  }
+
+
   /**
    * Get field
    * @return field
@@ -103,39 +126,6 @@ public class Filter {
 
 
 
-  public Filter value(@jakarta.annotation.Nullable String value) {
-    this.value = JsonNullable.<String>of(value);
-    return this;
-  }
-
-  /**
-   * Get value
-   * @return value
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public String getValue() {
-        return value.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getValue_JsonNullable() {
-    return value;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  public void setValue_JsonNullable(JsonNullable<String> value) {
-    this.value = value;
-  }
-
-  public void setValue(@jakarta.annotation.Nullable String value) {
-    this.value = JsonNullable.<String>of(value);
-  }
-
-
   /**
    * Return true if this Filter object is equal to o.
    */
@@ -149,24 +139,13 @@ public class Filter {
     }
     Filter filter = (Filter) o;
     return Objects.equals(this.operator, filter.operator) &&
-        Objects.equals(this.field, filter.field) &&
-        equalsNullable(this.value, filter.value);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.value, filter.value) &&
+        Objects.equals(this.field, filter.field);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operator, field, hashCodeNullable(value));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(operator, value, field);
   }
 
   @Override
@@ -174,8 +153,8 @@ public class Filter {
     StringBuilder sb = new StringBuilder();
     sb.append("class Filter {\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("}");
     return sb.toString();
   }

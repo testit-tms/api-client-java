@@ -11,7 +11,7 @@
 |**versionId** | **UUID** | Work Item version identifier |  |
 |**versionNumber** | **Integer** | Work Item version number |  |
 |**name** | **String** | Work Item name |  |
-|**entityTypeName** | **String** | Work Item type. Possible values: CheckLists, SharedSteps, TestCases |  |
+|**entityTypeName** | **WorkItemTypeModel** | Work Item type. Possible values: CheckLists, SharedSteps, TestCases |  |
 |**projectId** | **UUID** | Project unique identifier |  |
 |**sectionId** | **UUID** | Identifier of Section where Work Item is located |  |
 |**sectionName** | **String** | Section name of Work Item |  |

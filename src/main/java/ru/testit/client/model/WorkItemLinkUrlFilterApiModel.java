@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
-import ru.testit.client.model.WorkItemEntityTypes;
+import ru.testit.client.model.WorkItemTypeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -43,7 +43,7 @@ import ru.testit.client.invoker.JSON;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemLinkUrlFilterApiModel {
   public static final String JSON_PROPERTY_TYPES = "types";
-  private JsonNullable<Set<WorkItemEntityTypes>> types = JsonNullable.<Set<WorkItemEntityTypes>>undefined();
+  private JsonNullable<Set<WorkItemTypeModel>> types = JsonNullable.<Set<WorkItemTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_SEARCH_URL = "searchUrl";
   private JsonNullable<String> searchUrl = JsonNullable.<String>undefined();
@@ -51,14 +51,14 @@ public class WorkItemLinkUrlFilterApiModel {
   public WorkItemLinkUrlFilterApiModel() { 
   }
 
-  public WorkItemLinkUrlFilterApiModel types(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
-    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
+  public WorkItemLinkUrlFilterApiModel types(@jakarta.annotation.Nullable Set<WorkItemTypeModel> types) {
+    this.types = JsonNullable.<Set<WorkItemTypeModel>>of(types);
     return this;
   }
 
-  public WorkItemLinkUrlFilterApiModel addTypesItem(WorkItemEntityTypes typesItem) {
+  public WorkItemLinkUrlFilterApiModel addTypesItem(WorkItemTypeModel typesItem) {
     if (this.types == null || !this.types.isPresent()) {
-      this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(new LinkedHashSet<>());
+      this.types = JsonNullable.<Set<WorkItemTypeModel>>of(new LinkedHashSet<>());
     }
     try {
       this.types.get().add(typesItem);
@@ -75,24 +75,24 @@ public class WorkItemLinkUrlFilterApiModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Set<WorkItemEntityTypes> getTypes() {
+  public Set<WorkItemTypeModel> getTypes() {
         return types.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<WorkItemEntityTypes>> getTypes_JsonNullable() {
+  public JsonNullable<Set<WorkItemTypeModel>> getTypes_JsonNullable() {
     return types;
   }
   
   @JsonProperty(JSON_PROPERTY_TYPES)
-  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemEntityTypes>> types) {
+  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemTypeModel>> types) {
     this.types = types;
   }
 
-  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
-    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
+  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemTypeModel> types) {
+    this.types = JsonNullable.<Set<WorkItemTypeModel>>of(types);
   }
 
 

@@ -50,6 +50,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestUpdateApiModel.JSON_PROPERTY_TITLE,
   AutoTestUpdateApiModel.JSON_PROPERTY_DESCRIPTION,
   AutoTestUpdateApiModel.JSON_PROPERTY_IS_FLAKY,
+  AutoTestUpdateApiModel.JSON_PROPERTY_RESET_LAYER,
   AutoTestUpdateApiModel.JSON_PROPERTY_STEPS,
   AutoTestUpdateApiModel.JSON_PROPERTY_SETUP,
   AutoTestUpdateApiModel.JSON_PROPERTY_TEARDOWN,
@@ -93,6 +94,9 @@ public class AutoTestUpdateApiModel {
 
   public static final String JSON_PROPERTY_IS_FLAKY = "isFlaky";
   private JsonNullable<Boolean> isFlaky = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_RESET_LAYER = "resetLayer";
+  private JsonNullable<Boolean> resetLayer = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_STEPS = "steps";
   private JsonNullable<List<AutoTestStepApiModel>> steps = JsonNullable.<List<AutoTestStepApiModel>>undefined();
@@ -425,6 +429,39 @@ public class AutoTestUpdateApiModel {
 
   public void setIsFlaky(@jakarta.annotation.Nullable Boolean isFlaky) {
     this.isFlaky = JsonNullable.<Boolean>of(isFlaky);
+  }
+
+
+  public AutoTestUpdateApiModel resetLayer(@jakarta.annotation.Nullable Boolean resetLayer) {
+    this.resetLayer = JsonNullable.<Boolean>of(resetLayer);
+    return this;
+  }
+
+  /**
+   * Indicates if the autotest layer should be reset.
+   * @return resetLayer
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Boolean getResetLayer() {
+        return resetLayer.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RESET_LAYER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getResetLayer_JsonNullable() {
+    return resetLayer;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RESET_LAYER)
+  public void setResetLayer_JsonNullable(JsonNullable<Boolean> resetLayer) {
+    this.resetLayer = resetLayer;
+  }
+
+  public void setResetLayer(@jakarta.annotation.Nullable Boolean resetLayer) {
+    this.resetLayer = JsonNullable.<Boolean>of(resetLayer);
   }
 
 
@@ -814,6 +851,7 @@ public class AutoTestUpdateApiModel {
         equalsNullable(this.title, autoTestUpdateApiModel.title) &&
         equalsNullable(this.description, autoTestUpdateApiModel.description) &&
         equalsNullable(this.isFlaky, autoTestUpdateApiModel.isFlaky) &&
+        equalsNullable(this.resetLayer, autoTestUpdateApiModel.resetLayer) &&
         equalsNullable(this.steps, autoTestUpdateApiModel.steps) &&
         equalsNullable(this.setup, autoTestUpdateApiModel.setup) &&
         equalsNullable(this.teardown, autoTestUpdateApiModel.teardown) &&
@@ -830,7 +868,7 @@ public class AutoTestUpdateApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, externalId, name, hashCodeNullable(id), hashCodeNullable(externalKey), hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(isFlaky), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(workItemIds), hashCodeNullable(workItemIdsForLinkWithAutoTest), hashCodeNullable(labels), hashCodeNullable(links), hashCodeNullable(tags));
+    return Objects.hash(projectId, externalId, name, hashCodeNullable(id), hashCodeNullable(externalKey), hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(isFlaky), hashCodeNullable(resetLayer), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(workItemIds), hashCodeNullable(workItemIdsForLinkWithAutoTest), hashCodeNullable(labels), hashCodeNullable(links), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -854,6 +892,7 @@ public class AutoTestUpdateApiModel {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isFlaky: ").append(toIndentedString(isFlaky)).append("\n");
+    sb.append("    resetLayer: ").append(toIndentedString(resetLayer)).append("\n");
     sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
     sb.append("    setup: ").append(toIndentedString(setup)).append("\n");
     sb.append("    teardown: ").append(toIndentedString(teardown)).append("\n");

@@ -30,7 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutoTestStep;
 import ru.testit.client.model.ConfigurationShort;
 import ru.testit.client.model.Label;
-import ru.testit.client.model.Link;
+import ru.testit.client.model.LinkApiResult;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -110,7 +110,7 @@ public class AutoTest {
   private UUID createdById;
 
   public static final String JSON_PROPERTY_LINKS = "links";
-  private JsonNullable<List<Link>> links = JsonNullable.<List<Link>>undefined();
+  private JsonNullable<List<LinkApiResult>> links = JsonNullable.<List<LinkApiResult>>undefined();
 
   public static final String JSON_PROPERTY_NAMESPACE = "namespace";
   private JsonNullable<String> namespace = JsonNullable.<String>undefined();
@@ -394,14 +394,14 @@ public class AutoTest {
   }
 
 
-  public AutoTest links(@jakarta.annotation.Nullable List<Link> links) {
-    this.links = JsonNullable.<List<Link>>of(links);
+  public AutoTest links(@jakarta.annotation.Nullable List<LinkApiResult> links) {
+    this.links = JsonNullable.<List<LinkApiResult>>of(links);
     return this;
   }
 
-  public AutoTest addLinksItem(Link linksItem) {
+  public AutoTest addLinksItem(LinkApiResult linksItem) {
     if (this.links == null || !this.links.isPresent()) {
-      this.links = JsonNullable.<List<Link>>of(new ArrayList<>());
+      this.links = JsonNullable.<List<LinkApiResult>>of(new ArrayList<>());
     }
     try {
       this.links.get().add(linksItem);
@@ -418,24 +418,24 @@ public class AutoTest {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public List<Link> getLinks() {
+  public List<LinkApiResult> getLinks() {
         return links.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<Link>> getLinks_JsonNullable() {
+  public JsonNullable<List<LinkApiResult>> getLinks_JsonNullable() {
     return links;
   }
   
   @JsonProperty(JSON_PROPERTY_LINKS)
-  public void setLinks_JsonNullable(JsonNullable<List<Link>> links) {
+  public void setLinks_JsonNullable(JsonNullable<List<LinkApiResult>> links) {
     this.links = links;
   }
 
-  public void setLinks(@jakarta.annotation.Nullable List<Link> links) {
-    this.links = JsonNullable.<List<Link>>of(links);
+  public void setLinks(@jakarta.annotation.Nullable List<LinkApiResult> links) {
+    this.links = JsonNullable.<List<LinkApiResult>>of(links);
   }
 
 

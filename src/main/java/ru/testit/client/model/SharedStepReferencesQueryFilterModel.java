@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemStates;
+import ru.testit.client.model.WorkItemTypeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -77,7 +78,7 @@ public class SharedStepReferencesQueryFilterModel {
   private JsonNullable<Set<WorkItemPriorityModel>> priorities = JsonNullable.<Set<WorkItemPriorityModel>>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_TYPES = "entityTypes";
-  private JsonNullable<Set<String>> entityTypes = JsonNullable.<Set<String>>undefined();
+  private JsonNullable<Set<WorkItemTypeModel>> entityTypes = JsonNullable.<Set<WorkItemTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
@@ -397,14 +398,14 @@ public class SharedStepReferencesQueryFilterModel {
   }
 
 
-  public SharedStepReferencesQueryFilterModel entityTypes(@jakarta.annotation.Nullable Set<String> entityTypes) {
-    this.entityTypes = JsonNullable.<Set<String>>of(entityTypes);
+  public SharedStepReferencesQueryFilterModel entityTypes(@jakarta.annotation.Nullable Set<WorkItemTypeModel> entityTypes) {
+    this.entityTypes = JsonNullable.<Set<WorkItemTypeModel>>of(entityTypes);
     return this;
   }
 
-  public SharedStepReferencesQueryFilterModel addEntityTypesItem(String entityTypesItem) {
+  public SharedStepReferencesQueryFilterModel addEntityTypesItem(WorkItemTypeModel entityTypesItem) {
     if (this.entityTypes == null || !this.entityTypes.isPresent()) {
-      this.entityTypes = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+      this.entityTypes = JsonNullable.<Set<WorkItemTypeModel>>of(new LinkedHashSet<>());
     }
     try {
       this.entityTypes.get().add(entityTypesItem);
@@ -421,24 +422,24 @@ public class SharedStepReferencesQueryFilterModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Set<String> getEntityTypes() {
+  public Set<WorkItemTypeModel> getEntityTypes() {
         return entityTypes.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<String>> getEntityTypes_JsonNullable() {
+  public JsonNullable<Set<WorkItemTypeModel>> getEntityTypes_JsonNullable() {
     return entityTypes;
   }
   
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPES)
-  public void setEntityTypes_JsonNullable(JsonNullable<Set<String>> entityTypes) {
+  public void setEntityTypes_JsonNullable(JsonNullable<Set<WorkItemTypeModel>> entityTypes) {
     this.entityTypes = entityTypes;
   }
 
-  public void setEntityTypes(@jakarta.annotation.Nullable Set<String> entityTypes) {
-    this.entityTypes = JsonNullable.<Set<String>>of(entityTypes);
+  public void setEntityTypes(@jakarta.annotation.Nullable Set<WorkItemTypeModel> entityTypes) {
+    this.entityTypes = JsonNullable.<Set<WorkItemTypeModel>>of(entityTypes);
   }
 
 

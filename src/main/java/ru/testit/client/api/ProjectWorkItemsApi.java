@@ -131,7 +131,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<WorkItemGroupModel>> localVarReturnType = new GenericType<List<WorkItemGroupModel>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchGroupedPost", localVarPath, "POST", localVarQueryParams, workItemGroupGetModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -212,7 +212,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<UUID>> localVarReturnType = new GenericType<List<UUID>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchIdPost", localVarPath, "POST", localVarQueryParams, workItemSelectModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -293,7 +293,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<WorkItemShortApiResult>> localVarReturnType = new GenericType<List<WorkItemShortApiResult>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchPost", localVarPath, "POST", localVarQueryParams, workItemSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -380,7 +380,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<WorkItemIndexApiResult> localVarReturnType = new GenericType<WorkItemIndexApiResult>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost", localVarPath, "POST", localVarQueryParams, workItemSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -447,7 +447,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TagShortApiResult>> localVarReturnType = new GenericType<List<TagShortApiResult>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.apiV2ProjectsProjectIdWorkItemsTagsGet", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -539,7 +539,7 @@ public class ProjectWorkItemsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<WorkItemShortModel>> localVarReturnType = new GenericType<List<WorkItemShortModel>>() {};
     return apiClient.invokeAPI("ProjectWorkItemsApi.getWorkItemsByProjectId", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

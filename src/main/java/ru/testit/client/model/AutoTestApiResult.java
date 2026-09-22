@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AutoTestStepApiResult;
 import ru.testit.client.model.ConfigurationShortApiResult;
 import ru.testit.client.model.LabelApiResult;
+import ru.testit.client.model.LayerApiResult;
 import ru.testit.client.model.LinkApiResult;
 import ru.testit.client.model.TestStatusApiResult;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -70,6 +71,7 @@ import ru.testit.client.invoker.JSON;
   AutoTestApiResult.JSON_PROPERTY_LAST_TEST_RESULT_OUTCOME,
   AutoTestApiResult.JSON_PROPERTY_LAST_TEST_RESULT_STATUS,
   AutoTestApiResult.JSON_PROPERTY_STABILITY_PERCENTAGE,
+  AutoTestApiResult.JSON_PROPERTY_LAYER,
   AutoTestApiResult.JSON_PROPERTY_LINKS,
   AutoTestApiResult.JSON_PROPERTY_LABELS,
   AutoTestApiResult.JSON_PROPERTY_TAGS
@@ -165,6 +167,9 @@ public class AutoTestApiResult {
 
   public static final String JSON_PROPERTY_STABILITY_PERCENTAGE = "stabilityPercentage";
   private JsonNullable<Long> stabilityPercentage = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_LAYER = "layer";
+  private JsonNullable<LayerApiResult> layer = JsonNullable.<LayerApiResult>undefined();
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private JsonNullable<List<LinkApiResult>> links = JsonNullable.<List<LinkApiResult>>undefined();
@@ -1033,6 +1038,39 @@ public class AutoTestApiResult {
   }
 
 
+  public AutoTestApiResult layer(@jakarta.annotation.Nullable LayerApiResult layer) {
+    this.layer = JsonNullable.<LayerApiResult>of(layer);
+    return this;
+  }
+
+  /**
+   * Model of auto test layer for use in responses.
+   * @return layer
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public LayerApiResult getLayer() {
+        return layer.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAYER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<LayerApiResult> getLayer_JsonNullable() {
+    return layer;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAYER)
+  public void setLayer_JsonNullable(JsonNullable<LayerApiResult> layer) {
+    this.layer = layer;
+  }
+
+  public void setLayer(@jakarta.annotation.Nullable LayerApiResult layer) {
+    this.layer = JsonNullable.<LayerApiResult>of(layer);
+  }
+
+
   public AutoTestApiResult links(@jakarta.annotation.Nullable List<LinkApiResult> links) {
     this.links = JsonNullable.<List<LinkApiResult>>of(links);
     return this;
@@ -1207,6 +1245,7 @@ public class AutoTestApiResult {
         equalsNullable(this.lastTestResultOutcome, autoTestApiResult.lastTestResultOutcome) &&
         equalsNullable(this.lastTestResultStatus, autoTestApiResult.lastTestResultStatus) &&
         equalsNullable(this.stabilityPercentage, autoTestApiResult.stabilityPercentage) &&
+        equalsNullable(this.layer, autoTestApiResult.layer) &&
         equalsNullable(this.links, autoTestApiResult.links) &&
         equalsNullable(this.labels, autoTestApiResult.labels) &&
         equalsNullable(this.tags, autoTestApiResult.tags);
@@ -1218,7 +1257,7 @@ public class AutoTestApiResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, projectId, name, isFlaky, globalId, isDeleted, mustBeApproved, createdDate, createdById, hashCodeNullable(externalId), hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(externalKey), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(lastTestRunId), hashCodeNullable(lastTestRunName), hashCodeNullable(lastTestResultId), hashCodeNullable(lastTestResultConfiguration), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(lastTestResultStatus), hashCodeNullable(stabilityPercentage), hashCodeNullable(links), hashCodeNullable(labels), hashCodeNullable(tags));
+    return Objects.hash(id, projectId, name, isFlaky, globalId, isDeleted, mustBeApproved, createdDate, createdById, hashCodeNullable(externalId), hashCodeNullable(namespace), hashCodeNullable(classname), hashCodeNullable(steps), hashCodeNullable(setup), hashCodeNullable(teardown), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(externalKey), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(lastTestRunId), hashCodeNullable(lastTestRunName), hashCodeNullable(lastTestResultId), hashCodeNullable(lastTestResultConfiguration), hashCodeNullable(lastTestResultOutcome), hashCodeNullable(lastTestResultStatus), hashCodeNullable(stabilityPercentage), hashCodeNullable(layer), hashCodeNullable(links), hashCodeNullable(labels), hashCodeNullable(tags));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1259,6 +1298,7 @@ public class AutoTestApiResult {
     sb.append("    lastTestResultOutcome: ").append(toIndentedString(lastTestResultOutcome)).append("\n");
     sb.append("    lastTestResultStatus: ").append(toIndentedString(lastTestResultStatus)).append("\n");
     sb.append("    stabilityPercentage: ").append(toIndentedString(stabilityPercentage)).append("\n");
+    sb.append("    layer: ").append(toIndentedString(layer)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

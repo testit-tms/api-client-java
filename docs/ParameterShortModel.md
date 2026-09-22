@@ -12,6 +12,7 @@
 |**value** | **String** | Value of the parameter |  |
 |**name** | **String** | Key of the parameter |  |
 |**projectIds** | **List&lt;UUID&gt;** |  |  |
+|**sharedStepId** | **UUID** |  |  [optional] |
 
 
 

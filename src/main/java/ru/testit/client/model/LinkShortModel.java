@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
+import ru.testit.client.model.LinkType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -36,9 +37,9 @@ import ru.testit.client.invoker.JSON;
  */
 @JsonPropertyOrder({
   LinkShortModel.JSON_PROPERTY_ID,
-  LinkShortModel.JSON_PROPERTY_TITLE,
+  LinkShortModel.JSON_PROPERTY_TYPE,
   LinkShortModel.JSON_PROPERTY_URL,
-  LinkShortModel.JSON_PROPERTY_TYPE
+  LinkShortModel.JSON_PROPERTY_TITLE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class LinkShortModel {
@@ -46,16 +47,16 @@ public class LinkShortModel {
   @jakarta.annotation.Nonnull
   private UUID id;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
+  public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nonnull
-  private String title;
+  private LinkType type;
 
   public static final String JSON_PROPERTY_URL = "url";
   @jakarta.annotation.Nonnull
   private String url;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<String> type = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public LinkShortModel() { 
   }
@@ -85,28 +86,28 @@ public class LinkShortModel {
   }
 
 
-  public LinkShortModel title(@jakarta.annotation.Nonnull String title) {
-    this.title = title;
+  public LinkShortModel type(@jakarta.annotation.Nonnull LinkType type) {
+    this.type = type;
     return this;
   }
 
   /**
-   * Get title
-   * @return title
+   * Get type
+   * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getTitle() {
-    return title;
+  public LinkType getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(@jakarta.annotation.Nonnull String title) {
-    this.title = title;
+  public void setType(@jakarta.annotation.Nonnull LinkType type) {
+    this.type = type;
   }
 
 
@@ -135,36 +136,36 @@ public class LinkShortModel {
   }
 
 
-  public LinkShortModel type(@jakarta.annotation.Nullable String type) {
-    this.type = JsonNullable.<String>of(type);
+  public LinkShortModel title(@jakarta.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
     return this;
   }
 
   /**
-   * Get type
-   * @return type
+   * Get title
+   * @return title
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public String getType() {
-        return type.orElse(null);
+  public String getTitle() {
+        return title.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getType_JsonNullable() {
-    return type;
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
   }
   
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<String> type) {
-    this.type = type;
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
+    this.title = title;
   }
 
-  public void setType(@jakarta.annotation.Nullable String type) {
-    this.type = JsonNullable.<String>of(type);
+  public void setTitle(@jakarta.annotation.Nullable String title) {
+    this.title = JsonNullable.<String>of(title);
   }
 
 
@@ -181,9 +182,9 @@ public class LinkShortModel {
     }
     LinkShortModel linkShortModel = (LinkShortModel) o;
     return Objects.equals(this.id, linkShortModel.id) &&
-        Objects.equals(this.title, linkShortModel.title) &&
+        Objects.equals(this.type, linkShortModel.type) &&
         Objects.equals(this.url, linkShortModel.url) &&
-        equalsNullable(this.type, linkShortModel.type);
+        equalsNullable(this.title, linkShortModel.title);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -192,7 +193,7 @@ public class LinkShortModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, url, hashCodeNullable(type));
+    return Objects.hash(id, type, url, hashCodeNullable(title));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -207,9 +208,9 @@ public class LinkShortModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class LinkShortModel {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

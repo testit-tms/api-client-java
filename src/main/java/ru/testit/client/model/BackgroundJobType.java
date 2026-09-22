@@ -66,6 +66,8 @@ public enum BackgroundJobType {
   
   DELETE_SECTION("DeleteSection"),
   
+  IMPORT_AUTO_TESTS_REPORT("ImportAutoTestsReport"),
+  
   UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;

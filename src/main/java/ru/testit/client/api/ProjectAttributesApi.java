@@ -8,7 +8,6 @@ import ru.testit.client.invoker.Pair;
 
 import jakarta.ws.rs.core.GenericType;
 
-import ru.testit.client.model.CustomAttributeGetModel;
 import ru.testit.client.model.CustomAttributeModel;
 import ru.testit.client.model.CustomAttributePostModel;
 import ru.testit.client.model.CustomAttributePutModel;
@@ -110,7 +109,7 @@ public class ProjectAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<CustomAttributeModel> localVarReturnType = new GenericType<CustomAttributeModel>() {};
     return apiClient.invokeAPI("ProjectAttributesApi.createProjectsAttribute", localVarPath, "POST", new ArrayList<>(), customAttributePostModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -175,7 +174,7 @@ public class ProjectAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectAttributesApi.deleteProjectsAttribute", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -240,7 +239,7 @@ public class ProjectAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<CustomAttributeModel> localVarReturnType = new GenericType<CustomAttributeModel>() {};
     return apiClient.invokeAPI("ProjectAttributesApi.getAttributeByProjectId", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -307,7 +306,7 @@ public class ProjectAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<CustomAttributeModel>> localVarReturnType = new GenericType<List<CustomAttributeModel>>() {};
     return apiClient.invokeAPI("ProjectAttributesApi.getAttributesByProjectId", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -323,7 +322,7 @@ public class ProjectAttributesApi {
    * @param searchField Property name for searching (optional)
    * @param searchValue Value for searching (optional)
    * @param projectAttributesFilterModel  (optional)
-   * @return List&lt;CustomAttributeGetModel&gt;
+   * @return List&lt;CustomAttributeModel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -338,7 +337,7 @@ public class ProjectAttributesApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public List<CustomAttributeGetModel> searchAttributesInProject(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
+  public List<CustomAttributeModel> searchAttributesInProject(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
     return searchAttributesInProjectWithHttpInfo(projectId, skip, take, orderBy, searchField, searchValue, projectAttributesFilterModel).getData();
   }
 
@@ -352,7 +351,7 @@ public class ProjectAttributesApi {
    * @param searchField Property name for searching (optional)
    * @param searchValue Value for searching (optional)
    * @param projectAttributesFilterModel  (optional)
-   * @return ApiResponse&lt;List&lt;CustomAttributeGetModel&gt;&gt;
+   * @return ApiResponse&lt;List&lt;CustomAttributeModel&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -367,7 +366,7 @@ public class ProjectAttributesApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<List<CustomAttributeGetModel>> searchAttributesInProjectWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
+  public ApiResponse<List<CustomAttributeModel>> searchAttributesInProjectWithHttpInfo(String projectId, Integer skip, Integer take, String orderBy, String searchField, String searchValue, ProjectAttributesFilterModel projectAttributesFilterModel) throws ApiException {
     // Check required parameters
     if (projectId == null) {
       throw new ApiException(400, "Missing the required parameter 'projectId' when calling searchAttributesInProject");
@@ -388,8 +387,8 @@ public class ProjectAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<List<CustomAttributeGetModel>> localVarReturnType = new GenericType<List<CustomAttributeGetModel>>() {};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    GenericType<List<CustomAttributeModel>> localVarReturnType = new GenericType<List<CustomAttributeModel>>() {};
     return apiClient.invokeAPI("ProjectAttributesApi.searchAttributesInProject", localVarPath, "POST", localVarQueryParams, projectAttributesFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
@@ -449,7 +448,7 @@ public class ProjectAttributesApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("ProjectAttributesApi.updateProjectsAttribute", localVarPath, "PUT", new ArrayList<>(), customAttributePutModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

@@ -12,7 +12,7 @@
 |**statusCode** | **String** |  |  [optional] |
 |**statusType** | **TestStatusType** |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
-|**links** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
+|**links** | [**List&lt;CreateLinkApiModel&gt;**](CreateLinkApiModel.md) |  |  [optional] |
 |**stepResults** | [**List&lt;StepResultApiModel&gt;**](StepResultApiModel.md) |  |  [optional] |
 |**attachments** | [**List&lt;AttachmentUpdateRequest&gt;**](AttachmentUpdateRequest.md) |  |  [optional] |
 |**durationInMs** | **Long** |  |  [optional] |

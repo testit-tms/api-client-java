@@ -17,6 +17,7 @@
 |**title** | **String** | Name of the autotest in autotest&#39;s card |  [optional] |
 |**description** | **String** | Description of the autotest in autotest&#39;s card |  [optional] |
 |**isFlaky** | **Boolean** | Indicates if the autotest is marked as flaky |  [optional] |
+|**resetLayer** | **Boolean** | Indicates if the autotest layer should be reset. |  [optional] |
 |**steps** | [**List&lt;AutoTestStepApiModel&gt;**](AutoTestStepApiModel.md) | Collection of the autotest steps |  [optional] |
 |**setup** | [**List&lt;AutoTestStepApiModel&gt;**](AutoTestStepApiModel.md) | Collection of the autotest setup steps |  [optional] |
 |**teardown** | [**List&lt;AutoTestStepApiModel&gt;**](AutoTestStepApiModel.md) | Collection of the autotest teardown steps |  [optional] |

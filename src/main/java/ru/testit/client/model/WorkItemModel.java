@@ -36,11 +36,11 @@ import ru.testit.client.model.IterationModel;
 import ru.testit.client.model.LinkModel;
 import ru.testit.client.model.StepModel;
 import ru.testit.client.model.TagModel;
-import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemParameterKeyModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
+import ru.testit.client.model.WorkItemTypeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -59,11 +59,11 @@ import ru.testit.client.invoker.JSON;
   WorkItemModel.JSON_PROPERTY_ENTITY_TYPE_NAME,
   WorkItemModel.JSON_PROPERTY_IS_AUTOMATED,
   WorkItemModel.JSON_PROPERTY_VERSION_NUMBER,
+  WorkItemModel.JSON_PROPERTY_EXTERNAL_ISSUES,
+  WorkItemModel.JSON_PROPERTY_PARAMETERS,
   WorkItemModel.JSON_PROPERTY_CREATED_DATE,
   WorkItemModel.JSON_PROPERTY_CREATED_BY_ID,
   WorkItemModel.JSON_PROPERTY_GLOBAL_ID,
-  WorkItemModel.JSON_PROPERTY_EXTERNAL_ISSUES,
-  WorkItemModel.JSON_PROPERTY_PARAMETERS,
   WorkItemModel.JSON_PROPERTY_ID,
   WorkItemModel.JSON_PROPERTY_SECTION_ID,
   WorkItemModel.JSON_PROPERTY_STATE,
@@ -106,7 +106,7 @@ public class WorkItemModel {
 
   public static final String JSON_PROPERTY_ENTITY_TYPE_NAME = "entityTypeName";
   @jakarta.annotation.Nonnull
-  private WorkItemEntityTypes entityTypeName;
+  private WorkItemTypeModel entityTypeName;
 
   public static final String JSON_PROPERTY_IS_AUTOMATED = "isAutomated";
   @jakarta.annotation.Nonnull
@@ -115,6 +115,14 @@ public class WorkItemModel {
   public static final String JSON_PROPERTY_VERSION_NUMBER = "versionNumber";
   @jakarta.annotation.Nonnull
   private Integer versionNumber;
+
+  public static final String JSON_PROPERTY_EXTERNAL_ISSUES = "externalIssues";
+  @jakarta.annotation.Nonnull
+  private List<ExternalIssueModel> externalIssues = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  @jakarta.annotation.Nonnull
+  private List<WorkItemParameterKeyModel> parameters = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   @jakarta.annotation.Nonnull
@@ -127,14 +135,6 @@ public class WorkItemModel {
   public static final String JSON_PROPERTY_GLOBAL_ID = "globalId";
   @jakarta.annotation.Nonnull
   private Long globalId;
-
-  public static final String JSON_PROPERTY_EXTERNAL_ISSUES = "externalIssues";
-  @jakarta.annotation.Nonnull
-  private List<ExternalIssueModel> externalIssues = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
-  @jakarta.annotation.Nonnull
-  private List<WorkItemParameterKeyModel> parameters = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -315,7 +315,7 @@ public class WorkItemModel {
   }
 
 
-  public WorkItemModel entityTypeName(@jakarta.annotation.Nonnull WorkItemEntityTypes entityTypeName) {
+  public WorkItemModel entityTypeName(@jakarta.annotation.Nonnull WorkItemTypeModel entityTypeName) {
     this.entityTypeName = entityTypeName;
     return this;
   }
@@ -328,14 +328,14 @@ public class WorkItemModel {
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public WorkItemEntityTypes getEntityTypeName() {
+  public WorkItemTypeModel getEntityTypeName() {
     return entityTypeName;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEntityTypeName(@jakarta.annotation.Nonnull WorkItemEntityTypes entityTypeName) {
+  public void setEntityTypeName(@jakarta.annotation.Nonnull WorkItemTypeModel entityTypeName) {
     this.entityTypeName = entityTypeName;
   }
 
@@ -387,6 +387,72 @@ public class WorkItemModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersionNumber(@jakarta.annotation.Nonnull Integer versionNumber) {
     this.versionNumber = versionNumber;
+  }
+
+
+  public WorkItemModel externalIssues(@jakarta.annotation.Nonnull List<ExternalIssueModel> externalIssues) {
+    this.externalIssues = externalIssues;
+    return this;
+  }
+
+  public WorkItemModel addExternalIssuesItem(ExternalIssueModel externalIssuesItem) {
+    if (this.externalIssues == null) {
+      this.externalIssues = new ArrayList<>();
+    }
+    this.externalIssues.add(externalIssuesItem);
+    return this;
+  }
+
+  /**
+   * Get externalIssues
+   * @return externalIssues
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ISSUES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<ExternalIssueModel> getExternalIssues() {
+    return externalIssues;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ISSUES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setExternalIssues(@jakarta.annotation.Nonnull List<ExternalIssueModel> externalIssues) {
+    this.externalIssues = externalIssues;
+  }
+
+
+  public WorkItemModel parameters(@jakarta.annotation.Nonnull List<WorkItemParameterKeyModel> parameters) {
+    this.parameters = parameters;
+    return this;
+  }
+
+  public WorkItemModel addParametersItem(WorkItemParameterKeyModel parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<>();
+    }
+    this.parameters.add(parametersItem);
+    return this;
+  }
+
+  /**
+   * Get parameters
+   * @return parameters
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<WorkItemParameterKeyModel> getParameters() {
+    return parameters;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setParameters(@jakarta.annotation.Nonnull List<WorkItemParameterKeyModel> parameters) {
+    this.parameters = parameters;
   }
 
 
@@ -462,72 +528,6 @@ public class WorkItemModel {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGlobalId(@jakarta.annotation.Nonnull Long globalId) {
     this.globalId = globalId;
-  }
-
-
-  public WorkItemModel externalIssues(@jakarta.annotation.Nonnull List<ExternalIssueModel> externalIssues) {
-    this.externalIssues = externalIssues;
-    return this;
-  }
-
-  public WorkItemModel addExternalIssuesItem(ExternalIssueModel externalIssuesItem) {
-    if (this.externalIssues == null) {
-      this.externalIssues = new ArrayList<>();
-    }
-    this.externalIssues.add(externalIssuesItem);
-    return this;
-  }
-
-  /**
-   * Get externalIssues
-   * @return externalIssues
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_ISSUES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<ExternalIssueModel> getExternalIssues() {
-    return externalIssues;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_ISSUES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalIssues(@jakarta.annotation.Nonnull List<ExternalIssueModel> externalIssues) {
-    this.externalIssues = externalIssues;
-  }
-
-
-  public WorkItemModel parameters(@jakarta.annotation.Nonnull List<WorkItemParameterKeyModel> parameters) {
-    this.parameters = parameters;
-    return this;
-  }
-
-  public WorkItemModel addParametersItem(WorkItemParameterKeyModel parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new ArrayList<>();
-    }
-    this.parameters.add(parametersItem);
-    return this;
-  }
-
-  /**
-   * Get parameters
-   * @return parameters
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<WorkItemParameterKeyModel> getParameters() {
-    return parameters;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setParameters(@jakarta.annotation.Nonnull List<WorkItemParameterKeyModel> parameters) {
-    this.parameters = parameters;
   }
 
 
@@ -1249,11 +1249,11 @@ public class WorkItemModel {
         Objects.equals(this.entityTypeName, workItemModel.entityTypeName) &&
         Objects.equals(this.isAutomated, workItemModel.isAutomated) &&
         Objects.equals(this.versionNumber, workItemModel.versionNumber) &&
+        Objects.equals(this.externalIssues, workItemModel.externalIssues) &&
+        Objects.equals(this.parameters, workItemModel.parameters) &&
         Objects.equals(this.createdDate, workItemModel.createdDate) &&
         Objects.equals(this.createdById, workItemModel.createdById) &&
         Objects.equals(this.globalId, workItemModel.globalId) &&
-        Objects.equals(this.externalIssues, workItemModel.externalIssues) &&
-        Objects.equals(this.parameters, workItemModel.parameters) &&
         Objects.equals(this.id, workItemModel.id) &&
         Objects.equals(this.sectionId, workItemModel.sectionId) &&
         Objects.equals(this.state, workItemModel.state) &&
@@ -1283,7 +1283,7 @@ public class WorkItemModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(versionId, medianDuration, isDeleted, projectId, entityTypeName, isAutomated, versionNumber, createdDate, createdById, globalId, externalIssues, parameters, id, sectionId, state, priority, sourceType, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name, hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(sectionPreconditionSteps), hashCodeNullable(sectionPostconditionSteps), hashCodeNullable(iterations), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(description));
+    return Objects.hash(versionId, medianDuration, isDeleted, projectId, entityTypeName, isAutomated, versionNumber, externalIssues, parameters, createdDate, createdById, globalId, id, sectionId, state, priority, sourceType, steps, preconditionSteps, postconditionSteps, duration, attributes, tags, links, name, hashCodeNullable(autoTests), hashCodeNullable(attachments), hashCodeNullable(sectionPreconditionSteps), hashCodeNullable(sectionPostconditionSteps), hashCodeNullable(iterations), hashCodeNullable(modifiedDate), hashCodeNullable(modifiedById), hashCodeNullable(description));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1304,11 +1304,11 @@ public class WorkItemModel {
     sb.append("    entityTypeName: ").append(toIndentedString(entityTypeName)).append("\n");
     sb.append("    isAutomated: ").append(toIndentedString(isAutomated)).append("\n");
     sb.append("    versionNumber: ").append(toIndentedString(versionNumber)).append("\n");
+    sb.append("    externalIssues: ").append(toIndentedString(externalIssues)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    createdById: ").append(toIndentedString(createdById)).append("\n");
     sb.append("    globalId: ").append(toIndentedString(globalId)).append("\n");
-    sb.append("    externalIssues: ").append(toIndentedString(externalIssues)).append("\n");
-    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    sectionId: ").append(toIndentedString(sectionId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

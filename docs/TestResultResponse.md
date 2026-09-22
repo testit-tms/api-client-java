@@ -21,7 +21,7 @@
 |**outcome** | **TestResultOutcome** |  |  [optional] |
 |**status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
-|**links** | [**List&lt;Link&gt;**](Link.md) |  |  [optional] |
+|**links** | [**List&lt;LinkApiResult&gt;**](LinkApiResult.md) |  |  [optional] |
 |**stepResults** | [**List&lt;StepResultApiModel&gt;**](StepResultApiModel.md) |  |  [optional] |
 |**attachments** | [**List&lt;AttachmentApiResult&gt;**](AttachmentApiResult.md) |  |  [optional] |
 |**autoTestId** | **UUID** |  |  [optional] |

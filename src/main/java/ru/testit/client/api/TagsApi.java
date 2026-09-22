@@ -96,7 +96,7 @@ public class TagsApi {
   public ApiResponse<Void> apiV2TagsDeleteWithHttpInfo(SelectTagsApiModel selectTagsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json-patch+json", "application/json", "text/json", "application/*+json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TagsApi.apiV2TagsDelete", "/api/v2/tags", "DELETE", new ArrayList<>(), selectTagsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -154,7 +154,7 @@ public class TagsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TagsApi.apiV2TagsIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -204,7 +204,7 @@ public class TagsApi {
   public ApiResponse<TagApiResult> apiV2TagsPostWithHttpInfo(CreateTagApiModel createTagApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json-patch+json", "application/json", "text/json", "application/*+json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TagApiResult> localVarReturnType = new GenericType<TagApiResult>() {};
     return apiClient.invokeAPI("TagsApi.apiV2TagsPost", "/api/v2/tags", "POST", new ArrayList<>(), createTagApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -262,7 +262,7 @@ public class TagsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json-patch+json", "application/json", "text/json", "application/*+json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TagApiResult> localVarReturnType = new GenericType<TagApiResult>() {};
     return apiClient.invokeAPI("TagsApi.apiV2TagsPut", "/api/v2/tags", "PUT", localVarQueryParams, updateTagApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -330,7 +330,7 @@ public class TagsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TagApiResult>> localVarReturnType = new GenericType<List<TagApiResult>>() {};
     return apiClient.invokeAPI("TagsApi.apiV2TagsSearchGet", "/api/v2/tags/search", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -398,7 +398,7 @@ public class TagsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TagApiResult>> localVarReturnType = new GenericType<List<TagApiResult>>() {};
     return apiClient.invokeAPI("TagsApi.apiV2TagsTestPlansTagsGet", "/api/v2/tags/testPlansTags", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

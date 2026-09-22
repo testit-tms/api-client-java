@@ -9,7 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  |
 |**name** | **String** |  |  |
-|**projectId** | **UUID** |  |  |
 |**attachments** | [**List&lt;AttachmentPutModel&gt;**](AttachmentPutModel.md) |  |  |
 |**parentId** | **UUID** |  |  [optional] |
 |**preconditionSteps** | [**List&lt;StepPutModel&gt;**](StepPutModel.md) |  |  [optional] |

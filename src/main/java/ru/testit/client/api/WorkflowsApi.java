@@ -18,8 +18,8 @@ import ru.testit.client.model.UpdateWorkflowApiModel;
 import ru.testit.client.model.ValidationProblemDetails;
 import ru.testit.client.model.WorkflowApiResult;
 import ru.testit.client.model.WorkflowExistsByNameApiResult;
-import ru.testit.client.model.WorkflowProjectApiResultReply;
-import ru.testit.client.model.WorkflowShortApiResultReply;
+import ru.testit.client.model.WorkflowProjectApiResultIReply;
+import ru.testit.client.model.WorkflowShortApiResultIReply;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -110,7 +110,7 @@ public class WorkflowsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("WorkflowsApi.apiV2WorkflowsIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -169,7 +169,7 @@ public class WorkflowsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<WorkflowApiResult> localVarReturnType = new GenericType<WorkflowApiResult>() {};
     return apiClient.invokeAPI("WorkflowsApi.apiV2WorkflowsIdGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -230,7 +230,7 @@ public class WorkflowsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("WorkflowsApi.apiV2WorkflowsIdPatch", localVarPath, "PATCH", new ArrayList<>(), operation,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -240,7 +240,7 @@ public class WorkflowsApi {
    * 
    * @param id  (required)
    * @param searchWorkflowProjectsApiModel  (optional)
-   * @return WorkflowProjectApiResultReply
+   * @return WorkflowProjectApiResultIReply
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -255,7 +255,7 @@ public class WorkflowsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public WorkflowProjectApiResultReply apiV2WorkflowsIdProjectsSearchPost(UUID id, SearchWorkflowProjectsApiModel searchWorkflowProjectsApiModel) throws ApiException {
+  public WorkflowProjectApiResultIReply apiV2WorkflowsIdProjectsSearchPost(UUID id, SearchWorkflowProjectsApiModel searchWorkflowProjectsApiModel) throws ApiException {
     return apiV2WorkflowsIdProjectsSearchPostWithHttpInfo(id, searchWorkflowProjectsApiModel).getData();
   }
 
@@ -264,7 +264,7 @@ public class WorkflowsApi {
    * 
    * @param id  (required)
    * @param searchWorkflowProjectsApiModel  (optional)
-   * @return ApiResponse&lt;WorkflowProjectApiResultReply&gt;
+   * @return ApiResponse&lt;WorkflowProjectApiResultIReply&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -279,7 +279,7 @@ public class WorkflowsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<WorkflowProjectApiResultReply> apiV2WorkflowsIdProjectsSearchPostWithHttpInfo(UUID id, SearchWorkflowProjectsApiModel searchWorkflowProjectsApiModel) throws ApiException {
+  public ApiResponse<WorkflowProjectApiResultIReply> apiV2WorkflowsIdProjectsSearchPostWithHttpInfo(UUID id, SearchWorkflowProjectsApiModel searchWorkflowProjectsApiModel) throws ApiException {
     // Check required parameters
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2WorkflowsIdProjectsSearchPost");
@@ -291,8 +291,8 @@ public class WorkflowsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<WorkflowProjectApiResultReply> localVarReturnType = new GenericType<WorkflowProjectApiResultReply>() {};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    GenericType<WorkflowProjectApiResultIReply> localVarReturnType = new GenericType<WorkflowProjectApiResultIReply>() {};
     return apiClient.invokeAPI("WorkflowsApi.apiV2WorkflowsIdProjectsSearchPost", localVarPath, "POST", new ArrayList<>(), searchWorkflowProjectsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
@@ -352,7 +352,7 @@ public class WorkflowsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("WorkflowsApi.apiV2WorkflowsIdPut", localVarPath, "PUT", new ArrayList<>(), updateWorkflowApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -411,7 +411,7 @@ public class WorkflowsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<WorkflowExistsByNameApiResult> localVarReturnType = new GenericType<WorkflowExistsByNameApiResult>() {};
     return apiClient.invokeAPI("WorkflowsApi.apiV2WorkflowsNameNameExistsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -462,7 +462,7 @@ public class WorkflowsApi {
   public ApiResponse<WorkflowApiResult> apiV2WorkflowsPostWithHttpInfo(CreateWorkflowApiModel createWorkflowApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<WorkflowApiResult> localVarReturnType = new GenericType<WorkflowApiResult>() {};
     return apiClient.invokeAPI("WorkflowsApi.apiV2WorkflowsPost", "/api/v2/workflows", "POST", new ArrayList<>(), createWorkflowApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -472,7 +472,7 @@ public class WorkflowsApi {
    * 
    * 
    * @param searchWorkflowsApiModel  (optional)
-   * @return WorkflowShortApiResultReply
+   * @return WorkflowShortApiResultIReply
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -487,7 +487,7 @@ public class WorkflowsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public WorkflowShortApiResultReply apiV2WorkflowsSearchPost(SearchWorkflowsApiModel searchWorkflowsApiModel) throws ApiException {
+  public WorkflowShortApiResultIReply apiV2WorkflowsSearchPost(SearchWorkflowsApiModel searchWorkflowsApiModel) throws ApiException {
     return apiV2WorkflowsSearchPostWithHttpInfo(searchWorkflowsApiModel).getData();
   }
 
@@ -495,7 +495,7 @@ public class WorkflowsApi {
    * 
    * 
    * @param searchWorkflowsApiModel  (optional)
-   * @return ApiResponse&lt;WorkflowShortApiResultReply&gt;
+   * @return ApiResponse&lt;WorkflowShortApiResultIReply&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table border="1">
@@ -510,11 +510,11 @@ public class WorkflowsApi {
        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<WorkflowShortApiResultReply> apiV2WorkflowsSearchPostWithHttpInfo(SearchWorkflowsApiModel searchWorkflowsApiModel) throws ApiException {
+  public ApiResponse<WorkflowShortApiResultIReply> apiV2WorkflowsSearchPostWithHttpInfo(SearchWorkflowsApiModel searchWorkflowsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
-    GenericType<WorkflowShortApiResultReply> localVarReturnType = new GenericType<WorkflowShortApiResultReply>() {};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    GenericType<WorkflowShortApiResultIReply> localVarReturnType = new GenericType<WorkflowShortApiResultIReply>() {};
     return apiClient.invokeAPI("WorkflowsApi.apiV2WorkflowsSearchPost", "/api/v2/workflows/search", "POST", new ArrayList<>(), searchWorkflowsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);

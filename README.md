@@ -127,6 +127,11 @@ Class | Method | HTTP request | Description
 *BackgroundJobsApi* | [**apiV2BackgroundJobsIdGet**](docs/BackgroundJobsApi.md#apiV2BackgroundJobsIdGet) | **GET** /api/v2/backgroundJobs/{id} | Get background job by ID
 *BackgroundJobsApi* | [**apiV2BackgroundJobsIdStatusGet**](docs/BackgroundJobsApi.md#apiV2BackgroundJobsIdStatusGet) | **GET** /api/v2/backgroundJobs/{id}/status | Get background job status by job ID
 *BackgroundJobsApi* | [**apiV2BackgroundJobsSearchPost**](docs/BackgroundJobsApi.md#apiV2BackgroundJobsSearchPost) | **POST** /api/v2/backgroundJobs/search | Search for user background jobs
+*ConfigurationParametersApi* | [**apiV2ConfigurationParametersConfigurationParameterIdDelete**](docs/ConfigurationParametersApi.md#apiV2ConfigurationParametersConfigurationParameterIdDelete) | **DELETE** /api/v2/configuration-parameters/{configurationParameterId} | Deletes configuration parameter
+*ConfigurationParametersApi* | [**apiV2ConfigurationParametersConfigurationParameterIdGet**](docs/ConfigurationParametersApi.md#apiV2ConfigurationParametersConfigurationParameterIdGet) | **GET** /api/v2/configuration-parameters/{configurationParameterId} | Gets configuration parameter by its identifier
+*ConfigurationParametersApi* | [**apiV2ConfigurationParametersConfigurationParameterIdPut**](docs/ConfigurationParametersApi.md#apiV2ConfigurationParametersConfigurationParameterIdPut) | **PUT** /api/v2/configuration-parameters/{configurationParameterId} | Updates configuration parameter
+*ConfigurationParametersApi* | [**apiV2ConfigurationParametersPost**](docs/ConfigurationParametersApi.md#apiV2ConfigurationParametersPost) | **POST** /api/v2/configuration-parameters | Creates new configuration parameter
+*ConfigurationParametersApi* | [**apiV2ConfigurationParametersSearchPost**](docs/ConfigurationParametersApi.md#apiV2ConfigurationParametersSearchPost) | **POST** /api/v2/configuration-parameters/search | Searches for configuration parameters
 *ConfigurationsApi* | [**apiV2ConfigurationsCreateByParametersPost**](docs/ConfigurationsApi.md#apiV2ConfigurationsCreateByParametersPost) | **POST** /api/v2/configurations/createByParameters | Create configurations by parameters
 *ConfigurationsApi* | [**apiV2ConfigurationsDeleteBulkPost**](docs/ConfigurationsApi.md#apiV2ConfigurationsDeleteBulkPost) | **POST** /api/v2/configurations/delete/bulk | Delete multiple configurations
 *ConfigurationsApi* | [**apiV2ConfigurationsIdDelete**](docs/ConfigurationsApi.md#apiV2ConfigurationsIdDelete) | **DELETE** /api/v2/configurations/{id} | Delete configuration
@@ -233,7 +238,6 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**getTestPlansByProjectId**](docs/ProjectsApi.md#getTestPlansByProjectId) | **GET** /api/v2/projects/{id}/testPlans | Get project test plans
 *ProjectsApi* | [**getTestRunsByProjectId**](docs/ProjectsApi.md#getTestRunsByProjectId) | **GET** /api/v2/projects/{id}/testRuns | Get project test runs
 *ProjectsApi* | [**updateProject**](docs/ProjectsApi.md#updateProject) | **PUT** /api/v2/projects | Update project
-*SearchApi* | [**apiV2SearchGlobalSearchPost**](docs/SearchApi.md#apiV2SearchGlobalSearchPost) | **POST** /api/v2/search/globalSearch | 
 *SectionsApi* | [**apiV2SectionsIdPatch**](docs/SectionsApi.md#apiV2SectionsIdPatch) | **PATCH** /api/v2/sections/{id} | Patch section
 *SectionsApi* | [**createSection**](docs/SectionsApi.md#createSection) | **POST** /api/v2/sections | Create section
 *SectionsApi* | [**deleteSection**](docs/SectionsApi.md#deleteSection) | **DELETE** /api/v2/sections/{id} | Delete section
@@ -289,6 +293,7 @@ Class | Method | HTTP request | Description
 *TestResultsApi* | [**apiV2TestResultsIdAttachmentsAttachmentIdPut**](docs/TestResultsApi.md#apiV2TestResultsIdAttachmentsAttachmentIdPut) | **PUT** /api/v2/testResults/{id}/attachments/{attachmentId} | Attach file to the test result
 *TestResultsApi* | [**apiV2TestResultsIdAttachmentsInfoGet**](docs/TestResultsApi.md#apiV2TestResultsIdAttachmentsInfoGet) | **GET** /api/v2/testResults/{id}/attachments/info | Get test result attachments meta-information
 *TestResultsApi* | [**apiV2TestResultsIdGet**](docs/TestResultsApi.md#apiV2TestResultsIdGet) | **GET** /api/v2/testResults/{id} | Get test result by ID
+*TestResultsApi* | [**apiV2TestResultsIdPatch**](docs/TestResultsApi.md#apiV2TestResultsIdPatch) | **PATCH** /api/v2/testResults/{id} | Patch test result by ID
 *TestResultsApi* | [**apiV2TestResultsIdPut**](docs/TestResultsApi.md#apiV2TestResultsIdPut) | **PUT** /api/v2/testResults/{id} | Edit test result by ID
 *TestResultsApi* | [**apiV2TestResultsIdRerunsGet**](docs/TestResultsApi.md#apiV2TestResultsIdRerunsGet) | **GET** /api/v2/testResults/{id}/reruns | Get reruns
 *TestResultsApi* | [**apiV2TestResultsSearchPost**](docs/TestResultsApi.md#apiV2TestResultsSearchPost) | **POST** /api/v2/testResults/search | Search for test results
@@ -301,6 +306,7 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**apiV2TestRunsDelete**](docs/TestRunsApi.md#apiV2TestRunsDelete) | **DELETE** /api/v2/testRuns | Delete multiple test runs
 *TestRunsApi* | [**apiV2TestRunsIdAutoTestsNamespacesGet**](docs/TestRunsApi.md#apiV2TestRunsIdAutoTestsNamespacesGet) | **GET** /api/v2/testRuns/{id}/autoTestsNamespaces | Get autotest classes and namespaces in test run
 *TestRunsApi* | [**apiV2TestRunsIdDelete**](docs/TestRunsApi.md#apiV2TestRunsIdDelete) | **DELETE** /api/v2/testRuns/{id} | Delete test run
+*TestRunsApi* | [**apiV2TestRunsIdPatch**](docs/TestRunsApi.md#apiV2TestRunsIdPatch) | **PATCH** /api/v2/testRuns/{id} | Patch test run
 *TestRunsApi* | [**apiV2TestRunsIdPurgePost**](docs/TestRunsApi.md#apiV2TestRunsIdPurgePost) | **POST** /api/v2/testRuns/{id}/purge | Permanently delete test run from archive
 *TestRunsApi* | [**apiV2TestRunsIdRerunsPost**](docs/TestRunsApi.md#apiV2TestRunsIdRerunsPost) | **POST** /api/v2/testRuns/{id}/reruns | Manual autotests rerun in test run
 *TestRunsApi* | [**apiV2TestRunsIdRestorePost**](docs/TestRunsApi.md#apiV2TestRunsIdRestorePost) | **POST** /api/v2/testRuns/{id}/restore | Restore test run from the archive
@@ -363,11 +369,13 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**apiV2WorkItemsIdLikePost**](docs/WorkItemsApi.md#apiV2WorkItemsIdLikePost) | **POST** /api/v2/workItems/{id}/like | Set like to WorkItem
 *WorkItemsApi* | [**apiV2WorkItemsIdLikesCountGet**](docs/WorkItemsApi.md#apiV2WorkItemsIdLikesCountGet) | **GET** /api/v2/workItems/{id}/likes/count | Get likes count of WorkItem
 *WorkItemsApi* | [**apiV2WorkItemsIdLikesGet**](docs/WorkItemsApi.md#apiV2WorkItemsIdLikesGet) | **GET** /api/v2/workItems/{id}/likes | Get likes of WorkItem
+*WorkItemsApi* | [**apiV2WorkItemsIdPatch**](docs/WorkItemsApi.md#apiV2WorkItemsIdPatch) | **PATCH** /api/v2/workItems/{id} | Patch Test Case, Checklist or Shared Step
 *WorkItemsApi* | [**apiV2WorkItemsIdTestResultsHistoryGet**](docs/WorkItemsApi.md#apiV2WorkItemsIdTestResultsHistoryGet) | **GET** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
 *WorkItemsApi* | [**apiV2WorkItemsIdVersionVersionIdActualPost**](docs/WorkItemsApi.md#apiV2WorkItemsIdVersionVersionIdActualPost) | **POST** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
 *WorkItemsApi* | [**apiV2WorkItemsLinksUrlsSearchPost**](docs/WorkItemsApi.md#apiV2WorkItemsLinksUrlsSearchPost) | **POST** /api/v2/workItems/links/urls/search | 
 *WorkItemsApi* | [**apiV2WorkItemsMovePost**](docs/WorkItemsApi.md#apiV2WorkItemsMovePost) | **POST** /api/v2/workItems/move | Move WorkItem to another section
 *WorkItemsApi* | [**apiV2WorkItemsPost**](docs/WorkItemsApi.md#apiV2WorkItemsPost) | **POST** /api/v2/workItems | Creates work item
+*WorkItemsApi* | [**apiV2WorkItemsPut**](docs/WorkItemsApi.md#apiV2WorkItemsPut) | **PUT** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 *WorkItemsApi* | [**apiV2WorkItemsSearchPost**](docs/WorkItemsApi.md#apiV2WorkItemsSearchPost) | **POST** /api/v2/workItems/search | Search for work items
 *WorkItemsApi* | [**apiV2WorkItemsSharedStepIdReferencesSectionsPost**](docs/WorkItemsApi.md#apiV2WorkItemsSharedStepIdReferencesSectionsPost) | **POST** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
 *WorkItemsApi* | [**apiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](docs/WorkItemsApi.md#apiV2WorkItemsSharedStepIdReferencesWorkItemsPost) | **POST** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
@@ -381,7 +389,6 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**getWorkItemVersions**](docs/WorkItemsApi.md#getWorkItemVersions) | **GET** /api/v2/workItems/{id}/versions | Get WorkItem versions
 *WorkItemsApi* | [**purgeWorkItem**](docs/WorkItemsApi.md#purgeWorkItem) | **POST** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive
 *WorkItemsApi* | [**restoreWorkItem**](docs/WorkItemsApi.md#restoreWorkItem) | **POST** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive
-*WorkItemsApi* | [**updateWorkItem**](docs/WorkItemsApi.md#updateWorkItem) | **PUT** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 *WorkItemsCommentsApi* | [**apiV2WorkItemsCommentsCommentIdDelete**](docs/WorkItemsCommentsApi.md#apiV2WorkItemsCommentsCommentIdDelete) | **DELETE** /api/v2/workItems/comments/{commentId} | Delete WorkItem comment
 *WorkItemsCommentsApi* | [**apiV2WorkItemsCommentsPost**](docs/WorkItemsCommentsApi.md#apiV2WorkItemsCommentsPost) | **POST** /api/v2/workItems/comments | Create WorkItem comment
 *WorkItemsCommentsApi* | [**apiV2WorkItemsCommentsPut**](docs/WorkItemsCommentsApi.md#apiV2WorkItemsCommentsPut) | **PUT** /api/v2/workItems/comments | Update work item comment
@@ -400,10 +407,15 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AIServiceModelApiResult](docs/AIServiceModelApiResult.md)
+ - [AIServiceModelApiResultCountReply](docs/AIServiceModelApiResultCountReply.md)
+ - [AIServiceModelApiResultGroup](docs/AIServiceModelApiResultGroup.md)
+ - [AIServiceModelApiResultGroupedReply](docs/AIServiceModelApiResultGroupedReply.md)
+ - [AIServiceModelApiResultIReply](docs/AIServiceModelApiResultIReply.md)
  - [AIServiceModelApiResultReply](docs/AIServiceModelApiResultReply.md)
  - [ActionUpdate](docs/ActionUpdate.md)
  - [ApiExternalServiceCategory](docs/ApiExternalServiceCategory.md)
  - [AssignAttachmentApiModel](docs/AssignAttachmentApiModel.md)
+ - [AssignAutoTestCaseIdApiModel](docs/AssignAutoTestCaseIdApiModel.md)
  - [AssignIterationApiModel](docs/AssignIterationApiModel.md)
  - [AttachmentApiResult](docs/AttachmentApiResult.md)
  - [AttachmentChangeViewModel](docs/AttachmentChangeViewModel.md)
@@ -418,6 +430,8 @@ Class | Method | HTTP request | Description
  - [AutoTestAverageDurationApiResult](docs/AutoTestAverageDurationApiResult.md)
  - [AutoTestBulkDeleteApiModel](docs/AutoTestBulkDeleteApiModel.md)
  - [AutoTestBulkDeleteApiResult](docs/AutoTestBulkDeleteApiResult.md)
+ - [AutoTestCaseApiModel](docs/AutoTestCaseApiModel.md)
+ - [AutoTestCaseResult](docs/AutoTestCaseResult.md)
  - [AutoTestChangeViewModel](docs/AutoTestChangeViewModel.md)
  - [AutoTestChangeViewModelArrayChangedFieldViewModel](docs/AutoTestChangeViewModelArrayChangedFieldViewModel.md)
  - [AutoTestClassCountApiModel](docs/AutoTestClassCountApiModel.md)
@@ -475,6 +489,18 @@ Class | Method | HTTP request | Description
  - [ConfigurationFilterApiModel](docs/ConfigurationFilterApiModel.md)
  - [ConfigurationFilterModel](docs/ConfigurationFilterModel.md)
  - [ConfigurationModel](docs/ConfigurationModel.md)
+ - [ConfigurationParameterApiModel](docs/ConfigurationParameterApiModel.md)
+ - [ConfigurationParameterApiResult](docs/ConfigurationParameterApiResult.md)
+ - [ConfigurationParameterPreviewApiResult](docs/ConfigurationParameterPreviewApiResult.md)
+ - [ConfigurationParameterPreviewApiResultCountReply](docs/ConfigurationParameterPreviewApiResultCountReply.md)
+ - [ConfigurationParameterPreviewApiResultGroup](docs/ConfigurationParameterPreviewApiResultGroup.md)
+ - [ConfigurationParameterPreviewApiResultGroupedReply](docs/ConfigurationParameterPreviewApiResultGroupedReply.md)
+ - [ConfigurationParameterPreviewApiResultIReply](docs/ConfigurationParameterPreviewApiResultIReply.md)
+ - [ConfigurationParameterPreviewApiResultReply](docs/ConfigurationParameterPreviewApiResultReply.md)
+ - [ConfigurationParameterProjectApiModel](docs/ConfigurationParameterProjectApiModel.md)
+ - [ConfigurationParameterValueApiModel](docs/ConfigurationParameterValueApiModel.md)
+ - [ConfigurationParameterValueApiResult](docs/ConfigurationParameterValueApiResult.md)
+ - [ConfigurationParameterValueApiResultApiCollectionPreview](docs/ConfigurationParameterValueApiResultApiCollectionPreview.md)
  - [ConfigurationPostModel](docs/ConfigurationPostModel.md)
  - [ConfigurationPutModel](docs/ConfigurationPutModel.md)
  - [ConfigurationSelectApiModel](docs/ConfigurationSelectApiModel.md)
@@ -493,6 +519,7 @@ Class | Method | HTTP request | Description
  - [CreateStepApiModel](docs/CreateStepApiModel.md)
  - [CreateTagApiModel](docs/CreateTagApiModel.md)
  - [CreateTestPlanApiModel](docs/CreateTestPlanApiModel.md)
+ - [CreateTestRunAndFillByAutoTestCasesApiModel](docs/CreateTestRunAndFillByAutoTestCasesApiModel.md)
  - [CreateTestRunAndFillByAutoTestsApiModel](docs/CreateTestRunAndFillByAutoTestsApiModel.md)
  - [CreateTestRunAndFillByConfigurationsApiModel](docs/CreateTestRunAndFillByConfigurationsApiModel.md)
  - [CreateTestRunAndFillByWorkItemsApiModel](docs/CreateTestRunAndFillByWorkItemsApiModel.md)
@@ -503,7 +530,6 @@ Class | Method | HTTP request | Description
  - [CreateWorkflowApiModel](docs/CreateWorkflowApiModel.md)
  - [CustomAttributeApiResult](docs/CustomAttributeApiResult.md)
  - [CustomAttributeChangeModel](docs/CustomAttributeChangeModel.md)
- - [CustomAttributeGetModel](docs/CustomAttributeGetModel.md)
  - [CustomAttributeModel](docs/CustomAttributeModel.md)
  - [CustomAttributeOptionApiResult](docs/CustomAttributeOptionApiResult.md)
  - [CustomAttributeOptionModel](docs/CustomAttributeOptionModel.md)
@@ -525,6 +551,7 @@ Class | Method | HTTP request | Description
  - [DefectApiModel](docs/DefectApiModel.md)
  - [DeletionState](docs/DeletionState.md)
  - [DemoProjectApiResult](docs/DemoProjectApiResult.md)
+ - [DetailedProjectApiResult](docs/DetailedProjectApiResult.md)
  - [EnableProjectExternalServiceApiModel](docs/EnableProjectExternalServiceApiModel.md)
  - [ExternalFormAllowedValueModel](docs/ExternalFormAllowedValueModel.md)
  - [ExternalFormCreateModel](docs/ExternalFormCreateModel.md)
@@ -533,6 +560,10 @@ Class | Method | HTTP request | Description
  - [ExternalFormModel](docs/ExternalFormModel.md)
  - [ExternalIssueApiField](docs/ExternalIssueApiField.md)
  - [ExternalIssueApiFieldSuggestion](docs/ExternalIssueApiFieldSuggestion.md)
+ - [ExternalIssueApiFieldSuggestionCountReply](docs/ExternalIssueApiFieldSuggestionCountReply.md)
+ - [ExternalIssueApiFieldSuggestionGroup](docs/ExternalIssueApiFieldSuggestionGroup.md)
+ - [ExternalIssueApiFieldSuggestionGroupedReply](docs/ExternalIssueApiFieldSuggestionGroupedReply.md)
+ - [ExternalIssueApiFieldSuggestionIReply](docs/ExternalIssueApiFieldSuggestionIReply.md)
  - [ExternalIssueApiFieldSuggestionReply](docs/ExternalIssueApiFieldSuggestionReply.md)
  - [ExternalIssueApiMetadata](docs/ExternalIssueApiMetadata.md)
  - [ExternalIssueApiPriority](docs/ExternalIssueApiPriority.md)
@@ -556,6 +587,7 @@ Class | Method | HTTP request | Description
  - [FailureCategoryItemApiResult](docs/FailureCategoryItemApiResult.md)
  - [FailureCategoryModel](docs/FailureCategoryModel.md)
  - [FailureClassRegexApiResult](docs/FailureClassRegexApiResult.md)
+ - [FieldFilter](docs/FieldFilter.md)
  - [Filter](docs/Filter.md)
  - [FilterModel](docs/FilterModel.md)
  - [FilterOperator](docs/FilterOperator.md)
@@ -565,14 +597,14 @@ Class | Method | HTTP request | Description
  - [GetExternalFormApiResult](docs/GetExternalFormApiResult.md)
  - [GetExternalIssueSuggestionsApiModel](docs/GetExternalIssueSuggestionsApiModel.md)
  - [GetShortProjectsApiModel](docs/GetShortProjectsApiModel.md)
- - [GetXlsxTestPointsByTestPlanModel](docs/GetXlsxTestPointsByTestPlanModel.md)
+ - [GetXlsxTestPointsByTestPlanApiModel](docs/GetXlsxTestPointsByTestPlanApiModel.md)
  - [GlobalCustomAttributePostModel](docs/GlobalCustomAttributePostModel.md)
  - [GlobalCustomAttributeUpdateModel](docs/GlobalCustomAttributeUpdateModel.md)
- - [GlobalSearchItemResult](docs/GlobalSearchItemResult.md)
- - [GlobalSearchRequest](docs/GlobalSearchRequest.md)
- - [GlobalSearchResponse](docs/GlobalSearchResponse.md)
+ - [Group](docs/Group.md)
+ - [GroupKey](docs/GroupKey.md)
  - [GuidChangedFieldViewModel](docs/GuidChangedFieldViewModel.md)
  - [GuidExtractionModel](docs/GuidExtractionModel.md)
+ - [GuidNullableChangedFieldViewModel](docs/GuidNullableChangedFieldViewModel.md)
  - [IFilter](docs/IFilter.md)
  - [ImageResizeType](docs/ImageResizeType.md)
  - [Inquiry](docs/Inquiry.md)
@@ -582,13 +614,17 @@ Class | Method | HTTP request | Description
  - [Int64RangeSelectorModel](docs/Int64RangeSelectorModel.md)
  - [IterationApiResult](docs/IterationApiResult.md)
  - [IterationModel](docs/IterationModel.md)
+ - [JsonElement](docs/JsonElement.md)
+ - [JsonValueKind](docs/JsonValueKind.md)
  - [Label](docs/Label.md)
  - [LabelApiModel](docs/LabelApiModel.md)
  - [LabelApiResult](docs/LabelApiResult.md)
  - [LabelShortModel](docs/LabelShortModel.md)
  - [LastTestResultApiResult](docs/LastTestResultApiResult.md)
  - [LastTestResultModel](docs/LastTestResultModel.md)
- - [Link](docs/Link.md)
+ - [LayerApiModel](docs/LayerApiModel.md)
+ - [LayerApiResult](docs/LayerApiResult.md)
+ - [LayerSource](docs/LayerSource.md)
  - [LinkApiResult](docs/LinkApiResult.md)
  - [LinkCreateApiModel](docs/LinkCreateApiModel.md)
  - [LinkModel](docs/LinkModel.md)
@@ -603,6 +639,7 @@ Class | Method | HTTP request | Description
  - [ManualRerunApiResult](docs/ManualRerunApiResult.md)
  - [ManualRerunSelectTestResultsApiModel](docs/ManualRerunSelectTestResultsApiModel.md)
  - [ManualRerunTestResultApiModel](docs/ManualRerunTestResultApiModel.md)
+ - [Mode](docs/Mode.md)
  - [NamedEntityApiModel](docs/NamedEntityApiModel.md)
  - [NotificationModel](docs/NotificationModel.md)
  - [NotificationQueryFilterModel](docs/NotificationQueryFilterModel.md)
@@ -636,12 +673,15 @@ Class | Method | HTTP request | Description
  - [ProjectFailureCategoryApiResult](docs/ProjectFailureCategoryApiResult.md)
  - [ProjectFailureCategoryGroupItemApiResult](docs/ProjectFailureCategoryGroupItemApiResult.md)
  - [ProjectFailureCategoryGroupItemApiResultReply](docs/ProjectFailureCategoryGroupItemApiResultReply.md)
- - [ProjectModel](docs/ProjectModel.md)
  - [ProjectNameApiResult](docs/ProjectNameApiResult.md)
+ - [ProjectNameApiResultApiCollectionPreview](docs/ProjectNameApiResultApiCollectionPreview.md)
  - [ProjectSelectModel](docs/ProjectSelectModel.md)
  - [ProjectShortApiResult](docs/ProjectShortApiResult.md)
+ - [ProjectShortApiResultCountReply](docs/ProjectShortApiResultCountReply.md)
+ - [ProjectShortApiResultGroup](docs/ProjectShortApiResultGroup.md)
+ - [ProjectShortApiResultGroupedReply](docs/ProjectShortApiResultGroupedReply.md)
+ - [ProjectShortApiResultIReply](docs/ProjectShortApiResultIReply.md)
  - [ProjectShortApiResultReply](docs/ProjectShortApiResultReply.md)
- - [ProjectShortModel](docs/ProjectShortModel.md)
  - [ProjectShortestModel](docs/ProjectShortestModel.md)
  - [ProjectTestPlansFilterModel](docs/ProjectTestPlansFilterModel.md)
  - [ProjectType](docs/ProjectType.md)
@@ -653,6 +693,9 @@ Class | Method | HTTP request | Description
  - [RequestTypeModel](docs/RequestTypeModel.md)
  - [RerunTestResultApiResult](docs/RerunTestResultApiResult.md)
  - [RerunsApiResult](docs/RerunsApiResult.md)
+ - [ScheduleAutoTestsReportImportApiModel](docs/ScheduleAutoTestsReportImportApiModel.md)
+ - [ScheduleAutoTestsReportImportsApiModel](docs/ScheduleAutoTestsReportImportsApiModel.md)
+ - [SearchConfigurationParametersApiModel](docs/SearchConfigurationParametersApiModel.md)
  - [SearchCustomAttributeTemplateGetModel](docs/SearchCustomAttributeTemplateGetModel.md)
  - [SearchExternalIssuesApiModel](docs/SearchExternalIssuesApiModel.md)
  - [SearchTestRunsApiModel](docs/SearchTestRunsApiModel.md)
@@ -781,6 +824,7 @@ Class | Method | HTTP request | Description
  - [TestRunGroupByFailureClassApiResult](docs/TestRunGroupByFailureClassApiResult.md)
  - [TestRunGroupByStatusApiResult](docs/TestRunGroupByStatusApiResult.md)
  - [TestRunGroupByStatusTypeApiResult](docs/TestRunGroupByStatusTypeApiResult.md)
+ - [TestRunLaunchOptionApiModel](docs/TestRunLaunchOptionApiModel.md)
  - [TestRunNameApiResult](docs/TestRunNameApiResult.md)
  - [TestRunSelectApiModel](docs/TestRunSelectApiModel.md)
  - [TestRunShortApiResult](docs/TestRunShortApiResult.md)
@@ -790,6 +834,10 @@ Class | Method | HTTP request | Description
  - [TestRunTestResultsSelectModel](docs/TestRunTestResultsSelectModel.md)
  - [TestRunV2ApiResult](docs/TestRunV2ApiResult.md)
  - [TestStatusApiResult](docs/TestStatusApiResult.md)
+ - [TestStatusApiResultCountReply](docs/TestStatusApiResultCountReply.md)
+ - [TestStatusApiResultGroup](docs/TestStatusApiResultGroup.md)
+ - [TestStatusApiResultGroupedReply](docs/TestStatusApiResultGroupedReply.md)
+ - [TestStatusApiResultIReply](docs/TestStatusApiResultIReply.md)
  - [TestStatusApiResultReply](docs/TestStatusApiResultReply.md)
  - [TestStatusApiType](docs/TestStatusApiType.md)
  - [TestStatusModel](docs/TestStatusModel.md)
@@ -850,7 +898,6 @@ Class | Method | HTTP request | Description
  - [WorkItemChangedFieldsViewModel](docs/WorkItemChangedFieldsViewModel.md)
  - [WorkItemCommentApiResult](docs/WorkItemCommentApiResult.md)
  - [WorkItemEntityTypeApiModel](docs/WorkItemEntityTypeApiModel.md)
- - [WorkItemEntityTypes](docs/WorkItemEntityTypes.md)
  - [WorkItemExternalMetadataFieldFilterApiModel](docs/WorkItemExternalMetadataFieldFilterApiModel.md)
  - [WorkItemExternalMetadataFieldFilterModel](docs/WorkItemExternalMetadataFieldFilterModel.md)
  - [WorkItemExternalMetadataFilterApiModel](docs/WorkItemExternalMetadataFilterApiModel.md)
@@ -864,6 +911,7 @@ Class | Method | HTTP request | Description
  - [WorkItemGroupType](docs/WorkItemGroupType.md)
  - [WorkItemIdApiModel](docs/WorkItemIdApiModel.md)
  - [WorkItemIndexApiResult](docs/WorkItemIndexApiResult.md)
+ - [WorkItemLayerApiResult](docs/WorkItemLayerApiResult.md)
  - [WorkItemLikeModel](docs/WorkItemLikeModel.md)
  - [WorkItemLinkChangeViewModel](docs/WorkItemLinkChangeViewModel.md)
  - [WorkItemLinkChangeViewModelArrayChangedFieldViewModel](docs/WorkItemLinkChangeViewModelArrayChangedFieldViewModel.md)
@@ -897,6 +945,7 @@ Class | Method | HTTP request | Description
  - [WorkItemStates](docs/WorkItemStates.md)
  - [WorkItemStepChangeViewModel](docs/WorkItemStepChangeViewModel.md)
  - [WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel](docs/WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md)
+ - [WorkItemTypeModel](docs/WorkItemTypeModel.md)
  - [WorkItemUpdatingFieldsApiModel](docs/WorkItemUpdatingFieldsApiModel.md)
  - [WorkItemUpdatingFieldsApiResult](docs/WorkItemUpdatingFieldsApiResult.md)
  - [WorkItemVersionModel](docs/WorkItemVersionModel.md)
@@ -904,8 +953,16 @@ Class | Method | HTTP request | Description
  - [WorkflowExistsByNameApiResult](docs/WorkflowExistsByNameApiResult.md)
  - [WorkflowProjectApiResult](docs/WorkflowProjectApiResult.md)
  - [WorkflowProjectApiResultApiCollectionPreview](docs/WorkflowProjectApiResultApiCollectionPreview.md)
+ - [WorkflowProjectApiResultCountReply](docs/WorkflowProjectApiResultCountReply.md)
+ - [WorkflowProjectApiResultGroup](docs/WorkflowProjectApiResultGroup.md)
+ - [WorkflowProjectApiResultGroupedReply](docs/WorkflowProjectApiResultGroupedReply.md)
+ - [WorkflowProjectApiResultIReply](docs/WorkflowProjectApiResultIReply.md)
  - [WorkflowProjectApiResultReply](docs/WorkflowProjectApiResultReply.md)
  - [WorkflowShortApiResult](docs/WorkflowShortApiResult.md)
+ - [WorkflowShortApiResultCountReply](docs/WorkflowShortApiResultCountReply.md)
+ - [WorkflowShortApiResultGroup](docs/WorkflowShortApiResultGroup.md)
+ - [WorkflowShortApiResultGroupedReply](docs/WorkflowShortApiResultGroupedReply.md)
+ - [WorkflowShortApiResultIReply](docs/WorkflowShortApiResultIReply.md)
  - [WorkflowShortApiResultReply](docs/WorkflowShortApiResultReply.md)
  - [WorkflowStatusApiModel](docs/WorkflowStatusApiModel.md)
  - [WorkflowStatusApiResult](docs/WorkflowStatusApiResult.md)
@@ -916,13 +973,21 @@ Class | Method | HTTP request | Description
 
 
 Authentication schemes defined for the API:
-<a id="Bearer or PrivateToken"></a>
-### Bearer or PrivateToken
+<a id="PrivateToken"></a>
+### PrivateToken
 
 
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
+
+<a id="Identity.Application"></a>
+### Identity.Application
+
+
+- **Type**: API key
+- **API key parameter name**: backoffice
+- **Location**: 
 
 
 ## Recommendation

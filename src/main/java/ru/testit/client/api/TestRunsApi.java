@@ -17,6 +17,7 @@ import ru.testit.client.model.CreateTestRunAndFillByWorkItemsApiModel;
 import ru.testit.client.model.ManualRerunApiResult;
 import ru.testit.client.model.ManualRerunSelectTestResultsApiModel;
 import java.time.OffsetDateTime;
+import ru.testit.client.model.Operation;
 import ru.testit.client.model.ProblemDetails;
 import ru.testit.client.model.TestPointResultApiResult;
 import ru.testit.client.model.TestResultsStatisticsApiResult;
@@ -112,7 +113,7 @@ public class TestRunsApi {
   public ApiResponse<Integer> apiV2TestRunsDeleteWithHttpInfo(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsDelete", "/api/v2/testRuns", "DELETE", new ArrayList<>(), testRunSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -172,7 +173,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<AutoTestNamespacesCountResponse> localVarReturnType = new GenericType<AutoTestNamespacesCountResponse>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdAutoTestsNamespacesGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -231,8 +232,68 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdDelete", localVarPath, "DELETE", new ArrayList<>(), null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Patch test run
+   * See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+   * @param id Test Run internal identifier (GUID format) (required)
+   * @param operation  (optional)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public void apiV2TestRunsIdPatch(UUID id, List<Operation> operation) throws ApiException {
+    apiV2TestRunsIdPatchWithHttpInfo(id, operation);
+  }
+
+  /**
+   * Patch test run
+   * See &lt;a href&#x3D;\&quot;https://www.rfc-editor.org/rfc/rfc6902\&quot; target&#x3D;\&quot;_blank\&quot;&gt;RFC 6902: JavaScript Object Notation (JSON) Patch&lt;/a&gt; for details
+   * @param id Test Run internal identifier (GUID format) (required)
+   * @param operation  (optional)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Update permission for test library required </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> apiV2TestRunsIdPatchWithHttpInfo(UUID id, List<Operation> operation) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling apiV2TestRunsIdPatch");
+    }
+
+    // Path parameters
+    String localVarPath = "/api/v2/testRuns/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
+    return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdPatch", localVarPath, "PATCH", new ArrayList<>(), operation,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -289,7 +350,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdPurgePost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -350,7 +411,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<ManualRerunApiResult> localVarReturnType = new GenericType<ManualRerunApiResult>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdRerunsPost", localVarPath, "POST", new ArrayList<>(), manualRerunSelectTestResultsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -409,7 +470,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdRestorePost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -470,7 +531,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestResultsStatisticsApiResult> localVarReturnType = new GenericType<TestResultsStatisticsApiResult>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdStatisticsFilterPost", localVarPath, "POST", new ArrayList<>(), testRunStatisticsFilterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -530,7 +591,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TestPointResultApiResult>> localVarReturnType = new GenericType<List<TestPointResultApiResult>>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdTestPointsResultsGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -591,7 +652,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdTestResultsBulkPut", localVarPath, "PUT", new ArrayList<>(), testRunTestResultsPartialBulkSetModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -650,7 +711,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<OffsetDateTime> localVarReturnType = new GenericType<OffsetDateTime>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsIdTestResultsLastModifiedModificationDateGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -701,7 +762,7 @@ public class TestRunsApi {
   public ApiResponse<Integer> apiV2TestRunsPurgeBulkPostWithHttpInfo(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsPurgeBulkPost", "/api/v2/testRuns/purge/bulk", "POST", new ArrayList<>(), testRunSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -752,7 +813,7 @@ public class TestRunsApi {
   public ApiResponse<Integer> apiV2TestRunsRestoreBulkPostWithHttpInfo(TestRunSelectApiModel testRunSelectApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<Integer> localVarReturnType = new GenericType<Integer>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsRestoreBulkPost", "/api/v2/testRuns/restore/bulk", "POST", new ArrayList<>(), testRunSelectApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -822,7 +883,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<TestRunShortApiResult>> localVarReturnType = new GenericType<List<TestRunShortApiResult>>() {};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsSearchPost", "/api/v2/testRuns/search", "POST", localVarQueryParams, testRunFilterApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -872,7 +933,7 @@ public class TestRunsApi {
   public ApiResponse<Void> apiV2TestRunsUpdateMultiplePostWithHttpInfo(UpdateMultipleTestRunsApiModel updateMultipleTestRunsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.apiV2TestRunsUpdateMultiplePost", "/api/v2/testRuns/updateMultiple", "POST", new ArrayList<>(), updateMultipleTestRunsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -930,7 +991,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.completeTestRun", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -980,7 +1041,7 @@ public class TestRunsApi {
   public ApiResponse<TestRunV2ApiResult> createAndFillByAutoTestsWithHttpInfo(CreateTestRunAndFillByAutoTestsApiModel createTestRunAndFillByAutoTestsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestRunV2ApiResult> localVarReturnType = new GenericType<TestRunV2ApiResult>() {};
     return apiClient.invokeAPI("TestRunsApi.createAndFillByAutoTests", "/api/v2/testRuns/byAutoTests", "POST", new ArrayList<>(), createTestRunAndFillByAutoTestsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1031,7 +1092,7 @@ public class TestRunsApi {
   public ApiResponse<TestRunV2ApiResult> createAndFillByConfigurationsWithHttpInfo(CreateTestRunAndFillByConfigurationsApiModel createTestRunAndFillByConfigurationsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestRunV2ApiResult> localVarReturnType = new GenericType<TestRunV2ApiResult>() {};
     return apiClient.invokeAPI("TestRunsApi.createAndFillByConfigurations", "/api/v2/testRuns/byConfigurations", "POST", new ArrayList<>(), createTestRunAndFillByConfigurationsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1082,7 +1143,7 @@ public class TestRunsApi {
   public ApiResponse<TestRunV2ApiResult> createAndFillByWorkItemsWithHttpInfo(CreateTestRunAndFillByWorkItemsApiModel createTestRunAndFillByWorkItemsApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestRunV2ApiResult> localVarReturnType = new GenericType<TestRunV2ApiResult>() {};
     return apiClient.invokeAPI("TestRunsApi.createAndFillByWorkItems", "/api/v2/testRuns/byWorkItems", "POST", new ArrayList<>(), createTestRunAndFillByWorkItemsApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1133,7 +1194,7 @@ public class TestRunsApi {
   public ApiResponse<TestRunV2ApiResult> createEmptyWithHttpInfo(CreateEmptyTestRunApiModel createEmptyTestRunApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestRunV2ApiResult> localVarReturnType = new GenericType<TestRunV2ApiResult>() {};
     return apiClient.invokeAPI("TestRunsApi.createEmpty", "/api/v2/testRuns", "POST", new ArrayList<>(), createEmptyTestRunApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1193,7 +1254,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<TestRunV2ApiResult> localVarReturnType = new GenericType<TestRunV2ApiResult>() {};
     return apiClient.invokeAPI("TestRunsApi.getTestRunById", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1255,7 +1316,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<UUID>> localVarReturnType = new GenericType<List<UUID>>() {};
     return apiClient.invokeAPI("TestRunsApi.setAutoTestResultsForTestRun", localVarPath, "POST", new ArrayList<>(), autoTestResultsForTestRunModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -1314,7 +1375,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.startTestRun", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -1372,7 +1433,7 @@ public class TestRunsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.stopTestRun", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -1421,7 +1482,7 @@ public class TestRunsApi {
   public ApiResponse<Void> updateEmptyWithHttpInfo(UpdateEmptyTestRunApiModel updateEmptyTestRunApiModel) throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("TestRunsApi.updateEmpty", "/api/v2/testRuns", "PUT", new ArrayList<>(), updateEmptyTestRunApiModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);

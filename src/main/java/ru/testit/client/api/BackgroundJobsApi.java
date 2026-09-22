@@ -93,7 +93,7 @@ public class BackgroundJobsApi {
   public ApiResponse<Void> apiV2BackgroundJobsCompletedDeleteWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("BackgroundJobsApi.apiV2BackgroundJobsCompletedDelete", "/api/v2/backgroundJobs/completed", "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -164,7 +164,7 @@ public class BackgroundJobsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<BackgroundJobGetModel>> localVarReturnType = new GenericType<List<BackgroundJobGetModel>>() {};
     return apiClient.invokeAPI("BackgroundJobsApi.apiV2BackgroundJobsGet", "/api/v2/backgroundJobs", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -223,7 +223,7 @@ public class BackgroundJobsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     return apiClient.invokeAPI("BackgroundJobsApi.apiV2BackgroundJobsIdCancelPost", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
@@ -282,7 +282,7 @@ public class BackgroundJobsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<BackgroundJobGetModel> localVarReturnType = new GenericType<BackgroundJobGetModel>() {};
     return apiClient.invokeAPI("BackgroundJobsApi.apiV2BackgroundJobsIdGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -342,7 +342,7 @@ public class BackgroundJobsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<BackgroundJobState> localVarReturnType = new GenericType<BackgroundJobState>() {};
     return apiClient.invokeAPI("BackgroundJobsApi.apiV2BackgroundJobsIdStatusGet", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
@@ -412,7 +412,7 @@ public class BackgroundJobsApi {
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    String[] localVarAuthNames = new String[] {"Bearer or PrivateToken"};
+    String[] localVarAuthNames = new String[] {"PrivateToken", "Identity.Application"};
     GenericType<List<BackgroundJobGetModel>> localVarReturnType = new GenericType<List<BackgroundJobGetModel>>() {};
     return apiClient.invokeAPI("BackgroundJobsApi.apiV2BackgroundJobsSearchPost", "/api/v2/backgroundJobs/search", "POST", localVarQueryParams, backgroundJobFilterModel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,

@@ -28,6 +28,7 @@ import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.AssignAttachmentApiModel;
 import ru.testit.client.model.CreateLinkApiModel;
+import ru.testit.client.model.TestRunLaunchOptionApiModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -47,7 +48,8 @@ import ru.testit.client.invoker.JSON;
   CreateTestRunAndFillByAutoTestsApiModel.JSON_PROPERTY_LAUNCH_SOURCE,
   CreateTestRunAndFillByAutoTestsApiModel.JSON_PROPERTY_ATTACHMENTS,
   CreateTestRunAndFillByAutoTestsApiModel.JSON_PROPERTY_LINKS,
-  CreateTestRunAndFillByAutoTestsApiModel.JSON_PROPERTY_TAGS
+  CreateTestRunAndFillByAutoTestsApiModel.JSON_PROPERTY_TAGS,
+  CreateTestRunAndFillByAutoTestsApiModel.JSON_PROPERTY_OPTION
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateTestRunAndFillByAutoTestsApiModel {
@@ -80,6 +82,9 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_OPTION = "option";
+  private JsonNullable<TestRunLaunchOptionApiModel> option = JsonNullable.<TestRunLaunchOptionApiModel>undefined();
 
   public CreateTestRunAndFillByAutoTestsApiModel() { 
   }
@@ -409,6 +414,39 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
   }
 
 
+  public CreateTestRunAndFillByAutoTestsApiModel option(@jakarta.annotation.Nullable TestRunLaunchOptionApiModel option) {
+    this.option = JsonNullable.<TestRunLaunchOptionApiModel>of(option);
+    return this;
+  }
+
+  /**
+   * Test run launching options.
+   * @return option
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public TestRunLaunchOptionApiModel getOption() {
+        return option.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<TestRunLaunchOptionApiModel> getOption_JsonNullable() {
+    return option;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPTION)
+  public void setOption_JsonNullable(JsonNullable<TestRunLaunchOptionApiModel> option) {
+    this.option = option;
+  }
+
+  public void setOption(@jakarta.annotation.Nullable TestRunLaunchOptionApiModel option) {
+    this.option = JsonNullable.<TestRunLaunchOptionApiModel>of(option);
+  }
+
+
   /**
    * Return true if this CreateTestRunAndFillByAutoTestsApiModel object is equal to o.
    */
@@ -429,7 +467,8 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
         equalsNullable(this.launchSource, createTestRunAndFillByAutoTestsApiModel.launchSource) &&
         equalsNullable(this.attachments, createTestRunAndFillByAutoTestsApiModel.attachments) &&
         equalsNullable(this.links, createTestRunAndFillByAutoTestsApiModel.links) &&
-        equalsNullable(this.tags, createTestRunAndFillByAutoTestsApiModel.tags);
+        equalsNullable(this.tags, createTestRunAndFillByAutoTestsApiModel.tags) &&
+        equalsNullable(this.option, createTestRunAndFillByAutoTestsApiModel.option);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -438,7 +477,7 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, configurationIds, autoTestExternalIds, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links), hashCodeNullable(tags));
+    return Objects.hash(projectId, configurationIds, autoTestExternalIds, hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(launchSource), hashCodeNullable(attachments), hashCodeNullable(links), hashCodeNullable(tags), hashCodeNullable(option));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -461,6 +500,7 @@ public class CreateTestRunAndFillByAutoTestsApiModel {
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    option: ").append(toIndentedString(option)).append("\n");
     sb.append("}");
     return sb.toString();
   }

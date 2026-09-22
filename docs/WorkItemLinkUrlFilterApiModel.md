@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**types** | **Set&lt;WorkItemEntityTypes&gt;** |  |  [optional] |
+|**types** | **Set&lt;WorkItemTypeModel&gt;** |  |  [optional] |
 |**searchUrl** | **String** |  |  [optional] |
 
 

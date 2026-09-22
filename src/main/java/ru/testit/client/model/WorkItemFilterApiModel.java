@@ -33,12 +33,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import ru.testit.client.model.DateTimeRangeSelectorModel;
 import ru.testit.client.model.Int32RangeSelectorModel;
 import ru.testit.client.model.Int64RangeSelectorModel;
-import ru.testit.client.model.WorkItemEntityTypes;
 import ru.testit.client.model.WorkItemExternalMetadataFilterApiModel;
 import ru.testit.client.model.WorkItemLinkFilterApiModel;
 import ru.testit.client.model.WorkItemPriorityModel;
 import ru.testit.client.model.WorkItemSourceTypeModel;
 import ru.testit.client.model.WorkItemStates;
+import ru.testit.client.model.WorkItemTypeModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -76,7 +76,8 @@ import ru.testit.client.invoker.JSON;
   WorkItemFilterApiModel.JSON_PROPERTY_AUTO_TEST_IDS,
   WorkItemFilterApiModel.JSON_PROPERTY_WORK_ITEM_VERSION_IDS,
   WorkItemFilterApiModel.JSON_PROPERTY_LINKS,
-  WorkItemFilterApiModel.JSON_PROPERTY_EXTERNAL_METADATA
+  WorkItemFilterApiModel.JSON_PROPERTY_EXTERNAL_METADATA,
+  WorkItemFilterApiModel.JSON_PROPERTY_LAYERS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class WorkItemFilterApiModel {
@@ -126,7 +127,7 @@ public class WorkItemFilterApiModel {
   private JsonNullable<Set<WorkItemSourceTypeModel>> sourceTypes = JsonNullable.<Set<WorkItemSourceTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_TYPES = "types";
-  private JsonNullable<Set<WorkItemEntityTypes>> types = JsonNullable.<Set<WorkItemEntityTypes>>undefined();
+  private JsonNullable<Set<WorkItemTypeModel>> types = JsonNullable.<Set<WorkItemTypeModel>>undefined();
 
   public static final String JSON_PROPERTY_CREATED_DATE = "createdDate";
   private JsonNullable<DateTimeRangeSelectorModel> createdDate = JsonNullable.<DateTimeRangeSelectorModel>undefined();
@@ -160,6 +161,9 @@ public class WorkItemFilterApiModel {
 
   public static final String JSON_PROPERTY_EXTERNAL_METADATA = "externalMetadata";
   private JsonNullable<WorkItemExternalMetadataFilterApiModel> externalMetadata = JsonNullable.<WorkItemExternalMetadataFilterApiModel>undefined();
+
+  public static final String JSON_PROPERTY_LAYERS = "layers";
+  private JsonNullable<Set<String>> layers = JsonNullable.<Set<String>>undefined();
 
   public WorkItemFilterApiModel() { 
   }
@@ -803,14 +807,14 @@ public class WorkItemFilterApiModel {
   }
 
 
-  public WorkItemFilterApiModel types(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
-    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
+  public WorkItemFilterApiModel types(@jakarta.annotation.Nullable Set<WorkItemTypeModel> types) {
+    this.types = JsonNullable.<Set<WorkItemTypeModel>>of(types);
     return this;
   }
 
-  public WorkItemFilterApiModel addTypesItem(WorkItemEntityTypes typesItem) {
+  public WorkItemFilterApiModel addTypesItem(WorkItemTypeModel typesItem) {
     if (this.types == null || !this.types.isPresent()) {
-      this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(new LinkedHashSet<>());
+      this.types = JsonNullable.<Set<WorkItemTypeModel>>of(new LinkedHashSet<>());
     }
     try {
       this.types.get().add(typesItem);
@@ -827,24 +831,24 @@ public class WorkItemFilterApiModel {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Set<WorkItemEntityTypes> getTypes() {
+  public Set<WorkItemTypeModel> getTypes() {
         return types.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<WorkItemEntityTypes>> getTypes_JsonNullable() {
+  public JsonNullable<Set<WorkItemTypeModel>> getTypes_JsonNullable() {
     return types;
   }
   
   @JsonProperty(JSON_PROPERTY_TYPES)
-  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemEntityTypes>> types) {
+  public void setTypes_JsonNullable(JsonNullable<Set<WorkItemTypeModel>> types) {
     this.types = types;
   }
 
-  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemEntityTypes> types) {
-    this.types = JsonNullable.<Set<WorkItemEntityTypes>>of(types);
+  public void setTypes(@jakarta.annotation.Nullable Set<WorkItemTypeModel> types) {
+    this.types = JsonNullable.<Set<WorkItemTypeModel>>of(types);
   }
 
 
@@ -1259,6 +1263,51 @@ public class WorkItemFilterApiModel {
   }
 
 
+  public WorkItemFilterApiModel layers(@jakarta.annotation.Nullable Set<String> layers) {
+    this.layers = JsonNullable.<Set<String>>of(layers);
+    return this;
+  }
+
+  public WorkItemFilterApiModel addLayersItem(String layersItem) {
+    if (this.layers == null || !this.layers.isPresent()) {
+      this.layers = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.layers.get().add(layersItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Specifies auto test case layers to search for
+   * @return layers
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getLayers() {
+        return layers.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAYERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getLayers_JsonNullable() {
+    return layers;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAYERS)
+  public void setLayers_JsonNullable(JsonNullable<Set<String>> layers) {
+    this.layers = layers;
+  }
+
+  public void setLayers(@jakarta.annotation.Nullable Set<String> layers) {
+    this.layers = JsonNullable.<Set<String>>of(layers);
+  }
+
+
   /**
    * Return true if this WorkItemFilterApiModel object is equal to o.
    */
@@ -1297,7 +1346,8 @@ public class WorkItemFilterApiModel {
         equalsNullable(this.autoTestIds, workItemFilterApiModel.autoTestIds) &&
         equalsNullable(this.workItemVersionIds, workItemFilterApiModel.workItemVersionIds) &&
         equalsNullable(this.links, workItemFilterApiModel.links) &&
-        equalsNullable(this.externalMetadata, workItemFilterApiModel.externalMetadata);
+        equalsNullable(this.externalMetadata, workItemFilterApiModel.externalMetadata) &&
+        equalsNullable(this.layers, workItemFilterApiModel.layers);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1306,7 +1356,7 @@ public class WorkItemFilterApiModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(excludeTags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds), hashCodeNullable(links), hashCodeNullable(externalMetadata));
+    return Objects.hash(hashCodeNullable(nameOrId), hashCodeNullable(includeIds), hashCodeNullable(excludeIds), hashCodeNullable(projectIds), hashCodeNullable(name), hashCodeNullable(ids), hashCodeNullable(globalIds), hashCodeNullable(attributes), hashCodeNullable(isDeleted), hashCodeNullable(sectionIds), hashCodeNullable(createdByIds), hashCodeNullable(modifiedByIds), hashCodeNullable(states), hashCodeNullable(priorities), hashCodeNullable(sourceTypes), hashCodeNullable(types), hashCodeNullable(createdDate), hashCodeNullable(modifiedDate), hashCodeNullable(duration), hashCodeNullable(medianDuration), hashCodeNullable(isAutomated), hashCodeNullable(tags), hashCodeNullable(excludeTags), hashCodeNullable(autoTestIds), hashCodeNullable(workItemVersionIds), hashCodeNullable(links), hashCodeNullable(externalMetadata), hashCodeNullable(layers));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1347,6 +1397,7 @@ public class WorkItemFilterApiModel {
     sb.append("    workItemVersionIds: ").append(toIndentedString(workItemVersionIds)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    externalMetadata: ").append(toIndentedString(externalMetadata)).append("\n");
+    sb.append("    layers: ").append(toIndentedString(layers)).append("\n");
     sb.append("}");
     return sb.toString();
   }
