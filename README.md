@@ -25,7 +25,7 @@
 | 5.6     | 2.3.1-TMS-5.6   |
 | 5.7     | 2.4.5-TMS-5.7   |
 | 5.8     | 2.5.1-TMS-5.8   |
-| Cloud   | 2.4.0 +         |
+| Cloud   | 2.5.0 +         |
 
 1. For current versions, see the releases tab. 
 2. Starting with 5.2, we have added a TMS postscript, which means that the utility is compatible with a specific enterprise version. 
